@@ -1,0 +1,10 @@
+dist
+/doc
+/doc-staging
+.yardoc
+Gemfile.lock
+/vendor
+/private/model/cli/gen-api/gen-api
+.gradle/
+.idea/
+build/
