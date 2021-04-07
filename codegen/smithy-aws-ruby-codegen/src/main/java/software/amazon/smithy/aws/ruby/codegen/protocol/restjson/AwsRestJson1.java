@@ -1,5 +1,8 @@
 package software.amazon.smithy.aws.ruby.codegen.protocol.restjson;
 
+import software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators.BuilderGenerator;
+import software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators.ErrorsGenerator;
+import software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators.ParserGenerator;
 import software.amazon.smithy.aws.traits.protocols.RestJson1Trait;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeId;
@@ -7,10 +10,6 @@ import software.amazon.smithy.model.traits.ErrorTrait;
 import software.amazon.smithy.ruby.codegen.ApplicationTransport;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.ProtocolGenerator;
-import software.amazon.smithy.ruby.codegen.protocol.railsjson.RailsJsonGenerator;
-import software.amazon.smithy.ruby.codegen.protocol.railsjson.generators.BuilderGenerator;
-import software.amazon.smithy.ruby.codegen.protocol.railsjson.generators.ErrorsGenerator;
-import software.amazon.smithy.ruby.codegen.protocol.railsjson.generators.ParserGenerator;
 
 import java.util.logging.Logger;
 import java.util.stream.Stream;

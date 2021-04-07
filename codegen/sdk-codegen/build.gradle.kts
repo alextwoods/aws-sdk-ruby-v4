@@ -77,7 +77,7 @@ tasks.register("generate-smithy-build") {
                     .withMember("plugins", Node.objectNode()
                             .withMember("ruby-codegen", Node.objectNodeBuilder()
                                     .withMember("service", service.id.toString())
-                                    .withMember("module", "Naws::" + sdkId.toLowerCase())
+                                    .withMember("module", sdkId.capitalize())
                                     .withMember("gemspec", Node.objectNodeBuilder()
                                         .withMember("gemName", sdkId.toLowerCase())
                                         .withMember("gemVersion", "4.0.0.pre")

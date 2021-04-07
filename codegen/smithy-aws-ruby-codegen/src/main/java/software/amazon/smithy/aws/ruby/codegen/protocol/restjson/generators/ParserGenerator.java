@@ -169,12 +169,12 @@ public class ParserGenerator {
             Shape target = model.expectShape(member.getTarget());
             System.out.println("\t\tMEMBER PARSER FOR: " + member.getId() + " target type: " + target.getType());
             String dataName = RubyFormatter.toSnakeCase(member.getMemberName());
-            String jsonName = dataName;
+            String jsonName = member.getMemberName();
             if (member.hasTrait(JsonNameTrait.class)) {
                 jsonName = member.getTrait(JsonNameTrait.class).get().getValue();
             }
             if (target.isListShape() || target.isStructureShape()) {
-                writer.write("data.$1L = Parsers::$2L.parse(json['$3L']) if json.key?('$3L')", dataName, target.getId().getName(), jsonName);
+                writer.write("data.$1L = Parsers::$2L.parse(json['$3L']) if json['$3L']", dataName, target.getId().getName(), jsonName);
             } else if(!target.hasTrait(HttpHeaderTrait.class)) {
                 writer.write("data.$L = json['$L']", dataName, jsonName);
             }
