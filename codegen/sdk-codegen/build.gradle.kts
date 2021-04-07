@@ -61,7 +61,7 @@ tasks.register("generate-smithy-build") {
             }
             val service = services[0]
 
-            var filteredServices: String = System.getenv("SMITHY_GO_BUILD_API")?: ""
+            var filteredServices: String = System.getenv("SMITHY_RUBY_BUILD_API")?: ""
             if (filteredServices.isNotEmpty()) {
                 for (filteredService in filteredServices.split(",")) {
                     if (!service.id.toString().startsWith(filteredService)) {
@@ -77,8 +77,12 @@ tasks.register("generate-smithy-build") {
                     .withMember("plugins", Node.objectNode()
                             .withMember("ruby-codegen", Node.objectNodeBuilder()
                                     .withMember("service", service.id.toString())
-                                    .withMember("module", "github.com/aws/aws-sdk-go-v2/service/" + sdkId.toLowerCase())
-                                    .withMember("moduleVersion", "1.0")
+                                    .withMember("module", "Naws::" + sdkId.toLowerCase())
+                                    .withMember("gemspec", Node.objectNodeBuilder()
+                                        .withMember("gemName", sdkId.toLowerCase())
+                                        .withMember("gemVersion", "4.0.0.pre")
+                                        .withMember("gemSummary", "TEST SERVICE")
+                                        .build())
                                     .build()))
                     .build()
             projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)
@@ -97,8 +101,9 @@ tasks["build"]
         .finalizedBy(tasks["buildSdk"])
 
 // ensure built artifacts are put into the SDK's folders
-tasks.create<Exec>("copyRubyCodegen") {
-    dependsOn ("buildSdk")
-    commandLine ("$rootDir/copy_ruby_codegen.sh", "$rootDir/../", "$buildDir", "github.com/aws/aws-sdk-go-v2/")
+tasks.register<Copy>("copyGem") {
+    //TODO: This needs to be dynamic for all services...
+    from("$buildDir/smithyprojections/sdk-codegen/lambda.2015-03-31/ruby-codegen")
+    into("$buildDir/../../../")
 }
-tasks["buildSdk"].finalizedBy(tasks["copyRubyCodegen"])
+tasks["buildSdk"].finalizedBy(tasks["copyGem"])
