@@ -13,9 +13,21 @@
  * permissions and limitations under the License.
  */
 
+plugins {
+    `java-library`
+    checkstyle
+    jacoco
+    id("com.github.spotbugs") version "4.7.1"
+}
+
 allprojects {
     repositories {
         mavenLocal()
         mavenCentral()
     }
 }
+
+extra["smithyVersion"] = "[1.16.0,2.0.0["
+
+// The root project doesn't produce a JAR.
+tasks["jar"].enabled = false

@@ -12,7 +12,7 @@ module Naws
         @region = region
       end
 
-      def call(request:, response:, context:)
+      def call(input, context)
         puts "Building signer"
         signer = Aws::Sigv4::Signer.new(
                       service: 'lambda',
@@ -20,6 +20,7 @@ module Naws
                       credentials: @credentials,
                       unsigned_headers: ['content-length', 'user-agent', 'x-amzn-trace-id']
         )
+        request = context.request
         signature = signer.sign_request(
               http_method: request.http_method,
               url: request.url,
@@ -32,7 +33,7 @@ module Naws
         # add request metadata with signature components for debugging
         context[:canonical_request] = signature.canonical_request
         context[:string_to_sign] = signature.string_to_sign
-        @app.call(request: request, response: response, context: context)
+        @app.call(input, context)
       end
     end
   end

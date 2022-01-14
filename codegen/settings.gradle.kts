@@ -16,4 +16,4 @@
 rootProject.name = "codegen"
 include(":sdk-codegen")
 include(":smithy-aws-ruby-codegen")
-//include(":protocol-test-codegen")
+include(":protocol-test-codegen")

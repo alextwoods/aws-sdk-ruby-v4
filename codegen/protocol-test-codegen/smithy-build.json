@@ -1,0 +1,26 @@
+{
+  "version": "1.0",
+  "projections": {
+    "aws-protocoltests-restjson": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["aws.protocoltests.restjson#RestJson"]
+          }
+        }
+      ],
+      "plugins": {
+        "ruby-codegen": {
+          "service": "aws.protocoltests.restjson#RestJson",
+          "module": "RestJson",
+          "gemspec": {
+            "gemName": "rest_json",
+            "gemVersion": "0.0.1",
+            "gemSummary": "RestJson Protocol Test Service"
+          }
+        }
+      }
+    }
+  }
+}

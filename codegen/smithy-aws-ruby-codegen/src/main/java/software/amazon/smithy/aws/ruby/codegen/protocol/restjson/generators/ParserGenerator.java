@@ -15,169 +15,245 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators;
 
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import software.amazon.smithy.build.FileManifest;
-import software.amazon.smithy.model.Model;
-import software.amazon.smithy.model.neighbor.Walker;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
-import software.amazon.smithy.ruby.codegen.RubyCodeWriter;
+import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.RubyFormatter;
-import software.amazon.smithy.ruby.codegen.RubySettings;
+import software.amazon.smithy.ruby.codegen.generators.HttpParserGeneratorBase;
+import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 
-//TODO: Clean this class up to match the Visitor pattern used in BuidlerGenerator
-public class ParserGenerator {
+import java.util.Optional;
+import java.util.stream.Stream;
 
-    private final RubySettings settings;
-    private final Model model;
-    private final Set<ShapeId> generatedParsers;
+public class ParserGenerator extends HttpParserGeneratorBase {
 
-    public ParserGenerator(RubySettings settings, Model model) {
-        this.settings = settings;
-        this.model = model;
-        this.generatedParsers = new HashSet<>();
+    public ParserGenerator(GenerationContext context) {
+        super(context);
     }
 
-    public void render(FileManifest fileManifest) {
-        RubyCodeWriter writer = new RubyCodeWriter();
-
-        writer
-                .openBlock("module $L", settings.getModule())
-                .openBlock("module Parsers")
-                .call(() -> renderParsers(writer))
-                .closeBlock("end")
-                .closeBlock("end");
-
-        String fileName = settings.getGemName() + "/lib/" + settings.getGemName() + "/parsers.rb";
-        fileManifest.writeFile(fileName, writer.toString());
+    @Override
+    protected void renderNoPayloadBodyParser(Shape outputShape) {
+        writer.write("map = Seahorse::JSON.load(http_resp.body)");
+        renderMemberParsers(outputShape);
     }
 
-    private void renderParsers(RubyCodeWriter writer) {
-        Stream<OperationShape> operations = model.shapes(OperationShape.class);
-        operations.forEach(o -> renderParsersForOperation(writer, o));
+    @Override
+    protected void renderStructureMemberParsers(StructureShape s) {
+        renderMemberParsers(s);
     }
 
-    private void renderParsersForOperation(RubyCodeWriter writer, OperationShape operation) {
-        System.out.println("Generating parsers for Operation: " + operation.getId());
-
-        // Operations MUST have an Output type, even if it is empty
-        if (!operation.getOutput().isPresent()) {
-            throw new RuntimeException("Missing Output Shape for: " + operation.getId());
+    @Override
+    protected String unionMemberDataName(UnionShape s, MemberShape member) {
+        String dataName = RubyFormatter.toSnakeCase(symbolProvider.toMemberName(member));
+        String jsonName = dataName;
+        if (member.hasTrait(JsonNameTrait.class)) {
+            jsonName = member.getTrait(JsonNameTrait.class).get().getValue();
         }
-
-        ShapeId outputShapeId = operation.getOutput().get();
-        Shape outputShape = model.expectShape(outputShapeId);
-
-
-        writer
-                .write("\n# Operation Parser for $L", operation.getId().getName())
-                .openBlock("class $L", operation.getId().getName())
-                .openBlock("def self.parse(http_resp, output:)")
-                .write("json = Seahorse::JSON.load(http_resp.body)")
-                .write("data = Types::$L.new", outputShapeId.getName())
-                .call(() -> renderHeaderParsers(writer, operation, outputShape))
-                .call(() -> renderOperationBodyParser(writer, operation, outputShape))
-                .write("output.data = data")
-                .closeBlock("end")
-                .closeBlock("end");
-
-        generatedParsers.add(operation.toShapeId());
-        generatedParsers.add(outputShapeId);
-
-        for (Iterator<Shape> it = new Walker(model).iterateShapes(outputShape); it.hasNext(); ) {
-            Shape s = it.next();
-            if (!generatedParsers.contains(s.getId())) {
-                if (s.isStructureShape()) {
-                    renderParserForStructure(writer, s.asStructureShape().get());
-                } else if (s.isListShape()) {
-                    renderParserForList(writer, s.asListShape().get());
-                } else {
-                    System.out.println("\tSkipping " + s.getId() + " it is not a structure.  Type = " + s.getType());
-                }
-            } else {
-                System.out.println("\tSkipping " + s.getId() + " because it has already been generated.");
-            }
-
-        }
+        return jsonName;
     }
 
-    private void renderHeaderParsers(RubyCodeWriter writer, OperationShape operation, Shape outputShape) {
-        List<MemberShape> headerMembers = outputShape.members()
-                .stream()
-                .filter((m) -> m.hasTrait(HttpHeaderTrait.class))
-                .collect(Collectors.toList());
-
-        for(MemberShape m : headerMembers) {
-            HttpHeaderTrait headerTrait = m.expectTrait(HttpHeaderTrait.class);
-            Shape target = model.expectShape(m.getTarget());
-            System.out.println("\t\tAdding headers for: " + headerTrait.getValue() + " -> " + target.getId());
-            String symbolName =  RubyFormatter.toSnakeCase(m.getMemberName());
-            writer.write("resp.data.$L = http_resp.headers['$L']", symbolName, headerTrait.getValue());
-        }
+    @Override
+    protected void renderUnionMemberParser(UnionShape s, MemberShape member) {
+        Shape target = model.expectShape(member.getTarget());
+        target.accept(new MemberDeserializer(member, "value = ",
+                "value"));
     }
 
-    // The Output shape is combined with the Operation Parser
-    // This generates the parsing of the body as if it was the Parser for the Out[put
-    private void renderOperationBodyParser(RubyCodeWriter writer, OperationShape operation, Shape outputShape) {
-        //determine if there is an httpPayload member
-        List<MemberShape> httpPayloadMembers = outputShape.members()
-                .stream()
-                .filter((m) -> m.hasTrait(HttpPayloadTrait.class))
-                .collect(Collectors.toList());
-
-        if (httpPayloadMembers.size() == 0) {
-            renderMemberParsers(writer, outputShape);
-        } else if (httpPayloadMembers.size() == 1) {
-            MemberShape payloadMember = httpPayloadMembers.get(0);
-            Shape target = model.expectShape(payloadMember.getTarget());
-            String dataName = RubyFormatter.toSnakeCase(payloadMember.getMemberName());
-            writer.write("data.$1L = Parsers::$2L.parse(json)", dataName, target.getId().getName());
-
-        }
-    }
-    private void renderParserForStructure(RubyCodeWriter writer, StructureShape s) {
-        System.out.println("\tRENDER parser for STRUCTURE: " + s.getId());
-        generatedParsers.add(s.getId());
-        writer
-                .openBlock("\nclass $L", s.getId().getName())
-                .openBlock("def self.parse(json)")
-                .write("data = Types::$L.new", s.getId().getName())
-                .call(() -> renderMemberParsers(writer, s))
-                .write("return data")
-                .closeBlock("end")
-                .closeBlock("end");
+    @Override
+    protected void renderMapMemberParser(MapShape s) {
+        Shape valueTarget = model.expectShape(s.getValue().getTarget());
+        valueTarget
+                .accept(new MemberDeserializer(s.getValue(), "data[key] = ", "value"));
     }
 
-    private void renderParserForList(RubyCodeWriter writer, ListShape s) {
-        System.out.println("\tRENDER parser for LIST: " + s.getId());
-        generatedParsers.add(s.getId());
-        writer
-                .openBlock("\nclass $L", s.getId().getName())
-                .openBlock("def self.parse(json)")
-                .openBlock("json.map do |entry|")
-                .write("$L.parse(entry)", s.getMember().getTarget().getName())
-                .closeBlock("end")
-                .closeBlock("end")
-                .closeBlock("end");
+    @Override
+    protected void renderListMemberParser(ListShape s) {
+        Shape memberTarget =
+                model.expectShape(s.getMember().getTarget());
+        memberTarget
+                .accept(new MemberDeserializer(s.getMember(), "", "value"));
     }
 
-    // TODO: Apply the same pattern as MemberBuilders (in BuilderGenerator)
-    private void renderMemberParsers(RubyCodeWriter writer, Shape s) {
-        for(MemberShape member : s.members()) {
+    @Override
+    protected void renderSetMemberParser(SetShape s) {
+        Shape memberTarget =
+                model.expectShape(s.getMember().getTarget());
+        memberTarget
+                .accept(new MemberDeserializer(s.getMember(), "", "value"));
+    }
+
+    @Override
+    protected void renderPayloadBodyParser(Shape outputShape, MemberShape payloadMember, Shape target) {
+        String dataName = symbolProvider.toMemberName(payloadMember);
+        String dataSetter = "data." + dataName + " = ";
+        target.accept(new PayloadMemberDeserializer(payloadMember, dataSetter));
+    }
+
+
+    private void renderMemberParsers(Shape s) {
+        Stream<MemberShape> parseMembers = s.members().stream()
+                .filter((m) -> !m.hasTrait(HttpHeaderTrait.class) && !m.hasTrait(HttpPrefixHeadersTrait.class)
+                        && !m.hasTrait(HttpQueryTrait.class) && !m.hasTrait(HttpQueryParamsTrait.class)
+                        && !m.hasTrait(HttpResponseCodeTrait.class));
+        parseMembers = parseMembers.filter(NoSerializeTrait.excludeNoSerializeMembers());
+
+        parseMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
-            System.out.println("\t\tMEMBER PARSER FOR: " + member.getId() + " target type: " + target.getType());
-            String dataName = RubyFormatter.toSnakeCase(member.getMemberName());
-            String jsonName = member.getMemberName();
+            String dataName = symbolProvider.toMemberName(member);
+            String dataSetter = "data." + dataName + " = ";
+            String jsonName = RubyFormatter.toSnakeCase(member.getMemberName());
             if (member.hasTrait(JsonNameTrait.class)) {
                 jsonName = member.getTrait(JsonNameTrait.class).get().getValue();
             }
-            if (target.isListShape() || target.isStructureShape()) {
-                writer.write("data.$1L = Parsers::$2L.parse(json['$3L']) if json['$3L']", dataName, target.getId().getName(), jsonName);
-            } else if(!target.hasTrait(HttpHeaderTrait.class)) {
-                writer.write("data.$L = json['$L']", dataName, jsonName);
-            }
+
+            String valueGetter = "map['" + jsonName + "']";
+            target.accept(new MemberDeserializer(member, dataSetter, valueGetter));
+        });
+    }
+
+
+    private class MemberDeserializer extends ShapeVisitor.Default<Void> {
+
+        private final String jsonGetter;
+        private final String dataSetter;
+        private final MemberShape memberShape;
+
+        MemberDeserializer(MemberShape memberShape,
+                           String dataSetter, String jsonGetter) {
+            this.jsonGetter = jsonGetter;
+            this.dataSetter = dataSetter;
+            this.memberShape = memberShape;
         }
+
+        /**
+         * For simple shapes, just copy to the data.
+         */
+        @Override
+        protected Void getDefault(Shape shape) {
+            writer.write("$L$L", dataSetter, jsonGetter);
+            return null;
+        }
+
+        @Override
+        public Void blobShape(BlobShape shape) {
+            writer.write("$1LBase64::decode64($2L) if $2L", dataSetter, jsonGetter);
+            return null;
+        }
+
+        @Override
+        public Void timestampShape(TimestampShape shape) {
+            // the default protocol format is date_time, which is parsed by Time.parse
+            Optional<TimestampFormatTrait> format = memberShape.getTrait(TimestampFormatTrait.class);
+            if (format.isPresent()) {
+                switch (format.get().getFormat()) {
+                    case EPOCH_SECONDS:
+                        writer.write("$1LTime.at($2L.to_i) if $2L", dataSetter, jsonGetter);
+                        break;
+                    case HTTP_DATE:
+                    case DATE_TIME:
+                    default:
+                        writer.write("$1LTime.parse($2L) if $2L", dataSetter, jsonGetter);
+                        break;
+                }
+            } else {
+                writer.write("$1LTime.parse($2L) if $2L", dataSetter, jsonGetter);
+            }
+            return null;
+        }
+
+        /**
+         * For complex shapes, simply delegate to their builder.
+         */
+        private void defaultComplexDeserializer(Shape shape) {
+            writer.write("$1LParsers::$2L.parse($3L) if $3L", dataSetter, symbolProvider.toSymbol(shape).getName(),
+                    jsonGetter);
+        }
+
+        @Override
+        public Void listShape(ListShape shape) {
+            defaultComplexDeserializer(shape);
+            return null;
+        }
+
+        @Override
+        public Void mapShape(MapShape shape) {
+            defaultComplexDeserializer(shape);
+            return null;
+        }
+
+        @Override
+        public Void structureShape(StructureShape shape) {
+            defaultComplexDeserializer(shape);
+            return null;
+        }
+
+        @Override
+        public Void unionShape(UnionShape shape) {
+            defaultComplexDeserializer(shape);
+            return null;
+        }
+    }
+
+    private class PayloadMemberDeserializer extends ShapeVisitor.Default<Void> {
+
+        private final MemberShape memberShape;
+        private final String dataSetter;
+
+        PayloadMemberDeserializer(MemberShape memberShape, String dataSetter) {
+            this.memberShape = memberShape;
+            this.dataSetter = dataSetter;
+        }
+
+        @Override
+        protected Void getDefault(Shape shape) {
+            return null;
+        }
+
+        @Override
+        public Void stringShape(StringShape shape) {
+            writer
+                    .write("payload = http_resp.body.read")
+                    .write("$Lpayload unless payload.empty?", dataSetter);
+            return null;
+        }
+
+        @Override
+        public Void blobShape(BlobShape shape) {
+            writer
+                    .write("payload = http_resp.body.read")
+                    .write("$Lpayload unless payload.empty?", dataSetter);
+            return null;
+        }
+
+        @Override
+        public Void listShape(ListShape shape) {
+            defaultComplexDeserializer(shape);
+            return null;
+        }
+
+        @Override
+        public Void mapShape(MapShape shape) {
+            defaultComplexDeserializer(shape);
+            return null;
+        }
+
+        @Override
+        public Void structureShape(StructureShape shape) {
+            defaultComplexDeserializer(shape);
+            return null;
+        }
+
+        @Override
+        public Void unionShape(UnionShape shape) {
+            defaultComplexDeserializer(shape);
+            return null;
+        }
+
+        private void defaultComplexDeserializer(Shape shape) {
+            writer
+                    .write("json = Seahorse::JSON.load(http_resp.body)")
+                    .write("$LParsers::$L.parse(json)", dataSetter, symbolProvider.toSymbol(shape).getName());
+        }
+
     }
 }

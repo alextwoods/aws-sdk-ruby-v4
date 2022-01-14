@@ -30,7 +30,10 @@ public class Signers implements RubyIntegration {
                 .addConfig(region)
                 .rubySource("../customizations/signer.rb")
                 .build();
-        return Collections.singletonList(signer);
+        // TODO: Protocol tests don't have a way to remove this currently
+        // return Collections.singletonList(signer);
+
+        return Collections.emptyList();
     }
 
 }
