@@ -18,7 +18,6 @@ package software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
-import software.amazon.smithy.ruby.codegen.RubyFormatter;
 import software.amazon.smithy.ruby.codegen.generators.HttpBuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 
@@ -43,12 +42,9 @@ public class BuilderGenerator extends HttpBuilderGeneratorBase {
             Shape target = model.expectShape(member.getTarget());
 
             String symbolName = ":" + symbolProvider.toMemberName(member);
-            String dataName = RubyFormatter.asSymbol(member.getMemberName());
+            String dataName = "'" + member.getMemberName() + "'";
             if (member.hasTrait(JsonNameTrait.class)) {
                 dataName = "'" + member.expectTrait(JsonNameTrait.class).getValue() + "'";
-            }
-            if (member.hasTrait("smithy.ruby.protocols#nestedAttributes")) {
-                dataName = dataName + "_attributes";
             }
 
             String dataSetter = "data[" + dataName + "] = ";
@@ -90,8 +86,7 @@ public class BuilderGenerator extends HttpBuilderGeneratorBase {
     @Override
     protected void renderUnionMemberBuilder(UnionShape shape, MemberShape member) {
         Shape target = model.expectShape(member.getTarget());
-        String symbolName = RubyFormatter.asSymbol(symbolProvider.toMemberName(member));
-        String dataSetter = "data[" + symbolName + "] = ";
+        String dataSetter = "data['" + member.getMemberName() + "'] = ";
         target.accept(new MemberSerializer(member, dataSetter, "input", false));
     }
 

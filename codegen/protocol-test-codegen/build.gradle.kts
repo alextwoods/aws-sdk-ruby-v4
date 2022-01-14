@@ -13,36 +13,23 @@
  * permissions and limitations under the License.
  */
 
-import software.amazon.smithy.gradle.tasks.SmithyBuild
 
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        "classpath"("software.amazon.smithy:smithy-cli:${rootProject.extra["smithyVersion"]}")
-    }
-}
+extra["displayName"] = "Smithy :: Ruby :: Aws :: RestJson :: Codegen :: Test"
+extra["moduleName"] = "software.amazon.smithy.ruby.aws.restjson.codegen.test"
+
+tasks["jar"].enabled = false
+
 
 plugins {
     id("software.amazon.smithy") version "0.6.0"
 }
 
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
 dependencies {
-    implementation("software.amazon.smithy:smithy-aws-protocol-tests:${rootProject.extra["smithyVersion"]}")
     implementation(project(":smithy-aws-ruby-codegen"))
+    implementation("software.amazon.smithy:smithy-aws-protocol-tests:${rootProject.extra["smithyVersion"]}")
 }
-
-// This project doesn't produce a JAR.
-tasks["jar"].enabled = false
-
-// Run the SmithyBuild task manually since this project needs the built JAR
-// from smithy-aws-typescript-codegen.
-tasks["smithyBuildJar"].enabled = false
-
-tasks.create<SmithyBuild>("buildSdk") {
-    addRuntimeClasspath = true
-}
-
-// Run the `buildSdk` automatically.
-tasks["build"].finalizedBy(tasks["buildSdk"])

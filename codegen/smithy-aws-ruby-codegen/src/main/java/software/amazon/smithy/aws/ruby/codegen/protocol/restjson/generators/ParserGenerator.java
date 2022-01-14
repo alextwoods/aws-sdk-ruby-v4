@@ -44,7 +44,7 @@ public class ParserGenerator extends HttpParserGeneratorBase {
 
     @Override
     protected String unionMemberDataName(UnionShape s, MemberShape member) {
-        String dataName = RubyFormatter.toSnakeCase(symbolProvider.toMemberName(member));
+        String dataName = symbolProvider.toMemberName(member);
         String jsonName = dataName;
         if (member.hasTrait(JsonNameTrait.class)) {
             jsonName = member.getTrait(JsonNameTrait.class).get().getValue();
@@ -101,7 +101,7 @@ public class ParserGenerator extends HttpParserGeneratorBase {
             Shape target = model.expectShape(member.getTarget());
             String dataName = symbolProvider.toMemberName(member);
             String dataSetter = "data." + dataName + " = ";
-            String jsonName = RubyFormatter.toSnakeCase(member.getMemberName());
+            String jsonName = member.getMemberName();
             if (member.hasTrait(JsonNameTrait.class)) {
                 jsonName = member.getTrait(JsonNameTrait.class).get().getValue();
             }

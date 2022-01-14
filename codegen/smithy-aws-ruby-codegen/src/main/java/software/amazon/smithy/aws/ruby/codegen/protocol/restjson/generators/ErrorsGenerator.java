@@ -27,9 +27,7 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
     public void renderErrorCode() {
 
         writer.openBlock("def self.error_code(http_resp)");
-
-        // TODO: Where does error code come from?
-
+        writer.write("http_resp.headers['x-amzn-errortype']");
         writer.closeBlock("end");
     }
 

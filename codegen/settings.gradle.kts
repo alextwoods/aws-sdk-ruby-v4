@@ -17,3 +17,10 @@ rootProject.name = "codegen"
 include(":sdk-codegen")
 include(":smithy-aws-ruby-codegen")
 include(":protocol-test-codegen")
+
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}

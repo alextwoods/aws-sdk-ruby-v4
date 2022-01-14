@@ -58,8 +58,7 @@ public class StubsGenerator extends HttpStubsGeneratorBase {
     @Override
     protected void renderPayloadBodyStub(OperationShape operation, Shape outputShape, MemberShape payloadMember,
                                          Shape target) {
-        String symbolName = ":" + symbolProvider.toMemberName(payloadMember);
-        String inputGetter = "stub[" + symbolName + "]";
+        String inputGetter = "stub['" + payloadMember.getMemberName() + "']";
         target.accept(new PayloadMemberSerializer(payloadMember, inputGetter));
     }
 
@@ -74,7 +73,7 @@ public class StubsGenerator extends HttpStubsGeneratorBase {
             Shape target = model.expectShape(member.getTarget());
 
             String symbolName = RubyFormatter.asSymbol(symbolProvider.toMemberName(member));
-            String dataName = RubyFormatter.asSymbol(member.getMemberName());
+            String dataName = "'" + member.getMemberName() + "'";
             if (member.hasTrait(JsonNameTrait.class)) {
                 dataName = "'" + member.expectTrait(JsonNameTrait.class).getValue() + "'";
             }
@@ -132,7 +131,7 @@ public class StubsGenerator extends HttpStubsGeneratorBase {
                 Shape target = model.expectShape(member.getTarget());
 
                 String symbolName = ":" + symbolProvider.toMemberName(member);
-                String dataName = RubyFormatter.asSymbol(member.getMemberName());
+                String dataName = "'" + member.getMemberName() + "'";
                 if (member.hasTrait(JsonNameTrait.class)) {
                     dataName = "'" + member.expectTrait(JsonNameTrait.class).getValue() + "'";
                 }
