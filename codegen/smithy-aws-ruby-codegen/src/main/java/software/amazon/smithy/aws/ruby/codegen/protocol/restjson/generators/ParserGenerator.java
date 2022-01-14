@@ -44,7 +44,7 @@ public class ParserGenerator extends HttpParserGeneratorBase {
 
     @Override
     protected String unionMemberDataName(UnionShape s, MemberShape member) {
-        String dataName = symbolProvider.toMemberName(member);
+        String dataName = member.getMemberName();
         String jsonName = dataName;
         if (member.hasTrait(JsonNameTrait.class)) {
             jsonName = member.getTrait(JsonNameTrait.class).get().getValue();
