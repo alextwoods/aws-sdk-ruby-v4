@@ -18,7 +18,6 @@ package software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
-import software.amazon.smithy.ruby.codegen.RubyFormatter;
 import software.amazon.smithy.ruby.codegen.generators.HttpParserGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 
@@ -131,6 +130,29 @@ public class ParserGenerator extends HttpParserGeneratorBase {
         @Override
         protected Void getDefault(Shape shape) {
             writer.write("$L$L", dataSetter, jsonGetter);
+            return null;
+        }
+
+        private void rubyFloat() {
+            writer
+                    .openBlock("$Lcase $L", dataSetter, jsonGetter)
+                    .write("when 'Infinity' then ::Float::INFINITY")
+                    .write("when '-Infinity' then -::Float::INFINITY")
+                    .write("when 'NaN' then ::Float::NAN")
+                    .write("else $L", jsonGetter)
+                    .closeBlock("end");
+
+        }
+
+        @Override
+        public Void doubleShape(DoubleShape shape) {
+            rubyFloat();
+            return null;
+        }
+
+        @Override
+        public Void floatShape(FloatShape shape) {
+            rubyFloat();
             return null;
         }
 

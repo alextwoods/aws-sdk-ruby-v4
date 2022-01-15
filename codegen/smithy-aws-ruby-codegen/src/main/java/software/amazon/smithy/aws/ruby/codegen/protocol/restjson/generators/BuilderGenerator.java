@@ -134,6 +134,29 @@ public class BuilderGenerator extends HttpBuilderGeneratorBase {
             return null;
         }
 
+        private void rubyFloat() {
+            writer
+                    .openBlock("$Lcase", dataSetter)
+                    .write("when $L == ::Float::INFINITY then 'Infinity'", inputGetter)
+                    .write("when $L == -::Float::INFINITY then '-Infinity'", inputGetter)
+                    .write("when $1L&.nan? then 'NaN'", inputGetter)
+                    .write("else $L", inputGetter)
+                    .closeBlock("end");
+
+        }
+
+        @Override
+        public Void doubleShape(DoubleShape shape) {
+            rubyFloat();
+            return null;
+        }
+
+        @Override
+        public Void floatShape(FloatShape shape) {
+            rubyFloat();
+            return null;
+        }
+
         @Override
         public Void blobShape(BlobShape shape) {
             writer.write("$LBase64::encode64($L).strip$L", dataSetter, inputGetter, checkRequired(shape));

@@ -17,18 +17,8 @@ package software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators;
 
 import java.util.Optional;
 import java.util.stream.Stream;
-import software.amazon.smithy.model.shapes.BlobShape;
-import software.amazon.smithy.model.shapes.ListShape;
-import software.amazon.smithy.model.shapes.MapShape;
-import software.amazon.smithy.model.shapes.MemberShape;
-import software.amazon.smithy.model.shapes.OperationShape;
-import software.amazon.smithy.model.shapes.SetShape;
-import software.amazon.smithy.model.shapes.Shape;
-import software.amazon.smithy.model.shapes.ShapeVisitor;
-import software.amazon.smithy.model.shapes.StringShape;
-import software.amazon.smithy.model.shapes.StructureShape;
-import software.amazon.smithy.model.shapes.TimestampShape;
-import software.amazon.smithy.model.shapes.UnionShape;
+
+import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.HttpHeaderTrait;
 import software.amazon.smithy.model.traits.HttpLabelTrait;
 import software.amazon.smithy.model.traits.HttpPayloadTrait;
@@ -170,6 +160,29 @@ public class StubsGenerator extends HttpStubsGeneratorBase {
         @Override
         protected Void getDefault(Shape shape) {
             writer.write("$L$L$L", dataSetter, inputGetter, checkRequired());
+            return null;
+        }
+
+        private void rubyFloat() {
+            writer
+                    .openBlock("$Lcase", dataSetter)
+                    .write("when $L == ::Float::INFINITY then 'Infinity'", inputGetter)
+                    .write("when $L == -::Float::INFINITY then '-Infinity'", inputGetter)
+                    .write("when $1L&.nan? then 'NaN'", inputGetter)
+                    .write("else $L", inputGetter)
+                    .closeBlock("end");
+
+        }
+
+        @Override
+        public Void doubleShape(DoubleShape shape) {
+            rubyFloat();
+            return null;
+        }
+
+        @Override
+        public Void floatShape(FloatShape shape) {
+            rubyFloat();
             return null;
         }
 
