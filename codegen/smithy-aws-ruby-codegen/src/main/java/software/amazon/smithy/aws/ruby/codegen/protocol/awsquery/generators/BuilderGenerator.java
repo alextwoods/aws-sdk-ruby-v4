@@ -42,6 +42,16 @@ public class BuilderGenerator extends HttpBuilderGeneratorBase {
     }
 
     @Override
+    protected String getHttpMethod(OperationShape operation) {
+        return "todo";
+    }
+
+    @Override
+    protected String getHttpUri(OperationShape operation) {
+        return "todo";
+    }
+
+    @Override
     protected void renderStructureMemberBuilders(StructureShape shape) {
     }
 
