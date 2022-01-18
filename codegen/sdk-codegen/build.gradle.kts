@@ -61,15 +61,6 @@ tasks.register("generate-smithy-build") {
             }
             val service = services[0]
 
-            var filteredServices: String = System.getenv("SMITHY_RUBY_BUILD_API")?: ""
-            if (filteredServices.isNotEmpty()) {
-                for (filteredService in filteredServices.split(",")) {
-                    if (!service.id.toString().startsWith(filteredService)) {
-                        return@eachFile
-                    }
-                }
-            }
-
             var (sdkId, version, remaining) = file.name.split(".")
             sdkId = sdkId.replace("-", "").toLowerCase();
             val projectionContents = Node.objectNodeBuilder()
@@ -101,9 +92,14 @@ tasks["build"]
         .finalizedBy(tasks["buildSdk"])
 
 // ensure built artifacts are put into the SDK's folders
-tasks.register<Copy>("copyGem") {
+tasks.register<Copy>("copyRestJsonGem") {
     //TODO: This needs to be dynamic for all services...
     from("$buildDir/smithyprojections/sdk-codegen/lambda.2015-03-31/ruby-codegen")
     into("$buildDir/../../../")
 }
-tasks["buildSdk"].finalizedBy(tasks["copyGem"])
+tasks.register<Copy>("copyQueryGem") {
+    //TODO: This needs to be dynamic for all services...
+    from("$buildDir/smithyprojections/sdk-codegen/sts.2011-06-15/ruby-codegen")
+    into("$buildDir/../../../")
+}
+tasks["buildSdk"].finalizedBy(tasks["copyRestJsonGem"], tasks["copyQueryGem"])

@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License").
  * You may not use this file except in compliance with the License.
@@ -13,19 +13,19 @@
  * permissions and limitations under the License.
  */
 
-// This project doesn't produce a JAR.
-tasks["jar"].enabled = false
+package software.amazon.smithy.aws.ruby.codegen.protocol.awsquery.generators;
 
-plugins {
-    id("software.amazon.smithy") version "0.6.0"
-}
+import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.generators.ErrorsGeneratorBase;
 
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
+public class ErrorsGenerator extends ErrorsGeneratorBase {
 
-dependencies {
-    implementation(project(":smithy-aws-ruby-codegen"))
-    implementation("software.amazon.smithy:smithy-aws-protocol-tests:${rootProject.extra["smithyVersion"]}")
+    public ErrorsGenerator(GenerationContext context) {
+        super(context);
+    }
+
+    @Override
+    public void renderErrorCode() {
+    }
+
 }

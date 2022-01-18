@@ -21,6 +21,27 @@
           }
         }
       }
+    },
+    "aws-protocoltests-query": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["aws.protocoltests.query#AwsQuery"]
+          }
+        }
+      ],
+      "plugins": {
+        "ruby-codegen": {
+          "service": "aws.protocoltests.query#AwsQuery",
+          "module": "AwsQuery",
+          "gemspec": {
+            "gemName": "aws_query",
+            "gemVersion": "0.0.1",
+            "gemSummary": "AWS Query Protocol Test Service"
+          }
+        }
+      }
     }
   }
 }
