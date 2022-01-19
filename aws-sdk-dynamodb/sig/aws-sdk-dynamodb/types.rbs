@@ -1,0 +1,508 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::Dynamodb
+  module Types
+
+    ArchivalSummary: untyped
+
+    AttributeDefinition: untyped
+
+    class AttributeValue < Seahorse::Union
+      class S < AttributeValue
+        def to_h: () -> { s: Hash[Symbol,AttributeValue] }
+      end
+
+      class N < AttributeValue
+        def to_h: () -> { n: Hash[Symbol,AttributeValue] }
+      end
+
+      class B < AttributeValue
+        def to_h: () -> { b: Hash[Symbol,AttributeValue] }
+      end
+
+      class Ss < AttributeValue
+        def to_h: () -> { ss: Hash[Symbol,AttributeValue] }
+      end
+
+      class Ns < AttributeValue
+        def to_h: () -> { ns: Hash[Symbol,AttributeValue] }
+      end
+
+      class Bs < AttributeValue
+        def to_h: () -> { bs: Hash[Symbol,AttributeValue] }
+      end
+
+      class M < AttributeValue
+        def to_h: () -> { m: Hash[Symbol,AttributeValue] }
+      end
+
+      class L < AttributeValue
+        def to_h: () -> { l: Hash[Symbol,AttributeValue] }
+      end
+
+      class Null < AttributeValue
+        def to_h: () -> { null: Hash[Symbol,AttributeValue] }
+      end
+
+      class Bool < AttributeValue
+        def to_h: () -> { bool: Hash[Symbol,AttributeValue] }
+      end
+
+      class Unknown < AttributeValue
+        def to_h: () -> { unknown: Hash[Symbol,AttributeValue] }
+      end
+    end
+
+    AttributeValueUpdate: untyped
+
+    AutoScalingPolicyDescription: untyped
+
+    AutoScalingPolicyUpdate: untyped
+
+    AutoScalingSettingsDescription: untyped
+
+    AutoScalingSettingsUpdate: untyped
+
+    AutoScalingTargetTrackingScalingPolicyConfigurationDescription: untyped
+
+    AutoScalingTargetTrackingScalingPolicyConfigurationUpdate: untyped
+
+    BackupDescription: untyped
+
+    BackupDetails: untyped
+
+    BackupInUseException: untyped
+
+    BackupNotFoundException: untyped
+
+    BackupSummary: untyped
+
+    BatchExecuteStatementInput: untyped
+
+    BatchExecuteStatementOutput: untyped
+
+    BatchGetItemInput: untyped
+
+    BatchGetItemOutput: untyped
+
+    BatchStatementError: untyped
+
+    BatchStatementRequest: untyped
+
+    BatchStatementResponse: untyped
+
+    BatchWriteItemInput: untyped
+
+    BatchWriteItemOutput: untyped
+
+    BillingModeSummary: untyped
+
+    CancellationReason: untyped
+
+    Capacity: untyped
+
+    Condition: untyped
+
+    ConditionCheck: untyped
+
+    ConditionalCheckFailedException: untyped
+
+    ConsumedCapacity: untyped
+
+    ContinuousBackupsDescription: untyped
+
+    ContinuousBackupsUnavailableException: untyped
+
+    ContributorInsightsSummary: untyped
+
+    CreateBackupInput: untyped
+
+    CreateBackupOutput: untyped
+
+    CreateGlobalSecondaryIndexAction: untyped
+
+    CreateGlobalTableInput: untyped
+
+    CreateGlobalTableOutput: untyped
+
+    CreateReplicaAction: untyped
+
+    CreateReplicationGroupMemberAction: untyped
+
+    CreateTableInput: untyped
+
+    CreateTableOutput: untyped
+
+    Delete: untyped
+
+    DeleteBackupInput: untyped
+
+    DeleteBackupOutput: untyped
+
+    DeleteGlobalSecondaryIndexAction: untyped
+
+    DeleteItemInput: untyped
+
+    DeleteItemOutput: untyped
+
+    DeleteReplicaAction: untyped
+
+    DeleteReplicationGroupMemberAction: untyped
+
+    DeleteRequest: untyped
+
+    DeleteTableInput: untyped
+
+    DeleteTableOutput: untyped
+
+    DescribeBackupInput: untyped
+
+    DescribeBackupOutput: untyped
+
+    DescribeContinuousBackupsInput: untyped
+
+    DescribeContinuousBackupsOutput: untyped
+
+    DescribeContributorInsightsInput: untyped
+
+    DescribeContributorInsightsOutput: untyped
+
+    DescribeEndpointsInput: untyped
+
+    DescribeEndpointsOutput: untyped
+
+    DescribeExportInput: untyped
+
+    DescribeExportOutput: untyped
+
+    DescribeGlobalTableInput: untyped
+
+    DescribeGlobalTableOutput: untyped
+
+    DescribeGlobalTableSettingsInput: untyped
+
+    DescribeGlobalTableSettingsOutput: untyped
+
+    DescribeKinesisStreamingDestinationInput: untyped
+
+    DescribeKinesisStreamingDestinationOutput: untyped
+
+    DescribeLimitsInput: untyped
+
+    DescribeLimitsOutput: untyped
+
+    DescribeTableInput: untyped
+
+    DescribeTableOutput: untyped
+
+    DescribeTableReplicaAutoScalingInput: untyped
+
+    DescribeTableReplicaAutoScalingOutput: untyped
+
+    DescribeTimeToLiveInput: untyped
+
+    DescribeTimeToLiveOutput: untyped
+
+    DisableKinesisStreamingDestinationInput: untyped
+
+    DisableKinesisStreamingDestinationOutput: untyped
+
+    DuplicateItemException: untyped
+
+    EnableKinesisStreamingDestinationInput: untyped
+
+    EnableKinesisStreamingDestinationOutput: untyped
+
+    Endpoint: untyped
+
+    ExecuteStatementInput: untyped
+
+    ExecuteStatementOutput: untyped
+
+    ExecuteTransactionInput: untyped
+
+    ExecuteTransactionOutput: untyped
+
+    ExpectedAttributeValue: untyped
+
+    ExportConflictException: untyped
+
+    ExportDescription: untyped
+
+    ExportNotFoundException: untyped
+
+    ExportSummary: untyped
+
+    ExportTableToPointInTimeInput: untyped
+
+    ExportTableToPointInTimeOutput: untyped
+
+    FailureException: untyped
+
+    Get: untyped
+
+    GetItemInput: untyped
+
+    GetItemOutput: untyped
+
+    GlobalSecondaryIndex: untyped
+
+    GlobalSecondaryIndexAutoScalingUpdate: untyped
+
+    GlobalSecondaryIndexDescription: untyped
+
+    GlobalSecondaryIndexInfo: untyped
+
+    GlobalSecondaryIndexUpdate: untyped
+
+    GlobalTable: untyped
+
+    GlobalTableAlreadyExistsException: untyped
+
+    GlobalTableDescription: untyped
+
+    GlobalTableGlobalSecondaryIndexSettingsUpdate: untyped
+
+    GlobalTableNotFoundException: untyped
+
+    IdempotentParameterMismatchException: untyped
+
+    IndexNotFoundException: untyped
+
+    InternalServerError: untyped
+
+    InvalidEndpointException: untyped
+
+    InvalidExportTimeException: untyped
+
+    InvalidRestoreTimeException: untyped
+
+    ItemCollectionMetrics: untyped
+
+    ItemCollectionSizeLimitExceededException: untyped
+
+    ItemResponse: untyped
+
+    KeySchemaElement: untyped
+
+    KeysAndAttributes: untyped
+
+    KinesisDataStreamDestination: untyped
+
+    LimitExceededException: untyped
+
+    ListBackupsInput: untyped
+
+    ListBackupsOutput: untyped
+
+    ListContributorInsightsInput: untyped
+
+    ListContributorInsightsOutput: untyped
+
+    ListExportsInput: untyped
+
+    ListExportsOutput: untyped
+
+    ListGlobalTablesInput: untyped
+
+    ListGlobalTablesOutput: untyped
+
+    ListTablesInput: untyped
+
+    ListTablesOutput: untyped
+
+    ListTagsOfResourceInput: untyped
+
+    ListTagsOfResourceOutput: untyped
+
+    LocalSecondaryIndex: untyped
+
+    LocalSecondaryIndexDescription: untyped
+
+    LocalSecondaryIndexInfo: untyped
+
+    ParameterizedStatement: untyped
+
+    PointInTimeRecoveryDescription: untyped
+
+    PointInTimeRecoverySpecification: untyped
+
+    PointInTimeRecoveryUnavailableException: untyped
+
+    Projection: untyped
+
+    ProvisionedThroughput: untyped
+
+    ProvisionedThroughputDescription: untyped
+
+    ProvisionedThroughputExceededException: untyped
+
+    ProvisionedThroughputOverride: untyped
+
+    Put: untyped
+
+    PutItemInput: untyped
+
+    PutItemOutput: untyped
+
+    PutRequest: untyped
+
+    QueryInput: untyped
+
+    QueryOutput: untyped
+
+    Replica: untyped
+
+    ReplicaAlreadyExistsException: untyped
+
+    ReplicaAutoScalingDescription: untyped
+
+    ReplicaAutoScalingUpdate: untyped
+
+    ReplicaDescription: untyped
+
+    ReplicaGlobalSecondaryIndex: untyped
+
+    ReplicaGlobalSecondaryIndexAutoScalingDescription: untyped
+
+    ReplicaGlobalSecondaryIndexAutoScalingUpdate: untyped
+
+    ReplicaGlobalSecondaryIndexDescription: untyped
+
+    ReplicaGlobalSecondaryIndexSettingsDescription: untyped
+
+    ReplicaGlobalSecondaryIndexSettingsUpdate: untyped
+
+    ReplicaNotFoundException: untyped
+
+    ReplicaSettingsDescription: untyped
+
+    ReplicaSettingsUpdate: untyped
+
+    ReplicaUpdate: untyped
+
+    ReplicationGroupUpdate: untyped
+
+    RequestLimitExceeded: untyped
+
+    ResourceInUseException: untyped
+
+    ResourceNotFoundException: untyped
+
+    RestoreSummary: untyped
+
+    RestoreTableFromBackupInput: untyped
+
+    RestoreTableFromBackupOutput: untyped
+
+    RestoreTableToPointInTimeInput: untyped
+
+    RestoreTableToPointInTimeOutput: untyped
+
+    SSEDescription: untyped
+
+    SSESpecification: untyped
+
+    ScanInput: untyped
+
+    ScanOutput: untyped
+
+    SourceTableDetails: untyped
+
+    SourceTableFeatureDetails: untyped
+
+    StreamSpecification: untyped
+
+    TableAlreadyExistsException: untyped
+
+    TableAutoScalingDescription: untyped
+
+    TableClassSummary: untyped
+
+    TableDescription: untyped
+
+    TableInUseException: untyped
+
+    TableNotFoundException: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TimeToLiveDescription: untyped
+
+    TimeToLiveSpecification: untyped
+
+    TransactGetItem: untyped
+
+    TransactGetItemsInput: untyped
+
+    TransactGetItemsOutput: untyped
+
+    TransactWriteItem: untyped
+
+    TransactWriteItemsInput: untyped
+
+    TransactWriteItemsOutput: untyped
+
+    TransactionCanceledException: untyped
+
+    TransactionConflictException: untyped
+
+    TransactionInProgressException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    Update: untyped
+
+    UpdateContinuousBackupsInput: untyped
+
+    UpdateContinuousBackupsOutput: untyped
+
+    UpdateContributorInsightsInput: untyped
+
+    UpdateContributorInsightsOutput: untyped
+
+    UpdateGlobalSecondaryIndexAction: untyped
+
+    UpdateGlobalTableInput: untyped
+
+    UpdateGlobalTableOutput: untyped
+
+    UpdateGlobalTableSettingsInput: untyped
+
+    UpdateGlobalTableSettingsOutput: untyped
+
+    UpdateItemInput: untyped
+
+    UpdateItemOutput: untyped
+
+    UpdateReplicationGroupMemberAction: untyped
+
+    UpdateTableInput: untyped
+
+    UpdateTableOutput: untyped
+
+    UpdateTableReplicaAutoScalingInput: untyped
+
+    UpdateTableReplicaAutoScalingOutput: untyped
+
+    UpdateTimeToLiveInput: untyped
+
+    UpdateTimeToLiveOutput: untyped
+
+    WriteRequest: untyped
+
+  end
+end

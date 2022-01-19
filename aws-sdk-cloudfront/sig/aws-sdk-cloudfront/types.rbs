@@ -1,0 +1,916 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::Cloudfront
+  module Types
+
+    AccessDenied: untyped
+
+    ActiveTrustedKeyGroups: untyped
+
+    ActiveTrustedSigners: untyped
+
+    AliasICPRecordal: untyped
+
+    Aliases: untyped
+
+    AllowedMethods: untyped
+
+    AssociateAliasInput: untyped
+
+    AssociateAliasOutput: untyped
+
+    BatchTooLarge: untyped
+
+    CNAMEAlreadyExists: untyped
+
+    CacheBehavior: untyped
+
+    CacheBehaviors: untyped
+
+    CachePolicy: untyped
+
+    CachePolicyAlreadyExists: untyped
+
+    CachePolicyConfig: untyped
+
+    CachePolicyCookiesConfig: untyped
+
+    CachePolicyHeadersConfig: untyped
+
+    CachePolicyInUse: untyped
+
+    CachePolicyList: untyped
+
+    CachePolicyQueryStringsConfig: untyped
+
+    CachePolicySummary: untyped
+
+    CachedMethods: untyped
+
+    CannotChangeImmutablePublicKeyFields: untyped
+
+    CloudFrontOriginAccessIdentity: untyped
+
+    CloudFrontOriginAccessIdentityAlreadyExists: untyped
+
+    CloudFrontOriginAccessIdentityConfig: untyped
+
+    CloudFrontOriginAccessIdentityInUse: untyped
+
+    CloudFrontOriginAccessIdentityList: untyped
+
+    CloudFrontOriginAccessIdentitySummary: untyped
+
+    ConflictingAlias: untyped
+
+    ConflictingAliasesList: untyped
+
+    ContentTypeProfile: untyped
+
+    ContentTypeProfileConfig: untyped
+
+    ContentTypeProfiles: untyped
+
+    CookieNames: untyped
+
+    CookiePreference: untyped
+
+    CreateCachePolicyInput: untyped
+
+    CreateCachePolicyOutput: untyped
+
+    CreateCloudFrontOriginAccessIdentityInput: untyped
+
+    CreateCloudFrontOriginAccessIdentityOutput: untyped
+
+    CreateDistributionInput: untyped
+
+    CreateDistributionOutput: untyped
+
+    CreateDistributionWithTagsInput: untyped
+
+    CreateDistributionWithTagsOutput: untyped
+
+    CreateFieldLevelEncryptionConfigInput: untyped
+
+    CreateFieldLevelEncryptionConfigOutput: untyped
+
+    CreateFieldLevelEncryptionProfileInput: untyped
+
+    CreateFieldLevelEncryptionProfileOutput: untyped
+
+    CreateFunctionInput: untyped
+
+    CreateFunctionOutput: untyped
+
+    CreateInvalidationInput: untyped
+
+    CreateInvalidationOutput: untyped
+
+    CreateKeyGroupInput: untyped
+
+    CreateKeyGroupOutput: untyped
+
+    CreateMonitoringSubscriptionInput: untyped
+
+    CreateMonitoringSubscriptionOutput: untyped
+
+    CreateOriginRequestPolicyInput: untyped
+
+    CreateOriginRequestPolicyOutput: untyped
+
+    CreatePublicKeyInput: untyped
+
+    CreatePublicKeyOutput: untyped
+
+    CreateRealtimeLogConfigInput: untyped
+
+    CreateRealtimeLogConfigOutput: untyped
+
+    CreateResponseHeadersPolicyInput: untyped
+
+    CreateResponseHeadersPolicyOutput: untyped
+
+    CreateStreamingDistributionInput: untyped
+
+    CreateStreamingDistributionOutput: untyped
+
+    CreateStreamingDistributionWithTagsInput: untyped
+
+    CreateStreamingDistributionWithTagsOutput: untyped
+
+    CustomErrorResponse: untyped
+
+    CustomErrorResponses: untyped
+
+    CustomHeaders: untyped
+
+    CustomOriginConfig: untyped
+
+    DefaultCacheBehavior: untyped
+
+    DeleteCachePolicyInput: untyped
+
+    DeleteCachePolicyOutput: untyped
+
+    DeleteCloudFrontOriginAccessIdentityInput: untyped
+
+    DeleteCloudFrontOriginAccessIdentityOutput: untyped
+
+    DeleteDistributionInput: untyped
+
+    DeleteDistributionOutput: untyped
+
+    DeleteFieldLevelEncryptionConfigInput: untyped
+
+    DeleteFieldLevelEncryptionConfigOutput: untyped
+
+    DeleteFieldLevelEncryptionProfileInput: untyped
+
+    DeleteFieldLevelEncryptionProfileOutput: untyped
+
+    DeleteFunctionInput: untyped
+
+    DeleteFunctionOutput: untyped
+
+    DeleteKeyGroupInput: untyped
+
+    DeleteKeyGroupOutput: untyped
+
+    DeleteMonitoringSubscriptionInput: untyped
+
+    DeleteMonitoringSubscriptionOutput: untyped
+
+    DeleteOriginRequestPolicyInput: untyped
+
+    DeleteOriginRequestPolicyOutput: untyped
+
+    DeletePublicKeyInput: untyped
+
+    DeletePublicKeyOutput: untyped
+
+    DeleteRealtimeLogConfigInput: untyped
+
+    DeleteRealtimeLogConfigOutput: untyped
+
+    DeleteResponseHeadersPolicyInput: untyped
+
+    DeleteResponseHeadersPolicyOutput: untyped
+
+    DeleteStreamingDistributionInput: untyped
+
+    DeleteStreamingDistributionOutput: untyped
+
+    DescribeFunctionInput: untyped
+
+    DescribeFunctionOutput: untyped
+
+    Distribution: untyped
+
+    DistributionAlreadyExists: untyped
+
+    DistributionConfig: untyped
+
+    DistributionConfigWithTags: untyped
+
+    DistributionIdList: untyped
+
+    DistributionList: untyped
+
+    DistributionNotDisabled: untyped
+
+    DistributionSummary: untyped
+
+    EncryptionEntities: untyped
+
+    EncryptionEntity: untyped
+
+    EndPoint: untyped
+
+    FieldLevelEncryption: untyped
+
+    FieldLevelEncryptionConfig: untyped
+
+    FieldLevelEncryptionConfigAlreadyExists: untyped
+
+    FieldLevelEncryptionConfigInUse: untyped
+
+    FieldLevelEncryptionList: untyped
+
+    FieldLevelEncryptionProfile: untyped
+
+    FieldLevelEncryptionProfileAlreadyExists: untyped
+
+    FieldLevelEncryptionProfileConfig: untyped
+
+    FieldLevelEncryptionProfileInUse: untyped
+
+    FieldLevelEncryptionProfileList: untyped
+
+    FieldLevelEncryptionProfileSizeExceeded: untyped
+
+    FieldLevelEncryptionProfileSummary: untyped
+
+    FieldLevelEncryptionSummary: untyped
+
+    FieldPatterns: untyped
+
+    ForwardedValues: untyped
+
+    FunctionAlreadyExists: untyped
+
+    FunctionAssociation: untyped
+
+    FunctionAssociations: untyped
+
+    FunctionConfig: untyped
+
+    FunctionInUse: untyped
+
+    FunctionList: untyped
+
+    FunctionMetadata: untyped
+
+    FunctionSizeLimitExceeded: untyped
+
+    FunctionSummary: untyped
+
+    GeoRestriction: untyped
+
+    GetCachePolicyConfigInput: untyped
+
+    GetCachePolicyConfigOutput: untyped
+
+    GetCachePolicyInput: untyped
+
+    GetCachePolicyOutput: untyped
+
+    GetCloudFrontOriginAccessIdentityConfigInput: untyped
+
+    GetCloudFrontOriginAccessIdentityConfigOutput: untyped
+
+    GetCloudFrontOriginAccessIdentityInput: untyped
+
+    GetCloudFrontOriginAccessIdentityOutput: untyped
+
+    GetDistributionConfigInput: untyped
+
+    GetDistributionConfigOutput: untyped
+
+    GetDistributionInput: untyped
+
+    GetDistributionOutput: untyped
+
+    GetFieldLevelEncryptionConfigInput: untyped
+
+    GetFieldLevelEncryptionConfigOutput: untyped
+
+    GetFieldLevelEncryptionInput: untyped
+
+    GetFieldLevelEncryptionOutput: untyped
+
+    GetFieldLevelEncryptionProfileConfigInput: untyped
+
+    GetFieldLevelEncryptionProfileConfigOutput: untyped
+
+    GetFieldLevelEncryptionProfileInput: untyped
+
+    GetFieldLevelEncryptionProfileOutput: untyped
+
+    GetFunctionInput: untyped
+
+    GetFunctionOutput: untyped
+
+    GetInvalidationInput: untyped
+
+    GetInvalidationOutput: untyped
+
+    GetKeyGroupConfigInput: untyped
+
+    GetKeyGroupConfigOutput: untyped
+
+    GetKeyGroupInput: untyped
+
+    GetKeyGroupOutput: untyped
+
+    GetMonitoringSubscriptionInput: untyped
+
+    GetMonitoringSubscriptionOutput: untyped
+
+    GetOriginRequestPolicyConfigInput: untyped
+
+    GetOriginRequestPolicyConfigOutput: untyped
+
+    GetOriginRequestPolicyInput: untyped
+
+    GetOriginRequestPolicyOutput: untyped
+
+    GetPublicKeyConfigInput: untyped
+
+    GetPublicKeyConfigOutput: untyped
+
+    GetPublicKeyInput: untyped
+
+    GetPublicKeyOutput: untyped
+
+    GetRealtimeLogConfigInput: untyped
+
+    GetRealtimeLogConfigOutput: untyped
+
+    GetResponseHeadersPolicyConfigInput: untyped
+
+    GetResponseHeadersPolicyConfigOutput: untyped
+
+    GetResponseHeadersPolicyInput: untyped
+
+    GetResponseHeadersPolicyOutput: untyped
+
+    GetStreamingDistributionConfigInput: untyped
+
+    GetStreamingDistributionConfigOutput: untyped
+
+    GetStreamingDistributionInput: untyped
+
+    GetStreamingDistributionOutput: untyped
+
+    Headers: untyped
+
+    IllegalDelete: untyped
+
+    IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior: untyped
+
+    IllegalUpdate: untyped
+
+    InconsistentQuantities: untyped
+
+    InvalidArgument: untyped
+
+    InvalidDefaultRootObject: untyped
+
+    InvalidErrorCode: untyped
+
+    InvalidForwardCookies: untyped
+
+    InvalidFunctionAssociation: untyped
+
+    InvalidGeoRestrictionParameter: untyped
+
+    InvalidHeadersForS3Origin: untyped
+
+    InvalidIfMatchVersion: untyped
+
+    InvalidLambdaFunctionAssociation: untyped
+
+    InvalidLocationCode: untyped
+
+    InvalidMinimumProtocolVersion: untyped
+
+    InvalidOrigin: untyped
+
+    InvalidOriginAccessIdentity: untyped
+
+    InvalidOriginKeepaliveTimeout: untyped
+
+    InvalidOriginReadTimeout: untyped
+
+    InvalidProtocolSettings: untyped
+
+    InvalidQueryStringParameters: untyped
+
+    InvalidRelativePath: untyped
+
+    InvalidRequiredProtocol: untyped
+
+    InvalidResponseCode: untyped
+
+    InvalidTTLOrder: untyped
+
+    InvalidTagging: untyped
+
+    InvalidViewerCertificate: untyped
+
+    InvalidWebACLId: untyped
+
+    Invalidation: untyped
+
+    InvalidationBatch: untyped
+
+    InvalidationList: untyped
+
+    InvalidationSummary: untyped
+
+    KGKeyPairIds: untyped
+
+    KeyGroup: untyped
+
+    KeyGroupAlreadyExists: untyped
+
+    KeyGroupConfig: untyped
+
+    KeyGroupList: untyped
+
+    KeyGroupSummary: untyped
+
+    KeyPairIds: untyped
+
+    KinesisStreamConfig: untyped
+
+    LambdaFunctionAssociation: untyped
+
+    LambdaFunctionAssociations: untyped
+
+    ListCachePoliciesInput: untyped
+
+    ListCachePoliciesOutput: untyped
+
+    ListCloudFrontOriginAccessIdentitiesInput: untyped
+
+    ListCloudFrontOriginAccessIdentitiesOutput: untyped
+
+    ListConflictingAliasesInput: untyped
+
+    ListConflictingAliasesOutput: untyped
+
+    ListDistributionsByCachePolicyIdInput: untyped
+
+    ListDistributionsByCachePolicyIdOutput: untyped
+
+    ListDistributionsByKeyGroupInput: untyped
+
+    ListDistributionsByKeyGroupOutput: untyped
+
+    ListDistributionsByOriginRequestPolicyIdInput: untyped
+
+    ListDistributionsByOriginRequestPolicyIdOutput: untyped
+
+    ListDistributionsByRealtimeLogConfigInput: untyped
+
+    ListDistributionsByRealtimeLogConfigOutput: untyped
+
+    ListDistributionsByResponseHeadersPolicyIdInput: untyped
+
+    ListDistributionsByResponseHeadersPolicyIdOutput: untyped
+
+    ListDistributionsByWebACLIdInput: untyped
+
+    ListDistributionsByWebACLIdOutput: untyped
+
+    ListDistributionsInput: untyped
+
+    ListDistributionsOutput: untyped
+
+    ListFieldLevelEncryptionConfigsInput: untyped
+
+    ListFieldLevelEncryptionConfigsOutput: untyped
+
+    ListFieldLevelEncryptionProfilesInput: untyped
+
+    ListFieldLevelEncryptionProfilesOutput: untyped
+
+    ListFunctionsInput: untyped
+
+    ListFunctionsOutput: untyped
+
+    ListInvalidationsInput: untyped
+
+    ListInvalidationsOutput: untyped
+
+    ListKeyGroupsInput: untyped
+
+    ListKeyGroupsOutput: untyped
+
+    ListOriginRequestPoliciesInput: untyped
+
+    ListOriginRequestPoliciesOutput: untyped
+
+    ListPublicKeysInput: untyped
+
+    ListPublicKeysOutput: untyped
+
+    ListRealtimeLogConfigsInput: untyped
+
+    ListRealtimeLogConfigsOutput: untyped
+
+    ListResponseHeadersPoliciesInput: untyped
+
+    ListResponseHeadersPoliciesOutput: untyped
+
+    ListStreamingDistributionsInput: untyped
+
+    ListStreamingDistributionsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    LoggingConfig: untyped
+
+    MissingBody: untyped
+
+    MonitoringSubscription: untyped
+
+    NoSuchCachePolicy: untyped
+
+    NoSuchCloudFrontOriginAccessIdentity: untyped
+
+    NoSuchDistribution: untyped
+
+    NoSuchFieldLevelEncryptionConfig: untyped
+
+    NoSuchFieldLevelEncryptionProfile: untyped
+
+    NoSuchFunctionExists: untyped
+
+    NoSuchInvalidation: untyped
+
+    NoSuchOrigin: untyped
+
+    NoSuchOriginRequestPolicy: untyped
+
+    NoSuchPublicKey: untyped
+
+    NoSuchRealtimeLogConfig: untyped
+
+    NoSuchResource: untyped
+
+    NoSuchResponseHeadersPolicy: untyped
+
+    NoSuchStreamingDistribution: untyped
+
+    Origin: untyped
+
+    OriginCustomHeader: untyped
+
+    OriginGroup: untyped
+
+    OriginGroupFailoverCriteria: untyped
+
+    OriginGroupMember: untyped
+
+    OriginGroupMembers: untyped
+
+    OriginGroups: untyped
+
+    OriginRequestPolicy: untyped
+
+    OriginRequestPolicyAlreadyExists: untyped
+
+    OriginRequestPolicyConfig: untyped
+
+    OriginRequestPolicyCookiesConfig: untyped
+
+    OriginRequestPolicyHeadersConfig: untyped
+
+    OriginRequestPolicyInUse: untyped
+
+    OriginRequestPolicyList: untyped
+
+    OriginRequestPolicyQueryStringsConfig: untyped
+
+    OriginRequestPolicySummary: untyped
+
+    OriginShield: untyped
+
+    OriginSslProtocols: untyped
+
+    Origins: untyped
+
+    ParametersInCacheKeyAndForwardedToOrigin: untyped
+
+    Paths: untyped
+
+    PreconditionFailed: untyped
+
+    PublicKey: untyped
+
+    PublicKeyAlreadyExists: untyped
+
+    PublicKeyConfig: untyped
+
+    PublicKeyInUse: untyped
+
+    PublicKeyList: untyped
+
+    PublicKeySummary: untyped
+
+    PublishFunctionInput: untyped
+
+    PublishFunctionOutput: untyped
+
+    QueryArgProfile: untyped
+
+    QueryArgProfileConfig: untyped
+
+    QueryArgProfileEmpty: untyped
+
+    QueryArgProfiles: untyped
+
+    QueryStringCacheKeys: untyped
+
+    QueryStringNames: untyped
+
+    RealtimeLogConfig: untyped
+
+    RealtimeLogConfigAlreadyExists: untyped
+
+    RealtimeLogConfigInUse: untyped
+
+    RealtimeLogConfigOwnerMismatch: untyped
+
+    RealtimeLogConfigs: untyped
+
+    RealtimeMetricsSubscriptionConfig: untyped
+
+    ResourceInUse: untyped
+
+    ResponseHeadersPolicy: untyped
+
+    ResponseHeadersPolicyAccessControlAllowHeaders: untyped
+
+    ResponseHeadersPolicyAccessControlAllowMethods: untyped
+
+    ResponseHeadersPolicyAccessControlAllowOrigins: untyped
+
+    ResponseHeadersPolicyAccessControlExposeHeaders: untyped
+
+    ResponseHeadersPolicyAlreadyExists: untyped
+
+    ResponseHeadersPolicyConfig: untyped
+
+    ResponseHeadersPolicyContentSecurityPolicy: untyped
+
+    ResponseHeadersPolicyContentTypeOptions: untyped
+
+    ResponseHeadersPolicyCorsConfig: untyped
+
+    ResponseHeadersPolicyCustomHeader: untyped
+
+    ResponseHeadersPolicyCustomHeadersConfig: untyped
+
+    ResponseHeadersPolicyFrameOptions: untyped
+
+    ResponseHeadersPolicyInUse: untyped
+
+    ResponseHeadersPolicyList: untyped
+
+    ResponseHeadersPolicyReferrerPolicy: untyped
+
+    ResponseHeadersPolicySecurityHeadersConfig: untyped
+
+    ResponseHeadersPolicyStrictTransportSecurity: untyped
+
+    ResponseHeadersPolicySummary: untyped
+
+    ResponseHeadersPolicyXSSProtection: untyped
+
+    Restrictions: untyped
+
+    S3Origin: untyped
+
+    S3OriginConfig: untyped
+
+    Signer: untyped
+
+    StatusCodes: untyped
+
+    StreamingDistribution: untyped
+
+    StreamingDistributionAlreadyExists: untyped
+
+    StreamingDistributionConfig: untyped
+
+    StreamingDistributionConfigWithTags: untyped
+
+    StreamingDistributionList: untyped
+
+    StreamingDistributionNotDisabled: untyped
+
+    StreamingDistributionSummary: untyped
+
+    StreamingLoggingConfig: untyped
+
+    Tag: untyped
+
+    TagKeys: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    Tags: untyped
+
+    TestFunctionFailed: untyped
+
+    TestFunctionInput: untyped
+
+    TestFunctionOutput: untyped
+
+    TestResult: untyped
+
+    TooManyCacheBehaviors: untyped
+
+    TooManyCachePolicies: untyped
+
+    TooManyCertificates: untyped
+
+    TooManyCloudFrontOriginAccessIdentities: untyped
+
+    TooManyCookieNamesInWhiteList: untyped
+
+    TooManyCookiesInCachePolicy: untyped
+
+    TooManyCookiesInOriginRequestPolicy: untyped
+
+    TooManyCustomHeadersInResponseHeadersPolicy: untyped
+
+    TooManyDistributionCNAMEs: untyped
+
+    TooManyDistributions: untyped
+
+    TooManyDistributionsAssociatedToCachePolicy: untyped
+
+    TooManyDistributionsAssociatedToFieldLevelEncryptionConfig: untyped
+
+    TooManyDistributionsAssociatedToKeyGroup: untyped
+
+    TooManyDistributionsAssociatedToOriginRequestPolicy: untyped
+
+    TooManyDistributionsAssociatedToResponseHeadersPolicy: untyped
+
+    TooManyDistributionsWithFunctionAssociations: untyped
+
+    TooManyDistributionsWithLambdaAssociations: untyped
+
+    TooManyDistributionsWithSingleFunctionARN: untyped
+
+    TooManyFieldLevelEncryptionConfigs: untyped
+
+    TooManyFieldLevelEncryptionContentTypeProfiles: untyped
+
+    TooManyFieldLevelEncryptionEncryptionEntities: untyped
+
+    TooManyFieldLevelEncryptionFieldPatterns: untyped
+
+    TooManyFieldLevelEncryptionProfiles: untyped
+
+    TooManyFieldLevelEncryptionQueryArgProfiles: untyped
+
+    TooManyFunctionAssociations: untyped
+
+    TooManyFunctions: untyped
+
+    TooManyHeadersInCachePolicy: untyped
+
+    TooManyHeadersInForwardedValues: untyped
+
+    TooManyHeadersInOriginRequestPolicy: untyped
+
+    TooManyInvalidationsInProgress: untyped
+
+    TooManyKeyGroups: untyped
+
+    TooManyKeyGroupsAssociatedToDistribution: untyped
+
+    TooManyLambdaFunctionAssociations: untyped
+
+    TooManyOriginCustomHeaders: untyped
+
+    TooManyOriginGroupsPerDistribution: untyped
+
+    TooManyOriginRequestPolicies: untyped
+
+    TooManyOrigins: untyped
+
+    TooManyPublicKeys: untyped
+
+    TooManyPublicKeysInKeyGroup: untyped
+
+    TooManyQueryStringParameters: untyped
+
+    TooManyQueryStringsInCachePolicy: untyped
+
+    TooManyQueryStringsInOriginRequestPolicy: untyped
+
+    TooManyRealtimeLogConfigs: untyped
+
+    TooManyResponseHeadersPolicies: untyped
+
+    TooManyStreamingDistributionCNAMEs: untyped
+
+    TooManyStreamingDistributions: untyped
+
+    TooManyTrustedSigners: untyped
+
+    TrustedKeyGroupDoesNotExist: untyped
+
+    TrustedKeyGroups: untyped
+
+    TrustedSignerDoesNotExist: untyped
+
+    TrustedSigners: untyped
+
+    UnsupportedOperation: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateCachePolicyInput: untyped
+
+    UpdateCachePolicyOutput: untyped
+
+    UpdateCloudFrontOriginAccessIdentityInput: untyped
+
+    UpdateCloudFrontOriginAccessIdentityOutput: untyped
+
+    UpdateDistributionInput: untyped
+
+    UpdateDistributionOutput: untyped
+
+    UpdateFieldLevelEncryptionConfigInput: untyped
+
+    UpdateFieldLevelEncryptionConfigOutput: untyped
+
+    UpdateFieldLevelEncryptionProfileInput: untyped
+
+    UpdateFieldLevelEncryptionProfileOutput: untyped
+
+    UpdateFunctionInput: untyped
+
+    UpdateFunctionOutput: untyped
+
+    UpdateKeyGroupInput: untyped
+
+    UpdateKeyGroupOutput: untyped
+
+    UpdateOriginRequestPolicyInput: untyped
+
+    UpdateOriginRequestPolicyOutput: untyped
+
+    UpdatePublicKeyInput: untyped
+
+    UpdatePublicKeyOutput: untyped
+
+    UpdateRealtimeLogConfigInput: untyped
+
+    UpdateRealtimeLogConfigOutput: untyped
+
+    UpdateResponseHeadersPolicyInput: untyped
+
+    UpdateResponseHeadersPolicyOutput: untyped
+
+    UpdateStreamingDistributionInput: untyped
+
+    UpdateStreamingDistributionOutput: untyped
+
+    ViewerCertificate: untyped
+
+  end
+end

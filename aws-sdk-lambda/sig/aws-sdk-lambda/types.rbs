@@ -1,0 +1,386 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::Lambda
+  module Types
+
+    AccountLimit: untyped
+
+    AccountUsage: untyped
+
+    AddLayerVersionPermissionInput: untyped
+
+    AddLayerVersionPermissionOutput: untyped
+
+    AddPermissionInput: untyped
+
+    AddPermissionOutput: untyped
+
+    AliasConfiguration: untyped
+
+    AliasRoutingConfiguration: untyped
+
+    AllowedPublishers: untyped
+
+    CodeSigningConfig: untyped
+
+    CodeSigningConfigNotFoundException: untyped
+
+    CodeSigningPolicies: untyped
+
+    CodeStorageExceededException: untyped
+
+    CodeVerificationFailedException: untyped
+
+    Concurrency: untyped
+
+    CreateAliasInput: untyped
+
+    CreateAliasOutput: untyped
+
+    CreateCodeSigningConfigInput: untyped
+
+    CreateCodeSigningConfigOutput: untyped
+
+    CreateEventSourceMappingInput: untyped
+
+    CreateEventSourceMappingOutput: untyped
+
+    CreateFunctionInput: untyped
+
+    CreateFunctionOutput: untyped
+
+    DeadLetterConfig: untyped
+
+    DeleteAliasInput: untyped
+
+    DeleteAliasOutput: untyped
+
+    DeleteCodeSigningConfigInput: untyped
+
+    DeleteCodeSigningConfigOutput: untyped
+
+    DeleteEventSourceMappingInput: untyped
+
+    DeleteEventSourceMappingOutput: untyped
+
+    DeleteFunctionCodeSigningConfigInput: untyped
+
+    DeleteFunctionCodeSigningConfigOutput: untyped
+
+    DeleteFunctionConcurrencyInput: untyped
+
+    DeleteFunctionConcurrencyOutput: untyped
+
+    DeleteFunctionEventInvokeConfigInput: untyped
+
+    DeleteFunctionEventInvokeConfigOutput: untyped
+
+    DeleteFunctionInput: untyped
+
+    DeleteFunctionOutput: untyped
+
+    DeleteLayerVersionInput: untyped
+
+    DeleteLayerVersionOutput: untyped
+
+    DeleteProvisionedConcurrencyConfigInput: untyped
+
+    DeleteProvisionedConcurrencyConfigOutput: untyped
+
+    DestinationConfig: untyped
+
+    EC2AccessDeniedException: untyped
+
+    EC2ThrottledException: untyped
+
+    EC2UnexpectedException: untyped
+
+    EFSIOException: untyped
+
+    EFSMountConnectivityException: untyped
+
+    EFSMountFailureException: untyped
+
+    EFSMountTimeoutException: untyped
+
+    ENILimitReachedException: untyped
+
+    Environment: untyped
+
+    EnvironmentError: untyped
+
+    EnvironmentResponse: untyped
+
+    EventSourceMappingConfiguration: untyped
+
+    FileSystemConfig: untyped
+
+    FunctionCode: untyped
+
+    FunctionCodeLocation: untyped
+
+    FunctionConfiguration: untyped
+
+    FunctionEventInvokeConfig: untyped
+
+    GetAccountSettingsInput: untyped
+
+    GetAccountSettingsOutput: untyped
+
+    GetAliasInput: untyped
+
+    GetAliasOutput: untyped
+
+    GetCodeSigningConfigInput: untyped
+
+    GetCodeSigningConfigOutput: untyped
+
+    GetEventSourceMappingInput: untyped
+
+    GetEventSourceMappingOutput: untyped
+
+    GetFunctionCodeSigningConfigInput: untyped
+
+    GetFunctionCodeSigningConfigOutput: untyped
+
+    GetFunctionConcurrencyInput: untyped
+
+    GetFunctionConcurrencyOutput: untyped
+
+    GetFunctionConfigurationInput: untyped
+
+    GetFunctionConfigurationOutput: untyped
+
+    GetFunctionEventInvokeConfigInput: untyped
+
+    GetFunctionEventInvokeConfigOutput: untyped
+
+    GetFunctionInput: untyped
+
+    GetFunctionOutput: untyped
+
+    GetLayerVersionByArnInput: untyped
+
+    GetLayerVersionByArnOutput: untyped
+
+    GetLayerVersionInput: untyped
+
+    GetLayerVersionOutput: untyped
+
+    GetLayerVersionPolicyInput: untyped
+
+    GetLayerVersionPolicyOutput: untyped
+
+    GetPolicyInput: untyped
+
+    GetPolicyOutput: untyped
+
+    GetProvisionedConcurrencyConfigInput: untyped
+
+    GetProvisionedConcurrencyConfigOutput: untyped
+
+    ImageConfig: untyped
+
+    ImageConfigError: untyped
+
+    ImageConfigResponse: untyped
+
+    InvalidCodeSignatureException: untyped
+
+    InvalidParameterValueException: untyped
+
+    InvalidRequestContentException: untyped
+
+    InvalidRuntimeException: untyped
+
+    InvalidSecurityGroupIDException: untyped
+
+    InvalidSubnetIDException: untyped
+
+    InvalidZipFileException: untyped
+
+    InvokeAsyncInput: untyped
+
+    InvokeAsyncOutput: untyped
+
+    InvokeInput: untyped
+
+    InvokeOutput: untyped
+
+    KMSAccessDeniedException: untyped
+
+    KMSDisabledException: untyped
+
+    KMSInvalidStateException: untyped
+
+    KMSNotFoundException: untyped
+
+    Layer: untyped
+
+    LayerVersionContentInput: untyped
+
+    LayerVersionContentOutput: untyped
+
+    LayerVersionsListItem: untyped
+
+    LayersListItem: untyped
+
+    ListAliasesInput: untyped
+
+    ListAliasesOutput: untyped
+
+    ListCodeSigningConfigsInput: untyped
+
+    ListCodeSigningConfigsOutput: untyped
+
+    ListEventSourceMappingsInput: untyped
+
+    ListEventSourceMappingsOutput: untyped
+
+    ListFunctionEventInvokeConfigsInput: untyped
+
+    ListFunctionEventInvokeConfigsOutput: untyped
+
+    ListFunctionsByCodeSigningConfigInput: untyped
+
+    ListFunctionsByCodeSigningConfigOutput: untyped
+
+    ListFunctionsInput: untyped
+
+    ListFunctionsOutput: untyped
+
+    ListLayerVersionsInput: untyped
+
+    ListLayerVersionsOutput: untyped
+
+    ListLayersInput: untyped
+
+    ListLayersOutput: untyped
+
+    ListProvisionedConcurrencyConfigsInput: untyped
+
+    ListProvisionedConcurrencyConfigsOutput: untyped
+
+    ListTagsInput: untyped
+
+    ListTagsOutput: untyped
+
+    ListVersionsByFunctionInput: untyped
+
+    ListVersionsByFunctionOutput: untyped
+
+    OnFailure: untyped
+
+    OnSuccess: untyped
+
+    PolicyLengthExceededException: untyped
+
+    PreconditionFailedException: untyped
+
+    ProvisionedConcurrencyConfigListItem: untyped
+
+    ProvisionedConcurrencyConfigNotFoundException: untyped
+
+    PublishLayerVersionInput: untyped
+
+    PublishLayerVersionOutput: untyped
+
+    PublishVersionInput: untyped
+
+    PublishVersionOutput: untyped
+
+    PutFunctionCodeSigningConfigInput: untyped
+
+    PutFunctionCodeSigningConfigOutput: untyped
+
+    PutFunctionConcurrencyInput: untyped
+
+    PutFunctionConcurrencyOutput: untyped
+
+    PutFunctionEventInvokeConfigInput: untyped
+
+    PutFunctionEventInvokeConfigOutput: untyped
+
+    PutProvisionedConcurrencyConfigInput: untyped
+
+    PutProvisionedConcurrencyConfigOutput: untyped
+
+    RemoveLayerVersionPermissionInput: untyped
+
+    RemoveLayerVersionPermissionOutput: untyped
+
+    RemovePermissionInput: untyped
+
+    RemovePermissionOutput: untyped
+
+    RequestTooLargeException: untyped
+
+    ResourceConflictException: untyped
+
+    ResourceInUseException: untyped
+
+    ResourceNotFoundException: untyped
+
+    ResourceNotReadyException: untyped
+
+    SelfManagedEventSource: untyped
+
+    ServiceException: untyped
+
+    SourceAccessConfiguration: untyped
+
+    SubnetIPAddressLimitReachedException: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TooManyRequestsException: untyped
+
+    TracingConfig: untyped
+
+    TracingConfigResponse: untyped
+
+    UnsupportedMediaTypeException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAliasInput: untyped
+
+    UpdateAliasOutput: untyped
+
+    UpdateCodeSigningConfigInput: untyped
+
+    UpdateCodeSigningConfigOutput: untyped
+
+    UpdateEventSourceMappingInput: untyped
+
+    UpdateEventSourceMappingOutput: untyped
+
+    UpdateFunctionCodeInput: untyped
+
+    UpdateFunctionCodeOutput: untyped
+
+    UpdateFunctionConfigurationInput: untyped
+
+    UpdateFunctionConfigurationOutput: untyped
+
+    UpdateFunctionEventInvokeConfigInput: untyped
+
+    UpdateFunctionEventInvokeConfigOutput: untyped
+
+    VpcConfig: untyped
+
+    VpcConfigResponse: untyped
+
+  end
+end

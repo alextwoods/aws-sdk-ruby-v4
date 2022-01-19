@@ -1,0 +1,72 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::Sts
+  module Types
+
+    AssumeRoleInput: untyped
+
+    AssumeRoleOutput: untyped
+
+    AssumeRoleWithSAMLInput: untyped
+
+    AssumeRoleWithSAMLOutput: untyped
+
+    AssumeRoleWithWebIdentityInput: untyped
+
+    AssumeRoleWithWebIdentityOutput: untyped
+
+    AssumedRoleUser: untyped
+
+    Credentials: untyped
+
+    DecodeAuthorizationMessageInput: untyped
+
+    DecodeAuthorizationMessageOutput: untyped
+
+    ExpiredTokenException: untyped
+
+    FederatedUser: untyped
+
+    GetAccessKeyInfoInput: untyped
+
+    GetAccessKeyInfoOutput: untyped
+
+    GetCallerIdentityInput: untyped
+
+    GetCallerIdentityOutput: untyped
+
+    GetFederationTokenInput: untyped
+
+    GetFederationTokenOutput: untyped
+
+    GetSessionTokenInput: untyped
+
+    GetSessionTokenOutput: untyped
+
+    IDPCommunicationErrorException: untyped
+
+    IDPRejectedClaimException: untyped
+
+    InvalidAuthorizationMessageException: untyped
+
+    InvalidIdentityTokenException: untyped
+
+    MalformedPolicyDocumentException: untyped
+
+    PackedPolicyTooLargeException: untyped
+
+    PolicyDescriptorType: untyped
+
+    RegionDisabledException: untyped
+
+    Tag: untyped
+
+  end
+end

@@ -68,9 +68,9 @@ tasks.register("generate-smithy-build") {
                     .withMember("plugins", Node.objectNode()
                             .withMember("ruby-codegen", Node.objectNodeBuilder()
                                     .withMember("service", service.id.toString())
-                                    .withMember("module", sdkId.capitalize())
+                                    .withMember("module", "AWS::" + sdkId.capitalize())
                                     .withMember("gemspec", Node.objectNodeBuilder()
-                                        .withMember("gemName", sdkId.toLowerCase())
+                                        .withMember("gemName", "aws-sdk-" + sdkId.toLowerCase())
                                         .withMember("gemVersion", "4.0.0.pre")
                                         .withMember("gemSummary", "TEST SERVICE")
                                         .build())
@@ -92,9 +92,19 @@ tasks["build"]
         .finalizedBy(tasks["buildSdk"])
 
 // ensure built artifacts are put into the SDK's folders
-tasks.register<Copy>("copyRestJsonGem") {
+tasks.register<Copy>("copyEc2Gem") {
     //TODO: This needs to be dynamic for all services...
-    from("$buildDir/smithyprojections/sdk-codegen/lambda.2015-03-31/ruby-codegen")
+    from("$buildDir/smithyprojections/sdk-codegen/ec2.2016-09-15/ruby-codegen")
+    into("$buildDir/../../../")
+}
+tasks.register<Copy>("copyJsonGem") {
+    //TODO: This needs to be dynamic for all services...
+    from("$buildDir/smithyprojections/sdk-codegen/sso.2019-06-10/ruby-codegen")
+    into("$buildDir/../../../")
+}
+tasks.register<Copy>("copyJson10Gem") {
+    //TODO: This needs to be dynamic for all services...
+    from("$buildDir/smithyprojections/sdk-codegen/dynamodb.2012-08-10/ruby-codegen")
     into("$buildDir/../../../")
 }
 tasks.register<Copy>("copyQueryGem") {
@@ -102,4 +112,17 @@ tasks.register<Copy>("copyQueryGem") {
     from("$buildDir/smithyprojections/sdk-codegen/sts.2011-06-15/ruby-codegen")
     into("$buildDir/../../../")
 }
-tasks["buildSdk"].finalizedBy(tasks["copyRestJsonGem"], tasks["copyQueryGem"])
+tasks.register<Copy>("copyRestJsonGem") {
+    //TODO: This needs to be dynamic for all services...
+    from("$buildDir/smithyprojections/sdk-codegen/lambda.2015-03-31/ruby-codegen")
+    into("$buildDir/../../../")
+}
+tasks.register<Copy>("copyRestXmlGem") {
+    //TODO: This needs to be dynamic for all services...
+    from("$buildDir/smithyprojections/sdk-codegen/cloudfront.2020-05-31/ruby-codegen")
+    into("$buildDir/../../../")
+}
+tasks["buildSdk"].finalizedBy(
+  tasks["copyEc2Gem"], tasks["copyJsonGem"], tasks["copyJson10Gem"],
+  tasks["copyQueryGem"], tasks["copyRestJsonGem"], tasks["copyRestXmlGem"]
+)

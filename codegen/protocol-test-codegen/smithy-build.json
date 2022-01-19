@@ -1,23 +1,44 @@
 {
   "version": "1.0",
   "projections": {
-    "aws-protocoltests-restjson": {
+    "aws-protocoltests-json10": {
       "transforms": [
         {
           "name": "includeServices",
           "args": {
-            "services": ["aws.protocoltests.restjson#RestJson"]
+            "services": ["aws.protocoltests.json10#JsonRpc10"]
           }
         }
       ],
       "plugins": {
         "ruby-codegen": {
-          "service": "aws.protocoltests.restjson#RestJson",
-          "module": "RestJson",
+          "service": "aws.protocoltests.json10#JsonRpc10",
+          "module": "JsonRpc10",
           "gemspec": {
-            "gemName": "rest_json",
+            "gemName": "json_rpc_10",
             "gemVersion": "0.0.1",
-            "gemSummary": "RestJson Protocol Test Service"
+            "gemSummary": "JSON RPC 1.0 Protocol Test Service"
+          }
+        }
+      }
+    },
+    "aws-protocoltests-json": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["aws.protocoltests.json#JsonProtocol"]
+          }
+        }
+      ],
+      "plugins": {
+        "ruby-codegen": {
+          "service": "aws.protocoltests.json#JsonProtocol",
+          "module": "JsonProtocol",
+          "gemspec": {
+            "gemName": "json_protocol",
+            "gemVersion": "0.0.1",
+            "gemSummary": "JSON Protocol Test Service"
           }
         }
       }
@@ -38,7 +59,70 @@
           "gemspec": {
             "gemName": "aws_query",
             "gemVersion": "0.0.1",
-            "gemSummary": "AWS Query Protocol Test Service"
+            "gemSummary": "Aws Query Protocol Test Service"
+          }
+        }
+      }
+    },
+    "aws-protocoltests-ec2": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["aws.protocoltests.ec2#AwsEc2"]
+          }
+        }
+      ],
+      "plugins": {
+        "ruby-codegen": {
+          "service": "aws.protocoltests.ec2#AwsEc2",
+          "module": "AwsEc2",
+          "gemspec": {
+            "gemName": "aws_ec2",
+            "gemVersion": "0.0.1",
+            "gemSummary": "Aws Ec2 Protocol Test Service"
+          }
+        }
+      }
+    },
+    "aws-protocoltests-restjson": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["aws.protocoltests.restjson#RestJson"]
+          }
+        }
+      ],
+      "plugins": {
+        "ruby-codegen": {
+          "service": "aws.protocoltests.restjson#RestJson",
+          "module": "RestJson",
+          "gemspec": {
+            "gemName": "rest_json",
+            "gemVersion": "0.0.1",
+            "gemSummary": "Rest Json Protocol Test Service"
+          }
+        }
+      }
+    },
+    "aws-protocoltests-restxml": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["aws.protocoltests.restxml#RestXml"]
+          }
+        }
+      ],
+      "plugins": {
+        "ruby-codegen": {
+          "service": "aws.protocoltests.restxml#RestXml",
+          "module": "RestXml",
+          "gemspec": {
+            "gemName": "rest_xml",
+            "gemVersion": "0.0.1",
+            "gemSummary": "Rest Xml Protocol Test Service"
           }
         }
       }
