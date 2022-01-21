@@ -135,14 +135,7 @@ public class BuilderGenerator extends HttpBuilderGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer
-                    .openBlock("$Lcase", dataSetter)
-                    .write("when $L == ::Float::INFINITY then 'Infinity'", inputGetter)
-                    .write("when $L == -::Float::INFINITY then '-Infinity'", inputGetter)
-                    .write("when $1L&.nan? then 'NaN'", inputGetter)
-                    .write("else $L", inputGetter)
-                    .closeBlock("end");
-
+            writer.write("$1LSeahorse::NumberHelper.serialize($2L) unless $2L.nil?", dataSetter, inputGetter);
         }
 
         @Override
@@ -296,6 +289,7 @@ public class BuilderGenerator extends HttpBuilderGeneratorBase {
         private void defaultComplexSerializer(Shape shape) {
             writer
                     .write("http_req.headers['Content-Type'] = 'application/json'")
+                    .write("data = {}")
                     .write("data = Builders::$1L.build($2L) unless $2L.nil?", symbolProvider.toSymbol(shape).getName(),
                             inputGetter)
                     .write("http_req.body = StringIO.new(Seahorse::JSON.dump(data))");

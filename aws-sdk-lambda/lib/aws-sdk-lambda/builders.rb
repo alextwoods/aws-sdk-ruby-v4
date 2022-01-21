@@ -92,12 +92,7 @@ module AWS::Lambda
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = case
-            when value == ::Float::INFINITY then 'Infinity'
-            when value == -::Float::INFINITY then '-Infinity'
-            when value&.nan? then 'NaN'
-            else value
-          end
+          data[key] = Seahorse::NumberHelper.serialize(value)
         end
         data
       end
@@ -765,11 +760,11 @@ module AWS::Lambda
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
+        http_req.headers['Content-Type'] = 'application/octet-stream'
+        http_req.body = StringIO.new(input[:payload] || '')
         http_req.headers['X-Amz-Invocation-Type'] = input[:invocation_type] unless input[:invocation_type].nil? || input[:invocation_type].empty?
         http_req.headers['X-Amz-Log-Type'] = input[:log_type] unless input[:log_type].nil? || input[:log_type].empty?
         http_req.headers['X-Amz-Client-Context'] = input[:client_context] unless input[:client_context].nil? || input[:client_context].empty?
-        http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:payload] || '')
       end
     end
 

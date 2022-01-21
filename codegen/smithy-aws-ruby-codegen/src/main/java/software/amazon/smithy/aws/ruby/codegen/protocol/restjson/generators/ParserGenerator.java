@@ -134,14 +134,7 @@ public class ParserGenerator extends HttpParserGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer
-                    .openBlock("$Lcase $L", dataSetter, jsonGetter)
-                    .write("when 'Infinity' then ::Float::INFINITY")
-                    .write("when '-Infinity' then -::Float::INFINITY")
-                    .write("when 'NaN' then ::Float::NAN")
-                    .write("else $L", jsonGetter)
-                    .closeBlock("end");
-
+            writer.write("$LSeahorse::NumberHelper.deserialize($L)", dataSetter, jsonGetter);
         }
 
         @Override

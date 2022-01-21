@@ -48,7 +48,7 @@ public class StubsGenerator extends HttpStubsGeneratorBase {
     @Override
     protected void renderPayloadBodyStub(OperationShape operation, Shape outputShape, MemberShape payloadMember,
                                          Shape target) {
-        String inputGetter = "stub['" + payloadMember.getMemberName() + "']";
+        String inputGetter = "stub[:" + symbolProvider.toMemberName(payloadMember) + "]";
         target.accept(new PayloadMemberSerializer(payloadMember, inputGetter));
     }
 
@@ -164,14 +164,7 @@ public class StubsGenerator extends HttpStubsGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer
-                    .openBlock("$Lcase", dataSetter)
-                    .write("when $L == ::Float::INFINITY then 'Infinity'", inputGetter)
-                    .write("when $L == -::Float::INFINITY then '-Infinity'", inputGetter)
-                    .write("when $1L&.nan? then 'NaN'", inputGetter)
-                    .write("else $L", inputGetter)
-                    .closeBlock("end");
-
+            writer.write("$LSeahorse::NumberHelper.serialize($L)", dataSetter, inputGetter);
         }
 
         @Override

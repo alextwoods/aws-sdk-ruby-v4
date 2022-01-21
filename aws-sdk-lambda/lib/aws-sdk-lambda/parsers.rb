@@ -139,12 +139,7 @@ module AWS::Lambda
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = case value
-            when 'Infinity' then ::Float::INFINITY
-            when '-Infinity' then -::Float::INFINITY
-            when 'NaN' then ::Float::NAN
-            else value
-          end
+          data[key] = Seahorse::NumberHelper.deserialize(value)
         end
         data
       end

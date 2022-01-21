@@ -108,12 +108,7 @@ module AWS::Lambda
       def self.stub(stub = {})
         data = {}
         stub.each do |key, value|
-          data[key] = case
-            when value == ::Float::INFINITY then 'Infinity'
-            when value == -::Float::INFINITY then '-Infinity'
-            when value&.nan? then 'NaN'
-            else value
-          end
+          data[key] = Seahorse::NumberHelper.serialize(value)
         end
         data
       end
