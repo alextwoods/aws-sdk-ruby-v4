@@ -163,7 +163,7 @@ public class ParserGenerator extends HttpParserGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("$1LBase64::decode64($2L)$3L", dataSetter, jsonGetter, checkRequired());
+            writer.write("$1LBase64::decode64($2L) unless $2L.nil?", dataSetter, jsonGetter);
             return null;
         }
 
