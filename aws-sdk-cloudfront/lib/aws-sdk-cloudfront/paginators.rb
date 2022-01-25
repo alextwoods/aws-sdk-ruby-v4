@@ -27,13 +27,13 @@ module AWS::Cloudfront
           @prev_token = params[:marker]
           response = @client.list_cloud_front_origin_access_identities(params, @options)
           e.yield(response)
-          output_token = response.cloud_front_origin_access_identity_list.next_marker
+          output_token = response.cloud_front_origin_access_identity_list&.next_marker
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(marker: output_token)
             response = @client.list_cloud_front_origin_access_identities(params, @options)
             e.yield(response)
-            output_token = response.cloud_front_origin_access_identity_list.next_marker
+            output_token = response.cloud_front_origin_access_identity_list&.next_marker
           end
         end
       end
@@ -43,7 +43,7 @@ module AWS::Cloudfront
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.cloud_front_origin_access_identity_list.items.each do |item|
+            page.cloud_front_origin_access_identity_list&.items.each do |item|
               e.yield(item)
             end
           end
@@ -68,13 +68,13 @@ module AWS::Cloudfront
           @prev_token = params[:marker]
           response = @client.list_distributions(params, @options)
           e.yield(response)
-          output_token = response.distribution_list.next_marker
+          output_token = response.distribution_list&.next_marker
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(marker: output_token)
             response = @client.list_distributions(params, @options)
             e.yield(response)
-            output_token = response.distribution_list.next_marker
+            output_token = response.distribution_list&.next_marker
           end
         end
       end
@@ -84,7 +84,7 @@ module AWS::Cloudfront
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.distribution_list.items.each do |item|
+            page.distribution_list&.items.each do |item|
               e.yield(item)
             end
           end
@@ -109,13 +109,13 @@ module AWS::Cloudfront
           @prev_token = params[:marker]
           response = @client.list_invalidations(params, @options)
           e.yield(response)
-          output_token = response.invalidation_list.next_marker
+          output_token = response.invalidation_list&.next_marker
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(marker: output_token)
             response = @client.list_invalidations(params, @options)
             e.yield(response)
-            output_token = response.invalidation_list.next_marker
+            output_token = response.invalidation_list&.next_marker
           end
         end
       end
@@ -125,7 +125,7 @@ module AWS::Cloudfront
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.invalidation_list.items.each do |item|
+            page.invalidation_list&.items.each do |item|
               e.yield(item)
             end
           end
@@ -150,13 +150,13 @@ module AWS::Cloudfront
           @prev_token = params[:marker]
           response = @client.list_streaming_distributions(params, @options)
           e.yield(response)
-          output_token = response.streaming_distribution_list.next_marker
+          output_token = response.streaming_distribution_list&.next_marker
 
           until output_token.nil? || @prev_token == output_token
             params = params.merge(marker: output_token)
             response = @client.list_streaming_distributions(params, @options)
             e.yield(response)
-            output_token = response.streaming_distribution_list.next_marker
+            output_token = response.streaming_distribution_list&.next_marker
           end
         end
       end
@@ -166,7 +166,7 @@ module AWS::Cloudfront
       def items
         Enumerator.new do |e|
           pages.each do |page|
-            page.streaming_distribution_list.items.each do |item|
+            page.streaming_distribution_list&.items.each do |item|
               e.yield(item)
             end
           end

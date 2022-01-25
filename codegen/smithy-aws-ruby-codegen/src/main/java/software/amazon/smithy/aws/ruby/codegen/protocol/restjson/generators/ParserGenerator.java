@@ -55,14 +55,15 @@ public class ParserGenerator extends HttpParserGeneratorBase {
     protected void renderUnionMemberParser(UnionShape s, MemberShape member) {
         Shape target = model.expectShape(member.getTarget());
         target.accept(new MemberDeserializer(member, "value = ",
-                "value"));
+                "value", false));
     }
 
     @Override
     protected void renderMapMemberParser(MapShape s) {
         Shape valueTarget = model.expectShape(s.getValue().getTarget());
         valueTarget
-                .accept(new MemberDeserializer(s.getValue(), "data[key] = ", "value"));
+                .accept(new MemberDeserializer(s.getValue(),
+                        "data[key] = ", "value", !s.hasTrait(SparseTrait.class)));
     }
 
     @Override
@@ -70,7 +71,8 @@ public class ParserGenerator extends HttpParserGeneratorBase {
         Shape memberTarget =
                 model.expectShape(s.getMember().getTarget());
         memberTarget
-                .accept(new MemberDeserializer(s.getMember(), "", "value"));
+                .accept(new MemberDeserializer(s.getMember(),
+                        "", "value", !s.hasTrait(SparseTrait.class)));
     }
 
     @Override
@@ -78,7 +80,7 @@ public class ParserGenerator extends HttpParserGeneratorBase {
         Shape memberTarget =
                 model.expectShape(s.getMember().getTarget());
         memberTarget
-                .accept(new MemberDeserializer(s.getMember(), "", "value"));
+                .accept(new MemberDeserializer(s.getMember(), "", "value", true));
     }
 
     @Override
@@ -106,7 +108,7 @@ public class ParserGenerator extends HttpParserGeneratorBase {
             }
 
             String valueGetter = "map['" + jsonName + "']";
-            target.accept(new MemberDeserializer(member, dataSetter, valueGetter));
+            target.accept(new MemberDeserializer(member, dataSetter, valueGetter, false));
         });
     }
 
@@ -116,12 +118,22 @@ public class ParserGenerator extends HttpParserGeneratorBase {
         private final String jsonGetter;
         private final String dataSetter;
         private final MemberShape memberShape;
+        private final boolean checkRequired;
 
         MemberDeserializer(MemberShape memberShape,
-                           String dataSetter, String jsonGetter) {
+                           String dataSetter, String jsonGetter, boolean checkRequired) {
             this.jsonGetter = jsonGetter;
             this.dataSetter = dataSetter;
             this.memberShape = memberShape;
+            this.checkRequired = checkRequired;
+        }
+
+        private String checkRequired() {
+            if (this.checkRequired) {
+                return " unless " + jsonGetter + ".nil?";
+            } else {
+                return "";
+            }
         }
 
         /**
@@ -129,12 +141,12 @@ public class ParserGenerator extends HttpParserGeneratorBase {
          */
         @Override
         protected Void getDefault(Shape shape) {
-            writer.write("$L$L", dataSetter, jsonGetter);
+            writer.write("$L$L$L", dataSetter, jsonGetter, checkRequired());
             return null;
         }
 
         private void rubyFloat() {
-            writer.write("$LSeahorse::NumberHelper.deserialize($L)", dataSetter, jsonGetter);
+            writer.write("$LSeahorse::NumberHelper.deserialize($L)$L", dataSetter, jsonGetter, checkRequired());
         }
 
         @Override
@@ -151,7 +163,7 @@ public class ParserGenerator extends HttpParserGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("$1LBase64::decode64($2L) if $2L", dataSetter, jsonGetter);
+            writer.write("$1LBase64::decode64($2L)$3L", dataSetter, jsonGetter, checkRequired());
             return null;
         }
 
@@ -161,17 +173,17 @@ public class ParserGenerator extends HttpParserGeneratorBase {
             Optional<TimestampFormatTrait> format = memberShape.getTrait(TimestampFormatTrait.class);
             if (format.isPresent()) {
                 switch (format.get().getFormat()) {
-                    case EPOCH_SECONDS:
-                        writer.write("$1LTime.at($2L.to_i) if $2L", dataSetter, jsonGetter);
-                        break;
                     case HTTP_DATE:
                     case DATE_TIME:
-                    default:
                         writer.write("$1LTime.parse($2L) if $2L", dataSetter, jsonGetter);
+                        break;
+                    case EPOCH_SECONDS:
+                    default:
+                        writer.write("$1LTime.at($2L.to_i) if $2L", dataSetter, jsonGetter);
                         break;
                 }
             } else {
-                writer.write("$1LTime.parse($2L) if $2L", dataSetter, jsonGetter);
+                writer.write("$1LTime.at($2L.to_i) if $2L", dataSetter, jsonGetter);
             }
             return null;
         }
@@ -180,8 +192,15 @@ public class ParserGenerator extends HttpParserGeneratorBase {
          * For complex shapes, simply delegate to their builder.
          */
         private void defaultComplexDeserializer(Shape shape) {
-            writer.write("$1LParsers::$2L.parse($3L) if $3L", dataSetter, symbolProvider.toSymbol(shape).getName(),
-                    jsonGetter);
+            if (checkRequired) {
+                writer.write("$1LParsers::$2L.parse($3L) unless $3L.nil?",
+                        dataSetter, symbolProvider.toSymbol(shape).getName(),
+                        jsonGetter);
+            } else {
+                writer.write("$1L(Parsers::$2L.parse($3L) unless $3L.nil?)",
+                        dataSetter, symbolProvider.toSymbol(shape).getName(),
+                        jsonGetter);
+            }
         }
 
         @Override
@@ -237,6 +256,14 @@ public class ParserGenerator extends HttpParserGeneratorBase {
             writer
                     .write("payload = http_resp.body.read")
                     .write("$Lpayload unless payload.empty?", dataSetter);
+            return null;
+        }
+
+        @Override
+        public Void documentShape(DocumentShape shape) {
+            writer
+                    .write("payload = Seahorse::JSON.load(http_resp.body.read)")
+                    .write("$Lpayload", dataSetter);
             return null;
         }
 
