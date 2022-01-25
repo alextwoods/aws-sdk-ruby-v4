@@ -71,6 +71,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -145,6 +146,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -280,6 +282,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -311,6 +314,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -466,6 +470,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -501,6 +506,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -606,6 +612,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -675,6 +682,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -708,6 +716,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -725,6 +734,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -758,6 +768,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -793,6 +804,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1018,6 +1030,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1035,6 +1048,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1052,6 +1066,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1486,6 +1501,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1711,6 +1727,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1766,6 +1783,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1859,6 +1877,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1903,6 +1922,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1941,6 +1961,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1992,6 +2013,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2047,6 +2069,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2098,6 +2121,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2269,6 +2293,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2529,6 +2554,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2587,6 +2613,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2604,6 +2631,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2656,6 +2684,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2692,6 +2721,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2762,6 +2792,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2814,6 +2845,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2853,6 +2885,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2971,6 +3004,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2988,6 +3022,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -3024,6 +3059,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -3079,6 +3115,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -3115,6 +3152,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -3132,6 +3170,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -3168,6 +3207,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -3261,6 +3301,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -3513,6 +3554,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -3601,6 +3643,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -3730,6 +3773,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -3955,6 +3999,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4106,6 +4151,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4142,6 +4188,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4177,6 +4224,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4256,6 +4304,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4309,6 +4358,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4344,6 +4394,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4379,6 +4430,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4415,6 +4467,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4450,6 +4503,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4467,6 +4521,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4733,6 +4788,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4809,6 +4865,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4889,6 +4946,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4974,6 +5032,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -5011,6 +5070,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -5108,6 +5168,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -5246,6 +5307,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -5281,6 +5343,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -5343,6 +5406,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -5378,6 +5442,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -5664,6 +5729,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -5714,6 +5780,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -5749,6 +5816,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -5848,6 +5916,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -6065,6 +6134,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -6082,6 +6152,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -6423,6 +6494,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -6462,6 +6534,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -6645,6 +6718,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -6763,6 +6837,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -6885,6 +6960,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -6921,6 +6997,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7063,6 +7140,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7158,6 +7236,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7198,6 +7277,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7260,6 +7340,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7313,6 +7394,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7348,6 +7430,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7383,6 +7466,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7418,6 +7502,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7453,6 +7538,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7488,6 +7574,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7523,6 +7610,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7609,6 +7697,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7723,6 +7812,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7778,6 +7868,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -7973,6 +8064,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -8030,6 +8122,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -8274,6 +8367,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -8329,6 +8423,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -8854,6 +8949,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -8917,6 +9013,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9016,6 +9113,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9052,6 +9150,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9101,6 +9200,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9164,6 +9264,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9237,6 +9338,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9288,6 +9390,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9333,6 +9436,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9382,6 +9486,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9414,6 +9519,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9446,6 +9552,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9507,6 +9614,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9539,6 +9647,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9571,6 +9680,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9624,6 +9734,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9679,6 +9790,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9761,6 +9873,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9875,6 +9988,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -9968,6 +10082,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10019,6 +10134,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10075,6 +10191,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10130,6 +10247,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10183,6 +10301,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10307,6 +10426,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10362,6 +10482,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10394,6 +10515,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10426,6 +10548,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10459,6 +10582,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10533,6 +10657,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10608,6 +10733,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10640,6 +10766,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10703,6 +10830,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10776,6 +10904,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10829,6 +10958,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10884,6 +11014,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -10923,6 +11054,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11086,6 +11218,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11122,6 +11255,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11154,6 +11288,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11259,6 +11394,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11295,6 +11431,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11346,6 +11483,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11450,6 +11588,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11506,6 +11645,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11554,6 +11694,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11586,6 +11727,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11637,6 +11779,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11715,6 +11858,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11767,6 +11911,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11834,6 +11979,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11872,6 +12018,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -11950,6 +12097,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12046,6 +12194,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12097,6 +12246,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12132,6 +12282,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12210,6 +12361,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12341,6 +12493,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12413,6 +12566,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12478,6 +12632,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12510,6 +12665,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12570,6 +12726,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12626,6 +12783,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12681,6 +12839,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12733,6 +12892,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12791,6 +12951,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12826,6 +12987,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12881,6 +13043,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12917,6 +13080,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -12992,6 +13156,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13095,6 +13260,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13197,6 +13363,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13274,6 +13441,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13291,6 +13459,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13327,6 +13496,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13344,6 +13514,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13361,6 +13532,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13378,6 +13550,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13410,6 +13583,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13449,6 +13623,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13580,6 +13755,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13671,6 +13847,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13723,6 +13900,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13758,6 +13936,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13793,6 +13972,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13876,6 +14056,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -13914,6 +14095,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14010,6 +14192,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14042,6 +14225,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14074,6 +14258,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14106,6 +14291,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14138,6 +14324,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14176,6 +14363,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14225,6 +14413,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14279,6 +14468,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14311,6 +14501,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14343,6 +14534,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14400,6 +14592,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14432,6 +14625,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14488,6 +14682,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14527,6 +14722,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14559,6 +14755,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14617,6 +14814,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14671,6 +14869,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14703,6 +14902,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14754,6 +14954,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14786,6 +14987,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14818,6 +15020,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14878,6 +15081,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14910,6 +15114,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14958,6 +15163,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -14994,6 +15200,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15093,6 +15300,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15160,6 +15368,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15177,6 +15386,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15234,6 +15444,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15274,6 +15485,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15342,6 +15554,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15374,6 +15587,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15424,6 +15638,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15456,6 +15671,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15487,6 +15703,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15519,6 +15736,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15571,6 +15789,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15622,6 +15841,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15663,6 +15883,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15715,6 +15936,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15767,6 +15989,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15798,6 +16021,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15850,6 +16074,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15915,6 +16140,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15958,6 +16184,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -15993,6 +16220,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16066,6 +16294,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16115,6 +16344,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16166,6 +16396,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16198,6 +16429,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16267,6 +16499,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16299,6 +16532,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16362,6 +16596,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16429,6 +16664,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16471,6 +16707,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16512,6 +16749,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16553,6 +16791,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16589,6 +16828,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16625,6 +16865,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16677,6 +16918,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16728,6 +16970,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16789,6 +17032,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16888,6 +17132,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -16940,6 +17185,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17023,6 +17269,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17096,6 +17343,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17149,6 +17397,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17184,6 +17433,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17220,6 +17470,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17261,6 +17512,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17314,6 +17566,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17370,6 +17623,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17423,6 +17677,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17458,6 +17713,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17493,6 +17749,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17599,6 +17856,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17737,6 +17995,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17791,6 +18050,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17831,6 +18091,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17871,6 +18132,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17888,6 +18150,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17905,6 +18168,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17937,6 +18201,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -17993,6 +18258,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18025,6 +18291,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18078,6 +18345,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18110,6 +18378,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18142,6 +18411,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18174,6 +18444,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18252,6 +18523,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18284,6 +18556,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18316,6 +18589,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18348,6 +18622,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18380,6 +18655,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18412,6 +18688,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18444,6 +18721,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18476,6 +18754,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18524,6 +18803,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18565,6 +18845,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18620,6 +18901,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18656,6 +18938,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18696,6 +18979,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18749,6 +19033,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18814,6 +19099,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18894,6 +19180,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18946,6 +19233,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -18997,6 +19285,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19029,6 +19318,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19086,6 +19376,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19118,6 +19409,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19170,6 +19462,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19218,6 +19511,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19268,6 +19562,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19300,6 +19595,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19332,6 +19628,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19363,6 +19660,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19394,6 +19692,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19512,6 +19811,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19548,6 +19848,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19603,6 +19904,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19953,6 +20255,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -19989,6 +20292,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -20044,6 +20348,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -20298,6 +20603,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -20351,6 +20657,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -20407,6 +20714,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -20459,6 +20767,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -20618,6 +20927,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -20671,6 +20981,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -20728,6 +21039,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -20778,6 +21090,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -20838,6 +21151,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -20870,6 +21184,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -20902,6 +21217,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -20980,6 +21296,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -21031,6 +21348,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -21084,6 +21402,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -21174,6 +21493,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -21249,6 +21569,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -21314,6 +21635,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -21367,6 +21689,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -21399,6 +21722,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -21450,6 +21774,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -21504,6 +21829,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -21536,6 +21862,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -21589,6 +21916,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -21656,6 +21984,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -21814,6 +22143,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -21994,6 +22324,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -22092,6 +22423,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -22147,6 +22479,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -22746,6 +23079,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -22900,6 +23234,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -23501,6 +23836,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -23533,6 +23869,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -23565,6 +23902,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -23625,6 +23963,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -23669,6 +24008,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -23778,6 +24118,7 @@ module AWS::Ec2
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end

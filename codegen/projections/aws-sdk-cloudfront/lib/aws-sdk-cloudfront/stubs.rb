@@ -156,6 +156,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -211,6 +212,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -266,6 +268,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -387,6 +390,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -495,6 +499,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -576,6 +581,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -633,6 +639,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -726,6 +733,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -781,6 +789,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -836,6 +845,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -912,6 +922,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -949,6 +960,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -986,6 +998,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1057,6 +1070,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1113,6 +1127,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1185,6 +1200,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1221,6 +1237,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1325,6 +1342,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1379,6 +1397,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1434,6 +1453,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1471,6 +1491,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1526,6 +1547,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1563,6 +1585,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1716,6 +1739,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1791,6 +1815,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1906,6 +1931,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1962,6 +1988,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2135,6 +2162,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2211,6 +2239,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2494,6 +2523,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2511,6 +2541,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2646,6 +2677,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2866,6 +2898,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2902,6 +2935,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2938,6 +2972,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2974,6 +3009,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -3756,6 +3792,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -3830,6 +3867,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -3903,6 +3941,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -3978,6 +4017,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4070,6 +4110,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4198,6 +4239,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4273,6 +4315,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4348,6 +4391,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4403,6 +4447,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4476,6 +4521,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4547,6 +4593,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4619,6 +4666,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4695,6 +4743,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4748,6 +4797,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4822,6 +4872,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -4900,6 +4951,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -5002,6 +5054,7 @@ module AWS::Cloudfront
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end

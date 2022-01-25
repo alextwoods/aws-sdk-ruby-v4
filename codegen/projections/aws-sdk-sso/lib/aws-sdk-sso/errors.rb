@@ -11,7 +11,15 @@ module AWS::Sso
   module Errors
 
     def self.error_code(http_resp)
-      http_resp.headers['x-amzn-errortype']
+      if !(200..299).cover?(http_resp.status)
+        json = Seahorse::JSON.load(http_resp.body)
+        http_resp.body.rewind
+        code = json['__type'] || json['code'] if json
+      end
+      code ||= http_resp.headers['x-amzn-errortype']
+      if code
+        code.split('#').last.split(':').first
+      end
     end
 
     # Base class for all errors returned by this service

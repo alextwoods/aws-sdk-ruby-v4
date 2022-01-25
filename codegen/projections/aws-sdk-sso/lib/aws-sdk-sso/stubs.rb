@@ -83,9 +83,10 @@ module AWS::Sso
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RoleInfo.stub(element)
+          data << Stubs::RoleInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -142,9 +143,10 @@ module AWS::Sso
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountInfo.stub(element)
+          data << Stubs::AccountInfo.stub(element) unless element.nil?
         end
         data
       end

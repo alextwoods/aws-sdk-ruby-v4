@@ -106,6 +106,7 @@ module AWS::Lambda
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
           data[key] = Seahorse::NumberHelper.serialize(value)
@@ -209,9 +210,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -253,13 +255,13 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['UUID'] = stub[:uuid] unless stub[:uuid].nil?
         data['StartingPosition'] = stub[:starting_position] unless stub[:starting_position].nil?
-        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_date_time(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
+        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
         data['BatchSize'] = stub[:batch_size] unless stub[:batch_size].nil?
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
-        data['LastModified'] = Seahorse::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
@@ -287,9 +289,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -325,9 +328,10 @@ module AWS::Lambda
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::EndpointLists.stub(value)
+          data[key] = Stubs::EndpointLists.stub(value) unless value.nil?
         end
         data
       end
@@ -343,9 +347,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -361,9 +366,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SourceAccessConfiguration.stub(element)
+          data << Stubs::SourceAccessConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -400,9 +406,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -418,9 +425,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -638,9 +646,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -656,9 +665,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FileSystemConfig.stub(element)
+          data << Stubs::FileSystemConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -695,9 +705,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Layer.stub(element)
+          data << Stubs::Layer.stub(element) unless element.nil?
         end
         data
       end
@@ -800,9 +811,10 @@ module AWS::Lambda
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = value
+          data[key] = value unless value.nil?
         end
         data
       end
@@ -860,9 +872,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -878,9 +891,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -950,13 +964,13 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['UUID'] = stub[:uuid] unless stub[:uuid].nil?
         data['StartingPosition'] = stub[:starting_position] unless stub[:starting_position].nil?
-        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_date_time(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
+        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
         data['BatchSize'] = stub[:batch_size] unless stub[:batch_size].nil?
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
-        data['LastModified'] = Seahorse::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
@@ -1208,13 +1222,13 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['UUID'] = stub[:uuid] unless stub[:uuid].nil?
         data['StartingPosition'] = stub[:starting_position] unless stub[:starting_position].nil?
-        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_date_time(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
+        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
         data['BatchSize'] = stub[:batch_size] unless stub[:batch_size].nil?
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
-        data['LastModified'] = Seahorse::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
@@ -1286,9 +1300,10 @@ module AWS::Lambda
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = value
+          data[key] = value unless value.nil?
         end
         data
       end
@@ -1531,7 +1546,7 @@ module AWS::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LastModified'] = Seahorse::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = stub[:maximum_event_age_in_seconds] unless stub[:maximum_event_age_in_seconds].nil?
@@ -1582,9 +1597,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -1788,9 +1804,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AliasConfiguration.stub(element)
+          data << Stubs::AliasConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -1855,9 +1872,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CodeSigningConfig.stub(element)
+          data << Stubs::CodeSigningConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -1893,9 +1911,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventSourceMappingConfiguration.stub(element)
+          data << Stubs::EventSourceMappingConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -1938,13 +1957,13 @@ module AWS::Lambda
         data = {}
         data['UUID'] = stub[:uuid] unless stub[:uuid].nil?
         data['StartingPosition'] = stub[:starting_position] unless stub[:starting_position].nil?
-        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_date_time(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
+        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
         data['BatchSize'] = stub[:batch_size] unless stub[:batch_size].nil?
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
-        data['LastModified'] = Seahorse::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
@@ -1992,9 +2011,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FunctionEventInvokeConfig.stub(element)
+          data << Stubs::FunctionEventInvokeConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -2018,7 +2038,7 @@ module AWS::Lambda
       def self.stub(stub = {})
         stub ||= {}
         data = {}
-        data['LastModified'] = Seahorse::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = stub[:maximum_event_age_in_seconds] unless stub[:maximum_event_age_in_seconds].nil?
@@ -2057,9 +2077,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FunctionConfiguration.stub(element)
+          data << Stubs::FunctionConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -2095,9 +2116,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -2133,9 +2155,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LayerVersionsListItem.stub(element)
+          data << Stubs::LayerVersionsListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2200,9 +2223,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LayersListItem.stub(element)
+          data << Stubs::LayersListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2261,9 +2285,10 @@ module AWS::Lambda
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisionedConcurrencyConfigListItem.stub(element)
+          data << Stubs::ProvisionedConcurrencyConfigListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2503,7 +2528,7 @@ module AWS::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LastModified'] = Seahorse::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = stub[:maximum_event_age_in_seconds] unless stub[:maximum_event_age_in_seconds].nil?
@@ -2678,13 +2703,13 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['UUID'] = stub[:uuid] unless stub[:uuid].nil?
         data['StartingPosition'] = stub[:starting_position] unless stub[:starting_position].nil?
-        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_date_time(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
+        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
         data['BatchSize'] = stub[:batch_size] unless stub[:batch_size].nil?
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
-        data['LastModified'] = Seahorse::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
@@ -2875,7 +2900,7 @@ module AWS::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LastModified'] = Seahorse::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = stub[:maximum_event_age_in_seconds] unless stub[:maximum_event_age_in_seconds].nil?

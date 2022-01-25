@@ -121,7 +121,7 @@ module AWS::Lambda
         data.member_name = map['Name']
         data.function_version = map['FunctionVersion']
         data.description = map['Description']
-        data.routing_config = Parsers::AliasRoutingConfiguration.parse(map['RoutingConfig']) if map['RoutingConfig']
+        data.routing_config = (Parsers::AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
         data.revision_id = map['RevisionId']
         data
       end
@@ -130,7 +130,7 @@ module AWS::Lambda
     class AliasRoutingConfiguration
       def self.parse(map)
         data = Types::AliasRoutingConfiguration.new
-        data.additional_version_weights = Parsers::AdditionalVersionWeights.parse(map['AdditionalVersionWeights']) if map['AdditionalVersionWeights']
+        data.additional_version_weights = (Parsers::AdditionalVersionWeights.parse(map['AdditionalVersionWeights']) unless map['AdditionalVersionWeights'].nil?)
         return data
       end
     end
@@ -139,7 +139,7 @@ module AWS::Lambda
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Seahorse::NumberHelper.deserialize(value)
+          data[key] = Seahorse::NumberHelper.deserialize(value) unless value.nil?
         end
         data
       end
@@ -150,7 +150,7 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::CreateCodeSigningConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.code_signing_config = Parsers::CodeSigningConfig.parse(map['CodeSigningConfig']) if map['CodeSigningConfig']
+        data.code_signing_config = (Parsers::CodeSigningConfig.parse(map['CodeSigningConfig']) unless map['CodeSigningConfig'].nil?)
         data
       end
     end
@@ -161,8 +161,8 @@ module AWS::Lambda
         data.code_signing_config_id = map['CodeSigningConfigId']
         data.code_signing_config_arn = map['CodeSigningConfigArn']
         data.description = map['Description']
-        data.allowed_publishers = Parsers::AllowedPublishers.parse(map['AllowedPublishers']) if map['AllowedPublishers']
-        data.code_signing_policies = Parsers::CodeSigningPolicies.parse(map['CodeSigningPolicies']) if map['CodeSigningPolicies']
+        data.allowed_publishers = (Parsers::AllowedPublishers.parse(map['AllowedPublishers']) unless map['AllowedPublishers'].nil?)
+        data.code_signing_policies = (Parsers::CodeSigningPolicies.parse(map['CodeSigningPolicies']) unless map['CodeSigningPolicies'].nil?)
         data.last_modified = map['LastModified']
         return data
       end
@@ -179,7 +179,7 @@ module AWS::Lambda
     class AllowedPublishers
       def self.parse(map)
         data = Types::AllowedPublishers.new
-        data.signing_profile_version_arns = Parsers::SigningProfileVersionArns.parse(map['SigningProfileVersionArns']) if map['SigningProfileVersionArns']
+        data.signing_profile_version_arns = (Parsers::SigningProfileVersionArns.parse(map['SigningProfileVersionArns']) unless map['SigningProfileVersionArns'].nil?)
         return data
       end
     end
@@ -187,7 +187,7 @@ module AWS::Lambda
     class SigningProfileVersionArns
       def self.parse(list)
         list.map do |value|
-          value
+          value unless value.nil?
         end
       end
     end
@@ -199,26 +199,26 @@ module AWS::Lambda
         map = Seahorse::JSON.load(http_resp.body)
         data.uuid = map['UUID']
         data.starting_position = map['StartingPosition']
-        data.starting_position_timestamp = Time.parse(map['StartingPositionTimestamp']) if map['StartingPositionTimestamp']
+        data.starting_position_timestamp = Time.at(map['StartingPositionTimestamp'].to_i) if map['StartingPositionTimestamp']
         data.batch_size = map['BatchSize']
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
         data.function_arn = map['FunctionArn']
-        data.last_modified = Time.parse(map['LastModified']) if map['LastModified']
+        data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
         data.state = map['State']
         data.state_transition_reason = map['StateTransitionReason']
-        data.destination_config = Parsers::DestinationConfig.parse(map['DestinationConfig']) if map['DestinationConfig']
-        data.topics = Parsers::Topics.parse(map['Topics']) if map['Topics']
-        data.queues = Parsers::Queues.parse(map['Queues']) if map['Queues']
-        data.source_access_configurations = Parsers::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) if map['SourceAccessConfigurations']
-        data.self_managed_event_source = Parsers::SelfManagedEventSource.parse(map['SelfManagedEventSource']) if map['SelfManagedEventSource']
+        data.destination_config = (Parsers::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.topics = (Parsers::Topics.parse(map['Topics']) unless map['Topics'].nil?)
+        data.queues = (Parsers::Queues.parse(map['Queues']) unless map['Queues'].nil?)
+        data.source_access_configurations = (Parsers::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
+        data.self_managed_event_source = (Parsers::SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
         data.maximum_record_age_in_seconds = map['MaximumRecordAgeInSeconds']
         data.bisect_batch_on_function_error = map['BisectBatchOnFunctionError']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.tumbling_window_in_seconds = map['TumblingWindowInSeconds']
-        data.function_response_types = Parsers::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) if map['FunctionResponseTypes']
+        data.function_response_types = (Parsers::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
         data
       end
     end
@@ -226,7 +226,7 @@ module AWS::Lambda
     class FunctionResponseTypeList
       def self.parse(list)
         list.map do |value|
-          value
+          value unless value.nil?
         end
       end
     end
@@ -234,7 +234,7 @@ module AWS::Lambda
     class SelfManagedEventSource
       def self.parse(map)
         data = Types::SelfManagedEventSource.new
-        data.endpoints = Parsers::Endpoints.parse(map['Endpoints']) if map['Endpoints']
+        data.endpoints = (Parsers::Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         return data
       end
     end
@@ -243,7 +243,7 @@ module AWS::Lambda
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::EndpointLists.parse(value) if value
+          data[key] = Parsers::EndpointLists.parse(value) unless value.nil?
         end
         data
       end
@@ -252,7 +252,7 @@ module AWS::Lambda
     class EndpointLists
       def self.parse(list)
         list.map do |value|
-          value
+          value unless value.nil?
         end
       end
     end
@@ -260,7 +260,7 @@ module AWS::Lambda
     class SourceAccessConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::SourceAccessConfiguration.parse(value) if value
+          Parsers::SourceAccessConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -277,7 +277,7 @@ module AWS::Lambda
     class Queues
       def self.parse(list)
         list.map do |value|
-          value
+          value unless value.nil?
         end
       end
     end
@@ -285,7 +285,7 @@ module AWS::Lambda
     class Topics
       def self.parse(list)
         list.map do |value|
-          value
+          value unless value.nil?
         end
       end
     end
@@ -293,8 +293,8 @@ module AWS::Lambda
     class DestinationConfig
       def self.parse(map)
         data = Types::DestinationConfig.new
-        data.on_success = Parsers::OnSuccess.parse(map['OnSuccess']) if map['OnSuccess']
-        data.on_failure = Parsers::OnFailure.parse(map['OnFailure']) if map['OnFailure']
+        data.on_success = (Parsers::OnSuccess.parse(map['OnSuccess']) unless map['OnSuccess'].nil?)
+        data.on_failure = (Parsers::OnFailure.parse(map['OnFailure']) unless map['OnFailure'].nil?)
         return data
       end
     end
@@ -332,23 +332,23 @@ module AWS::Lambda
         data.last_modified = map['LastModified']
         data.code_sha256 = map['CodeSha256']
         data.version = map['Version']
-        data.vpc_config = Parsers::VpcConfigResponse.parse(map['VpcConfig']) if map['VpcConfig']
-        data.dead_letter_config = Parsers::DeadLetterConfig.parse(map['DeadLetterConfig']) if map['DeadLetterConfig']
-        data.environment = Parsers::EnvironmentResponse.parse(map['Environment']) if map['Environment']
+        data.vpc_config = (Parsers::VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.dead_letter_config = (Parsers::DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
+        data.environment = (Parsers::EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
         data.kms_key_arn = map['KMSKeyArn']
-        data.tracing_config = Parsers::TracingConfigResponse.parse(map['TracingConfig']) if map['TracingConfig']
+        data.tracing_config = (Parsers::TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
         data.master_arn = map['MasterArn']
         data.revision_id = map['RevisionId']
-        data.layers = Parsers::LayersReferenceList.parse(map['Layers']) if map['Layers']
+        data.layers = (Parsers::LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
         data.state = map['State']
         data.state_reason = map['StateReason']
         data.state_reason_code = map['StateReasonCode']
         data.last_update_status = map['LastUpdateStatus']
         data.last_update_status_reason = map['LastUpdateStatusReason']
         data.last_update_status_reason_code = map['LastUpdateStatusReasonCode']
-        data.file_system_configs = Parsers::FileSystemConfigList.parse(map['FileSystemConfigs']) if map['FileSystemConfigs']
+        data.file_system_configs = (Parsers::FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
         data.package_type = map['PackageType']
-        data.image_config_response = Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) if map['ImageConfigResponse']
+        data.image_config_response = (Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
         data
@@ -358,8 +358,8 @@ module AWS::Lambda
     class ImageConfigResponse
       def self.parse(map)
         data = Types::ImageConfigResponse.new
-        data.image_config = Parsers::ImageConfig.parse(map['ImageConfig']) if map['ImageConfig']
-        data.error = Parsers::ImageConfigError.parse(map['Error']) if map['Error']
+        data.image_config = (Parsers::ImageConfig.parse(map['ImageConfig']) unless map['ImageConfig'].nil?)
+        data.error = (Parsers::ImageConfigError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -376,8 +376,8 @@ module AWS::Lambda
     class ImageConfig
       def self.parse(map)
         data = Types::ImageConfig.new
-        data.entry_point = Parsers::StringList.parse(map['EntryPoint']) if map['EntryPoint']
-        data.command = Parsers::StringList.parse(map['Command']) if map['Command']
+        data.entry_point = (Parsers::StringList.parse(map['EntryPoint']) unless map['EntryPoint'].nil?)
+        data.command = (Parsers::StringList.parse(map['Command']) unless map['Command'].nil?)
         data.working_directory = map['WorkingDirectory']
         return data
       end
@@ -386,7 +386,7 @@ module AWS::Lambda
     class StringList
       def self.parse(list)
         list.map do |value|
-          value
+          value unless value.nil?
         end
       end
     end
@@ -394,7 +394,7 @@ module AWS::Lambda
     class FileSystemConfigList
       def self.parse(list)
         list.map do |value|
-          Parsers::FileSystemConfig.parse(value) if value
+          Parsers::FileSystemConfig.parse(value) unless value.nil?
         end
       end
     end
@@ -411,7 +411,7 @@ module AWS::Lambda
     class LayersReferenceList
       def self.parse(list)
         list.map do |value|
-          Parsers::Layer.parse(value) if value
+          Parsers::Layer.parse(value) unless value.nil?
         end
       end
     end
@@ -438,8 +438,8 @@ module AWS::Lambda
     class EnvironmentResponse
       def self.parse(map)
         data = Types::EnvironmentResponse.new
-        data.variables = Parsers::EnvironmentVariables.parse(map['Variables']) if map['Variables']
-        data.error = Parsers::EnvironmentError.parse(map['Error']) if map['Error']
+        data.variables = (Parsers::EnvironmentVariables.parse(map['Variables']) unless map['Variables'].nil?)
+        data.error = (Parsers::EnvironmentError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -457,7 +457,7 @@ module AWS::Lambda
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = value
+          data[key] = value unless value.nil?
         end
         data
       end
@@ -474,8 +474,8 @@ module AWS::Lambda
     class VpcConfigResponse
       def self.parse(map)
         data = Types::VpcConfigResponse.new
-        data.subnet_ids = Parsers::SubnetIds.parse(map['SubnetIds']) if map['SubnetIds']
-        data.security_group_ids = Parsers::SecurityGroupIds.parse(map['SecurityGroupIds']) if map['SecurityGroupIds']
+        data.subnet_ids = (Parsers::SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.security_group_ids = (Parsers::SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         data.vpc_id = map['VpcId']
         return data
       end
@@ -484,7 +484,7 @@ module AWS::Lambda
     class SecurityGroupIds
       def self.parse(list)
         list.map do |value|
-          value
+          value unless value.nil?
         end
       end
     end
@@ -492,7 +492,7 @@ module AWS::Lambda
     class SubnetIds
       def self.parse(list)
         list.map do |value|
-          value
+          value unless value.nil?
         end
       end
     end
@@ -566,26 +566,26 @@ module AWS::Lambda
         map = Seahorse::JSON.load(http_resp.body)
         data.uuid = map['UUID']
         data.starting_position = map['StartingPosition']
-        data.starting_position_timestamp = Time.parse(map['StartingPositionTimestamp']) if map['StartingPositionTimestamp']
+        data.starting_position_timestamp = Time.at(map['StartingPositionTimestamp'].to_i) if map['StartingPositionTimestamp']
         data.batch_size = map['BatchSize']
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
         data.function_arn = map['FunctionArn']
-        data.last_modified = Time.parse(map['LastModified']) if map['LastModified']
+        data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
         data.state = map['State']
         data.state_transition_reason = map['StateTransitionReason']
-        data.destination_config = Parsers::DestinationConfig.parse(map['DestinationConfig']) if map['DestinationConfig']
-        data.topics = Parsers::Topics.parse(map['Topics']) if map['Topics']
-        data.queues = Parsers::Queues.parse(map['Queues']) if map['Queues']
-        data.source_access_configurations = Parsers::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) if map['SourceAccessConfigurations']
-        data.self_managed_event_source = Parsers::SelfManagedEventSource.parse(map['SelfManagedEventSource']) if map['SelfManagedEventSource']
+        data.destination_config = (Parsers::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.topics = (Parsers::Topics.parse(map['Topics']) unless map['Topics'].nil?)
+        data.queues = (Parsers::Queues.parse(map['Queues']) unless map['Queues'].nil?)
+        data.source_access_configurations = (Parsers::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
+        data.self_managed_event_source = (Parsers::SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
         data.maximum_record_age_in_seconds = map['MaximumRecordAgeInSeconds']
         data.bisect_batch_on_function_error = map['BisectBatchOnFunctionError']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.tumbling_window_in_seconds = map['TumblingWindowInSeconds']
-        data.function_response_types = Parsers::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) if map['FunctionResponseTypes']
+        data.function_response_types = (Parsers::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
         data
       end
     end
@@ -660,8 +660,8 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::GetAccountSettingsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.account_limit = Parsers::AccountLimit.parse(map['AccountLimit']) if map['AccountLimit']
-        data.account_usage = Parsers::AccountUsage.parse(map['AccountUsage']) if map['AccountUsage']
+        data.account_limit = (Parsers::AccountLimit.parse(map['AccountLimit']) unless map['AccountLimit'].nil?)
+        data.account_usage = (Parsers::AccountUsage.parse(map['AccountUsage']) unless map['AccountUsage'].nil?)
         data
       end
     end
@@ -696,7 +696,7 @@ module AWS::Lambda
         data.member_name = map['Name']
         data.function_version = map['FunctionVersion']
         data.description = map['Description']
-        data.routing_config = Parsers::AliasRoutingConfiguration.parse(map['RoutingConfig']) if map['RoutingConfig']
+        data.routing_config = (Parsers::AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
         data.revision_id = map['RevisionId']
         data
       end
@@ -707,7 +707,7 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::GetCodeSigningConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.code_signing_config = Parsers::CodeSigningConfig.parse(map['CodeSigningConfig']) if map['CodeSigningConfig']
+        data.code_signing_config = (Parsers::CodeSigningConfig.parse(map['CodeSigningConfig']) unless map['CodeSigningConfig'].nil?)
         data
       end
     end
@@ -719,26 +719,26 @@ module AWS::Lambda
         map = Seahorse::JSON.load(http_resp.body)
         data.uuid = map['UUID']
         data.starting_position = map['StartingPosition']
-        data.starting_position_timestamp = Time.parse(map['StartingPositionTimestamp']) if map['StartingPositionTimestamp']
+        data.starting_position_timestamp = Time.at(map['StartingPositionTimestamp'].to_i) if map['StartingPositionTimestamp']
         data.batch_size = map['BatchSize']
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
         data.function_arn = map['FunctionArn']
-        data.last_modified = Time.parse(map['LastModified']) if map['LastModified']
+        data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
         data.state = map['State']
         data.state_transition_reason = map['StateTransitionReason']
-        data.destination_config = Parsers::DestinationConfig.parse(map['DestinationConfig']) if map['DestinationConfig']
-        data.topics = Parsers::Topics.parse(map['Topics']) if map['Topics']
-        data.queues = Parsers::Queues.parse(map['Queues']) if map['Queues']
-        data.source_access_configurations = Parsers::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) if map['SourceAccessConfigurations']
-        data.self_managed_event_source = Parsers::SelfManagedEventSource.parse(map['SelfManagedEventSource']) if map['SelfManagedEventSource']
+        data.destination_config = (Parsers::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.topics = (Parsers::Topics.parse(map['Topics']) unless map['Topics'].nil?)
+        data.queues = (Parsers::Queues.parse(map['Queues']) unless map['Queues'].nil?)
+        data.source_access_configurations = (Parsers::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
+        data.self_managed_event_source = (Parsers::SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
         data.maximum_record_age_in_seconds = map['MaximumRecordAgeInSeconds']
         data.bisect_batch_on_function_error = map['BisectBatchOnFunctionError']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.tumbling_window_in_seconds = map['TumblingWindowInSeconds']
-        data.function_response_types = Parsers::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) if map['FunctionResponseTypes']
+        data.function_response_types = (Parsers::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
         data
       end
     end
@@ -748,10 +748,10 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::GetFunctionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.configuration = Parsers::FunctionConfiguration.parse(map['Configuration']) if map['Configuration']
-        data.code = Parsers::FunctionCodeLocation.parse(map['Code']) if map['Code']
-        data.tags = Parsers::Tags.parse(map['Tags']) if map['Tags']
-        data.concurrency = Parsers::Concurrency.parse(map['Concurrency']) if map['Concurrency']
+        data.configuration = (Parsers::FunctionConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.code = (Parsers::FunctionCodeLocation.parse(map['Code']) unless map['Code'].nil?)
+        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.concurrency = (Parsers::Concurrency.parse(map['Concurrency']) unless map['Concurrency'].nil?)
         data
       end
     end
@@ -768,7 +768,7 @@ module AWS::Lambda
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = value
+          data[key] = value unless value.nil?
         end
         data
       end
@@ -800,23 +800,23 @@ module AWS::Lambda
         data.last_modified = map['LastModified']
         data.code_sha256 = map['CodeSha256']
         data.version = map['Version']
-        data.vpc_config = Parsers::VpcConfigResponse.parse(map['VpcConfig']) if map['VpcConfig']
-        data.dead_letter_config = Parsers::DeadLetterConfig.parse(map['DeadLetterConfig']) if map['DeadLetterConfig']
-        data.environment = Parsers::EnvironmentResponse.parse(map['Environment']) if map['Environment']
+        data.vpc_config = (Parsers::VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.dead_letter_config = (Parsers::DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
+        data.environment = (Parsers::EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
         data.kms_key_arn = map['KMSKeyArn']
-        data.tracing_config = Parsers::TracingConfigResponse.parse(map['TracingConfig']) if map['TracingConfig']
+        data.tracing_config = (Parsers::TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
         data.master_arn = map['MasterArn']
         data.revision_id = map['RevisionId']
-        data.layers = Parsers::LayersReferenceList.parse(map['Layers']) if map['Layers']
+        data.layers = (Parsers::LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
         data.state = map['State']
         data.state_reason = map['StateReason']
         data.state_reason_code = map['StateReasonCode']
         data.last_update_status = map['LastUpdateStatus']
         data.last_update_status_reason = map['LastUpdateStatusReason']
         data.last_update_status_reason_code = map['LastUpdateStatusReasonCode']
-        data.file_system_configs = Parsers::FileSystemConfigList.parse(map['FileSystemConfigs']) if map['FileSystemConfigs']
+        data.file_system_configs = (Parsers::FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
         data.package_type = map['PackageType']
-        data.image_config_response = Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) if map['ImageConfigResponse']
+        data.image_config_response = (Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
         return data
@@ -861,23 +861,23 @@ module AWS::Lambda
         data.last_modified = map['LastModified']
         data.code_sha256 = map['CodeSha256']
         data.version = map['Version']
-        data.vpc_config = Parsers::VpcConfigResponse.parse(map['VpcConfig']) if map['VpcConfig']
-        data.dead_letter_config = Parsers::DeadLetterConfig.parse(map['DeadLetterConfig']) if map['DeadLetterConfig']
-        data.environment = Parsers::EnvironmentResponse.parse(map['Environment']) if map['Environment']
+        data.vpc_config = (Parsers::VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.dead_letter_config = (Parsers::DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
+        data.environment = (Parsers::EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
         data.kms_key_arn = map['KMSKeyArn']
-        data.tracing_config = Parsers::TracingConfigResponse.parse(map['TracingConfig']) if map['TracingConfig']
+        data.tracing_config = (Parsers::TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
         data.master_arn = map['MasterArn']
         data.revision_id = map['RevisionId']
-        data.layers = Parsers::LayersReferenceList.parse(map['Layers']) if map['Layers']
+        data.layers = (Parsers::LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
         data.state = map['State']
         data.state_reason = map['StateReason']
         data.state_reason_code = map['StateReasonCode']
         data.last_update_status = map['LastUpdateStatus']
         data.last_update_status_reason = map['LastUpdateStatusReason']
         data.last_update_status_reason_code = map['LastUpdateStatusReasonCode']
-        data.file_system_configs = Parsers::FileSystemConfigList.parse(map['FileSystemConfigs']) if map['FileSystemConfigs']
+        data.file_system_configs = (Parsers::FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
         data.package_type = map['PackageType']
-        data.image_config_response = Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) if map['ImageConfigResponse']
+        data.image_config_response = (Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
         data
@@ -889,11 +889,11 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::GetFunctionEventInvokeConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.last_modified = Time.parse(map['LastModified']) if map['LastModified']
+        data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.function_arn = map['FunctionArn']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.maximum_event_age_in_seconds = map['MaximumEventAgeInSeconds']
-        data.destination_config = Parsers::DestinationConfig.parse(map['DestinationConfig']) if map['DestinationConfig']
+        data.destination_config = (Parsers::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
         data
       end
     end
@@ -903,13 +903,13 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::GetLayerVersionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.content = Parsers::LayerVersionContentOutput.parse(map['Content']) if map['Content']
+        data.content = (Parsers::LayerVersionContentOutput.parse(map['Content']) unless map['Content'].nil?)
         data.layer_arn = map['LayerArn']
         data.layer_version_arn = map['LayerVersionArn']
         data.description = map['Description']
         data.created_date = map['CreatedDate']
         data.version = map['Version']
-        data.compatible_runtimes = Parsers::CompatibleRuntimes.parse(map['CompatibleRuntimes']) if map['CompatibleRuntimes']
+        data.compatible_runtimes = (Parsers::CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
         data.license_info = map['LicenseInfo']
         data
       end
@@ -918,7 +918,7 @@ module AWS::Lambda
     class CompatibleRuntimes
       def self.parse(list)
         list.map do |value|
-          value
+          value unless value.nil?
         end
       end
     end
@@ -940,13 +940,13 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::GetLayerVersionByArnOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.content = Parsers::LayerVersionContentOutput.parse(map['Content']) if map['Content']
+        data.content = (Parsers::LayerVersionContentOutput.parse(map['Content']) unless map['Content'].nil?)
         data.layer_arn = map['LayerArn']
         data.layer_version_arn = map['LayerVersionArn']
         data.description = map['Description']
         data.created_date = map['CreatedDate']
         data.version = map['Version']
-        data.compatible_runtimes = Parsers::CompatibleRuntimes.parse(map['CompatibleRuntimes']) if map['CompatibleRuntimes']
+        data.compatible_runtimes = (Parsers::CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
         data.license_info = map['LicenseInfo']
         data
       end
@@ -1262,7 +1262,7 @@ module AWS::Lambda
         data = Types::ListAliasesOutput.new
         map = Seahorse::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.aliases = Parsers::AliasList.parse(map['Aliases']) if map['Aliases']
+        data.aliases = (Parsers::AliasList.parse(map['Aliases']) unless map['Aliases'].nil?)
         data
       end
     end
@@ -1270,7 +1270,7 @@ module AWS::Lambda
     class AliasList
       def self.parse(list)
         list.map do |value|
-          Parsers::AliasConfiguration.parse(value) if value
+          Parsers::AliasConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1282,7 +1282,7 @@ module AWS::Lambda
         data.member_name = map['Name']
         data.function_version = map['FunctionVersion']
         data.description = map['Description']
-        data.routing_config = Parsers::AliasRoutingConfiguration.parse(map['RoutingConfig']) if map['RoutingConfig']
+        data.routing_config = (Parsers::AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
         data.revision_id = map['RevisionId']
         return data
       end
@@ -1294,7 +1294,7 @@ module AWS::Lambda
         data = Types::ListCodeSigningConfigsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.code_signing_configs = Parsers::CodeSigningConfigList.parse(map['CodeSigningConfigs']) if map['CodeSigningConfigs']
+        data.code_signing_configs = (Parsers::CodeSigningConfigList.parse(map['CodeSigningConfigs']) unless map['CodeSigningConfigs'].nil?)
         data
       end
     end
@@ -1302,7 +1302,7 @@ module AWS::Lambda
     class CodeSigningConfigList
       def self.parse(list)
         list.map do |value|
-          Parsers::CodeSigningConfig.parse(value) if value
+          Parsers::CodeSigningConfig.parse(value) unless value.nil?
         end
       end
     end
@@ -1313,7 +1313,7 @@ module AWS::Lambda
         data = Types::ListEventSourceMappingsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.event_source_mappings = Parsers::EventSourceMappingsList.parse(map['EventSourceMappings']) if map['EventSourceMappings']
+        data.event_source_mappings = (Parsers::EventSourceMappingsList.parse(map['EventSourceMappings']) unless map['EventSourceMappings'].nil?)
         data
       end
     end
@@ -1321,7 +1321,7 @@ module AWS::Lambda
     class EventSourceMappingsList
       def self.parse(list)
         list.map do |value|
-          Parsers::EventSourceMappingConfiguration.parse(value) if value
+          Parsers::EventSourceMappingConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1331,26 +1331,26 @@ module AWS::Lambda
         data = Types::EventSourceMappingConfiguration.new
         data.uuid = map['UUID']
         data.starting_position = map['StartingPosition']
-        data.starting_position_timestamp = Time.parse(map['StartingPositionTimestamp']) if map['StartingPositionTimestamp']
+        data.starting_position_timestamp = Time.at(map['StartingPositionTimestamp'].to_i) if map['StartingPositionTimestamp']
         data.batch_size = map['BatchSize']
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
         data.function_arn = map['FunctionArn']
-        data.last_modified = Time.parse(map['LastModified']) if map['LastModified']
+        data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
         data.state = map['State']
         data.state_transition_reason = map['StateTransitionReason']
-        data.destination_config = Parsers::DestinationConfig.parse(map['DestinationConfig']) if map['DestinationConfig']
-        data.topics = Parsers::Topics.parse(map['Topics']) if map['Topics']
-        data.queues = Parsers::Queues.parse(map['Queues']) if map['Queues']
-        data.source_access_configurations = Parsers::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) if map['SourceAccessConfigurations']
-        data.self_managed_event_source = Parsers::SelfManagedEventSource.parse(map['SelfManagedEventSource']) if map['SelfManagedEventSource']
+        data.destination_config = (Parsers::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.topics = (Parsers::Topics.parse(map['Topics']) unless map['Topics'].nil?)
+        data.queues = (Parsers::Queues.parse(map['Queues']) unless map['Queues'].nil?)
+        data.source_access_configurations = (Parsers::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
+        data.self_managed_event_source = (Parsers::SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
         data.maximum_record_age_in_seconds = map['MaximumRecordAgeInSeconds']
         data.bisect_batch_on_function_error = map['BisectBatchOnFunctionError']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.tumbling_window_in_seconds = map['TumblingWindowInSeconds']
-        data.function_response_types = Parsers::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) if map['FunctionResponseTypes']
+        data.function_response_types = (Parsers::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
         return data
       end
     end
@@ -1360,7 +1360,7 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::ListFunctionEventInvokeConfigsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.function_event_invoke_configs = Parsers::FunctionEventInvokeConfigList.parse(map['FunctionEventInvokeConfigs']) if map['FunctionEventInvokeConfigs']
+        data.function_event_invoke_configs = (Parsers::FunctionEventInvokeConfigList.parse(map['FunctionEventInvokeConfigs']) unless map['FunctionEventInvokeConfigs'].nil?)
         data.next_marker = map['NextMarker']
         data
       end
@@ -1369,7 +1369,7 @@ module AWS::Lambda
     class FunctionEventInvokeConfigList
       def self.parse(list)
         list.map do |value|
-          Parsers::FunctionEventInvokeConfig.parse(value) if value
+          Parsers::FunctionEventInvokeConfig.parse(value) unless value.nil?
         end
       end
     end
@@ -1377,11 +1377,11 @@ module AWS::Lambda
     class FunctionEventInvokeConfig
       def self.parse(map)
         data = Types::FunctionEventInvokeConfig.new
-        data.last_modified = Time.parse(map['LastModified']) if map['LastModified']
+        data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.function_arn = map['FunctionArn']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.maximum_event_age_in_seconds = map['MaximumEventAgeInSeconds']
-        data.destination_config = Parsers::DestinationConfig.parse(map['DestinationConfig']) if map['DestinationConfig']
+        data.destination_config = (Parsers::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
         return data
       end
     end
@@ -1392,7 +1392,7 @@ module AWS::Lambda
         data = Types::ListFunctionsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.functions = Parsers::FunctionList.parse(map['Functions']) if map['Functions']
+        data.functions = (Parsers::FunctionList.parse(map['Functions']) unless map['Functions'].nil?)
         data
       end
     end
@@ -1400,7 +1400,7 @@ module AWS::Lambda
     class FunctionList
       def self.parse(list)
         list.map do |value|
-          Parsers::FunctionConfiguration.parse(value) if value
+          Parsers::FunctionConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1411,7 +1411,7 @@ module AWS::Lambda
         data = Types::ListFunctionsByCodeSigningConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.function_arns = Parsers::FunctionArnList.parse(map['FunctionArns']) if map['FunctionArns']
+        data.function_arns = (Parsers::FunctionArnList.parse(map['FunctionArns']) unless map['FunctionArns'].nil?)
         data
       end
     end
@@ -1419,7 +1419,7 @@ module AWS::Lambda
     class FunctionArnList
       def self.parse(list)
         list.map do |value|
-          value
+          value unless value.nil?
         end
       end
     end
@@ -1430,7 +1430,7 @@ module AWS::Lambda
         data = Types::ListLayerVersionsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.layer_versions = Parsers::LayerVersionsList.parse(map['LayerVersions']) if map['LayerVersions']
+        data.layer_versions = (Parsers::LayerVersionsList.parse(map['LayerVersions']) unless map['LayerVersions'].nil?)
         data
       end
     end
@@ -1438,7 +1438,7 @@ module AWS::Lambda
     class LayerVersionsList
       def self.parse(list)
         list.map do |value|
-          Parsers::LayerVersionsListItem.parse(value) if value
+          Parsers::LayerVersionsListItem.parse(value) unless value.nil?
         end
       end
     end
@@ -1450,7 +1450,7 @@ module AWS::Lambda
         data.version = map['Version']
         data.description = map['Description']
         data.created_date = map['CreatedDate']
-        data.compatible_runtimes = Parsers::CompatibleRuntimes.parse(map['CompatibleRuntimes']) if map['CompatibleRuntimes']
+        data.compatible_runtimes = (Parsers::CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
         data.license_info = map['LicenseInfo']
         return data
       end
@@ -1462,7 +1462,7 @@ module AWS::Lambda
         data = Types::ListLayersOutput.new
         map = Seahorse::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.layers = Parsers::LayersList.parse(map['Layers']) if map['Layers']
+        data.layers = (Parsers::LayersList.parse(map['Layers']) unless map['Layers'].nil?)
         data
       end
     end
@@ -1470,7 +1470,7 @@ module AWS::Lambda
     class LayersList
       def self.parse(list)
         list.map do |value|
-          Parsers::LayersListItem.parse(value) if value
+          Parsers::LayersListItem.parse(value) unless value.nil?
         end
       end
     end
@@ -1480,7 +1480,7 @@ module AWS::Lambda
         data = Types::LayersListItem.new
         data.layer_name = map['LayerName']
         data.layer_arn = map['LayerArn']
-        data.latest_matching_version = Parsers::LayerVersionsListItem.parse(map['LatestMatchingVersion']) if map['LatestMatchingVersion']
+        data.latest_matching_version = (Parsers::LayerVersionsListItem.parse(map['LatestMatchingVersion']) unless map['LatestMatchingVersion'].nil?)
         return data
       end
     end
@@ -1490,7 +1490,7 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::ListProvisionedConcurrencyConfigsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.provisioned_concurrency_configs = Parsers::ProvisionedConcurrencyConfigList.parse(map['ProvisionedConcurrencyConfigs']) if map['ProvisionedConcurrencyConfigs']
+        data.provisioned_concurrency_configs = (Parsers::ProvisionedConcurrencyConfigList.parse(map['ProvisionedConcurrencyConfigs']) unless map['ProvisionedConcurrencyConfigs'].nil?)
         data.next_marker = map['NextMarker']
         data
       end
@@ -1499,7 +1499,7 @@ module AWS::Lambda
     class ProvisionedConcurrencyConfigList
       def self.parse(list)
         list.map do |value|
-          Parsers::ProvisionedConcurrencyConfigListItem.parse(value) if value
+          Parsers::ProvisionedConcurrencyConfigListItem.parse(value) unless value.nil?
         end
       end
     end
@@ -1523,7 +1523,7 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::ListTagsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.tags = Parsers::Tags.parse(map['Tags']) if map['Tags']
+        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1534,7 +1534,7 @@ module AWS::Lambda
         data = Types::ListVersionsByFunctionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
-        data.versions = Parsers::FunctionList.parse(map['Versions']) if map['Versions']
+        data.versions = (Parsers::FunctionList.parse(map['Versions']) unless map['Versions'].nil?)
         data
       end
     end
@@ -1544,13 +1544,13 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::PublishLayerVersionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.content = Parsers::LayerVersionContentOutput.parse(map['Content']) if map['Content']
+        data.content = (Parsers::LayerVersionContentOutput.parse(map['Content']) unless map['Content'].nil?)
         data.layer_arn = map['LayerArn']
         data.layer_version_arn = map['LayerVersionArn']
         data.description = map['Description']
         data.created_date = map['CreatedDate']
         data.version = map['Version']
-        data.compatible_runtimes = Parsers::CompatibleRuntimes.parse(map['CompatibleRuntimes']) if map['CompatibleRuntimes']
+        data.compatible_runtimes = (Parsers::CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
         data.license_info = map['LicenseInfo']
         data
       end
@@ -1573,23 +1573,23 @@ module AWS::Lambda
         data.last_modified = map['LastModified']
         data.code_sha256 = map['CodeSha256']
         data.version = map['Version']
-        data.vpc_config = Parsers::VpcConfigResponse.parse(map['VpcConfig']) if map['VpcConfig']
-        data.dead_letter_config = Parsers::DeadLetterConfig.parse(map['DeadLetterConfig']) if map['DeadLetterConfig']
-        data.environment = Parsers::EnvironmentResponse.parse(map['Environment']) if map['Environment']
+        data.vpc_config = (Parsers::VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.dead_letter_config = (Parsers::DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
+        data.environment = (Parsers::EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
         data.kms_key_arn = map['KMSKeyArn']
-        data.tracing_config = Parsers::TracingConfigResponse.parse(map['TracingConfig']) if map['TracingConfig']
+        data.tracing_config = (Parsers::TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
         data.master_arn = map['MasterArn']
         data.revision_id = map['RevisionId']
-        data.layers = Parsers::LayersReferenceList.parse(map['Layers']) if map['Layers']
+        data.layers = (Parsers::LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
         data.state = map['State']
         data.state_reason = map['StateReason']
         data.state_reason_code = map['StateReasonCode']
         data.last_update_status = map['LastUpdateStatus']
         data.last_update_status_reason = map['LastUpdateStatusReason']
         data.last_update_status_reason_code = map['LastUpdateStatusReasonCode']
-        data.file_system_configs = Parsers::FileSystemConfigList.parse(map['FileSystemConfigs']) if map['FileSystemConfigs']
+        data.file_system_configs = (Parsers::FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
         data.package_type = map['PackageType']
-        data.image_config_response = Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) if map['ImageConfigResponse']
+        data.image_config_response = (Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
         data
@@ -1622,11 +1622,11 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::PutFunctionEventInvokeConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.last_modified = Time.parse(map['LastModified']) if map['LastModified']
+        data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.function_arn = map['FunctionArn']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.maximum_event_age_in_seconds = map['MaximumEventAgeInSeconds']
-        data.destination_config = Parsers::DestinationConfig.parse(map['DestinationConfig']) if map['DestinationConfig']
+        data.destination_config = (Parsers::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
         data
       end
     end
@@ -1691,7 +1691,7 @@ module AWS::Lambda
         data.member_name = map['Name']
         data.function_version = map['FunctionVersion']
         data.description = map['Description']
-        data.routing_config = Parsers::AliasRoutingConfiguration.parse(map['RoutingConfig']) if map['RoutingConfig']
+        data.routing_config = (Parsers::AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
         data.revision_id = map['RevisionId']
         data
       end
@@ -1702,7 +1702,7 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::UpdateCodeSigningConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.code_signing_config = Parsers::CodeSigningConfig.parse(map['CodeSigningConfig']) if map['CodeSigningConfig']
+        data.code_signing_config = (Parsers::CodeSigningConfig.parse(map['CodeSigningConfig']) unless map['CodeSigningConfig'].nil?)
         data
       end
     end
@@ -1714,26 +1714,26 @@ module AWS::Lambda
         map = Seahorse::JSON.load(http_resp.body)
         data.uuid = map['UUID']
         data.starting_position = map['StartingPosition']
-        data.starting_position_timestamp = Time.parse(map['StartingPositionTimestamp']) if map['StartingPositionTimestamp']
+        data.starting_position_timestamp = Time.at(map['StartingPositionTimestamp'].to_i) if map['StartingPositionTimestamp']
         data.batch_size = map['BatchSize']
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
         data.function_arn = map['FunctionArn']
-        data.last_modified = Time.parse(map['LastModified']) if map['LastModified']
+        data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
         data.state = map['State']
         data.state_transition_reason = map['StateTransitionReason']
-        data.destination_config = Parsers::DestinationConfig.parse(map['DestinationConfig']) if map['DestinationConfig']
-        data.topics = Parsers::Topics.parse(map['Topics']) if map['Topics']
-        data.queues = Parsers::Queues.parse(map['Queues']) if map['Queues']
-        data.source_access_configurations = Parsers::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) if map['SourceAccessConfigurations']
-        data.self_managed_event_source = Parsers::SelfManagedEventSource.parse(map['SelfManagedEventSource']) if map['SelfManagedEventSource']
+        data.destination_config = (Parsers::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.topics = (Parsers::Topics.parse(map['Topics']) unless map['Topics'].nil?)
+        data.queues = (Parsers::Queues.parse(map['Queues']) unless map['Queues'].nil?)
+        data.source_access_configurations = (Parsers::SourceAccessConfigurations.parse(map['SourceAccessConfigurations']) unless map['SourceAccessConfigurations'].nil?)
+        data.self_managed_event_source = (Parsers::SelfManagedEventSource.parse(map['SelfManagedEventSource']) unless map['SelfManagedEventSource'].nil?)
         data.maximum_record_age_in_seconds = map['MaximumRecordAgeInSeconds']
         data.bisect_batch_on_function_error = map['BisectBatchOnFunctionError']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.tumbling_window_in_seconds = map['TumblingWindowInSeconds']
-        data.function_response_types = Parsers::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) if map['FunctionResponseTypes']
+        data.function_response_types = (Parsers::FunctionResponseTypeList.parse(map['FunctionResponseTypes']) unless map['FunctionResponseTypes'].nil?)
         data
       end
     end
@@ -1755,23 +1755,23 @@ module AWS::Lambda
         data.last_modified = map['LastModified']
         data.code_sha256 = map['CodeSha256']
         data.version = map['Version']
-        data.vpc_config = Parsers::VpcConfigResponse.parse(map['VpcConfig']) if map['VpcConfig']
-        data.dead_letter_config = Parsers::DeadLetterConfig.parse(map['DeadLetterConfig']) if map['DeadLetterConfig']
-        data.environment = Parsers::EnvironmentResponse.parse(map['Environment']) if map['Environment']
+        data.vpc_config = (Parsers::VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.dead_letter_config = (Parsers::DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
+        data.environment = (Parsers::EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
         data.kms_key_arn = map['KMSKeyArn']
-        data.tracing_config = Parsers::TracingConfigResponse.parse(map['TracingConfig']) if map['TracingConfig']
+        data.tracing_config = (Parsers::TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
         data.master_arn = map['MasterArn']
         data.revision_id = map['RevisionId']
-        data.layers = Parsers::LayersReferenceList.parse(map['Layers']) if map['Layers']
+        data.layers = (Parsers::LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
         data.state = map['State']
         data.state_reason = map['StateReason']
         data.state_reason_code = map['StateReasonCode']
         data.last_update_status = map['LastUpdateStatus']
         data.last_update_status_reason = map['LastUpdateStatusReason']
         data.last_update_status_reason_code = map['LastUpdateStatusReasonCode']
-        data.file_system_configs = Parsers::FileSystemConfigList.parse(map['FileSystemConfigs']) if map['FileSystemConfigs']
+        data.file_system_configs = (Parsers::FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
         data.package_type = map['PackageType']
-        data.image_config_response = Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) if map['ImageConfigResponse']
+        data.image_config_response = (Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
         data
@@ -1795,23 +1795,23 @@ module AWS::Lambda
         data.last_modified = map['LastModified']
         data.code_sha256 = map['CodeSha256']
         data.version = map['Version']
-        data.vpc_config = Parsers::VpcConfigResponse.parse(map['VpcConfig']) if map['VpcConfig']
-        data.dead_letter_config = Parsers::DeadLetterConfig.parse(map['DeadLetterConfig']) if map['DeadLetterConfig']
-        data.environment = Parsers::EnvironmentResponse.parse(map['Environment']) if map['Environment']
+        data.vpc_config = (Parsers::VpcConfigResponse.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.dead_letter_config = (Parsers::DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
+        data.environment = (Parsers::EnvironmentResponse.parse(map['Environment']) unless map['Environment'].nil?)
         data.kms_key_arn = map['KMSKeyArn']
-        data.tracing_config = Parsers::TracingConfigResponse.parse(map['TracingConfig']) if map['TracingConfig']
+        data.tracing_config = (Parsers::TracingConfigResponse.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
         data.master_arn = map['MasterArn']
         data.revision_id = map['RevisionId']
-        data.layers = Parsers::LayersReferenceList.parse(map['Layers']) if map['Layers']
+        data.layers = (Parsers::LayersReferenceList.parse(map['Layers']) unless map['Layers'].nil?)
         data.state = map['State']
         data.state_reason = map['StateReason']
         data.state_reason_code = map['StateReasonCode']
         data.last_update_status = map['LastUpdateStatus']
         data.last_update_status_reason = map['LastUpdateStatusReason']
         data.last_update_status_reason_code = map['LastUpdateStatusReasonCode']
-        data.file_system_configs = Parsers::FileSystemConfigList.parse(map['FileSystemConfigs']) if map['FileSystemConfigs']
+        data.file_system_configs = (Parsers::FileSystemConfigList.parse(map['FileSystemConfigs']) unless map['FileSystemConfigs'].nil?)
         data.package_type = map['PackageType']
-        data.image_config_response = Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) if map['ImageConfigResponse']
+        data.image_config_response = (Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
         data
@@ -1823,11 +1823,11 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::UpdateFunctionEventInvokeConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.last_modified = Time.parse(map['LastModified']) if map['LastModified']
+        data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.function_arn = map['FunctionArn']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.maximum_event_age_in_seconds = map['MaximumEventAgeInSeconds']
-        data.destination_config = Parsers::DestinationConfig.parse(map['DestinationConfig']) if map['DestinationConfig']
+        data.destination_config = (Parsers::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
         data
       end
     end

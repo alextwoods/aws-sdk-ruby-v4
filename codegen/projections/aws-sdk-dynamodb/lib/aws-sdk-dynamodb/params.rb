@@ -79,23 +79,23 @@ module AWS::Dynamodb
           )
         when :ss
           Types::AttributeValue::Ss.new(
-            StringSetAttributeValue.build(params[:ss], context: "#{context}[:ss]")
+            (StringSetAttributeValue.build(params[:ss], context: "#{context}[:ss]") unless params[:ss].nil?)
           )
         when :ns
           Types::AttributeValue::Ns.new(
-            NumberSetAttributeValue.build(params[:ns], context: "#{context}[:ns]")
+            (NumberSetAttributeValue.build(params[:ns], context: "#{context}[:ns]") unless params[:ns].nil?)
           )
         when :bs
           Types::AttributeValue::Bs.new(
-            BinarySetAttributeValue.build(params[:bs], context: "#{context}[:bs]")
+            (BinarySetAttributeValue.build(params[:bs], context: "#{context}[:bs]") unless params[:bs].nil?)
           )
         when :m
           Types::AttributeValue::M.new(
-            MapAttributeValue.build(params[:m], context: "#{context}[:m]")
+            (MapAttributeValue.build(params[:m], context: "#{context}[:m]") unless params[:m].nil?)
           )
         when :l
           Types::AttributeValue::L.new(
-            ListAttributeValue.build(params[:l], context: "#{context}[:l]")
+            (ListAttributeValue.build(params[:l], context: "#{context}[:l]") unless params[:l].nil?)
           )
         when :null
           Types::AttributeValue::Null.new(
@@ -571,7 +571,7 @@ module AWS::Dynamodb
         Seahorse::Validator.validate!(params, ::Hash, Types::ExecuteTransactionInput, context: context)
         type = Types::ExecuteTransactionInput.new
         type.transact_statements = ParameterizedStatements.build(params[:transact_statements], context: "#{context}[:transact_statements]") unless params[:transact_statements].nil?
-        type.client_request_token = params[:client_request_token]
+        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
         type.return_consumed_capacity = params[:return_consumed_capacity]
         type
       end
@@ -606,7 +606,7 @@ module AWS::Dynamodb
         type = Types::ExportTableToPointInTimeInput.new
         type.table_arn = params[:table_arn]
         type.export_time = params[:export_time]
-        type.client_token = params[:client_token]
+        type.client_token = params[:client_token] || SecureRandom.uuid
         type.s3_bucket = params[:s3_bucket]
         type.s3_bucket_owner = params[:s3_bucket_owner]
         type.s3_prefix = params[:s3_prefix]
@@ -1497,7 +1497,7 @@ module AWS::Dynamodb
         type.transact_items = TransactWriteItemList.build(params[:transact_items], context: "#{context}[:transact_items]") unless params[:transact_items].nil?
         type.return_consumed_capacity = params[:return_consumed_capacity]
         type.return_item_collection_metrics = params[:return_item_collection_metrics]
-        type.client_request_token = params[:client_request_token]
+        type.client_request_token = params[:client_request_token] || SecureRandom.uuid
         type
       end
     end

@@ -35,6 +35,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -77,6 +78,7 @@ module AWS::Dynamodb
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
         end
@@ -114,6 +116,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -152,6 +155,7 @@ module AWS::Dynamodb
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
         end
@@ -187,6 +191,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -205,6 +210,7 @@ module AWS::Dynamodb
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
         end
@@ -222,6 +228,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -239,6 +246,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -256,6 +264,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -309,6 +318,7 @@ module AWS::Dynamodb
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
         end
@@ -349,6 +359,7 @@ module AWS::Dynamodb
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
         end
@@ -366,6 +377,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -383,6 +395,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -401,6 +414,7 @@ module AWS::Dynamodb
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
         end
@@ -419,6 +433,7 @@ module AWS::Dynamodb
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
         end
@@ -436,6 +451,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -470,6 +486,7 @@ module AWS::Dynamodb
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
         end
@@ -487,6 +504,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -523,6 +541,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -541,6 +560,7 @@ module AWS::Dynamodb
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
         end
@@ -559,6 +579,7 @@ module AWS::Dynamodb
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
         end
@@ -576,6 +597,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -649,6 +671,7 @@ module AWS::Dynamodb
       end
 
       def self.stub(stub = {})
+        stub ||= {}
         data = {}
         stub.each do |key, value|
         end
@@ -740,6 +763,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -802,6 +826,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -990,6 +1015,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1074,6 +1100,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1091,6 +1118,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1127,6 +1155,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1186,6 +1215,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1297,6 +1327,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1354,6 +1385,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1552,6 +1584,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1583,6 +1616,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1698,6 +1732,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1741,6 +1776,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1803,6 +1839,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1875,6 +1912,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -1977,6 +2015,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2016,6 +2055,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2131,6 +2171,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2210,6 +2251,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2269,6 +2311,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2321,6 +2364,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2372,6 +2416,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2408,6 +2453,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2458,6 +2504,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end
@@ -2490,6 +2537,7 @@ module AWS::Dynamodb
         ]
       end
       def self.stub(stub = [])
+        stub ||= []
         data = []
         stub.each do |element|
         end

@@ -136,7 +136,7 @@ module AWS::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -157,7 +157,7 @@ module AWS::Lambda
         data['MaximumBatchingWindowInSeconds'] = input[:maximum_batching_window_in_seconds] unless input[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = input[:parallelization_factor] unless input[:parallelization_factor].nil?
         data['StartingPosition'] = input[:starting_position] unless input[:starting_position].nil?
-        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_date_time(input[:starting_position_timestamp]) unless input[:starting_position_timestamp].nil?
+        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_epoch_seconds(input[:starting_position_timestamp]) unless input[:starting_position_timestamp].nil?
         data['DestinationConfig'] = Builders::DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
         data['MaximumRecordAgeInSeconds'] = input[:maximum_record_age_in_seconds] unless input[:maximum_record_age_in_seconds].nil?
         data['BisectBatchOnFunctionError'] = input[:bisect_batch_on_function_error] unless input[:bisect_batch_on_function_error].nil?
@@ -177,7 +177,7 @@ module AWS::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -197,7 +197,7 @@ module AWS::Lambda
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::EndpointLists.build(value)
+          data[key] = Builders::EndpointLists.build(value) unless value.nil?
         end
         data
       end
@@ -208,7 +208,7 @@ module AWS::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -219,7 +219,7 @@ module AWS::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SourceAccessConfiguration.build(element)
+          data << Builders::SourceAccessConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -240,7 +240,7 @@ module AWS::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -251,7 +251,7 @@ module AWS::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -333,7 +333,7 @@ module AWS::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -344,7 +344,7 @@ module AWS::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FileSystemConfig.build(element)
+          data << Builders::FileSystemConfig.build(element) unless element.nil?
         end
         data
       end
@@ -365,7 +365,7 @@ module AWS::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -376,7 +376,7 @@ module AWS::Lambda
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = value
+          data[key] = value unless value.nil?
         end
         data
       end
@@ -405,7 +405,7 @@ module AWS::Lambda
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = value
+          data[key] = value unless value.nil?
         end
         data
       end
@@ -435,7 +435,7 @@ module AWS::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -446,7 +446,7 @@ module AWS::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -953,7 +953,7 @@ module AWS::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end
@@ -1131,7 +1131,7 @@ module AWS::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << element
+          data << element unless element.nil?
         end
         data
       end

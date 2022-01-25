@@ -17,7 +17,7 @@ module AWS::Sso
       def self.parse(http_resp)
         data = Types::GetRoleCredentialsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
-        data.role_credentials = Parsers::RoleCredentials.parse(map['roleCredentials']) if map['roleCredentials']
+        data.role_credentials = (Parsers::RoleCredentials.parse(map['roleCredentials']) unless map['roleCredentials'].nil?)
         data
       end
     end
@@ -79,7 +79,7 @@ module AWS::Sso
         data = Types::ListAccountRolesOutput.new
         map = Seahorse::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.role_list = Parsers::RoleListType.parse(map['roleList']) if map['roleList']
+        data.role_list = (Parsers::RoleListType.parse(map['roleList']) unless map['roleList'].nil?)
         data
       end
     end
@@ -87,7 +87,7 @@ module AWS::Sso
     class RoleListType
       def self.parse(list)
         list.map do |value|
-          Parsers::RoleInfo.parse(value) if value
+          Parsers::RoleInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -107,7 +107,7 @@ module AWS::Sso
         data = Types::ListAccountsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.account_list = Parsers::AccountListType.parse(map['accountList']) if map['accountList']
+        data.account_list = (Parsers::AccountListType.parse(map['accountList']) unless map['accountList'].nil?)
         data
       end
     end
@@ -115,7 +115,7 @@ module AWS::Sso
     class AccountListType
       def self.parse(list)
         list.map do |value|
-          Parsers::AccountInfo.parse(value) if value
+          Parsers::AccountInfo.parse(value) unless value.nil?
         end
       end
     end
