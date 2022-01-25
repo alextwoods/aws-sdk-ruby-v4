@@ -1738,7 +1738,7 @@ module AWS::Lambda
         http_resp.headers['X-Amz-Executed-Version'] = stub[:executed_version] unless stub[:executed_version].nil? || stub[:executed_version].empty?
         http_resp.status = stub[:status_code]
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub['Payload'] || '')
+        http_resp.body = StringIO.new(stub[:payload] || '')
       end
     end
 

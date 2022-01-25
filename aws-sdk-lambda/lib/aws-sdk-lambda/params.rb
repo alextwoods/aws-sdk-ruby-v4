@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'securerandom'
+
 module AWS::Lambda
   module Params
 

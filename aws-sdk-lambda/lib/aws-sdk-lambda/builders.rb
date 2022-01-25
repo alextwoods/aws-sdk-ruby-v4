@@ -92,7 +92,7 @@ module AWS::Lambda
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Seahorse::NumberHelper.serialize(value)
+          data[key] = Seahorse::NumberHelper.serialize(value) unless value.nil?
         end
         data
       end
