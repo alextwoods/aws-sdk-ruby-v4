@@ -23,6 +23,7 @@ import software.amazon.smithy.model.shapes.SetShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.HttpTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.generators.HttpBuilderGeneratorBase;
 
@@ -33,43 +34,50 @@ public class BuilderGenerator extends HttpBuilderGeneratorBase {
     }
 
     @Override
+    protected String getHttpMethod(OperationShape operation) {
+        return "POST";
+    }
+
+    @Override
+    protected String getHttpUri(OperationShape operation) {
+        return "/";
+    }
+
+    @Override
     protected void renderPayloadBodyBuilder(OperationShape operation, Shape inputShape, MemberShape payloadMember,
                                             Shape target) {
     }
 
     @Override
-    protected void renderNoPayloadBodyBuilder(OperationShape operation, Shape inputShape) {
+    protected void renderBodyBuilder(OperationShape operation, Shape inputShape) {
+
     }
 
     @Override
-    protected String getHttpMethod(OperationShape operation) {
-        return "todo";
+    protected void renderStructureBuildMethod(StructureShape shape) {
+
     }
 
     @Override
-    protected String getHttpUri(OperationShape operation) {
-        return "todo";
+    protected void renderListBuildMethod(ListShape shape) {
+
     }
 
     @Override
-    protected void renderStructureMemberBuilders(StructureShape shape) {
+    protected void renderSetBuildMethod(SetShape shape) {
+
     }
 
     @Override
-    protected void renderListMemberBuilder(ListShape shape) {
+    protected void renderUnionBuildMethod(UnionShape shape) {
+
     }
 
     @Override
-    protected void renderUnionMemberBuilder(UnionShape shape, MemberShape member) {
+    protected void renderMapBuildMethod(MapShape shape) {
+
     }
 
-    @Override
-    protected void renderMapMemberBuilder(MapShape shape) {
-    }
-
-    @Override
-    protected void renderSetMemberBuilder(SetShape shape) {
-    }
 }
 
 

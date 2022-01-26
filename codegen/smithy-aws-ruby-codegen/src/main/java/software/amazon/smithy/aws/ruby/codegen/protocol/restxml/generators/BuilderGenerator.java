@@ -38,38 +38,35 @@ public class BuilderGenerator extends HttpBuilderGeneratorBase {
     }
 
     @Override
-    protected void renderNoPayloadBodyBuilder(OperationShape operation, Shape inputShape) {
+    protected void renderBodyBuilder(OperationShape operation, Shape inputShape) {
+
     }
 
     @Override
-    protected String getHttpMethod(OperationShape operation) {
-        return "todo";
+    protected void renderStructureBuildMethod(StructureShape shape) {
+
     }
 
     @Override
-    protected String getHttpUri(OperationShape operation) {
-        return "todo";
+    protected void renderListBuildMethod(ListShape shape) {
+
     }
 
     @Override
-    protected void renderStructureMemberBuilders(StructureShape shape) {
+    protected void renderSetBuildMethod(SetShape shape) {
+
     }
 
     @Override
-    protected void renderListMemberBuilder(ListShape shape) {
+    protected void renderUnionBuildMethod(UnionShape shape) {
+
     }
 
     @Override
-    protected void renderUnionMemberBuilder(UnionShape shape, MemberShape member) {
+    protected void renderMapBuildMethod(MapShape shape) {
+
     }
 
-    @Override
-    protected void renderMapMemberBuilder(MapShape shape) {
-    }
-
-    @Override
-    protected void renderSetMemberBuilder(SetShape shape) {
-    }
 }
 
 
