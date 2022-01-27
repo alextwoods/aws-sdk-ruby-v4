@@ -15,41 +15,18 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.json.generators;
 
-import software.amazon.smithy.model.shapes.ListShape;
-import software.amazon.smithy.model.shapes.MapShape;
-import software.amazon.smithy.model.shapes.MemberShape;
-import software.amazon.smithy.model.shapes.OperationShape;
-import software.amazon.smithy.model.shapes.SetShape;
-import software.amazon.smithy.model.shapes.Shape;
-import software.amazon.smithy.model.shapes.StructureShape;
-import software.amazon.smithy.model.shapes.UnionShape;
-import software.amazon.smithy.model.traits.HttpTrait;
+import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
-import software.amazon.smithy.ruby.codegen.generators.HttpBuilderGeneratorBase;
+import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 
-public class BuilderGenerator extends HttpBuilderGeneratorBase {
+public class BuilderGenerator extends BuilderGeneratorBase {
 
     public BuilderGenerator(GenerationContext context) {
         super(context);
     }
 
     @Override
-    protected String getHttpMethod(OperationShape operation) {
-        return "POST";
-    }
-
-    @Override
-    protected String getHttpUri(OperationShape operation) {
-        return "/";
-    }
-
-    @Override
-    protected void renderPayloadBodyBuilder(OperationShape operation, Shape inputShape, MemberShape payloadMember,
-                                            Shape target) {
-    }
-
-    @Override
-    protected void renderBodyBuilder(OperationShape operation, Shape inputShape) {
+    protected void renderOperationBuildMethod(OperationShape operation, Shape inputShape) {
 
     }
 
