@@ -15,50 +15,49 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restxml.generators;
 
-import software.amazon.smithy.model.shapes.ListShape;
-import software.amazon.smithy.model.shapes.MapShape;
-import software.amazon.smithy.model.shapes.MemberShape;
-import software.amazon.smithy.model.shapes.OperationShape;
-import software.amazon.smithy.model.shapes.SetShape;
-import software.amazon.smithy.model.shapes.Shape;
-import software.amazon.smithy.model.shapes.StructureShape;
-import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
-import software.amazon.smithy.ruby.codegen.generators.HttpStubsGeneratorBase;
+import software.amazon.smithy.ruby.codegen.generators.RestStubsGeneratorBase;
 
-public class StubsGenerator extends HttpStubsGeneratorBase {
+public class StubsGenerator extends RestStubsGeneratorBase {
 
     public StubsGenerator(GenerationContext context) {
         super(context);
     }
 
     @Override
-    protected void renderNoPayloadBodyStub(OperationShape operation, Shape outputShape) {
+    protected void renderUnionStubMethod(UnionShape shape) {
+
     }
 
     @Override
-    protected void renderPayloadBodyStub(OperationShape operation, Shape outputShape, MemberShape payloadMember,
-                                         Shape target) {
+    protected void renderListStubMethod(ListShape shape) {
+
     }
 
     @Override
-    protected void renderStructureMemberStubbers(StructureShape shape) {
+    protected void renderSetStubMethod(SetShape shape) {
+
     }
 
     @Override
-    protected void renderUnionMemberStubbers(UnionShape shape) {
+    protected void renderMapStubMethod(MapShape shape) {
+
     }
 
     @Override
-    protected void renderListMemberStub(ListShape shape) {
+    protected void renderStructureStubMethod(StructureShape shape) {
+
     }
 
     @Override
-    protected void renderSetMemberStub(SetShape shape) {
+    protected void renderPayloadBodyStub(OperationShape operation, Shape outputShape, MemberShape payloadMember, Shape target) {
+
     }
 
     @Override
-    protected void renderMapMemberStub(MapShape shape) {
+    protected void renderBodyStub(OperationShape operation, Shape outputShape) {
+
     }
 
 }

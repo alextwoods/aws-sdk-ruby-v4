@@ -15,52 +15,49 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.json.generators;
 
-import software.amazon.smithy.model.shapes.ListShape;
-import software.amazon.smithy.model.shapes.MapShape;
-import software.amazon.smithy.model.shapes.MemberShape;
-import software.amazon.smithy.model.shapes.SetShape;
-import software.amazon.smithy.model.shapes.Shape;
-import software.amazon.smithy.model.shapes.StructureShape;
-import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
-import software.amazon.smithy.ruby.codegen.generators.HttpParserGeneratorBase;
+import software.amazon.smithy.ruby.codegen.generators.ParserGeneratorBase;
 
-public class ParserGenerator extends HttpParserGeneratorBase {
+public class ParserGenerator extends ParserGeneratorBase {
 
     public ParserGenerator(GenerationContext context) {
         super(context);
     }
 
     @Override
-    protected void renderNoPayloadBodyParser(Shape outputShape) {
+    protected void renderUnionParseMethod(UnionShape s) {
+
     }
 
     @Override
-    protected void renderStructureMemberParsers(StructureShape s) {
+    protected void renderMapParseMethod(MapShape s) {
+
     }
 
     @Override
-    protected String unionMemberDataName(UnionShape s, MemberShape member) {
-        return null;
+    protected void renderSetParseMethod(SetShape s) {
+
     }
 
     @Override
-    protected void renderUnionMemberParser(UnionShape s, MemberShape member) {
+    protected void renderListParseMethod(ListShape s) {
+
     }
 
     @Override
-    protected void renderMapMemberParser(MapShape s) {
+    protected void renderStructureParseMethod(StructureShape s) {
+
     }
 
     @Override
-    protected void renderListMemberParser(ListShape s) {
+    protected void renderOperationParseMethod(OperationShape operation, Shape outputShape) {
+
     }
 
     @Override
-    protected void renderSetMemberParser(SetShape s) {
+    protected void renderErrorParseMethod(Shape s) {
+
     }
 
-    @Override
-    protected void renderPayloadBodyParser(Shape outputShape, MemberShape payloadMember, Shape target) {
-    }
 }

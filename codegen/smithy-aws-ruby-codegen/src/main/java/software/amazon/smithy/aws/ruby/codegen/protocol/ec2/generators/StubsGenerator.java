@@ -24,43 +24,43 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
-import software.amazon.smithy.ruby.codegen.generators.HttpStubsGeneratorBase;
+import software.amazon.smithy.ruby.codegen.generators.StubsGeneratorBase;
 
-public class StubsGenerator extends HttpStubsGeneratorBase {
+public class StubsGenerator extends StubsGeneratorBase {
 
     public StubsGenerator(GenerationContext context) {
         super(context);
     }
 
     @Override
-    protected void renderNoPayloadBodyStub(OperationShape operation, Shape outputShape) {
+    protected void renderUnionStubMethod(UnionShape shape) {
+
     }
 
     @Override
-    protected void renderPayloadBodyStub(OperationShape operation, Shape outputShape, MemberShape payloadMember,
-                                         Shape target) {
+    protected void renderListStubMethod(ListShape shape) {
+
     }
 
     @Override
-    protected void renderStructureMemberStubbers(StructureShape shape) {
+    protected void renderSetStubMethod(SetShape shape) {
+
     }
 
     @Override
-    protected void renderUnionMemberStubbers(UnionShape shape) {
+    protected void renderMapStubMethod(MapShape shape) {
+
     }
 
     @Override
-    protected void renderListMemberStub(ListShape shape) {
+    protected void renderStructureStubMethod(StructureShape shape) {
+
     }
 
     @Override
-    protected void renderSetMemberStub(SetShape shape) {
-    }
+    protected void renderOperationStubMethod(OperationShape operation, Shape outputShape) {
 
-    @Override
-    protected void renderMapMemberStub(MapShape shape) {
     }
-
 }
 
 

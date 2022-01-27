@@ -15,24 +15,24 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators;
 
-import java.util.Optional;
-import java.util.stream.Stream;
-
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.RubyFormatter;
-import software.amazon.smithy.ruby.codegen.generators.HttpStubsGeneratorBase;
+import software.amazon.smithy.ruby.codegen.generators.RestStubsGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 
-public class StubsGenerator extends HttpStubsGeneratorBase {
+import java.util.Optional;
+import java.util.stream.Stream;
+
+public class StubsGenerator extends RestStubsGeneratorBase {
 
     public StubsGenerator(GenerationContext context) {
         super(context);
     }
 
     @Override
-    protected void renderNoPayloadBodyStub(OperationShape operation, Shape outputShape) {
+    protected void renderBodyStub(OperationShape operation, Shape outputShape) {
         writer
                 .write("http_resp.headers['Content-Type'] = 'application/json'")
                 .call(() -> renderMemberStubbers(outputShape))
@@ -46,13 +46,91 @@ public class StubsGenerator extends HttpStubsGeneratorBase {
         target.accept(new PayloadMemberSerializer(payloadMember, inputGetter));
     }
 
+
     @Override
-    protected void renderStructureMemberStubbers(StructureShape shape) {
-        renderMemberStubbers(shape);
+    protected void renderListStubMethod(ListShape shape) {
+        writer
+                .openBlock("def self.stub(stub = [])")
+                .write("stub ||= []")
+                .write("data = []")
+                .openBlock("stub.each do |element|")
+                .call(() -> {
+                    Shape memberTarget =
+                            model.expectShape(shape.getMember().getTarget());
+                    memberTarget
+                            .accept(new MemberSerializer(shape.getMember(),
+                                    "data << ", "element",
+                                    !shape.hasTrait(SparseTrait.class)));
+                })
+                .closeBlock("end")
+                .write("data")
+                .closeBlock("end");
+
     }
 
     @Override
-    protected void renderUnionMemberStubbers(UnionShape shape) {
+    protected void renderSetStubMethod(SetShape shape) {
+        writer
+                .openBlock("def self.stub(stub = [])")
+                .write("stub ||= []")
+                .write("data = Set.new")
+                .openBlock("stub.each do |element|")
+                .call(() -> {
+                    Shape memberTarget =
+                            model.expectShape(shape.getMember().getTarget());
+                    memberTarget
+                            .accept(new MemberSerializer(shape.getMember(),
+                                    "data << ", "element", true));
+                })
+                .closeBlock("end")
+                .write("data.to_a")
+                .closeBlock("end");
+
+    }
+
+    @Override
+    protected void renderMapStubMethod(MapShape shape) {
+        writer
+                .openBlock("def self.stub(stub = {})")
+                .write("stub ||= {}")
+                .write("data = {}")
+                .openBlock("stub.each do |key, value|")
+                .call(() -> {
+                    Shape valueTarget = model.expectShape(shape.getValue().getTarget());
+                    valueTarget
+                            .accept(new MemberSerializer(shape.getValue(), "data[key] = ",
+                                    "value", !shape.hasTrait(SparseTrait.class)));
+                })
+                .closeBlock("end")
+                .write("data")
+                .closeBlock("end");
+
+    }
+
+    @Override
+    protected void renderStructureStubMethod(StructureShape shape) {
+        writer
+                .openBlock("def self.stub(stub = {})")
+                .write("stub ||= {}")
+                .write("data = {}")
+                .call(() -> renderMemberStubbers(shape))
+                .write("data")
+                .closeBlock("end");
+    }
+
+    @Override
+    protected void renderUnionStubMethod(UnionShape shape) {
+        writer
+                .openBlock("def self.stub(stub = {})")
+                .write("stub ||= {}")
+                .write("data = {}")
+                .call(() -> renderUnionMemberStubbers(shape))
+                .write("data")
+                .closeBlock("end");
+
+    }
+
+    private void renderUnionMemberStubbers(UnionShape shape) {
         shape.members().forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
 
@@ -65,32 +143,6 @@ public class StubsGenerator extends HttpStubsGeneratorBase {
             String inputGetter = "stub[" + symbolName + "]";
             target.accept(new MemberSerializer(member, dataSetter, inputGetter, true));
         });
-    }
-
-    @Override
-    protected void renderListMemberStub(ListShape shape) {
-        Shape memberTarget =
-                model.expectShape(shape.getMember().getTarget());
-        memberTarget
-                .accept(new MemberSerializer(shape.getMember(),
-                        "data << ", "element", !shape.hasTrait(SparseTrait.class)));
-    }
-
-    @Override
-    protected void renderSetMemberStub(SetShape shape) {
-        Shape memberTarget =
-                model.expectShape(shape.getMember().getTarget());
-        memberTarget
-                .accept(new MemberSerializer(shape.getMember(),
-                        "data << ", "element", false));
-    }
-
-    @Override
-    protected void renderMapMemberStub(MapShape shape) {
-        Shape valueTarget = model.expectShape(shape.getValue().getTarget());
-        valueTarget
-                .accept(new MemberSerializer(shape.getValue(), "data[key] = ",
-                        "value", !shape.hasTrait(SparseTrait.class)));
     }
 
     private void renderMemberStubbers(Shape s) {
