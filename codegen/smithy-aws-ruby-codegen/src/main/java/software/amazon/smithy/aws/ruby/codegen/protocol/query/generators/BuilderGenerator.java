@@ -16,6 +16,7 @@
 package software.amazon.smithy.aws.ruby.codegen.protocol.query.generators;
 
 import software.amazon.smithy.model.shapes.*;
+import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
@@ -56,7 +57,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
 
-            String dataName = member.getMemberName(); // TODO: account for other name traits
+            String dataName = "'" + member.getMemberName() + "'"; // TODO: account for other name traits
             String symbolName = ":" + symbolProvider.toMemberName(member);
             String inputGetter = "input[" + symbolName + "]";
             target.accept(new MemberSerializer(member, dataName, inputGetter, true));
@@ -73,12 +74,37 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
     @Override
     protected void renderListBuildMethod(ListShape shape) {
+        // TODO: Handle names / flat
+        writer
+                .openBlock("def self.build(input, query, context: '')")
+                .openBlock("input.each_with_index do |element, index|")
+                .call(() -> {
+                    String dataName = "\"member.#{index+1}\"";
+                            Shape memberTarget = model.expectShape(shape.getMember().getTarget());
+                    memberTarget.accept(
+                            new MemberSerializer(shape.getMember(),
+                                    dataName, "element", !shape.hasTrait(SparseTrait.class)));
+                })
+                .closeBlock("end")
+                .closeBlock("end");
 
     }
 
     @Override
     protected void renderSetBuildMethod(SetShape shape) {
-
+        // TODO: Handle names / flat
+        writer
+                .openBlock("def self.build(input, query, context: '')")
+                .openBlock("input.each_with_index do |element, index|")
+                .call(() -> {
+                    String dataName = "\"member.#{index+1}\"";
+                    Shape memberTarget = model.expectShape(shape.getMember().getTarget());
+                    memberTarget.accept(
+                            new MemberSerializer(shape.getMember(),
+                                    dataName, "element", !shape.hasTrait(SparseTrait.class)));
+                })
+                .closeBlock("end")
+                .closeBlock("end");
     }
 
     @Override
@@ -88,7 +114,20 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
     @Override
     protected void renderMapBuildMethod(MapShape shape) {
-
+        // TODO: Handle names / flat
+        writer
+                .openBlock("def self.build(input, query, context: '')")
+                .openBlock("input.each_with_index do |(key, value), index|")
+                .call(() -> {
+                    writer.write("query[\"#{context}entry.#{index+1}.key\"] = key");
+                    String dataName = "\"entry.#{index+1}.value\"";
+                    Shape memberTarget = model.expectShape(shape.getValue().getTarget());
+                    memberTarget.accept(
+                            new MemberSerializer(shape.getValue(),
+                                    dataName, "value", !shape.hasTrait(SparseTrait.class)));
+                })
+                .closeBlock("end")
+                .closeBlock("end");
     }
 
     private class MemberSerializer extends ShapeVisitor.Default<Void> {
@@ -116,12 +155,12 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         @Override
         protected Void getDefault(Shape shape) {
-            writer.write("query[context + '$L'] = $L$L", dataName, inputGetter, checkRequired());
+            writer.write("query[context + $L] = $L$L", dataName, inputGetter, checkRequired());
             return null;
         }
 
         private void rubyFloat() {
-            writer.write("query[context + '$L'] = Seahorse::NumberHelper.serialize($L)$L", dataName, inputGetter, checkRequired());
+            writer.write("query[context + $L] = Seahorse::NumberHelper.serialize($L)$L", dataName, inputGetter, checkRequired());
         }
 
         @Override
@@ -138,7 +177,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("query[context + '$L'] = Base64::encode64($L).strip$L",
+            writer.write("query[context + $L] = Base64::encode64($L).strip$L",
                     dataName, inputGetter, checkRequired());
             return null;
         }
@@ -151,21 +190,21 @@ public class BuilderGenerator extends BuilderGeneratorBase {
             if (format.isPresent()) {
                 switch (format.get().getFormat()) {
                     case EPOCH_SECONDS:
-                        writer.write("query[context + '$L'] = Seahorse::TimeHelper.to_epoch_seconds($L)$L",
+                        writer.write("query[context + $L] = Seahorse::TimeHelper.to_epoch_seconds($L)$L",
                                 dataName, inputGetter, checkRequired());
                         break;
                     case HTTP_DATE:
-                        writer.write("query[context + '$L'] = Seahorse::TimeHelper.to_http_date($L)$L",
+                        writer.write("query[context + $L] = Seahorse::TimeHelper.to_http_date($L)$L",
                                 dataName, inputGetter, checkRequired());
                         break;
                     case DATE_TIME:
                     default:
-                        writer.write("query[context + '$L'] = Seahorse::TimeHelper.to_date_time($L)$L",
+                        writer.write("query[context + $L] = Seahorse::TimeHelper.to_date_time($L)$L",
                                 dataName, inputGetter, checkRequired());
                         break;
                 }
             } else {
-                writer.write("query[context + '$L'] = Seahorse::TimeHelper.to_epoch_seconds($L)$L",
+                writer.write("query[context + $L] = Seahorse::TimeHelper.to_date_time($L)$L",
                         dataName, inputGetter, checkRequired());            }
             return null;
         }
@@ -174,7 +213,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
          * For complex shapes, simply delegate to their builder.
          */
         private void defaultComplexSerializer(Shape shape) {
-            writer.write("Builders::$1L.build($2L, query, context: context + '$3L.') unless $2L.nil?",
+            writer.write("Builders::$1L.build($2L, query, context: context + $3L + '.') unless $2L.nil?",
                     symbolProvider.toSymbol(shape).getName(), inputGetter, dataName);
         }
 
