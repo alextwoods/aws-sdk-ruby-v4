@@ -16,33 +16,116 @@
 package software.amazon.smithy.aws.ruby.codegen.protocol.restxml.generators;
 
 import software.amazon.smithy.model.shapes.*;
+import software.amazon.smithy.model.traits.*;
+import software.amazon.smithy.model.traits.synthetic.OriginalShapeIdTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
-import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
+import software.amazon.smithy.ruby.codegen.generators.RestBuilderGeneratorBase;
+import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 
-public class BuilderGenerator extends BuilderGeneratorBase {
+import java.util.Optional;
+import java.util.stream.Stream;
+
+public class BuilderGenerator extends RestBuilderGeneratorBase {
 
     public BuilderGenerator(GenerationContext context) {
         super(context);
     }
 
-    @Override
-    protected void renderOperationBuildMethod(OperationShape operation, Shape inputShape) {
 
+    private void renderMemberBuilders(Shape s) {
+        //remove members w/ http traits or marked NoSerialize
+        Stream<MemberShape> serializeMembers = s.members().stream()
+                .filter((m) -> !m.hasTrait(HttpLabelTrait.class) && !m.hasTrait(HttpQueryTrait.class)
+                        && !m.hasTrait(HttpHeaderTrait.class) && !m.hasTrait(HttpPrefixHeadersTrait.class)
+                        && !m.hasTrait(HttpQueryParamsTrait.class));
+        serializeMembers = serializeMembers.filter(NoSerializeTrait.excludeNoSerializeMembers());
+
+        serializeMembers.forEach((member) -> {
+            Shape target = model.expectShape(member.getTarget());
+            String symbolName = ":" + symbolProvider.toMemberName(member);
+            String inputGetter = "input[" + symbolName + "]";
+
+            if (member.hasTrait(XmlAttributeTrait.class)) {
+                String attributeName = member.getMemberName();
+                if (member.hasTrait(XmlNameTrait.class)) {
+                    attributeName = member.expectTrait(XmlNameTrait.class).getValue();
+                }
+                target.accept(new AttributeMemberSerializer(member, inputGetter, true, attributeName));
+
+            } else {
+                String nodeName = "'" + member.getMemberName() + "'";
+                if (member.hasTrait(XmlNameTrait.class)) {
+                    nodeName = "'" + member.expectTrait(XmlNameTrait.class).getValue() + "'";
+                }
+                target.accept(new MemberSerializer(member, nodeName, inputGetter, true));
+            }
+        });
+    }
+
+    @Override
+    protected void renderPayloadBodyBuilder(OperationShape operation, Shape inputShape, MemberShape payloadMember, Shape target) {
+
+    }
+
+    @Override
+    protected void renderBodyBuilder(OperationShape operation, Shape inputShape) {
+        String nodeName = symbolProvider.toSymbol(inputShape).getName();
+        if (inputShape.hasTrait(XmlNameTrait.class)) {
+            nodeName = inputShape.getTrait(XmlNameTrait.class).get().getValue();
+        } else if (inputShape.hasTrait(OriginalShapeIdTrait.class)) {
+            // TODO: Does this need to use symbol provider as well?
+            nodeName = inputShape.getTrait(OriginalShapeIdTrait.class).get().getOriginalId().getName();
+        }
+
+        writer
+                .write("")
+                .write("http_req.headers['Content-Type'] = 'application/xml'")
+                .write("xml = Seahorse::XML::Node.new('$L')", nodeName)
+                // TODO: Set xlmns? (get from xml namespace trait?)
+                .call(() -> renderMemberBuilders(inputShape))
+                .write("http_req.body = StringIO.new(xml.to_str)");
     }
 
     @Override
     protected void renderStructureBuildMethod(StructureShape shape) {
-
+        writer
+                .openBlock("def self.build(node_name, input)")
+                .write("xml = Seahorse::XML::Node.new(node_name)")
+                .call(() -> renderMemberBuilders(shape))
+                .write("xml")
+                .closeBlock("end");
     }
 
     @Override
     protected void renderListBuildMethod(ListShape shape) {
-
+        writer
+                .openBlock("def self.build(node_name, input)")
+                .write("xml = []")
+                .openBlock("input.each do |element|")
+                .call(() -> {
+                    Shape memberTarget = model.expectShape(shape.getMember().getTarget());
+                    memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
+                            !shape.hasTrait(SparseTrait.class)));
+                })
+                .closeBlock("end")
+                .write("xml")
+                .closeBlock("end");
     }
 
     @Override
     protected void renderSetBuildMethod(SetShape shape) {
-
+        writer
+                .openBlock("def self.build(node_name, input)")
+                .write("xml = []")
+                .openBlock("input.each do |element|")
+                .call(() -> {
+                    Shape memberTarget = model.expectShape(shape.getMember().getTarget());
+                    memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
+                            !shape.hasTrait(SparseTrait.class)));
+                })
+                .closeBlock("end")
+                .write("xml")
+                .closeBlock("end");
     }
 
     @Override
@@ -52,10 +135,293 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
     @Override
     protected void renderMapBuildMethod(MapShape shape) {
+        writer
+                .openBlock("def self.build(node_name, input)")
+                .write("nodes = []")
+                .openBlock("input.each do |key, value|")
+                .call(() -> {
+                    writer.write("xml = Seahorse::XML::Node.new(node_name)");
+                    Shape keyTarget = model.expectShape(shape.getKey().getTarget());
+                    String keyName = "key";
+                    if (shape.getKey().hasTrait(XmlNameTrait.class)) {
+                        keyName = shape.getKey().getTrait(XmlNameTrait.class).get().getValue();
+                    }
+                    keyTarget.accept(new MemberSerializer(shape.getValue(), "'" + keyName + "'", "key",
+                            !shape.hasTrait(SparseTrait.class)));
 
+                    Shape valueTarget = model.expectShape(shape.getValue().getTarget());
+                    String valueName = "value";
+                    if (shape.getValue().hasTrait(XmlNameTrait.class)) {
+                        valueName = shape.getValue().getTrait(XmlNameTrait.class).get().getValue();
+                    }
+                    valueTarget.accept(new MemberSerializer(shape.getValue(), "'" + valueName + "'", "value",
+                            !shape.hasTrait(SparseTrait.class)));
+
+                    writer.write("nodes << xml");
+                })
+                .closeBlock("end")
+                .write("nodes")
+                .closeBlock("end");
     }
 
+    private class MemberSerializer extends ShapeVisitor.Default<Void> {
 
+        private final String inputGetter;
+        private final String nodeName;
+        private final MemberShape memberShape;
+        private final boolean checkRequired;
+
+        MemberSerializer(MemberShape memberShape,
+                         String nodeName, String inputGetter, boolean checkRequired) {
+            this.inputGetter = inputGetter;
+            this.nodeName = nodeName;
+            this.memberShape = memberShape;
+            this.checkRequired = checkRequired;
+        }
+
+        private String checkRequired() {
+            if (this.checkRequired) {
+                return " unless " + inputGetter + ".nil?";
+            } else {
+                return "";
+            }
+        }
+
+        @Override
+        protected Void getDefault(Shape shape) {
+            writer.write("xml << Seahorse::XML::Node.new($L, $L.to_s)$L",
+                    nodeName, inputGetter, checkRequired());
+            return null;
+        }
+
+        private void rubyFloat() {
+            writer.write("xml << Seahorse::XML::Node.new($L, Seahorse::NumberHelper.serialize($L).to_s)$L",
+                    nodeName, inputGetter, checkRequired());
+        }
+
+        @Override
+        public Void doubleShape(DoubleShape shape) {
+            rubyFloat();
+            return null;
+        }
+
+        @Override
+        public Void floatShape(FloatShape shape) {
+            rubyFloat();
+            return null;
+        }
+
+        @Override
+        public Void blobShape(BlobShape shape) {
+            writer.write("xml << Seahorse::XML::Node.new($L, Base64::encode64($L).strip)$L",
+                    nodeName, inputGetter, checkRequired());
+            return null;
+        }
+
+        @Override
+        public Void timestampShape(TimestampShape shape) {
+            // the default protocol format is date_time
+            Optional<TimestampFormatTrait> format = memberShape.getTrait(TimestampFormatTrait.class);
+            if (format.isPresent()) {
+                switch (format.get().getFormat()) {
+                    case EPOCH_SECONDS:
+                        writer.write(
+                                "xml << Seahorse::XML::Node.new($L, Seahorse::TimeHelper.to_epoch_seconds($L).to_i.to_s)$L",
+                                nodeName, inputGetter, checkRequired());
+                        break;
+                    case HTTP_DATE:
+                        writer.write(
+                                "xml << Seahorse::XML::Node.new($L, Seahorse::TimeHelper.to_http_date($L))$L",
+                                nodeName, inputGetter,checkRequired());
+                        break;
+                    case DATE_TIME:
+                    default:
+                        writer.write(
+                                "xml << Seahorse::XML::Node.new($L, Seahorse::TimeHelper.to_date_time($L))$L",
+                                nodeName, inputGetter, checkRequired());
+                        break;
+                }
+            } else {
+                writer.write(
+                        "xml << Seahorse::XML::Node.new($L, Seahorse::TimeHelper.to_date_time($L))$L",
+                        nodeName, inputGetter, checkRequired());
+            }
+            return null;
+        }
+
+        /**
+         * For complex shapes, simply delegate to their builder.
+         */
+        private void defaultComplexSerializer(Shape shape) {
+            // TODO: handle sparse/checkRequired better?
+            writer.write("xml << Builders::$1L.build($2L, $3L) unless $3L.nil?",
+                    symbolProvider.toSymbol(shape).getName(), nodeName,
+                    inputGetter);
+
+        }
+
+        @Override
+        public Void listShape(ListShape shape) {
+            if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
+                writer.write("xml << Builders::$1L.build($2L, $3L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
+                        inputGetter);
+            } else {
+                String memberName = "member";
+                if (shape.getMember().hasTrait(XmlNameTrait.class)) {
+                    memberName = shape.getMember().getTrait(XmlNameTrait.class).get().getValue();
+                }
+                writer.write("xml << Seahorse::XML::Node.new($2L, Builders::$1L.build('$4L', $3L)) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
+                        inputGetter, memberName);
+            }
+            return null;
+        }
+
+        @Override
+        public Void setShape(SetShape shape) {
+            if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
+                writer.write("xml << Builders::$1L.build($2L, $3L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
+                        inputGetter);
+            } else {
+                writer.write("xml << Seahorse::XML::Node.new($2L, Builders::$1L.build('member', $3L)) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
+                        inputGetter);
+            }
+
+            return null;
+        }
+
+        @Override
+        public Void mapShape(MapShape shape) {
+            if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
+                writer.write("xml << Builders::$1L.build($2L, $3L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
+                        inputGetter);
+            } else {
+                writer.write("xml << Seahorse::XML::Node.new($2L, Builders::$1L.build('entry', $3L)) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
+                        inputGetter);
+            }
+
+            return null;
+        }
+
+        @Override
+        public Void structureShape(StructureShape shape) {
+            defaultComplexSerializer(shape);
+            return null;
+        }
+
+        @Override
+        public Void unionShape(UnionShape shape) {
+            defaultComplexSerializer(shape);
+            return null;
+        }
+    }
+
+    private class AttributeMemberSerializer extends ShapeVisitor.Default<Void> {
+
+        private final String inputGetter;
+        private final MemberShape memberShape;
+        private final boolean checkRequired;
+        private final String attributeName;
+
+        AttributeMemberSerializer(MemberShape memberShape, String inputGetter, boolean checkRequired, String attributeName) {
+            this.inputGetter = inputGetter;
+            this.memberShape = memberShape;
+            this.checkRequired = checkRequired;
+            this.attributeName = attributeName;
+        }
+
+        private String checkRequired() {
+            if (this.checkRequired) {
+                return " unless " + inputGetter + ".nil?";
+            } else {
+                return "";
+            }
+        }
+
+        @Override
+        protected Void getDefault(Shape shape) {
+            writer.write("xml.attributes['$L'] = $L$L", attributeName, inputGetter, checkRequired());
+            return null;
+        }
+
+        private void rubyFloat() {
+            writer.write("xml.attributes['$L'] = Seahorse::NumberHelper.serialize($L).to_s$L",
+                    attributeName, inputGetter, checkRequired());
+        }
+
+        @Override
+        public Void doubleShape(DoubleShape shape) {
+            rubyFloat();
+            return null;
+        }
+
+        @Override
+        public Void floatShape(FloatShape shape) {
+            rubyFloat();
+            return null;
+        }
+
+        @Override
+        public Void timestampShape(TimestampShape shape) {
+            // the default protocol format is date_time
+            Optional<TimestampFormatTrait> format = memberShape.getTrait(TimestampFormatTrait.class);
+            if (format.isPresent()) {
+                switch (format.get().getFormat()) {
+                    case EPOCH_SECONDS:
+                        writer.write(
+                                "xml.attributes['$L'] = Seahorse::TimeHelper.to_epoch_seconds($L).to_i.to_s$L",
+                                attributeName, inputGetter, checkRequired());
+                        break;
+                    case HTTP_DATE:
+                        writer.write(
+                                "xml.attributes['$L'] = Seahorse::TimeHelper.to_http_date($L)$L",
+                                attributeName, inputGetter,checkRequired());
+                        break;
+                    case DATE_TIME:
+                    default:
+                        writer.write(
+                                "xml.attributes['$L'] = Seahorse::TimeHelper.to_date_time($L)$L",
+                                attributeName, inputGetter, checkRequired());
+                        break;
+                }
+            } else {
+                writer.write(
+                        "xml.attributes['$L'] = Seahorse::TimeHelper.to_date_time($L)$L",
+                        attributeName, inputGetter, checkRequired());
+            }
+            return null;
+        }
+
+        @Override
+        public Void listShape(ListShape shape) {
+            return null;
+        }
+
+        @Override
+        public Void setShape(SetShape shape) {
+            return null;
+        }
+
+        @Override
+        public Void mapShape(MapShape shape) {
+            return null;
+        }
+
+        @Override
+        public Void structureShape(StructureShape shape) {
+            return null;
+        }
+
+        @Override
+        public Void unionShape(UnionShape shape) {
+            return null;
+        }
+    }
 }
 
 

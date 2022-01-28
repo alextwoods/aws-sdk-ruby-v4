@@ -27,27 +27,38 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
     @Override
     protected void renderUnionStubMethod(UnionShape shape) {
+        writer
+                .openBlock("def self.stub(stub = {})")
+                .closeBlock("end");
 
     }
 
     @Override
     protected void renderListStubMethod(ListShape shape) {
-
+        writer
+                .openBlock("def self.stub(stub = {})")
+                .closeBlock("end");
     }
 
     @Override
     protected void renderSetStubMethod(SetShape shape) {
-
+        writer
+                .openBlock("def self.stub(stub = {})")
+                .closeBlock("end");
     }
 
     @Override
     protected void renderMapStubMethod(MapShape shape) {
-
+        writer
+                .openBlock("def self.stub(stub = {})")
+                .closeBlock("end");
     }
 
     @Override
     protected void renderStructureStubMethod(StructureShape shape) {
-
+        writer
+                .openBlock("def self.stub(stub = {})")
+                .closeBlock("end");
     }
 
     @Override

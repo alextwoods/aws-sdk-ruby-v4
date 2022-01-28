@@ -17,47 +17,57 @@ package software.amazon.smithy.aws.ruby.codegen.protocol.restxml.generators;
 
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
-import software.amazon.smithy.ruby.codegen.generators.ParserGeneratorBase;
+import software.amazon.smithy.ruby.codegen.generators.RestParserGeneratorBase;
 
-public class ParserGenerator extends ParserGeneratorBase {
+public class ParserGenerator extends RestParserGeneratorBase {
 
     public ParserGenerator(GenerationContext context) {
         super(context);
     }
 
     @Override
-    protected void renderUnionParseMethod(UnionShape s) {
+    protected void renderPayloadBodyParser(Shape outputShape, MemberShape payloadMember, Shape target) {
 
+    }
+
+    @Override
+    protected void renderBodyParser(Shape outputShape) {
+
+    }
+
+    @Override
+    protected void renderUnionParseMethod(UnionShape s) {
+        writer
+                .openBlock("def self.parse(map)")
+                .closeBlock("end");
     }
 
     @Override
     protected void renderMapParseMethod(MapShape s) {
-
+        writer
+                .openBlock("def self.parse(map)")
+                .closeBlock("end");
     }
 
     @Override
     protected void renderSetParseMethod(SetShape s) {
-
+        writer
+                .openBlock("def self.parse(map)")
+                .closeBlock("end");
     }
 
     @Override
     protected void renderListParseMethod(ListShape s) {
-
+        writer
+                .openBlock("def self.parse(map)")
+                .closeBlock("end");
     }
 
     @Override
     protected void renderStructureParseMethod(StructureShape s) {
-
+        writer
+                .openBlock("def self.parse(map)")
+                .closeBlock("end");
     }
-
-    @Override
-    protected void renderOperationParseMethod(OperationShape operation, Shape outputShape) {
-
-    }
-
-    @Override
-    protected void renderErrorParseMethod(Shape s) {
-
-    }
-
 }
+
