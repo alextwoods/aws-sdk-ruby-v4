@@ -10,6 +10,9 @@
 module AWS::Sts
   module Errors
 
+    def self.error_code(http_resp)
+    end
+
     # Base class for all errors returned by this service
     class ApiError < Seahorse::HTTP::ApiError; end
 

@@ -23,7 +23,6 @@ module AWS::Sts
       end
 
       def self.stub(http_resp, stub:)
-        data = {}
       end
     end
 
@@ -39,11 +38,6 @@ module AWS::Sts
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for Credentials
@@ -60,11 +54,6 @@ module AWS::Sts
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AssumeRoleWithSAML
@@ -85,7 +74,6 @@ module AWS::Sts
       end
 
       def self.stub(http_resp, stub:)
-        data = {}
       end
     end
 
@@ -105,7 +93,6 @@ module AWS::Sts
       end
 
       def self.stub(http_resp, stub:)
-        data = {}
       end
     end
 
@@ -119,7 +106,6 @@ module AWS::Sts
       end
 
       def self.stub(http_resp, stub:)
-        data = {}
       end
     end
 
@@ -133,7 +119,6 @@ module AWS::Sts
       end
 
       def self.stub(http_resp, stub:)
-        data = {}
       end
     end
 
@@ -149,7 +134,6 @@ module AWS::Sts
       end
 
       def self.stub(http_resp, stub:)
-        data = {}
       end
     end
 
@@ -165,7 +149,6 @@ module AWS::Sts
       end
 
       def self.stub(http_resp, stub:)
-        data = {}
       end
     end
 
@@ -181,11 +164,6 @@ module AWS::Sts
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetSessionToken
@@ -198,7 +176,6 @@ module AWS::Sts
       end
 
       def self.stub(http_resp, stub:)
-        data = {}
       end
     end
   end

@@ -82,6 +82,7 @@ module AWS::Sso
           Stubs::RoleInfo.default(visited)
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -142,6 +143,7 @@ module AWS::Sso
           Stubs::AccountInfo.default(visited)
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []

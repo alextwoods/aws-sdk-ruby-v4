@@ -14,6 +14,7 @@ module AWS::Lambda
 
     # Operation Parser for AddLayerVersionPermission
     class AddLayerVersionPermission
+
       def self.parse(http_resp)
         data = Types::AddLayerVersionPermissionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -25,6 +26,7 @@ module AWS::Lambda
 
     # Error Parser for ResourceNotFoundException
     class ResourceNotFoundException
+
       def self.parse(http_resp)
         data = Types::ResourceNotFoundException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -36,6 +38,7 @@ module AWS::Lambda
 
     # Error Parser for PreconditionFailedException
     class PreconditionFailedException
+
       def self.parse(http_resp)
         data = Types::PreconditionFailedException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -47,6 +50,7 @@ module AWS::Lambda
 
     # Error Parser for TooManyRequestsException
     class TooManyRequestsException
+
       def self.parse(http_resp)
         data = Types::TooManyRequestsException.new
         data.retry_after_seconds = http_resp.headers['Retry-After']
@@ -60,6 +64,7 @@ module AWS::Lambda
 
     # Error Parser for ServiceException
     class ServiceException
+
       def self.parse(http_resp)
         data = Types::ServiceException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -71,6 +76,7 @@ module AWS::Lambda
 
     # Error Parser for InvalidParameterValueException
     class InvalidParameterValueException
+
       def self.parse(http_resp)
         data = Types::InvalidParameterValueException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -82,6 +88,7 @@ module AWS::Lambda
 
     # Error Parser for PolicyLengthExceededException
     class PolicyLengthExceededException
+
       def self.parse(http_resp)
         data = Types::PolicyLengthExceededException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -93,6 +100,7 @@ module AWS::Lambda
 
     # Error Parser for ResourceConflictException
     class ResourceConflictException
+
       def self.parse(http_resp)
         data = Types::ResourceConflictException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -104,6 +112,7 @@ module AWS::Lambda
 
     # Operation Parser for AddPermission
     class AddPermission
+
       def self.parse(http_resp)
         data = Types::AddPermissionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -114,6 +123,7 @@ module AWS::Lambda
 
     # Operation Parser for CreateAlias
     class CreateAlias
+
       def self.parse(http_resp)
         data = Types::CreateAliasOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -147,6 +157,7 @@ module AWS::Lambda
 
     # Operation Parser for CreateCodeSigningConfig
     class CreateCodeSigningConfig
+
       def self.parse(http_resp)
         data = Types::CreateCodeSigningConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -194,6 +205,7 @@ module AWS::Lambda
 
     # Operation Parser for CreateEventSourceMapping
     class CreateEventSourceMapping
+
       def self.parse(http_resp)
         data = Types::CreateEventSourceMappingOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -317,6 +329,7 @@ module AWS::Lambda
 
     # Operation Parser for CreateFunction
     class CreateFunction
+
       def self.parse(http_resp)
         data = Types::CreateFunctionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -499,6 +512,7 @@ module AWS::Lambda
 
     # Error Parser for CodeVerificationFailedException
     class CodeVerificationFailedException
+
       def self.parse(http_resp)
         data = Types::CodeVerificationFailedException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -510,6 +524,7 @@ module AWS::Lambda
 
     # Error Parser for InvalidCodeSignatureException
     class InvalidCodeSignatureException
+
       def self.parse(http_resp)
         data = Types::InvalidCodeSignatureException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -521,6 +536,7 @@ module AWS::Lambda
 
     # Error Parser for CodeSigningConfigNotFoundException
     class CodeSigningConfigNotFoundException
+
       def self.parse(http_resp)
         data = Types::CodeSigningConfigNotFoundException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -532,6 +548,7 @@ module AWS::Lambda
 
     # Error Parser for CodeStorageExceededException
     class CodeStorageExceededException
+
       def self.parse(http_resp)
         data = Types::CodeStorageExceededException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -543,6 +560,7 @@ module AWS::Lambda
 
     # Operation Parser for DeleteAlias
     class DeleteAlias
+
       def self.parse(http_resp)
         data = Types::DeleteAliasOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -552,6 +570,7 @@ module AWS::Lambda
 
     # Operation Parser for DeleteCodeSigningConfig
     class DeleteCodeSigningConfig
+
       def self.parse(http_resp)
         data = Types::DeleteCodeSigningConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -561,6 +580,7 @@ module AWS::Lambda
 
     # Operation Parser for DeleteEventSourceMapping
     class DeleteEventSourceMapping
+
       def self.parse(http_resp)
         data = Types::DeleteEventSourceMappingOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -592,6 +612,7 @@ module AWS::Lambda
 
     # Error Parser for ResourceInUseException
     class ResourceInUseException
+
       def self.parse(http_resp)
         data = Types::ResourceInUseException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -603,6 +624,7 @@ module AWS::Lambda
 
     # Operation Parser for DeleteFunction
     class DeleteFunction
+
       def self.parse(http_resp)
         data = Types::DeleteFunctionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -612,6 +634,7 @@ module AWS::Lambda
 
     # Operation Parser for DeleteFunctionCodeSigningConfig
     class DeleteFunctionCodeSigningConfig
+
       def self.parse(http_resp)
         data = Types::DeleteFunctionCodeSigningConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -621,6 +644,7 @@ module AWS::Lambda
 
     # Operation Parser for DeleteFunctionConcurrency
     class DeleteFunctionConcurrency
+
       def self.parse(http_resp)
         data = Types::DeleteFunctionConcurrencyOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -630,6 +654,7 @@ module AWS::Lambda
 
     # Operation Parser for DeleteFunctionEventInvokeConfig
     class DeleteFunctionEventInvokeConfig
+
       def self.parse(http_resp)
         data = Types::DeleteFunctionEventInvokeConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -639,6 +664,7 @@ module AWS::Lambda
 
     # Operation Parser for DeleteLayerVersion
     class DeleteLayerVersion
+
       def self.parse(http_resp)
         data = Types::DeleteLayerVersionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -648,6 +674,7 @@ module AWS::Lambda
 
     # Operation Parser for DeleteProvisionedConcurrencyConfig
     class DeleteProvisionedConcurrencyConfig
+
       def self.parse(http_resp)
         data = Types::DeleteProvisionedConcurrencyConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -657,6 +684,7 @@ module AWS::Lambda
 
     # Operation Parser for GetAccountSettings
     class GetAccountSettings
+
       def self.parse(http_resp)
         data = Types::GetAccountSettingsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -689,6 +717,7 @@ module AWS::Lambda
 
     # Operation Parser for GetAlias
     class GetAlias
+
       def self.parse(http_resp)
         data = Types::GetAliasOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -704,6 +733,7 @@ module AWS::Lambda
 
     # Operation Parser for GetCodeSigningConfig
     class GetCodeSigningConfig
+
       def self.parse(http_resp)
         data = Types::GetCodeSigningConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -714,6 +744,7 @@ module AWS::Lambda
 
     # Operation Parser for GetEventSourceMapping
     class GetEventSourceMapping
+
       def self.parse(http_resp)
         data = Types::GetEventSourceMappingOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -745,6 +776,7 @@ module AWS::Lambda
 
     # Operation Parser for GetFunction
     class GetFunction
+
       def self.parse(http_resp)
         data = Types::GetFunctionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -825,6 +857,7 @@ module AWS::Lambda
 
     # Operation Parser for GetFunctionCodeSigningConfig
     class GetFunctionCodeSigningConfig
+
       def self.parse(http_resp)
         data = Types::GetFunctionCodeSigningConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -836,6 +869,7 @@ module AWS::Lambda
 
     # Operation Parser for GetFunctionConcurrency
     class GetFunctionConcurrency
+
       def self.parse(http_resp)
         data = Types::GetFunctionConcurrencyOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -846,6 +880,7 @@ module AWS::Lambda
 
     # Operation Parser for GetFunctionConfiguration
     class GetFunctionConfiguration
+
       def self.parse(http_resp)
         data = Types::GetFunctionConfigurationOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -886,6 +921,7 @@ module AWS::Lambda
 
     # Operation Parser for GetFunctionEventInvokeConfig
     class GetFunctionEventInvokeConfig
+
       def self.parse(http_resp)
         data = Types::GetFunctionEventInvokeConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -900,6 +936,7 @@ module AWS::Lambda
 
     # Operation Parser for GetLayerVersion
     class GetLayerVersion
+
       def self.parse(http_resp)
         data = Types::GetLayerVersionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -937,6 +974,7 @@ module AWS::Lambda
 
     # Operation Parser for GetLayerVersionByArn
     class GetLayerVersionByArn
+
       def self.parse(http_resp)
         data = Types::GetLayerVersionByArnOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -954,6 +992,7 @@ module AWS::Lambda
 
     # Operation Parser for GetLayerVersionPolicy
     class GetLayerVersionPolicy
+
       def self.parse(http_resp)
         data = Types::GetLayerVersionPolicyOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -965,6 +1004,7 @@ module AWS::Lambda
 
     # Operation Parser for GetPolicy
     class GetPolicy
+
       def self.parse(http_resp)
         data = Types::GetPolicyOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -976,6 +1016,7 @@ module AWS::Lambda
 
     # Operation Parser for GetProvisionedConcurrencyConfig
     class GetProvisionedConcurrencyConfig
+
       def self.parse(http_resp)
         data = Types::GetProvisionedConcurrencyConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -991,6 +1032,7 @@ module AWS::Lambda
 
     # Error Parser for ProvisionedConcurrencyConfigNotFoundException
     class ProvisionedConcurrencyConfigNotFoundException
+
       def self.parse(http_resp)
         data = Types::ProvisionedConcurrencyConfigNotFoundException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1002,6 +1044,7 @@ module AWS::Lambda
 
     # Operation Parser for Invoke
     class Invoke
+
       def self.parse(http_resp)
         data = Types::InvokeOutput.new
         data.function_error = http_resp.headers['X-Amz-Function-Error']
@@ -1016,6 +1059,7 @@ module AWS::Lambda
 
     # Error Parser for KMSNotFoundException
     class KMSNotFoundException
+
       def self.parse(http_resp)
         data = Types::KMSNotFoundException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1027,6 +1071,7 @@ module AWS::Lambda
 
     # Error Parser for InvalidSubnetIDException
     class InvalidSubnetIDException
+
       def self.parse(http_resp)
         data = Types::InvalidSubnetIDException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1038,6 +1083,7 @@ module AWS::Lambda
 
     # Error Parser for KMSDisabledException
     class KMSDisabledException
+
       def self.parse(http_resp)
         data = Types::KMSDisabledException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1049,6 +1095,7 @@ module AWS::Lambda
 
     # Error Parser for EFSIOException
     class EFSIOException
+
       def self.parse(http_resp)
         data = Types::EFSIOException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1060,6 +1107,7 @@ module AWS::Lambda
 
     # Error Parser for EFSMountConnectivityException
     class EFSMountConnectivityException
+
       def self.parse(http_resp)
         data = Types::EFSMountConnectivityException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1071,6 +1119,7 @@ module AWS::Lambda
 
     # Error Parser for EFSMountFailureException
     class EFSMountFailureException
+
       def self.parse(http_resp)
         data = Types::EFSMountFailureException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1082,6 +1131,7 @@ module AWS::Lambda
 
     # Error Parser for ResourceNotReadyException
     class ResourceNotReadyException
+
       def self.parse(http_resp)
         data = Types::ResourceNotReadyException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1093,6 +1143,7 @@ module AWS::Lambda
 
     # Error Parser for InvalidZipFileException
     class InvalidZipFileException
+
       def self.parse(http_resp)
         data = Types::InvalidZipFileException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1104,6 +1155,7 @@ module AWS::Lambda
 
     # Error Parser for InvalidRequestContentException
     class InvalidRequestContentException
+
       def self.parse(http_resp)
         data = Types::InvalidRequestContentException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1115,6 +1167,7 @@ module AWS::Lambda
 
     # Error Parser for EC2ThrottledException
     class EC2ThrottledException
+
       def self.parse(http_resp)
         data = Types::EC2ThrottledException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1126,6 +1179,7 @@ module AWS::Lambda
 
     # Error Parser for SubnetIPAddressLimitReachedException
     class SubnetIPAddressLimitReachedException
+
       def self.parse(http_resp)
         data = Types::SubnetIPAddressLimitReachedException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1137,6 +1191,7 @@ module AWS::Lambda
 
     # Error Parser for InvalidSecurityGroupIDException
     class InvalidSecurityGroupIDException
+
       def self.parse(http_resp)
         data = Types::InvalidSecurityGroupIDException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1148,6 +1203,7 @@ module AWS::Lambda
 
     # Error Parser for RequestTooLargeException
     class RequestTooLargeException
+
       def self.parse(http_resp)
         data = Types::RequestTooLargeException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1159,6 +1215,7 @@ module AWS::Lambda
 
     # Error Parser for UnsupportedMediaTypeException
     class UnsupportedMediaTypeException
+
       def self.parse(http_resp)
         data = Types::UnsupportedMediaTypeException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1170,6 +1227,7 @@ module AWS::Lambda
 
     # Error Parser for EFSMountTimeoutException
     class EFSMountTimeoutException
+
       def self.parse(http_resp)
         data = Types::EFSMountTimeoutException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1181,6 +1239,7 @@ module AWS::Lambda
 
     # Error Parser for ENILimitReachedException
     class ENILimitReachedException
+
       def self.parse(http_resp)
         data = Types::ENILimitReachedException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1192,6 +1251,7 @@ module AWS::Lambda
 
     # Error Parser for EC2UnexpectedException
     class EC2UnexpectedException
+
       def self.parse(http_resp)
         data = Types::EC2UnexpectedException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1204,6 +1264,7 @@ module AWS::Lambda
 
     # Error Parser for EC2AccessDeniedException
     class EC2AccessDeniedException
+
       def self.parse(http_resp)
         data = Types::EC2AccessDeniedException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1215,6 +1276,7 @@ module AWS::Lambda
 
     # Error Parser for InvalidRuntimeException
     class InvalidRuntimeException
+
       def self.parse(http_resp)
         data = Types::InvalidRuntimeException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1226,6 +1288,7 @@ module AWS::Lambda
 
     # Error Parser for KMSAccessDeniedException
     class KMSAccessDeniedException
+
       def self.parse(http_resp)
         data = Types::KMSAccessDeniedException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1237,6 +1300,7 @@ module AWS::Lambda
 
     # Error Parser for KMSInvalidStateException
     class KMSInvalidStateException
+
       def self.parse(http_resp)
         data = Types::KMSInvalidStateException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1248,6 +1312,7 @@ module AWS::Lambda
 
     # Operation Parser for InvokeAsync
     class InvokeAsync
+
       def self.parse(http_resp)
         data = Types::InvokeAsyncOutput.new
         data.status = http_resp.status
@@ -1258,6 +1323,7 @@ module AWS::Lambda
 
     # Operation Parser for ListAliases
     class ListAliases
+
       def self.parse(http_resp)
         data = Types::ListAliasesOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1290,6 +1356,7 @@ module AWS::Lambda
 
     # Operation Parser for ListCodeSigningConfigs
     class ListCodeSigningConfigs
+
       def self.parse(http_resp)
         data = Types::ListCodeSigningConfigsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1309,6 +1376,7 @@ module AWS::Lambda
 
     # Operation Parser for ListEventSourceMappings
     class ListEventSourceMappings
+
       def self.parse(http_resp)
         data = Types::ListEventSourceMappingsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1357,6 +1425,7 @@ module AWS::Lambda
 
     # Operation Parser for ListFunctionEventInvokeConfigs
     class ListFunctionEventInvokeConfigs
+
       def self.parse(http_resp)
         data = Types::ListFunctionEventInvokeConfigsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1388,6 +1457,7 @@ module AWS::Lambda
 
     # Operation Parser for ListFunctions
     class ListFunctions
+
       def self.parse(http_resp)
         data = Types::ListFunctionsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1407,6 +1477,7 @@ module AWS::Lambda
 
     # Operation Parser for ListFunctionsByCodeSigningConfig
     class ListFunctionsByCodeSigningConfig
+
       def self.parse(http_resp)
         data = Types::ListFunctionsByCodeSigningConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1426,6 +1497,7 @@ module AWS::Lambda
 
     # Operation Parser for ListLayerVersions
     class ListLayerVersions
+
       def self.parse(http_resp)
         data = Types::ListLayerVersionsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1458,6 +1530,7 @@ module AWS::Lambda
 
     # Operation Parser for ListLayers
     class ListLayers
+
       def self.parse(http_resp)
         data = Types::ListLayersOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1487,6 +1560,7 @@ module AWS::Lambda
 
     # Operation Parser for ListProvisionedConcurrencyConfigs
     class ListProvisionedConcurrencyConfigs
+
       def self.parse(http_resp)
         data = Types::ListProvisionedConcurrencyConfigsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1520,6 +1594,7 @@ module AWS::Lambda
 
     # Operation Parser for ListTags
     class ListTags
+
       def self.parse(http_resp)
         data = Types::ListTagsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1530,6 +1605,7 @@ module AWS::Lambda
 
     # Operation Parser for ListVersionsByFunction
     class ListVersionsByFunction
+
       def self.parse(http_resp)
         data = Types::ListVersionsByFunctionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1541,6 +1617,7 @@ module AWS::Lambda
 
     # Operation Parser for PublishLayerVersion
     class PublishLayerVersion
+
       def self.parse(http_resp)
         data = Types::PublishLayerVersionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1558,6 +1635,7 @@ module AWS::Lambda
 
     # Operation Parser for PublishVersion
     class PublishVersion
+
       def self.parse(http_resp)
         data = Types::PublishVersionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1598,6 +1676,7 @@ module AWS::Lambda
 
     # Operation Parser for PutFunctionCodeSigningConfig
     class PutFunctionCodeSigningConfig
+
       def self.parse(http_resp)
         data = Types::PutFunctionCodeSigningConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1609,6 +1688,7 @@ module AWS::Lambda
 
     # Operation Parser for PutFunctionConcurrency
     class PutFunctionConcurrency
+
       def self.parse(http_resp)
         data = Types::PutFunctionConcurrencyOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1619,6 +1699,7 @@ module AWS::Lambda
 
     # Operation Parser for PutFunctionEventInvokeConfig
     class PutFunctionEventInvokeConfig
+
       def self.parse(http_resp)
         data = Types::PutFunctionEventInvokeConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1633,6 +1714,7 @@ module AWS::Lambda
 
     # Operation Parser for PutProvisionedConcurrencyConfig
     class PutProvisionedConcurrencyConfig
+
       def self.parse(http_resp)
         data = Types::PutProvisionedConcurrencyConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1648,6 +1730,7 @@ module AWS::Lambda
 
     # Operation Parser for RemoveLayerVersionPermission
     class RemoveLayerVersionPermission
+
       def self.parse(http_resp)
         data = Types::RemoveLayerVersionPermissionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1657,6 +1740,7 @@ module AWS::Lambda
 
     # Operation Parser for RemovePermission
     class RemovePermission
+
       def self.parse(http_resp)
         data = Types::RemovePermissionOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1666,6 +1750,7 @@ module AWS::Lambda
 
     # Operation Parser for TagResource
     class TagResource
+
       def self.parse(http_resp)
         data = Types::TagResourceOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1675,6 +1760,7 @@ module AWS::Lambda
 
     # Operation Parser for UntagResource
     class UntagResource
+
       def self.parse(http_resp)
         data = Types::UntagResourceOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1684,6 +1770,7 @@ module AWS::Lambda
 
     # Operation Parser for UpdateAlias
     class UpdateAlias
+
       def self.parse(http_resp)
         data = Types::UpdateAliasOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1699,6 +1786,7 @@ module AWS::Lambda
 
     # Operation Parser for UpdateCodeSigningConfig
     class UpdateCodeSigningConfig
+
       def self.parse(http_resp)
         data = Types::UpdateCodeSigningConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1709,6 +1797,7 @@ module AWS::Lambda
 
     # Operation Parser for UpdateEventSourceMapping
     class UpdateEventSourceMapping
+
       def self.parse(http_resp)
         data = Types::UpdateEventSourceMappingOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1740,6 +1829,7 @@ module AWS::Lambda
 
     # Operation Parser for UpdateFunctionCode
     class UpdateFunctionCode
+
       def self.parse(http_resp)
         data = Types::UpdateFunctionCodeOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1780,6 +1870,7 @@ module AWS::Lambda
 
     # Operation Parser for UpdateFunctionConfiguration
     class UpdateFunctionConfiguration
+
       def self.parse(http_resp)
         data = Types::UpdateFunctionConfigurationOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -1820,6 +1911,7 @@ module AWS::Lambda
 
     # Operation Parser for UpdateFunctionEventInvokeConfig
     class UpdateFunctionEventInvokeConfig
+
       def self.parse(http_resp)
         data = Types::UpdateFunctionEventInvokeConfigOutput.new
         map = Seahorse::JSON.load(http_resp.body)

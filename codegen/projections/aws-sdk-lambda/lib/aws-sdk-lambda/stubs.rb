@@ -209,6 +209,7 @@ module AWS::Lambda
           'member'
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -288,6 +289,7 @@ module AWS::Lambda
           'member'
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -346,6 +348,7 @@ module AWS::Lambda
           'member'
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -365,6 +368,7 @@ module AWS::Lambda
           Stubs::SourceAccessConfiguration.default(visited)
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -405,6 +409,7 @@ module AWS::Lambda
           'member'
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -424,6 +429,7 @@ module AWS::Lambda
           'member'
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -645,6 +651,7 @@ module AWS::Lambda
           'member'
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -664,6 +671,7 @@ module AWS::Lambda
           Stubs::FileSystemConfig.default(visited)
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -704,6 +712,7 @@ module AWS::Lambda
           Stubs::Layer.default(visited)
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -871,6 +880,7 @@ module AWS::Lambda
           'member'
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -890,6 +900,7 @@ module AWS::Lambda
           'member'
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -1596,6 +1607,7 @@ module AWS::Lambda
           'member'
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -1803,6 +1815,7 @@ module AWS::Lambda
           Stubs::AliasConfiguration.default(visited)
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -1871,6 +1884,7 @@ module AWS::Lambda
           Stubs::CodeSigningConfig.default(visited)
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -1910,6 +1924,7 @@ module AWS::Lambda
           Stubs::EventSourceMappingConfiguration.default(visited)
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -2010,6 +2025,7 @@ module AWS::Lambda
           Stubs::FunctionEventInvokeConfig.default(visited)
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -2076,6 +2092,7 @@ module AWS::Lambda
           Stubs::FunctionConfiguration.default(visited)
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -2115,6 +2132,7 @@ module AWS::Lambda
           'member'
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -2154,6 +2172,7 @@ module AWS::Lambda
           Stubs::LayerVersionsListItem.default(visited)
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -2222,6 +2241,7 @@ module AWS::Lambda
           Stubs::LayersListItem.default(visited)
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []
@@ -2284,6 +2304,7 @@ module AWS::Lambda
           Stubs::ProvisionedConcurrencyConfigListItem.default(visited)
         ]
       end
+
       def self.stub(stub = [])
         stub ||= []
         data = []

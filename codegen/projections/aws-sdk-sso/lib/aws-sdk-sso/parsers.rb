@@ -14,6 +14,7 @@ module AWS::Sso
 
     # Operation Parser for GetRoleCredentials
     class GetRoleCredentials
+
       def self.parse(http_resp)
         data = Types::GetRoleCredentialsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -35,6 +36,7 @@ module AWS::Sso
 
     # Error Parser for ResourceNotFoundException
     class ResourceNotFoundException
+
       def self.parse(http_resp)
         data = Types::ResourceNotFoundException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -45,6 +47,7 @@ module AWS::Sso
 
     # Error Parser for InvalidRequestException
     class InvalidRequestException
+
       def self.parse(http_resp)
         data = Types::InvalidRequestException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -55,6 +58,7 @@ module AWS::Sso
 
     # Error Parser for UnauthorizedException
     class UnauthorizedException
+
       def self.parse(http_resp)
         data = Types::UnauthorizedException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -65,6 +69,7 @@ module AWS::Sso
 
     # Error Parser for TooManyRequestsException
     class TooManyRequestsException
+
       def self.parse(http_resp)
         data = Types::TooManyRequestsException.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -75,6 +80,7 @@ module AWS::Sso
 
     # Operation Parser for ListAccountRoles
     class ListAccountRoles
+
       def self.parse(http_resp)
         data = Types::ListAccountRolesOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -103,6 +109,7 @@ module AWS::Sso
 
     # Operation Parser for ListAccounts
     class ListAccounts
+
       def self.parse(http_resp)
         data = Types::ListAccountsOutput.new
         map = Seahorse::JSON.load(http_resp.body)
@@ -132,6 +139,7 @@ module AWS::Sso
 
     # Operation Parser for Logout
     class Logout
+
       def self.parse(http_resp)
         data = Types::LogoutOutput.new
         map = Seahorse::JSON.load(http_resp.body)
