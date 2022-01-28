@@ -26,6 +26,11 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
 
     @Override
     public void renderErrorCode() {
+        // TODO
+        writer
+                .openBlock("def self.error_code(http_resp)")
+                .closeBlock("end");
+
     }
 
 }

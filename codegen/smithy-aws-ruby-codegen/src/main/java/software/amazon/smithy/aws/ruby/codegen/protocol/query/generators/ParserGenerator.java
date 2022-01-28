@@ -52,7 +52,12 @@ public class ParserGenerator extends ParserGeneratorBase {
 
     @Override
     protected void renderOperationParseMethod(OperationShape operation, Shape outputShape) {
-
+        // TODO
+        writer
+                .openBlock("def self.parse(http_resp)")
+                .write("data = Types::$L.new", symbolProvider.toSymbol(outputShape).getName())
+                .write("data")
+                .closeBlock("end");
     }
 
     @Override

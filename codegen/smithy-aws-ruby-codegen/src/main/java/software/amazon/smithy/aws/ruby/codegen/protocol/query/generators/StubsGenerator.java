@@ -58,7 +58,10 @@ public class StubsGenerator extends StubsGeneratorBase {
 
     @Override
     protected void renderOperationStubMethod(OperationShape operation, Shape outputShape) {
-
+        // TODO
+        writer
+                .openBlock("def self.stub(http_resp, stub:)")
+                .closeBlock("end");
     }
 
 }
