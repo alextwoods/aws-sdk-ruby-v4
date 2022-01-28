@@ -15,9 +15,13 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.query.generators;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
+import software.amazon.smithy.model.traits.XmlFlattenedTrait;
+import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
@@ -57,7 +61,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
 
-            String dataName = "'" + member.getMemberName() + "'"; // TODO: account for other name traits
+            String dataName = "'" + member.getMemberName() + "'";
             String symbolName = ":" + symbolProvider.toMemberName(member);
             String inputGetter = "input[" + symbolName + "]";
             target.accept(new MemberSerializer(member, dataName, inputGetter, true));
@@ -74,12 +78,11 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
     @Override
     protected void renderListBuildMethod(ListShape shape) {
-        // TODO: Handle names / flat
         writer
                 .openBlock("def self.build(input, query, context: '')")
                 .openBlock("input.each_with_index do |element, index|")
                 .call(() -> {
-                    String dataName = "\"member.#{index+1}\"";
+                    String dataName = "\".#{index+1}\"";
                             Shape memberTarget = model.expectShape(shape.getMember().getTarget());
                     memberTarget.accept(
                             new MemberSerializer(shape.getMember(),
@@ -92,12 +95,11 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
     @Override
     protected void renderSetBuildMethod(SetShape shape) {
-        // TODO: Handle names / flat
         writer
                 .openBlock("def self.build(input, query, context: '')")
                 .openBlock("input.each_with_index do |element, index|")
                 .call(() -> {
-                    String dataName = "\"member.#{index+1}\"";
+                    String dataName = "\".#{index+1}\"";
                     Shape memberTarget = model.expectShape(shape.getMember().getTarget());
                     memberTarget.accept(
                             new MemberSerializer(shape.getMember(),
@@ -109,7 +111,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
     @Override
     protected void renderUnionBuildMethod(UnionShape shape) {
-
+        // todo
     }
 
     @Override
@@ -119,8 +121,16 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .openBlock("def self.build(input, query, context: '')")
                 .openBlock("input.each_with_index do |(key, value), index|")
                 .call(() -> {
-                    writer.write("query[\"#{context}entry.#{index+1}.key\"] = key");
-                    String dataName = "\"entry.#{index+1}.value\"";
+                    String key = "key";
+                    if (shape.getKey().hasTrait(XmlNameTrait.class)) {
+                        key = shape.getKey().getTrait(XmlNameTrait.class).get().getValue();
+                    }
+                    writer.write("query[context + \".#{index+1}." + key + "\"] = key");
+                    String value = "value";
+                    if (shape.getValue().hasTrait(XmlNameTrait.class)) {
+                        value = shape.getValue().getTrait(XmlNameTrait.class).get().getValue();
+                    }
+                    String dataName = "\".#{index+1}." + value + "\"";
                     Shape memberTarget = model.expectShape(shape.getValue().getTarget());
                     memberTarget.accept(
                             new MemberSerializer(shape.getValue(),
@@ -184,28 +194,37 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         @Override
         public Void timestampShape(TimestampShape shape) {
+            TimestampFormatTrait.Format format = null;
+            if (memberShape.hasTrait(TimestampFormatTrait.class)) {
+                format = memberShape.getTrait(TimestampFormatTrait.class).get().getFormat();
+            } else if (shape.hasTrait(TimestampFormatTrait.class)) {
+                format = shape.getTrait(TimestampFormatTrait.class).get().getFormat();
+            } else if (context.getService().hasTrait(TimestampFormatTrait.class)) {
+                format = context.getService().getTrait(TimestampFormatTrait.class).get().getFormat();
+            }
 
-            // the default protocol format is date_time
-            Optional<TimestampFormatTrait> format = memberShape.getTrait(TimestampFormatTrait.class);
-            if (format.isPresent()) {
-                switch (format.get().getFormat()) {
+            if (format != null) {
+                switch (format) {
                     case EPOCH_SECONDS:
                         writer.write("query[context + $L] = Seahorse::TimeHelper.to_epoch_seconds($L)$L",
                                 dataName, inputGetter, checkRequired());
                         break;
                     case HTTP_DATE:
-                        writer.write("query[context + $L] = Seahorse::TimeHelper.to_http_date($L)$L",
+                        writer.write("query[context + $L] = Seahorse::HTTP.uri_escape(Seahorse::TimeHelper.to_http_date($L))$L",
                                 dataName, inputGetter, checkRequired());
                         break;
                     case DATE_TIME:
                     default:
-                        writer.write("query[context + $L] = Seahorse::TimeHelper.to_date_time($L)$L",
+                        writer.write("query[context + $L] = Seahorse::HTTP.uri_escape(Seahorse::TimeHelper.to_date_time($L))$L",
                                 dataName, inputGetter, checkRequired());
                         break;
                 }
             } else {
-                writer.write("query[context + $L] = Seahorse::TimeHelper.to_date_time($L)$L",
-                        dataName, inputGetter, checkRequired());            }
+                // the default protocol format is date_time
+                writer.write("query[context + $L] = Seahorse::HTTP.uri_escape(Seahorse::TimeHelper.to_date_time($L))$L",
+                        dataName, inputGetter, checkRequired());
+            }
+
             return null;
         }
 
@@ -217,21 +236,47 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                     symbolProvider.toSymbol(shape).getName(), inputGetter, dataName);
         }
 
+        private void defaultCollectionSerializer(CollectionShape shape) {
+            String name = dataName;
+            if (memberShape.hasTrait(XmlNameTrait.class)) {
+                name = "'" + memberShape.getTrait(XmlNameTrait.class).get().getValue() + "'";
+            }
+            String context = "context + " + name;
+            if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
+                String member = "member";
+                if (shape.getMember().hasTrait(XmlNameTrait.class)) {
+                    member = shape.getMember().getTrait(XmlNameTrait.class).get().getValue();
+                }
+                context += " + '." + member + "'";
+            }
+            writer.write("Builders::$1L.build($2L, query, context: $3L) unless $2L.nil?",
+                    symbolProvider.toSymbol(shape).getName(), inputGetter, context);
+        }
+
         @Override
         public Void listShape(ListShape shape) {
-            defaultComplexSerializer(shape);
+            defaultCollectionSerializer(shape);
             return null;
         }
 
         @Override
         public Void setShape(SetShape shape) {
-            defaultComplexSerializer(shape);
+            defaultCollectionSerializer(shape);
             return null;
         }
 
         @Override
         public Void mapShape(MapShape shape) {
-            defaultComplexSerializer(shape);
+            String name = dataName;
+            if (memberShape.hasTrait(XmlNameTrait.class)) {
+                name = "'" + memberShape.getTrait(XmlNameTrait.class).get().getValue() + "'";
+            }
+            String context = "context + " + name;
+            if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
+                context += " + '.entry'";
+            }
+            writer.write("Builders::$1L.build($2L, query, context: $3L) unless $2L.nil?",
+                    symbolProvider.toSymbol(shape).getName(), inputGetter, context);
             return null;
         }
 
