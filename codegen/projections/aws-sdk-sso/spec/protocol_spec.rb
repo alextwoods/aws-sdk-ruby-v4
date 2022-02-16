@@ -9,6 +9,8 @@
 
 require 'aws-sdk-sso'
 
+require 'hearth/xml/node_matcher'
+
 module AWS::Sso
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }

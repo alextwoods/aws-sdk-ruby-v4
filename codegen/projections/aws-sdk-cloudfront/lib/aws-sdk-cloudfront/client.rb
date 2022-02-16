@@ -16,9 +16,9 @@ module AWS::Cloudfront
   # 			CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the <i>Amazon CloudFront Developer Guide</i>.</p>
   #
   class Client
-    include Seahorse::ClientStubs
+    include Hearth::ClientStubs
 
-    @middleware = Seahorse::MiddlewareBuilder.new
+    @middleware = Hearth::MiddlewareBuilder.new
 
     def self.middleware
       @middleware
@@ -52,9 +52,9 @@ module AWS::Cloudfront
       @http_wire_trace = options.fetch(:http_wire_trace, false)
       @log_level = options.fetch(:log_level, :info)
       @logger = options.fetch(:logger, Logger.new($stdout, level: @log_level))
-      @middleware = Seahorse::MiddlewareBuilder.new(options[:middleware])
+      @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
       @stub_responses = options.fetch(:stub_responses, false)
-      @stubs = Seahorse::Stubbing::Stubs.new
+      @stubs = Hearth::Stubbing::Stubs.new
       @validate_input = options.fetch(:validate_input, true)
 
     end
@@ -94,23 +94,23 @@ module AWS::Cloudfront
     #   resp #=> Types::AssociateAliasOutput
     #
     def associate_alias(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::AssociateAliasInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateAliasInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::AssociateAlias
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::IllegalUpdate, Errors::NoSuchDistribution, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::IllegalUpdate, Errors::NoSuchDistribution, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs]),
         data_parser: Parsers::AssociateAlias
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::AssociateAlias,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -118,9 +118,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :associate_alias
@@ -240,23 +240,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def create_cache_policy(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateCachePolicyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCachePolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateCachePolicy
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyCookiesInCachePolicy, Errors::TooManyHeadersInCachePolicy, Errors::InconsistentQuantities, Errors::TooManyCachePolicies, Errors::TooManyQueryStringsInCachePolicy, Errors::CachePolicyAlreadyExists, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyCookiesInCachePolicy, Errors::TooManyHeadersInCachePolicy, Errors::InconsistentQuantities, Errors::TooManyCachePolicies, Errors::TooManyQueryStringsInCachePolicy, Errors::CachePolicyAlreadyExists, Errors::InvalidArgument]),
         data_parser: Parsers::CreateCachePolicy
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateCachePolicy,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -264,9 +264,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_cache_policy
@@ -311,23 +311,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def create_cloud_front_origin_access_identity(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateCloudFrontOriginAccessIdentityInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCloudFrontOriginAccessIdentityInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateCloudFrontOriginAccessIdentity
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::MissingBody, Errors::CloudFrontOriginAccessIdentityAlreadyExists, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::TooManyCloudFrontOriginAccessIdentities]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::MissingBody, Errors::CloudFrontOriginAccessIdentityAlreadyExists, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::TooManyCloudFrontOriginAccessIdentities]),
         data_parser: Parsers::CreateCloudFrontOriginAccessIdentity
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateCloudFrontOriginAccessIdentity,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -335,9 +335,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_cloud_front_origin_access_identity
@@ -792,23 +792,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def create_distribution(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateDistributionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateDistribution
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributions, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::InvalidOriginAccessIdentity, Errors::DistributionAlreadyExists, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidProtocolSettings, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::InvalidOrigin, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributions, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::InvalidOriginAccessIdentity, Errors::DistributionAlreadyExists, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidProtocolSettings, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::InvalidOrigin, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
         data_parser: Parsers::CreateDistribution
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateDistribution,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -816,9 +816,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_distribution
@@ -1271,23 +1271,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def create_distribution_with_tags(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateDistributionWithTagsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDistributionWithTagsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateDistributionWithTags
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidTagging, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributions, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::InvalidOriginAccessIdentity, Errors::DistributionAlreadyExists, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidProtocolSettings, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::InvalidOrigin, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidTagging, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributions, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::InvalidOriginAccessIdentity, Errors::DistributionAlreadyExists, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidProtocolSettings, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::InvalidOrigin, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
         data_parser: Parsers::CreateDistributionWithTags
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateDistributionWithTags,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1295,9 +1295,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_distribution_with_tags
@@ -1381,23 +1381,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def create_field_level_encryption_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateFieldLevelEncryptionConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFieldLevelEncryptionConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateFieldLevelEncryptionConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::QueryArgProfileEmpty, Errors::FieldLevelEncryptionConfigAlreadyExists, Errors::TooManyFieldLevelEncryptionContentTypeProfiles, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::TooManyFieldLevelEncryptionConfigs, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionQueryArgProfiles]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::QueryArgProfileEmpty, Errors::FieldLevelEncryptionConfigAlreadyExists, Errors::TooManyFieldLevelEncryptionContentTypeProfiles, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::TooManyFieldLevelEncryptionConfigs, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionQueryArgProfiles]),
         data_parser: Parsers::CreateFieldLevelEncryptionConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateFieldLevelEncryptionConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1405,9 +1405,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_field_level_encryption_config
@@ -1476,23 +1476,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def create_field_level_encryption_profile(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateFieldLevelEncryptionProfileInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFieldLevelEncryptionProfileInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateFieldLevelEncryptionProfile
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::FieldLevelEncryptionProfileAlreadyExists, Errors::TooManyFieldLevelEncryptionFieldPatterns, Errors::NoSuchPublicKey, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionEncryptionEntities, Errors::TooManyFieldLevelEncryptionProfiles, Errors::FieldLevelEncryptionProfileSizeExceeded]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::FieldLevelEncryptionProfileAlreadyExists, Errors::TooManyFieldLevelEncryptionFieldPatterns, Errors::NoSuchPublicKey, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionEncryptionEntities, Errors::TooManyFieldLevelEncryptionProfiles, Errors::FieldLevelEncryptionProfileSizeExceeded]),
         data_parser: Parsers::CreateFieldLevelEncryptionProfile
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateFieldLevelEncryptionProfile,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1500,9 +1500,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_field_level_encryption_profile
@@ -1569,23 +1569,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def create_function(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateFunctionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateFunction
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::UnsupportedOperation, Errors::TooManyFunctions, Errors::FunctionAlreadyExists, Errors::InvalidArgument, Errors::FunctionSizeLimitExceeded]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::UnsupportedOperation, Errors::TooManyFunctions, Errors::FunctionAlreadyExists, Errors::InvalidArgument, Errors::FunctionSizeLimitExceeded]),
         data_parser: Parsers::CreateFunction
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateFunction,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1593,9 +1593,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_function
@@ -1649,23 +1649,23 @@ module AWS::Cloudfront
     #   resp.invalidation.invalidation_batch.caller_reference #=> String
     #
     def create_invalidation(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateInvalidationInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInvalidationInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateInvalidation
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::MissingBody, Errors::TooManyInvalidationsInProgress, Errors::InconsistentQuantities, Errors::NoSuchDistribution, Errors::InvalidArgument, Errors::BatchTooLarge]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::MissingBody, Errors::TooManyInvalidationsInProgress, Errors::InconsistentQuantities, Errors::NoSuchDistribution, Errors::InvalidArgument, Errors::BatchTooLarge]),
         data_parser: Parsers::CreateInvalidation
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateInvalidation,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1673,9 +1673,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_invalidation
@@ -1729,23 +1729,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def create_key_group(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateKeyGroupInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateKeyGroupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateKeyGroup
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::KeyGroupAlreadyExists, Errors::TooManyKeyGroups, Errors::TooManyPublicKeysInKeyGroup, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::KeyGroupAlreadyExists, Errors::TooManyKeyGroups, Errors::TooManyPublicKeysInKeyGroup, Errors::InvalidArgument]),
         data_parser: Parsers::CreateKeyGroup
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateKeyGroup,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1753,9 +1753,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_key_group
@@ -1801,23 +1801,23 @@ module AWS::Cloudfront
     #   resp.monitoring_subscription.realtime_metrics_subscription_config.realtime_metrics_subscription_status #=> String, one of Enabled, Disabled
     #
     def create_monitoring_subscription(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateMonitoringSubscriptionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMonitoringSubscriptionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateMonitoringSubscription
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
         data_parser: Parsers::CreateMonitoringSubscription
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateMonitoringSubscription,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1825,9 +1825,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_monitoring_subscription
@@ -1938,23 +1938,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def create_origin_request_policy(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateOriginRequestPolicyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOriginRequestPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateOriginRequestPolicy
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyHeadersInOriginRequestPolicy, Errors::TooManyOriginRequestPolicies, Errors::TooManyQueryStringsInOriginRequestPolicy, Errors::InconsistentQuantities, Errors::OriginRequestPolicyAlreadyExists, Errors::InvalidArgument, Errors::TooManyCookiesInOriginRequestPolicy]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyHeadersInOriginRequestPolicy, Errors::TooManyOriginRequestPolicies, Errors::TooManyQueryStringsInOriginRequestPolicy, Errors::InconsistentQuantities, Errors::OriginRequestPolicyAlreadyExists, Errors::InvalidArgument, Errors::TooManyCookiesInOriginRequestPolicy]),
         data_parser: Parsers::CreateOriginRequestPolicy
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateOriginRequestPolicy,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1962,9 +1962,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_origin_request_policy
@@ -2010,23 +2010,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def create_public_key(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreatePublicKeyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePublicKeyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreatePublicKey
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::InvalidArgument, Errors::TooManyPublicKeys, Errors::PublicKeyAlreadyExists]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::InvalidArgument, Errors::TooManyPublicKeys, Errors::PublicKeyAlreadyExists]),
         data_parser: Parsers::CreatePublicKey
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreatePublicKey,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2034,9 +2034,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_public_key
@@ -2109,23 +2109,23 @@ module AWS::Cloudfront
     #   resp.realtime_log_config.fields[0] #=> String
     #
     def create_realtime_log_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateRealtimeLogConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRealtimeLogConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateRealtimeLogConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::TooManyRealtimeLogConfigs, Errors::RealtimeLogConfigAlreadyExists]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::TooManyRealtimeLogConfigs, Errors::RealtimeLogConfigAlreadyExists]),
         data_parser: Parsers::CreateRealtimeLogConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateRealtimeLogConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2133,9 +2133,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_realtime_log_config
@@ -2302,23 +2302,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def create_response_headers_policy(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateResponseHeadersPolicyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResponseHeadersPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateResponseHeadersPolicy
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyCustomHeadersInResponseHeadersPolicy, Errors::InconsistentQuantities, Errors::TooManyResponseHeadersPolicies, Errors::InvalidArgument, Errors::ResponseHeadersPolicyAlreadyExists]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyCustomHeadersInResponseHeadersPolicy, Errors::InconsistentQuantities, Errors::TooManyResponseHeadersPolicies, Errors::InvalidArgument, Errors::ResponseHeadersPolicyAlreadyExists]),
         data_parser: Parsers::CreateResponseHeadersPolicy
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateResponseHeadersPolicy,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2326,9 +2326,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_response_headers_policy
@@ -2427,23 +2427,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def create_streaming_distribution(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamingDistributionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamingDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateStreamingDistribution
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::MissingBody, Errors::TooManyStreamingDistributions, Errors::InconsistentQuantities, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::AccessDenied, Errors::TooManyTrustedSigners, Errors::StreamingDistributionAlreadyExists, Errors::InvalidOriginAccessIdentity, Errors::InvalidOrigin, Errors::TooManyStreamingDistributionCNAMEs]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::MissingBody, Errors::TooManyStreamingDistributions, Errors::InconsistentQuantities, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::AccessDenied, Errors::TooManyTrustedSigners, Errors::StreamingDistributionAlreadyExists, Errors::InvalidOriginAccessIdentity, Errors::InvalidOrigin, Errors::TooManyStreamingDistributionCNAMEs]),
         data_parser: Parsers::CreateStreamingDistribution
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateStreamingDistribution,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2451,9 +2451,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_streaming_distribution
@@ -2562,23 +2562,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def create_streaming_distribution_with_tags(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamingDistributionWithTagsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamingDistributionWithTagsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateStreamingDistributionWithTags
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::MissingBody, Errors::TooManyStreamingDistributions, Errors::InconsistentQuantities, Errors::InvalidTagging, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::AccessDenied, Errors::TooManyTrustedSigners, Errors::StreamingDistributionAlreadyExists, Errors::InvalidOriginAccessIdentity, Errors::InvalidOrigin, Errors::TooManyStreamingDistributionCNAMEs]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::MissingBody, Errors::TooManyStreamingDistributions, Errors::InconsistentQuantities, Errors::InvalidTagging, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::AccessDenied, Errors::TooManyTrustedSigners, Errors::StreamingDistributionAlreadyExists, Errors::InvalidOriginAccessIdentity, Errors::InvalidOrigin, Errors::TooManyStreamingDistributionCNAMEs]),
         data_parser: Parsers::CreateStreamingDistributionWithTags
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateStreamingDistributionWithTags,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2586,9 +2586,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_streaming_distribution_with_tags
@@ -2633,23 +2633,23 @@ module AWS::Cloudfront
     #   resp #=> Types::DeleteCachePolicyOutput
     #
     def delete_cache_policy(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCachePolicyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCachePolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteCachePolicy
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalDelete, Errors::NoSuchCachePolicy, Errors::CachePolicyInUse]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalDelete, Errors::NoSuchCachePolicy, Errors::CachePolicyInUse]),
         data_parser: Parsers::DeleteCachePolicy
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteCachePolicy,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2657,9 +2657,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_cache_policy
@@ -2695,23 +2695,23 @@ module AWS::Cloudfront
     #   resp #=> Types::DeleteCloudFrontOriginAccessIdentityOutput
     #
     def delete_cloud_front_origin_access_identity(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCloudFrontOriginAccessIdentityInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCloudFrontOriginAccessIdentityInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteCloudFrontOriginAccessIdentity
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::CloudFrontOriginAccessIdentityInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchCloudFrontOriginAccessIdentity]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::CloudFrontOriginAccessIdentityInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchCloudFrontOriginAccessIdentity]),
         data_parser: Parsers::DeleteCloudFrontOriginAccessIdentity
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteCloudFrontOriginAccessIdentity,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2719,9 +2719,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_cloud_front_origin_access_identity
@@ -2757,23 +2757,23 @@ module AWS::Cloudfront
     #   resp #=> Types::DeleteDistributionOutput
     #
     def delete_distribution(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDistributionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteDistribution
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchDistribution, Errors::DistributionNotDisabled]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchDistribution, Errors::DistributionNotDisabled]),
         data_parser: Parsers::DeleteDistribution
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteDistribution,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2781,9 +2781,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_distribution
@@ -2819,23 +2819,23 @@ module AWS::Cloudfront
     #   resp #=> Types::DeleteFieldLevelEncryptionConfigOutput
     #
     def delete_field_level_encryption_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFieldLevelEncryptionConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFieldLevelEncryptionConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteFieldLevelEncryptionConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::FieldLevelEncryptionConfigInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchFieldLevelEncryptionConfig]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::FieldLevelEncryptionConfigInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchFieldLevelEncryptionConfig]),
         data_parser: Parsers::DeleteFieldLevelEncryptionConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteFieldLevelEncryptionConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2843,9 +2843,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_field_level_encryption_config
@@ -2881,23 +2881,23 @@ module AWS::Cloudfront
     #   resp #=> Types::DeleteFieldLevelEncryptionProfileOutput
     #
     def delete_field_level_encryption_profile(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFieldLevelEncryptionProfileInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFieldLevelEncryptionProfileInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteFieldLevelEncryptionProfile
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::FieldLevelEncryptionProfileInUse, Errors::NoSuchFieldLevelEncryptionProfile]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::FieldLevelEncryptionProfileInUse, Errors::NoSuchFieldLevelEncryptionProfile]),
         data_parser: Parsers::DeleteFieldLevelEncryptionProfile
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteFieldLevelEncryptionProfile,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2905,9 +2905,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_field_level_encryption_profile
@@ -2949,23 +2949,23 @@ module AWS::Cloudfront
     #   resp #=> Types::DeleteFunctionOutput
     #
     def delete_function(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteFunction
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::FunctionInUse]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::FunctionInUse]),
         data_parser: Parsers::DeleteFunction
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteFunction,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2973,9 +2973,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_function
@@ -3019,23 +3019,23 @@ module AWS::Cloudfront
     #   resp #=> Types::DeleteKeyGroupOutput
     #
     def delete_key_group(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteKeyGroupInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteKeyGroupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteKeyGroup
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchResource, Errors::ResourceInUse]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchResource, Errors::ResourceInUse]),
         data_parser: Parsers::DeleteKeyGroup
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteKeyGroup,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3043,9 +3043,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_key_group
@@ -3076,23 +3076,23 @@ module AWS::Cloudfront
     #   resp #=> Types::DeleteMonitoringSubscriptionOutput
     #
     def delete_monitoring_subscription(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMonitoringSubscriptionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMonitoringSubscriptionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteMonitoringSubscription
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
         data_parser: Parsers::DeleteMonitoringSubscription
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteMonitoringSubscription,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3100,9 +3100,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_monitoring_subscription
@@ -3147,23 +3147,23 @@ module AWS::Cloudfront
     #   resp #=> Types::DeleteOriginRequestPolicyOutput
     #
     def delete_origin_request_policy(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOriginRequestPolicyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOriginRequestPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteOriginRequestPolicy
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::OriginRequestPolicyInUse, Errors::IllegalDelete, Errors::NoSuchOriginRequestPolicy]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::OriginRequestPolicyInUse, Errors::IllegalDelete, Errors::NoSuchOriginRequestPolicy]),
         data_parser: Parsers::DeleteOriginRequestPolicy
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteOriginRequestPolicy,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3171,9 +3171,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_origin_request_policy
@@ -3209,23 +3209,23 @@ module AWS::Cloudfront
     #   resp #=> Types::DeletePublicKeyOutput
     #
     def delete_public_key(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeletePublicKeyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePublicKeyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeletePublicKey
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey, Errors::PublicKeyInUse]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey, Errors::PublicKeyInUse]),
         data_parser: Parsers::DeletePublicKey
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeletePublicKey,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3233,9 +3233,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_public_key
@@ -3276,23 +3276,23 @@ module AWS::Cloudfront
     #   resp #=> Types::DeleteRealtimeLogConfigOutput
     #
     def delete_realtime_log_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRealtimeLogConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRealtimeLogConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteRealtimeLogConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::RealtimeLogConfigInUse, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::RealtimeLogConfigInUse, Errors::InvalidArgument]),
         data_parser: Parsers::DeleteRealtimeLogConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteRealtimeLogConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3300,9 +3300,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_realtime_log_config
@@ -3348,23 +3348,23 @@ module AWS::Cloudfront
     #   resp #=> Types::DeleteResponseHeadersPolicyOutput
     #
     def delete_response_headers_policy(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResponseHeadersPolicyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResponseHeadersPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteResponseHeadersPolicy
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::ResponseHeadersPolicyInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalDelete, Errors::NoSuchResponseHeadersPolicy]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::ResponseHeadersPolicyInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalDelete, Errors::NoSuchResponseHeadersPolicy]),
         data_parser: Parsers::DeleteResponseHeadersPolicy
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteResponseHeadersPolicy,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3372,9 +3372,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_response_headers_policy
@@ -3457,23 +3457,23 @@ module AWS::Cloudfront
     #   resp #=> Types::DeleteStreamingDistributionOutput
     #
     def delete_streaming_distribution(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStreamingDistributionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStreamingDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteStreamingDistribution
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::StreamingDistributionNotDisabled, Errors::NoSuchStreamingDistribution]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::StreamingDistributionNotDisabled, Errors::NoSuchStreamingDistribution]),
         data_parser: Parsers::DeleteStreamingDistribution
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteStreamingDistribution,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3481,9 +3481,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_streaming_distribution
@@ -3534,23 +3534,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def describe_function(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFunctionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeFunction
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::UnsupportedOperation, Errors::NoSuchFunctionExists]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::UnsupportedOperation, Errors::NoSuchFunctionExists]),
         data_parser: Parsers::DescribeFunction
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeFunction,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3558,9 +3558,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :describe_function
@@ -3639,23 +3639,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_cache_policy(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetCachePolicyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCachePolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetCachePolicy
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy]),
         data_parser: Parsers::GetCachePolicy
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetCachePolicy,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3663,9 +3663,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_cache_policy
@@ -3733,23 +3733,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_cache_policy_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetCachePolicyConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCachePolicyConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetCachePolicyConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy]),
         data_parser: Parsers::GetCachePolicyConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetCachePolicyConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3757,9 +3757,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_cache_policy_config
@@ -3797,23 +3797,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_cloud_front_origin_access_identity(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetCloudFrontOriginAccessIdentityInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCloudFrontOriginAccessIdentityInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetCloudFrontOriginAccessIdentity
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCloudFrontOriginAccessIdentity]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCloudFrontOriginAccessIdentity]),
         data_parser: Parsers::GetCloudFrontOriginAccessIdentity
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetCloudFrontOriginAccessIdentity,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3821,9 +3821,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_cloud_front_origin_access_identity
@@ -3858,23 +3858,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_cloud_front_origin_access_identity_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetCloudFrontOriginAccessIdentityConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCloudFrontOriginAccessIdentityConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetCloudFrontOriginAccessIdentityConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCloudFrontOriginAccessIdentity]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCloudFrontOriginAccessIdentity]),
         data_parser: Parsers::GetCloudFrontOriginAccessIdentityConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetCloudFrontOriginAccessIdentityConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3882,9 +3882,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_cloud_front_origin_access_identity_config
@@ -4111,23 +4111,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_distribution(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetDistributionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetDistribution
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution]),
         data_parser: Parsers::GetDistribution
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetDistribution,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4135,9 +4135,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_distribution
@@ -4336,23 +4336,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_distribution_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetDistributionConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDistributionConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetDistributionConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution]),
         data_parser: Parsers::GetDistributionConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetDistributionConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4360,9 +4360,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_distribution_config
@@ -4417,23 +4417,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_field_level_encryption(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetFieldLevelEncryptionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFieldLevelEncryptionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFieldLevelEncryption
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionConfig]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionConfig]),
         data_parser: Parsers::GetFieldLevelEncryption
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFieldLevelEncryption,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4441,9 +4441,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_field_level_encryption
@@ -4495,23 +4495,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_field_level_encryption_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetFieldLevelEncryptionConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFieldLevelEncryptionConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFieldLevelEncryptionConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionConfig]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionConfig]),
         data_parser: Parsers::GetFieldLevelEncryptionConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFieldLevelEncryptionConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4519,9 +4519,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_field_level_encryption_config
@@ -4570,23 +4570,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_field_level_encryption_profile(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetFieldLevelEncryptionProfileInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFieldLevelEncryptionProfileInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFieldLevelEncryptionProfile
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionProfile]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionProfile]),
         data_parser: Parsers::GetFieldLevelEncryptionProfile
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFieldLevelEncryptionProfile,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4594,9 +4594,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_field_level_encryption_profile
@@ -4642,23 +4642,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_field_level_encryption_profile_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetFieldLevelEncryptionProfileConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFieldLevelEncryptionProfileConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFieldLevelEncryptionProfileConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionProfile]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionProfile]),
         data_parser: Parsers::GetFieldLevelEncryptionProfileConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFieldLevelEncryptionProfileConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4666,9 +4666,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_field_level_encryption_profile_config
@@ -4709,23 +4709,23 @@ module AWS::Cloudfront
     #   resp.content_type #=> String
     #
     def get_function(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFunction
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::UnsupportedOperation, Errors::NoSuchFunctionExists]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::UnsupportedOperation, Errors::NoSuchFunctionExists]),
         data_parser: Parsers::GetFunction
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFunction,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4733,9 +4733,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_function
@@ -4781,23 +4781,23 @@ module AWS::Cloudfront
     #   resp.invalidation.invalidation_batch.caller_reference #=> String
     #
     def get_invalidation(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetInvalidationInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInvalidationInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetInvalidation
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchInvalidation, Errors::NoSuchDistribution]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchInvalidation, Errors::NoSuchDistribution]),
         data_parser: Parsers::GetInvalidation
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetInvalidation,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4805,9 +4805,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_invalidation
@@ -4853,23 +4853,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_key_group(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetKeyGroupInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKeyGroupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetKeyGroup
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::NoSuchResource]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::NoSuchResource]),
         data_parser: Parsers::GetKeyGroup
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetKeyGroup,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4877,9 +4877,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_key_group
@@ -4922,23 +4922,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_key_group_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetKeyGroupConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKeyGroupConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetKeyGroupConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::NoSuchResource]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::NoSuchResource]),
         data_parser: Parsers::GetKeyGroupConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetKeyGroupConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4946,9 +4946,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_key_group_config
@@ -4983,23 +4983,23 @@ module AWS::Cloudfront
     #   resp.monitoring_subscription.realtime_metrics_subscription_config.realtime_metrics_subscription_status #=> String, one of Enabled, Disabled
     #
     def get_monitoring_subscription(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetMonitoringSubscriptionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMonitoringSubscriptionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetMonitoringSubscription
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
         data_parser: Parsers::GetMonitoringSubscription
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetMonitoringSubscription,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5007,9 +5007,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_monitoring_subscription
@@ -5082,23 +5082,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_origin_request_policy(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetOriginRequestPolicyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOriginRequestPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetOriginRequestPolicy
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchOriginRequestPolicy]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchOriginRequestPolicy]),
         data_parser: Parsers::GetOriginRequestPolicy
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetOriginRequestPolicy,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5106,9 +5106,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_origin_request_policy
@@ -5171,23 +5171,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_origin_request_policy_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetOriginRequestPolicyConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOriginRequestPolicyConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetOriginRequestPolicyConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchOriginRequestPolicy]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchOriginRequestPolicy]),
         data_parser: Parsers::GetOriginRequestPolicyConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetOriginRequestPolicyConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5195,9 +5195,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_origin_request_policy_config
@@ -5237,23 +5237,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_public_key(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetPublicKeyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPublicKeyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetPublicKey
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchPublicKey]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchPublicKey]),
         data_parser: Parsers::GetPublicKey
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetPublicKey,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5261,9 +5261,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_public_key
@@ -5300,23 +5300,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_public_key_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetPublicKeyConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPublicKeyConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetPublicKeyConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchPublicKey]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchPublicKey]),
         data_parser: Parsers::GetPublicKeyConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetPublicKeyConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5324,9 +5324,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_public_key_config
@@ -5376,23 +5376,23 @@ module AWS::Cloudfront
     #   resp.realtime_log_config.fields[0] #=> String
     #
     def get_realtime_log_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetRealtimeLogConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRealtimeLogConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetRealtimeLogConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
         data_parser: Parsers::GetRealtimeLogConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetRealtimeLogConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5400,9 +5400,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_realtime_log_config
@@ -5501,23 +5501,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_response_headers_policy(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetResponseHeadersPolicyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResponseHeadersPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetResponseHeadersPolicy
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy]),
         data_parser: Parsers::GetResponseHeadersPolicy
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetResponseHeadersPolicy,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5525,9 +5525,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_response_headers_policy
@@ -5622,23 +5622,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_response_headers_policy_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetResponseHeadersPolicyConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResponseHeadersPolicyConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetResponseHeadersPolicyConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy]),
         data_parser: Parsers::GetResponseHeadersPolicyConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetResponseHeadersPolicyConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5646,9 +5646,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_response_headers_policy_config
@@ -5717,23 +5717,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_streaming_distribution(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetStreamingDistributionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStreamingDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetStreamingDistribution
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchStreamingDistribution]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchStreamingDistribution]),
         data_parser: Parsers::GetStreamingDistribution
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetStreamingDistribution,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5741,9 +5741,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_streaming_distribution
@@ -5796,23 +5796,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def get_streaming_distribution_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetStreamingDistributionConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStreamingDistributionConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetStreamingDistributionConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchStreamingDistribution]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchStreamingDistribution]),
         data_parser: Parsers::GetStreamingDistributionConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetStreamingDistributionConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5820,9 +5820,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_streaming_distribution_config
@@ -5919,23 +5919,23 @@ module AWS::Cloudfront
     #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items[0] #=> String
     #
     def list_cache_policies(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListCachePoliciesInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCachePoliciesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListCachePolicies
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy, Errors::InvalidArgument]),
         data_parser: Parsers::ListCachePolicies
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListCachePolicies,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5943,9 +5943,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_cache_policies
@@ -5996,23 +5996,23 @@ module AWS::Cloudfront
     #   resp.cloud_front_origin_access_identity_list.items[0].comment #=> String
     #
     def list_cloud_front_origin_access_identities(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListCloudFrontOriginAccessIdentitiesInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCloudFrontOriginAccessIdentitiesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListCloudFrontOriginAccessIdentities
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListCloudFrontOriginAccessIdentities
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListCloudFrontOriginAccessIdentities,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6020,9 +6020,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_cloud_front_origin_access_identities
@@ -6100,23 +6100,23 @@ module AWS::Cloudfront
     #   resp.conflicting_aliases_list.items[0].account_id #=> String
     #
     def list_conflicting_aliases(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListConflictingAliasesInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConflictingAliasesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListConflictingAliases
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::NoSuchDistribution, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::NoSuchDistribution, Errors::InvalidArgument]),
         data_parser: Parsers::ListConflictingAliases
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListConflictingAliases,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6124,9 +6124,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_conflicting_aliases
@@ -6341,23 +6341,23 @@ module AWS::Cloudfront
     #   resp.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
     #
     def list_distributions(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListDistributions
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributions
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListDistributions,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6365,9 +6365,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_distributions
@@ -6423,23 +6423,23 @@ module AWS::Cloudfront
     #   resp.distribution_id_list.items[0] #=> String
     #
     def list_distributions_by_cache_policy_id(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByCachePolicyIdInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByCachePolicyIdInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListDistributionsByCachePolicyId
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy, Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributionsByCachePolicyId
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListDistributionsByCachePolicyId,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6447,9 +6447,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_distributions_by_cache_policy_id
@@ -6505,23 +6505,23 @@ module AWS::Cloudfront
     #   resp.distribution_id_list.items[0] #=> String
     #
     def list_distributions_by_key_group(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByKeyGroupInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByKeyGroupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListDistributionsByKeyGroup
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::NoSuchResource, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::NoSuchResource, Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributionsByKeyGroup
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListDistributionsByKeyGroup,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6529,9 +6529,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_distributions_by_key_group
@@ -6588,23 +6588,23 @@ module AWS::Cloudfront
     #   resp.distribution_id_list.items[0] #=> String
     #
     def list_distributions_by_origin_request_policy_id(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByOriginRequestPolicyIdInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByOriginRequestPolicyIdInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListDistributionsByOriginRequestPolicyId
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy]),
         data_parser: Parsers::ListDistributionsByOriginRequestPolicyId
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListDistributionsByOriginRequestPolicyId,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6612,9 +6612,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_distributions_by_origin_request_policy_id
@@ -6847,23 +6847,23 @@ module AWS::Cloudfront
     #   resp.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
     #
     def list_distributions_by_realtime_log_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByRealtimeLogConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByRealtimeLogConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListDistributionsByRealtimeLogConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributionsByRealtimeLogConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListDistributionsByRealtimeLogConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6871,9 +6871,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_distributions_by_realtime_log_config
@@ -6930,23 +6930,23 @@ module AWS::Cloudfront
     #   resp.distribution_id_list.items[0] #=> String
     #
     def list_distributions_by_response_headers_policy_id(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByResponseHeadersPolicyIdInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByResponseHeadersPolicyIdInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListDistributionsByResponseHeadersPolicyId
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributionsByResponseHeadersPolicyId
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListDistributionsByResponseHeadersPolicyId,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6954,9 +6954,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_distributions_by_response_headers_policy_id
@@ -7178,23 +7178,23 @@ module AWS::Cloudfront
     #   resp.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
     #
     def list_distributions_by_web_acl_id(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByWebACLIdInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByWebACLIdInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListDistributionsByWebACLId
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidWebACLId, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidWebACLId, Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributionsByWebACLId
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListDistributionsByWebACLId,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -7202,9 +7202,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_distributions_by_web_acl_id
@@ -7267,23 +7267,23 @@ module AWS::Cloudfront
     #   resp.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items[0].content_type #=> String
     #
     def list_field_level_encryption_configs(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListFieldLevelEncryptionConfigsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFieldLevelEncryptionConfigsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListFieldLevelEncryptionConfigs
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListFieldLevelEncryptionConfigs
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListFieldLevelEncryptionConfigs,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -7291,9 +7291,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_field_level_encryption_configs
@@ -7350,23 +7350,23 @@ module AWS::Cloudfront
     #   resp.field_level_encryption_profile_list.items[0].comment #=> String
     #
     def list_field_level_encryption_profiles(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListFieldLevelEncryptionProfilesInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFieldLevelEncryptionProfilesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListFieldLevelEncryptionProfiles
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListFieldLevelEncryptionProfiles
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListFieldLevelEncryptionProfiles,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -7374,9 +7374,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_field_level_encryption_profiles
@@ -7442,23 +7442,23 @@ module AWS::Cloudfront
     #   resp.function_list.items[0].function_metadata.last_modified_time #=> Time
     #
     def list_functions(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListFunctions
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::UnsupportedOperation, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::UnsupportedOperation, Errors::InvalidArgument]),
         data_parser: Parsers::ListFunctions
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListFunctions,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -7466,9 +7466,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_functions
@@ -7524,23 +7524,23 @@ module AWS::Cloudfront
     #   resp.invalidation_list.items[0].status #=> String
     #
     def list_invalidations(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListInvalidationsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInvalidationsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListInvalidations
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution, Errors::InvalidArgument]),
         data_parser: Parsers::ListInvalidations
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListInvalidations,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -7548,9 +7548,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_invalidations
@@ -7607,23 +7607,23 @@ module AWS::Cloudfront
     #   resp.key_group_list.items[0].key_group.key_group_config.comment #=> String
     #
     def list_key_groups(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListKeyGroupsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListKeyGroupsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListKeyGroups
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListKeyGroups
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListKeyGroups,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -7631,9 +7631,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_key_groups
@@ -7724,23 +7724,23 @@ module AWS::Cloudfront
     #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items[0] #=> String
     #
     def list_origin_request_policies(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListOriginRequestPoliciesInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOriginRequestPoliciesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListOriginRequestPolicies
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy]),
         data_parser: Parsers::ListOriginRequestPolicies
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListOriginRequestPolicies,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -7748,9 +7748,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_origin_request_policies
@@ -7798,23 +7798,23 @@ module AWS::Cloudfront
     #   resp.public_key_list.items[0].comment #=> String
     #
     def list_public_keys(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListPublicKeysInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPublicKeysInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListPublicKeys
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListPublicKeys
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListPublicKeys,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -7822,9 +7822,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_public_keys
@@ -7885,23 +7885,23 @@ module AWS::Cloudfront
     #   resp.realtime_log_configs.next_marker #=> String
     #
     def list_realtime_log_configs(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListRealtimeLogConfigsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRealtimeLogConfigsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListRealtimeLogConfigs
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
         data_parser: Parsers::ListRealtimeLogConfigs
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListRealtimeLogConfigs,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -7909,9 +7909,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_realtime_log_configs
@@ -8034,23 +8034,23 @@ module AWS::Cloudfront
     #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
     #
     def list_response_headers_policies(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListResponseHeadersPoliciesInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResponseHeadersPoliciesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListResponseHeadersPolicies
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidArgument]),
         data_parser: Parsers::ListResponseHeadersPolicies
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListResponseHeadersPolicies,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -8058,9 +8058,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_response_headers_policies
@@ -8123,23 +8123,23 @@ module AWS::Cloudfront
     #   resp.streaming_distribution_list.items[0].enabled #=> Boolean
     #
     def list_streaming_distributions(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListStreamingDistributionsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStreamingDistributionsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListStreamingDistributions
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListStreamingDistributions
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListStreamingDistributions,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -8147,9 +8147,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_streaming_distributions
@@ -8185,23 +8185,23 @@ module AWS::Cloudfront
     #   resp.tags.items[0].value #=> String
     #
     def list_tags_for_resource(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListTagsForResource
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
         data_parser: Parsers::ListTagsForResource
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListTagsForResource,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -8209,9 +8209,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_tags_for_resource
@@ -8266,23 +8266,23 @@ module AWS::Cloudfront
     #   resp.function_summary.function_metadata.last_modified_time #=> Time
     #
     def publish_function(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::PublishFunctionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::PublishFunction
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument]),
         data_parser: Parsers::PublishFunction
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PublishFunction,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -8290,9 +8290,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :publish_function
@@ -8334,23 +8334,23 @@ module AWS::Cloudfront
     #   resp #=> Types::TagResourceOutput
     #
     def tag_resource(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::TagResource
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
         data_parser: Parsers::TagResource
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::TagResource,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -8358,9 +8358,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :tag_resource
@@ -8432,23 +8432,23 @@ module AWS::Cloudfront
     #   resp.test_result.function_output #=> String
     #
     def test_function(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::TestFunctionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::TestFunction
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::TestFunctionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::TestFunctionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument]),
         data_parser: Parsers::TestFunction
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::TestFunction,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -8456,9 +8456,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :test_function
@@ -8497,23 +8497,23 @@ module AWS::Cloudfront
     #   resp #=> Types::UntagResourceOutput
     #
     def untag_resource(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UntagResource
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
         data_parser: Parsers::UntagResource
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UntagResource,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -8521,9 +8521,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :untag_resource
@@ -8651,23 +8651,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def update_cache_policy(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCachePolicyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCachePolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateCachePolicy
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::TooManyCookiesInCachePolicy, Errors::IllegalUpdate, Errors::TooManyHeadersInCachePolicy, Errors::InconsistentQuantities, Errors::NoSuchCachePolicy, Errors::TooManyQueryStringsInCachePolicy, Errors::CachePolicyAlreadyExists, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::TooManyCookiesInCachePolicy, Errors::IllegalUpdate, Errors::TooManyHeadersInCachePolicy, Errors::InconsistentQuantities, Errors::NoSuchCachePolicy, Errors::TooManyQueryStringsInCachePolicy, Errors::CachePolicyAlreadyExists, Errors::InvalidArgument]),
         data_parser: Parsers::UpdateCachePolicy
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateCachePolicy,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -8675,9 +8675,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_cache_policy
@@ -8727,23 +8727,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def update_cloud_front_origin_access_identity(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCloudFrontOriginAccessIdentityInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCloudFrontOriginAccessIdentityInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateCloudFrontOriginAccessIdentity
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::MissingBody, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::NoSuchCloudFrontOriginAccessIdentity, Errors::InconsistentQuantities, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::MissingBody, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::NoSuchCloudFrontOriginAccessIdentity, Errors::InconsistentQuantities, Errors::InvalidArgument]),
         data_parser: Parsers::UpdateCloudFrontOriginAccessIdentity
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateCloudFrontOriginAccessIdentity,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -8751,9 +8751,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_cloud_front_origin_access_identity
@@ -9282,23 +9282,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def update_distribution(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDistributionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateDistribution
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::InvalidIfMatchVersion, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::NoSuchDistribution, Errors::InvalidOriginAccessIdentity, Errors::PreconditionFailed, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::IllegalUpdate, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::InvalidIfMatchVersion, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::NoSuchDistribution, Errors::InvalidOriginAccessIdentity, Errors::PreconditionFailed, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::IllegalUpdate, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
         data_parser: Parsers::UpdateDistribution
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateDistribution,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -9306,9 +9306,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_distribution
@@ -9400,23 +9400,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def update_field_level_encryption_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFieldLevelEncryptionConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFieldLevelEncryptionConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateFieldLevelEncryptionConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::QueryArgProfileEmpty, Errors::IllegalUpdate, Errors::TooManyFieldLevelEncryptionContentTypeProfiles, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionQueryArgProfiles, Errors::NoSuchFieldLevelEncryptionConfig]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::QueryArgProfileEmpty, Errors::IllegalUpdate, Errors::TooManyFieldLevelEncryptionContentTypeProfiles, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionQueryArgProfiles, Errors::NoSuchFieldLevelEncryptionConfig]),
         data_parser: Parsers::UpdateFieldLevelEncryptionConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateFieldLevelEncryptionConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -9424,9 +9424,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_field_level_encryption_config
@@ -9503,23 +9503,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def update_field_level_encryption_profile(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFieldLevelEncryptionProfileInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFieldLevelEncryptionProfileInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateFieldLevelEncryptionProfile
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::PreconditionFailed, Errors::IllegalUpdate, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionEncryptionEntities, Errors::FieldLevelEncryptionProfileSizeExceeded, Errors::AccessDenied, Errors::FieldLevelEncryptionProfileAlreadyExists, Errors::TooManyFieldLevelEncryptionFieldPatterns, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::PreconditionFailed, Errors::IllegalUpdate, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionEncryptionEntities, Errors::FieldLevelEncryptionProfileSizeExceeded, Errors::AccessDenied, Errors::FieldLevelEncryptionProfileAlreadyExists, Errors::TooManyFieldLevelEncryptionFieldPatterns, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey]),
         data_parser: Parsers::UpdateFieldLevelEncryptionProfile
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateFieldLevelEncryptionProfile,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -9527,9 +9527,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_field_level_encryption_profile
@@ -9594,23 +9594,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def update_function(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateFunction
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument, Errors::FunctionSizeLimitExceeded]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument, Errors::FunctionSizeLimitExceeded]),
         data_parser: Parsers::UpdateFunction
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateFunction,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -9618,9 +9618,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_function
@@ -9692,23 +9692,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def update_key_group(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateKeyGroupInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateKeyGroupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateKeyGroup
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::KeyGroupAlreadyExists, Errors::NoSuchResource, Errors::TooManyPublicKeysInKeyGroup, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::KeyGroupAlreadyExists, Errors::NoSuchResource, Errors::TooManyPublicKeysInKeyGroup, Errors::InvalidArgument]),
         data_parser: Parsers::UpdateKeyGroup
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateKeyGroup,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -9716,9 +9716,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_key_group
@@ -9833,23 +9833,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def update_origin_request_policy(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateOriginRequestPolicyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateOriginRequestPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateOriginRequestPolicy
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::TooManyHeadersInOriginRequestPolicy, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::TooManyQueryStringsInOriginRequestPolicy, Errors::InconsistentQuantities, Errors::OriginRequestPolicyAlreadyExists, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy, Errors::TooManyCookiesInOriginRequestPolicy]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::TooManyHeadersInOriginRequestPolicy, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::TooManyQueryStringsInOriginRequestPolicy, Errors::InconsistentQuantities, Errors::OriginRequestPolicyAlreadyExists, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy, Errors::TooManyCookiesInOriginRequestPolicy]),
         data_parser: Parsers::UpdateOriginRequestPolicy
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateOriginRequestPolicy,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -9857,9 +9857,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_origin_request_policy
@@ -9913,23 +9913,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def update_public_key(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePublicKeyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePublicKeyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdatePublicKey
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey, Errors::IllegalUpdate, Errors::CannotChangeImmutablePublicKeyFields, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey, Errors::IllegalUpdate, Errors::CannotChangeImmutablePublicKeyFields, Errors::InvalidArgument]),
         data_parser: Parsers::UpdatePublicKey
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdatePublicKey,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -9937,9 +9937,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_public_key
@@ -10033,23 +10033,23 @@ module AWS::Cloudfront
     #   resp.realtime_log_config.fields[0] #=> String
     #
     def update_realtime_log_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRealtimeLogConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRealtimeLogConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateRealtimeLogConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
         data_parser: Parsers::UpdateRealtimeLogConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateRealtimeLogConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -10057,9 +10057,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_realtime_log_config
@@ -10245,23 +10245,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def update_response_headers_policy(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResponseHeadersPolicyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResponseHeadersPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateResponseHeadersPolicy
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::TooManyCustomHeadersInResponseHeadersPolicy, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::NoSuchResponseHeadersPolicy, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::ResponseHeadersPolicyAlreadyExists]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::TooManyCustomHeadersInResponseHeadersPolicy, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::NoSuchResponseHeadersPolicy, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::ResponseHeadersPolicyAlreadyExists]),
         data_parser: Parsers::UpdateResponseHeadersPolicy
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateResponseHeadersPolicy,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -10269,9 +10269,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_response_headers_policy
@@ -10376,23 +10376,23 @@ module AWS::Cloudfront
     #   resp.e_tag #=> String
     #
     def update_streaming_distribution(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStreamingDistributionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStreamingDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateStreamingDistribution
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::MissingBody, Errors::PreconditionFailed, Errors::IllegalUpdate, Errors::InconsistentQuantities, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::NoSuchStreamingDistribution, Errors::AccessDenied, Errors::InvalidIfMatchVersion, Errors::TooManyTrustedSigners, Errors::InvalidOriginAccessIdentity, Errors::TooManyStreamingDistributionCNAMEs]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::MissingBody, Errors::PreconditionFailed, Errors::IllegalUpdate, Errors::InconsistentQuantities, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::NoSuchStreamingDistribution, Errors::AccessDenied, Errors::InvalidIfMatchVersion, Errors::TooManyTrustedSigners, Errors::InvalidOriginAccessIdentity, Errors::TooManyStreamingDistributionCNAMEs]),
         data_parser: Parsers::UpdateStreamingDistribution
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateStreamingDistribution,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -10400,9 +10400,9 @@ module AWS::Cloudfront
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_streaming_distribution
@@ -10417,12 +10417,12 @@ module AWS::Cloudfront
     def apply_middleware(middleware_stack, middleware)
       Client.middleware.apply(middleware_stack)
       @middleware.apply(middleware_stack)
-      Seahorse::MiddlewareBuilder.new(middleware).apply(middleware_stack)
+      Hearth::MiddlewareBuilder.new(middleware).apply(middleware_stack)
     end
 
     def output_stream(options = {}, &block)
       return options[:output_stream] if options[:output_stream]
-      return Seahorse::BlockIO.new(block) if block
+      return Hearth::BlockIO.new(block) if block
 
       StringIO.new
     end

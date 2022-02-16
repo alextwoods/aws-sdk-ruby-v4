@@ -22,9 +22,6 @@ module AWS::Sts
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for AssumedRoleUser
@@ -39,11 +36,6 @@ module AWS::Sts
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for Credentials
@@ -60,11 +52,6 @@ module AWS::Sts
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AssumeRoleWithSAML
@@ -84,9 +71,6 @@ module AWS::Sts
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for AssumeRoleWithWebIdentity
@@ -104,9 +88,6 @@ module AWS::Sts
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DecodeAuthorizationMessage
@@ -118,9 +99,6 @@ module AWS::Sts
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetAccessKeyInfo
@@ -132,9 +110,6 @@ module AWS::Sts
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetCallerIdentity
@@ -148,9 +123,6 @@ module AWS::Sts
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetFederationToken
@@ -164,9 +136,6 @@ module AWS::Sts
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for FederatedUser
@@ -181,11 +150,6 @@ module AWS::Sts
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetSessionToken
@@ -197,9 +161,6 @@ module AWS::Sts
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
   end
 end

@@ -28,9 +28,9 @@ module AWS::Sso
   #          </note>
   #
   class Client
-    include Seahorse::ClientStubs
+    include Hearth::ClientStubs
 
-    @middleware = Seahorse::MiddlewareBuilder.new
+    @middleware = Hearth::MiddlewareBuilder.new
 
     def self.middleware
       @middleware
@@ -64,9 +64,9 @@ module AWS::Sso
       @http_wire_trace = options.fetch(:http_wire_trace, false)
       @log_level = options.fetch(:log_level, :info)
       @logger = options.fetch(:logger, Logger.new($stdout, level: @log_level))
-      @middleware = Seahorse::MiddlewareBuilder.new(options[:middleware])
+      @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
       @stub_responses = options.fetch(:stub_responses, false)
-      @stubs = Seahorse::Stubbing::Stubs.new
+      @stubs = Hearth::Stubbing::Stubs.new
       @validate_input = options.fetch(:validate_input, true)
 
     end
@@ -107,23 +107,23 @@ module AWS::Sso
     #   resp.role_credentials.expiration #=> Integer
     #
     def get_role_credentials(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetRoleCredentialsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRoleCredentialsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetRoleCredentials
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetRoleCredentials
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetRoleCredentials,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -131,9 +131,9 @@ module AWS::Sso
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_role_credentials
@@ -182,23 +182,23 @@ module AWS::Sso
     #   resp.role_list[0].account_id #=> String
     #
     def list_account_roles(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountRolesInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountRolesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListAccountRoles
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListAccountRoles
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListAccountRoles,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -206,9 +206,9 @@ module AWS::Sso
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_account_roles
@@ -256,23 +256,23 @@ module AWS::Sso
     #   resp.account_list[0].email_address #=> String
     #
     def list_accounts(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListAccountsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAccountsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListAccounts
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListAccounts
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListAccounts,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -280,9 +280,9 @@ module AWS::Sso
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_accounts
@@ -314,23 +314,23 @@ module AWS::Sso
     #   resp #=> Types::LogoutOutput
     #
     def logout(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::LogoutInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::LogoutInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::Logout
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::Logout
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::Logout,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -338,9 +338,9 @@ module AWS::Sso
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :logout
@@ -355,12 +355,12 @@ module AWS::Sso
     def apply_middleware(middleware_stack, middleware)
       Client.middleware.apply(middleware_stack)
       @middleware.apply(middleware_stack)
-      Seahorse::MiddlewareBuilder.new(middleware).apply(middleware_stack)
+      Hearth::MiddlewareBuilder.new(middleware).apply(middleware_stack)
     end
 
     def output_stream(options = {}, &block)
       return options[:output_stream] if options[:output_stream]
-      return Seahorse::BlockIO.new(block) if block
+      return Hearth::BlockIO.new(block) if block
 
       StringIO.new
     end

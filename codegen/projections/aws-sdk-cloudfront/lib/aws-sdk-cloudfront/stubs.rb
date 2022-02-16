@@ -56,11 +56,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CachePolicyConfig
@@ -79,11 +74,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ParametersInCacheKeyAndForwardedToOrigin
@@ -101,11 +91,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CachePolicyQueryStringsConfig
@@ -120,11 +105,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for QueryStringNames
@@ -139,11 +119,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for QueryStringNamesList
@@ -155,13 +130,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CachePolicyCookiesConfig
@@ -176,11 +145,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CookieNames
@@ -195,11 +159,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for CookieNameList
@@ -211,13 +170,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CachePolicyHeadersConfig
@@ -232,11 +185,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for Headers
@@ -251,11 +199,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for HeaderList
@@ -267,13 +210,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for CreateCloudFrontOriginAccessIdentity
@@ -308,11 +245,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CloudFrontOriginAccessIdentityConfig
@@ -327,11 +259,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateDistribution
@@ -373,11 +300,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AliasICPRecordals
@@ -389,13 +311,7 @@ module AWS::Cloudfront
           Stubs::AliasICPRecordal.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AliasICPRecordal
@@ -410,11 +326,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for DistributionConfig
@@ -444,11 +355,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for Restrictions
@@ -462,11 +368,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for GeoRestriction
@@ -482,11 +383,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LocationList
@@ -498,13 +394,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ViewerCertificate
@@ -524,11 +414,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LoggingConfig
@@ -545,11 +430,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CustomErrorResponses
@@ -564,11 +444,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for CustomErrorResponseList
@@ -580,13 +455,7 @@ module AWS::Cloudfront
           Stubs::CustomErrorResponse.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CustomErrorResponse
@@ -603,11 +472,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CacheBehaviors
@@ -622,11 +486,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for CacheBehaviorList
@@ -638,13 +497,7 @@ module AWS::Cloudfront
           Stubs::CacheBehavior.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CacheBehavior
@@ -676,11 +529,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ForwardedValues
@@ -697,11 +545,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for QueryStringCacheKeys
@@ -716,11 +559,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for QueryStringCacheKeysList
@@ -732,13 +570,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CookiePreference
@@ -753,11 +585,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for FunctionAssociations
@@ -772,11 +599,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for FunctionAssociationList
@@ -788,13 +610,7 @@ module AWS::Cloudfront
           Stubs::FunctionAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for FunctionAssociation
@@ -809,11 +625,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LambdaFunctionAssociations
@@ -828,11 +639,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LambdaFunctionAssociationList
@@ -844,13 +650,7 @@ module AWS::Cloudfront
           Stubs::LambdaFunctionAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LambdaFunctionAssociation
@@ -866,11 +666,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for AllowedMethods
@@ -886,11 +681,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CachedMethods
@@ -905,11 +695,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for MethodsList
@@ -921,13 +706,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TrustedKeyGroups
@@ -943,11 +722,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for TrustedKeyGroupIdList
@@ -959,13 +733,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TrustedSigners
@@ -981,11 +749,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AwsAccountNumberList
@@ -997,13 +760,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DefaultCacheBehavior
@@ -1034,11 +791,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for OriginGroups
@@ -1053,11 +805,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for OriginGroupList
@@ -1069,13 +816,7 @@ module AWS::Cloudfront
           Stubs::OriginGroup.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for OriginGroup
@@ -1091,11 +832,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for OriginGroupMembers
@@ -1110,11 +846,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for OriginGroupMemberList
@@ -1126,13 +857,7 @@ module AWS::Cloudfront
           Stubs::OriginGroupMember.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for OriginGroupMember
@@ -1146,11 +871,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for OriginGroupFailoverCriteria
@@ -1164,11 +884,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for StatusCodes
@@ -1183,11 +898,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for StatusCodeList
@@ -1199,13 +909,7 @@ module AWS::Cloudfront
           1
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Origins
@@ -1220,11 +924,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for OriginList
@@ -1236,13 +935,7 @@ module AWS::Cloudfront
           Stubs::Origin.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Origin
@@ -1264,11 +957,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for OriginShield
@@ -1283,11 +971,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CustomOriginConfig
@@ -1306,11 +989,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for OriginSslProtocols
@@ -1325,11 +1003,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for SslProtocolsList
@@ -1341,13 +1014,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for S3OriginConfig
@@ -1361,11 +1028,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CustomHeaders
@@ -1380,11 +1042,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for OriginCustomHeadersList
@@ -1396,13 +1053,7 @@ module AWS::Cloudfront
           Stubs::OriginCustomHeader.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for OriginCustomHeader
@@ -1417,11 +1068,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for Aliases
@@ -1436,11 +1082,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AliasList
@@ -1452,13 +1093,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ActiveTrustedKeyGroups
@@ -1474,11 +1109,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for KGKeyPairIdsList
@@ -1490,13 +1120,7 @@ module AWS::Cloudfront
           Stubs::KGKeyPairIds.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for KGKeyPairIds
@@ -1511,11 +1135,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for KeyPairIds
@@ -1530,11 +1149,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for KeyPairIdList
@@ -1546,13 +1160,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ActiveTrustedSigners
@@ -1568,11 +1176,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for SignerList
@@ -1584,13 +1187,7 @@ module AWS::Cloudfront
           Stubs::Signer.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Signer
@@ -1605,11 +1202,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateDistributionWithTags
@@ -1663,11 +1255,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for FieldLevelEncryptionConfig
@@ -1684,11 +1271,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ContentTypeProfileConfig
@@ -1703,11 +1285,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ContentTypeProfiles
@@ -1722,11 +1299,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ContentTypeProfileList
@@ -1738,13 +1310,7 @@ module AWS::Cloudfront
           Stubs::ContentTypeProfile.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ContentTypeProfile
@@ -1760,11 +1326,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for QueryArgProfileConfig
@@ -1779,11 +1340,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for QueryArgProfiles
@@ -1798,11 +1354,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for QueryArgProfileList
@@ -1814,13 +1365,7 @@ module AWS::Cloudfront
           Stubs::QueryArgProfile.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for QueryArgProfile
@@ -1835,11 +1380,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateFieldLevelEncryptionProfile
@@ -1874,11 +1414,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for FieldLevelEncryptionProfileConfig
@@ -1895,11 +1430,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for EncryptionEntities
@@ -1914,11 +1444,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for EncryptionEntityList
@@ -1930,13 +1455,7 @@ module AWS::Cloudfront
           Stubs::EncryptionEntity.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for EncryptionEntity
@@ -1952,11 +1471,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for FieldPatterns
@@ -1971,11 +1485,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for FieldPatternList
@@ -1987,13 +1496,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for CreateFunction
@@ -2029,11 +1532,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for FunctionMetadata
@@ -2050,11 +1548,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for FunctionConfig
@@ -2069,11 +1562,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateInvalidation
@@ -2107,11 +1595,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for InvalidationBatch
@@ -2126,11 +1609,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for Paths
@@ -2145,11 +1623,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for PathList
@@ -2161,13 +1634,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for CreateKeyGroup
@@ -2202,11 +1669,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for KeyGroupConfig
@@ -2222,11 +1684,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for PublicKeyIdList
@@ -2238,13 +1695,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for CreateMonitoringSubscription
@@ -2273,11 +1724,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for RealtimeMetricsSubscriptionConfig
@@ -2291,11 +1737,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateOriginRequestPolicy
@@ -2330,11 +1771,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for OriginRequestPolicyConfig
@@ -2352,11 +1788,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for OriginRequestPolicyQueryStringsConfig
@@ -2371,11 +1802,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for OriginRequestPolicyCookiesConfig
@@ -2390,11 +1816,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for OriginRequestPolicyHeadersConfig
@@ -2409,11 +1830,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreatePublicKey
@@ -2448,11 +1864,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PublicKeyConfig
@@ -2469,11 +1880,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateRealtimeLogConfig
@@ -2506,11 +1912,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for FieldList
@@ -2522,13 +1923,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for EndPointList
@@ -2540,13 +1935,7 @@ module AWS::Cloudfront
           Stubs::EndPoint.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for EndPoint
@@ -2561,11 +1950,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for KinesisStreamConfig
@@ -2580,11 +1964,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateResponseHeadersPolicy
@@ -2619,11 +1998,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ResponseHeadersPolicyConfig
@@ -2641,11 +2015,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ResponseHeadersPolicyCustomHeadersConfig
@@ -2660,11 +2029,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ResponseHeadersPolicyCustomHeaderList
@@ -2676,13 +2040,7 @@ module AWS::Cloudfront
           Stubs::ResponseHeadersPolicyCustomHeader.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ResponseHeadersPolicyCustomHeader
@@ -2698,11 +2056,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ResponseHeadersPolicySecurityHeadersConfig
@@ -2721,11 +2074,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ResponseHeadersPolicyStrictTransportSecurity
@@ -2742,11 +2090,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ResponseHeadersPolicyContentTypeOptions
@@ -2760,11 +2103,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ResponseHeadersPolicyContentSecurityPolicy
@@ -2779,11 +2117,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ResponseHeadersPolicyReferrerPolicy
@@ -2798,11 +2131,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ResponseHeadersPolicyFrameOptions
@@ -2817,11 +2145,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ResponseHeadersPolicyXSSProtection
@@ -2838,11 +2161,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ResponseHeadersPolicyCorsConfig
@@ -2862,11 +2180,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ResponseHeadersPolicyAccessControlExposeHeaders
@@ -2881,11 +2194,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AccessControlExposeHeadersList
@@ -2897,13 +2205,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ResponseHeadersPolicyAccessControlAllowMethods
@@ -2918,11 +2220,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AccessControlAllowMethodsList
@@ -2934,13 +2231,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ResponseHeadersPolicyAccessControlAllowHeaders
@@ -2955,11 +2246,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AccessControlAllowHeadersList
@@ -2971,13 +2257,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ResponseHeadersPolicyAccessControlAllowOrigins
@@ -2992,11 +2272,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AccessControlAllowOriginsList
@@ -3008,13 +2283,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for CreateStreamingDistribution
@@ -3053,11 +2322,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for StreamingDistributionConfig
@@ -3078,11 +2342,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for StreamingLoggingConfig
@@ -3098,11 +2357,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for S3Origin
@@ -3117,11 +2371,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateStreamingDistributionWithTags
@@ -3775,11 +3024,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for CachePolicySummaryList
@@ -3791,13 +3035,7 @@ module AWS::Cloudfront
           Stubs::CachePolicySummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CachePolicySummary
@@ -3812,11 +3050,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListCloudFrontOriginAccessIdentities
@@ -3850,11 +3083,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for CloudFrontOriginAccessIdentitySummaryList
@@ -3866,13 +3094,7 @@ module AWS::Cloudfront
           Stubs::CloudFrontOriginAccessIdentitySummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CloudFrontOriginAccessIdentitySummary
@@ -3888,11 +3110,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListConflictingAliases
@@ -3924,11 +3141,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ConflictingAliases
@@ -3940,13 +3152,7 @@ module AWS::Cloudfront
           Stubs::ConflictingAlias.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ConflictingAlias
@@ -3962,11 +3168,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListDistributions
@@ -4000,11 +3201,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for DistributionSummaryList
@@ -4016,13 +3212,7 @@ module AWS::Cloudfront
           Stubs::DistributionSummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DistributionSummary
@@ -4055,11 +3245,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListDistributionsByCachePolicyId
@@ -4093,11 +3278,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for DistributionIdListSummary
@@ -4109,13 +3289,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for ListDistributionsByKeyGroup
@@ -4222,11 +3396,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for FieldLevelEncryptionSummaryList
@@ -4238,13 +3407,7 @@ module AWS::Cloudfront
           Stubs::FieldLevelEncryptionSummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for FieldLevelEncryptionSummary
@@ -4262,11 +3425,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListFieldLevelEncryptionProfiles
@@ -4298,11 +3456,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for FieldLevelEncryptionProfileSummaryList
@@ -4314,13 +3467,7 @@ module AWS::Cloudfront
           Stubs::FieldLevelEncryptionProfileSummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for FieldLevelEncryptionProfileSummary
@@ -4338,11 +3485,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListFunctions
@@ -4374,11 +3516,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for FunctionSummaryList
@@ -4390,13 +3527,7 @@ module AWS::Cloudfront
           Stubs::FunctionSummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for ListInvalidations
@@ -4430,11 +3561,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InvalidationSummaryList
@@ -4446,13 +3572,7 @@ module AWS::Cloudfront
           Stubs::InvalidationSummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InvalidationSummary
@@ -4468,11 +3588,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListKeyGroups
@@ -4504,11 +3619,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for KeyGroupSummaryList
@@ -4520,13 +3630,7 @@ module AWS::Cloudfront
           Stubs::KeyGroupSummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for KeyGroupSummary
@@ -4540,11 +3644,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListOriginRequestPolicies
@@ -4576,11 +3675,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for OriginRequestPolicySummaryList
@@ -4592,13 +3686,7 @@ module AWS::Cloudfront
           Stubs::OriginRequestPolicySummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for OriginRequestPolicySummary
@@ -4613,11 +3701,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListPublicKeys
@@ -4649,11 +3732,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for PublicKeySummaryList
@@ -4665,13 +3743,7 @@ module AWS::Cloudfront
           Stubs::PublicKeySummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PublicKeySummary
@@ -4689,11 +3761,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListRealtimeLogConfigs
@@ -4726,11 +3793,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for RealtimeLogConfigList
@@ -4742,13 +3804,7 @@ module AWS::Cloudfront
           Stubs::RealtimeLogConfig.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for ListResponseHeadersPolicies
@@ -4780,11 +3836,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ResponseHeadersPolicySummaryList
@@ -4796,13 +3847,7 @@ module AWS::Cloudfront
           Stubs::ResponseHeadersPolicySummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ResponseHeadersPolicySummary
@@ -4817,11 +3862,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListStreamingDistributions
@@ -4855,11 +3895,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for StreamingDistributionSummaryList
@@ -4871,13 +3906,7 @@ module AWS::Cloudfront
           Stubs::StreamingDistributionSummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for StreamingDistributionSummary
@@ -4901,11 +3930,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListTagsForResource
@@ -4934,11 +3958,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for TagList
@@ -4950,13 +3969,7 @@ module AWS::Cloudfront
           Stubs::Tag.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Tag
@@ -4971,11 +3984,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for PublishFunction
@@ -5037,11 +4045,6 @@ module AWS::Cloudfront
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for FunctionExecutionLogList
@@ -5053,13 +4056,7 @@ module AWS::Cloudfront
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for UntagResource

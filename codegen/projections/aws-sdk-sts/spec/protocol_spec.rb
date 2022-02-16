@@ -9,6 +9,8 @@
 
 require 'aws-sdk-sts'
 
+require 'hearth/xml/node_matcher'
+
 module AWS::Sts
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }

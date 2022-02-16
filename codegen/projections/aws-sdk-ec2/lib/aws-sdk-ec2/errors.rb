@@ -11,7 +11,7 @@ module AWS::Ec2
   module Errors
 
     # Base class for all errors returned by this service
-    class ApiError < Seahorse::HTTP::ApiError; end
+    class ApiError < Hearth::HTTP::ApiError; end
 
     # Base class for all errors returned where the client is at fault.
     # These are generally errors with 4XX HTTP status codes.

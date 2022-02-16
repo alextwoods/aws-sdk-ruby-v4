@@ -14,7 +14,7 @@ module AWS::Dynamodb
 
     module AttributeDefinition
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::AttributeDefinition, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::AttributeDefinition, context: context)
         type = Types::AttributeDefinition.new
         type.attribute_name = params[:attribute_name]
         type.attribute_type = params[:attribute_type]
@@ -24,7 +24,7 @@ module AWS::Dynamodb
 
     module AttributeDefinitions
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << AttributeDefinition.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -35,7 +35,7 @@ module AWS::Dynamodb
 
     module AttributeNameList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -46,7 +46,7 @@ module AWS::Dynamodb
 
     module AttributeUpdates
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = AttributeValueUpdate.build(value, context: "#{context}[:#{key}]") unless value.nil?
@@ -58,7 +58,7 @@ module AWS::Dynamodb
     module AttributeValue
       def self.build(params, context: '')
         return params if params.is_a?(Types::AttributeValue)
-        Seahorse::Validator.validate!(params, ::Hash, Types::AttributeValue, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::AttributeValue, context: context)
         unless params.size == 1
           raise ArgumentError,
                 "Expected #{context} to have exactly one member, got: #{params}"
@@ -114,7 +114,7 @@ module AWS::Dynamodb
 
     module AttributeValueList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << AttributeValue.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -125,7 +125,7 @@ module AWS::Dynamodb
 
     module AttributeValueUpdate
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::AttributeValueUpdate, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::AttributeValueUpdate, context: context)
         type = Types::AttributeValueUpdate.new
         type.value = AttributeValue.build(params[:value], context: "#{context}[:value]") unless params[:value].nil?
         type.action = params[:action]
@@ -135,7 +135,7 @@ module AWS::Dynamodb
 
     module AutoScalingPolicyUpdate
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::AutoScalingPolicyUpdate, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::AutoScalingPolicyUpdate, context: context)
         type = Types::AutoScalingPolicyUpdate.new
         type.policy_name = params[:policy_name]
         type.target_tracking_scaling_policy_configuration = AutoScalingTargetTrackingScalingPolicyConfigurationUpdate.build(params[:target_tracking_scaling_policy_configuration], context: "#{context}[:target_tracking_scaling_policy_configuration]") unless params[:target_tracking_scaling_policy_configuration].nil?
@@ -145,7 +145,7 @@ module AWS::Dynamodb
 
     module AutoScalingSettingsUpdate
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::AutoScalingSettingsUpdate, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::AutoScalingSettingsUpdate, context: context)
         type = Types::AutoScalingSettingsUpdate.new
         type.minimum_units = params[:minimum_units]
         type.maximum_units = params[:maximum_units]
@@ -158,7 +158,7 @@ module AWS::Dynamodb
 
     module AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate, context: context)
         type = Types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate.new
         type.disable_scale_in = params[:disable_scale_in]
         type.scale_in_cooldown = params[:scale_in_cooldown]
@@ -170,7 +170,7 @@ module AWS::Dynamodb
 
     module BatchExecuteStatementInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::BatchExecuteStatementInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::BatchExecuteStatementInput, context: context)
         type = Types::BatchExecuteStatementInput.new
         type.statements = PartiQLBatchRequest.build(params[:statements], context: "#{context}[:statements]") unless params[:statements].nil?
         type.return_consumed_capacity = params[:return_consumed_capacity]
@@ -180,7 +180,7 @@ module AWS::Dynamodb
 
     module BatchGetItemInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::BatchGetItemInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::BatchGetItemInput, context: context)
         type = Types::BatchGetItemInput.new
         type.request_items = BatchGetRequestMap.build(params[:request_items], context: "#{context}[:request_items]") unless params[:request_items].nil?
         type.return_consumed_capacity = params[:return_consumed_capacity]
@@ -190,7 +190,7 @@ module AWS::Dynamodb
 
     module BatchGetRequestMap
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = KeysAndAttributes.build(value, context: "#{context}[:#{key}]") unless value.nil?
@@ -201,7 +201,7 @@ module AWS::Dynamodb
 
     module BatchStatementRequest
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::BatchStatementRequest, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::BatchStatementRequest, context: context)
         type = Types::BatchStatementRequest.new
         type.statement = params[:statement]
         type.parameters = PreparedStatementParameters.build(params[:parameters], context: "#{context}[:parameters]") unless params[:parameters].nil?
@@ -212,7 +212,7 @@ module AWS::Dynamodb
 
     module BatchWriteItemInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::BatchWriteItemInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::BatchWriteItemInput, context: context)
         type = Types::BatchWriteItemInput.new
         type.request_items = BatchWriteItemRequestMap.build(params[:request_items], context: "#{context}[:request_items]") unless params[:request_items].nil?
         type.return_consumed_capacity = params[:return_consumed_capacity]
@@ -223,7 +223,7 @@ module AWS::Dynamodb
 
     module BatchWriteItemRequestMap
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = WriteRequests.build(value, context: "#{context}[:#{key}]") unless value.nil?
@@ -234,7 +234,7 @@ module AWS::Dynamodb
 
     module BinarySetAttributeValue
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -245,7 +245,7 @@ module AWS::Dynamodb
 
     module Condition
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Condition, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Condition, context: context)
         type = Types::Condition.new
         type.attribute_value_list = AttributeValueList.build(params[:attribute_value_list], context: "#{context}[:attribute_value_list]") unless params[:attribute_value_list].nil?
         type.comparison_operator = params[:comparison_operator]
@@ -255,7 +255,7 @@ module AWS::Dynamodb
 
     module ConditionCheck
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ConditionCheck, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ConditionCheck, context: context)
         type = Types::ConditionCheck.new
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
         type.table_name = params[:table_name]
@@ -269,7 +269,7 @@ module AWS::Dynamodb
 
     module CreateBackupInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateBackupInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateBackupInput, context: context)
         type = Types::CreateBackupInput.new
         type.table_name = params[:table_name]
         type.backup_name = params[:backup_name]
@@ -279,7 +279,7 @@ module AWS::Dynamodb
 
     module CreateGlobalSecondaryIndexAction
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateGlobalSecondaryIndexAction, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateGlobalSecondaryIndexAction, context: context)
         type = Types::CreateGlobalSecondaryIndexAction.new
         type.index_name = params[:index_name]
         type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
@@ -291,7 +291,7 @@ module AWS::Dynamodb
 
     module CreateGlobalTableInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateGlobalTableInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateGlobalTableInput, context: context)
         type = Types::CreateGlobalTableInput.new
         type.global_table_name = params[:global_table_name]
         type.replication_group = ReplicaList.build(params[:replication_group], context: "#{context}[:replication_group]") unless params[:replication_group].nil?
@@ -301,7 +301,7 @@ module AWS::Dynamodb
 
     module CreateReplicaAction
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateReplicaAction, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateReplicaAction, context: context)
         type = Types::CreateReplicaAction.new
         type.region_name = params[:region_name]
         type
@@ -310,7 +310,7 @@ module AWS::Dynamodb
 
     module CreateReplicationGroupMemberAction
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateReplicationGroupMemberAction, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateReplicationGroupMemberAction, context: context)
         type = Types::CreateReplicationGroupMemberAction.new
         type.region_name = params[:region_name]
         type.kms_master_key_id = params[:kms_master_key_id]
@@ -323,7 +323,7 @@ module AWS::Dynamodb
 
     module CreateTableInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateTableInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateTableInput, context: context)
         type = Types::CreateTableInput.new
         type.attribute_definitions = AttributeDefinitions.build(params[:attribute_definitions], context: "#{context}[:attribute_definitions]") unless params[:attribute_definitions].nil?
         type.table_name = params[:table_name]
@@ -342,7 +342,7 @@ module AWS::Dynamodb
 
     module Delete
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Delete, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Delete, context: context)
         type = Types::Delete.new
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
         type.table_name = params[:table_name]
@@ -356,7 +356,7 @@ module AWS::Dynamodb
 
     module DeleteBackupInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteBackupInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteBackupInput, context: context)
         type = Types::DeleteBackupInput.new
         type.backup_arn = params[:backup_arn]
         type
@@ -365,7 +365,7 @@ module AWS::Dynamodb
 
     module DeleteGlobalSecondaryIndexAction
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteGlobalSecondaryIndexAction, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteGlobalSecondaryIndexAction, context: context)
         type = Types::DeleteGlobalSecondaryIndexAction.new
         type.index_name = params[:index_name]
         type
@@ -374,7 +374,7 @@ module AWS::Dynamodb
 
     module DeleteItemInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteItemInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteItemInput, context: context)
         type = Types::DeleteItemInput.new
         type.table_name = params[:table_name]
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
@@ -392,7 +392,7 @@ module AWS::Dynamodb
 
     module DeleteReplicaAction
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteReplicaAction, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteReplicaAction, context: context)
         type = Types::DeleteReplicaAction.new
         type.region_name = params[:region_name]
         type
@@ -401,7 +401,7 @@ module AWS::Dynamodb
 
     module DeleteReplicationGroupMemberAction
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteReplicationGroupMemberAction, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteReplicationGroupMemberAction, context: context)
         type = Types::DeleteReplicationGroupMemberAction.new
         type.region_name = params[:region_name]
         type
@@ -410,7 +410,7 @@ module AWS::Dynamodb
 
     module DeleteRequest
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteRequest, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteRequest, context: context)
         type = Types::DeleteRequest.new
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
         type
@@ -419,7 +419,7 @@ module AWS::Dynamodb
 
     module DeleteTableInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteTableInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteTableInput, context: context)
         type = Types::DeleteTableInput.new
         type.table_name = params[:table_name]
         type
@@ -428,7 +428,7 @@ module AWS::Dynamodb
 
     module DescribeBackupInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DescribeBackupInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeBackupInput, context: context)
         type = Types::DescribeBackupInput.new
         type.backup_arn = params[:backup_arn]
         type
@@ -437,7 +437,7 @@ module AWS::Dynamodb
 
     module DescribeContinuousBackupsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DescribeContinuousBackupsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeContinuousBackupsInput, context: context)
         type = Types::DescribeContinuousBackupsInput.new
         type.table_name = params[:table_name]
         type
@@ -446,7 +446,7 @@ module AWS::Dynamodb
 
     module DescribeContributorInsightsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DescribeContributorInsightsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeContributorInsightsInput, context: context)
         type = Types::DescribeContributorInsightsInput.new
         type.table_name = params[:table_name]
         type.index_name = params[:index_name]
@@ -456,7 +456,7 @@ module AWS::Dynamodb
 
     module DescribeEndpointsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DescribeEndpointsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeEndpointsInput, context: context)
         type = Types::DescribeEndpointsInput.new
         type
       end
@@ -464,7 +464,7 @@ module AWS::Dynamodb
 
     module DescribeExportInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DescribeExportInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeExportInput, context: context)
         type = Types::DescribeExportInput.new
         type.export_arn = params[:export_arn]
         type
@@ -473,7 +473,7 @@ module AWS::Dynamodb
 
     module DescribeGlobalTableInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DescribeGlobalTableInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeGlobalTableInput, context: context)
         type = Types::DescribeGlobalTableInput.new
         type.global_table_name = params[:global_table_name]
         type
@@ -482,7 +482,7 @@ module AWS::Dynamodb
 
     module DescribeGlobalTableSettingsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DescribeGlobalTableSettingsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeGlobalTableSettingsInput, context: context)
         type = Types::DescribeGlobalTableSettingsInput.new
         type.global_table_name = params[:global_table_name]
         type
@@ -491,7 +491,7 @@ module AWS::Dynamodb
 
     module DescribeKinesisStreamingDestinationInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DescribeKinesisStreamingDestinationInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeKinesisStreamingDestinationInput, context: context)
         type = Types::DescribeKinesisStreamingDestinationInput.new
         type.table_name = params[:table_name]
         type
@@ -500,7 +500,7 @@ module AWS::Dynamodb
 
     module DescribeLimitsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DescribeLimitsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeLimitsInput, context: context)
         type = Types::DescribeLimitsInput.new
         type
       end
@@ -508,7 +508,7 @@ module AWS::Dynamodb
 
     module DescribeTableInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DescribeTableInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeTableInput, context: context)
         type = Types::DescribeTableInput.new
         type.table_name = params[:table_name]
         type
@@ -517,7 +517,7 @@ module AWS::Dynamodb
 
     module DescribeTableReplicaAutoScalingInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DescribeTableReplicaAutoScalingInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeTableReplicaAutoScalingInput, context: context)
         type = Types::DescribeTableReplicaAutoScalingInput.new
         type.table_name = params[:table_name]
         type
@@ -526,7 +526,7 @@ module AWS::Dynamodb
 
     module DescribeTimeToLiveInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DescribeTimeToLiveInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeTimeToLiveInput, context: context)
         type = Types::DescribeTimeToLiveInput.new
         type.table_name = params[:table_name]
         type
@@ -535,7 +535,7 @@ module AWS::Dynamodb
 
     module DisableKinesisStreamingDestinationInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DisableKinesisStreamingDestinationInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DisableKinesisStreamingDestinationInput, context: context)
         type = Types::DisableKinesisStreamingDestinationInput.new
         type.table_name = params[:table_name]
         type.stream_arn = params[:stream_arn]
@@ -545,7 +545,7 @@ module AWS::Dynamodb
 
     module EnableKinesisStreamingDestinationInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::EnableKinesisStreamingDestinationInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::EnableKinesisStreamingDestinationInput, context: context)
         type = Types::EnableKinesisStreamingDestinationInput.new
         type.table_name = params[:table_name]
         type.stream_arn = params[:stream_arn]
@@ -555,7 +555,7 @@ module AWS::Dynamodb
 
     module ExecuteStatementInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ExecuteStatementInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ExecuteStatementInput, context: context)
         type = Types::ExecuteStatementInput.new
         type.statement = params[:statement]
         type.parameters = PreparedStatementParameters.build(params[:parameters], context: "#{context}[:parameters]") unless params[:parameters].nil?
@@ -568,7 +568,7 @@ module AWS::Dynamodb
 
     module ExecuteTransactionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ExecuteTransactionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ExecuteTransactionInput, context: context)
         type = Types::ExecuteTransactionInput.new
         type.transact_statements = ParameterizedStatements.build(params[:transact_statements], context: "#{context}[:transact_statements]") unless params[:transact_statements].nil?
         type.client_request_token = params[:client_request_token] || SecureRandom.uuid
@@ -579,7 +579,7 @@ module AWS::Dynamodb
 
     module ExpectedAttributeMap
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = ExpectedAttributeValue.build(value, context: "#{context}[:#{key}]") unless value.nil?
@@ -590,7 +590,7 @@ module AWS::Dynamodb
 
     module ExpectedAttributeValue
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ExpectedAttributeValue, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ExpectedAttributeValue, context: context)
         type = Types::ExpectedAttributeValue.new
         type.value = AttributeValue.build(params[:value], context: "#{context}[:value]") unless params[:value].nil?
         type.exists = params[:exists]
@@ -602,7 +602,7 @@ module AWS::Dynamodb
 
     module ExportTableToPointInTimeInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ExportTableToPointInTimeInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ExportTableToPointInTimeInput, context: context)
         type = Types::ExportTableToPointInTimeInput.new
         type.table_arn = params[:table_arn]
         type.export_time = params[:export_time]
@@ -619,7 +619,7 @@ module AWS::Dynamodb
 
     module ExpressionAttributeNameMap
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = value
@@ -630,7 +630,7 @@ module AWS::Dynamodb
 
     module ExpressionAttributeValueMap
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = AttributeValue.build(value, context: "#{context}[:#{key}]") unless value.nil?
@@ -641,7 +641,7 @@ module AWS::Dynamodb
 
     module FilterConditionMap
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = Condition.build(value, context: "#{context}[:#{key}]") unless value.nil?
@@ -652,7 +652,7 @@ module AWS::Dynamodb
 
     module Get
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Get, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Get, context: context)
         type = Types::Get.new
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
         type.table_name = params[:table_name]
@@ -664,7 +664,7 @@ module AWS::Dynamodb
 
     module GetItemInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetItemInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetItemInput, context: context)
         type = Types::GetItemInput.new
         type.table_name = params[:table_name]
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
@@ -679,7 +679,7 @@ module AWS::Dynamodb
 
     module GlobalSecondaryIndex
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GlobalSecondaryIndex, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GlobalSecondaryIndex, context: context)
         type = Types::GlobalSecondaryIndex.new
         type.index_name = params[:index_name]
         type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
@@ -691,7 +691,7 @@ module AWS::Dynamodb
 
     module GlobalSecondaryIndexAutoScalingUpdate
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GlobalSecondaryIndexAutoScalingUpdate, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GlobalSecondaryIndexAutoScalingUpdate, context: context)
         type = Types::GlobalSecondaryIndexAutoScalingUpdate.new
         type.index_name = params[:index_name]
         type.provisioned_write_capacity_auto_scaling_update = AutoScalingSettingsUpdate.build(params[:provisioned_write_capacity_auto_scaling_update], context: "#{context}[:provisioned_write_capacity_auto_scaling_update]") unless params[:provisioned_write_capacity_auto_scaling_update].nil?
@@ -701,7 +701,7 @@ module AWS::Dynamodb
 
     module GlobalSecondaryIndexAutoScalingUpdateList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << GlobalSecondaryIndexAutoScalingUpdate.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -712,7 +712,7 @@ module AWS::Dynamodb
 
     module GlobalSecondaryIndexList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << GlobalSecondaryIndex.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -723,7 +723,7 @@ module AWS::Dynamodb
 
     module GlobalSecondaryIndexUpdate
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GlobalSecondaryIndexUpdate, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GlobalSecondaryIndexUpdate, context: context)
         type = Types::GlobalSecondaryIndexUpdate.new
         type.update = UpdateGlobalSecondaryIndexAction.build(params[:update], context: "#{context}[:update]") unless params[:update].nil?
         type.create = CreateGlobalSecondaryIndexAction.build(params[:create], context: "#{context}[:create]") unless params[:create].nil?
@@ -734,7 +734,7 @@ module AWS::Dynamodb
 
     module GlobalSecondaryIndexUpdateList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << GlobalSecondaryIndexUpdate.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -745,7 +745,7 @@ module AWS::Dynamodb
 
     module GlobalTableGlobalSecondaryIndexSettingsUpdate
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GlobalTableGlobalSecondaryIndexSettingsUpdate, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GlobalTableGlobalSecondaryIndexSettingsUpdate, context: context)
         type = Types::GlobalTableGlobalSecondaryIndexSettingsUpdate.new
         type.index_name = params[:index_name]
         type.provisioned_write_capacity_units = params[:provisioned_write_capacity_units]
@@ -756,7 +756,7 @@ module AWS::Dynamodb
 
     module GlobalTableGlobalSecondaryIndexSettingsUpdateList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << GlobalTableGlobalSecondaryIndexSettingsUpdate.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -767,7 +767,7 @@ module AWS::Dynamodb
 
     module Key
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = AttributeValue.build(value, context: "#{context}[:#{key}]") unless value.nil?
@@ -778,7 +778,7 @@ module AWS::Dynamodb
 
     module KeyConditions
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = Condition.build(value, context: "#{context}[:#{key}]") unless value.nil?
@@ -789,7 +789,7 @@ module AWS::Dynamodb
 
     module KeyList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << Key.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -800,7 +800,7 @@ module AWS::Dynamodb
 
     module KeySchema
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << KeySchemaElement.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -811,7 +811,7 @@ module AWS::Dynamodb
 
     module KeySchemaElement
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::KeySchemaElement, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::KeySchemaElement, context: context)
         type = Types::KeySchemaElement.new
         type.attribute_name = params[:attribute_name]
         type.key_type = params[:key_type]
@@ -821,7 +821,7 @@ module AWS::Dynamodb
 
     module KeysAndAttributes
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::KeysAndAttributes, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::KeysAndAttributes, context: context)
         type = Types::KeysAndAttributes.new
         type.keys = KeyList.build(params[:keys], context: "#{context}[:keys]") unless params[:keys].nil?
         type.attributes_to_get = AttributeNameList.build(params[:attributes_to_get], context: "#{context}[:attributes_to_get]") unless params[:attributes_to_get].nil?
@@ -834,7 +834,7 @@ module AWS::Dynamodb
 
     module ListAttributeValue
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << AttributeValue.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -845,7 +845,7 @@ module AWS::Dynamodb
 
     module ListBackupsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListBackupsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListBackupsInput, context: context)
         type = Types::ListBackupsInput.new
         type.table_name = params[:table_name]
         type.limit = params[:limit]
@@ -859,7 +859,7 @@ module AWS::Dynamodb
 
     module ListContributorInsightsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListContributorInsightsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListContributorInsightsInput, context: context)
         type = Types::ListContributorInsightsInput.new
         type.table_name = params[:table_name]
         type.next_token = params[:next_token]
@@ -870,7 +870,7 @@ module AWS::Dynamodb
 
     module ListExportsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListExportsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListExportsInput, context: context)
         type = Types::ListExportsInput.new
         type.table_arn = params[:table_arn]
         type.max_results = params[:max_results]
@@ -881,7 +881,7 @@ module AWS::Dynamodb
 
     module ListGlobalTablesInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListGlobalTablesInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListGlobalTablesInput, context: context)
         type = Types::ListGlobalTablesInput.new
         type.exclusive_start_global_table_name = params[:exclusive_start_global_table_name]
         type.limit = params[:limit]
@@ -892,7 +892,7 @@ module AWS::Dynamodb
 
     module ListTablesInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListTablesInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListTablesInput, context: context)
         type = Types::ListTablesInput.new
         type.exclusive_start_table_name = params[:exclusive_start_table_name]
         type.limit = params[:limit]
@@ -902,7 +902,7 @@ module AWS::Dynamodb
 
     module ListTagsOfResourceInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListTagsOfResourceInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListTagsOfResourceInput, context: context)
         type = Types::ListTagsOfResourceInput.new
         type.resource_arn = params[:resource_arn]
         type.next_token = params[:next_token]
@@ -912,7 +912,7 @@ module AWS::Dynamodb
 
     module LocalSecondaryIndex
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::LocalSecondaryIndex, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::LocalSecondaryIndex, context: context)
         type = Types::LocalSecondaryIndex.new
         type.index_name = params[:index_name]
         type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
@@ -923,7 +923,7 @@ module AWS::Dynamodb
 
     module LocalSecondaryIndexList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << LocalSecondaryIndex.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -934,7 +934,7 @@ module AWS::Dynamodb
 
     module MapAttributeValue
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = AttributeValue.build(value, context: "#{context}[:#{key}]") unless value.nil?
@@ -945,7 +945,7 @@ module AWS::Dynamodb
 
     module NonKeyAttributeNameList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -956,7 +956,7 @@ module AWS::Dynamodb
 
     module NumberSetAttributeValue
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -967,7 +967,7 @@ module AWS::Dynamodb
 
     module ParameterizedStatement
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ParameterizedStatement, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ParameterizedStatement, context: context)
         type = Types::ParameterizedStatement.new
         type.statement = params[:statement]
         type.parameters = PreparedStatementParameters.build(params[:parameters], context: "#{context}[:parameters]") unless params[:parameters].nil?
@@ -977,7 +977,7 @@ module AWS::Dynamodb
 
     module ParameterizedStatements
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << ParameterizedStatement.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -988,7 +988,7 @@ module AWS::Dynamodb
 
     module PartiQLBatchRequest
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << BatchStatementRequest.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -999,7 +999,7 @@ module AWS::Dynamodb
 
     module PointInTimeRecoverySpecification
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::PointInTimeRecoverySpecification, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::PointInTimeRecoverySpecification, context: context)
         type = Types::PointInTimeRecoverySpecification.new
         type.point_in_time_recovery_enabled = params[:point_in_time_recovery_enabled]
         type
@@ -1008,7 +1008,7 @@ module AWS::Dynamodb
 
     module PreparedStatementParameters
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << AttributeValue.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1019,7 +1019,7 @@ module AWS::Dynamodb
 
     module Projection
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Projection, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Projection, context: context)
         type = Types::Projection.new
         type.projection_type = params[:projection_type]
         type.non_key_attributes = NonKeyAttributeNameList.build(params[:non_key_attributes], context: "#{context}[:non_key_attributes]") unless params[:non_key_attributes].nil?
@@ -1029,7 +1029,7 @@ module AWS::Dynamodb
 
     module ProvisionedThroughput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ProvisionedThroughput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ProvisionedThroughput, context: context)
         type = Types::ProvisionedThroughput.new
         type.read_capacity_units = params[:read_capacity_units]
         type.write_capacity_units = params[:write_capacity_units]
@@ -1039,7 +1039,7 @@ module AWS::Dynamodb
 
     module ProvisionedThroughputOverride
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ProvisionedThroughputOverride, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ProvisionedThroughputOverride, context: context)
         type = Types::ProvisionedThroughputOverride.new
         type.read_capacity_units = params[:read_capacity_units]
         type
@@ -1048,7 +1048,7 @@ module AWS::Dynamodb
 
     module Put
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Put, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Put, context: context)
         type = Types::Put.new
         type.item = PutItemInputAttributeMap.build(params[:item], context: "#{context}[:item]") unless params[:item].nil?
         type.table_name = params[:table_name]
@@ -1062,7 +1062,7 @@ module AWS::Dynamodb
 
     module PutItemInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::PutItemInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::PutItemInput, context: context)
         type = Types::PutItemInput.new
         type.table_name = params[:table_name]
         type.item = PutItemInputAttributeMap.build(params[:item], context: "#{context}[:item]") unless params[:item].nil?
@@ -1080,7 +1080,7 @@ module AWS::Dynamodb
 
     module PutItemInputAttributeMap
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, context: context)
+        Hearth::Validator.validate!(params, ::Hash, context: context)
         data = {}
         params.each do |key, value|
           data[key] = AttributeValue.build(value, context: "#{context}[:#{key}]") unless value.nil?
@@ -1091,7 +1091,7 @@ module AWS::Dynamodb
 
     module PutRequest
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::PutRequest, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::PutRequest, context: context)
         type = Types::PutRequest.new
         type.item = PutItemInputAttributeMap.build(params[:item], context: "#{context}[:item]") unless params[:item].nil?
         type
@@ -1100,7 +1100,7 @@ module AWS::Dynamodb
 
     module QueryInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::QueryInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::QueryInput, context: context)
         type = Types::QueryInput.new
         type.table_name = params[:table_name]
         type.index_name = params[:index_name]
@@ -1125,7 +1125,7 @@ module AWS::Dynamodb
 
     module Replica
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Replica, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Replica, context: context)
         type = Types::Replica.new
         type.region_name = params[:region_name]
         type
@@ -1134,7 +1134,7 @@ module AWS::Dynamodb
 
     module ReplicaAutoScalingUpdate
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ReplicaAutoScalingUpdate, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicaAutoScalingUpdate, context: context)
         type = Types::ReplicaAutoScalingUpdate.new
         type.region_name = params[:region_name]
         type.replica_global_secondary_index_updates = ReplicaGlobalSecondaryIndexAutoScalingUpdateList.build(params[:replica_global_secondary_index_updates], context: "#{context}[:replica_global_secondary_index_updates]") unless params[:replica_global_secondary_index_updates].nil?
@@ -1145,7 +1145,7 @@ module AWS::Dynamodb
 
     module ReplicaAutoScalingUpdateList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << ReplicaAutoScalingUpdate.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1156,7 +1156,7 @@ module AWS::Dynamodb
 
     module ReplicaGlobalSecondaryIndex
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ReplicaGlobalSecondaryIndex, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicaGlobalSecondaryIndex, context: context)
         type = Types::ReplicaGlobalSecondaryIndex.new
         type.index_name = params[:index_name]
         type.provisioned_throughput_override = ProvisionedThroughputOverride.build(params[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless params[:provisioned_throughput_override].nil?
@@ -1166,7 +1166,7 @@ module AWS::Dynamodb
 
     module ReplicaGlobalSecondaryIndexAutoScalingUpdate
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexAutoScalingUpdate, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexAutoScalingUpdate, context: context)
         type = Types::ReplicaGlobalSecondaryIndexAutoScalingUpdate.new
         type.index_name = params[:index_name]
         type.provisioned_read_capacity_auto_scaling_update = AutoScalingSettingsUpdate.build(params[:provisioned_read_capacity_auto_scaling_update], context: "#{context}[:provisioned_read_capacity_auto_scaling_update]") unless params[:provisioned_read_capacity_auto_scaling_update].nil?
@@ -1176,7 +1176,7 @@ module AWS::Dynamodb
 
     module ReplicaGlobalSecondaryIndexAutoScalingUpdateList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << ReplicaGlobalSecondaryIndexAutoScalingUpdate.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1187,7 +1187,7 @@ module AWS::Dynamodb
 
     module ReplicaGlobalSecondaryIndexList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << ReplicaGlobalSecondaryIndex.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1198,7 +1198,7 @@ module AWS::Dynamodb
 
     module ReplicaGlobalSecondaryIndexSettingsUpdate
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexSettingsUpdate, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexSettingsUpdate, context: context)
         type = Types::ReplicaGlobalSecondaryIndexSettingsUpdate.new
         type.index_name = params[:index_name]
         type.provisioned_read_capacity_units = params[:provisioned_read_capacity_units]
@@ -1209,7 +1209,7 @@ module AWS::Dynamodb
 
     module ReplicaGlobalSecondaryIndexSettingsUpdateList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << ReplicaGlobalSecondaryIndexSettingsUpdate.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1220,7 +1220,7 @@ module AWS::Dynamodb
 
     module ReplicaList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << Replica.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1231,7 +1231,7 @@ module AWS::Dynamodb
 
     module ReplicaSettingsUpdate
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ReplicaSettingsUpdate, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicaSettingsUpdate, context: context)
         type = Types::ReplicaSettingsUpdate.new
         type.region_name = params[:region_name]
         type.replica_provisioned_read_capacity_units = params[:replica_provisioned_read_capacity_units]
@@ -1244,7 +1244,7 @@ module AWS::Dynamodb
 
     module ReplicaSettingsUpdateList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << ReplicaSettingsUpdate.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1255,7 +1255,7 @@ module AWS::Dynamodb
 
     module ReplicaUpdate
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ReplicaUpdate, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicaUpdate, context: context)
         type = Types::ReplicaUpdate.new
         type.create = CreateReplicaAction.build(params[:create], context: "#{context}[:create]") unless params[:create].nil?
         type.delete = DeleteReplicaAction.build(params[:delete], context: "#{context}[:delete]") unless params[:delete].nil?
@@ -1265,7 +1265,7 @@ module AWS::Dynamodb
 
     module ReplicaUpdateList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << ReplicaUpdate.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1276,7 +1276,7 @@ module AWS::Dynamodb
 
     module ReplicationGroupUpdate
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ReplicationGroupUpdate, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicationGroupUpdate, context: context)
         type = Types::ReplicationGroupUpdate.new
         type.create = CreateReplicationGroupMemberAction.build(params[:create], context: "#{context}[:create]") unless params[:create].nil?
         type.update = UpdateReplicationGroupMemberAction.build(params[:update], context: "#{context}[:update]") unless params[:update].nil?
@@ -1287,7 +1287,7 @@ module AWS::Dynamodb
 
     module ReplicationGroupUpdateList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << ReplicationGroupUpdate.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1298,7 +1298,7 @@ module AWS::Dynamodb
 
     module RestoreTableFromBackupInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::RestoreTableFromBackupInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::RestoreTableFromBackupInput, context: context)
         type = Types::RestoreTableFromBackupInput.new
         type.target_table_name = params[:target_table_name]
         type.backup_arn = params[:backup_arn]
@@ -1313,7 +1313,7 @@ module AWS::Dynamodb
 
     module RestoreTableToPointInTimeInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::RestoreTableToPointInTimeInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::RestoreTableToPointInTimeInput, context: context)
         type = Types::RestoreTableToPointInTimeInput.new
         type.source_table_arn = params[:source_table_arn]
         type.source_table_name = params[:source_table_name]
@@ -1331,7 +1331,7 @@ module AWS::Dynamodb
 
     module SSESpecification
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::SSESpecification, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::SSESpecification, context: context)
         type = Types::SSESpecification.new
         type.enabled = params[:enabled]
         type.sse_type = params[:sse_type]
@@ -1342,7 +1342,7 @@ module AWS::Dynamodb
 
     module ScanInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ScanInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ScanInput, context: context)
         type = Types::ScanInput.new
         type.table_name = params[:table_name]
         type.index_name = params[:index_name]
@@ -1366,7 +1366,7 @@ module AWS::Dynamodb
 
     module StreamSpecification
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::StreamSpecification, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::StreamSpecification, context: context)
         type = Types::StreamSpecification.new
         type.stream_enabled = params[:stream_enabled]
         type.stream_view_type = params[:stream_view_type]
@@ -1376,7 +1376,7 @@ module AWS::Dynamodb
 
     module StringSetAttributeValue
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -1387,7 +1387,7 @@ module AWS::Dynamodb
 
     module Tag
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Tag, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Tag, context: context)
         type = Types::Tag.new
         type.key = params[:key]
         type.value = params[:value]
@@ -1397,7 +1397,7 @@ module AWS::Dynamodb
 
     module TagKeyList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -1408,7 +1408,7 @@ module AWS::Dynamodb
 
     module TagList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << Tag.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1419,7 +1419,7 @@ module AWS::Dynamodb
 
     module TagResourceInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::TagResourceInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::TagResourceInput, context: context)
         type = Types::TagResourceInput.new
         type.resource_arn = params[:resource_arn]
         type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -1429,7 +1429,7 @@ module AWS::Dynamodb
 
     module TimeToLiveSpecification
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::TimeToLiveSpecification, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::TimeToLiveSpecification, context: context)
         type = Types::TimeToLiveSpecification.new
         type.enabled = params[:enabled]
         type.attribute_name = params[:attribute_name]
@@ -1439,7 +1439,7 @@ module AWS::Dynamodb
 
     module TransactGetItem
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::TransactGetItem, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::TransactGetItem, context: context)
         type = Types::TransactGetItem.new
         type.get = Get.build(params[:get], context: "#{context}[:get]") unless params[:get].nil?
         type
@@ -1448,7 +1448,7 @@ module AWS::Dynamodb
 
     module TransactGetItemList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << TransactGetItem.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1459,7 +1459,7 @@ module AWS::Dynamodb
 
     module TransactGetItemsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::TransactGetItemsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::TransactGetItemsInput, context: context)
         type = Types::TransactGetItemsInput.new
         type.transact_items = TransactGetItemList.build(params[:transact_items], context: "#{context}[:transact_items]") unless params[:transact_items].nil?
         type.return_consumed_capacity = params[:return_consumed_capacity]
@@ -1469,7 +1469,7 @@ module AWS::Dynamodb
 
     module TransactWriteItem
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::TransactWriteItem, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::TransactWriteItem, context: context)
         type = Types::TransactWriteItem.new
         type.condition_check = ConditionCheck.build(params[:condition_check], context: "#{context}[:condition_check]") unless params[:condition_check].nil?
         type.put = Put.build(params[:put], context: "#{context}[:put]") unless params[:put].nil?
@@ -1481,7 +1481,7 @@ module AWS::Dynamodb
 
     module TransactWriteItemList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << TransactWriteItem.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1492,7 +1492,7 @@ module AWS::Dynamodb
 
     module TransactWriteItemsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::TransactWriteItemsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::TransactWriteItemsInput, context: context)
         type = Types::TransactWriteItemsInput.new
         type.transact_items = TransactWriteItemList.build(params[:transact_items], context: "#{context}[:transact_items]") unless params[:transact_items].nil?
         type.return_consumed_capacity = params[:return_consumed_capacity]
@@ -1504,7 +1504,7 @@ module AWS::Dynamodb
 
     module UntagResourceInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UntagResourceInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UntagResourceInput, context: context)
         type = Types::UntagResourceInput.new
         type.resource_arn = params[:resource_arn]
         type.tag_keys = TagKeyList.build(params[:tag_keys], context: "#{context}[:tag_keys]") unless params[:tag_keys].nil?
@@ -1514,7 +1514,7 @@ module AWS::Dynamodb
 
     module Update
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Update, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Update, context: context)
         type = Types::Update.new
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
         type.update_expression = params[:update_expression]
@@ -1529,7 +1529,7 @@ module AWS::Dynamodb
 
     module UpdateContinuousBackupsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateContinuousBackupsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateContinuousBackupsInput, context: context)
         type = Types::UpdateContinuousBackupsInput.new
         type.table_name = params[:table_name]
         type.point_in_time_recovery_specification = PointInTimeRecoverySpecification.build(params[:point_in_time_recovery_specification], context: "#{context}[:point_in_time_recovery_specification]") unless params[:point_in_time_recovery_specification].nil?
@@ -1539,7 +1539,7 @@ module AWS::Dynamodb
 
     module UpdateContributorInsightsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateContributorInsightsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateContributorInsightsInput, context: context)
         type = Types::UpdateContributorInsightsInput.new
         type.table_name = params[:table_name]
         type.index_name = params[:index_name]
@@ -1550,7 +1550,7 @@ module AWS::Dynamodb
 
     module UpdateGlobalSecondaryIndexAction
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateGlobalSecondaryIndexAction, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateGlobalSecondaryIndexAction, context: context)
         type = Types::UpdateGlobalSecondaryIndexAction.new
         type.index_name = params[:index_name]
         type.provisioned_throughput = ProvisionedThroughput.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
@@ -1560,7 +1560,7 @@ module AWS::Dynamodb
 
     module UpdateGlobalTableInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateGlobalTableInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateGlobalTableInput, context: context)
         type = Types::UpdateGlobalTableInput.new
         type.global_table_name = params[:global_table_name]
         type.replica_updates = ReplicaUpdateList.build(params[:replica_updates], context: "#{context}[:replica_updates]") unless params[:replica_updates].nil?
@@ -1570,7 +1570,7 @@ module AWS::Dynamodb
 
     module UpdateGlobalTableSettingsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateGlobalTableSettingsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateGlobalTableSettingsInput, context: context)
         type = Types::UpdateGlobalTableSettingsInput.new
         type.global_table_name = params[:global_table_name]
         type.global_table_billing_mode = params[:global_table_billing_mode]
@@ -1584,7 +1584,7 @@ module AWS::Dynamodb
 
     module UpdateItemInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateItemInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateItemInput, context: context)
         type = Types::UpdateItemInput.new
         type.table_name = params[:table_name]
         type.key = Key.build(params[:key], context: "#{context}[:key]") unless params[:key].nil?
@@ -1604,7 +1604,7 @@ module AWS::Dynamodb
 
     module UpdateReplicationGroupMemberAction
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateReplicationGroupMemberAction, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateReplicationGroupMemberAction, context: context)
         type = Types::UpdateReplicationGroupMemberAction.new
         type.region_name = params[:region_name]
         type.kms_master_key_id = params[:kms_master_key_id]
@@ -1617,7 +1617,7 @@ module AWS::Dynamodb
 
     module UpdateTableInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateTableInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateTableInput, context: context)
         type = Types::UpdateTableInput.new
         type.attribute_definitions = AttributeDefinitions.build(params[:attribute_definitions], context: "#{context}[:attribute_definitions]") unless params[:attribute_definitions].nil?
         type.table_name = params[:table_name]
@@ -1634,7 +1634,7 @@ module AWS::Dynamodb
 
     module UpdateTableReplicaAutoScalingInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateTableReplicaAutoScalingInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateTableReplicaAutoScalingInput, context: context)
         type = Types::UpdateTableReplicaAutoScalingInput.new
         type.global_secondary_index_updates = GlobalSecondaryIndexAutoScalingUpdateList.build(params[:global_secondary_index_updates], context: "#{context}[:global_secondary_index_updates]") unless params[:global_secondary_index_updates].nil?
         type.table_name = params[:table_name]
@@ -1646,7 +1646,7 @@ module AWS::Dynamodb
 
     module UpdateTimeToLiveInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateTimeToLiveInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateTimeToLiveInput, context: context)
         type = Types::UpdateTimeToLiveInput.new
         type.table_name = params[:table_name]
         type.time_to_live_specification = TimeToLiveSpecification.build(params[:time_to_live_specification], context: "#{context}[:time_to_live_specification]") unless params[:time_to_live_specification].nil?
@@ -1656,7 +1656,7 @@ module AWS::Dynamodb
 
     module WriteRequest
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::WriteRequest, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::WriteRequest, context: context)
         type = Types::WriteRequest.new
         type.put_request = PutRequest.build(params[:put_request], context: "#{context}[:put_request]") unless params[:put_request].nil?
         type.delete_request = DeleteRequest.build(params[:delete_request], context: "#{context}[:delete_request]") unless params[:delete_request].nil?
@@ -1666,7 +1666,7 @@ module AWS::Dynamodb
 
     module WriteRequests
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << WriteRequest.build(element, context: "#{context}[#{index}]") unless element.nil?

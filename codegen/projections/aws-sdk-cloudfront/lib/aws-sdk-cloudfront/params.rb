@@ -14,7 +14,7 @@ module AWS::Cloudfront
 
     module AccessControlAllowHeadersList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -25,7 +25,7 @@ module AWS::Cloudfront
 
     module AccessControlAllowMethodsList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -36,7 +36,7 @@ module AWS::Cloudfront
 
     module AccessControlAllowOriginsList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -47,7 +47,7 @@ module AWS::Cloudfront
 
     module AccessControlExposeHeadersList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -58,7 +58,7 @@ module AWS::Cloudfront
 
     module AliasList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -69,7 +69,7 @@ module AWS::Cloudfront
 
     module Aliases
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Aliases, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Aliases, context: context)
         type = Types::Aliases.new
         type.quantity = params[:quantity]
         type.items = AliasList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -79,7 +79,7 @@ module AWS::Cloudfront
 
     module AllowedMethods
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::AllowedMethods, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::AllowedMethods, context: context)
         type = Types::AllowedMethods.new
         type.quantity = params[:quantity]
         type.items = MethodsList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -90,7 +90,7 @@ module AWS::Cloudfront
 
     module AssociateAliasInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::AssociateAliasInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::AssociateAliasInput, context: context)
         type = Types::AssociateAliasInput.new
         type.target_distribution_id = params[:target_distribution_id]
         type.alias = params[:alias]
@@ -100,7 +100,7 @@ module AWS::Cloudfront
 
     module AwsAccountNumberList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -111,7 +111,7 @@ module AWS::Cloudfront
 
     module CacheBehavior
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CacheBehavior, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CacheBehavior, context: context)
         type = Types::CacheBehavior.new
         type.path_pattern = params[:path_pattern]
         type.target_origin_id = params[:target_origin_id]
@@ -138,7 +138,7 @@ module AWS::Cloudfront
 
     module CacheBehaviorList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << CacheBehavior.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -149,7 +149,7 @@ module AWS::Cloudfront
 
     module CacheBehaviors
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CacheBehaviors, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CacheBehaviors, context: context)
         type = Types::CacheBehaviors.new
         type.quantity = params[:quantity]
         type.items = CacheBehaviorList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -159,7 +159,7 @@ module AWS::Cloudfront
 
     module CachePolicyConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CachePolicyConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CachePolicyConfig, context: context)
         type = Types::CachePolicyConfig.new
         type.comment = params[:comment]
         type.member_name = params[:member_name]
@@ -173,7 +173,7 @@ module AWS::Cloudfront
 
     module CachePolicyCookiesConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CachePolicyCookiesConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CachePolicyCookiesConfig, context: context)
         type = Types::CachePolicyCookiesConfig.new
         type.cookie_behavior = params[:cookie_behavior]
         type.cookies = CookieNames.build(params[:cookies], context: "#{context}[:cookies]") unless params[:cookies].nil?
@@ -183,7 +183,7 @@ module AWS::Cloudfront
 
     module CachePolicyHeadersConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CachePolicyHeadersConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CachePolicyHeadersConfig, context: context)
         type = Types::CachePolicyHeadersConfig.new
         type.header_behavior = params[:header_behavior]
         type.headers = Headers.build(params[:headers], context: "#{context}[:headers]") unless params[:headers].nil?
@@ -193,7 +193,7 @@ module AWS::Cloudfront
 
     module CachePolicyQueryStringsConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CachePolicyQueryStringsConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CachePolicyQueryStringsConfig, context: context)
         type = Types::CachePolicyQueryStringsConfig.new
         type.query_string_behavior = params[:query_string_behavior]
         type.query_strings = QueryStringNames.build(params[:query_strings], context: "#{context}[:query_strings]") unless params[:query_strings].nil?
@@ -203,7 +203,7 @@ module AWS::Cloudfront
 
     module CachedMethods
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CachedMethods, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CachedMethods, context: context)
         type = Types::CachedMethods.new
         type.quantity = params[:quantity]
         type.items = MethodsList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -213,7 +213,7 @@ module AWS::Cloudfront
 
     module CloudFrontOriginAccessIdentityConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CloudFrontOriginAccessIdentityConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CloudFrontOriginAccessIdentityConfig, context: context)
         type = Types::CloudFrontOriginAccessIdentityConfig.new
         type.caller_reference = params[:caller_reference]
         type.comment = params[:comment]
@@ -223,7 +223,7 @@ module AWS::Cloudfront
 
     module ContentTypeProfile
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ContentTypeProfile, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ContentTypeProfile, context: context)
         type = Types::ContentTypeProfile.new
         type.format = params[:format]
         type.profile_id = params[:profile_id]
@@ -234,7 +234,7 @@ module AWS::Cloudfront
 
     module ContentTypeProfileConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ContentTypeProfileConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ContentTypeProfileConfig, context: context)
         type = Types::ContentTypeProfileConfig.new
         type.forward_when_content_type_is_unknown = params[:forward_when_content_type_is_unknown]
         type.content_type_profiles = ContentTypeProfiles.build(params[:content_type_profiles], context: "#{context}[:content_type_profiles]") unless params[:content_type_profiles].nil?
@@ -244,7 +244,7 @@ module AWS::Cloudfront
 
     module ContentTypeProfileList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << ContentTypeProfile.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -255,7 +255,7 @@ module AWS::Cloudfront
 
     module ContentTypeProfiles
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ContentTypeProfiles, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ContentTypeProfiles, context: context)
         type = Types::ContentTypeProfiles.new
         type.quantity = params[:quantity]
         type.items = ContentTypeProfileList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -265,7 +265,7 @@ module AWS::Cloudfront
 
     module CookieNameList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -276,7 +276,7 @@ module AWS::Cloudfront
 
     module CookieNames
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CookieNames, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CookieNames, context: context)
         type = Types::CookieNames.new
         type.quantity = params[:quantity]
         type.items = CookieNameList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -286,7 +286,7 @@ module AWS::Cloudfront
 
     module CookiePreference
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CookiePreference, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CookiePreference, context: context)
         type = Types::CookiePreference.new
         type.forward = params[:forward]
         type.whitelisted_names = CookieNames.build(params[:whitelisted_names], context: "#{context}[:whitelisted_names]") unless params[:whitelisted_names].nil?
@@ -296,7 +296,7 @@ module AWS::Cloudfront
 
     module CreateCachePolicyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateCachePolicyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateCachePolicyInput, context: context)
         type = Types::CreateCachePolicyInput.new
         type.cache_policy_config = CachePolicyConfig.build(params[:cache_policy_config], context: "#{context}[:cache_policy_config]") unless params[:cache_policy_config].nil?
         type
@@ -305,7 +305,7 @@ module AWS::Cloudfront
 
     module CreateCloudFrontOriginAccessIdentityInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateCloudFrontOriginAccessIdentityInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateCloudFrontOriginAccessIdentityInput, context: context)
         type = Types::CreateCloudFrontOriginAccessIdentityInput.new
         type.cloud_front_origin_access_identity_config = CloudFrontOriginAccessIdentityConfig.build(params[:cloud_front_origin_access_identity_config], context: "#{context}[:cloud_front_origin_access_identity_config]") unless params[:cloud_front_origin_access_identity_config].nil?
         type
@@ -314,7 +314,7 @@ module AWS::Cloudfront
 
     module CreateDistributionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateDistributionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateDistributionInput, context: context)
         type = Types::CreateDistributionInput.new
         type.distribution_config = DistributionConfig.build(params[:distribution_config], context: "#{context}[:distribution_config]") unless params[:distribution_config].nil?
         type
@@ -323,7 +323,7 @@ module AWS::Cloudfront
 
     module CreateDistributionWithTagsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateDistributionWithTagsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateDistributionWithTagsInput, context: context)
         type = Types::CreateDistributionWithTagsInput.new
         type.distribution_config_with_tags = DistributionConfigWithTags.build(params[:distribution_config_with_tags], context: "#{context}[:distribution_config_with_tags]") unless params[:distribution_config_with_tags].nil?
         type
@@ -332,7 +332,7 @@ module AWS::Cloudfront
 
     module CreateFieldLevelEncryptionConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateFieldLevelEncryptionConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateFieldLevelEncryptionConfigInput, context: context)
         type = Types::CreateFieldLevelEncryptionConfigInput.new
         type.field_level_encryption_config = FieldLevelEncryptionConfig.build(params[:field_level_encryption_config], context: "#{context}[:field_level_encryption_config]") unless params[:field_level_encryption_config].nil?
         type
@@ -341,7 +341,7 @@ module AWS::Cloudfront
 
     module CreateFieldLevelEncryptionProfileInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateFieldLevelEncryptionProfileInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateFieldLevelEncryptionProfileInput, context: context)
         type = Types::CreateFieldLevelEncryptionProfileInput.new
         type.field_level_encryption_profile_config = FieldLevelEncryptionProfileConfig.build(params[:field_level_encryption_profile_config], context: "#{context}[:field_level_encryption_profile_config]") unless params[:field_level_encryption_profile_config].nil?
         type
@@ -350,7 +350,7 @@ module AWS::Cloudfront
 
     module CreateFunctionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateFunctionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateFunctionInput, context: context)
         type = Types::CreateFunctionInput.new
         type.member_name = params[:member_name]
         type.function_config = FunctionConfig.build(params[:function_config], context: "#{context}[:function_config]") unless params[:function_config].nil?
@@ -361,7 +361,7 @@ module AWS::Cloudfront
 
     module CreateInvalidationInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateInvalidationInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateInvalidationInput, context: context)
         type = Types::CreateInvalidationInput.new
         type.distribution_id = params[:distribution_id]
         type.invalidation_batch = InvalidationBatch.build(params[:invalidation_batch], context: "#{context}[:invalidation_batch]") unless params[:invalidation_batch].nil?
@@ -371,7 +371,7 @@ module AWS::Cloudfront
 
     module CreateKeyGroupInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateKeyGroupInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateKeyGroupInput, context: context)
         type = Types::CreateKeyGroupInput.new
         type.key_group_config = KeyGroupConfig.build(params[:key_group_config], context: "#{context}[:key_group_config]") unless params[:key_group_config].nil?
         type
@@ -380,7 +380,7 @@ module AWS::Cloudfront
 
     module CreateMonitoringSubscriptionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateMonitoringSubscriptionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateMonitoringSubscriptionInput, context: context)
         type = Types::CreateMonitoringSubscriptionInput.new
         type.distribution_id = params[:distribution_id]
         type.monitoring_subscription = MonitoringSubscription.build(params[:monitoring_subscription], context: "#{context}[:monitoring_subscription]") unless params[:monitoring_subscription].nil?
@@ -390,7 +390,7 @@ module AWS::Cloudfront
 
     module CreateOriginRequestPolicyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateOriginRequestPolicyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateOriginRequestPolicyInput, context: context)
         type = Types::CreateOriginRequestPolicyInput.new
         type.origin_request_policy_config = OriginRequestPolicyConfig.build(params[:origin_request_policy_config], context: "#{context}[:origin_request_policy_config]") unless params[:origin_request_policy_config].nil?
         type
@@ -399,7 +399,7 @@ module AWS::Cloudfront
 
     module CreatePublicKeyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreatePublicKeyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreatePublicKeyInput, context: context)
         type = Types::CreatePublicKeyInput.new
         type.public_key_config = PublicKeyConfig.build(params[:public_key_config], context: "#{context}[:public_key_config]") unless params[:public_key_config].nil?
         type
@@ -408,7 +408,7 @@ module AWS::Cloudfront
 
     module CreateRealtimeLogConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateRealtimeLogConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateRealtimeLogConfigInput, context: context)
         type = Types::CreateRealtimeLogConfigInput.new
         type.end_points = EndPointList.build(params[:end_points], context: "#{context}[:end_points]") unless params[:end_points].nil?
         type.fields = FieldList.build(params[:fields], context: "#{context}[:fields]") unless params[:fields].nil?
@@ -420,7 +420,7 @@ module AWS::Cloudfront
 
     module CreateResponseHeadersPolicyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateResponseHeadersPolicyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateResponseHeadersPolicyInput, context: context)
         type = Types::CreateResponseHeadersPolicyInput.new
         type.response_headers_policy_config = ResponseHeadersPolicyConfig.build(params[:response_headers_policy_config], context: "#{context}[:response_headers_policy_config]") unless params[:response_headers_policy_config].nil?
         type
@@ -429,7 +429,7 @@ module AWS::Cloudfront
 
     module CreateStreamingDistributionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateStreamingDistributionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateStreamingDistributionInput, context: context)
         type = Types::CreateStreamingDistributionInput.new
         type.streaming_distribution_config = StreamingDistributionConfig.build(params[:streaming_distribution_config], context: "#{context}[:streaming_distribution_config]") unless params[:streaming_distribution_config].nil?
         type
@@ -438,7 +438,7 @@ module AWS::Cloudfront
 
     module CreateStreamingDistributionWithTagsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CreateStreamingDistributionWithTagsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateStreamingDistributionWithTagsInput, context: context)
         type = Types::CreateStreamingDistributionWithTagsInput.new
         type.streaming_distribution_config_with_tags = StreamingDistributionConfigWithTags.build(params[:streaming_distribution_config_with_tags], context: "#{context}[:streaming_distribution_config_with_tags]") unless params[:streaming_distribution_config_with_tags].nil?
         type
@@ -447,7 +447,7 @@ module AWS::Cloudfront
 
     module CustomErrorResponse
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CustomErrorResponse, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CustomErrorResponse, context: context)
         type = Types::CustomErrorResponse.new
         type.error_code = params[:error_code]
         type.response_page_path = params[:response_page_path]
@@ -459,7 +459,7 @@ module AWS::Cloudfront
 
     module CustomErrorResponseList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << CustomErrorResponse.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -470,7 +470,7 @@ module AWS::Cloudfront
 
     module CustomErrorResponses
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CustomErrorResponses, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CustomErrorResponses, context: context)
         type = Types::CustomErrorResponses.new
         type.quantity = params[:quantity]
         type.items = CustomErrorResponseList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -480,7 +480,7 @@ module AWS::Cloudfront
 
     module CustomHeaders
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CustomHeaders, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CustomHeaders, context: context)
         type = Types::CustomHeaders.new
         type.quantity = params[:quantity]
         type.items = OriginCustomHeadersList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -490,7 +490,7 @@ module AWS::Cloudfront
 
     module CustomOriginConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::CustomOriginConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::CustomOriginConfig, context: context)
         type = Types::CustomOriginConfig.new
         type.http_port = params[:http_port]
         type.https_port = params[:https_port]
@@ -504,7 +504,7 @@ module AWS::Cloudfront
 
     module DefaultCacheBehavior
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DefaultCacheBehavior, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DefaultCacheBehavior, context: context)
         type = Types::DefaultCacheBehavior.new
         type.target_origin_id = params[:target_origin_id]
         type.trusted_signers = TrustedSigners.build(params[:trusted_signers], context: "#{context}[:trusted_signers]") unless params[:trusted_signers].nil?
@@ -530,7 +530,7 @@ module AWS::Cloudfront
 
     module DeleteCachePolicyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteCachePolicyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteCachePolicyInput, context: context)
         type = Types::DeleteCachePolicyInput.new
         type.id = params[:id]
         type.if_match = params[:if_match]
@@ -540,7 +540,7 @@ module AWS::Cloudfront
 
     module DeleteCloudFrontOriginAccessIdentityInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteCloudFrontOriginAccessIdentityInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteCloudFrontOriginAccessIdentityInput, context: context)
         type = Types::DeleteCloudFrontOriginAccessIdentityInput.new
         type.id = params[:id]
         type.if_match = params[:if_match]
@@ -550,7 +550,7 @@ module AWS::Cloudfront
 
     module DeleteDistributionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteDistributionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteDistributionInput, context: context)
         type = Types::DeleteDistributionInput.new
         type.id = params[:id]
         type.if_match = params[:if_match]
@@ -560,7 +560,7 @@ module AWS::Cloudfront
 
     module DeleteFieldLevelEncryptionConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteFieldLevelEncryptionConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFieldLevelEncryptionConfigInput, context: context)
         type = Types::DeleteFieldLevelEncryptionConfigInput.new
         type.id = params[:id]
         type.if_match = params[:if_match]
@@ -570,7 +570,7 @@ module AWS::Cloudfront
 
     module DeleteFieldLevelEncryptionProfileInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteFieldLevelEncryptionProfileInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFieldLevelEncryptionProfileInput, context: context)
         type = Types::DeleteFieldLevelEncryptionProfileInput.new
         type.id = params[:id]
         type.if_match = params[:if_match]
@@ -580,7 +580,7 @@ module AWS::Cloudfront
 
     module DeleteFunctionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteFunctionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionInput, context: context)
         type = Types::DeleteFunctionInput.new
         type.member_name = params[:member_name]
         type.if_match = params[:if_match]
@@ -590,7 +590,7 @@ module AWS::Cloudfront
 
     module DeleteKeyGroupInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteKeyGroupInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteKeyGroupInput, context: context)
         type = Types::DeleteKeyGroupInput.new
         type.id = params[:id]
         type.if_match = params[:if_match]
@@ -600,7 +600,7 @@ module AWS::Cloudfront
 
     module DeleteMonitoringSubscriptionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteMonitoringSubscriptionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteMonitoringSubscriptionInput, context: context)
         type = Types::DeleteMonitoringSubscriptionInput.new
         type.distribution_id = params[:distribution_id]
         type
@@ -609,7 +609,7 @@ module AWS::Cloudfront
 
     module DeleteOriginRequestPolicyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteOriginRequestPolicyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteOriginRequestPolicyInput, context: context)
         type = Types::DeleteOriginRequestPolicyInput.new
         type.id = params[:id]
         type.if_match = params[:if_match]
@@ -619,7 +619,7 @@ module AWS::Cloudfront
 
     module DeletePublicKeyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeletePublicKeyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeletePublicKeyInput, context: context)
         type = Types::DeletePublicKeyInput.new
         type.id = params[:id]
         type.if_match = params[:if_match]
@@ -629,7 +629,7 @@ module AWS::Cloudfront
 
     module DeleteRealtimeLogConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteRealtimeLogConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteRealtimeLogConfigInput, context: context)
         type = Types::DeleteRealtimeLogConfigInput.new
         type.member_name = params[:member_name]
         type.arn = params[:arn]
@@ -639,7 +639,7 @@ module AWS::Cloudfront
 
     module DeleteResponseHeadersPolicyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteResponseHeadersPolicyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteResponseHeadersPolicyInput, context: context)
         type = Types::DeleteResponseHeadersPolicyInput.new
         type.id = params[:id]
         type.if_match = params[:if_match]
@@ -649,7 +649,7 @@ module AWS::Cloudfront
 
     module DeleteStreamingDistributionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DeleteStreamingDistributionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteStreamingDistributionInput, context: context)
         type = Types::DeleteStreamingDistributionInput.new
         type.id = params[:id]
         type.if_match = params[:if_match]
@@ -659,7 +659,7 @@ module AWS::Cloudfront
 
     module DescribeFunctionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DescribeFunctionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeFunctionInput, context: context)
         type = Types::DescribeFunctionInput.new
         type.member_name = params[:member_name]
         type.stage = params[:stage]
@@ -669,7 +669,7 @@ module AWS::Cloudfront
 
     module DistributionConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DistributionConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DistributionConfig, context: context)
         type = Types::DistributionConfig.new
         type.caller_reference = params[:caller_reference]
         type.aliases = Aliases.build(params[:aliases], context: "#{context}[:aliases]") unless params[:aliases].nil?
@@ -694,7 +694,7 @@ module AWS::Cloudfront
 
     module DistributionConfigWithTags
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DistributionConfigWithTags, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DistributionConfigWithTags, context: context)
         type = Types::DistributionConfigWithTags.new
         type.distribution_config = DistributionConfig.build(params[:distribution_config], context: "#{context}[:distribution_config]") unless params[:distribution_config].nil?
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -704,7 +704,7 @@ module AWS::Cloudfront
 
     module EncryptionEntities
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::EncryptionEntities, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::EncryptionEntities, context: context)
         type = Types::EncryptionEntities.new
         type.quantity = params[:quantity]
         type.items = EncryptionEntityList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -714,7 +714,7 @@ module AWS::Cloudfront
 
     module EncryptionEntity
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::EncryptionEntity, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::EncryptionEntity, context: context)
         type = Types::EncryptionEntity.new
         type.public_key_id = params[:public_key_id]
         type.provider_id = params[:provider_id]
@@ -725,7 +725,7 @@ module AWS::Cloudfront
 
     module EncryptionEntityList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << EncryptionEntity.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -736,7 +736,7 @@ module AWS::Cloudfront
 
     module EndPoint
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::EndPoint, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::EndPoint, context: context)
         type = Types::EndPoint.new
         type.stream_type = params[:stream_type]
         type.kinesis_stream_config = KinesisStreamConfig.build(params[:kinesis_stream_config], context: "#{context}[:kinesis_stream_config]") unless params[:kinesis_stream_config].nil?
@@ -746,7 +746,7 @@ module AWS::Cloudfront
 
     module EndPointList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << EndPoint.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -757,7 +757,7 @@ module AWS::Cloudfront
 
     module FieldLevelEncryptionConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::FieldLevelEncryptionConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::FieldLevelEncryptionConfig, context: context)
         type = Types::FieldLevelEncryptionConfig.new
         type.caller_reference = params[:caller_reference]
         type.comment = params[:comment]
@@ -769,7 +769,7 @@ module AWS::Cloudfront
 
     module FieldLevelEncryptionProfileConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::FieldLevelEncryptionProfileConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::FieldLevelEncryptionProfileConfig, context: context)
         type = Types::FieldLevelEncryptionProfileConfig.new
         type.member_name = params[:member_name]
         type.caller_reference = params[:caller_reference]
@@ -781,7 +781,7 @@ module AWS::Cloudfront
 
     module FieldList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -792,7 +792,7 @@ module AWS::Cloudfront
 
     module FieldPatternList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -803,7 +803,7 @@ module AWS::Cloudfront
 
     module FieldPatterns
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::FieldPatterns, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::FieldPatterns, context: context)
         type = Types::FieldPatterns.new
         type.quantity = params[:quantity]
         type.items = FieldPatternList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -813,7 +813,7 @@ module AWS::Cloudfront
 
     module ForwardedValues
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ForwardedValues, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ForwardedValues, context: context)
         type = Types::ForwardedValues.new
         type.query_string = params[:query_string]
         type.cookies = CookiePreference.build(params[:cookies], context: "#{context}[:cookies]") unless params[:cookies].nil?
@@ -825,7 +825,7 @@ module AWS::Cloudfront
 
     module FunctionAssociation
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::FunctionAssociation, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::FunctionAssociation, context: context)
         type = Types::FunctionAssociation.new
         type.function_arn = params[:function_arn]
         type.event_type = params[:event_type]
@@ -835,7 +835,7 @@ module AWS::Cloudfront
 
     module FunctionAssociationList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << FunctionAssociation.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -846,7 +846,7 @@ module AWS::Cloudfront
 
     module FunctionAssociations
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::FunctionAssociations, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::FunctionAssociations, context: context)
         type = Types::FunctionAssociations.new
         type.quantity = params[:quantity]
         type.items = FunctionAssociationList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -856,7 +856,7 @@ module AWS::Cloudfront
 
     module FunctionConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::FunctionConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::FunctionConfig, context: context)
         type = Types::FunctionConfig.new
         type.comment = params[:comment]
         type.runtime = params[:runtime]
@@ -866,7 +866,7 @@ module AWS::Cloudfront
 
     module GeoRestriction
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GeoRestriction, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GeoRestriction, context: context)
         type = Types::GeoRestriction.new
         type.restriction_type = params[:restriction_type]
         type.quantity = params[:quantity]
@@ -877,7 +877,7 @@ module AWS::Cloudfront
 
     module GetCachePolicyConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetCachePolicyConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetCachePolicyConfigInput, context: context)
         type = Types::GetCachePolicyConfigInput.new
         type.id = params[:id]
         type
@@ -886,7 +886,7 @@ module AWS::Cloudfront
 
     module GetCachePolicyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetCachePolicyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetCachePolicyInput, context: context)
         type = Types::GetCachePolicyInput.new
         type.id = params[:id]
         type
@@ -895,7 +895,7 @@ module AWS::Cloudfront
 
     module GetCloudFrontOriginAccessIdentityConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetCloudFrontOriginAccessIdentityConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetCloudFrontOriginAccessIdentityConfigInput, context: context)
         type = Types::GetCloudFrontOriginAccessIdentityConfigInput.new
         type.id = params[:id]
         type
@@ -904,7 +904,7 @@ module AWS::Cloudfront
 
     module GetCloudFrontOriginAccessIdentityInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetCloudFrontOriginAccessIdentityInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetCloudFrontOriginAccessIdentityInput, context: context)
         type = Types::GetCloudFrontOriginAccessIdentityInput.new
         type.id = params[:id]
         type
@@ -913,7 +913,7 @@ module AWS::Cloudfront
 
     module GetDistributionConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetDistributionConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetDistributionConfigInput, context: context)
         type = Types::GetDistributionConfigInput.new
         type.id = params[:id]
         type
@@ -922,7 +922,7 @@ module AWS::Cloudfront
 
     module GetDistributionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetDistributionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetDistributionInput, context: context)
         type = Types::GetDistributionInput.new
         type.id = params[:id]
         type
@@ -931,7 +931,7 @@ module AWS::Cloudfront
 
     module GetFieldLevelEncryptionConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetFieldLevelEncryptionConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetFieldLevelEncryptionConfigInput, context: context)
         type = Types::GetFieldLevelEncryptionConfigInput.new
         type.id = params[:id]
         type
@@ -940,7 +940,7 @@ module AWS::Cloudfront
 
     module GetFieldLevelEncryptionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetFieldLevelEncryptionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetFieldLevelEncryptionInput, context: context)
         type = Types::GetFieldLevelEncryptionInput.new
         type.id = params[:id]
         type
@@ -949,7 +949,7 @@ module AWS::Cloudfront
 
     module GetFieldLevelEncryptionProfileConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetFieldLevelEncryptionProfileConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetFieldLevelEncryptionProfileConfigInput, context: context)
         type = Types::GetFieldLevelEncryptionProfileConfigInput.new
         type.id = params[:id]
         type
@@ -958,7 +958,7 @@ module AWS::Cloudfront
 
     module GetFieldLevelEncryptionProfileInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetFieldLevelEncryptionProfileInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetFieldLevelEncryptionProfileInput, context: context)
         type = Types::GetFieldLevelEncryptionProfileInput.new
         type.id = params[:id]
         type
@@ -967,7 +967,7 @@ module AWS::Cloudfront
 
     module GetFunctionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetFunctionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionInput, context: context)
         type = Types::GetFunctionInput.new
         type.member_name = params[:member_name]
         type.stage = params[:stage]
@@ -977,7 +977,7 @@ module AWS::Cloudfront
 
     module GetInvalidationInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetInvalidationInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetInvalidationInput, context: context)
         type = Types::GetInvalidationInput.new
         type.distribution_id = params[:distribution_id]
         type.id = params[:id]
@@ -987,7 +987,7 @@ module AWS::Cloudfront
 
     module GetKeyGroupConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetKeyGroupConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetKeyGroupConfigInput, context: context)
         type = Types::GetKeyGroupConfigInput.new
         type.id = params[:id]
         type
@@ -996,7 +996,7 @@ module AWS::Cloudfront
 
     module GetKeyGroupInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetKeyGroupInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetKeyGroupInput, context: context)
         type = Types::GetKeyGroupInput.new
         type.id = params[:id]
         type
@@ -1005,7 +1005,7 @@ module AWS::Cloudfront
 
     module GetMonitoringSubscriptionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetMonitoringSubscriptionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetMonitoringSubscriptionInput, context: context)
         type = Types::GetMonitoringSubscriptionInput.new
         type.distribution_id = params[:distribution_id]
         type
@@ -1014,7 +1014,7 @@ module AWS::Cloudfront
 
     module GetOriginRequestPolicyConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetOriginRequestPolicyConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetOriginRequestPolicyConfigInput, context: context)
         type = Types::GetOriginRequestPolicyConfigInput.new
         type.id = params[:id]
         type
@@ -1023,7 +1023,7 @@ module AWS::Cloudfront
 
     module GetOriginRequestPolicyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetOriginRequestPolicyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetOriginRequestPolicyInput, context: context)
         type = Types::GetOriginRequestPolicyInput.new
         type.id = params[:id]
         type
@@ -1032,7 +1032,7 @@ module AWS::Cloudfront
 
     module GetPublicKeyConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetPublicKeyConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetPublicKeyConfigInput, context: context)
         type = Types::GetPublicKeyConfigInput.new
         type.id = params[:id]
         type
@@ -1041,7 +1041,7 @@ module AWS::Cloudfront
 
     module GetPublicKeyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetPublicKeyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetPublicKeyInput, context: context)
         type = Types::GetPublicKeyInput.new
         type.id = params[:id]
         type
@@ -1050,7 +1050,7 @@ module AWS::Cloudfront
 
     module GetRealtimeLogConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetRealtimeLogConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetRealtimeLogConfigInput, context: context)
         type = Types::GetRealtimeLogConfigInput.new
         type.member_name = params[:member_name]
         type.arn = params[:arn]
@@ -1060,7 +1060,7 @@ module AWS::Cloudfront
 
     module GetResponseHeadersPolicyConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetResponseHeadersPolicyConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetResponseHeadersPolicyConfigInput, context: context)
         type = Types::GetResponseHeadersPolicyConfigInput.new
         type.id = params[:id]
         type
@@ -1069,7 +1069,7 @@ module AWS::Cloudfront
 
     module GetResponseHeadersPolicyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetResponseHeadersPolicyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetResponseHeadersPolicyInput, context: context)
         type = Types::GetResponseHeadersPolicyInput.new
         type.id = params[:id]
         type
@@ -1078,7 +1078,7 @@ module AWS::Cloudfront
 
     module GetStreamingDistributionConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetStreamingDistributionConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetStreamingDistributionConfigInput, context: context)
         type = Types::GetStreamingDistributionConfigInput.new
         type.id = params[:id]
         type
@@ -1087,7 +1087,7 @@ module AWS::Cloudfront
 
     module GetStreamingDistributionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetStreamingDistributionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetStreamingDistributionInput, context: context)
         type = Types::GetStreamingDistributionInput.new
         type.id = params[:id]
         type
@@ -1096,7 +1096,7 @@ module AWS::Cloudfront
 
     module HeaderList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -1107,7 +1107,7 @@ module AWS::Cloudfront
 
     module Headers
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Headers, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Headers, context: context)
         type = Types::Headers.new
         type.quantity = params[:quantity]
         type.items = HeaderList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1117,7 +1117,7 @@ module AWS::Cloudfront
 
     module InvalidationBatch
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::InvalidationBatch, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::InvalidationBatch, context: context)
         type = Types::InvalidationBatch.new
         type.paths = Paths.build(params[:paths], context: "#{context}[:paths]") unless params[:paths].nil?
         type.caller_reference = params[:caller_reference]
@@ -1127,7 +1127,7 @@ module AWS::Cloudfront
 
     module KeyGroupConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::KeyGroupConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::KeyGroupConfig, context: context)
         type = Types::KeyGroupConfig.new
         type.member_name = params[:member_name]
         type.items = PublicKeyIdList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1138,7 +1138,7 @@ module AWS::Cloudfront
 
     module KinesisStreamConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::KinesisStreamConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::KinesisStreamConfig, context: context)
         type = Types::KinesisStreamConfig.new
         type.role_arn = params[:role_arn]
         type.stream_arn = params[:stream_arn]
@@ -1148,7 +1148,7 @@ module AWS::Cloudfront
 
     module LambdaFunctionAssociation
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::LambdaFunctionAssociation, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::LambdaFunctionAssociation, context: context)
         type = Types::LambdaFunctionAssociation.new
         type.lambda_function_arn = params[:lambda_function_arn]
         type.event_type = params[:event_type]
@@ -1159,7 +1159,7 @@ module AWS::Cloudfront
 
     module LambdaFunctionAssociationList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << LambdaFunctionAssociation.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1170,7 +1170,7 @@ module AWS::Cloudfront
 
     module LambdaFunctionAssociations
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::LambdaFunctionAssociations, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::LambdaFunctionAssociations, context: context)
         type = Types::LambdaFunctionAssociations.new
         type.quantity = params[:quantity]
         type.items = LambdaFunctionAssociationList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1180,7 +1180,7 @@ module AWS::Cloudfront
 
     module ListCachePoliciesInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListCachePoliciesInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListCachePoliciesInput, context: context)
         type = Types::ListCachePoliciesInput.new
         type.type = params[:type]
         type.marker = params[:marker]
@@ -1191,7 +1191,7 @@ module AWS::Cloudfront
 
     module ListCloudFrontOriginAccessIdentitiesInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListCloudFrontOriginAccessIdentitiesInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListCloudFrontOriginAccessIdentitiesInput, context: context)
         type = Types::ListCloudFrontOriginAccessIdentitiesInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1201,7 +1201,7 @@ module AWS::Cloudfront
 
     module ListConflictingAliasesInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListConflictingAliasesInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListConflictingAliasesInput, context: context)
         type = Types::ListConflictingAliasesInput.new
         type.distribution_id = params[:distribution_id]
         type.alias = params[:alias]
@@ -1213,7 +1213,7 @@ module AWS::Cloudfront
 
     module ListDistributionsByCachePolicyIdInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListDistributionsByCachePolicyIdInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListDistributionsByCachePolicyIdInput, context: context)
         type = Types::ListDistributionsByCachePolicyIdInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1224,7 +1224,7 @@ module AWS::Cloudfront
 
     module ListDistributionsByKeyGroupInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListDistributionsByKeyGroupInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListDistributionsByKeyGroupInput, context: context)
         type = Types::ListDistributionsByKeyGroupInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1235,7 +1235,7 @@ module AWS::Cloudfront
 
     module ListDistributionsByOriginRequestPolicyIdInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListDistributionsByOriginRequestPolicyIdInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListDistributionsByOriginRequestPolicyIdInput, context: context)
         type = Types::ListDistributionsByOriginRequestPolicyIdInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1246,7 +1246,7 @@ module AWS::Cloudfront
 
     module ListDistributionsByRealtimeLogConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListDistributionsByRealtimeLogConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListDistributionsByRealtimeLogConfigInput, context: context)
         type = Types::ListDistributionsByRealtimeLogConfigInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1258,7 +1258,7 @@ module AWS::Cloudfront
 
     module ListDistributionsByResponseHeadersPolicyIdInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListDistributionsByResponseHeadersPolicyIdInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListDistributionsByResponseHeadersPolicyIdInput, context: context)
         type = Types::ListDistributionsByResponseHeadersPolicyIdInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1269,7 +1269,7 @@ module AWS::Cloudfront
 
     module ListDistributionsByWebACLIdInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListDistributionsByWebACLIdInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListDistributionsByWebACLIdInput, context: context)
         type = Types::ListDistributionsByWebACLIdInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1280,7 +1280,7 @@ module AWS::Cloudfront
 
     module ListDistributionsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListDistributionsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListDistributionsInput, context: context)
         type = Types::ListDistributionsInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1290,7 +1290,7 @@ module AWS::Cloudfront
 
     module ListFieldLevelEncryptionConfigsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListFieldLevelEncryptionConfigsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListFieldLevelEncryptionConfigsInput, context: context)
         type = Types::ListFieldLevelEncryptionConfigsInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1300,7 +1300,7 @@ module AWS::Cloudfront
 
     module ListFieldLevelEncryptionProfilesInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListFieldLevelEncryptionProfilesInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListFieldLevelEncryptionProfilesInput, context: context)
         type = Types::ListFieldLevelEncryptionProfilesInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1310,7 +1310,7 @@ module AWS::Cloudfront
 
     module ListFunctionsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListFunctionsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListFunctionsInput, context: context)
         type = Types::ListFunctionsInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1321,7 +1321,7 @@ module AWS::Cloudfront
 
     module ListInvalidationsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListInvalidationsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListInvalidationsInput, context: context)
         type = Types::ListInvalidationsInput.new
         type.distribution_id = params[:distribution_id]
         type.marker = params[:marker]
@@ -1332,7 +1332,7 @@ module AWS::Cloudfront
 
     module ListKeyGroupsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListKeyGroupsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListKeyGroupsInput, context: context)
         type = Types::ListKeyGroupsInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1342,7 +1342,7 @@ module AWS::Cloudfront
 
     module ListOriginRequestPoliciesInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListOriginRequestPoliciesInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListOriginRequestPoliciesInput, context: context)
         type = Types::ListOriginRequestPoliciesInput.new
         type.type = params[:type]
         type.marker = params[:marker]
@@ -1353,7 +1353,7 @@ module AWS::Cloudfront
 
     module ListPublicKeysInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListPublicKeysInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListPublicKeysInput, context: context)
         type = Types::ListPublicKeysInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1363,7 +1363,7 @@ module AWS::Cloudfront
 
     module ListRealtimeLogConfigsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListRealtimeLogConfigsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListRealtimeLogConfigsInput, context: context)
         type = Types::ListRealtimeLogConfigsInput.new
         type.max_items = params[:max_items]
         type.marker = params[:marker]
@@ -1373,7 +1373,7 @@ module AWS::Cloudfront
 
     module ListResponseHeadersPoliciesInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListResponseHeadersPoliciesInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListResponseHeadersPoliciesInput, context: context)
         type = Types::ListResponseHeadersPoliciesInput.new
         type.type = params[:type]
         type.marker = params[:marker]
@@ -1384,7 +1384,7 @@ module AWS::Cloudfront
 
     module ListStreamingDistributionsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListStreamingDistributionsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListStreamingDistributionsInput, context: context)
         type = Types::ListStreamingDistributionsInput.new
         type.marker = params[:marker]
         type.max_items = params[:max_items]
@@ -1394,7 +1394,7 @@ module AWS::Cloudfront
 
     module ListTagsForResourceInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListTagsForResourceInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListTagsForResourceInput, context: context)
         type = Types::ListTagsForResourceInput.new
         type.resource = params[:resource]
         type
@@ -1403,7 +1403,7 @@ module AWS::Cloudfront
 
     module LocationList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -1414,7 +1414,7 @@ module AWS::Cloudfront
 
     module LoggingConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::LoggingConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::LoggingConfig, context: context)
         type = Types::LoggingConfig.new
         type.enabled = params[:enabled]
         type.include_cookies = params[:include_cookies]
@@ -1426,7 +1426,7 @@ module AWS::Cloudfront
 
     module MethodsList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -1437,7 +1437,7 @@ module AWS::Cloudfront
 
     module MonitoringSubscription
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::MonitoringSubscription, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::MonitoringSubscription, context: context)
         type = Types::MonitoringSubscription.new
         type.realtime_metrics_subscription_config = RealtimeMetricsSubscriptionConfig.build(params[:realtime_metrics_subscription_config], context: "#{context}[:realtime_metrics_subscription_config]") unless params[:realtime_metrics_subscription_config].nil?
         type
@@ -1446,7 +1446,7 @@ module AWS::Cloudfront
 
     module Origin
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Origin, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Origin, context: context)
         type = Types::Origin.new
         type.id = params[:id]
         type.domain_name = params[:domain_name]
@@ -1463,7 +1463,7 @@ module AWS::Cloudfront
 
     module OriginCustomHeader
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::OriginCustomHeader, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::OriginCustomHeader, context: context)
         type = Types::OriginCustomHeader.new
         type.header_name = params[:header_name]
         type.header_value = params[:header_value]
@@ -1473,7 +1473,7 @@ module AWS::Cloudfront
 
     module OriginCustomHeadersList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << OriginCustomHeader.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1484,7 +1484,7 @@ module AWS::Cloudfront
 
     module OriginGroup
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::OriginGroup, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::OriginGroup, context: context)
         type = Types::OriginGroup.new
         type.id = params[:id]
         type.failover_criteria = OriginGroupFailoverCriteria.build(params[:failover_criteria], context: "#{context}[:failover_criteria]") unless params[:failover_criteria].nil?
@@ -1495,7 +1495,7 @@ module AWS::Cloudfront
 
     module OriginGroupFailoverCriteria
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::OriginGroupFailoverCriteria, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::OriginGroupFailoverCriteria, context: context)
         type = Types::OriginGroupFailoverCriteria.new
         type.status_codes = StatusCodes.build(params[:status_codes], context: "#{context}[:status_codes]") unless params[:status_codes].nil?
         type
@@ -1504,7 +1504,7 @@ module AWS::Cloudfront
 
     module OriginGroupList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << OriginGroup.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1515,7 +1515,7 @@ module AWS::Cloudfront
 
     module OriginGroupMember
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::OriginGroupMember, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::OriginGroupMember, context: context)
         type = Types::OriginGroupMember.new
         type.origin_id = params[:origin_id]
         type
@@ -1524,7 +1524,7 @@ module AWS::Cloudfront
 
     module OriginGroupMemberList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << OriginGroupMember.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1535,7 +1535,7 @@ module AWS::Cloudfront
 
     module OriginGroupMembers
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::OriginGroupMembers, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::OriginGroupMembers, context: context)
         type = Types::OriginGroupMembers.new
         type.quantity = params[:quantity]
         type.items = OriginGroupMemberList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1545,7 +1545,7 @@ module AWS::Cloudfront
 
     module OriginGroups
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::OriginGroups, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::OriginGroups, context: context)
         type = Types::OriginGroups.new
         type.quantity = params[:quantity]
         type.items = OriginGroupList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1555,7 +1555,7 @@ module AWS::Cloudfront
 
     module OriginList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << Origin.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1566,7 +1566,7 @@ module AWS::Cloudfront
 
     module OriginRequestPolicyConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::OriginRequestPolicyConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::OriginRequestPolicyConfig, context: context)
         type = Types::OriginRequestPolicyConfig.new
         type.comment = params[:comment]
         type.member_name = params[:member_name]
@@ -1579,7 +1579,7 @@ module AWS::Cloudfront
 
     module OriginRequestPolicyCookiesConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::OriginRequestPolicyCookiesConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::OriginRequestPolicyCookiesConfig, context: context)
         type = Types::OriginRequestPolicyCookiesConfig.new
         type.cookie_behavior = params[:cookie_behavior]
         type.cookies = CookieNames.build(params[:cookies], context: "#{context}[:cookies]") unless params[:cookies].nil?
@@ -1589,7 +1589,7 @@ module AWS::Cloudfront
 
     module OriginRequestPolicyHeadersConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::OriginRequestPolicyHeadersConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::OriginRequestPolicyHeadersConfig, context: context)
         type = Types::OriginRequestPolicyHeadersConfig.new
         type.header_behavior = params[:header_behavior]
         type.headers = Headers.build(params[:headers], context: "#{context}[:headers]") unless params[:headers].nil?
@@ -1599,7 +1599,7 @@ module AWS::Cloudfront
 
     module OriginRequestPolicyQueryStringsConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::OriginRequestPolicyQueryStringsConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::OriginRequestPolicyQueryStringsConfig, context: context)
         type = Types::OriginRequestPolicyQueryStringsConfig.new
         type.query_string_behavior = params[:query_string_behavior]
         type.query_strings = QueryStringNames.build(params[:query_strings], context: "#{context}[:query_strings]") unless params[:query_strings].nil?
@@ -1609,7 +1609,7 @@ module AWS::Cloudfront
 
     module OriginShield
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::OriginShield, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::OriginShield, context: context)
         type = Types::OriginShield.new
         type.enabled = params[:enabled]
         type.origin_shield_region = params[:origin_shield_region]
@@ -1619,7 +1619,7 @@ module AWS::Cloudfront
 
     module OriginSslProtocols
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::OriginSslProtocols, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::OriginSslProtocols, context: context)
         type = Types::OriginSslProtocols.new
         type.quantity = params[:quantity]
         type.items = SslProtocolsList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1629,7 +1629,7 @@ module AWS::Cloudfront
 
     module Origins
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Origins, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Origins, context: context)
         type = Types::Origins.new
         type.quantity = params[:quantity]
         type.items = OriginList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1639,7 +1639,7 @@ module AWS::Cloudfront
 
     module ParametersInCacheKeyAndForwardedToOrigin
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ParametersInCacheKeyAndForwardedToOrigin, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ParametersInCacheKeyAndForwardedToOrigin, context: context)
         type = Types::ParametersInCacheKeyAndForwardedToOrigin.new
         type.enable_accept_encoding_gzip = params[:enable_accept_encoding_gzip]
         type.enable_accept_encoding_brotli = params[:enable_accept_encoding_brotli]
@@ -1652,7 +1652,7 @@ module AWS::Cloudfront
 
     module PathList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -1663,7 +1663,7 @@ module AWS::Cloudfront
 
     module Paths
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Paths, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Paths, context: context)
         type = Types::Paths.new
         type.quantity = params[:quantity]
         type.items = PathList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1673,7 +1673,7 @@ module AWS::Cloudfront
 
     module PublicKeyConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::PublicKeyConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::PublicKeyConfig, context: context)
         type = Types::PublicKeyConfig.new
         type.caller_reference = params[:caller_reference]
         type.member_name = params[:member_name]
@@ -1685,7 +1685,7 @@ module AWS::Cloudfront
 
     module PublicKeyIdList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -1696,7 +1696,7 @@ module AWS::Cloudfront
 
     module PublishFunctionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::PublishFunctionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::PublishFunctionInput, context: context)
         type = Types::PublishFunctionInput.new
         type.member_name = params[:member_name]
         type.if_match = params[:if_match]
@@ -1706,7 +1706,7 @@ module AWS::Cloudfront
 
     module QueryArgProfile
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::QueryArgProfile, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::QueryArgProfile, context: context)
         type = Types::QueryArgProfile.new
         type.query_arg = params[:query_arg]
         type.profile_id = params[:profile_id]
@@ -1716,7 +1716,7 @@ module AWS::Cloudfront
 
     module QueryArgProfileConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::QueryArgProfileConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::QueryArgProfileConfig, context: context)
         type = Types::QueryArgProfileConfig.new
         type.forward_when_query_arg_profile_is_unknown = params[:forward_when_query_arg_profile_is_unknown]
         type.query_arg_profiles = QueryArgProfiles.build(params[:query_arg_profiles], context: "#{context}[:query_arg_profiles]") unless params[:query_arg_profiles].nil?
@@ -1726,7 +1726,7 @@ module AWS::Cloudfront
 
     module QueryArgProfileList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << QueryArgProfile.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1737,7 +1737,7 @@ module AWS::Cloudfront
 
     module QueryArgProfiles
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::QueryArgProfiles, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::QueryArgProfiles, context: context)
         type = Types::QueryArgProfiles.new
         type.quantity = params[:quantity]
         type.items = QueryArgProfileList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1747,7 +1747,7 @@ module AWS::Cloudfront
 
     module QueryStringCacheKeys
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::QueryStringCacheKeys, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::QueryStringCacheKeys, context: context)
         type = Types::QueryStringCacheKeys.new
         type.quantity = params[:quantity]
         type.items = QueryStringCacheKeysList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1757,7 +1757,7 @@ module AWS::Cloudfront
 
     module QueryStringCacheKeysList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -1768,7 +1768,7 @@ module AWS::Cloudfront
 
     module QueryStringNames
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::QueryStringNames, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::QueryStringNames, context: context)
         type = Types::QueryStringNames.new
         type.quantity = params[:quantity]
         type.items = QueryStringNamesList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1778,7 +1778,7 @@ module AWS::Cloudfront
 
     module QueryStringNamesList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -1789,7 +1789,7 @@ module AWS::Cloudfront
 
     module RealtimeMetricsSubscriptionConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::RealtimeMetricsSubscriptionConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::RealtimeMetricsSubscriptionConfig, context: context)
         type = Types::RealtimeMetricsSubscriptionConfig.new
         type.realtime_metrics_subscription_status = params[:realtime_metrics_subscription_status]
         type
@@ -1798,7 +1798,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyAccessControlAllowHeaders
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyAccessControlAllowHeaders, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyAccessControlAllowHeaders, context: context)
         type = Types::ResponseHeadersPolicyAccessControlAllowHeaders.new
         type.quantity = params[:quantity]
         type.items = AccessControlAllowHeadersList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1808,7 +1808,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyAccessControlAllowMethods
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyAccessControlAllowMethods, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyAccessControlAllowMethods, context: context)
         type = Types::ResponseHeadersPolicyAccessControlAllowMethods.new
         type.quantity = params[:quantity]
         type.items = AccessControlAllowMethodsList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1818,7 +1818,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyAccessControlAllowOrigins
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyAccessControlAllowOrigins, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyAccessControlAllowOrigins, context: context)
         type = Types::ResponseHeadersPolicyAccessControlAllowOrigins.new
         type.quantity = params[:quantity]
         type.items = AccessControlAllowOriginsList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1828,7 +1828,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyAccessControlExposeHeaders
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyAccessControlExposeHeaders, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyAccessControlExposeHeaders, context: context)
         type = Types::ResponseHeadersPolicyAccessControlExposeHeaders.new
         type.quantity = params[:quantity]
         type.items = AccessControlExposeHeadersList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1838,7 +1838,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyConfig, context: context)
         type = Types::ResponseHeadersPolicyConfig.new
         type.comment = params[:comment]
         type.member_name = params[:member_name]
@@ -1851,7 +1851,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyContentSecurityPolicy
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyContentSecurityPolicy, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyContentSecurityPolicy, context: context)
         type = Types::ResponseHeadersPolicyContentSecurityPolicy.new
         type.override = params[:override]
         type.content_security_policy = params[:content_security_policy]
@@ -1861,7 +1861,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyContentTypeOptions
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyContentTypeOptions, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyContentTypeOptions, context: context)
         type = Types::ResponseHeadersPolicyContentTypeOptions.new
         type.override = params[:override]
         type
@@ -1870,7 +1870,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyCorsConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyCorsConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyCorsConfig, context: context)
         type = Types::ResponseHeadersPolicyCorsConfig.new
         type.access_control_allow_origins = ResponseHeadersPolicyAccessControlAllowOrigins.build(params[:access_control_allow_origins], context: "#{context}[:access_control_allow_origins]") unless params[:access_control_allow_origins].nil?
         type.access_control_allow_headers = ResponseHeadersPolicyAccessControlAllowHeaders.build(params[:access_control_allow_headers], context: "#{context}[:access_control_allow_headers]") unless params[:access_control_allow_headers].nil?
@@ -1885,7 +1885,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyCustomHeader
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyCustomHeader, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyCustomHeader, context: context)
         type = Types::ResponseHeadersPolicyCustomHeader.new
         type.header = params[:header]
         type.value = params[:value]
@@ -1896,7 +1896,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyCustomHeaderList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << ResponseHeadersPolicyCustomHeader.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -1907,7 +1907,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyCustomHeadersConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyCustomHeadersConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyCustomHeadersConfig, context: context)
         type = Types::ResponseHeadersPolicyCustomHeadersConfig.new
         type.quantity = params[:quantity]
         type.items = ResponseHeadersPolicyCustomHeaderList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -1917,7 +1917,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyFrameOptions
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyFrameOptions, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyFrameOptions, context: context)
         type = Types::ResponseHeadersPolicyFrameOptions.new
         type.override = params[:override]
         type.frame_option = params[:frame_option]
@@ -1927,7 +1927,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyReferrerPolicy
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyReferrerPolicy, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyReferrerPolicy, context: context)
         type = Types::ResponseHeadersPolicyReferrerPolicy.new
         type.override = params[:override]
         type.referrer_policy = params[:referrer_policy]
@@ -1937,7 +1937,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicySecurityHeadersConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicySecurityHeadersConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicySecurityHeadersConfig, context: context)
         type = Types::ResponseHeadersPolicySecurityHeadersConfig.new
         type.xss_protection = ResponseHeadersPolicyXSSProtection.build(params[:xss_protection], context: "#{context}[:xss_protection]") unless params[:xss_protection].nil?
         type.frame_options = ResponseHeadersPolicyFrameOptions.build(params[:frame_options], context: "#{context}[:frame_options]") unless params[:frame_options].nil?
@@ -1951,7 +1951,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyStrictTransportSecurity
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyStrictTransportSecurity, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyStrictTransportSecurity, context: context)
         type = Types::ResponseHeadersPolicyStrictTransportSecurity.new
         type.override = params[:override]
         type.include_subdomains = params[:include_subdomains]
@@ -1963,7 +1963,7 @@ module AWS::Cloudfront
 
     module ResponseHeadersPolicyXSSProtection
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyXSSProtection, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyXSSProtection, context: context)
         type = Types::ResponseHeadersPolicyXSSProtection.new
         type.override = params[:override]
         type.protection = params[:protection]
@@ -1975,7 +1975,7 @@ module AWS::Cloudfront
 
     module Restrictions
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Restrictions, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Restrictions, context: context)
         type = Types::Restrictions.new
         type.geo_restriction = GeoRestriction.build(params[:geo_restriction], context: "#{context}[:geo_restriction]") unless params[:geo_restriction].nil?
         type
@@ -1984,7 +1984,7 @@ module AWS::Cloudfront
 
     module S3Origin
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::S3Origin, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::S3Origin, context: context)
         type = Types::S3Origin.new
         type.domain_name = params[:domain_name]
         type.origin_access_identity = params[:origin_access_identity]
@@ -1994,7 +1994,7 @@ module AWS::Cloudfront
 
     module S3OriginConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::S3OriginConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::S3OriginConfig, context: context)
         type = Types::S3OriginConfig.new
         type.origin_access_identity = params[:origin_access_identity]
         type
@@ -2003,7 +2003,7 @@ module AWS::Cloudfront
 
     module SslProtocolsList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -2014,7 +2014,7 @@ module AWS::Cloudfront
 
     module StatusCodeList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -2025,7 +2025,7 @@ module AWS::Cloudfront
 
     module StatusCodes
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::StatusCodes, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::StatusCodes, context: context)
         type = Types::StatusCodes.new
         type.quantity = params[:quantity]
         type.items = StatusCodeList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
@@ -2035,7 +2035,7 @@ module AWS::Cloudfront
 
     module StreamingDistributionConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::StreamingDistributionConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::StreamingDistributionConfig, context: context)
         type = Types::StreamingDistributionConfig.new
         type.caller_reference = params[:caller_reference]
         type.s3_origin = S3Origin.build(params[:s3_origin], context: "#{context}[:s3_origin]") unless params[:s3_origin].nil?
@@ -2051,7 +2051,7 @@ module AWS::Cloudfront
 
     module StreamingDistributionConfigWithTags
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::StreamingDistributionConfigWithTags, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::StreamingDistributionConfigWithTags, context: context)
         type = Types::StreamingDistributionConfigWithTags.new
         type.streaming_distribution_config = StreamingDistributionConfig.build(params[:streaming_distribution_config], context: "#{context}[:streaming_distribution_config]") unless params[:streaming_distribution_config].nil?
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -2061,7 +2061,7 @@ module AWS::Cloudfront
 
     module StreamingLoggingConfig
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::StreamingLoggingConfig, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::StreamingLoggingConfig, context: context)
         type = Types::StreamingLoggingConfig.new
         type.enabled = params[:enabled]
         type.bucket = params[:bucket]
@@ -2072,7 +2072,7 @@ module AWS::Cloudfront
 
     module Tag
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Tag, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Tag, context: context)
         type = Types::Tag.new
         type.key = params[:key]
         type.value = params[:value]
@@ -2082,7 +2082,7 @@ module AWS::Cloudfront
 
     module TagKeyList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -2093,7 +2093,7 @@ module AWS::Cloudfront
 
     module TagKeys
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::TagKeys, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::TagKeys, context: context)
         type = Types::TagKeys.new
         type.items = TagKeyList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
         type
@@ -2102,7 +2102,7 @@ module AWS::Cloudfront
 
     module TagList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << Tag.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -2113,7 +2113,7 @@ module AWS::Cloudfront
 
     module TagResourceInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::TagResourceInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::TagResourceInput, context: context)
         type = Types::TagResourceInput.new
         type.resource = params[:resource]
         type.tags = Tags.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
@@ -2123,7 +2123,7 @@ module AWS::Cloudfront
 
     module Tags
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Tags, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Tags, context: context)
         type = Types::Tags.new
         type.items = TagList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
         type
@@ -2132,7 +2132,7 @@ module AWS::Cloudfront
 
     module TestFunctionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::TestFunctionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::TestFunctionInput, context: context)
         type = Types::TestFunctionInput.new
         type.member_name = params[:member_name]
         type.if_match = params[:if_match]
@@ -2144,7 +2144,7 @@ module AWS::Cloudfront
 
     module TrustedKeyGroupIdList
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -2155,7 +2155,7 @@ module AWS::Cloudfront
 
     module TrustedKeyGroups
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::TrustedKeyGroups, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::TrustedKeyGroups, context: context)
         type = Types::TrustedKeyGroups.new
         type.enabled = params[:enabled]
         type.quantity = params[:quantity]
@@ -2166,7 +2166,7 @@ module AWS::Cloudfront
 
     module TrustedSigners
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::TrustedSigners, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::TrustedSigners, context: context)
         type = Types::TrustedSigners.new
         type.enabled = params[:enabled]
         type.quantity = params[:quantity]
@@ -2177,7 +2177,7 @@ module AWS::Cloudfront
 
     module UntagResourceInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UntagResourceInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UntagResourceInput, context: context)
         type = Types::UntagResourceInput.new
         type.resource = params[:resource]
         type.tag_keys = TagKeys.build(params[:tag_keys], context: "#{context}[:tag_keys]") unless params[:tag_keys].nil?
@@ -2187,7 +2187,7 @@ module AWS::Cloudfront
 
     module UpdateCachePolicyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateCachePolicyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateCachePolicyInput, context: context)
         type = Types::UpdateCachePolicyInput.new
         type.cache_policy_config = CachePolicyConfig.build(params[:cache_policy_config], context: "#{context}[:cache_policy_config]") unless params[:cache_policy_config].nil?
         type.id = params[:id]
@@ -2198,7 +2198,7 @@ module AWS::Cloudfront
 
     module UpdateCloudFrontOriginAccessIdentityInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateCloudFrontOriginAccessIdentityInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateCloudFrontOriginAccessIdentityInput, context: context)
         type = Types::UpdateCloudFrontOriginAccessIdentityInput.new
         type.cloud_front_origin_access_identity_config = CloudFrontOriginAccessIdentityConfig.build(params[:cloud_front_origin_access_identity_config], context: "#{context}[:cloud_front_origin_access_identity_config]") unless params[:cloud_front_origin_access_identity_config].nil?
         type.id = params[:id]
@@ -2209,7 +2209,7 @@ module AWS::Cloudfront
 
     module UpdateDistributionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateDistributionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateDistributionInput, context: context)
         type = Types::UpdateDistributionInput.new
         type.distribution_config = DistributionConfig.build(params[:distribution_config], context: "#{context}[:distribution_config]") unless params[:distribution_config].nil?
         type.id = params[:id]
@@ -2220,7 +2220,7 @@ module AWS::Cloudfront
 
     module UpdateFieldLevelEncryptionConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateFieldLevelEncryptionConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateFieldLevelEncryptionConfigInput, context: context)
         type = Types::UpdateFieldLevelEncryptionConfigInput.new
         type.field_level_encryption_config = FieldLevelEncryptionConfig.build(params[:field_level_encryption_config], context: "#{context}[:field_level_encryption_config]") unless params[:field_level_encryption_config].nil?
         type.id = params[:id]
@@ -2231,7 +2231,7 @@ module AWS::Cloudfront
 
     module UpdateFieldLevelEncryptionProfileInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateFieldLevelEncryptionProfileInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateFieldLevelEncryptionProfileInput, context: context)
         type = Types::UpdateFieldLevelEncryptionProfileInput.new
         type.field_level_encryption_profile_config = FieldLevelEncryptionProfileConfig.build(params[:field_level_encryption_profile_config], context: "#{context}[:field_level_encryption_profile_config]") unless params[:field_level_encryption_profile_config].nil?
         type.id = params[:id]
@@ -2242,7 +2242,7 @@ module AWS::Cloudfront
 
     module UpdateFunctionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateFunctionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateFunctionInput, context: context)
         type = Types::UpdateFunctionInput.new
         type.member_name = params[:member_name]
         type.if_match = params[:if_match]
@@ -2254,7 +2254,7 @@ module AWS::Cloudfront
 
     module UpdateKeyGroupInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateKeyGroupInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateKeyGroupInput, context: context)
         type = Types::UpdateKeyGroupInput.new
         type.key_group_config = KeyGroupConfig.build(params[:key_group_config], context: "#{context}[:key_group_config]") unless params[:key_group_config].nil?
         type.id = params[:id]
@@ -2265,7 +2265,7 @@ module AWS::Cloudfront
 
     module UpdateOriginRequestPolicyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateOriginRequestPolicyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateOriginRequestPolicyInput, context: context)
         type = Types::UpdateOriginRequestPolicyInput.new
         type.origin_request_policy_config = OriginRequestPolicyConfig.build(params[:origin_request_policy_config], context: "#{context}[:origin_request_policy_config]") unless params[:origin_request_policy_config].nil?
         type.id = params[:id]
@@ -2276,7 +2276,7 @@ module AWS::Cloudfront
 
     module UpdatePublicKeyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdatePublicKeyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdatePublicKeyInput, context: context)
         type = Types::UpdatePublicKeyInput.new
         type.public_key_config = PublicKeyConfig.build(params[:public_key_config], context: "#{context}[:public_key_config]") unless params[:public_key_config].nil?
         type.id = params[:id]
@@ -2287,7 +2287,7 @@ module AWS::Cloudfront
 
     module UpdateRealtimeLogConfigInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateRealtimeLogConfigInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateRealtimeLogConfigInput, context: context)
         type = Types::UpdateRealtimeLogConfigInput.new
         type.end_points = EndPointList.build(params[:end_points], context: "#{context}[:end_points]") unless params[:end_points].nil?
         type.fields = FieldList.build(params[:fields], context: "#{context}[:fields]") unless params[:fields].nil?
@@ -2300,7 +2300,7 @@ module AWS::Cloudfront
 
     module UpdateResponseHeadersPolicyInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateResponseHeadersPolicyInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateResponseHeadersPolicyInput, context: context)
         type = Types::UpdateResponseHeadersPolicyInput.new
         type.response_headers_policy_config = ResponseHeadersPolicyConfig.build(params[:response_headers_policy_config], context: "#{context}[:response_headers_policy_config]") unless params[:response_headers_policy_config].nil?
         type.id = params[:id]
@@ -2311,7 +2311,7 @@ module AWS::Cloudfront
 
     module UpdateStreamingDistributionInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::UpdateStreamingDistributionInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateStreamingDistributionInput, context: context)
         type = Types::UpdateStreamingDistributionInput.new
         type.streaming_distribution_config = StreamingDistributionConfig.build(params[:streaming_distribution_config], context: "#{context}[:streaming_distribution_config]") unless params[:streaming_distribution_config].nil?
         type.id = params[:id]
@@ -2322,7 +2322,7 @@ module AWS::Cloudfront
 
     module ViewerCertificate
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ViewerCertificate, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ViewerCertificate, context: context)
         type = Types::ViewerCertificate.new
         type.cloud_front_default_certificate = params[:cloud_front_default_certificate]
         type.iam_certificate_id = params[:iam_certificate_id]

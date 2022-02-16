@@ -12,7 +12,7 @@ module AWS::Lambda
 
     def self.error_code(http_resp)
       if !(200..299).cover?(http_resp.status)
-        json = Seahorse::JSON.load(http_resp.body)
+        json = Hearth::JSON.load(http_resp.body)
         http_resp.body.rewind
         code = json['__type'] || json['code'] if json
       end
@@ -23,7 +23,7 @@ module AWS::Lambda
     end
 
     # Base class for all errors returned by this service
-    class ApiError < Seahorse::HTTP::ApiError; end
+    class ApiError < Hearth::HTTP::ApiError; end
 
     # Base class for all errors returned where the client is at fault.
     # These are generally errors with 4XX HTTP status codes.
@@ -46,7 +46,7 @@ module AWS::Lambda
     end
 
     class CodeSigningConfigNotFoundException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -65,7 +65,7 @@ module AWS::Lambda
     end
 
     class CodeStorageExceededException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -84,7 +84,7 @@ module AWS::Lambda
     end
 
     class CodeVerificationFailedException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -103,7 +103,7 @@ module AWS::Lambda
     end
 
     class EC2AccessDeniedException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -122,7 +122,7 @@ module AWS::Lambda
     end
 
     class EC2ThrottledException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -141,7 +141,7 @@ module AWS::Lambda
     end
 
     class EC2UnexpectedException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -160,7 +160,7 @@ module AWS::Lambda
     end
 
     class EFSIOException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -179,7 +179,7 @@ module AWS::Lambda
     end
 
     class EFSMountConnectivityException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -198,7 +198,7 @@ module AWS::Lambda
     end
 
     class EFSMountFailureException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -217,7 +217,7 @@ module AWS::Lambda
     end
 
     class EFSMountTimeoutException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -236,7 +236,7 @@ module AWS::Lambda
     end
 
     class ENILimitReachedException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -255,7 +255,7 @@ module AWS::Lambda
     end
 
     class InvalidCodeSignatureException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -274,7 +274,7 @@ module AWS::Lambda
     end
 
     class InvalidParameterValueException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -293,7 +293,7 @@ module AWS::Lambda
     end
 
     class InvalidRequestContentException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -312,7 +312,7 @@ module AWS::Lambda
     end
 
     class InvalidRuntimeException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -331,7 +331,7 @@ module AWS::Lambda
     end
 
     class InvalidSecurityGroupIDException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -350,7 +350,7 @@ module AWS::Lambda
     end
 
     class InvalidSubnetIDException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -369,7 +369,7 @@ module AWS::Lambda
     end
 
     class InvalidZipFileException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -388,7 +388,7 @@ module AWS::Lambda
     end
 
     class KMSAccessDeniedException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -407,7 +407,7 @@ module AWS::Lambda
     end
 
     class KMSDisabledException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -426,7 +426,7 @@ module AWS::Lambda
     end
 
     class KMSInvalidStateException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -445,7 +445,7 @@ module AWS::Lambda
     end
 
     class KMSNotFoundException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -464,7 +464,7 @@ module AWS::Lambda
     end
 
     class PolicyLengthExceededException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -483,7 +483,7 @@ module AWS::Lambda
     end
 
     class PreconditionFailedException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -502,7 +502,7 @@ module AWS::Lambda
     end
 
     class ProvisionedConcurrencyConfigNotFoundException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -521,7 +521,7 @@ module AWS::Lambda
     end
 
     class RequestTooLargeException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -540,7 +540,7 @@ module AWS::Lambda
     end
 
     class ResourceConflictException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -559,7 +559,7 @@ module AWS::Lambda
     end
 
     class ResourceInUseException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -578,7 +578,7 @@ module AWS::Lambda
     end
 
     class ResourceNotFoundException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -597,7 +597,7 @@ module AWS::Lambda
     end
 
     class ResourceNotReadyException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -616,7 +616,7 @@ module AWS::Lambda
     end
 
     class ServiceException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -635,7 +635,7 @@ module AWS::Lambda
     end
 
     class SubnetIPAddressLimitReachedException < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -654,7 +654,7 @@ module AWS::Lambda
     end
 
     class TooManyRequestsException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -673,7 +673,7 @@ module AWS::Lambda
     end
 
     class UnsupportedMediaTypeException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #

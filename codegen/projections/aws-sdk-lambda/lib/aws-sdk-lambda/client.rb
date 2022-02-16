@@ -19,9 +19,9 @@ module AWS::Lambda
   #         AWS Lambda</a>, and for information about how the service works, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a> in the <b>AWS Lambda Developer Guide</b>.</p>
   #
   class Client
-    include Seahorse::ClientStubs
+    include Hearth::ClientStubs
 
-    @middleware = Seahorse::MiddlewareBuilder.new
+    @middleware = Hearth::MiddlewareBuilder.new
 
     def self.middleware
       @middleware
@@ -55,9 +55,9 @@ module AWS::Lambda
       @http_wire_trace = options.fetch(:http_wire_trace, false)
       @log_level = options.fetch(:log_level, :info)
       @logger = options.fetch(:logger, Logger.new($stdout, level: @log_level))
-      @middleware = Seahorse::MiddlewareBuilder.new(options[:middleware])
+      @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
       @stub_responses = options.fetch(:stub_responses, false)
-      @stubs = Seahorse::Stubbing::Stubs.new
+      @stubs = Hearth::Stubbing::Stubs.new
       @validate_input = options.fetch(:validate_input, true)
 
     end
@@ -116,23 +116,23 @@ module AWS::Lambda
     #   resp.revision_id #=> String
     #
     def add_layer_version_permission(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::AddLayerVersionPermissionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddLayerVersionPermissionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::AddLayerVersionPermission
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::PolicyLengthExceededException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::PolicyLengthExceededException, Errors::ResourceConflictException]),
         data_parser: Parsers::AddLayerVersionPermission
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::AddLayerVersionPermission,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -140,9 +140,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :add_layer_version_permission
@@ -242,23 +242,23 @@ module AWS::Lambda
     #   resp.statement #=> String
     #
     def add_permission(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::AddPermissionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddPermissionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::AddPermission
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::PolicyLengthExceededException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::PolicyLengthExceededException, Errors::ResourceConflictException]),
         data_parser: Parsers::AddPermission
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::AddPermission,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -266,9 +266,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :add_permission
@@ -352,23 +352,23 @@ module AWS::Lambda
     #   resp.revision_id #=> String
     #
     def create_alias(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateAliasInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAliasInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateAlias
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::CreateAlias
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateAlias,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -376,9 +376,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_alias
@@ -435,23 +435,23 @@ module AWS::Lambda
     #   resp.code_signing_config.last_modified #=> String
     #
     def create_code_signing_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateCodeSigningConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateCodeSigningConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::CreateCodeSigningConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateCodeSigningConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -459,9 +459,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_code_signing_config
@@ -747,23 +747,23 @@ module AWS::Lambda
     #   resp.function_response_types[0] #=> String, one of ReportBatchItemFailures
     #
     def create_event_source_mapping(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateEventSourceMappingInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEventSourceMappingInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateEventSourceMapping
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::CreateEventSourceMapping
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateEventSourceMapping,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -771,9 +771,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_event_source_mapping
@@ -1041,23 +1041,23 @@ module AWS::Lambda
     #   resp.signing_job_arn #=> String
     #
     def create_function(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateFunctionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateFunction
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::CodeVerificationFailedException, Errors::ServiceException, Errors::InvalidCodeSignatureException, Errors::CodeSigningConfigNotFoundException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::CodeVerificationFailedException, Errors::ServiceException, Errors::InvalidCodeSignatureException, Errors::CodeSigningConfigNotFoundException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::CreateFunction
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateFunction,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1065,9 +1065,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_function
@@ -1121,23 +1121,23 @@ module AWS::Lambda
     #   resp #=> Types::DeleteAliasOutput
     #
     def delete_alias(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAliasInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAliasInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteAlias
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteAlias
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteAlias,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1145,9 +1145,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_alias
@@ -1179,23 +1179,23 @@ module AWS::Lambda
     #   resp #=> Types::DeleteCodeSigningConfigOutput
     #
     def delete_code_signing_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCodeSigningConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteCodeSigningConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteCodeSigningConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteCodeSigningConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1203,9 +1203,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_code_signing_config
@@ -1273,23 +1273,23 @@ module AWS::Lambda
     #   resp.function_response_types[0] #=> String, one of ReportBatchItemFailures
     #
     def delete_event_source_mapping(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventSourceMappingInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventSourceMappingInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteEventSourceMapping
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ResourceInUseException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ResourceInUseException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::DeleteEventSourceMapping
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteEventSourceMapping,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1297,9 +1297,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_event_source_mapping
@@ -1358,23 +1358,23 @@ module AWS::Lambda
     #   resp #=> Types::DeleteFunctionOutput
     #
     def delete_function(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteFunction
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteFunction
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteFunction,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1382,9 +1382,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_function
@@ -1434,23 +1434,23 @@ module AWS::Lambda
     #   resp #=> Types::DeleteFunctionCodeSigningConfigOutput
     #
     def delete_function_code_signing_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionCodeSigningConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteFunctionCodeSigningConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteFunctionCodeSigningConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteFunctionCodeSigningConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1458,9 +1458,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_function_code_signing_config
@@ -1510,23 +1510,23 @@ module AWS::Lambda
     #   resp #=> Types::DeleteFunctionConcurrencyOutput
     #
     def delete_function_concurrency(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionConcurrencyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionConcurrencyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteFunctionConcurrency
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteFunctionConcurrency
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteFunctionConcurrency,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1534,9 +1534,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_function_concurrency
@@ -1591,23 +1591,23 @@ module AWS::Lambda
     #   resp #=> Types::DeleteFunctionEventInvokeConfigOutput
     #
     def delete_function_event_invoke_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionEventInvokeConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionEventInvokeConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteFunctionEventInvokeConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::DeleteFunctionEventInvokeConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteFunctionEventInvokeConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1615,9 +1615,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_function_event_invoke_config
@@ -1654,23 +1654,23 @@ module AWS::Lambda
     #   resp #=> Types::DeleteLayerVersionOutput
     #
     def delete_layer_version(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLayerVersionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLayerVersionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteLayerVersion
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::TooManyRequestsException, Errors::ServiceException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::TooManyRequestsException, Errors::ServiceException]),
         data_parser: Parsers::DeleteLayerVersion
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteLayerVersion,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1678,9 +1678,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_layer_version
@@ -1734,23 +1734,23 @@ module AWS::Lambda
     #   resp #=> Types::DeleteProvisionedConcurrencyConfigOutput
     #
     def delete_provisioned_concurrency_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProvisionedConcurrencyConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProvisionedConcurrencyConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteProvisionedConcurrencyConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteProvisionedConcurrencyConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteProvisionedConcurrencyConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1758,9 +1758,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_provisioned_concurrency_config
@@ -1795,23 +1795,23 @@ module AWS::Lambda
     #   resp.account_usage.function_count #=> Integer
     #
     def get_account_settings(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountSettingsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountSettingsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetAccountSettings
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException]),
         data_parser: Parsers::GetAccountSettings
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetAccountSettings,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1819,9 +1819,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_account_settings
@@ -1883,23 +1883,23 @@ module AWS::Lambda
     #   resp.revision_id #=> String
     #
     def get_alias(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetAliasInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAliasInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetAlias
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetAlias
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetAlias,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1907,9 +1907,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_alias
@@ -1950,23 +1950,23 @@ module AWS::Lambda
     #   resp.code_signing_config.last_modified #=> String
     #
     def get_code_signing_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetCodeSigningConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetCodeSigningConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetCodeSigningConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetCodeSigningConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1974,9 +1974,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_code_signing_config
@@ -2042,23 +2042,23 @@ module AWS::Lambda
     #   resp.function_response_types[0] #=> String, one of ReportBatchItemFailures
     #
     def get_event_source_mapping(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetEventSourceMappingInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventSourceMappingInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetEventSourceMapping
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetEventSourceMapping
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetEventSourceMapping,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2066,9 +2066,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_event_source_mapping
@@ -2193,23 +2193,23 @@ module AWS::Lambda
     #   resp.concurrency.reserved_concurrent_executions #=> Integer
     #
     def get_function(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFunction
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetFunction
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFunction,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2217,9 +2217,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_function
@@ -2271,23 +2271,23 @@ module AWS::Lambda
     #   resp.function_name #=> String
     #
     def get_function_code_signing_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionCodeSigningConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFunctionCodeSigningConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetFunctionCodeSigningConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFunctionCodeSigningConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2295,9 +2295,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_function_code_signing_config
@@ -2349,23 +2349,23 @@ module AWS::Lambda
     #   resp.reserved_concurrent_executions #=> Integer
     #
     def get_function_concurrency(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionConcurrencyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionConcurrencyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFunctionConcurrency
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetFunctionConcurrency
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFunctionConcurrency,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2373,9 +2373,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_function_concurrency
@@ -2490,23 +2490,23 @@ module AWS::Lambda
     #   resp.signing_job_arn #=> String
     #
     def get_function_configuration(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionConfigurationInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionConfigurationInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFunctionConfiguration
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetFunctionConfiguration
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFunctionConfiguration,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2514,9 +2514,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_function_configuration
@@ -2580,23 +2580,23 @@ module AWS::Lambda
     #   resp.destination_config.on_failure.destination #=> String
     #
     def get_function_event_invoke_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionEventInvokeConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionEventInvokeConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFunctionEventInvokeConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetFunctionEventInvokeConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFunctionEventInvokeConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2604,9 +2604,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_function_event_invoke_config
@@ -2657,23 +2657,23 @@ module AWS::Lambda
     #   resp.license_info #=> String
     #
     def get_layer_version(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetLayerVersionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLayerVersionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetLayerVersion
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetLayerVersion
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetLayerVersion,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2681,9 +2681,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_layer_version
@@ -2730,23 +2730,23 @@ module AWS::Lambda
     #   resp.license_info #=> String
     #
     def get_layer_version_by_arn(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetLayerVersionByArnInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLayerVersionByArnInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetLayerVersionByArn
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetLayerVersionByArn
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetLayerVersionByArn,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2754,9 +2754,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_layer_version_by_arn
@@ -2794,23 +2794,23 @@ module AWS::Lambda
     #   resp.revision_id #=> String
     #
     def get_layer_version_policy(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetLayerVersionPolicyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLayerVersionPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetLayerVersionPolicy
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetLayerVersionPolicy
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetLayerVersionPolicy,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2818,9 +2818,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_layer_version_policy
@@ -2876,23 +2876,23 @@ module AWS::Lambda
     #   resp.revision_id #=> String
     #
     def get_policy(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetPolicyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetPolicy
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetPolicy
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetPolicy,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2900,9 +2900,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_policy
@@ -2962,23 +2962,23 @@ module AWS::Lambda
     #   resp.last_modified #=> String
     #
     def get_provisioned_concurrency_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetProvisionedConcurrencyConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProvisionedConcurrencyConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetProvisionedConcurrencyConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ProvisionedConcurrencyConfigNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ProvisionedConcurrencyConfigNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetProvisionedConcurrencyConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetProvisionedConcurrencyConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2986,9 +2986,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_provisioned_concurrency_config
@@ -3108,23 +3108,23 @@ module AWS::Lambda
     #   resp.executed_version #=> String
     #
     def invoke(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::InvokeInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::InvokeInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::Invoke
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::KMSNotFoundException, Errors::InvalidSubnetIDException, Errors::ServiceException, Errors::KMSDisabledException, Errors::EFSIOException, Errors::EFSMountConnectivityException, Errors::EFSMountFailureException, Errors::TooManyRequestsException, Errors::ResourceNotReadyException, Errors::InvalidZipFileException, Errors::InvalidParameterValueException, Errors::InvalidRequestContentException, Errors::EC2ThrottledException, Errors::SubnetIPAddressLimitReachedException, Errors::InvalidSecurityGroupIDException, Errors::RequestTooLargeException, Errors::UnsupportedMediaTypeException, Errors::EFSMountTimeoutException, Errors::ENILimitReachedException, Errors::EC2UnexpectedException, Errors::EC2AccessDeniedException, Errors::InvalidRuntimeException, Errors::KMSAccessDeniedException, Errors::KMSInvalidStateException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::KMSNotFoundException, Errors::InvalidSubnetIDException, Errors::ServiceException, Errors::KMSDisabledException, Errors::EFSIOException, Errors::EFSMountConnectivityException, Errors::EFSMountFailureException, Errors::TooManyRequestsException, Errors::ResourceNotReadyException, Errors::InvalidZipFileException, Errors::InvalidParameterValueException, Errors::InvalidRequestContentException, Errors::EC2ThrottledException, Errors::SubnetIPAddressLimitReachedException, Errors::InvalidSecurityGroupIDException, Errors::RequestTooLargeException, Errors::UnsupportedMediaTypeException, Errors::EFSMountTimeoutException, Errors::ENILimitReachedException, Errors::EC2UnexpectedException, Errors::EC2AccessDeniedException, Errors::InvalidRuntimeException, Errors::KMSAccessDeniedException, Errors::KMSInvalidStateException, Errors::ResourceConflictException]),
         data_parser: Parsers::Invoke
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::Invoke,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3132,9 +3132,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :invoke
@@ -3194,23 +3194,23 @@ module AWS::Lambda
     #   resp.status #=> Integer
     #
     def invoke_async(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::InvokeAsyncInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::InvokeAsyncInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::InvokeAsync
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::InvalidRuntimeException, Errors::ServiceException, Errors::InvalidRequestContentException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::InvalidRuntimeException, Errors::ServiceException, Errors::InvalidRequestContentException, Errors::ResourceConflictException]),
         data_parser: Parsers::InvokeAsync
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::InvokeAsync,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3218,9 +3218,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :invoke_async
@@ -3294,23 +3294,23 @@ module AWS::Lambda
     #   resp.aliases[0].revision_id #=> String
     #
     def list_aliases(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListAliasesInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAliasesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListAliases
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListAliases
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListAliases,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3318,9 +3318,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_aliases
@@ -3369,23 +3369,23 @@ module AWS::Lambda
     #   resp.code_signing_configs[0].last_modified #=> String
     #
     def list_code_signing_configs(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListCodeSigningConfigsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCodeSigningConfigsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListCodeSigningConfigs
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListCodeSigningConfigs
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListCodeSigningConfigs,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3393,9 +3393,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_code_signing_configs
@@ -3518,23 +3518,23 @@ module AWS::Lambda
     #   resp.event_source_mappings[0].function_response_types[0] #=> String, one of ReportBatchItemFailures
     #
     def list_event_source_mappings(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListEventSourceMappingsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventSourceMappingsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListEventSourceMappings
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListEventSourceMappings
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListEventSourceMappings,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3542,9 +3542,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_event_source_mappings
@@ -3615,23 +3615,23 @@ module AWS::Lambda
     #   resp.next_marker #=> String
     #
     def list_function_event_invoke_configs(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionEventInvokeConfigsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionEventInvokeConfigsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListFunctionEventInvokeConfigs
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListFunctionEventInvokeConfigs
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListFunctionEventInvokeConfigs,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3639,9 +3639,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_function_event_invoke_configs
@@ -3757,23 +3757,23 @@ module AWS::Lambda
     #   resp.functions[0].signing_job_arn #=> String
     #
     def list_functions(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListFunctions
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListFunctions
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListFunctions,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3781,9 +3781,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_functions
@@ -3826,23 +3826,23 @@ module AWS::Lambda
     #   resp.function_arns[0] #=> String
     #
     def list_functions_by_code_signing_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionsByCodeSigningConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionsByCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListFunctionsByCodeSigningConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListFunctionsByCodeSigningConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListFunctionsByCodeSigningConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3850,9 +3850,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_functions_by_code_signing_config
@@ -3907,23 +3907,23 @@ module AWS::Lambda
     #   resp.layer_versions[0].license_info #=> String
     #
     def list_layer_versions(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListLayerVersionsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLayerVersionsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListLayerVersions
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListLayerVersions
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListLayerVersions,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3931,9 +3931,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_layer_versions
@@ -3987,23 +3987,23 @@ module AWS::Lambda
     #   resp.layers[0].latest_matching_version.license_info #=> String
     #
     def list_layers(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListLayersInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLayersInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListLayers
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListLayers
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListLayers,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4011,9 +4011,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_layers
@@ -4081,23 +4081,23 @@ module AWS::Lambda
     #   resp.next_marker #=> String
     #
     def list_provisioned_concurrency_configs(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListProvisionedConcurrencyConfigsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProvisionedConcurrencyConfigsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListProvisionedConcurrencyConfigs
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListProvisionedConcurrencyConfigs
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListProvisionedConcurrencyConfigs,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4105,9 +4105,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_provisioned_concurrency_configs
@@ -4141,23 +4141,23 @@ module AWS::Lambda
     #   resp.tags['key'] #=> String
     #
     def list_tags(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListTags
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListTags
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListTags,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4165,9 +4165,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_tags
@@ -4288,23 +4288,23 @@ module AWS::Lambda
     #   resp.versions[0].signing_job_arn #=> String
     #
     def list_versions_by_function(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListVersionsByFunctionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVersionsByFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListVersionsByFunction
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListVersionsByFunction
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListVersionsByFunction,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4312,9 +4312,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_versions_by_function
@@ -4399,23 +4399,23 @@ module AWS::Lambda
     #   resp.license_info #=> String
     #
     def publish_layer_version(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::PublishLayerVersionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishLayerVersionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::PublishLayerVersion
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::PublishLayerVersion
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PublishLayerVersion,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4423,9 +4423,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :publish_layer_version
@@ -4557,23 +4557,23 @@ module AWS::Lambda
     #   resp.signing_job_arn #=> String
     #
     def publish_version(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::PublishVersionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishVersionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::PublishVersion
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::PublishVersion
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PublishVersion,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4581,9 +4581,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :publish_version
@@ -4640,23 +4640,23 @@ module AWS::Lambda
     #   resp.function_name #=> String
     #
     def put_function_code_signing_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::PutFunctionCodeSigningConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFunctionCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::PutFunctionCodeSigningConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::PutFunctionCodeSigningConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PutFunctionCodeSigningConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4664,9 +4664,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :put_function_code_signing_config
@@ -4729,23 +4729,23 @@ module AWS::Lambda
     #   resp.reserved_concurrent_executions #=> Integer
     #
     def put_function_concurrency(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::PutFunctionConcurrencyInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFunctionConcurrencyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::PutFunctionConcurrency
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::PutFunctionConcurrency
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PutFunctionConcurrency,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4753,9 +4753,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :put_function_concurrency
@@ -4868,23 +4868,23 @@ module AWS::Lambda
     #   resp.destination_config.on_failure.destination #=> String
     #
     def put_function_event_invoke_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::PutFunctionEventInvokeConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFunctionEventInvokeConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::PutFunctionEventInvokeConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::PutFunctionEventInvokeConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PutFunctionEventInvokeConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4892,9 +4892,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :put_function_event_invoke_config
@@ -4958,23 +4958,23 @@ module AWS::Lambda
     #   resp.last_modified #=> String
     #
     def put_provisioned_concurrency_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::PutProvisionedConcurrencyConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutProvisionedConcurrencyConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::PutProvisionedConcurrencyConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::PutProvisionedConcurrencyConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PutProvisionedConcurrencyConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4982,9 +4982,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :put_provisioned_concurrency_config
@@ -5030,23 +5030,23 @@ module AWS::Lambda
     #   resp #=> Types::RemoveLayerVersionPermissionOutput
     #
     def remove_layer_version_permission(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::RemoveLayerVersionPermissionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveLayerVersionPermissionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::RemoveLayerVersionPermission
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::RemoveLayerVersionPermission
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::RemoveLayerVersionPermission,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5054,9 +5054,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :remove_layer_version_permission
@@ -5120,23 +5120,23 @@ module AWS::Lambda
     #   resp #=> Types::RemovePermissionOutput
     #
     def remove_permission(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::RemovePermissionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemovePermissionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::RemovePermission
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::RemovePermission
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::RemovePermission,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5144,9 +5144,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :remove_permission
@@ -5183,23 +5183,23 @@ module AWS::Lambda
     #   resp #=> Types::TagResourceOutput
     #
     def tag_resource(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::TagResource
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::TagResource
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::TagResource,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5207,9 +5207,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :tag_resource
@@ -5246,23 +5246,23 @@ module AWS::Lambda
     #   resp #=> Types::UntagResourceOutput
     #
     def untag_resource(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UntagResource
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::UntagResource
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UntagResource,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5270,9 +5270,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :untag_resource
@@ -5356,23 +5356,23 @@ module AWS::Lambda
     #   resp.revision_id #=> String
     #
     def update_alias(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAliasInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAliasInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateAlias
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::UpdateAlias
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateAlias,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5380,9 +5380,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_alias
@@ -5442,23 +5442,23 @@ module AWS::Lambda
     #   resp.code_signing_config.last_modified #=> String
     #
     def update_code_signing_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCodeSigningConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateCodeSigningConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::UpdateCodeSigningConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateCodeSigningConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5466,9 +5466,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_code_signing_config
@@ -5664,23 +5664,23 @@ module AWS::Lambda
     #   resp.function_response_types[0] #=> String, one of ReportBatchItemFailures
     #
     def update_event_source_mapping(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEventSourceMappingInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEventSourceMappingInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateEventSourceMapping
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ResourceInUseException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ResourceInUseException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::UpdateEventSourceMapping
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateEventSourceMapping,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5688,9 +5688,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_event_source_mapping
@@ -5843,23 +5843,23 @@ module AWS::Lambda
     #   resp.signing_job_arn #=> String
     #
     def update_function_code(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionCodeInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionCodeInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateFunctionCode
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::CodeVerificationFailedException, Errors::ServiceException, Errors::InvalidCodeSignatureException, Errors::CodeSigningConfigNotFoundException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::CodeVerificationFailedException, Errors::ServiceException, Errors::InvalidCodeSignatureException, Errors::CodeSigningConfigNotFoundException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::UpdateFunctionCode
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateFunctionCode,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5867,9 +5867,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_function_code
@@ -6092,23 +6092,23 @@ module AWS::Lambda
     #   resp.signing_job_arn #=> String
     #
     def update_function_configuration(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionConfigurationInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionConfigurationInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateFunctionConfiguration
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::CodeVerificationFailedException, Errors::ServiceException, Errors::InvalidCodeSignatureException, Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::CodeVerificationFailedException, Errors::ServiceException, Errors::InvalidCodeSignatureException, Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::UpdateFunctionConfiguration
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateFunctionConfiguration,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6116,9 +6116,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_function_configuration
@@ -6222,23 +6222,23 @@ module AWS::Lambda
     #   resp.destination_config.on_failure.destination #=> String
     #
     def update_function_event_invoke_config(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionEventInvokeConfigInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionEventInvokeConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateFunctionEventInvokeConfig
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::UpdateFunctionEventInvokeConfig
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateFunctionEventInvokeConfig,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6246,9 +6246,9 @@ module AWS::Lambda
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_function_event_invoke_config
@@ -6263,12 +6263,12 @@ module AWS::Lambda
     def apply_middleware(middleware_stack, middleware)
       Client.middleware.apply(middleware_stack)
       @middleware.apply(middleware_stack)
-      Seahorse::MiddlewareBuilder.new(middleware).apply(middleware_stack)
+      Hearth::MiddlewareBuilder.new(middleware).apply(middleware_stack)
     end
 
     def output_stream(options = {}, &block)
       return options[:output_stream] if options[:output_stream]
-      return Seahorse::BlockIO.new(block) if block
+      return Hearth::BlockIO.new(block) if block
 
       StringIO.new
     end

@@ -20,9 +20,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ConsumedCapacityMultiple
@@ -34,13 +31,7 @@ module AWS::Dynamodb
           Stubs::ConsumedCapacity.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ConsumedCapacity
@@ -60,11 +51,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Map Stubber for SecondaryIndexesCapacityMap
@@ -77,13 +63,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-        end
-        data
-      end
     end
 
     # Structure Stubber for Capacity
@@ -99,11 +78,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for PartiQLBatchResponse
@@ -115,13 +89,7 @@ module AWS::Dynamodb
           Stubs::BatchStatementResponse.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for BatchStatementResponse
@@ -137,11 +105,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Map Stubber for AttributeMap
@@ -154,13 +117,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-        end
-        data
-      end
     end
 
     # Union Stubber for AttributeValue
@@ -174,11 +130,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ListAttributeValue
@@ -190,13 +141,7 @@ module AWS::Dynamodb
           Stubs::AttributeValue.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Map Stubber for MapAttributeValue
@@ -209,13 +154,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-        end
-        data
-      end
     end
 
     # List Stubber for BinarySetAttributeValue
@@ -227,13 +165,7 @@ module AWS::Dynamodb
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for NumberSetAttributeValue
@@ -245,13 +177,7 @@ module AWS::Dynamodb
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for StringSetAttributeValue
@@ -263,13 +189,7 @@ module AWS::Dynamodb
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for BatchStatementError
@@ -284,11 +204,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for BatchGetItem
@@ -302,9 +217,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Map Stubber for BatchGetRequestMap
@@ -317,13 +229,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-        end
-        data
-      end
     end
 
     # Structure Stubber for KeysAndAttributes
@@ -341,11 +246,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Map Stubber for ExpressionAttributeNameMap
@@ -358,13 +258,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-        end
-        data
-      end
     end
 
     # List Stubber for AttributeNameList
@@ -376,13 +269,7 @@ module AWS::Dynamodb
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for KeyList
@@ -394,13 +281,7 @@ module AWS::Dynamodb
           Stubs::Key.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Map Stubber for Key
@@ -413,13 +294,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-        end
-        data
-      end
     end
 
     # Map Stubber for BatchGetResponseMap
@@ -432,13 +306,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-        end
-        data
-      end
     end
 
     # List Stubber for ItemList
@@ -450,13 +317,7 @@ module AWS::Dynamodb
           Stubs::AttributeMap.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for BatchWriteItem
@@ -470,9 +331,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Map Stubber for ItemCollectionMetricsPerTable
@@ -485,13 +343,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-        end
-        data
-      end
     end
 
     # List Stubber for ItemCollectionMetricsMultiple
@@ -503,13 +354,7 @@ module AWS::Dynamodb
           Stubs::ItemCollectionMetrics.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ItemCollectionMetrics
@@ -524,11 +369,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ItemCollectionSizeEstimateRange
@@ -540,13 +380,7 @@ module AWS::Dynamodb
           1.0
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Map Stubber for ItemCollectionKeyAttributeMap
@@ -559,13 +393,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-        end
-        data
-      end
     end
 
     # Map Stubber for BatchWriteItemRequestMap
@@ -578,13 +405,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-        end
-        data
-      end
     end
 
     # List Stubber for WriteRequests
@@ -596,13 +416,7 @@ module AWS::Dynamodb
           Stubs::WriteRequest.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for WriteRequest
@@ -617,11 +431,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for DeleteRequest
@@ -635,11 +444,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PutRequest
@@ -653,11 +457,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Map Stubber for PutItemInputAttributeMap
@@ -670,13 +469,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-        end
-        data
-      end
     end
 
     # Operation Stubber for CreateBackup
@@ -688,9 +480,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for BackupDetails
@@ -710,11 +499,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateGlobalTable
@@ -726,9 +510,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for GlobalTableDescription
@@ -746,11 +527,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ReplicaDescriptionList
@@ -762,13 +538,7 @@ module AWS::Dynamodb
           Stubs::ReplicaDescription.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ReplicaDescription
@@ -790,11 +560,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for TableClassSummary
@@ -809,11 +574,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ReplicaGlobalSecondaryIndexDescriptionList
@@ -825,13 +585,7 @@ module AWS::Dynamodb
           Stubs::ReplicaGlobalSecondaryIndexDescription.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ReplicaGlobalSecondaryIndexDescription
@@ -846,11 +600,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ProvisionedThroughputOverride
@@ -864,11 +613,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateTable
@@ -880,9 +624,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TableDescription
@@ -917,11 +658,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ArchivalSummary
@@ -937,11 +673,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for SSEDescription
@@ -958,11 +689,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for RestoreSummary
@@ -979,11 +705,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for StreamSpecification
@@ -998,11 +719,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for GlobalSecondaryIndexDescriptionList
@@ -1014,13 +730,7 @@ module AWS::Dynamodb
           Stubs::GlobalSecondaryIndexDescription.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for GlobalSecondaryIndexDescription
@@ -1042,11 +752,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ProvisionedThroughputDescription
@@ -1064,11 +769,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for Projection
@@ -1083,11 +783,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for NonKeyAttributeNameList
@@ -1099,13 +794,7 @@ module AWS::Dynamodb
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for KeySchema
@@ -1117,13 +806,7 @@ module AWS::Dynamodb
           Stubs::KeySchemaElement.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for KeySchemaElement
@@ -1138,11 +821,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LocalSecondaryIndexDescriptionList
@@ -1154,13 +832,7 @@ module AWS::Dynamodb
           Stubs::LocalSecondaryIndexDescription.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LocalSecondaryIndexDescription
@@ -1179,11 +851,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for BillingModeSummary
@@ -1198,11 +865,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AttributeDefinitions
@@ -1214,13 +876,7 @@ module AWS::Dynamodb
           Stubs::AttributeDefinition.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AttributeDefinition
@@ -1235,11 +891,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DeleteBackup
@@ -1251,9 +902,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for BackupDescription
@@ -1269,11 +917,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for SourceTableFeatureDetails
@@ -1291,11 +934,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for TimeToLiveDescription
@@ -1310,11 +948,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for GlobalSecondaryIndexes
@@ -1326,13 +959,7 @@ module AWS::Dynamodb
           Stubs::GlobalSecondaryIndexInfo.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for GlobalSecondaryIndexInfo
@@ -1349,11 +976,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ProvisionedThroughput
@@ -1368,11 +990,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LocalSecondaryIndexes
@@ -1384,13 +1001,7 @@ module AWS::Dynamodb
           Stubs::LocalSecondaryIndexInfo.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LocalSecondaryIndexInfo
@@ -1406,11 +1017,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for SourceTableDetails
@@ -1432,11 +1038,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DeleteItem
@@ -1450,9 +1051,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTable
@@ -1464,9 +1062,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeBackup
@@ -1478,9 +1073,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeContinuousBackups
@@ -1492,9 +1084,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for ContinuousBackupsDescription
@@ -1509,11 +1098,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PointInTimeRecoveryDescription
@@ -1529,11 +1113,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeContributorInsights
@@ -1550,9 +1129,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for FailureException
@@ -1567,11 +1143,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ContributorInsightsRuleList
@@ -1583,13 +1154,7 @@ module AWS::Dynamodb
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeEndpoints
@@ -1601,9 +1166,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for Endpoints
@@ -1615,13 +1177,7 @@ module AWS::Dynamodb
           Stubs::Endpoint.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Endpoint
@@ -1636,11 +1192,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeExport
@@ -1652,9 +1203,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for ExportDescription
@@ -1686,11 +1234,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeGlobalTable
@@ -1702,9 +1245,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeGlobalTableSettings
@@ -1717,9 +1257,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ReplicaSettingsDescriptionList
@@ -1731,13 +1268,7 @@ module AWS::Dynamodb
           Stubs::ReplicaSettingsDescription.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ReplicaSettingsDescription
@@ -1759,11 +1290,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ReplicaGlobalSecondaryIndexSettingsDescriptionList
@@ -1775,13 +1301,7 @@ module AWS::Dynamodb
           Stubs::ReplicaGlobalSecondaryIndexSettingsDescription.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ReplicaGlobalSecondaryIndexSettingsDescription
@@ -1800,11 +1320,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for AutoScalingSettingsDescription
@@ -1822,11 +1337,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AutoScalingPolicyDescriptionList
@@ -1838,13 +1348,7 @@ module AWS::Dynamodb
           Stubs::AutoScalingPolicyDescription.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AutoScalingPolicyDescription
@@ -1859,11 +1363,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for AutoScalingTargetTrackingScalingPolicyConfigurationDescription
@@ -1880,11 +1379,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeKinesisStreamingDestination
@@ -1897,9 +1391,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for KinesisDataStreamDestinations
@@ -1911,13 +1402,7 @@ module AWS::Dynamodb
           Stubs::KinesisDataStreamDestination.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for KinesisDataStreamDestination
@@ -1933,11 +1418,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeLimits
@@ -1952,9 +1432,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeTable
@@ -1966,9 +1443,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeTableReplicaAutoScaling
@@ -1980,9 +1454,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TableAutoScalingDescription
@@ -1998,11 +1469,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ReplicaAutoScalingDescriptionList
@@ -2014,13 +1480,7 @@ module AWS::Dynamodb
           Stubs::ReplicaAutoScalingDescription.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ReplicaAutoScalingDescription
@@ -2038,11 +1498,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ReplicaGlobalSecondaryIndexAutoScalingDescriptionList
@@ -2054,13 +1509,7 @@ module AWS::Dynamodb
           Stubs::ReplicaGlobalSecondaryIndexAutoScalingDescription.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ReplicaGlobalSecondaryIndexAutoScalingDescription
@@ -2077,11 +1526,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeTimeToLive
@@ -2093,9 +1537,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisableKinesisStreamingDestination
@@ -2109,9 +1550,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for EnableKinesisStreamingDestination
@@ -2125,9 +1563,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ExecuteStatement
@@ -2141,9 +1576,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ExecuteTransaction
@@ -2156,9 +1588,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ItemResponseList
@@ -2170,13 +1599,7 @@ module AWS::Dynamodb
           Stubs::ItemResponse.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ItemResponse
@@ -2190,11 +1613,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ExportTableToPointInTime
@@ -2206,9 +1624,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetItem
@@ -2221,9 +1636,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ListBackups
@@ -2236,9 +1648,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for BackupSummaries
@@ -2250,13 +1659,7 @@ module AWS::Dynamodb
           Stubs::BackupSummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for BackupSummary
@@ -2279,11 +1682,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListContributorInsights
@@ -2296,9 +1694,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ContributorInsightsSummaries
@@ -2310,13 +1705,7 @@ module AWS::Dynamodb
           Stubs::ContributorInsightsSummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ContributorInsightsSummary
@@ -2332,11 +1721,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListExports
@@ -2349,9 +1733,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ExportSummaries
@@ -2363,13 +1744,7 @@ module AWS::Dynamodb
           Stubs::ExportSummary.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ExportSummary
@@ -2384,11 +1759,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListGlobalTables
@@ -2401,9 +1771,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for GlobalTableList
@@ -2415,13 +1782,7 @@ module AWS::Dynamodb
           Stubs::GlobalTable.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for GlobalTable
@@ -2436,11 +1797,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ReplicaList
@@ -2452,13 +1808,7 @@ module AWS::Dynamodb
           Stubs::Replica.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Replica
@@ -2472,11 +1822,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ListTables
@@ -2489,9 +1834,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TableNameList
@@ -2503,13 +1845,7 @@ module AWS::Dynamodb
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for ListTagsOfResource
@@ -2522,9 +1858,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TagList
@@ -2536,13 +1869,7 @@ module AWS::Dynamodb
           Stubs::Tag.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Tag
@@ -2557,11 +1884,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for PutItem
@@ -2575,9 +1897,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for Query
@@ -2593,9 +1912,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RestoreTableFromBackup
@@ -2607,9 +1923,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RestoreTableToPointInTime
@@ -2621,9 +1934,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for Scan
@@ -2639,9 +1949,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for TagResource
@@ -2652,9 +1959,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for TransactGetItems
@@ -2667,9 +1971,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for TransactWriteItems
@@ -2682,9 +1983,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for UntagResource
@@ -2695,9 +1993,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for UpdateContinuousBackups
@@ -2709,9 +2004,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for UpdateContributorInsights
@@ -2725,9 +2017,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for UpdateGlobalTable
@@ -2739,9 +2028,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for UpdateGlobalTableSettings
@@ -2754,9 +2040,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for UpdateItem
@@ -2770,9 +2053,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for UpdateTable
@@ -2784,9 +2064,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for UpdateTableReplicaAutoScaling
@@ -2798,9 +2075,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for UpdateTimeToLive
@@ -2812,9 +2086,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TimeToLiveSpecification
@@ -2829,11 +2100,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
   end
 end

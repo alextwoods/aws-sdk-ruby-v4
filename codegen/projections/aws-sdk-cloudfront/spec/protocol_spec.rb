@@ -9,6 +9,8 @@
 
 require 'aws-sdk-cloudfront'
 
+require 'hearth/xml/node_matcher'
+
 module AWS::Cloudfront
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }

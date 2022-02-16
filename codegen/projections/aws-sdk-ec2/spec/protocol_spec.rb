@@ -9,6 +9,8 @@
 
 require 'aws-sdk-ec2'
 
+require 'hearth/xml/node_matcher'
+
 module AWS::Ec2
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }

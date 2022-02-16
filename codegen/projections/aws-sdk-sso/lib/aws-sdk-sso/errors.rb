@@ -12,7 +12,7 @@ module AWS::Sso
 
     def self.error_code(http_resp)
       if !(200..299).cover?(http_resp.status)
-        json = Seahorse::JSON.load(http_resp.body)
+        json = Hearth::JSON.load(http_resp.body)
         http_resp.body.rewind
         code = json['__type'] || json['code'] if json
       end
@@ -23,7 +23,7 @@ module AWS::Sso
     end
 
     # Base class for all errors returned by this service
-    class ApiError < Seahorse::HTTP::ApiError; end
+    class ApiError < Hearth::HTTP::ApiError; end
 
     # Base class for all errors returned where the client is at fault.
     # These are generally errors with 4XX HTTP status codes.
@@ -46,7 +46,7 @@ module AWS::Sso
     end
 
     class InvalidRequestException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -65,7 +65,7 @@ module AWS::Sso
     end
 
     class ResourceNotFoundException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -84,7 +84,7 @@ module AWS::Sso
     end
 
     class TooManyRequestsException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -103,7 +103,7 @@ module AWS::Sso
     end
 
     class UnauthorizedException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #

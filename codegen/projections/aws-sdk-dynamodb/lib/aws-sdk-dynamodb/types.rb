@@ -45,7 +45,7 @@ module AWS::Dynamodb
       :archival_backup_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents an attribute for describing the key schema for the table and
@@ -80,7 +80,7 @@ module AWS::Dynamodb
       :attribute_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the data for an attribute.</p>
@@ -89,7 +89,7 @@ module AWS::Dynamodb
     #         <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer
     #             Guide</i>.</p>
     #
-    class AttributeValue < Seahorse::Union
+    class AttributeValue < Hearth::Union
       # <p>An attribute of type String. For example:</p>
       #         <p>
       #             <code>"S": "Hello"</code>
@@ -385,7 +385,7 @@ module AWS::Dynamodb
       :action,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of the scaling policy.</p>
@@ -405,7 +405,7 @@ module AWS::Dynamodb
       :target_tracking_scaling_policy_configuration,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the auto scaling policy to be modified.</p>
@@ -425,7 +425,7 @@ module AWS::Dynamodb
       :target_tracking_scaling_policy_configuration,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the auto scaling settings for a global table or global secondary
@@ -466,7 +466,7 @@ module AWS::Dynamodb
       :scaling_policies,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the auto scaling settings to be modified for a global table or global
@@ -508,7 +508,7 @@ module AWS::Dynamodb
       :scaling_policy_update,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of a target tracking scaling policy.</p>
@@ -553,7 +553,7 @@ module AWS::Dynamodb
       :target_value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the settings of a target tracking scaling policy that will be
@@ -599,7 +599,7 @@ module AWS::Dynamodb
       :target_value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the description of the backup created for the table.</p>
@@ -626,7 +626,7 @@ module AWS::Dynamodb
       :source_table_feature_details,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the details of the backup created for the table.</p>
@@ -696,7 +696,7 @@ module AWS::Dynamodb
       :backup_expiry_date_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>There is another ongoing conflicting backup control plane operation on the table.
@@ -710,7 +710,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Backup not found for the given BackupARN. </p>
@@ -723,7 +723,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains details for the backup.</p>
@@ -811,7 +811,7 @@ module AWS::Dynamodb
       :backup_size_bytes,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute statements
@@ -853,7 +853,7 @@ module AWS::Dynamodb
       :return_consumed_capacity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute responses
@@ -872,7 +872,7 @@ module AWS::Dynamodb
       :consumed_capacity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of a <code>BatchGetItem</code> operation.</p>
@@ -1015,7 +1015,7 @@ module AWS::Dynamodb
       :return_consumed_capacity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the output of a <code>BatchGetItem</code> operation.</p>
@@ -1082,7 +1082,7 @@ module AWS::Dynamodb
       :consumed_capacity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> An error associated with a statement in a PartiQL batch that was run. </p>
@@ -1102,7 +1102,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> A PartiQL batch statement request. </p>
@@ -1128,7 +1128,7 @@ module AWS::Dynamodb
       :consistent_read,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> A PartiQL batch statement response.. </p>
@@ -1154,7 +1154,7 @@ module AWS::Dynamodb
       :item,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of a <code>BatchWriteItem</code> operation.</p>
@@ -1249,7 +1249,7 @@ module AWS::Dynamodb
       :return_item_collection_metrics,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the output of a <code>BatchWriteItem</code> operation.</p>
@@ -1354,7 +1354,7 @@ module AWS::Dynamodb
       :consumed_capacity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the details for the read/write capacity mode.</p>
@@ -1390,7 +1390,7 @@ module AWS::Dynamodb
       :last_update_to_pay_per_request_date_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An ordered list of errors for each item in the request which caused the transaction to
@@ -1419,7 +1419,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the amount of provisioned throughput capacity consumed on a table or an
@@ -1446,7 +1446,7 @@ module AWS::Dynamodb
       :capacity_units,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the selection criteria for a <code>Query</code> or <code>Scan</code>
@@ -1678,7 +1678,7 @@ module AWS::Dynamodb
       :comparison_operator,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a request to perform a check that an item exists or to check the condition
@@ -1728,7 +1728,7 @@ module AWS::Dynamodb
       :return_values_on_condition_check_failure,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A condition specified in the operation could not be evaluated.</p>
@@ -1742,7 +1742,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The capacity units consumed by an operation. The data returned includes the total
@@ -1798,7 +1798,7 @@ module AWS::Dynamodb
       :global_secondary_indexes,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the continuous backups and point in time recovery settings on the
@@ -1821,7 +1821,7 @@ module AWS::Dynamodb
       :point_in_time_recovery_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Backups have not yet been enabled for this table.</p>
@@ -1834,7 +1834,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a Contributor Insights summary entry.</p>
@@ -1861,7 +1861,7 @@ module AWS::Dynamodb
       :contributor_insights_status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -1879,7 +1879,7 @@ module AWS::Dynamodb
       :backup_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute backup_details
@@ -1891,7 +1891,7 @@ module AWS::Dynamodb
       :backup_details,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a new global secondary index to be added to an existing table.</p>
@@ -1929,7 +1929,7 @@ module AWS::Dynamodb
       :provisioned_throughput,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute global_table_name
@@ -1947,7 +1947,7 @@ module AWS::Dynamodb
       :replication_group,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute global_table_description
@@ -1959,7 +1959,7 @@ module AWS::Dynamodb
       :global_table_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a replica to be added.</p>
@@ -1973,7 +1973,7 @@ module AWS::Dynamodb
       :region_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a replica to be created.</p>
@@ -2017,7 +2017,7 @@ module AWS::Dynamodb
       :table_class_override,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of a <code>CreateTable</code> operation.</p>
@@ -2308,7 +2308,7 @@ module AWS::Dynamodb
       :table_class,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the output of a <code>CreateTable</code> operation.</p>
@@ -2322,7 +2322,7 @@ module AWS::Dynamodb
       :table_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a request to perform a <code>DeleteItem</code> operation.</p>
@@ -2371,7 +2371,7 @@ module AWS::Dynamodb
       :return_values_on_condition_check_failure,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute backup_arn
@@ -2383,7 +2383,7 @@ module AWS::Dynamodb
       :backup_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute backup_description
@@ -2395,7 +2395,7 @@ module AWS::Dynamodb
       :backup_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a global secondary index to be deleted from an existing table.</p>
@@ -2409,7 +2409,7 @@ module AWS::Dynamodb
       :index_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of a <code>DeleteItem</code> operation.</p>
@@ -2621,7 +2621,7 @@ module AWS::Dynamodb
       :expression_attribute_values,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the output of a <code>DeleteItem</code> operation.</p>
@@ -2678,7 +2678,7 @@ module AWS::Dynamodb
       :item_collection_metrics,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a replica to be removed.</p>
@@ -2692,7 +2692,7 @@ module AWS::Dynamodb
       :region_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a replica to be deleted.</p>
@@ -2706,7 +2706,7 @@ module AWS::Dynamodb
       :region_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a request to perform a <code>DeleteItem</code> operation on an item.</p>
@@ -2722,7 +2722,7 @@ module AWS::Dynamodb
       :key,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of a <code>DeleteTable</code> operation.</p>
@@ -2736,7 +2736,7 @@ module AWS::Dynamodb
       :table_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the output of a <code>DeleteTable</code> operation.</p>
@@ -2750,7 +2750,7 @@ module AWS::Dynamodb
       :table_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute backup_arn
@@ -2762,7 +2762,7 @@ module AWS::Dynamodb
       :backup_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute backup_description
@@ -2774,7 +2774,7 @@ module AWS::Dynamodb
       :backup_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -2787,7 +2787,7 @@ module AWS::Dynamodb
       :table_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute continuous_backups_description
@@ -2800,7 +2800,7 @@ module AWS::Dynamodb
       :continuous_backups_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -2818,7 +2818,7 @@ module AWS::Dynamodb
       :index_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -2880,14 +2880,14 @@ module AWS::Dynamodb
       :failure_exception,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DescribeEndpointsInput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute endpoints
@@ -2899,7 +2899,7 @@ module AWS::Dynamodb
       :endpoints,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute export_arn
@@ -2911,7 +2911,7 @@ module AWS::Dynamodb
       :export_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute export_description
@@ -2923,7 +2923,7 @@ module AWS::Dynamodb
       :export_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute global_table_name
@@ -2935,7 +2935,7 @@ module AWS::Dynamodb
       :global_table_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute global_table_description
@@ -2947,7 +2947,7 @@ module AWS::Dynamodb
       :global_table_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute global_table_name
@@ -2959,7 +2959,7 @@ module AWS::Dynamodb
       :global_table_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute global_table_name
@@ -2977,7 +2977,7 @@ module AWS::Dynamodb
       :replica_settings,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -2989,7 +2989,7 @@ module AWS::Dynamodb
       :table_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -3007,7 +3007,7 @@ module AWS::Dynamodb
       :kinesis_data_stream_destinations,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of a <code>DescribeLimits</code> operation. Has no
@@ -3017,7 +3017,7 @@ module AWS::Dynamodb
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the output of a <code>DescribeLimits</code> operation.</p>
@@ -3055,7 +3055,7 @@ module AWS::Dynamodb
       :table_max_write_capacity_units,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of a <code>DescribeTable</code> operation.</p>
@@ -3069,7 +3069,7 @@ module AWS::Dynamodb
       :table_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the output of a <code>DescribeTable</code> operation.</p>
@@ -3083,7 +3083,7 @@ module AWS::Dynamodb
       :table,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -3095,7 +3095,7 @@ module AWS::Dynamodb
       :table_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_auto_scaling_description
@@ -3107,7 +3107,7 @@ module AWS::Dynamodb
       :table_auto_scaling_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -3119,7 +3119,7 @@ module AWS::Dynamodb
       :table_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute time_to_live_description
@@ -3131,7 +3131,7 @@ module AWS::Dynamodb
       :time_to_live_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -3149,7 +3149,7 @@ module AWS::Dynamodb
       :stream_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -3173,7 +3173,7 @@ module AWS::Dynamodb
       :destination_status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> There was an attempt to insert an item with the same primary key as an item that
@@ -3187,7 +3187,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -3205,7 +3205,7 @@ module AWS::Dynamodb
       :stream_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -3229,7 +3229,7 @@ module AWS::Dynamodb
       :destination_status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An endpoint information details.</p>
@@ -3249,7 +3249,7 @@ module AWS::Dynamodb
       :cache_period_in_minutes,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute statement
@@ -3311,7 +3311,7 @@ module AWS::Dynamodb
       :return_consumed_capacity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute items
@@ -3343,7 +3343,7 @@ module AWS::Dynamodb
       :consumed_capacity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transact_statements
@@ -3369,7 +3369,7 @@ module AWS::Dynamodb
       :return_consumed_capacity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute responses
@@ -3388,7 +3388,7 @@ module AWS::Dynamodb
       :consumed_capacity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a condition to be compared with an attribute value. This condition can be
@@ -3675,7 +3675,7 @@ module AWS::Dynamodb
       :attribute_value_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>There was a conflict when writing to the specified S3 bucket.</p>
@@ -3688,7 +3688,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of the exported table.</p>
@@ -3830,7 +3830,7 @@ module AWS::Dynamodb
       :item_count,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified export was not found.</p>
@@ -3843,7 +3843,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Summary information about an export task.</p>
@@ -3864,7 +3864,7 @@ module AWS::Dynamodb
       :export_status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_arn
@@ -3951,7 +3951,7 @@ module AWS::Dynamodb
       :export_format,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute export_description
@@ -3963,7 +3963,7 @@ module AWS::Dynamodb
       :export_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a failure a contributor insights operation.</p>
@@ -3983,7 +3983,7 @@ module AWS::Dynamodb
       :exception_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Specifies an item and related attribute values to retrieve in a
@@ -4021,7 +4021,7 @@ module AWS::Dynamodb
       :expression_attribute_names,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of a <code>GetItem</code> operation.</p>
@@ -4160,7 +4160,7 @@ module AWS::Dynamodb
       :expression_attribute_names,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the output of a <code>GetItem</code> operation.</p>
@@ -4186,7 +4186,7 @@ module AWS::Dynamodb
       :consumed_capacity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of a global secondary index.</p>
@@ -4246,7 +4246,7 @@ module AWS::Dynamodb
       :provisioned_throughput,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the auto scaling settings of a global secondary index for a global table
@@ -4268,7 +4268,7 @@ module AWS::Dynamodb
       :provisioned_write_capacity_auto_scaling_update,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of a global secondary index.</p>
@@ -4391,7 +4391,7 @@ module AWS::Dynamodb
       :index_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of a global secondary index for the table when the backup
@@ -4447,7 +4447,7 @@ module AWS::Dynamodb
       :provisioned_throughput,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents one of the following:</p>
@@ -4515,7 +4515,7 @@ module AWS::Dynamodb
       :delete,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of a global table.</p>
@@ -4535,7 +4535,7 @@ module AWS::Dynamodb
       :replication_group,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified global table already exists.</p>
@@ -4548,7 +4548,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains details about the global table.</p>
@@ -4604,7 +4604,7 @@ module AWS::Dynamodb
       :global_table_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the settings of a global secondary index for a global table that will be
@@ -4635,7 +4635,7 @@ module AWS::Dynamodb
       :provisioned_write_capacity_auto_scaling_settings_update,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified global table does not exist.</p>
@@ -4648,7 +4648,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>DynamoDB rejected the request because you retried a request with a
@@ -4662,7 +4662,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The operation tried to access a nonexistent index.</p>
@@ -4675,7 +4675,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An error occurred on the server side.</p>
@@ -4689,7 +4689,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute message
@@ -4700,7 +4700,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified <code>ExportTime</code> is outside of the point in time recovery
@@ -4714,7 +4714,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An invalid restore time was specified. RestoreDateTime must be between
@@ -4728,7 +4728,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about item collections, if any, that were affected by the operation.
@@ -4758,7 +4758,7 @@ module AWS::Dynamodb
       :size_estimate_range_gb,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An item collection is too large. This exception is only returned for tables that
@@ -4774,7 +4774,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details for the requested item.</p>
@@ -4788,7 +4788,7 @@ module AWS::Dynamodb
       :item,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents <i>a single element</i> of a key schema. A key schema
@@ -4837,7 +4837,7 @@ module AWS::Dynamodb
       :key_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a set of primary keys and, for each key, the attributes to retrieve from
@@ -4941,7 +4941,7 @@ module AWS::Dynamodb
       :expression_attribute_names,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Kinesis data stream destination.</p>
@@ -4967,7 +4967,7 @@ module AWS::Dynamodb
       :destination_status_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
@@ -4990,7 +4990,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -5054,7 +5054,7 @@ module AWS::Dynamodb
       :backup_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute backup_summaries
@@ -5080,7 +5080,7 @@ module AWS::Dynamodb
       :last_evaluated_backup_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -5104,7 +5104,7 @@ module AWS::Dynamodb
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute contributor_insights_summaries
@@ -5122,7 +5122,7 @@ module AWS::Dynamodb
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_arn
@@ -5148,7 +5148,7 @@ module AWS::Dynamodb
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute export_summaries
@@ -5168,7 +5168,7 @@ module AWS::Dynamodb
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute exclusive_start_global_table_name
@@ -5197,7 +5197,7 @@ module AWS::Dynamodb
       :region_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute global_tables
@@ -5215,7 +5215,7 @@ module AWS::Dynamodb
       :last_evaluated_global_table_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of a <code>ListTables</code> operation.</p>
@@ -5238,7 +5238,7 @@ module AWS::Dynamodb
       :limit,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the output of a <code>ListTables</code> operation.</p>
@@ -5266,7 +5266,7 @@ module AWS::Dynamodb
       :last_evaluated_table_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute resource_arn
@@ -5287,7 +5287,7 @@ module AWS::Dynamodb
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute tags
@@ -5306,7 +5306,7 @@ module AWS::Dynamodb
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of a local secondary index.</p>
@@ -5356,7 +5356,7 @@ module AWS::Dynamodb
       :projection,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of a local secondary index.</p>
@@ -5427,7 +5427,7 @@ module AWS::Dynamodb
       :index_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of a local secondary index for the table when the backup was
@@ -5477,7 +5477,7 @@ module AWS::Dynamodb
       :projection,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> Represents a PartiQL statment that uses parameters. </p>
@@ -5497,7 +5497,7 @@ module AWS::Dynamodb
       :parameters,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The description of the point in time settings applied to the table.</p>
@@ -5540,7 +5540,7 @@ module AWS::Dynamodb
       :latest_restorable_date_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the settings used to enable point in time recovery.</p>
@@ -5555,7 +5555,7 @@ module AWS::Dynamodb
       :point_in_time_recovery_enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Point in time recovery has not yet been enabled for this source table.</p>
@@ -5568,7 +5568,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents attributes that are copied (projected) from the table into an index. These
@@ -5612,7 +5612,7 @@ module AWS::Dynamodb
       :non_key_attributes,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the provisioned throughput settings for a specified table or index. The
@@ -5644,7 +5644,7 @@ module AWS::Dynamodb
       :write_capacity_units,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the provisioned throughput settings for the table, consisting of read and
@@ -5691,7 +5691,7 @@ module AWS::Dynamodb
       :write_capacity_units,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Your request rate is too high. The Amazon Web Services SDKs for DynamoDB
@@ -5708,7 +5708,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Replica-specific provisioned throughput settings. If not specified, uses the source
@@ -5724,7 +5724,7 @@ module AWS::Dynamodb
       :read_capacity_units,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a request to perform a <code>PutItem</code> operation.</p>
@@ -5776,7 +5776,7 @@ module AWS::Dynamodb
       :return_values_on_condition_check_failure,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of a <code>PutItem</code> operation.</p>
@@ -6003,7 +6003,7 @@ module AWS::Dynamodb
       :expression_attribute_values,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the output of a <code>PutItem</code> operation.</p>
@@ -6059,7 +6059,7 @@ module AWS::Dynamodb
       :item_collection_metrics,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a request to perform a <code>PutItem</code> operation on an item.</p>
@@ -6077,7 +6077,7 @@ module AWS::Dynamodb
       :item,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of a <code>Query</code> operation.</p>
@@ -6506,7 +6506,7 @@ module AWS::Dynamodb
       :expression_attribute_values,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the output of a <code>Query</code> operation.</p>
@@ -6568,7 +6568,7 @@ module AWS::Dynamodb
       :consumed_capacity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of a replica.</p>
@@ -6582,7 +6582,7 @@ module AWS::Dynamodb
       :region_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified replica is already part of the global table.</p>
@@ -6595,7 +6595,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the auto scaling settings of the replica.</p>
@@ -6653,7 +6653,7 @@ module AWS::Dynamodb
       :replica_status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the auto scaling settings of a replica that will be modified.</p>
@@ -6681,7 +6681,7 @@ module AWS::Dynamodb
       :replica_provisioned_read_capacity_auto_scaling_update,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the details of the replica.</p>
@@ -6786,7 +6786,7 @@ module AWS::Dynamodb
       :replica_table_class_summary,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of a replica global secondary index.</p>
@@ -6807,7 +6807,7 @@ module AWS::Dynamodb
       :provisioned_throughput_override,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the auto scaling configuration for a replica global secondary index.</p>
@@ -6859,7 +6859,7 @@ module AWS::Dynamodb
       :provisioned_write_capacity_auto_scaling_settings,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the auto scaling settings of a global secondary index for a replica that
@@ -6881,7 +6881,7 @@ module AWS::Dynamodb
       :provisioned_read_capacity_auto_scaling_update,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of a replica global secondary index.</p>
@@ -6901,7 +6901,7 @@ module AWS::Dynamodb
       :provisioned_throughput_override,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of a global secondary index.</p>
@@ -6968,7 +6968,7 @@ module AWS::Dynamodb
       :provisioned_write_capacity_auto_scaling_settings,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the settings of a global secondary index for a global table that will be
@@ -6998,7 +6998,7 @@ module AWS::Dynamodb
       :provisioned_read_capacity_auto_scaling_settings_update,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified replica is no longer part of the global table.</p>
@@ -7011,7 +7011,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of a replica.</p>
@@ -7095,7 +7095,7 @@ module AWS::Dynamodb
       :replica_table_class_summary,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the settings for a global table in a Region that will be modified.</p>
@@ -7138,7 +7138,7 @@ module AWS::Dynamodb
       :replica_table_class,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents one of the following:</p>
@@ -7169,7 +7169,7 @@ module AWS::Dynamodb
       :delete,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents one of the following:</p>
@@ -7211,7 +7211,7 @@ module AWS::Dynamodb
       :delete,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Throughput exceeds the current throughput quota for your account. Please contact
@@ -7226,7 +7226,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The operation conflicts with the resource's availability. For example, you
@@ -7242,7 +7242,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The operation tried to access a nonexistent table or index. The resource might not
@@ -7257,7 +7257,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains details for the restore.</p>
@@ -7289,7 +7289,7 @@ module AWS::Dynamodb
       :restore_in_progress,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute target_table_name
@@ -7341,7 +7341,7 @@ module AWS::Dynamodb
       :sse_specification_override,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_description
@@ -7353,7 +7353,7 @@ module AWS::Dynamodb
       :table_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute source_table_arn
@@ -7425,7 +7425,7 @@ module AWS::Dynamodb
       :sse_specification_override,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_description
@@ -7437,7 +7437,7 @@ module AWS::Dynamodb
       :table_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The description of the server-side encryption status on the specified table.</p>
@@ -7491,7 +7491,7 @@ module AWS::Dynamodb
       :inaccessible_encryption_date_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the settings used to enable server-side encryption.</p>
@@ -7530,7 +7530,7 @@ module AWS::Dynamodb
       :kms_master_key_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of a <code>Scan</code> operation.</p>
@@ -7856,7 +7856,7 @@ module AWS::Dynamodb
       :consistent_read,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the output of a <code>Scan</code> operation.</p>
@@ -7918,7 +7918,7 @@ module AWS::Dynamodb
       :consumed_capacity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the details of the table when the backup was created. </p>
@@ -7995,7 +7995,7 @@ module AWS::Dynamodb
       :billing_mode,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the details of the features enabled on the table when the backup was created.
@@ -8039,7 +8039,7 @@ module AWS::Dynamodb
       :sse_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the DynamoDB Streams configuration for a table in DynamoDB.</p>
@@ -8084,7 +8084,7 @@ module AWS::Dynamodb
       :stream_view_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A target table with the specified name already exists. </p>
@@ -8097,7 +8097,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the auto scaling configuration for a global table.</p>
@@ -8141,7 +8141,7 @@ module AWS::Dynamodb
       :replicas,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains details of the table class.</p>
@@ -8162,7 +8162,7 @@ module AWS::Dynamodb
       :last_update_date_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the properties of a table.</p>
@@ -8587,7 +8587,7 @@ module AWS::Dynamodb
       :table_class_summary,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A target table with the specified name is either being created or deleted.
@@ -8601,7 +8601,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A source table with the name <code>TableName</code> does not currently exist within
@@ -8615,7 +8615,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single
@@ -8646,7 +8646,7 @@ module AWS::Dynamodb
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute resource_arn
@@ -8665,14 +8665,14 @@ module AWS::Dynamodb
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     TagResourceOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The description of the Time to Live (TTL) status on the specified table. </p>
@@ -8692,7 +8692,7 @@ module AWS::Dynamodb
       :attribute_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the settings used to enable or disable Time to Live (TTL) for the specified
@@ -8714,7 +8714,7 @@ module AWS::Dynamodb
       :attribute_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Specifies an item to be retrieved as part of the transaction.</p>
@@ -8730,7 +8730,7 @@ module AWS::Dynamodb
       :get,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transact_items
@@ -8751,7 +8751,7 @@ module AWS::Dynamodb
       :return_consumed_capacity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute consumed_capacity
@@ -8780,7 +8780,7 @@ module AWS::Dynamodb
       :responses,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of requests that can perform update, put, delete, or check operations on
@@ -8813,7 +8813,7 @@ module AWS::Dynamodb
       :update,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transact_items
@@ -8890,7 +8890,7 @@ module AWS::Dynamodb
       :client_request_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute consumed_capacity
@@ -8913,7 +8913,7 @@ module AWS::Dynamodb
       :item_collection_metrics,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The entire transaction request was canceled.</p>
@@ -9167,7 +9167,7 @@ module AWS::Dynamodb
       :cancellation_reasons,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Operation was rejected because there is an ongoing transaction for the
@@ -9181,7 +9181,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The transaction with the given request token is already in progress.</p>
@@ -9194,7 +9194,7 @@ module AWS::Dynamodb
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute resource_arn
@@ -9214,14 +9214,14 @@ module AWS::Dynamodb
       :tag_keys,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     UntagResourceOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a request to perform an <code>UpdateItem</code> operation.</p>
@@ -9277,7 +9277,7 @@ module AWS::Dynamodb
       :return_values_on_condition_check_failure,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -9295,7 +9295,7 @@ module AWS::Dynamodb
       :point_in_time_recovery_specification,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute continuous_backups_description
@@ -9308,7 +9308,7 @@ module AWS::Dynamodb
       :continuous_backups_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -9332,7 +9332,7 @@ module AWS::Dynamodb
       :contributor_insights_action,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_name
@@ -9356,7 +9356,7 @@ module AWS::Dynamodb
       :contributor_insights_status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the new provisioned throughput settings to be applied to a global secondary
@@ -9381,7 +9381,7 @@ module AWS::Dynamodb
       :provisioned_throughput,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute global_table_name
@@ -9399,7 +9399,7 @@ module AWS::Dynamodb
       :replica_updates,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute global_table_description
@@ -9411,7 +9411,7 @@ module AWS::Dynamodb
       :global_table_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute global_table_name
@@ -9472,7 +9472,7 @@ module AWS::Dynamodb
       :replica_settings_update,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute global_table_name
@@ -9490,7 +9490,7 @@ module AWS::Dynamodb
       :replica_settings,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of an <code>UpdateItem</code> operation.</p>
@@ -9834,7 +9834,7 @@ module AWS::Dynamodb
       :expression_attribute_values,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the output of an <code>UpdateItem</code> operation.</p>
@@ -9892,7 +9892,7 @@ module AWS::Dynamodb
       :item_collection_metrics,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents a replica to be modified.</p>
@@ -9936,7 +9936,7 @@ module AWS::Dynamodb
       :table_class_override,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of an <code>UpdateTable</code> operation.</p>
@@ -10048,7 +10048,7 @@ module AWS::Dynamodb
       :table_class,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the output of an <code>UpdateTable</code> operation.</p>
@@ -10062,7 +10062,7 @@ module AWS::Dynamodb
       :table_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute global_secondary_index_updates
@@ -10095,7 +10095,7 @@ module AWS::Dynamodb
       :replica_updates,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute table_auto_scaling_description
@@ -10107,7 +10107,7 @@ module AWS::Dynamodb
       :table_auto_scaling_description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents the input of an <code>UpdateTimeToLive</code> operation.</p>
@@ -10128,7 +10128,7 @@ module AWS::Dynamodb
       :time_to_live_specification,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute time_to_live_specification
@@ -10140,7 +10140,7 @@ module AWS::Dynamodb
       :time_to_live_specification,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Represents an operation to perform - either <code>DeleteItem</code> or
@@ -10163,7 +10163,7 @@ module AWS::Dynamodb
       :delete_request,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
   end

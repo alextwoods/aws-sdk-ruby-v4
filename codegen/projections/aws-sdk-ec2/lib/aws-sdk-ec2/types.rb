@@ -30,7 +30,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
@@ -55,7 +55,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
@@ -77,7 +77,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
@@ -99,7 +99,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for accepting the quote.</p>
@@ -129,7 +129,7 @@ module AWS::Ec2
       :target_configurations,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The result of the exchange and whether it was <code>successful</code>.</p>
@@ -143,7 +143,7 @@ module AWS::Ec2
       :exchange_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -175,7 +175,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute associations
@@ -187,7 +187,7 @@ module AWS::Ec2
       :associations,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_id
@@ -207,7 +207,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_peering_attachment
@@ -219,7 +219,7 @@ module AWS::Ec2
       :transit_gateway_peering_attachment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_id
@@ -239,7 +239,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -251,7 +251,7 @@ module AWS::Ec2
       :transit_gateway_vpc_attachment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -277,7 +277,7 @@ module AWS::Ec2
       :vpc_endpoint_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute unsuccessful
@@ -290,7 +290,7 @@ module AWS::Ec2
       :unsuccessful,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -311,7 +311,7 @@ module AWS::Ec2
       :vpc_peering_connection_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpc_peering_connection
@@ -323,7 +323,7 @@ module AWS::Ec2
       :vpc_peering_connection,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a finding for a Network Access Scope.</p>
@@ -355,7 +355,7 @@ module AWS::Ec2
       :finding_components,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a path.</p>
@@ -381,7 +381,7 @@ module AWS::Ec2
       :through_resources,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a path.</p>
@@ -407,7 +407,7 @@ module AWS::Ec2
       :through_resources,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an account attribute.</p>
@@ -427,7 +427,7 @@ module AWS::Ec2
       :attribute_values,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a value of an account attribute.</p>
@@ -441,7 +441,7 @@ module AWS::Ec2
       :attribute_value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a running instance in a Spot Fleet.</p>
@@ -475,7 +475,7 @@ module AWS::Ec2
       :instance_health,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
@@ -492,7 +492,7 @@ module AWS::Ec2
       :region_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An entry for a prefix list.</p>
@@ -513,7 +513,7 @@ module AWS::Ec2
       :description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an Elastic IP address, or a carrier IP address.</p>
@@ -608,7 +608,7 @@ module AWS::Ec2
       :carrier_ip,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The attributes associated with an Elastic IP address.</p>
@@ -640,7 +640,7 @@ module AWS::Ec2
       :ptr_record_update,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cidr
@@ -661,7 +661,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute byoip_cidr
@@ -673,7 +673,7 @@ module AWS::Ec2
       :byoip_cidr,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute domain
@@ -734,7 +734,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute public_ip
@@ -791,7 +791,7 @@ module AWS::Ec2
       :carrier_ip,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute auto_placement
@@ -871,7 +871,7 @@ module AWS::Ec2
       :host_recovery,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of AllocateHosts.</p>
@@ -886,7 +886,7 @@ module AWS::Ec2
       :host_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -960,7 +960,7 @@ module AWS::Ec2
       :disallowed_cidrs,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam_pool_allocation
@@ -972,7 +972,7 @@ module AWS::Ec2
       :ipam_pool_allocation,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a principal.</p>
@@ -992,7 +992,7 @@ module AWS::Ec2
       :principal,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an potential intermediate component of a feasible path.</p>
@@ -1012,7 +1012,7 @@ module AWS::Ec2
       :component_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a network access control (ACL) rule.</p>
@@ -1056,7 +1056,7 @@ module AWS::Ec2
       :rule_number,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a path component.</p>
@@ -1082,7 +1082,7 @@ module AWS::Ec2
       :member_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a load balancer listener.</p>
@@ -1102,7 +1102,7 @@ module AWS::Ec2
       :instance_port,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a load balancer target.</p>
@@ -1134,7 +1134,7 @@ module AWS::Ec2
       :port,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a header. Reflects any changes made by a component as traffic passes through.
@@ -1173,7 +1173,7 @@ module AWS::Ec2
       :source_port_ranges,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a route table route.</p>
@@ -1255,7 +1255,7 @@ module AWS::Ec2
       :vpc_peering_connection_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a security group rule.</p>
@@ -1307,7 +1307,7 @@ module AWS::Ec2
       :protocol,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -1338,7 +1338,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute security_group_ids
@@ -1350,7 +1350,7 @@ module AWS::Ec2
       :security_group_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipv6_address_count
@@ -1392,7 +1392,7 @@ module AWS::Ec2
       :network_interface_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute assigned_ipv6_addresses
@@ -1417,7 +1417,7 @@ module AWS::Ec2
       :network_interface_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for AssignPrivateIpAddresses.</p>
@@ -1462,7 +1462,7 @@ module AWS::Ec2
       :ipv4_prefix_count,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_interface_id
@@ -1486,7 +1486,7 @@ module AWS::Ec2
       :assigned_ipv4_prefixes,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the private IP addresses assigned to a network interface.</p>
@@ -1500,7 +1500,7 @@ module AWS::Ec2
       :private_ip_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute allocation_id
@@ -1555,7 +1555,7 @@ module AWS::Ec2
       :private_ip_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association_id
@@ -1567,7 +1567,7 @@ module AWS::Ec2
       :association_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -1597,7 +1597,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association_id
@@ -1615,7 +1615,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dhcp_options_id
@@ -1642,14 +1642,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     AssociateDhcpOptionsOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute certificate_arn
@@ -1674,7 +1674,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute certificate_s3_bucket_name
@@ -1699,7 +1699,7 @@ module AWS::Ec2
       :encryption_kms_key_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute iam_instance_profile
@@ -1717,7 +1717,7 @@ module AWS::Ec2
       :instance_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute iam_instance_profile_association
@@ -1729,7 +1729,7 @@ module AWS::Ec2
       :iam_instance_profile_association,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -1755,7 +1755,7 @@ module AWS::Ec2
       :association_target,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_event_window
@@ -1767,7 +1767,7 @@ module AWS::Ec2
       :instance_event_window,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -1799,7 +1799,7 @@ module AWS::Ec2
       :gateway_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association_id
@@ -1818,7 +1818,7 @@ module AWS::Ec2
       :association_state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipv6_cidr_block
@@ -1837,7 +1837,7 @@ module AWS::Ec2
       :subnet_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipv6_cidr_block_association
@@ -1855,7 +1855,7 @@ module AWS::Ec2
       :subnet_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -1887,7 +1887,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute associations
@@ -1899,7 +1899,7 @@ module AWS::Ec2
       :associations,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -1925,7 +1925,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association
@@ -1937,7 +1937,7 @@ module AWS::Ec2
       :association,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute branch_interface_id
@@ -1983,7 +1983,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute interface_association
@@ -2003,7 +2003,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute amazon_provided_ipv6_cidr_block
@@ -2074,7 +2074,7 @@ module AWS::Ec2
       :ipv6_netmask_length,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipv6_cidr_block_association
@@ -2098,7 +2098,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the associated IAM roles.</p>
@@ -2132,7 +2132,7 @@ module AWS::Ec2
       :encryption_kms_key_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a target network that is associated with a Client VPN endpoint. A target network is a subnet in a VPC.</p>
@@ -2152,7 +2152,7 @@ module AWS::Ec2
       :network_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the state of a target network association.</p>
@@ -2172,7 +2172,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes integration options for Amazon Athena.</p>
@@ -2204,7 +2204,7 @@ module AWS::Ec2
       :partition_end_date,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -2236,7 +2236,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -2248,7 +2248,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -2274,14 +2274,14 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     AttachInternetGatewayOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for AttachNetworkInterface.</p>
@@ -2323,7 +2323,7 @@ module AWS::Ec2
       :network_card_index,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of AttachNetworkInterface.</p>
@@ -2343,7 +2343,7 @@ module AWS::Ec2
       :network_card_index,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute device
@@ -2376,7 +2376,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes volume attachment details.</p>
@@ -2420,7 +2420,7 @@ module AWS::Ec2
       :delete_on_termination,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for AttachVpnGateway.</p>
@@ -2449,7 +2449,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of AttachVpnGateway.</p>
@@ -2463,7 +2463,7 @@ module AWS::Ec2
       :vpc_attachment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a value for a resource attribute that is a Boolean value.</p>
@@ -2477,7 +2477,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a value for a resource attribute that is a String.</p>
@@ -2491,7 +2491,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about an authorization rule.</p>
@@ -2535,7 +2535,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -2585,7 +2585,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute status
@@ -2597,7 +2597,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -2669,7 +2669,7 @@ module AWS::Ec2
       :source_security_group_owner_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -2687,7 +2687,7 @@ module AWS::Ec2
       :security_group_rules,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cidr_ip
@@ -2785,7 +2785,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -2803,7 +2803,7 @@ module AWS::Ec2
       :security_group_rules,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes Availability Zones, Local Zones, and Wavelength Zones.</p>
@@ -2887,7 +2887,7 @@ module AWS::Ec2
       :parent_zone_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a message about an Availability Zone, Local Zone, or Wavelength Zone.</p>
@@ -2901,7 +2901,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The capacity information for instances that can be launched onto the Dedicated Host. </p>
@@ -2924,7 +2924,7 @@ module AWS::Ec2
       :available_v_cpus,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
@@ -2948,7 +2948,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
@@ -2972,7 +2972,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute value
@@ -2983,7 +2983,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a block device mapping, which defines the EBS volumes and instance store
@@ -3028,7 +3028,7 @@ module AWS::Ec2
       :no_device,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for BundleInstance.</p>
@@ -3059,7 +3059,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of BundleInstance.</p>
@@ -3073,7 +3073,7 @@ module AWS::Ec2
       :bundle_task,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a bundle task.</p>
@@ -3129,7 +3129,7 @@ module AWS::Ec2
       :update_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an error for <a>BundleInstance</a>.</p>
@@ -3149,7 +3149,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about an address range that is provisioned for use with your Amazon Web Services resources
@@ -3182,7 +3182,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for CancelBundleTask.</p>
@@ -3204,7 +3204,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of CancelBundleTask.</p>
@@ -3218,7 +3218,7 @@ module AWS::Ec2
       :bundle_task,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Capacity Reservation Fleet cancellation error.</p>
@@ -3238,7 +3238,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -3256,7 +3256,7 @@ module AWS::Ec2
       :capacity_reservation_fleet_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute successful_fleet_cancellations
@@ -3274,7 +3274,7 @@ module AWS::Ec2
       :failed_fleet_cancellations,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute capacity_reservation_id
@@ -3292,7 +3292,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -3304,7 +3304,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute conversion_task_id
@@ -3330,14 +3330,14 @@ module AWS::Ec2
       :reason_message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     CancelConversionTaskOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute export_task_id
@@ -3349,14 +3349,14 @@ module AWS::Ec2
       :export_task_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     CancelExportTaskOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cancel_reason
@@ -3382,7 +3382,7 @@ module AWS::Ec2
       :import_task_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute import_task_id
@@ -3406,7 +3406,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for CancelReservedInstancesListing.</p>
@@ -3420,7 +3420,7 @@ module AWS::Ec2
       :reserved_instances_listing_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of CancelReservedInstancesListing.</p>
@@ -3434,7 +3434,7 @@ module AWS::Ec2
       :reserved_instances_listings,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Spot Fleet error.</p>
@@ -3454,7 +3454,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Spot Fleet request that was not successfully canceled.</p>
@@ -3474,7 +3474,7 @@ module AWS::Ec2
       :spot_fleet_request_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for CancelSpotFleetRequests.</p>
@@ -3504,7 +3504,7 @@ module AWS::Ec2
       :terminate_instances,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of CancelSpotFleetRequests.</p>
@@ -3524,7 +3524,7 @@ module AWS::Ec2
       :unsuccessful_fleet_requests,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Spot Fleet request that was successfully canceled.</p>
@@ -3550,7 +3550,7 @@ module AWS::Ec2
       :spot_fleet_request_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for CancelSpotInstanceRequests.</p>
@@ -3573,7 +3573,7 @@ module AWS::Ec2
       :spot_instance_request_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of CancelSpotInstanceRequests.</p>
@@ -3587,7 +3587,7 @@ module AWS::Ec2
       :cancelled_spot_instance_requests,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a request to cancel a Spot Instance.</p>
@@ -3607,7 +3607,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Capacity Reservation.</p>
@@ -3822,7 +3822,7 @@ module AWS::Ec2
       :placement_group_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about a Capacity Reservation Fleet.</p>
@@ -3977,7 +3977,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Capacity Reservation Fleet that was successfully cancelled.</p>
@@ -4003,7 +4003,7 @@ module AWS::Ec2
       :capacity_reservation_fleet_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a resource group to which a Capacity Reservation has been added.</p>
@@ -4023,7 +4023,7 @@ module AWS::Ec2
       :owner_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand
@@ -4055,7 +4055,7 @@ module AWS::Ec2
       :usage_strategy,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand
@@ -4086,7 +4086,7 @@ module AWS::Ec2
       :usage_strategy,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an instance's Capacity Reservation targeting option. You can specify only one parameter
@@ -4125,7 +4125,7 @@ module AWS::Ec2
       :capacity_reservation_target,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the instance's Capacity Reservation targeting preferences. The action returns the
@@ -4162,7 +4162,7 @@ module AWS::Ec2
       :capacity_reservation_target,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
@@ -4182,7 +4182,7 @@ module AWS::Ec2
       :capacity_reservation_resource_group_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
@@ -4202,7 +4202,7 @@ module AWS::Ec2
       :capacity_reservation_resource_group_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a carrier gateway.</p>
@@ -4240,7 +4240,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the client certificate used for authentication.</p>
@@ -4254,7 +4254,7 @@ module AWS::Ec2
       :client_root_certificate_chain,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the client certificate to be used for authentication.</p>
@@ -4269,7 +4269,7 @@ module AWS::Ec2
       :client_root_certificate_chain_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Provides authorization for Amazon to bring a specific IP address range to a specific
@@ -4290,7 +4290,7 @@ module AWS::Ec2
       :signature,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IPv4 CIDR block.</p>
@@ -4304,7 +4304,7 @@ module AWS::Ec2
       :cidr_block,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the ClassicLink DNS support status of a VPC.</p>
@@ -4324,7 +4324,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a linked EC2-Classic instance.</p>
@@ -4356,7 +4356,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Classic Load Balancer.</p>
@@ -4370,7 +4370,7 @@ module AWS::Ec2
       :member_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers
@@ -4385,7 +4385,7 @@ module AWS::Ec2
       :classic_load_balancers,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the state of a client certificate revocation list.</p>
@@ -4405,7 +4405,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The options for managing connection authorization for new client connections.</p>
@@ -4425,7 +4425,7 @@ module AWS::Ec2
       :lambda_function_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The options for managing connection authorization for new client connections.</p>
@@ -4451,7 +4451,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the client-specific data.</p>
@@ -4483,7 +4483,7 @@ module AWS::Ec2
       :upload_start,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the authentication methods used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html">Authentication</a>
@@ -4516,7 +4516,7 @@ module AWS::Ec2
       :federated_authentication,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the authentication method to be used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a>
@@ -4549,7 +4549,7 @@ module AWS::Ec2
       :federated_authentication,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the state of an authorization rule.</p>
@@ -4569,7 +4569,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a client connection.</p>
@@ -4663,7 +4663,7 @@ module AWS::Ec2
       :posture_compliance_statuses,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the status of a client connection.</p>
@@ -4683,7 +4683,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Client VPN endpoint.</p>
@@ -4822,7 +4822,7 @@ module AWS::Ec2
       :client_connect_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the status of the Client VPN endpoint attribute.</p>
@@ -4842,7 +4842,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the state of a Client VPN endpoint.</p>
@@ -4884,7 +4884,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about a Client VPN endpoint route.</p>
@@ -4937,7 +4937,7 @@ module AWS::Ec2
       :description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the state of a Client VPN endpoint route.</p>
@@ -4957,7 +4957,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes address usage for a customer-owned address pool.</p>
@@ -4989,7 +4989,7 @@ module AWS::Ec2
       :co_ip,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a customer-owned address pool.</p>
@@ -5027,7 +5027,7 @@ module AWS::Ec2
       :pool_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_id
@@ -5053,7 +5053,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute owner_id
@@ -5073,7 +5073,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the client connection logging options for the Client VPN endpoint.</p>
@@ -5099,7 +5099,7 @@ module AWS::Ec2
       :cloudwatch_log_stream,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the client connection logging options for a Client VPN endpoint.</p>
@@ -5125,7 +5125,7 @@ module AWS::Ec2
       :cloudwatch_log_stream,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a connection notification for a VPC endpoint or VPC endpoint
@@ -5177,7 +5177,7 @@ module AWS::Ec2
       :connection_notification_state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a conversion task.</p>
@@ -5228,7 +5228,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -5273,7 +5273,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute fpga_image_id
@@ -5285,7 +5285,7 @@ module AWS::Ec2
       :fpga_image_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for CopyImage.</p>
@@ -5383,7 +5383,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of CopyImage.</p>
@@ -5397,7 +5397,7 @@ module AWS::Ec2
       :image_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute description
@@ -5514,7 +5514,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute snapshot_id
@@ -5532,7 +5532,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The CPU options for the instance.</p>
@@ -5552,7 +5552,7 @@ module AWS::Ec2
       :threads_per_core,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The CPU options for the instance. Both the core count and threads per core must be
@@ -5575,7 +5575,7 @@ module AWS::Ec2
       :threads_per_core,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute allocation_strategy
@@ -5671,7 +5671,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute capacity_reservation_fleet_id
@@ -5743,7 +5743,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_token
@@ -5904,7 +5904,7 @@ module AWS::Ec2
       :placement_group_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute capacity_reservation
@@ -5916,7 +5916,7 @@ module AWS::Ec2
       :capacity_reservation,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpc_id
@@ -5950,7 +5950,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute carrier_gateway
@@ -5962,7 +5962,7 @@ module AWS::Ec2
       :carrier_gateway,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_cidr_block
@@ -6093,7 +6093,7 @@ module AWS::Ec2
       :client_connect_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -6117,7 +6117,7 @@ module AWS::Ec2
       :dns_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -6176,7 +6176,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute status
@@ -6188,7 +6188,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for CreateCustomerGateway.</p>
@@ -6245,7 +6245,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of CreateCustomerGateway.</p>
@@ -6259,7 +6259,7 @@ module AWS::Ec2
       :customer_gateway,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute availability_zone
@@ -6286,7 +6286,7 @@ module AWS::Ec2
       :ipv6_native,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute subnet
@@ -6298,7 +6298,7 @@ module AWS::Ec2
       :subnet,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -6312,7 +6312,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpc
@@ -6324,7 +6324,7 @@ module AWS::Ec2
       :vpc,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dhcp_configurations
@@ -6350,7 +6350,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dhcp_options
@@ -6362,7 +6362,7 @@ module AWS::Ec2
       :dhcp_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_token
@@ -6396,7 +6396,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_token
@@ -6415,7 +6415,7 @@ module AWS::Ec2
       :egress_only_internet_gateway,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the instances that could not be launched by the fleet.</p>
@@ -6450,7 +6450,7 @@ module AWS::Ec2
       :error_message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -6580,7 +6580,7 @@ module AWS::Ec2
       :context,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the instances that were launched by the fleet.</p>
@@ -6620,7 +6620,7 @@ module AWS::Ec2
       :platform,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute fleet_id
@@ -6646,7 +6646,7 @@ module AWS::Ec2
       :instances,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -6769,7 +6769,7 @@ module AWS::Ec2
       :destination_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_token
@@ -6794,7 +6794,7 @@ module AWS::Ec2
       :unsuccessful,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -6845,7 +6845,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute fpga_image_id
@@ -6863,7 +6863,7 @@ module AWS::Ec2
       :fpga_image_global_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute block_device_mappings
@@ -6935,7 +6935,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute image_id
@@ -6947,7 +6947,7 @@ module AWS::Ec2
       :image_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -7015,7 +7015,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_event_window
@@ -7027,7 +7027,7 @@ module AWS::Ec2
       :instance_event_window,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute description
@@ -7063,7 +7063,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute export_task
@@ -7075,7 +7075,7 @@ module AWS::Ec2
       :export_task,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute tag_specifications
@@ -7095,7 +7095,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute internet_gateway
@@ -7107,7 +7107,7 @@ module AWS::Ec2
       :internet_gateway,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -7149,7 +7149,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam
@@ -7161,7 +7161,7 @@ module AWS::Ec2
       :ipam,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -7271,7 +7271,7 @@ module AWS::Ec2
       :aws_service,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam_pool
@@ -7283,7 +7283,7 @@ module AWS::Ec2
       :ipam_pool,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -7322,7 +7322,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam_scope
@@ -7334,7 +7334,7 @@ module AWS::Ec2
       :ipam_scope,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute key_name
@@ -7369,7 +7369,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a key pair.</p>
@@ -7410,7 +7410,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Ec2::Types::CreateKeyPairOutput "\
@@ -7467,7 +7467,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute launch_template
@@ -7485,7 +7485,7 @@ module AWS::Ec2
       :warning,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -7545,7 +7545,7 @@ module AWS::Ec2
       :launch_template_data,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute launch_template_version
@@ -7563,7 +7563,7 @@ module AWS::Ec2
       :warning,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute destination_cidr_block
@@ -7596,7 +7596,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute route
@@ -7608,7 +7608,7 @@ module AWS::Ec2
       :route,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_route_table_id
@@ -7640,7 +7640,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_route_table_vpc_association
@@ -7652,7 +7652,7 @@ module AWS::Ec2
       :local_gateway_route_table_vpc_association,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -7708,7 +7708,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute prefix_list
@@ -7720,7 +7720,7 @@ module AWS::Ec2
       :prefix_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute allocation_id
@@ -7770,7 +7770,7 @@ module AWS::Ec2
       :connectivity_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_token
@@ -7788,7 +7788,7 @@ module AWS::Ec2
       :nat_gateway,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cidr_block
@@ -7866,14 +7866,14 @@ module AWS::Ec2
       :rule_number,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     CreateNetworkAclEntryOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -7899,7 +7899,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_acl
@@ -7911,7 +7911,7 @@ module AWS::Ec2
       :network_acl,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute match_paths
@@ -7950,7 +7950,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_access_scope
@@ -7968,7 +7968,7 @@ module AWS::Ec2
       :network_insights_access_scope_content,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute source_ip
@@ -8031,7 +8031,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_path
@@ -8043,7 +8043,7 @@ module AWS::Ec2
       :network_insights_path,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for CreateNetworkInterface.</p>
@@ -8166,7 +8166,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of CreateNetworkInterface.</p>
@@ -8186,7 +8186,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for CreateNetworkInterfacePermission.</p>
@@ -8226,7 +8226,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of CreateNetworkInterfacePermission.</p>
@@ -8240,7 +8240,7 @@ module AWS::Ec2
       :interface_permission,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -8281,7 +8281,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute placement_group
@@ -8293,7 +8293,7 @@ module AWS::Ec2
       :placement_group,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -8314,7 +8314,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute pool_id
@@ -8326,7 +8326,7 @@ module AWS::Ec2
       :pool_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_id
@@ -8367,7 +8367,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute replace_root_volume_task
@@ -8379,7 +8379,7 @@ module AWS::Ec2
       :replace_root_volume_task,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for CreateReservedInstancesListing.</p>
@@ -8413,7 +8413,7 @@ module AWS::Ec2
       :reserved_instances_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of CreateReservedInstancesListing.</p>
@@ -8427,7 +8427,7 @@ module AWS::Ec2
       :reserved_instances_listings,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute bucket
@@ -8478,7 +8478,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute image_id
@@ -8490,7 +8490,7 @@ module AWS::Ec2
       :image_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute destination_cidr_block
@@ -8596,7 +8596,7 @@ module AWS::Ec2
       :core_network_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -8608,7 +8608,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -8634,7 +8634,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute route_table
@@ -8646,7 +8646,7 @@ module AWS::Ec2
       :route_table,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute description
@@ -8691,7 +8691,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute group_id
@@ -8709,7 +8709,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute description
@@ -8765,7 +8765,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a snapshot.</p>
@@ -8891,7 +8891,7 @@ module AWS::Ec2
       :restore_expiry_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute description
@@ -8955,7 +8955,7 @@ module AWS::Ec2
       :copy_tags_from_source,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute snapshots
@@ -8967,7 +8967,7 @@ module AWS::Ec2
       :snapshots,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for CreateSpotDatafeedSubscription.</p>
@@ -8998,7 +8998,7 @@ module AWS::Ec2
       :prefix,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of CreateSpotDatafeedSubscription.</p>
@@ -9012,7 +9012,7 @@ module AWS::Ec2
       :spot_datafeed_subscription,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute image_id
@@ -9046,7 +9046,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute object_key
@@ -9058,7 +9058,7 @@ module AWS::Ec2
       :object_key,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute tag_specifications
@@ -9123,7 +9123,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute subnet_cidr_reservation
@@ -9135,7 +9135,7 @@ module AWS::Ec2
       :subnet_cidr_reservation,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute tag_specifications
@@ -9210,7 +9210,7 @@ module AWS::Ec2
       :ipv6_native,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute subnet
@@ -9222,7 +9222,7 @@ module AWS::Ec2
       :subnet,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -9250,14 +9250,14 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     CreateTagsOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute description
@@ -9289,7 +9289,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_filter
@@ -9307,7 +9307,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_filter_id
@@ -9389,7 +9389,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_filter_rule
@@ -9407,7 +9407,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_interface_id
@@ -9484,7 +9484,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_session
@@ -9502,7 +9502,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_interface_id
@@ -9546,7 +9546,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_target
@@ -9564,7 +9564,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transport_transit_gateway_attachment_id
@@ -9596,7 +9596,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_connect
@@ -9608,7 +9608,7 @@ module AWS::Ec2
       :transit_gateway_connect,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_id
@@ -9664,7 +9664,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_connect_peer
@@ -9676,7 +9676,7 @@ module AWS::Ec2
       :transit_gateway_connect_peer,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The options for a Connect attachment.</p>
@@ -9690,7 +9690,7 @@ module AWS::Ec2
       :protocol,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute description
@@ -9722,7 +9722,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_id
@@ -9754,7 +9754,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domain
@@ -9766,7 +9766,7 @@ module AWS::Ec2
       :transit_gateway_multicast_domain,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The options for the transit gateway multicast domain.</p>
@@ -9792,7 +9792,7 @@ module AWS::Ec2
       :auto_accept_shared_associations,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway
@@ -9804,7 +9804,7 @@ module AWS::Ec2
       :transit_gateway,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_id
@@ -9848,7 +9848,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_peering_attachment
@@ -9860,7 +9860,7 @@ module AWS::Ec2
       :transit_gateway_peering_attachment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -9898,7 +9898,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_prefix_list_reference
@@ -9910,7 +9910,7 @@ module AWS::Ec2
       :transit_gateway_prefix_list_reference,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute destination_cidr_block
@@ -9949,7 +9949,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute route
@@ -9961,7 +9961,7 @@ module AWS::Ec2
       :route,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_id
@@ -9987,7 +9987,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table
@@ -9999,7 +9999,7 @@ module AWS::Ec2
       :transit_gateway_route_table,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_id
@@ -10045,7 +10045,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -10057,7 +10057,7 @@ module AWS::Ec2
       :transit_gateway_vpc_attachment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the options for a VPC attachment.</p>
@@ -10083,7 +10083,7 @@ module AWS::Ec2
       :appliance_mode_support,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute availability_zone
@@ -10274,7 +10274,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a volume.</p>
@@ -10381,7 +10381,7 @@ module AWS::Ec2
       :throughput,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the user or group to be added or removed from the list of create volume
@@ -10402,7 +10402,7 @@ module AWS::Ec2
       :user_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes modifications to the list of create volume permissions for a volume.</p>
@@ -10422,7 +10422,7 @@ module AWS::Ec2
       :remove,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -10470,7 +10470,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute connection_notification
@@ -10489,7 +10489,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for CreateVpcEndpoint.</p>
@@ -10585,7 +10585,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of CreateVpcEndpoint.</p>
@@ -10606,7 +10606,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -10660,7 +10660,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute service_configuration
@@ -10679,7 +10679,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cidr_block
@@ -10773,7 +10773,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpc
@@ -10785,7 +10785,7 @@ module AWS::Ec2
       :vpc,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -10834,7 +10834,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpc_peering_connection
@@ -10846,7 +10846,7 @@ module AWS::Ec2
       :vpc_peering_connection,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for CreateVpnConnection.</p>
@@ -10901,7 +10901,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of CreateVpnConnection.</p>
@@ -10915,7 +10915,7 @@ module AWS::Ec2
       :vpn_connection,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for CreateVpnConnectionRoute.</p>
@@ -10935,14 +10935,14 @@ module AWS::Ec2
       :vpn_connection_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     CreateVpnConnectionRouteOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for CreateVpnGateway.</p>
@@ -10986,7 +10986,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of CreateVpnGateway.</p>
@@ -11000,7 +11000,7 @@ module AWS::Ec2
       :vpn_gateway,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the credit option for CPU usage of a T2, T3, or T3a instance.</p>
@@ -11015,7 +11015,7 @@ module AWS::Ec2
       :cpu_credits,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The credit option for CPU usage of a T2, T3, or T3a instance.</p>
@@ -11030,7 +11030,7 @@ module AWS::Ec2
       :cpu_credits,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a customer gateway.</p>
@@ -11089,7 +11089,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute carrier_gateway_id
@@ -11109,7 +11109,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute carrier_gateway
@@ -11121,7 +11121,7 @@ module AWS::Ec2
       :carrier_gateway,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -11139,7 +11139,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute status
@@ -11151,7 +11151,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -11181,7 +11181,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute status
@@ -11193,7 +11193,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DeleteCustomerGateway.</p>
@@ -11216,14 +11216,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteCustomerGatewayOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dhcp_options_id
@@ -11243,14 +11243,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteDhcpOptionsOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -11270,7 +11270,7 @@ module AWS::Ec2
       :egress_only_internet_gateway_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return_code
@@ -11282,7 +11282,7 @@ module AWS::Ec2
       :return_code,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an EC2 Fleet error.</p>
@@ -11302,7 +11302,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an EC2 Fleet that was not successfully deleted.</p>
@@ -11322,7 +11322,7 @@ module AWS::Ec2
       :fleet_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an EC2 Fleet that was successfully deleted.</p>
@@ -11348,7 +11348,7 @@ module AWS::Ec2
       :fleet_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -11380,7 +11380,7 @@ module AWS::Ec2
       :terminate_instances,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute successful_fleet_deletions
@@ -11398,7 +11398,7 @@ module AWS::Ec2
       :unsuccessful_fleet_deletions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -11419,7 +11419,7 @@ module AWS::Ec2
       :flow_log_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute unsuccessful
@@ -11431,7 +11431,7 @@ module AWS::Ec2
       :unsuccessful,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -11451,7 +11451,7 @@ module AWS::Ec2
       :fpga_image_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -11463,7 +11463,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -11490,7 +11490,7 @@ module AWS::Ec2
       :instance_event_window_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_event_window_state
@@ -11502,7 +11502,7 @@ module AWS::Ec2
       :instance_event_window_state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -11522,14 +11522,14 @@ module AWS::Ec2
       :internet_gateway_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteInternetGatewayOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -11549,7 +11549,7 @@ module AWS::Ec2
       :ipam_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam
@@ -11561,7 +11561,7 @@ module AWS::Ec2
       :ipam,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -11581,7 +11581,7 @@ module AWS::Ec2
       :ipam_pool_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam_pool
@@ -11593,7 +11593,7 @@ module AWS::Ec2
       :ipam_pool,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -11613,7 +11613,7 @@ module AWS::Ec2
       :ipam_scope_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam_scope
@@ -11625,7 +11625,7 @@ module AWS::Ec2
       :ipam_scope,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute key_name
@@ -11651,14 +11651,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteKeyPairOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -11687,7 +11687,7 @@ module AWS::Ec2
       :launch_template_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute launch_template
@@ -11699,7 +11699,7 @@ module AWS::Ec2
       :launch_template,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -11734,7 +11734,7 @@ module AWS::Ec2
       :versions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute successfully_deleted_launch_template_versions
@@ -11753,7 +11753,7 @@ module AWS::Ec2
       :unsuccessfully_deleted_launch_template_versions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a launch template version that could not be deleted.</p>
@@ -11785,7 +11785,7 @@ module AWS::Ec2
       :response_error,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a launch template version that was successfully deleted.</p>
@@ -11811,7 +11811,7 @@ module AWS::Ec2
       :version_number,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute destination_cidr_block
@@ -11837,7 +11837,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute route
@@ -11849,7 +11849,7 @@ module AWS::Ec2
       :route,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_route_table_vpc_association_id
@@ -11869,7 +11869,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_route_table_vpc_association
@@ -11881,7 +11881,7 @@ module AWS::Ec2
       :local_gateway_route_table_vpc_association,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -11901,7 +11901,7 @@ module AWS::Ec2
       :prefix_list_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute prefix_list
@@ -11913,7 +11913,7 @@ module AWS::Ec2
       :prefix_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -11933,7 +11933,7 @@ module AWS::Ec2
       :nat_gateway_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute nat_gateway_id
@@ -11945,7 +11945,7 @@ module AWS::Ec2
       :nat_gateway_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -11977,14 +11977,14 @@ module AWS::Ec2
       :rule_number,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteNetworkAclEntryOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -12004,14 +12004,14 @@ module AWS::Ec2
       :network_acl_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteNetworkAclOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_access_scope_analysis_id
@@ -12031,7 +12031,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_access_scope_analysis_id
@@ -12043,7 +12043,7 @@ module AWS::Ec2
       :network_insights_access_scope_analysis_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -12063,7 +12063,7 @@ module AWS::Ec2
       :network_insights_access_scope_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_access_scope_id
@@ -12075,7 +12075,7 @@ module AWS::Ec2
       :network_insights_access_scope_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -12095,7 +12095,7 @@ module AWS::Ec2
       :network_insights_analysis_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_analysis_id
@@ -12107,7 +12107,7 @@ module AWS::Ec2
       :network_insights_analysis_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -12127,7 +12127,7 @@ module AWS::Ec2
       :network_insights_path_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_path_id
@@ -12139,7 +12139,7 @@ module AWS::Ec2
       :network_insights_path_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DeleteNetworkInterface.</p>
@@ -12161,14 +12161,14 @@ module AWS::Ec2
       :network_interface_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteNetworkInterfaceOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DeleteNetworkInterfacePermission.</p>
@@ -12197,7 +12197,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output for DeleteNetworkInterfacePermission.</p>
@@ -12211,7 +12211,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -12231,14 +12231,14 @@ module AWS::Ec2
       :group_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeletePlacementGroupOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -12258,7 +12258,7 @@ module AWS::Ec2
       :pool_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return_value
@@ -12270,7 +12270,7 @@ module AWS::Ec2
       :return_value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the error for a Reserved Instance whose queued purchase could not be deleted.</p>
@@ -12290,7 +12290,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -12310,7 +12310,7 @@ module AWS::Ec2
       :reserved_instances_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute successful_queued_purchase_deletions
@@ -12328,7 +12328,7 @@ module AWS::Ec2
       :failed_queued_purchase_deletions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute destination_cidr_block
@@ -12366,14 +12366,14 @@ module AWS::Ec2
       :route_table_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteRouteOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -12393,14 +12393,14 @@ module AWS::Ec2
       :route_table_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteRouteTableOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute group_id
@@ -12426,14 +12426,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteSecurityGroupOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute snapshot_id
@@ -12453,14 +12453,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteSnapshotOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DeleteSpotDatafeedSubscription.</p>
@@ -12477,14 +12477,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteSpotDatafeedSubscriptionOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute subnet_cidr_reservation_id
@@ -12504,7 +12504,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute deleted_subnet_cidr_reservation
@@ -12516,7 +12516,7 @@ module AWS::Ec2
       :deleted_subnet_cidr_reservation,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute subnet_id
@@ -12536,14 +12536,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteSubnetOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -12577,14 +12577,14 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteTagsOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_filter_id
@@ -12604,7 +12604,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_filter_id
@@ -12616,7 +12616,7 @@ module AWS::Ec2
       :traffic_mirror_filter_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_filter_rule_id
@@ -12636,7 +12636,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_filter_rule_id
@@ -12648,7 +12648,7 @@ module AWS::Ec2
       :traffic_mirror_filter_rule_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_session_id
@@ -12668,7 +12668,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_session_id
@@ -12680,7 +12680,7 @@ module AWS::Ec2
       :traffic_mirror_session_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_target_id
@@ -12700,7 +12700,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_target_id
@@ -12712,7 +12712,7 @@ module AWS::Ec2
       :traffic_mirror_target_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_id
@@ -12732,7 +12732,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_connect
@@ -12744,7 +12744,7 @@ module AWS::Ec2
       :transit_gateway_connect,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_connect_peer_id
@@ -12764,7 +12764,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_connect_peer
@@ -12776,7 +12776,7 @@ module AWS::Ec2
       :transit_gateway_connect_peer,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_id
@@ -12796,7 +12796,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -12816,7 +12816,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domain
@@ -12828,7 +12828,7 @@ module AWS::Ec2
       :transit_gateway_multicast_domain,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway
@@ -12840,7 +12840,7 @@ module AWS::Ec2
       :transit_gateway,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_id
@@ -12860,7 +12860,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_peering_attachment
@@ -12872,7 +12872,7 @@ module AWS::Ec2
       :transit_gateway_peering_attachment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -12898,7 +12898,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_prefix_list_reference
@@ -12910,7 +12910,7 @@ module AWS::Ec2
       :transit_gateway_prefix_list_reference,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -12936,7 +12936,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute route
@@ -12948,7 +12948,7 @@ module AWS::Ec2
       :route,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -12968,7 +12968,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table
@@ -12980,7 +12980,7 @@ module AWS::Ec2
       :transit_gateway_route_table,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_id
@@ -13000,7 +13000,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -13012,7 +13012,7 @@ module AWS::Ec2
       :transit_gateway_vpc_attachment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute volume_id
@@ -13032,14 +13032,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteVolumeOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -13059,7 +13059,7 @@ module AWS::Ec2
       :connection_notification_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute unsuccessful
@@ -13072,7 +13072,7 @@ module AWS::Ec2
       :unsuccessful,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -13092,7 +13092,7 @@ module AWS::Ec2
       :service_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute unsuccessful
@@ -13105,7 +13105,7 @@ module AWS::Ec2
       :unsuccessful,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DeleteVpcEndpoints.</p>
@@ -13127,7 +13127,7 @@ module AWS::Ec2
       :vpc_endpoint_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DeleteVpcEndpoints.</p>
@@ -13141,7 +13141,7 @@ module AWS::Ec2
       :unsuccessful,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpc_id
@@ -13161,14 +13161,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteVpcOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -13188,7 +13188,7 @@ module AWS::Ec2
       :vpc_peering_connection_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -13200,7 +13200,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DeleteVpnConnection.</p>
@@ -13223,14 +13223,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteVpnConnectionOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DeleteVpnConnectionRoute.</p>
@@ -13250,14 +13250,14 @@ module AWS::Ec2
       :vpn_connection_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteVpnConnectionRouteOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DeleteVpnGateway.</p>
@@ -13280,14 +13280,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteVpnGatewayOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cidr
@@ -13308,7 +13308,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute byoip_cidr
@@ -13320,7 +13320,7 @@ module AWS::Ec2
       :byoip_cidr,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -13346,7 +13346,7 @@ module AWS::Ec2
       :cidr,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam_pool_cidr
@@ -13358,7 +13358,7 @@ module AWS::Ec2
       :ipam_pool_cidr,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -13384,7 +13384,7 @@ module AWS::Ec2
       :cidr,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute pool_id
@@ -13402,7 +13402,7 @@ module AWS::Ec2
       :deprovisioned_addresses,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DeregisterImage.</p>
@@ -13424,14 +13424,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeregisterImageOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -13451,7 +13451,7 @@ module AWS::Ec2
       :instance_tag_attribute,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_tag_attribute
@@ -13463,7 +13463,7 @@ module AWS::Ec2
       :instance_tag_attribute,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the tag keys to deregister for the current Region. You can either specify
@@ -13486,7 +13486,7 @@ module AWS::Ec2
       :instance_tag_keys,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -13518,7 +13518,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute deregistered_multicast_group_members
@@ -13530,7 +13530,7 @@ module AWS::Ec2
       :deregistered_multicast_group_members,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -13562,7 +13562,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute deregistered_multicast_group_sources
@@ -13574,7 +13574,7 @@ module AWS::Ec2
       :deregistered_multicast_group_sources,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute attribute_names
@@ -13594,7 +13594,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute account_attributes
@@ -13606,7 +13606,7 @@ module AWS::Ec2
       :account_attributes,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute allocation_ids
@@ -13644,7 +13644,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute addresses
@@ -13662,7 +13662,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -13744,7 +13744,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute addresses
@@ -13756,7 +13756,7 @@ module AWS::Ec2
       :addresses,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -13770,7 +13770,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute use_long_ids_aggregated
@@ -13790,7 +13790,7 @@ module AWS::Ec2
       :statuses,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -13889,7 +13889,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute availability_zones
@@ -13901,7 +13901,7 @@ module AWS::Ec2
       :availability_zones,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute bundle_ids
@@ -13971,7 +13971,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute bundle_tasks
@@ -13983,7 +13983,7 @@ module AWS::Ec2
       :bundle_tasks,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -14010,7 +14010,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute byoip_cidrs
@@ -14028,7 +14028,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute capacity_reservation_fleet_ids
@@ -14084,7 +14084,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute capacity_reservation_fleets
@@ -14102,7 +14102,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute capacity_reservation_ids
@@ -14246,7 +14246,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -14264,7 +14264,7 @@ module AWS::Ec2
       :capacity_reservations,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute carrier_gateway_ids
@@ -14331,7 +14331,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute carrier_gateways
@@ -14349,7 +14349,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -14418,7 +14418,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instances
@@ -14436,7 +14436,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -14487,7 +14487,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute authorization_rules
@@ -14505,7 +14505,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -14552,7 +14552,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute connections
@@ -14570,7 +14570,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_ids
@@ -14617,7 +14617,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoints
@@ -14635,7 +14635,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -14685,7 +14685,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute routes
@@ -14703,7 +14703,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -14759,7 +14759,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_target_networks
@@ -14777,7 +14777,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute pool_ids
@@ -14830,7 +14830,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute coip_pools
@@ -14848,7 +14848,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute conversion_task_ids
@@ -14868,7 +14868,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute conversion_tasks
@@ -14880,7 +14880,7 @@ module AWS::Ec2
       :conversion_tasks,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeCustomerGateways.</p>
@@ -14946,7 +14946,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeCustomerGateways.</p>
@@ -14960,7 +14960,7 @@ module AWS::Ec2
       :customer_gateways,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dhcp_options_ids
@@ -15027,7 +15027,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dhcp_options
@@ -15045,7 +15045,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -15095,7 +15095,7 @@ module AWS::Ec2
       :filters,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute egress_only_internet_gateways
@@ -15113,7 +15113,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute elastic_gpu_ids
@@ -15180,7 +15180,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute elastic_gpu_set
@@ -15207,7 +15207,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -15246,7 +15246,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute export_image_tasks
@@ -15265,7 +15265,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute export_task_ids
@@ -15283,7 +15283,7 @@ module AWS::Ec2
       :filters,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute export_tasks
@@ -15295,7 +15295,7 @@ module AWS::Ec2
       :export_tasks,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes fast snapshot restores for a snapshot.</p>
@@ -15381,7 +15381,7 @@ module AWS::Ec2
       :disabled_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -15437,7 +15437,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute fast_snapshot_restores
@@ -15455,7 +15455,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the instances that could not be launched by the fleet.</p>
@@ -15490,7 +15490,7 @@ module AWS::Ec2
       :error_message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -15537,7 +15537,7 @@ module AWS::Ec2
       :start_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute history_records
@@ -15578,7 +15578,7 @@ module AWS::Ec2
       :start_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -15624,7 +15624,7 @@ module AWS::Ec2
       :filters,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute active_instances
@@ -15649,7 +15649,7 @@ module AWS::Ec2
       :fleet_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -15720,7 +15720,7 @@ module AWS::Ec2
       :filters,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the instances that were launched by the fleet.</p>
@@ -15760,7 +15760,7 @@ module AWS::Ec2
       :platform,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -15778,7 +15778,7 @@ module AWS::Ec2
       :fleets,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -15857,7 +15857,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute flow_logs
@@ -15875,7 +15875,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -15901,7 +15901,7 @@ module AWS::Ec2
       :attribute,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute fpga_image_attribute
@@ -15913,7 +15913,7 @@ module AWS::Ec2
       :fpga_image_attribute,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -16006,7 +16006,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute fpga_images
@@ -16024,7 +16024,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filter
@@ -16084,7 +16084,7 @@ module AWS::Ec2
       :offering_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -16102,7 +16102,7 @@ module AWS::Ec2
       :offering_set,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filter
@@ -16159,7 +16159,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute host_reservation_set
@@ -16177,7 +16177,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filter
@@ -16247,7 +16247,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute hosts
@@ -16265,7 +16265,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association_ids
@@ -16307,7 +16307,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute iam_instance_profile_associations
@@ -16325,7 +16325,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute resource
@@ -16350,7 +16350,7 @@ module AWS::Ec2
       :resource,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute statuses
@@ -16362,7 +16362,7 @@ module AWS::Ec2
       :statuses,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute principal_arn
@@ -16393,7 +16393,7 @@ module AWS::Ec2
       :resource,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute statuses
@@ -16405,7 +16405,7 @@ module AWS::Ec2
       :statuses,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeImageAttribute.</p>
@@ -16437,7 +16437,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an image attribute.</p>
@@ -16499,7 +16499,7 @@ module AWS::Ec2
       :boot_mode,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute executable_users
@@ -16716,7 +16716,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute images
@@ -16728,7 +16728,7 @@ module AWS::Ec2
       :images,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -16767,7 +16767,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute import_image_tasks
@@ -16787,7 +16787,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -16826,7 +16826,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute import_snapshot_tasks
@@ -16846,7 +16846,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute attribute
@@ -16873,7 +16873,7 @@ module AWS::Ec2
       :instance_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an instance attribute.</p>
@@ -16987,7 +16987,7 @@ module AWS::Ec2
       :user_data,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -17036,7 +17036,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_credit_specifications
@@ -17055,7 +17055,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -17069,7 +17069,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_tag_attribute
@@ -17081,7 +17081,7 @@ module AWS::Ec2
       :instance_tag_attribute,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <para>Describe instance event windows by InstanceEventWindow.</para>
@@ -17176,7 +17176,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_event_windows
@@ -17194,7 +17194,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -17322,7 +17322,7 @@ module AWS::Ec2
       :include_all_instances,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_statuses
@@ -17341,7 +17341,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -17392,7 +17392,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_type_offerings
@@ -17411,7 +17411,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -17668,7 +17668,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_types
@@ -17687,7 +17687,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -18188,7 +18188,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute reservations
@@ -18207,7 +18207,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -18275,7 +18275,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute internet_gateways
@@ -18293,7 +18293,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -18331,7 +18331,7 @@ module AWS::Ec2
       :ipam_pool_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -18349,7 +18349,7 @@ module AWS::Ec2
       :ipam_pools,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -18387,7 +18387,7 @@ module AWS::Ec2
       :ipam_scope_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -18405,7 +18405,7 @@ module AWS::Ec2
       :ipam_scopes,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -18443,7 +18443,7 @@ module AWS::Ec2
       :ipam_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -18461,7 +18461,7 @@ module AWS::Ec2
       :ipams,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute pool_ids
@@ -18511,7 +18511,7 @@ module AWS::Ec2
       :filters,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipv6_pools
@@ -18529,7 +18529,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -18585,7 +18585,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute key_pairs
@@ -18597,7 +18597,7 @@ module AWS::Ec2
       :key_pairs,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -18741,7 +18741,7 @@ module AWS::Ec2
       :filters,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute launch_template_versions
@@ -18760,7 +18760,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -18826,7 +18826,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute launch_templates
@@ -18845,7 +18845,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_route_table_virtual_interface_group_association_ids
@@ -18906,7 +18906,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_route_table_virtual_interface_group_associations
@@ -18924,7 +18924,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_route_table_vpc_association_ids
@@ -18985,7 +18985,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_route_table_vpc_associations
@@ -19003,7 +19003,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_route_table_ids
@@ -19060,7 +19060,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_route_tables
@@ -19078,7 +19078,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_virtual_interface_group_ids
@@ -19131,7 +19131,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_virtual_interface_groups
@@ -19149,7 +19149,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_virtual_interface_ids
@@ -19188,7 +19188,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_virtual_interfaces
@@ -19206,7 +19206,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_ids
@@ -19271,7 +19271,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateways
@@ -19289,7 +19289,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -19342,7 +19342,7 @@ module AWS::Ec2
       :prefix_list_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -19360,7 +19360,7 @@ module AWS::Ec2
       :prefix_lists,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -19409,7 +19409,7 @@ module AWS::Ec2
       :public_ips,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute moving_address_statuses
@@ -19427,7 +19427,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -19494,7 +19494,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute nat_gateways
@@ -19512,7 +19512,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -19628,7 +19628,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_acls
@@ -19646,7 +19646,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_access_scope_analysis_ids
@@ -19703,7 +19703,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_access_scope_analyses
@@ -19721,7 +19721,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_access_scope_ids
@@ -19760,7 +19760,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_access_scopes
@@ -19778,7 +19778,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_analysis_ids
@@ -19843,7 +19843,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_analyses
@@ -19861,7 +19861,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_path_ids
@@ -19917,7 +19917,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_paths
@@ -19935,7 +19935,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeNetworkInterfaceAttribute.</p>
@@ -19963,7 +19963,7 @@ module AWS::Ec2
       :network_interface_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeNetworkInterfaceAttribute.</p>
@@ -20001,7 +20001,7 @@ module AWS::Ec2
       :source_dest_check,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeNetworkInterfacePermissions.</p>
@@ -20060,7 +20060,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output for DescribeNetworkInterfacePermissions.</p>
@@ -20080,7 +20080,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeNetworkInterfaces.</p>
@@ -20277,7 +20277,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeNetworkInterfaces.</p>
@@ -20297,7 +20297,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -20362,7 +20362,7 @@ module AWS::Ec2
       :group_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute placement_groups
@@ -20374,7 +20374,7 @@ module AWS::Ec2
       :placement_groups,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -20423,7 +20423,7 @@ module AWS::Ec2
       :prefix_list_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -20441,7 +20441,7 @@ module AWS::Ec2
       :prefix_lists,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -20487,7 +20487,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute principals
@@ -20505,7 +20505,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute pool_ids
@@ -20547,7 +20547,7 @@ module AWS::Ec2
       :filters,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute public_ipv4_pools
@@ -20565,7 +20565,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -20612,7 +20612,7 @@ module AWS::Ec2
       :all_regions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute regions
@@ -20624,7 +20624,7 @@ module AWS::Ec2
       :regions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute replace_root_volume_task_ids
@@ -20669,7 +20669,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute replace_root_volume_tasks
@@ -20687,7 +20687,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeReservedInstances.</p>
@@ -20796,7 +20796,7 @@ module AWS::Ec2
       :offering_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeReservedInstancesListings.</p>
@@ -20841,7 +20841,7 @@ module AWS::Ec2
       :reserved_instances_listing_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeReservedInstancesListings.</p>
@@ -20855,7 +20855,7 @@ module AWS::Ec2
       :reserved_instances_listings,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeReservedInstancesModifications.</p>
@@ -20936,7 +20936,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeReservedInstancesModifications.</p>
@@ -20957,7 +20957,7 @@ module AWS::Ec2
       :reserved_instances_modifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeReservedInstancesOfferings.</p>
@@ -21131,7 +21131,7 @@ module AWS::Ec2
       :offering_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeReservedInstancesOfferings.</p>
@@ -21152,7 +21152,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output for DescribeReservedInstances.</p>
@@ -21166,7 +21166,7 @@ module AWS::Ec2
       :reserved_instances,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -21307,7 +21307,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeRouteTables.</p>
@@ -21327,7 +21327,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeScheduledInstanceAvailability.</p>
@@ -21407,7 +21407,7 @@ module AWS::Ec2
       :recurrence,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeScheduledInstanceAvailability.</p>
@@ -21427,7 +21427,7 @@ module AWS::Ec2
       :scheduled_instance_availability_set,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeScheduledInstances.</p>
@@ -21494,7 +21494,7 @@ module AWS::Ec2
       :slot_start_time_range,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeScheduledInstances.</p>
@@ -21514,7 +21514,7 @@ module AWS::Ec2
       :scheduled_instance_set,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -21534,7 +21534,7 @@ module AWS::Ec2
       :group_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute security_group_reference_set
@@ -21546,7 +21546,7 @@ module AWS::Ec2
       :security_group_reference_set,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -21602,7 +21602,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute security_group_rules
@@ -21620,7 +21620,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -21793,7 +21793,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute security_groups
@@ -21811,7 +21811,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute attribute
@@ -21837,7 +21837,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute create_volume_permissions
@@ -21862,7 +21862,7 @@ module AWS::Ec2
       :snapshot_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -21911,7 +21911,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute snapshot_tier_statuses
@@ -21929,7 +21929,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -22056,7 +22056,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute snapshots
@@ -22077,7 +22077,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeSpotDatafeedSubscription.</p>
@@ -22094,7 +22094,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeSpotDatafeedSubscription.</p>
@@ -22108,7 +22108,7 @@ module AWS::Ec2
       :spot_datafeed_subscription,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeSpotFleetInstances.</p>
@@ -22145,7 +22145,7 @@ module AWS::Ec2
       :spot_fleet_request_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeSpotFleetInstances.</p>
@@ -22173,7 +22173,7 @@ module AWS::Ec2
       :spot_fleet_request_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeSpotFleetRequestHistory.</p>
@@ -22223,7 +22223,7 @@ module AWS::Ec2
       :start_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeSpotFleetRequestHistory.</p>
@@ -22267,7 +22267,7 @@ module AWS::Ec2
       :start_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeSpotFleetRequests.</p>
@@ -22304,7 +22304,7 @@ module AWS::Ec2
       :spot_fleet_request_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeSpotFleetRequests.</p>
@@ -22325,7 +22325,7 @@ module AWS::Ec2
       :spot_fleet_request_configs,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeSpotInstanceRequests.</p>
@@ -22562,7 +22562,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeSpotInstanceRequests.</p>
@@ -22583,7 +22583,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeSpotPriceHistory.</p>
@@ -22688,7 +22688,7 @@ module AWS::Ec2
       :start_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeSpotPriceHistory.</p>
@@ -22709,7 +22709,7 @@ module AWS::Ec2
       :spot_price_history,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -22741,7 +22741,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -22759,7 +22759,7 @@ module AWS::Ec2
       :stale_security_group_set,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute image_ids
@@ -22812,7 +22812,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute store_image_task_results
@@ -22831,7 +22831,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -22953,7 +22953,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute subnets
@@ -22971,7 +22971,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -23029,7 +23029,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -23048,7 +23048,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_filter_ids
@@ -23097,7 +23097,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_filters
@@ -23115,7 +23115,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_session_ids
@@ -23192,7 +23192,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_sessions
@@ -23210,7 +23210,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_target_ids
@@ -23271,7 +23271,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_targets
@@ -23289,7 +23289,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_ids
@@ -23369,7 +23369,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachments
@@ -23387,7 +23387,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_connect_peer_ids
@@ -23442,7 +23442,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_connect_peers
@@ -23460,7 +23460,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_ids
@@ -23527,7 +23527,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_connects
@@ -23545,7 +23545,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domain_ids
@@ -23598,7 +23598,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domains
@@ -23616,7 +23616,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_ids
@@ -23686,7 +23686,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_peering_attachments
@@ -23704,7 +23704,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_ids
@@ -23767,7 +23767,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_tables
@@ -23785,7 +23785,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_ids
@@ -23842,7 +23842,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_vpc_attachments
@@ -23860,7 +23860,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_ids
@@ -23947,7 +23947,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateways
@@ -23965,7 +23965,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association_ids
@@ -24014,7 +24014,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute interface_associations
@@ -24032,7 +24032,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute attribute
@@ -24058,7 +24058,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute auto_enable_io
@@ -24082,7 +24082,7 @@ module AWS::Ec2
       :volume_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -24192,7 +24192,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -24211,7 +24211,7 @@ module AWS::Ec2
       :volume_statuses,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -24345,7 +24345,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -24433,7 +24433,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute volumes_modifications
@@ -24451,7 +24451,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute volumes
@@ -24472,7 +24472,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute attribute
@@ -24498,7 +24498,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpc_id
@@ -24527,7 +24527,7 @@ module AWS::Ec2
       :enable_dns_support,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute max_results
@@ -24552,7 +24552,7 @@ module AWS::Ec2
       :vpc_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -24570,7 +24570,7 @@ module AWS::Ec2
       :vpcs,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -24612,7 +24612,7 @@ module AWS::Ec2
       :vpc_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpcs
@@ -24624,7 +24624,7 @@ module AWS::Ec2
       :vpcs,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -24693,7 +24693,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute connection_notification_set
@@ -24712,7 +24712,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -24770,7 +24770,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpc_endpoint_connections
@@ -24788,7 +24788,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -24854,7 +24854,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute service_configurations
@@ -24872,7 +24872,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -24926,7 +24926,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute allowed_principals
@@ -24944,7 +24944,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeVpcEndpointServices.</p>
@@ -25004,7 +25004,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeVpcEndpointServices.</p>
@@ -25030,7 +25030,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeVpcEndpoints.</p>
@@ -25104,7 +25104,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeVpcEndpoints.</p>
@@ -25124,7 +25124,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -25225,7 +25225,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpc_peering_connections
@@ -25243,7 +25243,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -25355,7 +25355,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpcs
@@ -25373,7 +25373,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeVpnConnections.</p>
@@ -25465,7 +25465,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeVpnConnections.</p>
@@ -25479,7 +25479,7 @@ module AWS::Ec2
       :vpn_connections,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DescribeVpnGateways.</p>
@@ -25555,7 +25555,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of DescribeVpnGateways.</p>
@@ -25569,7 +25569,7 @@ module AWS::Ec2
       :vpn_gateways,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the destination options for a flow log.</p>
@@ -25597,7 +25597,7 @@ module AWS::Ec2
       :per_hour_partition,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the destination options for a flow log.</p>
@@ -25623,7 +25623,7 @@ module AWS::Ec2
       :per_hour_partition,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -25649,7 +25649,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -25661,7 +25661,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -25687,14 +25687,14 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DetachInternetGatewayOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DetachNetworkInterface.</p>
@@ -25739,14 +25739,14 @@ module AWS::Ec2
       :force,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DetachNetworkInterfaceOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute device
@@ -25789,7 +25789,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes volume attachment details.</p>
@@ -25833,7 +25833,7 @@ module AWS::Ec2
       :delete_on_termination,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DetachVpnGateway.</p>
@@ -25862,14 +25862,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DetachVpnGatewayOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a DHCP configuration option.</p>
@@ -25889,7 +25889,7 @@ module AWS::Ec2
       :values,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a set of DHCP options.</p>
@@ -25921,7 +25921,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an Active Directory.</p>
@@ -25935,7 +25935,7 @@ module AWS::Ec2
       :directory_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Active Directory to be used for client authentication.</p>
@@ -25949,7 +25949,7 @@ module AWS::Ec2
       :directory_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -25963,7 +25963,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ebs_encryption_by_default
@@ -25975,7 +25975,7 @@ module AWS::Ec2
       :ebs_encryption_by_default,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains information about the errors that occurred when disabling fast snapshot restores.</p>
@@ -25995,7 +25995,7 @@ module AWS::Ec2
       :fast_snapshot_restore_state_errors,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an error that occurred when disabling fast snapshot restores.</p>
@@ -26015,7 +26015,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains information about an error that occurred when disabling fast snapshot restores.</p>
@@ -26035,7 +26035,7 @@ module AWS::Ec2
       :error,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes fast snapshot restores that were successfully disabled.</p>
@@ -26121,7 +26121,7 @@ module AWS::Ec2
       :disabled_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute availability_zones
@@ -26147,7 +26147,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute successful
@@ -26165,7 +26165,7 @@ module AWS::Ec2
       :unsuccessful,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute image_id
@@ -26185,7 +26185,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -26197,7 +26197,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -26217,7 +26217,7 @@ module AWS::Ec2
       :delegated_admin_account_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute success
@@ -26229,7 +26229,7 @@ module AWS::Ec2
       :success,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -26241,7 +26241,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute serial_console_access_enabled
@@ -26255,7 +26255,7 @@ module AWS::Ec2
       :serial_console_access_enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -26281,7 +26281,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute propagation
@@ -26293,7 +26293,7 @@ module AWS::Ec2
       :propagation,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for DisableVgwRoutePropagation.</p>
@@ -26322,14 +26322,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DisableVgwRoutePropagationOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpc_id
@@ -26341,7 +26341,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -26353,7 +26353,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -26373,7 +26373,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -26385,7 +26385,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association_id
@@ -26411,14 +26411,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DisassociateAddressOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -26442,7 +26442,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association_id
@@ -26460,7 +26460,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute certificate_arn
@@ -26484,7 +26484,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -26496,7 +26496,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association_id
@@ -26508,7 +26508,7 @@ module AWS::Ec2
       :association_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute iam_instance_profile_association
@@ -26520,7 +26520,7 @@ module AWS::Ec2
       :iam_instance_profile_association,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -26546,7 +26546,7 @@ module AWS::Ec2
       :association_target,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_event_window
@@ -26558,7 +26558,7 @@ module AWS::Ec2
       :instance_event_window,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association_id
@@ -26578,14 +26578,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DisassociateRouteTableOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association_id
@@ -26597,7 +26597,7 @@ module AWS::Ec2
       :association_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipv6_cidr_block_association
@@ -26615,7 +26615,7 @@ module AWS::Ec2
       :subnet_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -26647,7 +26647,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute associations
@@ -26659,7 +26659,7 @@ module AWS::Ec2
       :associations,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -26685,7 +26685,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association
@@ -26697,7 +26697,7 @@ module AWS::Ec2
       :association,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association_id
@@ -26725,7 +26725,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -26745,7 +26745,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association_id
@@ -26757,7 +26757,7 @@ module AWS::Ec2
       :association_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipv6_cidr_block_association
@@ -26781,7 +26781,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a disk image.</p>
@@ -26807,7 +26807,7 @@ module AWS::Ec2
       :volume,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a disk image.</p>
@@ -26842,7 +26842,7 @@ module AWS::Ec2
       :size,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a disk image.</p>
@@ -26872,7 +26872,7 @@ module AWS::Ec2
       :import_manifest_url,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a disk image volume.</p>
@@ -26892,7 +26892,7 @@ module AWS::Ec2
       :size,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a disk.</p>
@@ -26918,7 +26918,7 @@ module AWS::Ec2
       :type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a DNS entry.</p>
@@ -26938,7 +26938,7 @@ module AWS::Ec2
       :hosted_zone_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the DNS server to be used.</p>
@@ -26961,7 +26961,7 @@ module AWS::Ec2
       :enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a block device for an EBS volume.</p>
@@ -27087,7 +27087,7 @@ module AWS::Ec2
       :encrypted,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Amazon EBS features supported by the instance type.</p>
@@ -27120,7 +27120,7 @@ module AWS::Ec2
       :nvme_support,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a parameter used to set up an EBS volume in a block device mapping.</p>
@@ -27152,7 +27152,7 @@ module AWS::Ec2
       :volume_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes information used to set up an EBS volume specified in a block device
@@ -27173,7 +27173,7 @@ module AWS::Ec2
       :volume_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the optimized EBS performance for supported instance types.</p>
@@ -27217,7 +27217,7 @@ module AWS::Ec2
       :maximum_iops,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Elastic Fabric Adapters for the instance type.</p>
@@ -27231,7 +27231,7 @@ module AWS::Ec2
       :maximum_efa_interfaces,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an egress-only internet gateway.</p>
@@ -27257,7 +27257,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the association between an instance and an Elastic Graphics accelerator.</p>
@@ -27290,7 +27290,7 @@ module AWS::Ec2
       :elastic_gpu_association_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the status of an Elastic Graphics accelerator.</p>
@@ -27304,7 +27304,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A specification for an Elastic Graphics accelerator.</p>
@@ -27320,7 +27320,7 @@ module AWS::Ec2
       :type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an elastic GPU.</p>
@@ -27334,7 +27334,7 @@ module AWS::Ec2
       :type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an Elastic Graphics accelerator.</p>
@@ -27384,7 +27384,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>
@@ -27411,7 +27411,7 @@ module AWS::Ec2
       :count,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>
@@ -27453,7 +27453,7 @@ module AWS::Ec2
       :elastic_inference_accelerator_association_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -27467,7 +27467,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ebs_encryption_by_default
@@ -27479,7 +27479,7 @@ module AWS::Ec2
       :ebs_encryption_by_default,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains information about the errors that occurred when enabling fast snapshot restores.</p>
@@ -27499,7 +27499,7 @@ module AWS::Ec2
       :fast_snapshot_restore_state_errors,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an error that occurred when enabling fast snapshot restores.</p>
@@ -27519,7 +27519,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains information about an error that occurred when enabling fast snapshot restores.</p>
@@ -27539,7 +27539,7 @@ module AWS::Ec2
       :error,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes fast snapshot restores that were successfully enabled.</p>
@@ -27625,7 +27625,7 @@ module AWS::Ec2
       :disabled_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute availability_zones
@@ -27652,7 +27652,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute successful
@@ -27670,7 +27670,7 @@ module AWS::Ec2
       :unsuccessful,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute image_id
@@ -27701,7 +27701,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -27713,7 +27713,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -27733,7 +27733,7 @@ module AWS::Ec2
       :delegated_admin_account_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute success
@@ -27745,7 +27745,7 @@ module AWS::Ec2
       :success,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -27757,7 +27757,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute serial_console_access_enabled
@@ -27771,7 +27771,7 @@ module AWS::Ec2
       :serial_console_access_enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -27797,7 +27797,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute propagation
@@ -27809,7 +27809,7 @@ module AWS::Ec2
       :propagation,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for EnableVgwRoutePropagation.</p>
@@ -27841,14 +27841,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     EnableVgwRoutePropagationOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -27868,14 +27868,14 @@ module AWS::Ec2
       :volume_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     EnableVolumeIOOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpc_id
@@ -27887,7 +27887,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -27899,7 +27899,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -27919,7 +27919,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -27931,7 +27931,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
@@ -27946,7 +27946,7 @@ module AWS::Ec2
       :enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information,
@@ -27962,7 +27962,7 @@ module AWS::Ec2
       :enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an EC2 Fleet or Spot Fleet event.</p>
@@ -28119,7 +28119,7 @@ module AWS::Ec2
       :instance_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an explanation code for an unreachable path. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
@@ -28405,7 +28405,7 @@ module AWS::Ec2
       :vpn_gateway,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -28423,7 +28423,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute certificate_revocation_list
@@ -28441,7 +28441,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -28459,7 +28459,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_configuration
@@ -28471,7 +28471,7 @@ module AWS::Ec2
       :client_configuration,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_token
@@ -28529,7 +28529,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute description
@@ -28597,7 +28597,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an export image task.</p>
@@ -28654,7 +28654,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an export instance task.</p>
@@ -28704,7 +28704,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the destination for an export image task.</p>
@@ -28724,7 +28724,7 @@ module AWS::Ec2
       :s3_prefix,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the destination for an export image task.</p>
@@ -28744,7 +28744,7 @@ module AWS::Ec2
       :s3_prefix,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the format and location for the export task.</p>
@@ -28778,7 +28778,7 @@ module AWS::Ec2
       :s3_key,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an export instance task.</p>
@@ -28813,7 +28813,7 @@ module AWS::Ec2
       :s3_prefix,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -28884,7 +28884,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute s3_location
@@ -28897,7 +28897,7 @@ module AWS::Ec2
       :s3_location,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Capacity Reservation Fleet that could not be cancelled.</p>
@@ -28917,7 +28917,7 @@ module AWS::Ec2
       :cancel_capacity_reservation_fleet_error,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Reserved Instance whose queued purchase was not deleted.</p>
@@ -28937,7 +28937,7 @@ module AWS::Ec2
       :reserved_instances_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the IAM SAML identity providers used for federated authentication.</p>
@@ -28957,7 +28957,7 @@ module AWS::Ec2
       :self_service_saml_provider_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The IAM SAML identity provider used for federated authentication.</p>
@@ -28977,7 +28977,7 @@ module AWS::Ec2
       :self_service_saml_provider_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A filter name and value pair that is used to return a more specific list of results from a describe operation.
@@ -29002,7 +29002,7 @@ module AWS::Ec2
       :values,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about a Capacity Reservation in a Capacity Reservation Fleet.</p>
@@ -29082,7 +29082,7 @@ module AWS::Ec2
       :priority,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an EC2 Fleet.</p>
@@ -29244,7 +29244,7 @@ module AWS::Ec2
       :context,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a launch template and overrides.</p>
@@ -29265,7 +29265,7 @@ module AWS::Ec2
       :overrides,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a launch template and overrides.</p>
@@ -29289,7 +29289,7 @@ module AWS::Ec2
       :overrides,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes overrides for a launch template.</p>
@@ -29365,7 +29365,7 @@ module AWS::Ec2
       :instance_requirements,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes overrides for a launch template.</p>
@@ -29441,7 +29441,7 @@ module AWS::Ec2
       :instance_requirements,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Amazon EC2 launch template and the launch template version that can be used
@@ -29477,7 +29477,7 @@ module AWS::Ec2
       :version,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Amazon EC2 launch template and the launch template version that can be used by
@@ -29508,7 +29508,7 @@ module AWS::Ec2
       :version,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
@@ -29545,7 +29545,7 @@ module AWS::Ec2
       :termination_delay,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance
@@ -29583,7 +29583,7 @@ module AWS::Ec2
       :termination_delay,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The strategies for managing your Spot Instances that are at an elevated risk of being
@@ -29599,7 +29599,7 @@ module AWS::Ec2
       :capacity_rebalance,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.</p>
@@ -29614,7 +29614,7 @@ module AWS::Ec2
       :capacity_rebalance,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a flow log.</p>
@@ -29727,7 +29727,7 @@ module AWS::Ec2
       :destination_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the FPGA accelerator for the instance type.</p>
@@ -29759,7 +29759,7 @@ module AWS::Ec2
       :memory_info,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the memory for the FPGA accelerator for the instance type.</p>
@@ -29773,7 +29773,7 @@ module AWS::Ec2
       :size_in_mi_b,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an Amazon FPGA image (AFI).</p>
@@ -29871,7 +29871,7 @@ module AWS::Ec2
       :data_retention_support,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an Amazon FPGA image (AFI) attribute.</p>
@@ -29909,7 +29909,7 @@ module AWS::Ec2
       :product_codes,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the state of the bitstream generation process for an Amazon FPGA image (AFI).</p>
@@ -29947,7 +29947,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the FPGAs for the instance type.</p>
@@ -29967,7 +29967,7 @@ module AWS::Ec2
       :total_fpga_memory_in_mi_b,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute certificate_arn
@@ -29986,7 +29986,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute associated_roles
@@ -29998,7 +29998,7 @@ module AWS::Ec2
       :associated_roles,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute pool_id
@@ -30031,7 +30031,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipv6_cidr_associations
@@ -30049,7 +30049,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute capacity_reservation_id
@@ -30080,7 +30080,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -30155,7 +30155,7 @@ module AWS::Ec2
       :instance_usages,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute pool_id
@@ -30222,7 +30222,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute coip_pool_id
@@ -30246,7 +30246,7 @@ module AWS::Ec2
       :local_gateway_route_table_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_id
@@ -30273,7 +30273,7 @@ module AWS::Ec2
       :latest,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_id
@@ -30298,7 +30298,7 @@ module AWS::Ec2
       :timestamp,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -30325,7 +30325,7 @@ module AWS::Ec2
       :wake_up,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute image_data
@@ -30343,7 +30343,7 @@ module AWS::Ec2
       :instance_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -30363,7 +30363,7 @@ module AWS::Ec2
       :instance_family,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_family_credit_specification
@@ -30375,7 +30375,7 @@ module AWS::Ec2
       :instance_family_credit_specification,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -30389,7 +30389,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute kms_key_id
@@ -30401,7 +30401,7 @@ module AWS::Ec2
       :kms_key_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -30415,7 +30415,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ebs_encryption_by_default
@@ -30427,7 +30427,7 @@ module AWS::Ec2
       :ebs_encryption_by_default,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -30459,7 +30459,7 @@ module AWS::Ec2
       :integrate_services,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute result
@@ -30471,7 +30471,7 @@ module AWS::Ec2
       :result,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute capacity_reservation_id
@@ -30501,7 +30501,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -30519,7 +30519,7 @@ module AWS::Ec2
       :capacity_reservation_groups,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute host_id_set
@@ -30537,7 +30537,7 @@ module AWS::Ec2
       :offering_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute currency_code
@@ -30570,7 +30570,7 @@ module AWS::Ec2
       :total_upfront_price,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -30616,7 +30616,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_types
@@ -30634,7 +30634,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -30691,7 +30691,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute history_records
@@ -30709,7 +30709,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -30753,7 +30753,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam_pool_allocations
@@ -30771,7 +30771,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -30809,7 +30809,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam_pool_cidrs
@@ -30827,7 +30827,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -30895,7 +30895,7 @@ module AWS::Ec2
       :resource_owner,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -30913,7 +30913,7 @@ module AWS::Ec2
       :ipam_resource_cidrs,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -30934,7 +30934,7 @@ module AWS::Ec2
       :instance_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute launch_template_data
@@ -30946,7 +30946,7 @@ module AWS::Ec2
       :launch_template_data,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -30979,7 +30979,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute prefix_list_associations
@@ -30997,7 +30997,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -31036,7 +31036,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute entries
@@ -31054,7 +31054,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_access_scope_analysis_id
@@ -31087,7 +31087,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_access_scope_analysis_id
@@ -31117,7 +31117,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_access_scope_id
@@ -31137,7 +31137,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_access_scope_content
@@ -31149,7 +31149,7 @@ module AWS::Ec2
       :network_insights_access_scope_content,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_id
@@ -31169,7 +31169,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_id
@@ -31194,7 +31194,7 @@ module AWS::Ec2
       :timestamp,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for GetReservedInstanceExchangeQuote.</p>
@@ -31223,7 +31223,7 @@ module AWS::Ec2
       :target_configurations,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of GetReservedInstancesExchangeQuote.</p>
@@ -31285,7 +31285,7 @@ module AWS::Ec2
       :validation_failure_reason,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -31297,7 +31297,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute serial_console_access_enabled
@@ -31311,7 +31311,7 @@ module AWS::Ec2
       :serial_console_access_enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_types
@@ -31388,7 +31388,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute spot_placement_scores
@@ -31421,7 +31421,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute filters
@@ -31480,7 +31480,7 @@ module AWS::Ec2
       :max_results,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute subnet_ipv4_cidr_reservations
@@ -31504,7 +31504,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_id
@@ -31549,7 +31549,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_propagations
@@ -31567,7 +31567,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -31632,7 +31632,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute multicast_domain_associations
@@ -31650,7 +31650,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -31721,7 +31721,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_prefix_list_references
@@ -31739,7 +31739,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -31794,7 +31794,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute associations
@@ -31812,7 +31812,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -31867,7 +31867,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_propagations
@@ -31885,7 +31885,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpn_connection_id
@@ -31921,7 +31921,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpn_connection_device_sample_configuration
@@ -31936,7 +31936,7 @@ module AWS::Ec2
       :vpn_connection_device_sample_configuration,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Ec2::Types::GetVpnConnectionDeviceSampleConfigurationOutput "\
@@ -31979,7 +31979,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpn_connection_device_types
@@ -32002,7 +32002,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the GPU accelerators for the instance type.</p>
@@ -32034,7 +32034,7 @@ module AWS::Ec2
       :memory_info,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the memory available to the GPU accelerator.</p>
@@ -32048,7 +32048,7 @@ module AWS::Ec2
       :size_in_mi_b,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the GPU accelerators for the instance type.</p>
@@ -32068,7 +32068,7 @@ module AWS::Ec2
       :total_gpu_memory_in_mi_b,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a security group.</p>
@@ -32088,7 +32088,7 @@ module AWS::Ec2
       :group_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Indicates whether your instance is configured for hibernation. This parameter is valid
@@ -32107,7 +32107,7 @@ module AWS::Ec2
       :configured,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Indicates whether your instance is configured for hibernation. This parameter is valid
@@ -32128,7 +32128,7 @@ module AWS::Ec2
       :configured,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an event in the history of the Spot Fleet request.</p>
@@ -32174,7 +32174,7 @@ module AWS::Ec2
       :timestamp,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an event in the history of an EC2 Fleet.</p>
@@ -32201,7 +32201,7 @@ module AWS::Ec2
       :timestamp,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the properties of the Dedicated Host.</p>
@@ -32317,7 +32317,7 @@ module AWS::Ec2
       :member_of_service_linked_resource_group,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an instance running on a Dedicated Host.</p>
@@ -32343,7 +32343,7 @@ module AWS::Ec2
       :owner_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details about the Dedicated Host Reservation offering.</p>
@@ -32394,7 +32394,7 @@ module AWS::Ec2
       :upfront_price,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the properties of a Dedicated Host.</p>
@@ -32434,7 +32434,7 @@ module AWS::Ec2
       :total_v_cpus,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details about the Dedicated Host Reservation and associated Dedicated
@@ -32533,7 +32533,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The internet key exchange (IKE) version permitted for the VPN tunnel.</p>
@@ -32547,7 +32547,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The IKE version that is permitted for the VPN tunnel.</p>
@@ -32561,7 +32561,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IAM instance profile.</p>
@@ -32581,7 +32581,7 @@ module AWS::Ec2
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an association between an IAM instance profile and an instance.</p>
@@ -32619,7 +32619,7 @@ module AWS::Ec2
       :timestamp,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IAM instance profile.</p>
@@ -32639,7 +32639,7 @@ module AWS::Ec2
       :member_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the ICMP type and code.</p>
@@ -32659,7 +32659,7 @@ module AWS::Ec2
       :type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the ID format for a resource.</p>
@@ -32685,7 +32685,7 @@ module AWS::Ec2
       :use_long_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an image.</p>
@@ -32876,7 +32876,7 @@ module AWS::Ec2
       :deprecation_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the disk container object for an import image task.</p>
@@ -32923,7 +32923,7 @@ module AWS::Ec2
       :user_bucket,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -32948,7 +32948,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -32960,7 +32960,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute architecture
@@ -33100,7 +33100,7 @@ module AWS::Ec2
       :boot_mode,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request information of license configurations.</p>
@@ -33114,7 +33114,7 @@ module AWS::Ec2
       :license_configuration_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> The response information for license configurations.</p>
@@ -33128,7 +33128,7 @@ module AWS::Ec2
       :license_configuration_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute architecture
@@ -33230,7 +33230,7 @@ module AWS::Ec2
       :usage_operation,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an import image task.</p>
@@ -33344,7 +33344,7 @@ module AWS::Ec2
       :boot_mode,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute description
@@ -33382,7 +33382,7 @@ module AWS::Ec2
       :platform,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the launch specification for VM import.</p>
@@ -33461,7 +33461,7 @@ module AWS::Ec2
       :user_data,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Ec2::Types::ImportInstanceLaunchSpecification "\
@@ -33488,7 +33488,7 @@ module AWS::Ec2
       :conversion_task,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an import instance task.</p>
@@ -33520,7 +33520,7 @@ module AWS::Ec2
       :volumes,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an import volume task.</p>
@@ -33570,7 +33570,7 @@ module AWS::Ec2
       :volume,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -33602,7 +33602,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute key_fingerprint
@@ -33632,7 +33632,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_data
@@ -33718,7 +33718,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute description
@@ -33748,7 +33748,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an import snapshot task.</p>
@@ -33780,7 +33780,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute availability_zone
@@ -33818,7 +33818,7 @@ module AWS::Ec2
       :volume,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute conversion_task
@@ -33830,7 +33830,7 @@ module AWS::Ec2
       :conversion_task,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an import volume task.</p>
@@ -33868,7 +33868,7 @@ module AWS::Ec2
       :volume,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Inference accelerators for the instance type.</p>
@@ -33882,7 +33882,7 @@ module AWS::Ec2
       :accelerators,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Inference accelerators for the instance type.</p>
@@ -33908,7 +33908,7 @@ module AWS::Ec2
       :manufacturer,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an instance.</p>
@@ -34265,7 +34265,7 @@ module AWS::Ec2
       :ipv6_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a block device mapping.</p>
@@ -34286,7 +34286,7 @@ module AWS::Ec2
       :ebs,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a block device mapping entry.</p>
@@ -34319,7 +34319,7 @@ module AWS::Ec2
       :virtual_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the number of instances that can be launched onto the Dedicated
@@ -34348,7 +34348,7 @@ module AWS::Ec2
       :total_capacity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Reserved Instance listing state.</p>
@@ -34368,7 +34368,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the credit option for CPU usage of a burstable performance instance. </p>
@@ -34389,7 +34389,7 @@ module AWS::Ec2
       :cpu_credits,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the credit option for CPU usage of a burstable performance instance.</p>
@@ -34412,7 +34412,7 @@ module AWS::Ec2
       :cpu_credits,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The event window.</p>
@@ -34462,7 +34462,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>One or more targets associated with the specified event window. Only one
@@ -34493,7 +34493,7 @@ module AWS::Ec2
       :dedicated_host_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>One or more targets associated with the event window.</p>
@@ -34520,7 +34520,7 @@ module AWS::Ec2
       :dedicated_host_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The targets to disassociate from the specified event window.</p>
@@ -34547,7 +34547,7 @@ module AWS::Ec2
       :dedicated_host_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The state of the event window.</p>
@@ -34567,7 +34567,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The start day and time and the end day and time of the time range, in UTC.</p>
@@ -34599,7 +34599,7 @@ module AWS::Ec2
       :end_hour,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The start day and time and the end day and time of the time range, in UTC.</p>
@@ -34631,7 +34631,7 @@ module AWS::Ec2
       :end_hour,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an instance to export.</p>
@@ -34651,7 +34651,7 @@ module AWS::Ec2
       :target_environment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the default credit option for CPU usage of a burstable performance instance family.</p>
@@ -34671,7 +34671,7 @@ module AWS::Ec2
       :cpu_credits,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about an IPv4 prefix.</p>
@@ -34685,7 +34685,7 @@ module AWS::Ec2
       :ipv4_prefix,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IPv6 address.</p>
@@ -34699,7 +34699,7 @@ module AWS::Ec2
       :ipv6_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IPv6 address.</p>
@@ -34713,7 +34713,7 @@ module AWS::Ec2
       :ipv6_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about an IPv6 prefix.</p>
@@ -34727,7 +34727,7 @@ module AWS::Ec2
       :ipv6_prefix,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the market (purchasing) option for the instances.</p>
@@ -34747,7 +34747,7 @@ module AWS::Ec2
       :spot_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The metadata options for the instance.</p>
@@ -34806,7 +34806,7 @@ module AWS::Ec2
       :instance_metadata_tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The metadata options for the instance.</p>
@@ -34875,7 +34875,7 @@ module AWS::Ec2
       :instance_metadata_tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the monitoring of an instance.</p>
@@ -34895,7 +34895,7 @@ module AWS::Ec2
       :monitoring,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a network interface.</p>
@@ -35014,7 +35014,7 @@ module AWS::Ec2
       :ipv6_prefixes,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes association information for an Elastic IP address (IPv4).</p>
@@ -35052,7 +35052,7 @@ module AWS::Ec2
       :public_ip,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a network interface attachment.</p>
@@ -35096,7 +35096,7 @@ module AWS::Ec2
       :network_card_index,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a network interface.</p>
@@ -35254,7 +35254,7 @@ module AWS::Ec2
       :ipv6_prefix_count,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a private IPv4 address.</p>
@@ -35286,7 +35286,7 @@ module AWS::Ec2
       :private_ip_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
@@ -35598,7 +35598,7 @@ module AWS::Ec2
       :accelerator_total_memory_mi_b,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
@@ -35909,7 +35909,7 @@ module AWS::Ec2
       :accelerator_total_memory_mi_b,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The architecture type, virtualization type, and other attributes for the instance types.
@@ -35940,7 +35940,7 @@ module AWS::Ec2
       :instance_requirements,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The instance details to specify which volumes should be snapshotted.</p>
@@ -35960,7 +35960,7 @@ module AWS::Ec2
       :exclude_boot_volume,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the current state of an instance.</p>
@@ -36021,7 +36021,7 @@ module AWS::Ec2
       :member_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an instance state change.</p>
@@ -36047,7 +36047,7 @@ module AWS::Ec2
       :previous_state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the status of an instance.</p>
@@ -36100,7 +36100,7 @@ module AWS::Ec2
       :system_status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the instance status.</p>
@@ -36127,7 +36127,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a scheduled event for an instance.</p>
@@ -36174,7 +36174,7 @@ module AWS::Ec2
       :not_before_deadline,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the status of an instance.</p>
@@ -36194,7 +36194,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the instance store features that are supported by the instance type.</p>
@@ -36226,7 +36226,7 @@ module AWS::Ec2
       :encryption_support,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the registered tag keys for the current Region.</p>
@@ -36247,7 +36247,7 @@ module AWS::Ec2
       :include_all_tags_of_instance,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the instance type.</p>
@@ -36400,7 +36400,7 @@ module AWS::Ec2
       :supported_boot_modes,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The list of instance types with the specified instance attributes.</p>
@@ -36414,7 +36414,7 @@ module AWS::Ec2
       :instance_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The instance types offered.</p>
@@ -36441,7 +36441,7 @@ module AWS::Ec2
       :location,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the Capacity Reservation usage.</p>
@@ -36461,7 +36461,7 @@ module AWS::Ec2
       :used_instance_count,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes service integrations with VPC Flow logs.</p>
@@ -36475,7 +36475,7 @@ module AWS::Ec2
       :athena_integrations,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an internet gateway.</p>
@@ -36507,7 +36507,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the attachment of a VPC to an internet gateway or an egress-only internet
@@ -36530,7 +36530,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a set of permissions for a security group rule.</p>
@@ -36591,7 +36591,7 @@ module AWS::Ec2
       :user_id_group_pairs,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IPv4 range.</p>
@@ -36614,7 +36614,7 @@ module AWS::Ec2
       :description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across Amazon Web Services Regions and accounts throughout your Amazon Web Services Organization. For more information, see <a href="/vpc/latest/ipam/what-is-it-ipam.html">What is IPAM?</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
@@ -36692,7 +36692,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The historical record of a CIDR within an IPAM scope. For more information, see <a href="/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.
@@ -36767,7 +36767,7 @@ module AWS::Ec2
       :sampled_end_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.</p>
@@ -36787,7 +36787,7 @@ module AWS::Ec2
       :signature,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
@@ -36803,7 +36803,7 @@ module AWS::Ec2
       :region_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p>
@@ -36953,7 +36953,7 @@ module AWS::Ec2
       :aws_service,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.</p>
@@ -37004,7 +37004,7 @@ module AWS::Ec2
       :resource_owner,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A CIDR provisioned to an IPAM pool.</p>
@@ -37031,7 +37031,7 @@ module AWS::Ec2
       :failure_reason,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details related to why an IPAM pool CIDR failed to be provisioned.</p>
@@ -37051,7 +37051,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The CIDR for an IPAM resource.</p>
@@ -37149,7 +37149,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
@@ -37170,7 +37170,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
@@ -37247,7 +37247,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IPv4 prefix.</p>
@@ -37263,7 +37263,7 @@ module AWS::Ec2
       :ipv4_prefix,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the IPv4 prefix option for a network interface.</p>
@@ -37279,7 +37279,7 @@ module AWS::Ec2
       :ipv4_prefix,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the IPv4 delegated prefixes assigned
@@ -37294,7 +37294,7 @@ module AWS::Ec2
       :ipv4_prefix,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IPv6 CIDR block association.</p>
@@ -37314,7 +37314,7 @@ module AWS::Ec2
       :associated_resource,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IPv6 CIDR block.</p>
@@ -37328,7 +37328,7 @@ module AWS::Ec2
       :ipv6_cidr_block,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IPv6 address pool.</p>
@@ -37360,7 +37360,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the IPv6 prefix.</p>
@@ -37374,7 +37374,7 @@ module AWS::Ec2
       :ipv6_prefix,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the IPv4 prefix option for a network interface.</p>
@@ -37388,7 +37388,7 @@ module AWS::Ec2
       :ipv6_prefix,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the IPv6 delegated prefixes assigned
@@ -37403,7 +37403,7 @@ module AWS::Ec2
       :ipv6_prefix,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>[EC2-VPC only] Describes an IPv6 range.</p>
@@ -37426,7 +37426,7 @@ module AWS::Ec2
       :description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a key pair.</p>
@@ -37484,7 +37484,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The last error that occurred for a VPC endpoint.</p>
@@ -37504,7 +37504,7 @@ module AWS::Ec2
       :code,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a launch permission.</p>
@@ -37537,7 +37537,7 @@ module AWS::Ec2
       :organizational_unit_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a launch permission modification.</p>
@@ -37557,7 +37557,7 @@ module AWS::Ec2
       :remove,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the launch specification for an instance.</p>
@@ -37658,7 +37658,7 @@ module AWS::Ec2
       :monitoring,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a launch template.</p>
@@ -37708,7 +37708,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a launch template and overrides.</p>
@@ -37729,7 +37729,7 @@ module AWS::Ec2
       :overrides,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a block device mapping.</p>
@@ -37761,7 +37761,7 @@ module AWS::Ec2
       :no_device,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a block device mapping.</p>
@@ -37796,7 +37796,7 @@ module AWS::Ec2
       :no_device,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an instance's Capacity Reservation targeting option. You can specify only one option at a time. Use the
@@ -37832,7 +37832,7 @@ module AWS::Ec2
       :capacity_reservation_target,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the Capacity Reservation targeting option.</p>
@@ -37864,7 +37864,7 @@ module AWS::Ec2
       :capacity_reservation_target,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a launch template and overrides.</p>
@@ -37885,7 +37885,7 @@ module AWS::Ec2
       :overrides,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The CPU options for the instance.</p>
@@ -37905,7 +37905,7 @@ module AWS::Ec2
       :threads_per_core,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The CPU options for the instance. Both the core count and threads per core
@@ -37927,7 +37927,7 @@ module AWS::Ec2
       :threads_per_core,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a block device for an EBS volume.</p>
@@ -37983,7 +37983,7 @@ module AWS::Ec2
       :throughput,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The parameters for a block device for an EBS volume.</p>
@@ -38085,7 +38085,7 @@ module AWS::Ec2
       :throughput,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>
@@ -38112,7 +38112,7 @@ module AWS::Ec2
       :count,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>
@@ -38139,7 +38139,7 @@ module AWS::Ec2
       :count,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
@@ -38154,7 +38154,7 @@ module AWS::Ec2
       :enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information,
@@ -38170,7 +38170,7 @@ module AWS::Ec2
       :enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Indicates whether an instance is configured for hibernation.</p>
@@ -38184,7 +38184,7 @@ module AWS::Ec2
       :configured,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Indicates whether the instance is configured for hibernation. This parameter is valid only
@@ -38202,7 +38202,7 @@ module AWS::Ec2
       :configured,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IAM instance profile.</p>
@@ -38222,7 +38222,7 @@ module AWS::Ec2
       :member_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An IAM instance profile.</p>
@@ -38242,7 +38242,7 @@ module AWS::Ec2
       :member_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The market (purchasing) option for the instances.</p>
@@ -38262,7 +38262,7 @@ module AWS::Ec2
       :spot_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The market (purchasing) option for the instances.</p>
@@ -38282,7 +38282,7 @@ module AWS::Ec2
       :spot_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
@@ -38344,7 +38344,7 @@ module AWS::Ec2
       :instance_metadata_tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
@@ -38399,7 +38399,7 @@ module AWS::Ec2
       :instance_metadata_tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a network interface.</p>
@@ -38527,7 +38527,7 @@ module AWS::Ec2
       :ipv6_prefix_count,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The parameters for a network interface.</p>
@@ -38664,7 +38664,7 @@ module AWS::Ec2
       :ipv6_prefix_count,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a license configuration.</p>
@@ -38678,7 +38678,7 @@ module AWS::Ec2
       :license_configuration_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a license configuration.</p>
@@ -38692,7 +38692,7 @@ module AWS::Ec2
       :license_configuration_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes overrides for a launch template.</p>
@@ -38761,7 +38761,7 @@ module AWS::Ec2
       :instance_requirements,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the placement of an instance.</p>
@@ -38818,7 +38818,7 @@ module AWS::Ec2
       :partition_number,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the placement of an instance.</p>
@@ -38877,7 +38877,7 @@ module AWS::Ec2
       :partition_number,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the options for instance hostnames.</p>
@@ -38903,7 +38903,7 @@ module AWS::Ec2
       :enable_resource_name_dns_aaaa_record,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the options for instance hostnames.</p>
@@ -38932,7 +38932,7 @@ module AWS::Ec2
       :enable_resource_name_dns_aaaa_record,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The launch template to use. You must specify either the launch template ID or
@@ -38960,7 +38960,7 @@ module AWS::Ec2
       :version,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The options for Spot Instances.</p>
@@ -38998,7 +38998,7 @@ module AWS::Ec2
       :instance_interruption_behavior,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The options for Spot Instances.</p>
@@ -39039,7 +39039,7 @@ module AWS::Ec2
       :instance_interruption_behavior,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The tag specification for the launch template.</p>
@@ -39059,7 +39059,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The tags specification for the launch template.</p>
@@ -39081,7 +39081,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a launch template version.</p>
@@ -39137,7 +39137,7 @@ module AWS::Ec2
       :launch_template_data,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the monitoring for the instance.</p>
@@ -39152,7 +39152,7 @@ module AWS::Ec2
       :enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the monitoring for the instance.</p>
@@ -39166,7 +39166,7 @@ module AWS::Ec2
       :enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a license configuration.</p>
@@ -39180,7 +39180,7 @@ module AWS::Ec2
       :license_configuration_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a license configuration.</p>
@@ -39194,7 +39194,7 @@ module AWS::Ec2
       :license_configuration_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute max_results
@@ -39228,7 +39228,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute snapshots
@@ -39246,7 +39246,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Classic Load Balancers and target groups to attach to a Spot Fleet
@@ -39267,7 +39267,7 @@ module AWS::Ec2
       :target_groups_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a load permission.</p>
@@ -39287,7 +39287,7 @@ module AWS::Ec2
       :group,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes modifications to the load permissions of an Amazon FPGA image (AFI).</p>
@@ -39307,7 +39307,7 @@ module AWS::Ec2
       :remove,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a load permission.</p>
@@ -39327,7 +39327,7 @@ module AWS::Ec2
       :user_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a local gateway.</p>
@@ -39365,7 +39365,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a route for a local gateway route table.</p>
@@ -39415,7 +39415,7 @@ module AWS::Ec2
       :owner_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a local gateway route table.</p>
@@ -39465,7 +39465,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an association between a local gateway route table and a virtual interface group.</p>
@@ -39521,7 +39521,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an association between a local gateway route table and a VPC.</p>
@@ -39577,7 +39577,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a local gateway virtual interface.</p>
@@ -39639,7 +39639,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a local gateway virtual interface group.</p>
@@ -39677,7 +39677,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a managed prefix list.</p>
@@ -39745,7 +39745,7 @@ module AWS::Ec2
       :owner_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
@@ -39768,7 +39768,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
@@ -39790,7 +39790,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the memory for the instance type.</p>
@@ -39804,7 +39804,7 @@ module AWS::Ec2
       :size_in_mi_b,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum amount of memory, in MiB.</p>
@@ -39826,7 +39826,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum amount of memory, in MiB.</p>
@@ -39848,7 +39848,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute allocation_id
@@ -39874,7 +39874,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute address
@@ -39886,7 +39886,7 @@ module AWS::Ec2
       :address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute group_name
@@ -39914,7 +39914,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -39926,7 +39926,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute capacity_reservation_fleet_id
@@ -39977,7 +39977,7 @@ module AWS::Ec2
       :remove_end_date,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -39989,7 +39989,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute capacity_reservation_id
@@ -40060,7 +40060,7 @@ module AWS::Ec2
       :additional_info,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -40072,7 +40072,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -40174,7 +40174,7 @@ module AWS::Ec2
       :client_connect_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -40186,7 +40186,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -40214,7 +40214,7 @@ module AWS::Ec2
       :cpu_credits,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_family_credit_specification
@@ -40226,7 +40226,7 @@ module AWS::Ec2
       :instance_family_credit_specification,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute kms_key_id
@@ -40266,7 +40266,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute kms_key_id
@@ -40278,7 +40278,7 @@ module AWS::Ec2
       :kms_key_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -40323,7 +40323,7 @@ module AWS::Ec2
       :context,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -40335,7 +40335,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -40404,7 +40404,7 @@ module AWS::Ec2
       :member_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute fpga_image_attribute
@@ -40416,7 +40416,7 @@ module AWS::Ec2
       :fpga_image_attribute,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute auto_placement
@@ -40467,7 +40467,7 @@ module AWS::Ec2
       :instance_family,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute successful
@@ -40486,7 +40486,7 @@ module AWS::Ec2
       :unsuccessful,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute resource
@@ -40515,14 +40515,14 @@ module AWS::Ec2
       :use_long_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ModifyIdFormatOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute principal_arn
@@ -40559,14 +40559,14 @@ module AWS::Ec2
       :use_long_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ModifyIdentityIdFormatOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for ModifyImageAttribute.</p>
@@ -40654,14 +40654,14 @@ module AWS::Ec2
       :organizational_unit_arns,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ModifyImageAttributeOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute source_dest_check
@@ -40800,14 +40800,14 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ModifyInstanceAttributeOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_id
@@ -40831,7 +40831,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -40843,7 +40843,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -40871,7 +40871,7 @@ module AWS::Ec2
       :instance_credit_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute successful_instance_credit_specifications
@@ -40891,7 +40891,7 @@ module AWS::Ec2
       :unsuccessful_instance_credit_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -40923,7 +40923,7 @@ module AWS::Ec2
       :not_before,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute event
@@ -40935,7 +40935,7 @@ module AWS::Ec2
       :event,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -41001,7 +41001,7 @@ module AWS::Ec2
       :cron_expression,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_event_window
@@ -41013,7 +41013,7 @@ module AWS::Ec2
       :instance_event_window,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_id
@@ -41084,7 +41084,7 @@ module AWS::Ec2
       :instance_metadata_tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_id
@@ -41102,7 +41102,7 @@ module AWS::Ec2
       :instance_metadata_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute affinity
@@ -41163,7 +41163,7 @@ module AWS::Ec2
       :host_resource_group_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -41175,7 +41175,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -41215,7 +41215,7 @@ module AWS::Ec2
       :remove_operating_regions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam
@@ -41227,7 +41227,7 @@ module AWS::Ec2
       :ipam,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -41306,7 +41306,7 @@ module AWS::Ec2
       :remove_allocation_resource_tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam_pool
@@ -41318,7 +41318,7 @@ module AWS::Ec2
       :ipam_pool,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -41368,7 +41368,7 @@ module AWS::Ec2
       :monitored,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam_resource_cidr
@@ -41380,7 +41380,7 @@ module AWS::Ec2
       :ipam_resource_cidr,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -41406,7 +41406,7 @@ module AWS::Ec2
       :description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam_scope
@@ -41418,7 +41418,7 @@ module AWS::Ec2
       :ipam_scope,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -41462,7 +41462,7 @@ module AWS::Ec2
       :default_version,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute launch_template
@@ -41474,7 +41474,7 @@ module AWS::Ec2
       :launch_template,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -41528,7 +41528,7 @@ module AWS::Ec2
       :max_entries,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute prefix_list
@@ -41540,7 +41540,7 @@ module AWS::Ec2
       :prefix_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for ModifyNetworkInterfaceAttribute.</p>
@@ -41591,14 +41591,14 @@ module AWS::Ec2
       :source_dest_check,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ModifyNetworkInterfaceAttributeOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -41639,7 +41639,7 @@ module AWS::Ec2
       :enable_resource_name_dns_aaaa_record,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -41651,7 +41651,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for ModifyReservedInstances.</p>
@@ -41678,7 +41678,7 @@ module AWS::Ec2
       :target_configurations,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of ModifyReservedInstances.</p>
@@ -41692,7 +41692,7 @@ module AWS::Ec2
       :reserved_instances_modification_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute group_id
@@ -41718,7 +41718,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -41730,7 +41730,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute attribute
@@ -41780,14 +41780,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ModifySnapshotAttributeOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute snapshot_id
@@ -41813,7 +41813,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute snapshot_id
@@ -41831,7 +41831,7 @@ module AWS::Ec2
       :tiering_start_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for ModifySpotFleetRequest.</p>
@@ -41879,7 +41879,7 @@ module AWS::Ec2
       :context,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of ModifySpotFleetRequest.</p>
@@ -41893,7 +41893,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute assign_ipv6_address_on_creation
@@ -41987,14 +41987,14 @@ module AWS::Ec2
       :disable_lni_at_device_index,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ModifySubnetAttributeOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_filter_id
@@ -42026,7 +42026,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_filter
@@ -42038,7 +42038,7 @@ module AWS::Ec2
       :traffic_mirror_filter,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_filter_rule_id
@@ -42120,7 +42120,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_filter_rule
@@ -42132,7 +42132,7 @@ module AWS::Ec2
       :traffic_mirror_filter_rule,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_session_id
@@ -42196,7 +42196,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute traffic_mirror_session
@@ -42208,7 +42208,7 @@ module AWS::Ec2
       :traffic_mirror_session,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_id
@@ -42240,7 +42240,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The transit gateway options.</p>
@@ -42302,7 +42302,7 @@ module AWS::Ec2
       :propagation_default_route_table_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway
@@ -42314,7 +42314,7 @@ module AWS::Ec2
       :transit_gateway,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -42352,7 +42352,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_prefix_list_reference
@@ -42364,7 +42364,7 @@ module AWS::Ec2
       :transit_gateway_prefix_list_reference,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_id
@@ -42402,7 +42402,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -42414,7 +42414,7 @@ module AWS::Ec2
       :transit_gateway_vpc_attachment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the options for a VPC attachment.</p>
@@ -42440,7 +42440,7 @@ module AWS::Ec2
       :appliance_mode_support,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute auto_enable_io
@@ -42466,14 +42466,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ModifyVolumeAttributeOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -42571,7 +42571,7 @@ module AWS::Ec2
       :multi_attach_enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute volume_modification
@@ -42583,7 +42583,7 @@ module AWS::Ec2
       :volume_modification,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute enable_dns_hostnames
@@ -42613,14 +42613,14 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ModifyVpcAttributeOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -42653,7 +42653,7 @@ module AWS::Ec2
       :connection_events,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return_value
@@ -42665,7 +42665,7 @@ module AWS::Ec2
       :return_value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for ModifyVpcEndpoint.</p>
@@ -42744,7 +42744,7 @@ module AWS::Ec2
       :private_dns_enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -42756,7 +42756,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -42822,7 +42822,7 @@ module AWS::Ec2
       :remove_gateway_load_balancer_arns,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -42834,7 +42834,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -42862,7 +42862,7 @@ module AWS::Ec2
       :payer_responsibility,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return_value
@@ -42874,7 +42874,7 @@ module AWS::Ec2
       :return_value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -42909,7 +42909,7 @@ module AWS::Ec2
       :remove_allowed_principals,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return_value
@@ -42921,7 +42921,7 @@ module AWS::Ec2
       :return_value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute accepter_peering_connection_options
@@ -42953,7 +42953,7 @@ module AWS::Ec2
       :vpc_peering_connection_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute accepter_peering_connection_options
@@ -42971,7 +42971,7 @@ module AWS::Ec2
       :requester_peering_connection_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpc_id
@@ -42997,7 +42997,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return_value
@@ -43010,7 +43010,7 @@ module AWS::Ec2
       :return_value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpn_connection_id
@@ -43050,7 +43050,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpn_connection_id
@@ -43100,7 +43100,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpn_connection
@@ -43112,7 +43112,7 @@ module AWS::Ec2
       :vpn_connection,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpn_connection
@@ -43124,7 +43124,7 @@ module AWS::Ec2
       :vpn_connection,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpn_connection_id
@@ -43151,7 +43151,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpn_connection
@@ -43163,7 +43163,7 @@ module AWS::Ec2
       :vpn_connection,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpn_connection_id
@@ -43196,7 +43196,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute vpn_connection
@@ -43208,7 +43208,7 @@ module AWS::Ec2
       :vpn_connection,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The Amazon Web Services Site-to-Site VPN tunnel options to modify.</p>
@@ -43434,7 +43434,7 @@ module AWS::Ec2
       :startup_action,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_ids
@@ -43454,7 +43454,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_monitorings
@@ -43466,7 +43466,7 @@ module AWS::Ec2
       :instance_monitorings,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the monitoring of an instance.</p>
@@ -43481,7 +43481,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -43501,7 +43501,7 @@ module AWS::Ec2
       :public_ip,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute allocation_id
@@ -43519,7 +43519,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -43551,7 +43551,7 @@ module AWS::Ec2
       :ipam_pool_owner,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute byoip_cidr
@@ -43564,7 +43564,7 @@ module AWS::Ec2
       :byoip_cidr,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the status of a moving Elastic IP address.</p>
@@ -43584,7 +43584,7 @@ module AWS::Ec2
       :public_ip,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a NAT gateway.</p>
@@ -43715,7 +43715,7 @@ module AWS::Ec2
       :connectivity_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the IP addresses and network interface associated with a NAT gateway.</p>
@@ -43747,7 +43747,7 @@ module AWS::Ec2
       :public_ip,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a network ACL.</p>
@@ -43797,7 +43797,7 @@ module AWS::Ec2
       :owner_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an association between a network ACL and a subnet.</p>
@@ -43823,7 +43823,7 @@ module AWS::Ec2
       :subnet_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an entry in a network ACL.</p>
@@ -43879,7 +43879,7 @@ module AWS::Ec2
       :rule_number,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the network card support of the instance type.</p>
@@ -43905,7 +43905,7 @@ module AWS::Ec2
       :maximum_network_interfaces,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the networking features of the instance type.</p>
@@ -43985,7 +43985,7 @@ module AWS::Ec2
       :encryption_in_transit_supported,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Network Access Scope.</p>
@@ -44023,7 +44023,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Network Access Scope analysis.</p>
@@ -44097,7 +44097,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Network Access Scope content.</p>
@@ -44123,7 +44123,7 @@ module AWS::Ec2
       :exclude_paths,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a network insights analysis.</p>
@@ -44215,7 +44215,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a path.</p>
@@ -44283,7 +44283,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a network interface.</p>
@@ -44451,7 +44451,7 @@ module AWS::Ec2
       :ipv6_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes association information for an Elastic IP address (IPv4 only), or a Carrier
@@ -44505,7 +44505,7 @@ module AWS::Ec2
       :carrier_ip,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a network interface attachment.</p>
@@ -44561,7 +44561,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an attachment change.</p>
@@ -44581,7 +44581,7 @@ module AWS::Ec2
       :delete_on_termination,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum number of network interfaces.</p>
@@ -44603,7 +44603,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum number of network interfaces.</p>
@@ -44625,7 +44625,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IPv6 address associated with a network interface.</p>
@@ -44639,7 +44639,7 @@ module AWS::Ec2
       :ipv6_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a permission for a network interface.</p>
@@ -44683,7 +44683,7 @@ module AWS::Ec2
       :permission_state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the state of a network interface permission.</p>
@@ -44703,7 +44703,7 @@ module AWS::Ec2
       :status_message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the private IPv4 address of a network interface.</p>
@@ -44735,7 +44735,7 @@ module AWS::Ec2
       :private_ip_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a DHCP configuration option.</p>
@@ -44755,7 +44755,7 @@ module AWS::Ec2
       :values,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
@@ -44818,7 +44818,7 @@ module AWS::Ec2
       :max_total_price,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
@@ -44881,7 +44881,7 @@ module AWS::Ec2
       :max_total_price,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a packet header statement.</p>
@@ -44931,7 +44931,7 @@ module AWS::Ec2
       :protocols,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a packet header statement.</p>
@@ -44981,7 +44981,7 @@ module AWS::Ec2
       :protocols,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a path component.</p>
@@ -45061,7 +45061,7 @@ module AWS::Ec2
       :vpc,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a path statement.</p>
@@ -45081,7 +45081,7 @@ module AWS::Ec2
       :resource_statement,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a path statement.</p>
@@ -45101,7 +45101,7 @@ module AWS::Ec2
       :resource_statement,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the data that identifies an Amazon FPGA image (AFI) on the PCI bus.</p>
@@ -45133,7 +45133,7 @@ module AWS::Ec2
       :subsystem_vendor_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The status of the transit gateway peering attachment.</p>
@@ -45153,7 +45153,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the VPC peering connection options.</p>
@@ -45182,7 +45182,7 @@ module AWS::Ec2
       :allow_egress_from_local_vpc_to_remote_classic_link,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The VPC peering connection options.</p>
@@ -45210,7 +45210,7 @@ module AWS::Ec2
       :allow_egress_from_local_vpc_to_remote_classic_link,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the transit gateway in the peering attachment.</p>
@@ -45236,7 +45236,7 @@ module AWS::Ec2
       :region,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The Diffie-Hellmann group number for phase 1 IKE negotiations.</p>
@@ -45250,7 +45250,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE
@@ -45265,7 +45265,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The encryption algorithm for phase 1 IKE negotiations.</p>
@@ -45279,7 +45279,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Specifies the encryption algorithm for the VPN tunnel for phase 1 IKE
@@ -45294,7 +45294,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The integrity algorithm for phase 1 IKE negotiations.</p>
@@ -45308,7 +45308,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Specifies the integrity algorithm for the VPN tunnel for phase 1 IKE
@@ -45323,7 +45323,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The Diffie-Hellmann group number for phase 2 IKE negotiations.</p>
@@ -45337,7 +45337,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE
@@ -45352,7 +45352,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The encryption algorithm for phase 2 IKE negotiations.</p>
@@ -45366,7 +45366,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE
@@ -45381,7 +45381,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The integrity algorithm for phase 2 IKE negotiations.</p>
@@ -45395,7 +45395,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE
@@ -45410,7 +45410,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the placement of an instance.</p>
@@ -45484,7 +45484,7 @@ module AWS::Ec2
       :host_resource_group_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a placement group.</p>
@@ -45535,7 +45535,7 @@ module AWS::Ec2
       :group_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the placement group support of the instance type.</p>
@@ -45549,7 +45549,7 @@ module AWS::Ec2
       :supported_strategies,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the placement of an instance.</p>
@@ -45563,7 +45563,7 @@ module AWS::Ec2
       :group_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a CIDR block for an address pool.</p>
@@ -45577,7 +45577,7 @@ module AWS::Ec2
       :cidr,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a range of ports.</p>
@@ -45597,7 +45597,7 @@ module AWS::Ec2
       :to,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes prefixes for Amazon Web Services services.</p>
@@ -45623,7 +45623,7 @@ module AWS::Ec2
       :prefix_list_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the resource with which a prefix list is associated.</p>
@@ -45643,7 +45643,7 @@ module AWS::Ec2
       :resource_owner,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a prefix list entry.</p>
@@ -45663,7 +45663,7 @@ module AWS::Ec2
       :description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a prefix list ID.</p>
@@ -45685,7 +45685,7 @@ module AWS::Ec2
       :prefix_list_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the price for a Reserved Instance.</p>
@@ -45719,7 +45719,7 @@ module AWS::Ec2
       :term,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the price for a Reserved Instance.</p>
@@ -45746,7 +45746,7 @@ module AWS::Ec2
       :term,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Reserved Instance offering.</p>
@@ -45766,7 +45766,7 @@ module AWS::Ec2
       :price,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>PrincipalIdFormat description</p>
@@ -45786,7 +45786,7 @@ module AWS::Ec2
       :statuses,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the Private DNS name for interface endpoints.</p>
@@ -45800,7 +45800,7 @@ module AWS::Ec2
       :private_dns_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the private DNS name for the service endpoint. For more information
@@ -45838,7 +45838,7 @@ module AWS::Ec2
       :member_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the options for instance hostnames.</p>
@@ -45867,7 +45867,7 @@ module AWS::Ec2
       :enable_resource_name_dns_aaaa_record,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the options for instance hostnames.</p>
@@ -45896,7 +45896,7 @@ module AWS::Ec2
       :enable_resource_name_dns_aaaa_record,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the options for instance hostnames.</p>
@@ -45922,7 +45922,7 @@ module AWS::Ec2
       :enable_resource_name_dns_aaaa_record,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a secondary private IPv4 address for a network interface.</p>
@@ -45943,7 +45943,7 @@ module AWS::Ec2
       :private_ip_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the processor used by the instance type.</p>
@@ -45963,7 +45963,7 @@ module AWS::Ec2
       :sustained_clock_speed_in_ghz,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a product code.</p>
@@ -45983,7 +45983,7 @@ module AWS::Ec2
       :product_code_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a virtual private gateway propagating route.</p>
@@ -45997,7 +45997,7 @@ module AWS::Ec2
       :gateway_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cidr
@@ -46052,7 +46052,7 @@ module AWS::Ec2
       :multi_region,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute byoip_cidr
@@ -46064,7 +46064,7 @@ module AWS::Ec2
       :byoip_cidr,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -46096,7 +46096,7 @@ module AWS::Ec2
       :cidr_authorization_context,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipam_pool_cidr
@@ -46108,7 +46108,7 @@ module AWS::Ec2
       :ipam_pool_cidr,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -46140,7 +46140,7 @@ module AWS::Ec2
       :netmask_length,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute pool_id
@@ -46158,7 +46158,7 @@ module AWS::Ec2
       :pool_address_range,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Reserved. If you need to sustain traffic greater than the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
@@ -46196,7 +46196,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The status of an updated pointer (PTR) record for an Elastic IP address.</p>
@@ -46222,7 +46222,7 @@ module AWS::Ec2
       :reason,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IPv4 address pool.</p>
@@ -46274,7 +46274,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an address range of an IPv4 address pool.</p>
@@ -46306,7 +46306,7 @@ module AWS::Ec2
       :available_address_count,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the result of the purchase.</p>
@@ -46365,7 +46365,7 @@ module AWS::Ec2
       :upfront_price,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_token
@@ -46414,7 +46414,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_token
@@ -46452,7 +46452,7 @@ module AWS::Ec2
       :total_upfront_price,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a request to purchase Scheduled Instances.</p>
@@ -46472,7 +46472,7 @@ module AWS::Ec2
       :purchase_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for PurchaseReservedInstancesOffering.</p>
@@ -46512,7 +46512,7 @@ module AWS::Ec2
       :purchase_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of PurchaseReservedInstancesOffering.</p>
@@ -46528,7 +46528,7 @@ module AWS::Ec2
       :reserved_instances_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for PurchaseScheduledInstances.</p>
@@ -46557,7 +46557,7 @@ module AWS::Ec2
       :purchase_requests,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of PurchaseScheduledInstances.</p>
@@ -46571,7 +46571,7 @@ module AWS::Ec2
       :scheduled_instance_set,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_ids
@@ -46591,14 +46591,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     RebootInstancesOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a recurring charge.</p>
@@ -46618,7 +46618,7 @@ module AWS::Ec2
       :frequency,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> Describes the security group that is referenced in the security group rule.</p>
@@ -46656,7 +46656,7 @@ module AWS::Ec2
       :vpc_peering_connection_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Region.</p>
@@ -46683,7 +46683,7 @@ module AWS::Ec2
       :opt_in_status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for RegisterImage.</p>
@@ -46795,7 +46795,7 @@ module AWS::Ec2
       :boot_mode,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of RegisterImage.</p>
@@ -46809,7 +46809,7 @@ module AWS::Ec2
       :image_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -46829,7 +46829,7 @@ module AWS::Ec2
       :instance_tag_attribute,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_tag_attribute
@@ -46841,7 +46841,7 @@ module AWS::Ec2
       :instance_tag_attribute,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the tag keys to register for the current Region. You can either specify
@@ -46864,7 +46864,7 @@ module AWS::Ec2
       :instance_tag_keys,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -46896,7 +46896,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute registered_multicast_group_members
@@ -46908,7 +46908,7 @@ module AWS::Ec2
       :registered_multicast_group_members,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -46940,7 +46940,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute registered_multicast_group_sources
@@ -46952,7 +46952,7 @@ module AWS::Ec2
       :registered_multicast_group_sources,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -46984,7 +46984,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute associations
@@ -46996,7 +46996,7 @@ module AWS::Ec2
       :associations,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_id
@@ -47016,7 +47016,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_peering_attachment
@@ -47028,7 +47028,7 @@ module AWS::Ec2
       :transit_gateway_peering_attachment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_attachment_id
@@ -47048,7 +47048,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -47060,7 +47060,7 @@ module AWS::Ec2
       :transit_gateway_vpc_attachment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -47086,7 +47086,7 @@ module AWS::Ec2
       :vpc_endpoint_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute unsuccessful
@@ -47098,7 +47098,7 @@ module AWS::Ec2
       :unsuccessful,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -47118,7 +47118,7 @@ module AWS::Ec2
       :vpc_peering_connection_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -47130,7 +47130,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute allocation_id
@@ -47166,14 +47166,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ReleaseAddressOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute host_ids
@@ -47185,7 +47185,7 @@ module AWS::Ec2
       :host_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute successful
@@ -47204,7 +47204,7 @@ module AWS::Ec2
       :unsuccessful,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -47236,7 +47236,7 @@ module AWS::Ec2
       :ipam_pool_allocation_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute success
@@ -47248,7 +47248,7 @@ module AWS::Ec2
       :success,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Remove an operating Region from an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
@@ -47265,7 +47265,7 @@ module AWS::Ec2
       :region_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An entry for a prefix list.</p>
@@ -47279,7 +47279,7 @@ module AWS::Ec2
       :cidr,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute iam_instance_profile
@@ -47297,7 +47297,7 @@ module AWS::Ec2
       :association_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute iam_instance_profile_association
@@ -47309,7 +47309,7 @@ module AWS::Ec2
       :iam_instance_profile_association,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association_id
@@ -47335,7 +47335,7 @@ module AWS::Ec2
       :network_acl_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute new_association_id
@@ -47347,7 +47347,7 @@ module AWS::Ec2
       :new_association_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cidr_block
@@ -47425,14 +47425,14 @@ module AWS::Ec2
       :rule_number,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ReplaceNetworkAclEntryOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about a root volume replacement task.</p>
@@ -47511,7 +47511,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute destination_cidr_block
@@ -47623,14 +47623,14 @@ module AWS::Ec2
       :core_network_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ReplaceRouteOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute association_id
@@ -47656,7 +47656,7 @@ module AWS::Ec2
       :route_table_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute new_association_id
@@ -47674,7 +47674,7 @@ module AWS::Ec2
       :association_state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute destination_cidr_block
@@ -47712,7 +47712,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute route
@@ -47724,7 +47724,7 @@ module AWS::Ec2
       :route,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute description
@@ -47818,14 +47818,14 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ReportInstanceStatusOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A tag on an IPAM resource.</p>
@@ -47845,7 +47845,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The information to include in the launch template.</p>
@@ -48089,7 +48089,7 @@ module AWS::Ec2
       :private_dns_name_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for RequestSpotFleet.</p>
@@ -48112,7 +48112,7 @@ module AWS::Ec2
       :spot_fleet_request_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of RequestSpotFleet.</p>
@@ -48126,7 +48126,7 @@ module AWS::Ec2
       :spot_fleet_request_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for RequestSpotInstances.</p>
@@ -48259,7 +48259,7 @@ module AWS::Ec2
       :instance_interruption_behavior,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of RequestSpotInstances.</p>
@@ -48273,7 +48273,7 @@ module AWS::Ec2
       :spot_instance_requests,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the launch specification for an instance.</p>
@@ -48383,7 +48383,7 @@ module AWS::Ec2
       :user_data,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a launch request for one or more instances, and includes
@@ -48424,7 +48424,7 @@ module AWS::Ec2
       :reservation_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about an instance type to use in a Capacity Reservation Fleet.</p>
@@ -48488,7 +48488,7 @@ module AWS::Ec2
       :priority,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The cost associated with the Reserved Instance.</p>
@@ -48514,7 +48514,7 @@ module AWS::Ec2
       :remaining_upfront_value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the limit price of a Reserved Instance offering.</p>
@@ -48535,7 +48535,7 @@ module AWS::Ec2
       :currency_code,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The total value of the Convertible Reserved Instance.</p>
@@ -48555,7 +48555,7 @@ module AWS::Ec2
       :reserved_instance_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Reserved Instance.</p>
@@ -48672,7 +48672,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the configuration settings for the modified Reserved Instances.</p>
@@ -48713,7 +48713,7 @@ module AWS::Ec2
       :scope,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the ID of a Reserved Instance.</p>
@@ -48727,7 +48727,7 @@ module AWS::Ec2
       :reserved_instances_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Reserved Instance listing.</p>
@@ -48796,7 +48796,7 @@ module AWS::Ec2
       :update_date,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Reserved Instance modification.</p>
@@ -48860,7 +48860,7 @@ module AWS::Ec2
       :update_date,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the modification request/s.</p>
@@ -48880,7 +48880,7 @@ module AWS::Ec2
       :target_configuration,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Reserved Instance offering.</p>
@@ -48984,7 +48984,7 @@ module AWS::Ec2
       :scope,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute allocation_id
@@ -49010,7 +49010,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute address
@@ -49022,7 +49022,7 @@ module AWS::Ec2
       :address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -49036,7 +49036,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute kms_key_id
@@ -49048,7 +49048,7 @@ module AWS::Ec2
       :kms_key_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -49074,7 +49074,7 @@ module AWS::Ec2
       :attribute,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -49086,7 +49086,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for ResetImageAttribute.</p>
@@ -49114,14 +49114,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ResetImageAttributeOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute attribute
@@ -49152,14 +49152,14 @@ module AWS::Ec2
       :instance_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ResetInstanceAttributeOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for ResetNetworkInterfaceAttribute.</p>
@@ -49187,14 +49187,14 @@ module AWS::Ec2
       :source_dest_check,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ResetNetworkInterfaceAttributeOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute attribute
@@ -49221,14 +49221,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     ResetSnapshotAttributeOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a resource statement.</p>
@@ -49248,7 +49248,7 @@ module AWS::Ec2
       :resource_types,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a resource statement.</p>
@@ -49268,7 +49268,7 @@ module AWS::Ec2
       :resource_types,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the error that's returned when you cannot delete a launch template
@@ -49289,7 +49289,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The information for a launch template. </p>
@@ -49482,7 +49482,7 @@ module AWS::Ec2
       :private_dns_name_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -49502,7 +49502,7 @@ module AWS::Ec2
       :public_ip,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute public_ip
@@ -49520,7 +49520,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -49552,7 +49552,7 @@ module AWS::Ec2
       :current_version,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute prefix_list
@@ -49564,7 +49564,7 @@ module AWS::Ec2
       :prefix_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute snapshot_id
@@ -49584,7 +49584,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute snapshot_id
@@ -49651,7 +49651,7 @@ module AWS::Ec2
       :volume_size,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute snapshot_id
@@ -49690,7 +49690,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute snapshot_id
@@ -49722,7 +49722,7 @@ module AWS::Ec2
       :is_permanent_restore,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -49758,7 +49758,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute status
@@ -49770,7 +49770,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -49841,7 +49841,7 @@ module AWS::Ec2
       :source_security_group_owner_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -49861,7 +49861,7 @@ module AWS::Ec2
       :unknown_ip_permissions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cidr_ip
@@ -49942,7 +49942,7 @@ module AWS::Ec2
       :security_group_rule_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -49962,7 +49962,7 @@ module AWS::Ec2
       :unknown_ip_permissions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a route in a route table.</p>
@@ -50082,7 +50082,7 @@ module AWS::Ec2
       :core_network_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a route table.</p>
@@ -50132,7 +50132,7 @@ module AWS::Ec2
       :owner_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an association between a route table and a subnet or gateway.</p>
@@ -50176,7 +50176,7 @@ module AWS::Ec2
       :association_state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the state of an association between a route table and a subnet or gateway.</p>
@@ -50196,7 +50196,7 @@ module AWS::Ec2
       :status_message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute block_device_mappings
@@ -50550,7 +50550,7 @@ module AWS::Ec2
       :private_dns_name_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the monitoring of an instance.</p>
@@ -50565,7 +50565,7 @@ module AWS::Ec2
       :enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a launch request for one or more instances, and includes
@@ -50606,7 +50606,7 @@ module AWS::Ec2
       :reservation_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for RunScheduledInstances.</p>
@@ -50649,7 +50649,7 @@ module AWS::Ec2
       :scheduled_instance_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the output of RunScheduledInstances.</p>
@@ -50663,7 +50663,7 @@ module AWS::Ec2
       :instance_id_set,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. For more
@@ -50689,7 +50689,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the storage parameters for Amazon S3 and Amazon S3 buckets for an instance store-backed AMI.</p>
@@ -50728,7 +50728,7 @@ module AWS::Ec2
       :upload_policy_signature,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Scheduled Instance.</p>
@@ -50826,7 +50826,7 @@ module AWS::Ec2
       :total_scheduled_instance_hours,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a schedule that is available for your Scheduled Instances.</p>
@@ -50912,7 +50912,7 @@ module AWS::Ec2
       :total_scheduled_instance_hours,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the recurring schedule for a Scheduled Instance.</p>
@@ -50951,7 +50951,7 @@ module AWS::Ec2
       :occurrence_unit,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the recurring schedule for a Scheduled Instance.</p>
@@ -50993,7 +50993,7 @@ module AWS::Ec2
       :occurrence_unit,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a block device mapping for a Scheduled Instance.</p>
@@ -51032,7 +51032,7 @@ module AWS::Ec2
       :virtual_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an EBS volume for a Scheduled Instance.</p>
@@ -51087,7 +51087,7 @@ module AWS::Ec2
       :volume_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IAM instance profile for a Scheduled Instance.</p>
@@ -51107,7 +51107,7 @@ module AWS::Ec2
       :member_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IPv6 address.</p>
@@ -51121,7 +51121,7 @@ module AWS::Ec2
       :ipv6_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the launch specification for a Scheduled Instance.</p>
@@ -51217,7 +51217,7 @@ module AWS::Ec2
       :user_data,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes whether monitoring is enabled for a Scheduled Instance.</p>
@@ -51231,7 +51231,7 @@ module AWS::Ec2
       :enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a network interface for a Scheduled Instance.</p>
@@ -51315,7 +51315,7 @@ module AWS::Ec2
       :subnet_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the placement for a Scheduled Instance.</p>
@@ -51335,7 +51335,7 @@ module AWS::Ec2
       :group_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a private IPv4 address for a Scheduled Instance.</p>
@@ -51355,7 +51355,7 @@ module AWS::Ec2
       :private_ip_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute local_gateway_route_table_id
@@ -51394,7 +51394,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute routes
@@ -51412,7 +51412,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -51489,7 +51489,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute multicast_groups
@@ -51507,7 +51507,7 @@ module AWS::Ec2
       :next_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -51584,7 +51584,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute routes
@@ -51602,7 +51602,7 @@ module AWS::Ec2
       :additional_routes_available,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a security group.</p>
@@ -51658,7 +51658,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a security group.</p>
@@ -51678,7 +51678,7 @@ module AWS::Ec2
       :group_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a VPC with a security group that references your security group.</p>
@@ -51704,7 +51704,7 @@ module AWS::Ec2
       :vpc_peering_connection_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a security group rule.</p>
@@ -51794,7 +51794,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the description of a security group rule.</p>
@@ -51815,7 +51815,7 @@ module AWS::Ec2
       :description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a security group rule.</p>
@@ -51891,7 +51891,7 @@ module AWS::Ec2
       :description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an update to a security group rule.</p>
@@ -51911,7 +51911,7 @@ module AWS::Ec2
       :security_group_rule,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_id
@@ -51931,14 +51931,14 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     SendDiagnosticInterruptOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a service configuration for a VPC endpoint service.</p>
@@ -52031,7 +52031,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a VPC endpoint service.</p>
@@ -52125,7 +52125,7 @@ module AWS::Ec2
       :private_dns_name_verification_state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the type of service for a VPC endpoint.</p>
@@ -52139,7 +52139,7 @@ module AWS::Ec2
       :service_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the time period for a Scheduled Instance to start its first schedule. The time period must span less than one day.</p>
@@ -52159,7 +52159,7 @@ module AWS::Ec2
       :latest_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the time period for a Scheduled Instance to start its first schedule.</p>
@@ -52179,7 +52179,7 @@ module AWS::Ec2
       :latest_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a snapshot.</p>
@@ -52305,7 +52305,7 @@ module AWS::Ec2
       :restore_expiry_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the snapshot created from the imported disk.</p>
@@ -52373,7 +52373,7 @@ module AWS::Ec2
       :user_bucket,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The disk container object for the import snapshot request.</p>
@@ -52408,7 +52408,7 @@ module AWS::Ec2
       :user_bucket,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about a snapshot.</p>
@@ -52485,7 +52485,7 @@ module AWS::Ec2
       :outpost_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about a snapshot that is currently in the Recycle Bin.</p>
@@ -52523,7 +52523,7 @@ module AWS::Ec2
       :volume_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details about the import snapshot task.</p>
@@ -52597,7 +52597,7 @@ module AWS::Ec2
       :user_bucket,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Provides information about a snapshot's storage tier.</p>
@@ -52681,7 +52681,7 @@ module AWS::Ec2
       :restore_expiry_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
@@ -52719,7 +52719,7 @@ module AWS::Ec2
       :termination_delay,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the data feed for a Spot Instance.</p>
@@ -52757,7 +52757,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the launch specification for one or more Spot Instances. If you include
@@ -52903,7 +52903,7 @@ module AWS::Ec2
       :instance_requirements,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes whether monitoring is enabled.</p>
@@ -52919,7 +52919,7 @@ module AWS::Ec2
       :enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Spot Fleet request.</p>
@@ -52968,7 +52968,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the configuration of a Spot Fleet request.</p>
@@ -53231,7 +53231,7 @@ module AWS::Ec2
       :tag_specifications,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The tags for a Spot Fleet resource.</p>
@@ -53255,7 +53255,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Spot Instance request.</p>
@@ -53394,7 +53394,7 @@ module AWS::Ec2
       :instance_interruption_behavior,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Spot Instance state change.</p>
@@ -53414,7 +53414,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the status of a Spot Instance request.</p>
@@ -53441,7 +53441,7 @@ module AWS::Ec2
       :update_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The strategies for managing your Spot Instances that are at an elevated risk of being
@@ -53458,7 +53458,7 @@ module AWS::Ec2
       :capacity_rebalance,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The options for Spot Instances.</p>
@@ -53513,7 +53513,7 @@ module AWS::Ec2
       :instance_interruption_behavior,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the configuration of Spot Instances in an EC2 Fleet.</p>
@@ -53611,7 +53611,7 @@ module AWS::Ec2
       :max_total_price,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the configuration of Spot Instances in an EC2 Fleet request.</p>
@@ -53709,7 +53709,7 @@ module AWS::Ec2
       :max_total_price,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes Spot Instance placement.</p>
@@ -53739,7 +53739,7 @@ module AWS::Ec2
       :tenancy,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The Spot placement score for this Region or Availability Zone. The score is calculated
@@ -53770,7 +53770,7 @@ module AWS::Ec2
       :score,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the maximum price per hour that you are willing to pay for a Spot
@@ -53810,7 +53810,7 @@ module AWS::Ec2
       :timestamp,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a stale rule in a security group.</p>
@@ -53856,7 +53856,7 @@ module AWS::Ec2
       :user_id_group_pairs,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a stale security group (a security group that contains stale rules).</p>
@@ -53900,7 +53900,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_ids
@@ -53926,7 +53926,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute starting_instances
@@ -53938,7 +53938,7 @@ module AWS::Ec2
       :starting_instances,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_access_scope_id
@@ -53971,7 +53971,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_access_scope_analysis
@@ -53983,7 +53983,7 @@ module AWS::Ec2
       :network_insights_access_scope_analysis,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_path_id
@@ -54022,7 +54022,7 @@ module AWS::Ec2
       :client_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_insights_analysis
@@ -54034,7 +54034,7 @@ module AWS::Ec2
       :network_insights_analysis,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -54054,7 +54054,7 @@ module AWS::Ec2
       :service_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return_value
@@ -54066,7 +54066,7 @@ module AWS::Ec2
       :return_value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a state change.</p>
@@ -54153,7 +54153,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_ids
@@ -54195,7 +54195,7 @@ module AWS::Ec2
       :force,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute stopping_instances
@@ -54207,7 +54207,7 @@ module AWS::Ec2
       :stopping_instances,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the storage location for an instance store-backed AMI.</p>
@@ -54221,7 +54221,7 @@ module AWS::Ec2
       :s3,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a storage location in Amazon S3.</p>
@@ -54241,7 +54241,7 @@ module AWS::Ec2
       :key,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The information about the AMI store task, including the progress of the task.</p>
@@ -54293,7 +54293,7 @@ module AWS::Ec2
       :store_task_failure_reason,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a subnet.</p>
@@ -54436,7 +54436,7 @@ module AWS::Ec2
       :private_dns_name_options_on_launch,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the subnet association with the transit gateway multicast domain.</p>
@@ -54456,7 +54456,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the state of a CIDR block.</p>
@@ -54476,7 +54476,7 @@ module AWS::Ec2
       :status_message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a subnet CIDR reservation.</p>
@@ -54529,7 +54529,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an association between a subnet and an IPv6 CIDR block.</p>
@@ -54555,7 +54555,7 @@ module AWS::Ec2
       :ipv6_cidr_block_state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the burstable performance instance whose credit option for CPU usage was
@@ -54570,7 +54570,7 @@ module AWS::Ec2
       :instance_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Reserved Instance whose queued purchase was successfully deleted.</p>
@@ -54584,7 +54584,7 @@ module AWS::Ec2
       :reserved_instances_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a tag.</p>
@@ -54607,7 +54607,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a tag.</p>
@@ -54639,7 +54639,7 @@ module AWS::Ec2
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The tags to apply to a resource when the resource is being created.</p>
@@ -54659,7 +54659,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The number of units to request. You can choose to set the target capacity in terms of
@@ -54711,7 +54711,7 @@ module AWS::Ec2
       :target_capacity_unit_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The number of units to request. You can choose to set the target capacity as the number of
@@ -54763,7 +54763,7 @@ module AWS::Ec2
       :target_capacity_unit_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the Convertible Reserved Instance offering.</p>
@@ -54784,7 +54784,7 @@ module AWS::Ec2
       :offering_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details about the target configuration.</p>
@@ -54805,7 +54805,7 @@ module AWS::Ec2
       :offering_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a load balancer target group.</p>
@@ -54819,7 +54819,7 @@ module AWS::Ec2
       :arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the
@@ -54834,7 +54834,7 @@ module AWS::Ec2
       :target_groups,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a target network associated with a Client VPN endpoint.</p>
@@ -54878,7 +54878,7 @@ module AWS::Ec2
       :security_groups,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The total value of the new Convertible Reserved Instances.</p>
@@ -54899,7 +54899,7 @@ module AWS::Ec2
       :target_configuration,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -54930,7 +54930,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -54954,7 +54954,7 @@ module AWS::Ec2
       :connection_statuses,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about a terminated Client VPN endpoint client connection.</p>
@@ -54980,7 +54980,7 @@ module AWS::Ec2
       :current_status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_ids
@@ -55002,7 +55002,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute terminating_instances
@@ -55014,7 +55014,7 @@ module AWS::Ec2
       :terminating_instances,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a through resource statement.</p>
@@ -55028,7 +55028,7 @@ module AWS::Ec2
       :resource_statement,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a through resource statement.</p>
@@ -55042,7 +55042,7 @@ module AWS::Ec2
       :resource_statement,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum amount of total local storage, in GB.</p>
@@ -55064,7 +55064,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum amount of total local storage, in GB.</p>
@@ -55086,7 +55086,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Traffic Mirror filter.</p>
@@ -55130,7 +55130,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Traffic Mirror rule.</p>
@@ -55204,7 +55204,7 @@ module AWS::Ec2
       :description,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Traffic Mirror port range.</p>
@@ -55224,7 +55224,7 @@ module AWS::Ec2
       :to_port,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the Traffic Mirror filter rule port range.</p>
@@ -55244,7 +55244,7 @@ module AWS::Ec2
       :to_port,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Traffic Mirror session.</p>
@@ -55313,7 +55313,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a Traffic Mirror target.</p>
@@ -55363,7 +55363,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a transit gateway.</p>
@@ -55419,7 +55419,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an association between a resource attachment and a transit gateway route table.</p>
@@ -55457,7 +55457,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an attachment between a resource and a transit gateway.</p>
@@ -55525,7 +55525,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an association.</p>
@@ -55545,7 +55545,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The BGP configuration information.</p>
@@ -55583,7 +55583,7 @@ module AWS::Ec2
       :bgp_status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a propagation route table.</p>
@@ -55603,7 +55603,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a transit gateway Connect attachment.</p>
@@ -55653,7 +55653,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Connect attachment options.</p>
@@ -55667,7 +55667,7 @@ module AWS::Ec2
       :protocol,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a transit gateway Connect peer.</p>
@@ -55711,7 +55711,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Connect peer details.</p>
@@ -55749,7 +55749,7 @@ module AWS::Ec2
       :bgp_configurations,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The BGP options for the Connect attachment.</p>
@@ -55763,7 +55763,7 @@ module AWS::Ec2
       :peer_asn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the deregistered  transit gateway multicast group members.</p>
@@ -55789,7 +55789,7 @@ module AWS::Ec2
       :group_ip_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the deregistered  transit gateway multicast group sources.</p>
@@ -55815,7 +55815,7 @@ module AWS::Ec2
       :group_ip_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the transit gateway multicast domain.</p>
@@ -55871,7 +55871,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the resources associated with the transit gateway multicast domain.</p>
@@ -55909,7 +55909,7 @@ module AWS::Ec2
       :subnet,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the multicast domain associations.</p>
@@ -55953,7 +55953,7 @@ module AWS::Ec2
       :subnets,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the options for a transit gateway multicast domain.</p>
@@ -55979,7 +55979,7 @@ module AWS::Ec2
       :auto_accept_shared_associations,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the  transit gateway multicast group resources.</p>
@@ -56053,7 +56053,7 @@ module AWS::Ec2
       :source_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the registered  transit gateway multicast group members.</p>
@@ -56079,7 +56079,7 @@ module AWS::Ec2
       :group_ip_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the members registered with the  transit gateway multicast group.</p>
@@ -56105,7 +56105,7 @@ module AWS::Ec2
       :group_ip_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the options for a transit gateway.</p>
@@ -56174,7 +56174,7 @@ module AWS::Ec2
       :multicast_support,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the transit gateway peering attachment.</p>
@@ -56224,7 +56224,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a transit gateway prefix list attachment.</p>
@@ -56250,7 +56250,7 @@ module AWS::Ec2
       :resource_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a prefix list reference.</p>
@@ -56294,7 +56294,7 @@ module AWS::Ec2
       :transit_gateway_attachment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes route propagation.</p>
@@ -56332,7 +56332,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the options for a transit gateway.</p>
@@ -56389,7 +56389,7 @@ module AWS::Ec2
       :transit_gateway_cidr_blocks,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a route for a transit gateway route table.</p>
@@ -56427,7 +56427,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a route attachment.</p>
@@ -56453,7 +56453,7 @@ module AWS::Ec2
       :resource_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a transit gateway route table.</p>
@@ -56503,7 +56503,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an association between a route table and a resource attachment.</p>
@@ -56535,7 +56535,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a route table propagation.</p>
@@ -56567,7 +56567,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a VPC attachment.</p>
@@ -56629,7 +56629,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the VPC attachment options.</p>
@@ -56655,7 +56655,7 @@ module AWS::Ec2
       :appliance_mode_support,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <note>
@@ -56709,7 +56709,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The VPN tunnel options.</p>
@@ -56840,7 +56840,7 @@ module AWS::Ec2
       :startup_action,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute ipv6_addresses
@@ -56864,7 +56864,7 @@ module AWS::Ec2
       :network_interface_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute network_interface_id
@@ -56888,7 +56888,7 @@ module AWS::Ec2
       :unassigned_ipv6_prefixes,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the parameters for UnassignPrivateIpAddresses.</p>
@@ -56914,14 +56914,14 @@ module AWS::Ec2
       :ipv4_prefixes,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     UnassignPrivateIpAddressesOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_ids
@@ -56941,7 +56941,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute instance_monitorings
@@ -56953,7 +56953,7 @@ module AWS::Ec2
       :instance_monitorings,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the burstable performance instance whose credit option for CPU usage was not
@@ -56975,7 +56975,7 @@ module AWS::Ec2
       :error,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the error for the burstable performance instance whose credit option
@@ -56996,7 +56996,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about items that were not successfully processed in a batch call.</p>
@@ -57016,7 +57016,7 @@ module AWS::Ec2
       :resource_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the error that occurred. For more information about errors, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
@@ -57036,7 +57036,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -57079,7 +57079,7 @@ module AWS::Ec2
       :security_group_rule_descriptions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -57091,7 +57091,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute dry_run
@@ -57134,7 +57134,7 @@ module AWS::Ec2
       :security_group_rule_descriptions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute return
@@ -57146,7 +57146,7 @@ module AWS::Ec2
       :return,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Amazon S3 bucket for the disk image.</p>
@@ -57166,7 +57166,7 @@ module AWS::Ec2
       :s3_key,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the Amazon S3 bucket for the disk image.</p>
@@ -57186,7 +57186,7 @@ module AWS::Ec2
       :s3_key,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the user data for an instance.</p>
@@ -57204,7 +57204,7 @@ module AWS::Ec2
       :data,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Ec2::Types::UserData [SENSITIVE]>"
@@ -57270,7 +57270,7 @@ module AWS::Ec2
       :vpc_peering_connection_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum number of vCPUs.</p>
@@ -57292,7 +57292,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum and maximum number of vCPUs.</p>
@@ -57312,7 +57312,7 @@ module AWS::Ec2
       :max,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the vCPU configurations for the instance type.</p>
@@ -57350,7 +57350,7 @@ module AWS::Ec2
       :valid_threads_per_core,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The error code and error message that is returned for a parameter or parameter combination that is not valid when a new launch template or new version of a launch template is created.</p>
@@ -57371,7 +57371,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The error codes and error messages that are returned for the parameters or parameter combinations that are not valid when a new launch template or new version of a launch template is created.</p>
@@ -57385,7 +57385,7 @@ module AWS::Ec2
       :errors,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes telemetry for a VPN tunnel.</p>
@@ -57430,7 +57430,7 @@ module AWS::Ec2
       :certificate_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a volume.</p>
@@ -57537,7 +57537,7 @@ module AWS::Ec2
       :throughput,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes volume attachment details.</p>
@@ -57581,7 +57581,7 @@ module AWS::Ec2
       :delete_on_termination,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an EBS volume.</p>
@@ -57595,7 +57595,7 @@ module AWS::Ec2
       :size,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the modification status of an EBS volume.</p>
@@ -57701,7 +57701,7 @@ module AWS::Ec2
       :end_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a volume status operation code.</p>
@@ -57733,7 +57733,7 @@ module AWS::Ec2
       :event_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Information about the instances to which the volume is attached.</p>
@@ -57753,7 +57753,7 @@ module AWS::Ec2
       :instance_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a volume status.</p>
@@ -57773,7 +57773,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a volume status event.</p>
@@ -57817,7 +57817,7 @@ module AWS::Ec2
       :instance_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the status of a volume.</p>
@@ -57837,7 +57837,7 @@ module AWS::Ec2
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the volume status.</p>
@@ -57887,7 +57887,7 @@ module AWS::Ec2
       :attachment_statuses,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a VPC.</p>
@@ -57955,7 +57955,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an attachment between a virtual private gateway and a VPC.</p>
@@ -57975,7 +57975,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IPv4 CIDR block associated with a VPC.</p>
@@ -58001,7 +58001,7 @@ module AWS::Ec2
       :cidr_block_state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the state of a CIDR block.</p>
@@ -58021,7 +58021,7 @@ module AWS::Ec2
       :status_message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes whether a VPC is enabled for ClassicLink.</p>
@@ -58047,7 +58047,7 @@ module AWS::Ec2
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a VPC endpoint.</p>
@@ -58158,7 +58158,7 @@ module AWS::Ec2
       :last_error,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a VPC endpoint connection to a service.</p>
@@ -58214,7 +58214,7 @@ module AWS::Ec2
       :gateway_load_balancer_arns,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes an IPv6 CIDR block associated with a VPC.</p>
@@ -58253,7 +58253,7 @@ module AWS::Ec2
       :ipv6_pool,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a VPC peering connection.</p>
@@ -58297,7 +58297,7 @@ module AWS::Ec2
       :vpc_peering_connection_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the VPC peering connection options.</p>
@@ -58323,7 +58323,7 @@ module AWS::Ec2
       :allow_egress_from_local_vpc_to_remote_classic_link,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes the status of a VPC peering connection.</p>
@@ -58343,7 +58343,7 @@ module AWS::Ec2
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a VPC in a VPC peering connection.</p>
@@ -58393,7 +58393,7 @@ module AWS::Ec2
       :region,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a VPN connection.</p>
@@ -58496,7 +58496,7 @@ module AWS::Ec2
       :vgw_telemetry,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>List of customer gateway devices that have a sample configuration file available for
@@ -58531,7 +58531,7 @@ module AWS::Ec2
       :software,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes VPN connection options.</p>
@@ -58588,7 +58588,7 @@ module AWS::Ec2
       :tunnel_options,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes VPN connection options.</p>
@@ -58660,7 +58660,7 @@ module AWS::Ec2
       :remote_ipv6_network_cidr,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a virtual private gateway.</p>
@@ -58712,7 +58712,7 @@ module AWS::Ec2
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Describes a static route for a VPN connection.</p>
@@ -58738,7 +58738,7 @@ module AWS::Ec2
       :state,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The tunnel options for a single VPN tunnel.</p>
@@ -58964,7 +58964,7 @@ module AWS::Ec2
       :startup_action,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cidr
@@ -58984,7 +58984,7 @@ module AWS::Ec2
       :dry_run,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute byoip_cidr
@@ -58996,7 +58996,7 @@ module AWS::Ec2
       :byoip_cidr,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
   end

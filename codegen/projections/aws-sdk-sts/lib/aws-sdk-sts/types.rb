@@ -231,7 +231,7 @@ module AWS::Sts
       :source_identity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the response to a successful <a>AssumeRole</a> request, including
@@ -288,7 +288,7 @@ module AWS::Sts
       :source_identity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute role_arn
@@ -398,7 +398,7 @@ module AWS::Sts
       :duration_seconds,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the response to a successful <a>AssumeRoleWithSAML</a> request,
@@ -510,7 +510,7 @@ module AWS::Sts
       :source_identity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute role_arn
@@ -635,7 +635,7 @@ module AWS::Sts
       :duration_seconds,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the response to a successful <a>AssumeRoleWithWebIdentity</a>
@@ -724,7 +724,7 @@ module AWS::Sts
       :source_identity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The identifiers for the temporary security credentials that the operation
@@ -748,7 +748,7 @@ module AWS::Sts
       :arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Amazon Web Services credentials for API authentication.</p>
@@ -781,7 +781,7 @@ module AWS::Sts
       :expiration,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute encoded_message
@@ -793,7 +793,7 @@ module AWS::Sts
       :encoded_message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A document that contains additional information about the authorization status of a
@@ -808,7 +808,7 @@ module AWS::Sts
       :decoded_message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The web identity token that was passed is expired or is not valid. Get a new identity
@@ -822,7 +822,7 @@ module AWS::Sts
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Identifiers for the federated user that is associated with the credentials.</p>
@@ -845,7 +845,7 @@ module AWS::Sts
       :arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute access_key_id
@@ -859,7 +859,7 @@ module AWS::Sts
       :access_key_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute account
@@ -871,14 +871,14 @@ module AWS::Sts
       :account,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     GetCallerIdentityInput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the response to a successful <a>GetCallerIdentity</a> request,
@@ -909,7 +909,7 @@ module AWS::Sts
       :arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute member_name
@@ -1042,7 +1042,7 @@ module AWS::Sts
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the response to a successful <a>GetFederationToken</a> request,
@@ -1080,7 +1080,7 @@ module AWS::Sts
       :packed_policy_size,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute duration_seconds
@@ -1123,7 +1123,7 @@ module AWS::Sts
       :token_code,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the response to a successful <a>GetSessionToken</a> request,
@@ -1144,7 +1144,7 @@ module AWS::Sts
       :credentials,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request could not be fulfilled because the identity provider (IDP) that
@@ -1161,7 +1161,7 @@ module AWS::Sts
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The identity provider (IdP) reported that authentication failed. This might be because
@@ -1177,7 +1177,7 @@ module AWS::Sts
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The error returned if the message passed to <code>DecodeAuthorizationMessage</code>
@@ -1192,7 +1192,7 @@ module AWS::Sts
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The web identity token that was passed could not be validated by Amazon Web Services. Get a new
@@ -1206,7 +1206,7 @@ module AWS::Sts
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request was rejected because the policy document was malformed. The error message
@@ -1220,7 +1220,7 @@ module AWS::Sts
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request was rejected because the total packed size of the session policies and
@@ -1241,7 +1241,7 @@ module AWS::Sts
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A reference to the IAM managed policy that is passed as a session policy for a role
@@ -1258,7 +1258,7 @@ module AWS::Sts
       :arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>STS is not activated in the requested region for the account that is being asked to
@@ -1275,7 +1275,7 @@ module AWS::Sts
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You can pass custom key-value pair attributes when you assume a role or federate a user.
@@ -1304,7 +1304,7 @@ module AWS::Sts
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
   end

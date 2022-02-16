@@ -32,9 +32,9 @@ module AWS::Dynamodb
   #             durability.</p>
   #
   class Client
-    include Seahorse::ClientStubs
+    include Hearth::ClientStubs
 
-    @middleware = Seahorse::MiddlewareBuilder.new
+    @middleware = Hearth::MiddlewareBuilder.new
 
     def self.middleware
       @middleware
@@ -68,9 +68,9 @@ module AWS::Dynamodb
       @http_wire_trace = options.fetch(:http_wire_trace, false)
       @log_level = options.fetch(:log_level, :info)
       @logger = options.fetch(:logger, Logger.new($stdout, level: @log_level))
-      @middleware = Seahorse::MiddlewareBuilder.new(options[:middleware])
+      @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
       @stub_responses = options.fetch(:stub_responses, false)
-      @stubs = Seahorse::Stubbing::Stubs.new
+      @stubs = Hearth::Stubbing::Stubs.new
       @validate_input = options.fetch(:validate_input, true)
 
     end
@@ -173,23 +173,23 @@ module AWS::Dynamodb
     #   resp.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
     #
     def batch_execute_statement(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::BatchExecuteStatementInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchExecuteStatementInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::BatchExecuteStatement
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::RequestLimitExceeded]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::RequestLimitExceeded]),
         data_parser: Parsers::BatchExecuteStatement
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::BatchExecuteStatement,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -197,9 +197,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :batch_execute_statement
@@ -461,23 +461,23 @@ module AWS::Dynamodb
     #   resp.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
     #
     def batch_get_item(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetItemInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetItemInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::BatchGetItem
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::BatchGetItem
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::BatchGetItem,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -485,9 +485,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :batch_get_item
@@ -727,23 +727,23 @@ module AWS::Dynamodb
     #   resp.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
     #
     def batch_write_item(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::BatchWriteItemInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchWriteItemInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::BatchWriteItem
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::BatchWriteItem
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::BatchWriteItem,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -751,9 +751,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :batch_write_item
@@ -825,23 +825,23 @@ module AWS::Dynamodb
     #   resp.backup_details.backup_expiry_date_time #=> Time
     #
     def create_backup(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackupInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateBackup
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]),
         data_parser: Parsers::CreateBackup
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateBackup,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -849,9 +849,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_backup
@@ -968,23 +968,23 @@ module AWS::Dynamodb
     #   resp.global_table_description.global_table_name #=> String
     #
     def create_global_table(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateGlobalTableInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGlobalTableInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateGlobalTable
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableNotFoundException, Errors::GlobalTableAlreadyExistsException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableNotFoundException, Errors::GlobalTableAlreadyExistsException]),
         data_parser: Parsers::CreateGlobalTable
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateGlobalTable,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -992,9 +992,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_global_table
@@ -1418,23 +1418,23 @@ module AWS::Dynamodb
     #   resp.table_description.table_class_summary #=> Types::TableClassSummary
     #
     def create_table(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::CreateTableInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTableInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateTable
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::CreateTable
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateTable,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1442,9 +1442,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :create_table
@@ -1527,23 +1527,23 @@ module AWS::Dynamodb
     #   resp.backup_description.source_table_feature_details.sse_description.inaccessible_encryption_date_time #=> Time
     #
     def delete_backup(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackupInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBackup
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::BackupInUseException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::BackupInUseException]),
         data_parser: Parsers::DeleteBackup
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteBackup,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1551,9 +1551,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_backup
@@ -1815,23 +1815,23 @@ module AWS::Dynamodb
     #   resp.item_collection_metrics.size_estimate_range_gb[0] #=> Float
     #
     def delete_item(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteItemInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteItemInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteItem
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::DeleteItem
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteItem,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1839,9 +1839,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_item
@@ -1975,23 +1975,23 @@ module AWS::Dynamodb
     #   resp.table_description.table_class_summary #=> Types::TableClassSummary
     #
     def delete_table(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTableInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTableInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteTable
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::DeleteTable
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteTable,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1999,9 +1999,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :delete_table
@@ -2084,23 +2084,23 @@ module AWS::Dynamodb
     #   resp.backup_description.source_table_feature_details.sse_description.inaccessible_encryption_date_time #=> Time
     #
     def describe_backup(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBackupInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBackupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeBackup
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException]),
         data_parser: Parsers::DescribeBackup
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeBackup,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2108,9 +2108,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :describe_backup
@@ -2159,23 +2159,23 @@ module AWS::Dynamodb
     #   resp.continuous_backups_description.point_in_time_recovery_description.latest_restorable_date_time #=> Time
     #
     def describe_continuous_backups(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContinuousBackupsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContinuousBackupsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeContinuousBackups
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException]),
         data_parser: Parsers::DescribeContinuousBackups
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeContinuousBackups,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2183,9 +2183,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :describe_continuous_backups
@@ -2230,23 +2230,23 @@ module AWS::Dynamodb
     #   resp.failure_exception.exception_description #=> String
     #
     def describe_contributor_insights(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContributorInsightsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContributorInsightsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeContributorInsights
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeContributorInsights
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeContributorInsights,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2254,9 +2254,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :describe_contributor_insights
@@ -2286,23 +2286,23 @@ module AWS::Dynamodb
     #   resp.endpoints[0].cache_period_in_minutes #=> Integer
     #
     def describe_endpoints(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeEndpoints
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: []),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: []),
         data_parser: Parsers::DescribeEndpoints
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeEndpoints,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2310,9 +2310,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :describe_endpoints
@@ -2363,23 +2363,23 @@ module AWS::Dynamodb
     #   resp.export_description.item_count #=> Integer
     #
     def describe_export(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExportInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExportInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeExport
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::LimitExceededException, Errors::ExportNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::LimitExceededException, Errors::ExportNotFoundException]),
         data_parser: Parsers::DescribeExport
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeExport,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2387,9 +2387,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :describe_export
@@ -2447,23 +2447,23 @@ module AWS::Dynamodb
     #   resp.global_table_description.global_table_name #=> String
     #
     def describe_global_table(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGlobalTableInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGlobalTableInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeGlobalTable
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]),
         data_parser: Parsers::DescribeGlobalTable
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeGlobalTable,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2471,9 +2471,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :describe_global_table
@@ -2543,23 +2543,23 @@ module AWS::Dynamodb
     #   resp.replica_settings[0].replica_table_class_summary.last_update_date_time #=> Time
     #
     def describe_global_table_settings(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGlobalTableSettingsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGlobalTableSettingsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeGlobalTableSettings
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]),
         data_parser: Parsers::DescribeGlobalTableSettings
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeGlobalTableSettings,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2567,9 +2567,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :describe_global_table_settings
@@ -2606,23 +2606,23 @@ module AWS::Dynamodb
     #   resp.kinesis_data_stream_destinations[0].destination_status_description #=> String
     #
     def describe_kinesis_streaming_destination(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeKinesisStreamingDestinationInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeKinesisStreamingDestinationInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeKinesisStreamingDestination
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeKinesisStreamingDestination
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeKinesisStreamingDestination,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2630,9 +2630,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :describe_kinesis_streaming_destination
@@ -2735,23 +2735,23 @@ module AWS::Dynamodb
     #   resp.table_max_write_capacity_units #=> Integer
     #
     def describe_limits(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLimitsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLimitsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeLimits
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
         data_parser: Parsers::DescribeLimits
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeLimits,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2759,9 +2759,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :describe_limits
@@ -2886,23 +2886,23 @@ module AWS::Dynamodb
     #   resp.table.table_class_summary #=> Types::TableClassSummary
     #
     def describe_table(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeTable
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeTable
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeTable,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2910,9 +2910,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :describe_table
@@ -2974,23 +2974,23 @@ module AWS::Dynamodb
     #   resp.table_auto_scaling_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
     #
     def describe_table_replica_auto_scaling(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableReplicaAutoScalingInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableReplicaAutoScalingInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeTableReplicaAutoScaling
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeTableReplicaAutoScaling
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeTableReplicaAutoScaling,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -2998,9 +2998,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :describe_table_replica_auto_scaling
@@ -3034,23 +3034,23 @@ module AWS::Dynamodb
     #   resp.time_to_live_description.attribute_name #=> String
     #
     def describe_time_to_live(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTimeToLiveInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTimeToLiveInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeTimeToLive
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeTimeToLive
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeTimeToLive,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3058,9 +3058,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :describe_time_to_live
@@ -3099,23 +3099,23 @@ module AWS::Dynamodb
     #   resp.destination_status #=> String, one of ENABLING, ACTIVE, DISABLING, DISABLED, ENABLE_FAILED
     #
     def disable_kinesis_streaming_destination(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DisableKinesisStreamingDestinationInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableKinesisStreamingDestinationInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DisableKinesisStreamingDestination
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::DisableKinesisStreamingDestination
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DisableKinesisStreamingDestination,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3123,9 +3123,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :disable_kinesis_streaming_destination
@@ -3166,23 +3166,23 @@ module AWS::Dynamodb
     #   resp.destination_status #=> String, one of ENABLING, ACTIVE, DISABLING, DISABLED, ENABLE_FAILED
     #
     def enable_kinesis_streaming_destination(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::EnableKinesisStreamingDestinationInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableKinesisStreamingDestinationInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::EnableKinesisStreamingDestination
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::EnableKinesisStreamingDestination
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::EnableKinesisStreamingDestination,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3190,9 +3190,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :enable_kinesis_streaming_destination
@@ -3299,23 +3299,23 @@ module AWS::Dynamodb
     #   resp.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
     #
     def execute_statement(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteStatementInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteStatementInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ExecuteStatement
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::DuplicateItemException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::DuplicateItemException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::ExecuteStatement
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ExecuteStatement,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3323,9 +3323,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :execute_statement
@@ -3412,23 +3412,23 @@ module AWS::Dynamodb
     #   resp.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
     #
     def execute_transaction(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteTransactionInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteTransactionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ExecuteTransaction
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]),
         data_parser: Parsers::ExecuteTransaction
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ExecuteTransaction,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3436,9 +3436,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :execute_transaction
@@ -3550,23 +3550,23 @@ module AWS::Dynamodb
     #   resp.export_description.item_count #=> Integer
     #
     def export_table_to_point_in_time(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ExportTableToPointInTimeInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportTableToPointInTimeInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ExportTableToPointInTime
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidExportTimeException, Errors::LimitExceededException, Errors::PointInTimeRecoveryUnavailableException, Errors::ExportConflictException, Errors::TableNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidExportTimeException, Errors::LimitExceededException, Errors::PointInTimeRecoveryUnavailableException, Errors::ExportConflictException, Errors::TableNotFoundException]),
         data_parser: Parsers::ExportTableToPointInTime
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ExportTableToPointInTime,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3574,9 +3574,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :export_table_to_point_in_time
@@ -3762,23 +3762,23 @@ module AWS::Dynamodb
     #   resp.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
     #
     def get_item(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetItemInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetItemInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetItem
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::GetItem
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetItem,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3786,9 +3786,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_item
@@ -3880,23 +3880,23 @@ module AWS::Dynamodb
     #   resp.last_evaluated_backup_arn #=> String
     #
     def list_backups(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListBackupsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBackupsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListBackups
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
         data_parser: Parsers::ListBackups
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListBackups,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3904,9 +3904,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_backups
@@ -3952,23 +3952,23 @@ module AWS::Dynamodb
     #   resp.next_token #=> String
     #
     def list_contributor_insights(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListContributorInsightsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContributorInsightsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListContributorInsights
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListContributorInsights
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListContributorInsights,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -3976,9 +3976,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_contributor_insights
@@ -4024,23 +4024,23 @@ module AWS::Dynamodb
     #   resp.next_token #=> String
     #
     def list_exports(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListExportsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExportsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListExports
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::LimitExceededException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::LimitExceededException]),
         data_parser: Parsers::ListExports
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListExports,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4048,9 +4048,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_exports
@@ -4105,23 +4105,23 @@ module AWS::Dynamodb
     #   resp.last_evaluated_global_table_name #=> String
     #
     def list_global_tables(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListGlobalTablesInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGlobalTablesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListGlobalTables
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
         data_parser: Parsers::ListGlobalTables
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListGlobalTables,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4129,9 +4129,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_global_tables
@@ -4174,23 +4174,23 @@ module AWS::Dynamodb
     #   resp.last_evaluated_table_name #=> String
     #
     def list_tables(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListTablesInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTablesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListTables
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
         data_parser: Parsers::ListTables
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListTables,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4198,9 +4198,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_tables
@@ -4246,23 +4246,23 @@ module AWS::Dynamodb
     #   resp.next_token #=> String
     #
     def list_tags_of_resource(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsOfResourceInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsOfResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::ListTagsOfResource
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListTagsOfResource
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListTagsOfResource,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4270,9 +4270,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :list_tags_of_resource
@@ -4613,23 +4613,23 @@ module AWS::Dynamodb
     #   resp.item_collection_metrics.size_estimate_range_gb[0] #=> Float
     #
     def put_item(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::PutItemInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutItemInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::PutItem
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::PutItem
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PutItem,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -4637,9 +4637,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :put_item
@@ -5145,23 +5145,23 @@ module AWS::Dynamodb
     #   resp.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
     #
     def query(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::QueryInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::QueryInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::Query
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::Query
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::Query,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5169,9 +5169,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :query
@@ -5366,23 +5366,23 @@ module AWS::Dynamodb
     #   resp.table_description.table_class_summary #=> Types::TableClassSummary
     #
     def restore_table_from_backup(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::RestoreTableFromBackupInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreTableFromBackupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::RestoreTableFromBackup
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableAlreadyExistsException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableAlreadyExistsException]),
         data_parser: Parsers::RestoreTableFromBackup
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::RestoreTableFromBackup,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5390,9 +5390,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :restore_table_from_backup
@@ -5627,23 +5627,23 @@ module AWS::Dynamodb
     #   resp.table_description.table_class_summary #=> Types::TableClassSummary
     #
     def restore_table_to_point_in_time(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::RestoreTableToPointInTimeInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreTableToPointInTimeInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::RestoreTableToPointInTime
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::PointInTimeRecoveryUnavailableException, Errors::InvalidRestoreTimeException, Errors::TableAlreadyExistsException, Errors::TableNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::PointInTimeRecoveryUnavailableException, Errors::InvalidRestoreTimeException, Errors::TableAlreadyExistsException, Errors::TableNotFoundException]),
         data_parser: Parsers::RestoreTableToPointInTime
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::RestoreTableToPointInTime,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -5651,9 +5651,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :restore_table_to_point_in_time
@@ -6033,23 +6033,23 @@ module AWS::Dynamodb
     #   resp.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
     #
     def scan(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::ScanInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::ScanInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::Scan
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::Scan
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::Scan,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6057,9 +6057,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :scan
@@ -6105,23 +6105,23 @@ module AWS::Dynamodb
     #   resp #=> Types::TagResourceOutput
     #
     def tag_resource(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::TagResource
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::TagResource
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::TagResource,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6129,9 +6129,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :tag_resource
@@ -6240,23 +6240,23 @@ module AWS::Dynamodb
     #   resp.responses[0].item['key'] #=> AttributeValue
     #
     def transact_get_items(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::TransactGetItemsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransactGetItemsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::TransactGetItems
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::TransactGetItems
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::TransactGetItems,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6264,9 +6264,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :transact_get_items
@@ -6496,23 +6496,23 @@ module AWS::Dynamodb
     #   resp.item_collection_metrics['key'][0].size_estimate_range_gb[0] #=> Float
     #
     def transact_write_items(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::TransactWriteItemsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransactWriteItemsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::TransactWriteItems
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]),
         data_parser: Parsers::TransactWriteItems
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::TransactWriteItems,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6520,9 +6520,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :transact_write_items
@@ -6564,23 +6564,23 @@ module AWS::Dynamodb
     #   resp #=> Types::UntagResourceOutput
     #
     def untag_resource(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UntagResource
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::UntagResource
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UntagResource,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6588,9 +6588,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :untag_resource
@@ -6644,23 +6644,23 @@ module AWS::Dynamodb
     #   resp.continuous_backups_description.point_in_time_recovery_description.latest_restorable_date_time #=> Time
     #
     def update_continuous_backups(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContinuousBackupsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContinuousBackupsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateContinuousBackups
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]),
         data_parser: Parsers::UpdateContinuousBackups
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateContinuousBackups,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6668,9 +6668,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_continuous_backups
@@ -6717,23 +6717,23 @@ module AWS::Dynamodb
     #   resp.contributor_insights_status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, FAILED
     #
     def update_contributor_insights(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContributorInsightsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContributorInsightsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateContributorInsights
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::UpdateContributorInsights
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateContributorInsights,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6741,9 +6741,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_contributor_insights
@@ -6832,23 +6832,23 @@ module AWS::Dynamodb
     #   resp.global_table_description.global_table_name #=> String
     #
     def update_global_table(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGlobalTableInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGlobalTableInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateGlobalTable
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException, Errors::ReplicaNotFoundException, Errors::TableNotFoundException, Errors::ReplicaAlreadyExistsException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException, Errors::ReplicaNotFoundException, Errors::TableNotFoundException, Errors::ReplicaAlreadyExistsException]),
         data_parser: Parsers::UpdateGlobalTable
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateGlobalTable,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -6856,9 +6856,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_global_table
@@ -6994,23 +6994,23 @@ module AWS::Dynamodb
     #   resp.replica_settings[0].replica_table_class_summary.last_update_date_time #=> Time
     #
     def update_global_table_settings(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGlobalTableSettingsInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGlobalTableSettingsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateGlobalTableSettings
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::GlobalTableNotFoundException, Errors::IndexNotFoundException, Errors::ReplicaNotFoundException, Errors::ResourceInUseException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::GlobalTableNotFoundException, Errors::IndexNotFoundException, Errors::ReplicaNotFoundException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateGlobalTableSettings
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateGlobalTableSettings,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -7018,9 +7018,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_global_table_settings
@@ -7410,23 +7410,23 @@ module AWS::Dynamodb
     #   resp.item_collection_metrics.size_estimate_range_gb[0] #=> Float
     #
     def update_item(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateItemInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateItemInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateItem
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::UpdateItem
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateItem,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -7434,9 +7434,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_item
@@ -7721,23 +7721,23 @@ module AWS::Dynamodb
     #   resp.table_description.table_class_summary #=> Types::TableClassSummary
     #
     def update_table(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateTable
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateTable
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateTable,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -7745,9 +7745,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_table
@@ -7851,23 +7851,23 @@ module AWS::Dynamodb
     #   resp.table_auto_scaling_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
     #
     def update_table_replica_auto_scaling(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableReplicaAutoScalingInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableReplicaAutoScalingInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateTableReplicaAutoScaling
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateTableReplicaAutoScaling
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateTableReplicaAutoScaling,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -7875,9 +7875,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_table_replica_auto_scaling
@@ -7943,23 +7943,23 @@ module AWS::Dynamodb
     #   resp.time_to_live_specification.attribute_name #=> String
     #
     def update_time_to_live(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTimeToLiveInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTimeToLiveInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateTimeToLive
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateTimeToLive
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateTimeToLive,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -7967,9 +7967,9 @@ module AWS::Dynamodb
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :update_time_to_live
@@ -7984,12 +7984,12 @@ module AWS::Dynamodb
     def apply_middleware(middleware_stack, middleware)
       Client.middleware.apply(middleware_stack)
       @middleware.apply(middleware_stack)
-      Seahorse::MiddlewareBuilder.new(middleware).apply(middleware_stack)
+      Hearth::MiddlewareBuilder.new(middleware).apply(middleware_stack)
     end
 
     def output_stream(options = {}, &block)
       return options[:output_stream] if options[:output_stream]
-      return Seahorse::BlockIO.new(block) if block
+      return Hearth::BlockIO.new(block) if block
 
       StringIO.new
     end
