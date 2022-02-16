@@ -14,7 +14,7 @@ module AWS::Sso
 
     module GetRoleCredentialsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetRoleCredentialsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetRoleCredentialsInput, context: context)
         type = Types::GetRoleCredentialsInput.new
         type.role_name = params[:role_name]
         type.account_id = params[:account_id]
@@ -25,7 +25,7 @@ module AWS::Sso
 
     module ListAccountRolesInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListAccountRolesInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListAccountRolesInput, context: context)
         type = Types::ListAccountRolesInput.new
         type.next_token = params[:next_token]
         type.max_results = params[:max_results]
@@ -37,7 +37,7 @@ module AWS::Sso
 
     module ListAccountsInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::ListAccountsInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::ListAccountsInput, context: context)
         type = Types::ListAccountsInput.new
         type.next_token = params[:next_token]
         type.max_results = params[:max_results]
@@ -48,7 +48,7 @@ module AWS::Sso
 
     module LogoutInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::LogoutInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::LogoutInput, context: context)
         type = Types::LogoutInput.new
         type.access_token = params[:access_token]
         type

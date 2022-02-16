@@ -17,9 +17,9 @@ module AWS::Sts
   #       more information about using this service, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">Temporary Security Credentials</a>.</p>
   #
   class Client
-    include Seahorse::ClientStubs
+    include Hearth::ClientStubs
 
-    @middleware = Seahorse::MiddlewareBuilder.new
+    @middleware = Hearth::MiddlewareBuilder.new
 
     def self.middleware
       @middleware
@@ -53,9 +53,9 @@ module AWS::Sts
       @http_wire_trace = options.fetch(:http_wire_trace, false)
       @log_level = options.fetch(:log_level, :info)
       @logger = options.fetch(:logger, Logger.new($stdout, level: @log_level))
-      @middleware = Seahorse::MiddlewareBuilder.new(options[:middleware])
+      @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
       @stub_responses = options.fetch(:stub_responses, false)
-      @stubs = Seahorse::Stubbing::Stubs.new
+      @stubs = Hearth::Stubbing::Stubs.new
       @validate_input = options.fetch(:validate_input, true)
 
     end
@@ -383,23 +383,23 @@ module AWS::Sts
     #   resp.source_identity #=> String
     #
     def assume_role(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::AssumeRoleInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssumeRoleInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::AssumeRole
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
         data_parser: Parsers::AssumeRole
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::AssumeRole,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -407,9 +407,9 @@ module AWS::Sts
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :assume_role
@@ -678,23 +678,23 @@ module AWS::Sts
     #   resp.source_identity #=> String
     #
     def assume_role_with_saml(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::AssumeRoleWithSAMLInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssumeRoleWithSAMLInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::AssumeRoleWithSAML
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::IDPRejectedClaimException, Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::InvalidIdentityTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::IDPRejectedClaimException, Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::InvalidIdentityTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
         data_parser: Parsers::AssumeRoleWithSAML
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::AssumeRoleWithSAML,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -702,9 +702,9 @@ module AWS::Sts
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :assume_role_with_saml
@@ -988,23 +988,23 @@ module AWS::Sts
     #   resp.source_identity #=> String
     #
     def assume_role_with_web_identity(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::AssumeRoleWithWebIdentityInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssumeRoleWithWebIdentityInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::AssumeRoleWithWebIdentity
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::IDPRejectedClaimException, Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::InvalidIdentityTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException, Errors::IDPCommunicationErrorException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::IDPRejectedClaimException, Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::InvalidIdentityTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException, Errors::IDPCommunicationErrorException]),
         data_parser: Parsers::AssumeRoleWithWebIdentity
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::AssumeRoleWithWebIdentity,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1012,9 +1012,9 @@ module AWS::Sts
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :assume_role_with_web_identity
@@ -1081,23 +1081,23 @@ module AWS::Sts
     #   resp.decoded_message #=> String
     #
     def decode_authorization_message(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::DecodeAuthorizationMessageInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::DecodeAuthorizationMessageInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::DecodeAuthorizationMessage
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidAuthorizationMessageException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidAuthorizationMessageException]),
         data_parser: Parsers::DecodeAuthorizationMessage
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DecodeAuthorizationMessage,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1105,9 +1105,9 @@ module AWS::Sts
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :decode_authorization_message
@@ -1158,23 +1158,23 @@ module AWS::Sts
     #   resp.account #=> String
     #
     def get_access_key_info(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessKeyInfoInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessKeyInfoInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetAccessKeyInfo
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: []),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: []),
         data_parser: Parsers::GetAccessKeyInfo
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetAccessKeyInfo,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1182,9 +1182,9 @@ module AWS::Sts
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_access_key_info
@@ -1222,23 +1222,23 @@ module AWS::Sts
     #   resp.arn #=> String
     #
     def get_caller_identity(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetCallerIdentityInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCallerIdentityInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetCallerIdentity
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: []),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: []),
         data_parser: Parsers::GetCallerIdentity
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetCallerIdentity,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1246,9 +1246,9 @@ module AWS::Sts
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_caller_identity
@@ -1495,23 +1495,23 @@ module AWS::Sts
     #   resp.packed_policy_size #=> Integer
     #
     def get_federation_token(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetFederationTokenInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFederationTokenInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFederationToken
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::MalformedPolicyDocumentException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::MalformedPolicyDocumentException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
         data_parser: Parsers::GetFederationToken
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFederationToken,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1519,9 +1519,9 @@ module AWS::Sts
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_federation_token
@@ -1635,23 +1635,23 @@ module AWS::Sts
     #   resp.credentials.expiration #=> Time
     #
     def get_session_token(params = {}, options = {}, &block)
-      stack = Seahorse::MiddlewareStack.new
+      stack = Hearth::MiddlewareStack.new
       input = Params::GetSessionTokenInput.build(params)
-      stack.use(Seahorse::Middleware::Validate,
+      stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSessionTokenInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
-      stack.use(Seahorse::Middleware::Build,
+      stack.use(Hearth::Middleware::Build,
         builder: Builders::GetSessionToken
       )
-      stack.use(Seahorse::HTTP::Middleware::ContentLength)
-      stack.use(Seahorse::Middleware::Parse,
-        error_parser: Seahorse::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::RegionDisabledException]),
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::RegionDisabledException]),
         data_parser: Parsers::GetSessionToken
       )
-      stack.use(Seahorse::Middleware::Send,
+      stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Seahorse::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetSessionToken,
         stubs: options.fetch(:stubs, @stubs)
       )
@@ -1659,9 +1659,9 @@ module AWS::Sts
 
       resp = stack.run(
         input: input,
-        context: Seahorse::Context.new(
-          request: Seahorse::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Seahorse::HTTP::Response.new(body: output_stream(options, &block)),
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
           params: params,
           logger: @logger,
           operation_name: :get_session_token
@@ -1676,12 +1676,12 @@ module AWS::Sts
     def apply_middleware(middleware_stack, middleware)
       Client.middleware.apply(middleware_stack)
       @middleware.apply(middleware_stack)
-      Seahorse::MiddlewareBuilder.new(middleware).apply(middleware_stack)
+      Hearth::MiddlewareBuilder.new(middleware).apply(middleware_stack)
     end
 
     def output_stream(options = {}, &block)
       return options[:output_stream] if options[:output_stream]
-      return Seahorse::BlockIO.new(block) if block
+      return Hearth::BlockIO.new(block) if block
 
       StringIO.new
     end

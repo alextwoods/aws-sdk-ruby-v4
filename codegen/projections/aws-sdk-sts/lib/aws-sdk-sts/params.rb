@@ -14,7 +14,7 @@ module AWS::Sts
 
     module AssumeRoleInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::AssumeRoleInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::AssumeRoleInput, context: context)
         type = Types::AssumeRoleInput.new
         type.role_arn = params[:role_arn]
         type.role_session_name = params[:role_session_name]
@@ -33,7 +33,7 @@ module AWS::Sts
 
     module AssumeRoleWithSAMLInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::AssumeRoleWithSAMLInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::AssumeRoleWithSAMLInput, context: context)
         type = Types::AssumeRoleWithSAMLInput.new
         type.role_arn = params[:role_arn]
         type.principal_arn = params[:principal_arn]
@@ -47,7 +47,7 @@ module AWS::Sts
 
     module AssumeRoleWithWebIdentityInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::AssumeRoleWithWebIdentityInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::AssumeRoleWithWebIdentityInput, context: context)
         type = Types::AssumeRoleWithWebIdentityInput.new
         type.role_arn = params[:role_arn]
         type.role_session_name = params[:role_session_name]
@@ -62,7 +62,7 @@ module AWS::Sts
 
     module DecodeAuthorizationMessageInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::DecodeAuthorizationMessageInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::DecodeAuthorizationMessageInput, context: context)
         type = Types::DecodeAuthorizationMessageInput.new
         type.encoded_message = params[:encoded_message]
         type
@@ -71,7 +71,7 @@ module AWS::Sts
 
     module GetAccessKeyInfoInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetAccessKeyInfoInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetAccessKeyInfoInput, context: context)
         type = Types::GetAccessKeyInfoInput.new
         type.access_key_id = params[:access_key_id]
         type
@@ -80,7 +80,7 @@ module AWS::Sts
 
     module GetCallerIdentityInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetCallerIdentityInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetCallerIdentityInput, context: context)
         type = Types::GetCallerIdentityInput.new
         type
       end
@@ -88,7 +88,7 @@ module AWS::Sts
 
     module GetFederationTokenInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetFederationTokenInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetFederationTokenInput, context: context)
         type = Types::GetFederationTokenInput.new
         type.member_name = params[:member_name]
         type.policy = params[:policy]
@@ -101,7 +101,7 @@ module AWS::Sts
 
     module GetSessionTokenInput
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::GetSessionTokenInput, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::GetSessionTokenInput, context: context)
         type = Types::GetSessionTokenInput.new
         type.duration_seconds = params[:duration_seconds]
         type.serial_number = params[:serial_number]
@@ -112,7 +112,7 @@ module AWS::Sts
 
     module PolicyDescriptorType
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::PolicyDescriptorType, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::PolicyDescriptorType, context: context)
         type = Types::PolicyDescriptorType.new
         type.arn = params[:arn]
         type
@@ -121,7 +121,7 @@ module AWS::Sts
 
     module Tag
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Hash, Types::Tag, context: context)
+        Hearth::Validator.validate!(params, ::Hash, Types::Tag, context: context)
         type = Types::Tag.new
         type.key = params[:key]
         type.value = params[:value]
@@ -131,7 +131,7 @@ module AWS::Sts
 
     module policyDescriptorListType
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << PolicyDescriptorType.build(element, context: "#{context}[#{index}]") unless element.nil?
@@ -142,7 +142,7 @@ module AWS::Sts
 
     module tagKeyListType
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << element
@@ -153,7 +153,7 @@ module AWS::Sts
 
     module tagListType
       def self.build(params, context: '')
-        Seahorse::Validator.validate!(params, ::Array, context: context)
+        Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << Tag.build(element, context: "#{context}[#{index}]") unless element.nil?

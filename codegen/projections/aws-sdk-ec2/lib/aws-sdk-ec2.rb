@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'seahorse'
+require 'hearth'
 
 require_relative 'aws-sdk-ec2/builders'
 require_relative 'aws-sdk-ec2/client'

@@ -14,10 +14,6 @@ module AWS::Dynamodb
 
     # Operation Builder for BatchExecuteStatement
     class BatchExecuteStatement
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # List Builder for PartiQLBatchRequest
@@ -58,10 +54,6 @@ module AWS::Dynamodb
 
     # Operation Builder for BatchGetItem
     class BatchGetItem
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Map Builder for BatchGetRequestMap
@@ -90,10 +82,6 @@ module AWS::Dynamodb
 
     # Operation Builder for BatchWriteItem
     class BatchWriteItem
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Map Builder for BatchWriteItemRequestMap
@@ -122,18 +110,10 @@ module AWS::Dynamodb
 
     # Operation Builder for CreateBackup
     class CreateBackup
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for CreateGlobalTable
     class CreateGlobalTable
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # List Builder for ReplicaList
@@ -146,10 +126,6 @@ module AWS::Dynamodb
 
     # Operation Builder for CreateTable
     class CreateTable
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # List Builder for TagList
@@ -214,18 +190,10 @@ module AWS::Dynamodb
 
     # Operation Builder for DeleteBackup
     class DeleteBackup
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DeleteItem
     class DeleteItem
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Map Builder for ExpressionAttributeValueMap
@@ -246,138 +214,70 @@ module AWS::Dynamodb
 
     # Operation Builder for DeleteTable
     class DeleteTable
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DescribeBackup
     class DescribeBackup
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DescribeContinuousBackups
     class DescribeContinuousBackups
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DescribeContributorInsights
     class DescribeContributorInsights
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DescribeEndpoints
     class DescribeEndpoints
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DescribeExport
     class DescribeExport
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DescribeGlobalTable
     class DescribeGlobalTable
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DescribeGlobalTableSettings
     class DescribeGlobalTableSettings
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DescribeKinesisStreamingDestination
     class DescribeKinesisStreamingDestination
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DescribeLimits
     class DescribeLimits
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DescribeTable
     class DescribeTable
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DescribeTableReplicaAutoScaling
     class DescribeTableReplicaAutoScaling
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DescribeTimeToLive
     class DescribeTimeToLive
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DisableKinesisStreamingDestination
     class DisableKinesisStreamingDestination
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for EnableKinesisStreamingDestination
     class EnableKinesisStreamingDestination
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for ExecuteStatement
     class ExecuteStatement
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for ExecuteTransaction
     class ExecuteTransaction
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # List Builder for ParameterizedStatements
@@ -390,82 +290,42 @@ module AWS::Dynamodb
 
     # Operation Builder for ExportTableToPointInTime
     class ExportTableToPointInTime
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for GetItem
     class GetItem
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for ListBackups
     class ListBackups
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for ListContributorInsights
     class ListContributorInsights
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for ListExports
     class ListExports
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for ListGlobalTables
     class ListGlobalTables
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for ListTables
     class ListTables
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for ListTagsOfResource
     class ListTagsOfResource
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for PutItem
     class PutItem
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for Query
     class Query
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Map Builder for FilterConditionMap
@@ -482,42 +342,22 @@ module AWS::Dynamodb
 
     # Operation Builder for RestoreTableFromBackup
     class RestoreTableFromBackup
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for RestoreTableToPointInTime
     class RestoreTableToPointInTime
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for Scan
     class Scan
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for TagResource
     class TagResource
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for TransactGetItems
     class TransactGetItems
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # List Builder for TransactGetItemList
@@ -534,10 +374,6 @@ module AWS::Dynamodb
 
     # Operation Builder for TransactWriteItems
     class TransactWriteItems
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # List Builder for TransactWriteItemList
@@ -566,10 +402,6 @@ module AWS::Dynamodb
 
     # Operation Builder for UntagResource
     class UntagResource
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # List Builder for TagKeyList
@@ -578,10 +410,6 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateContinuousBackups
     class UpdateContinuousBackups
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Structure Builder for PointInTimeRecoverySpecification
@@ -590,18 +418,10 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateContributorInsights
     class UpdateContributorInsights
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for UpdateGlobalTable
     class UpdateGlobalTable
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # List Builder for ReplicaUpdateList
@@ -622,10 +442,6 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateGlobalTableSettings
     class UpdateGlobalTableSettings
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # List Builder for ReplicaSettingsUpdateList
@@ -666,10 +482,6 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateItem
     class UpdateItem
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Map Builder for AttributeUpdates
@@ -682,10 +494,6 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateTable
     class UpdateTable
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # List Builder for ReplicationGroupUpdateList
@@ -742,10 +550,6 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateTableReplicaAutoScaling
     class UpdateTableReplicaAutoScaling
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # List Builder for ReplicaAutoScalingUpdateList
@@ -774,10 +578,6 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateTimeToLive
     class UpdateTimeToLive
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Structure Builder for TimeToLiveSpecification

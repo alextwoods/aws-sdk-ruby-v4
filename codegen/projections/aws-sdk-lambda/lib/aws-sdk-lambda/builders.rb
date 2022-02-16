@@ -18,8 +18,8 @@ module AWS::Lambda
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s/policy',
-            LayerName: Seahorse::HTTP.uri_escape(input[:layer_name].to_s),
-            VersionNumber: Seahorse::HTTP.uri_escape(input[:version_number].to_s)
+            LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s),
+            VersionNumber: Hearth::HTTP.uri_escape(input[:version_number].to_s)
           )
         )
         http_req.append_query_param('RevisionId', input[:revision_id].to_s) unless input[:revision_id].nil?
@@ -30,7 +30,7 @@ module AWS::Lambda
         data['Action'] = input[:action] unless input[:action].nil?
         data['Principal'] = input[:principal] unless input[:principal].nil?
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -40,7 +40,7 @@ module AWS::Lambda
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/policy',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
@@ -54,7 +54,7 @@ module AWS::Lambda
         data['SourceAccount'] = input[:source_account] unless input[:source_account].nil?
         data['EventSourceToken'] = input[:event_source_token] unless input[:event_source_token].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -64,7 +64,7 @@ module AWS::Lambda
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
 
@@ -74,7 +74,7 @@ module AWS::Lambda
         data['FunctionVersion'] = input[:function_version] unless input[:function_version].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['RoutingConfig'] = Builders::AliasRoutingConfiguration.build(input[:routing_config]) unless input[:routing_config].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -92,7 +92,7 @@ module AWS::Lambda
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Seahorse::NumberHelper.serialize(value) unless value.nil?
+          data[key] = Hearth::NumberHelper.serialize(value) unless value.nil?
         end
         data
       end
@@ -109,7 +109,7 @@ module AWS::Lambda
         data['Description'] = input[:description] unless input[:description].nil?
         data['AllowedPublishers'] = Builders::AllowedPublishers.build(input[:allowed_publishers]) unless input[:allowed_publishers].nil?
         data['CodeSigningPolicies'] = Builders::CodeSigningPolicies.build(input[:code_signing_policies]) unless input[:code_signing_policies].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -157,7 +157,7 @@ module AWS::Lambda
         data['MaximumBatchingWindowInSeconds'] = input[:maximum_batching_window_in_seconds] unless input[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = input[:parallelization_factor] unless input[:parallelization_factor].nil?
         data['StartingPosition'] = input[:starting_position] unless input[:starting_position].nil?
-        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_epoch_seconds(input[:starting_position_timestamp]) unless input[:starting_position_timestamp].nil?
+        data['StartingPositionTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(input[:starting_position_timestamp]) unless input[:starting_position_timestamp].nil?
         data['DestinationConfig'] = Builders::DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
         data['MaximumRecordAgeInSeconds'] = input[:maximum_record_age_in_seconds] unless input[:maximum_record_age_in_seconds].nil?
         data['BisectBatchOnFunctionError'] = input[:bisect_batch_on_function_error] unless input[:bisect_batch_on_function_error].nil?
@@ -168,7 +168,7 @@ module AWS::Lambda
         data['SourceAccessConfigurations'] = Builders::SourceAccessConfigurations.build(input[:source_access_configurations]) unless input[:source_access_configurations].nil?
         data['SelfManagedEventSource'] = Builders::SelfManagedEventSource.build(input[:self_managed_event_source]) unless input[:self_managed_event_source].nil?
         data['FunctionResponseTypes'] = Builders::FunctionResponseTypeList.build(input[:function_response_types]) unless input[:function_response_types].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -313,7 +313,7 @@ module AWS::Lambda
         data['FileSystemConfigs'] = Builders::FileSystemConfigList.build(input[:file_system_configs]) unless input[:file_system_configs].nil?
         data['ImageConfig'] = Builders::ImageConfig.build(input[:image_config]) unless input[:image_config].nil?
         data['CodeSigningConfigArn'] = input[:code_signing_config_arn] unless input[:code_signing_config_arn].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -471,8 +471,8 @@ module AWS::Lambda
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s),
-            Name: Seahorse::HTTP.uri_escape(input[:member_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s),
+            Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
       end
@@ -484,7 +484,7 @@ module AWS::Lambda
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s',
-            CodeSigningConfigArn: Seahorse::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
+            CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
           )
         )
       end
@@ -496,7 +496,7 @@ module AWS::Lambda
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2015-03-31/event-source-mappings/%<UUID>s',
-            UUID: Seahorse::HTTP.uri_escape(input[:uuid].to_s)
+            UUID: Hearth::HTTP.uri_escape(input[:uuid].to_s)
           )
         )
       end
@@ -508,7 +508,7 @@ module AWS::Lambda
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
@@ -521,7 +521,7 @@ module AWS::Lambda
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-06-30/functions/%<FunctionName>s/code-signing-config',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
       end
@@ -533,7 +533,7 @@ module AWS::Lambda
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2017-10-31/functions/%<FunctionName>s/concurrency',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
       end
@@ -545,7 +545,7 @@ module AWS::Lambda
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
@@ -558,8 +558,8 @@ module AWS::Lambda
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s',
-            LayerName: Seahorse::HTTP.uri_escape(input[:layer_name].to_s),
-            VersionNumber: Seahorse::HTTP.uri_escape(input[:version_number].to_s)
+            LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s),
+            VersionNumber: Hearth::HTTP.uri_escape(input[:version_number].to_s)
           )
         )
       end
@@ -571,7 +571,7 @@ module AWS::Lambda
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
@@ -592,8 +592,8 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s),
-            Name: Seahorse::HTTP.uri_escape(input[:member_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s),
+            Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
       end
@@ -605,7 +605,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s',
-            CodeSigningConfigArn: Seahorse::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
+            CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
           )
         )
       end
@@ -617,7 +617,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2015-03-31/event-source-mappings/%<UUID>s',
-            UUID: Seahorse::HTTP.uri_escape(input[:uuid].to_s)
+            UUID: Hearth::HTTP.uri_escape(input[:uuid].to_s)
           )
         )
       end
@@ -629,7 +629,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
@@ -642,7 +642,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-06-30/functions/%<FunctionName>s/code-signing-config',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
       end
@@ -654,7 +654,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/concurrency',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
       end
@@ -666,7 +666,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/configuration',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
@@ -679,7 +679,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
@@ -692,8 +692,8 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s',
-            LayerName: Seahorse::HTTP.uri_escape(input[:layer_name].to_s),
-            VersionNumber: Seahorse::HTTP.uri_escape(input[:version_number].to_s)
+            LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s),
+            VersionNumber: Hearth::HTTP.uri_escape(input[:version_number].to_s)
           )
         )
       end
@@ -717,8 +717,8 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s/policy',
-            LayerName: Seahorse::HTTP.uri_escape(input[:layer_name].to_s),
-            VersionNumber: Seahorse::HTTP.uri_escape(input[:version_number].to_s)
+            LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s),
+            VersionNumber: Hearth::HTTP.uri_escape(input[:version_number].to_s)
           )
         )
       end
@@ -730,7 +730,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/policy',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
@@ -743,7 +743,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
@@ -756,7 +756,7 @@ module AWS::Lambda
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/invocations',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
@@ -774,7 +774,7 @@ module AWS::Lambda
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2014-11-13/functions/%<FunctionName>s/invoke-async',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.headers['Content-Type'] = 'application/octet-stream'
@@ -788,7 +788,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('FunctionVersion', input[:function_version].to_s) unless input[:function_version].nil?
@@ -825,7 +825,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config/list',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
@@ -851,7 +851,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s/functions',
-            CodeSigningConfigArn: Seahorse::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
+            CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
           )
         )
         http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
@@ -865,7 +865,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions',
-            LayerName: Seahorse::HTTP.uri_escape(input[:layer_name].to_s)
+            LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s)
           )
         )
         http_req.append_query_param('CompatibleRuntime', input[:compatible_runtime].to_s) unless input[:compatible_runtime].nil?
@@ -894,7 +894,7 @@ module AWS::Lambda
         end
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
@@ -908,7 +908,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2017-03-31/tags/%<Resource>s',
-            Resource: Seahorse::HTTP.uri_escape(input[:resource].to_s)
+            Resource: Hearth::HTTP.uri_escape(input[:resource].to_s)
           )
         )
       end
@@ -920,7 +920,7 @@ module AWS::Lambda
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/versions',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
@@ -934,7 +934,7 @@ module AWS::Lambda
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions',
-            LayerName: Seahorse::HTTP.uri_escape(input[:layer_name].to_s)
+            LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s)
           )
         )
 
@@ -944,7 +944,7 @@ module AWS::Lambda
         data['Content'] = Builders::LayerVersionContentInput.build(input[:content]) unless input[:content].nil?
         data['CompatibleRuntimes'] = Builders::CompatibleRuntimes.build(input[:compatible_runtimes]) unless input[:compatible_runtimes].nil?
         data['LicenseInfo'] = input[:license_info] unless input[:license_info].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -977,7 +977,7 @@ module AWS::Lambda
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/versions',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
 
@@ -986,7 +986,7 @@ module AWS::Lambda
         data['CodeSha256'] = input[:code_sha256] unless input[:code_sha256].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -996,14 +996,14 @@ module AWS::Lambda
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-06-30/functions/%<FunctionName>s/code-signing-config',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CodeSigningConfigArn'] = input[:code_signing_config_arn] unless input[:code_signing_config_arn].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1013,14 +1013,14 @@ module AWS::Lambda
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2017-10-31/functions/%<FunctionName>s/concurrency',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ReservedConcurrentExecutions'] = input[:reserved_concurrent_executions] unless input[:reserved_concurrent_executions].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1030,7 +1030,7 @@ module AWS::Lambda
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
@@ -1040,7 +1040,7 @@ module AWS::Lambda
         data['MaximumRetryAttempts'] = input[:maximum_retry_attempts] unless input[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = input[:maximum_event_age_in_seconds] unless input[:maximum_event_age_in_seconds].nil?
         data['DestinationConfig'] = Builders::DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1050,7 +1050,7 @@ module AWS::Lambda
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
@@ -1058,7 +1058,7 @@ module AWS::Lambda
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ProvisionedConcurrentExecutions'] = input[:provisioned_concurrent_executions] unless input[:provisioned_concurrent_executions].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1068,9 +1068,9 @@ module AWS::Lambda
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s/policy/%<StatementId>s',
-            LayerName: Seahorse::HTTP.uri_escape(input[:layer_name].to_s),
-            VersionNumber: Seahorse::HTTP.uri_escape(input[:version_number].to_s),
-            StatementId: Seahorse::HTTP.uri_escape(input[:statement_id].to_s)
+            LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s),
+            VersionNumber: Hearth::HTTP.uri_escape(input[:version_number].to_s),
+            StatementId: Hearth::HTTP.uri_escape(input[:statement_id].to_s)
           )
         )
         http_req.append_query_param('RevisionId', input[:revision_id].to_s) unless input[:revision_id].nil?
@@ -1083,8 +1083,8 @@ module AWS::Lambda
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/policy/%<StatementId>s',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s),
-            StatementId: Seahorse::HTTP.uri_escape(input[:statement_id].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s),
+            StatementId: Hearth::HTTP.uri_escape(input[:statement_id].to_s)
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
@@ -1098,14 +1098,14 @@ module AWS::Lambda
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2017-03-31/tags/%<Resource>s',
-            Resource: Seahorse::HTTP.uri_escape(input[:resource].to_s)
+            Resource: Hearth::HTTP.uri_escape(input[:resource].to_s)
           )
         )
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1115,7 +1115,7 @@ module AWS::Lambda
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2017-03-31/tags/%<Resource>s',
-            Resource: Seahorse::HTTP.uri_escape(input[:resource].to_s)
+            Resource: Hearth::HTTP.uri_escape(input[:resource].to_s)
           )
         )
         unless input[:tag_keys].nil? || input[:tag_keys].empty?
@@ -1143,8 +1143,8 @@ module AWS::Lambda
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s),
-            Name: Seahorse::HTTP.uri_escape(input[:member_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s),
+            Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
 
@@ -1154,7 +1154,7 @@ module AWS::Lambda
         data['Description'] = input[:description] unless input[:description].nil?
         data['RoutingConfig'] = Builders::AliasRoutingConfiguration.build(input[:routing_config]) unless input[:routing_config].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1164,7 +1164,7 @@ module AWS::Lambda
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s',
-            CodeSigningConfigArn: Seahorse::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
+            CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
           )
         )
 
@@ -1173,7 +1173,7 @@ module AWS::Lambda
         data['Description'] = input[:description] unless input[:description].nil?
         data['AllowedPublishers'] = Builders::AllowedPublishers.build(input[:allowed_publishers]) unless input[:allowed_publishers].nil?
         data['CodeSigningPolicies'] = Builders::CodeSigningPolicies.build(input[:code_signing_policies]) unless input[:code_signing_policies].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1183,7 +1183,7 @@ module AWS::Lambda
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2015-03-31/event-source-mappings/%<UUID>s',
-            UUID: Seahorse::HTTP.uri_escape(input[:uuid].to_s)
+            UUID: Hearth::HTTP.uri_escape(input[:uuid].to_s)
           )
         )
 
@@ -1201,7 +1201,7 @@ module AWS::Lambda
         data['SourceAccessConfigurations'] = Builders::SourceAccessConfigurations.build(input[:source_access_configurations]) unless input[:source_access_configurations].nil?
         data['TumblingWindowInSeconds'] = input[:tumbling_window_in_seconds] unless input[:tumbling_window_in_seconds].nil?
         data['FunctionResponseTypes'] = Builders::FunctionResponseTypeList.build(input[:function_response_types]) unless input[:function_response_types].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1211,7 +1211,7 @@ module AWS::Lambda
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/code',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
 
@@ -1225,7 +1225,7 @@ module AWS::Lambda
         data['Publish'] = input[:publish] unless input[:publish].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1235,7 +1235,7 @@ module AWS::Lambda
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/configuration',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
 
@@ -1256,7 +1256,7 @@ module AWS::Lambda
         data['Layers'] = Builders::LayerList.build(input[:layers]) unless input[:layers].nil?
         data['FileSystemConfigs'] = Builders::FileSystemConfigList.build(input[:file_system_configs]) unless input[:file_system_configs].nil?
         data['ImageConfig'] = Builders::ImageConfig.build(input[:image_config]) unless input[:image_config].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1266,7 +1266,7 @@ module AWS::Lambda
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
-            FunctionName: Seahorse::HTTP.uri_escape(input[:function_name].to_s)
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
         http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
@@ -1276,7 +1276,7 @@ module AWS::Lambda
         data['MaximumRetryAttempts'] = input[:maximum_retry_attempts] unless input[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = input[:maximum_event_age_in_seconds] unless input[:maximum_event_age_in_seconds].nil?
         data['DestinationConfig'] = Builders::DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
-        http_req.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

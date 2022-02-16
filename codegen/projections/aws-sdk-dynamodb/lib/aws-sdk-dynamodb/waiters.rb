@@ -26,18 +26,18 @@ module AWS::Dynamodb
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 20 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_table,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "table.table_status",
+                    path: "\"table\".\"table_status\"",
                     comparator: "stringEquals",
                     expected: 'ACTIVE'
                   }
@@ -87,11 +87,11 @@ module AWS::Dynamodb
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 20 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_table,
             acceptors: [
               {

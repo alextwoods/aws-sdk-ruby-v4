@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-require 'seahorse'
+require 'hearth'
 
 require_relative 'aws-sdk-cloudfront/builders'
 require_relative 'aws-sdk-cloudfront/client'

@@ -26,11 +26,11 @@ module AWS::Lambda
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 1 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :get_function,
             acceptors: [
               {
@@ -85,18 +85,18 @@ module AWS::Lambda
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 5 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :get_function_configuration,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "state",
+                    path: "\"state\"",
                     comparator: "stringEquals",
                     expected: 'Active'
                   }
@@ -106,7 +106,7 @@ module AWS::Lambda
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "state",
+                    path: "\"state\"",
                     comparator: "stringEquals",
                     expected: 'Failed'
                   }
@@ -116,7 +116,7 @@ module AWS::Lambda
                 state: 'retry',
                 matcher: {
                   output: {
-                    path: "state",
+                    path: "\"state\"",
                     comparator: "stringEquals",
                     expected: 'Pending'
                   }
@@ -162,18 +162,18 @@ module AWS::Lambda
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 5 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :get_function_configuration,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "last_update_status",
+                    path: "\"last_update_status\"",
                     comparator: "stringEquals",
                     expected: 'Successful'
                   }
@@ -183,7 +183,7 @@ module AWS::Lambda
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "last_update_status",
+                    path: "\"last_update_status\"",
                     comparator: "stringEquals",
                     expected: 'Failed'
                   }
@@ -193,7 +193,7 @@ module AWS::Lambda
                 state: 'retry',
                 matcher: {
                   output: {
-                    path: "last_update_status",
+                    path: "\"last_update_status\"",
                     comparator: "stringEquals",
                     expected: 'InProgress'
                   }

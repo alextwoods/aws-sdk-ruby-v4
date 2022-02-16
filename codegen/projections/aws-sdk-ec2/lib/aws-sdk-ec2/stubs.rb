@@ -19,9 +19,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for AcceptTransitGatewayMulticastDomainAssociations
@@ -33,9 +30,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayMulticastDomainAssociations
@@ -54,11 +48,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for SubnetAssociationList
@@ -70,13 +59,7 @@ module AWS::Ec2
           Stubs::SubnetAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SubnetAssociation
@@ -91,11 +74,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AcceptTransitGatewayPeeringAttachment
@@ -107,9 +85,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayPeeringAttachment
@@ -129,11 +104,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for TagList
@@ -145,13 +115,7 @@ module AWS::Ec2
           Stubs::Tag.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Tag
@@ -166,11 +130,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PeeringAttachmentStatus
@@ -185,11 +144,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PeeringTgwInfo
@@ -205,11 +159,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AcceptTransitGatewayVpcAttachment
@@ -221,9 +170,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayVpcAttachment
@@ -245,11 +191,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for TransitGatewayVpcAttachmentOptions
@@ -265,11 +206,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ValueStringList
@@ -281,13 +217,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for AcceptVpcEndpointConnections
@@ -299,9 +229,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for UnsuccessfulItemSet
@@ -313,13 +240,7 @@ module AWS::Ec2
           Stubs::UnsuccessfulItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for UnsuccessfulItem
@@ -334,11 +255,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for UnsuccessfulItemError
@@ -353,11 +269,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AcceptVpcPeeringConnection
@@ -369,9 +280,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for VpcPeeringConnection
@@ -390,11 +298,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for VpcPeeringConnectionStateReason
@@ -409,11 +312,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for VpcPeeringConnectionVpcInfo
@@ -433,11 +331,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for VpcPeeringConnectionOptionsDescription
@@ -453,11 +346,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for CidrBlockSet
@@ -469,13 +357,7 @@ module AWS::Ec2
           Stubs::CidrBlock.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CidrBlock
@@ -489,11 +371,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for Ipv6CidrBlockSet
@@ -505,13 +382,7 @@ module AWS::Ec2
           Stubs::Ipv6CidrBlock.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Ipv6CidrBlock
@@ -525,11 +396,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AdvertiseByoipCidr
@@ -541,9 +407,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for ByoipCidr
@@ -560,11 +423,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AllocateAddress
@@ -583,9 +441,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for AllocateHosts
@@ -597,9 +452,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ResponseHostIdList
@@ -611,13 +463,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for AllocateIpamPoolCidr
@@ -629,9 +475,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for IpamPoolAllocation
@@ -651,11 +494,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ApplySecurityGroupsToClientVpnTargetNetwork
@@ -667,9 +505,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ClientVpnSecurityGroupIdSet
@@ -681,13 +516,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for AssignIpv6Addresses
@@ -701,9 +530,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for IpPrefixList
@@ -715,13 +541,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for Ipv6AddressList
@@ -733,13 +553,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for AssignPrivateIpAddresses
@@ -753,9 +567,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for Ipv4PrefixesList
@@ -767,13 +578,7 @@ module AWS::Ec2
           Stubs::Ipv4PrefixSpecification.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Ipv4PrefixSpecification
@@ -787,11 +592,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AssignedPrivateIpAddressList
@@ -803,13 +603,7 @@ module AWS::Ec2
           Stubs::AssignedPrivateIpAddress.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AssignedPrivateIpAddress
@@ -823,11 +617,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AssociateAddress
@@ -839,9 +628,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for AssociateClientVpnTargetNetwork
@@ -854,9 +640,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for AssociationStatus
@@ -871,11 +654,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AssociateDhcpOptions
@@ -886,9 +664,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for AssociateEnclaveCertificateIamRole
@@ -902,9 +677,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for AssociateIamInstanceProfile
@@ -916,9 +688,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for IamInstanceProfileAssociation
@@ -936,11 +705,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for IamInstanceProfile
@@ -955,11 +719,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AssociateInstanceEventWindow
@@ -971,9 +730,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for InstanceEventWindow
@@ -993,11 +749,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for InstanceEventWindowAssociationTarget
@@ -1013,11 +764,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for DedicatedHostIdList
@@ -1029,13 +775,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for InstanceIdList
@@ -1047,13 +787,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for InstanceEventWindowTimeRangeList
@@ -1065,13 +799,7 @@ module AWS::Ec2
           Stubs::InstanceEventWindowTimeRange.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceEventWindowTimeRange
@@ -1088,11 +816,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AssociateRouteTable
@@ -1105,9 +828,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for RouteTableAssociationState
@@ -1122,11 +842,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AssociateSubnetCidrBlock
@@ -1139,9 +854,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for SubnetIpv6CidrBlockAssociation
@@ -1157,11 +869,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for SubnetCidrBlockState
@@ -1176,11 +883,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AssociateTransitGatewayMulticastDomain
@@ -1192,9 +894,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for AssociateTransitGatewayRouteTable
@@ -1206,9 +905,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayAssociation
@@ -1226,11 +922,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AssociateTrunkInterface
@@ -1243,9 +934,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TrunkInterfaceAssociation
@@ -1265,11 +953,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AssociateVpcCidrBlock
@@ -1283,9 +966,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for VpcCidrBlockAssociation
@@ -1301,11 +981,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for VpcCidrBlockState
@@ -1320,11 +995,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for VpcIpv6CidrBlockAssociation
@@ -1342,11 +1012,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AttachClassicLinkVpc
@@ -1358,9 +1023,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for AttachInternetGateway
@@ -1371,9 +1033,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for AttachNetworkInterface
@@ -1386,9 +1045,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for AttachVolume
@@ -1405,9 +1061,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for AttachVpnGateway
@@ -1419,9 +1072,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for VpcAttachment
@@ -1436,11 +1086,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AuthorizeClientVpnIngress
@@ -1452,9 +1097,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for ClientVpnAuthorizationRuleStatus
@@ -1469,11 +1111,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AuthorizeSecurityGroupEgress
@@ -1486,9 +1123,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for SecurityGroupRuleList
@@ -1500,13 +1134,7 @@ module AWS::Ec2
           Stubs::SecurityGroupRule.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SecurityGroupRule
@@ -1532,11 +1160,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ReferencedSecurityGroup
@@ -1554,11 +1177,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for AuthorizeSecurityGroupIngress
@@ -1571,9 +1189,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for BundleInstance
@@ -1585,9 +1200,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for BundleTask
@@ -1608,11 +1220,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for Storage
@@ -1626,11 +1233,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for S3Storage
@@ -1648,11 +1250,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for BundleTaskError
@@ -1667,11 +1264,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CancelBundleTask
@@ -1683,9 +1275,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CancelCapacityReservation
@@ -1697,9 +1286,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CancelCapacityReservationFleets
@@ -1712,9 +1298,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for FailedCapacityReservationFleetCancellationResultSet
@@ -1726,13 +1309,7 @@ module AWS::Ec2
           Stubs::FailedCapacityReservationFleetCancellationResult.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for FailedCapacityReservationFleetCancellationResult
@@ -1747,11 +1324,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CancelCapacityReservationFleetError
@@ -1766,11 +1338,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for CapacityReservationFleetCancellationStateSet
@@ -1782,13 +1349,7 @@ module AWS::Ec2
           Stubs::CapacityReservationFleetCancellationState.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CapacityReservationFleetCancellationState
@@ -1804,11 +1365,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CancelConversionTask
@@ -1819,9 +1375,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CancelExportTask
@@ -1832,9 +1385,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CancelImportTask
@@ -1848,9 +1398,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CancelReservedInstancesListing
@@ -1862,9 +1409,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ReservedInstancesListingList
@@ -1876,13 +1420,7 @@ module AWS::Ec2
           Stubs::ReservedInstancesListing.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ReservedInstancesListing
@@ -1905,11 +1443,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for PriceScheduleList
@@ -1921,13 +1454,7 @@ module AWS::Ec2
           Stubs::PriceSchedule.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PriceSchedule
@@ -1944,11 +1471,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InstanceCountList
@@ -1960,13 +1482,7 @@ module AWS::Ec2
           Stubs::InstanceCount.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceCount
@@ -1981,11 +1497,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CancelSpotFleetRequests
@@ -1998,9 +1509,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for CancelSpotFleetRequestsErrorSet
@@ -2012,13 +1520,7 @@ module AWS::Ec2
           Stubs::CancelSpotFleetRequestsErrorItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CancelSpotFleetRequestsErrorItem
@@ -2033,11 +1535,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CancelSpotFleetRequestsError
@@ -2052,11 +1549,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for CancelSpotFleetRequestsSuccessSet
@@ -2068,13 +1560,7 @@ module AWS::Ec2
           Stubs::CancelSpotFleetRequestsSuccessItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CancelSpotFleetRequestsSuccessItem
@@ -2090,11 +1576,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CancelSpotInstanceRequests
@@ -2106,9 +1587,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for CancelledSpotInstanceRequestList
@@ -2120,13 +1598,7 @@ module AWS::Ec2
           Stubs::CancelledSpotInstanceRequest.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CancelledSpotInstanceRequest
@@ -2141,11 +1613,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ConfirmProductInstance
@@ -2158,9 +1625,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CopyFpgaImage
@@ -2172,9 +1636,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CopyImage
@@ -2186,9 +1647,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CopySnapshot
@@ -2201,9 +1659,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateCapacityReservation
@@ -2215,9 +1670,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for CapacityReservation
@@ -2252,11 +1704,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateCapacityReservationFleet
@@ -2278,9 +1725,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for FleetCapacityReservationSet
@@ -2292,13 +1736,7 @@ module AWS::Ec2
           Stubs::FleetCapacityReservation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for FleetCapacityReservation
@@ -2322,11 +1760,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateCarrierGateway
@@ -2338,9 +1771,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for CarrierGateway
@@ -2358,11 +1788,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateClientVpnEndpoint
@@ -2376,9 +1801,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for ClientVpnEndpointStatus
@@ -2393,11 +1815,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateClientVpnRoute
@@ -2409,9 +1826,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for ClientVpnRouteStatus
@@ -2426,11 +1840,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateCustomerGateway
@@ -2442,9 +1851,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for CustomerGateway
@@ -2465,11 +1871,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateDefaultSubnet
@@ -2481,9 +1882,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for Subnet
@@ -2517,11 +1915,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PrivateDnsNameOptionsOnLaunch
@@ -2537,11 +1930,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for SubnetIpv6CidrBlockAssociationSet
@@ -2553,13 +1941,7 @@ module AWS::Ec2
           Stubs::SubnetIpv6CidrBlockAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for CreateDefaultVpc
@@ -2571,9 +1953,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for Vpc
@@ -2596,11 +1975,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for VpcCidrBlockAssociationSet
@@ -2612,13 +1986,7 @@ module AWS::Ec2
           Stubs::VpcCidrBlockAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for VpcIpv6CidrBlockAssociationSet
@@ -2630,13 +1998,7 @@ module AWS::Ec2
           Stubs::VpcIpv6CidrBlockAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for CreateDhcpOptions
@@ -2648,9 +2010,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for DhcpOptions
@@ -2667,11 +2026,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for DhcpConfigurationList
@@ -2683,13 +2037,7 @@ module AWS::Ec2
           Stubs::DhcpConfiguration.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DhcpConfiguration
@@ -2704,11 +2052,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for DhcpConfigurationValueList
@@ -2720,13 +2063,7 @@ module AWS::Ec2
           Stubs::AttributeValue.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AttributeValue
@@ -2740,11 +2077,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateEgressOnlyInternetGateway
@@ -2757,9 +2089,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for EgressOnlyInternetGateway
@@ -2775,11 +2104,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InternetGatewayAttachmentList
@@ -2791,13 +2115,7 @@ module AWS::Ec2
           Stubs::InternetGatewayAttachment.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InternetGatewayAttachment
@@ -2812,11 +2130,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateFleet
@@ -2830,9 +2143,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for CreateFleetInstancesSet
@@ -2844,13 +2154,7 @@ module AWS::Ec2
           Stubs::CreateFleetInstance.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CreateFleetInstance
@@ -2868,11 +2172,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InstanceIdsSet
@@ -2884,13 +2183,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LaunchTemplateAndOverridesResponse
@@ -2905,11 +2198,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for FleetLaunchTemplateOverrides
@@ -2930,11 +2218,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for InstanceRequirements
@@ -2968,11 +2251,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for AcceleratorTotalMemoryMiB
@@ -2987,11 +2265,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AcceleratorNameSet
@@ -3003,13 +2276,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for AcceleratorManufacturerSet
@@ -3021,13 +2288,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AcceleratorCount
@@ -3042,11 +2303,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AcceleratorTypeSet
@@ -3058,13 +2314,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for BaselineEbsBandwidthMbps
@@ -3079,11 +2329,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for TotalLocalStorageGB
@@ -3098,11 +2343,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LocalStorageTypeSet
@@ -3114,13 +2354,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for NetworkInterfaceCount
@@ -3135,11 +2369,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InstanceGenerationSet
@@ -3151,13 +2380,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for ExcludedInstanceTypeSet
@@ -3169,13 +2392,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for MemoryGiBPerVCpu
@@ -3190,11 +2407,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for CpuManufacturerSet
@@ -3206,13 +2418,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for MemoryMiB
@@ -3227,11 +2433,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for VCpuCountRange
@@ -3246,11 +2447,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PlacementResponse
@@ -3264,11 +2460,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for FleetLaunchTemplateSpecification
@@ -3284,11 +2475,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for CreateFleetErrorsSet
@@ -3300,13 +2486,7 @@ module AWS::Ec2
           Stubs::CreateFleetError.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CreateFleetError
@@ -3323,11 +2503,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateFlowLogs
@@ -3341,9 +2516,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateFpgaImage
@@ -3356,9 +2528,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateImage
@@ -3370,9 +2539,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateInstanceEventWindow
@@ -3384,9 +2550,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateInstanceExportTask
@@ -3398,9 +2561,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for ExportTask
@@ -3420,11 +2580,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for InstanceExportDetails
@@ -3439,11 +2594,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ExportToS3Task
@@ -3460,11 +2610,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateInternetGateway
@@ -3476,9 +2621,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for InternetGateway
@@ -3495,11 +2637,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateIpam
@@ -3511,9 +2648,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for Ipam
@@ -3537,11 +2671,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for IpamOperatingRegionSet
@@ -3553,13 +2682,7 @@ module AWS::Ec2
           Stubs::IpamOperatingRegion.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for IpamOperatingRegion
@@ -3573,11 +2696,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateIpamPool
@@ -3589,9 +2707,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for IpamPool
@@ -3626,11 +2741,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for IpamResourceTagList
@@ -3642,13 +2752,7 @@ module AWS::Ec2
           Stubs::IpamResourceTag.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for IpamResourceTag
@@ -3663,11 +2767,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateIpamScope
@@ -3679,9 +2778,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for IpamScope
@@ -3705,11 +2801,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateKeyPair
@@ -3725,9 +2816,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateLaunchTemplate
@@ -3740,9 +2828,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for ValidationWarning
@@ -3756,11 +2841,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ErrorSet
@@ -3772,13 +2852,7 @@ module AWS::Ec2
           Stubs::ValidationError.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ValidationError
@@ -3793,11 +2867,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LaunchTemplate
@@ -3817,11 +2886,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateLaunchTemplateVersion
@@ -3834,9 +2898,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for LaunchTemplateVersion
@@ -3857,11 +2918,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ResponseLaunchTemplateData
@@ -3903,11 +2959,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LaunchTemplatePrivateDnsNameOptions
@@ -3923,11 +2974,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LaunchTemplateEnclaveOptions
@@ -3941,11 +2987,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LaunchTemplateInstanceMetadataOptions
@@ -3964,11 +3005,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LaunchTemplateHibernationOptions
@@ -3982,11 +3018,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LaunchTemplateLicenseList
@@ -3998,13 +3029,7 @@ module AWS::Ec2
           Stubs::LaunchTemplateLicenseConfiguration.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LaunchTemplateLicenseConfiguration
@@ -4018,11 +3043,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LaunchTemplateCapacityReservationSpecificationResponse
@@ -4037,11 +3057,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CapacityReservationTargetResponse
@@ -4056,11 +3071,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LaunchTemplateCpuOptions
@@ -4075,11 +3085,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CreditSpecification
@@ -4093,11 +3098,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LaunchTemplateInstanceMarketOptions
@@ -4112,11 +3112,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LaunchTemplateSpotMarketOptions
@@ -4134,11 +3129,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LaunchTemplateElasticInferenceAcceleratorResponseList
@@ -4150,13 +3140,7 @@ module AWS::Ec2
           Stubs::LaunchTemplateElasticInferenceAcceleratorResponse.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LaunchTemplateElasticInferenceAcceleratorResponse
@@ -4171,11 +3155,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ElasticGpuSpecificationResponseList
@@ -4187,13 +3166,7 @@ module AWS::Ec2
           Stubs::ElasticGpuSpecificationResponse.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ElasticGpuSpecificationResponse
@@ -4207,11 +3180,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LaunchTemplateTagSpecificationList
@@ -4223,13 +3191,7 @@ module AWS::Ec2
           Stubs::LaunchTemplateTagSpecification.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LaunchTemplateTagSpecification
@@ -4244,11 +3206,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LaunchTemplatePlacement
@@ -4269,11 +3226,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LaunchTemplatesMonitoring
@@ -4287,11 +3239,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LaunchTemplateInstanceNetworkInterfaceSpecificationList
@@ -4303,13 +3250,7 @@ module AWS::Ec2
           Stubs::LaunchTemplateInstanceNetworkInterfaceSpecification.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LaunchTemplateInstanceNetworkInterfaceSpecification
@@ -4341,11 +3282,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for Ipv6PrefixListResponse
@@ -4357,13 +3293,7 @@ module AWS::Ec2
           Stubs::Ipv6PrefixSpecificationResponse.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Ipv6PrefixSpecificationResponse
@@ -4377,11 +3307,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for Ipv4PrefixListResponse
@@ -4393,13 +3318,7 @@ module AWS::Ec2
           Stubs::Ipv4PrefixSpecificationResponse.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Ipv4PrefixSpecificationResponse
@@ -4413,11 +3332,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for PrivateIpAddressSpecificationList
@@ -4429,13 +3343,7 @@ module AWS::Ec2
           Stubs::PrivateIpAddressSpecification.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PrivateIpAddressSpecification
@@ -4450,11 +3358,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InstanceIpv6AddressList
@@ -4466,13 +3369,7 @@ module AWS::Ec2
           Stubs::InstanceIpv6Address.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceIpv6Address
@@ -4486,11 +3383,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for GroupIdStringList
@@ -4502,13 +3394,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for LaunchTemplateBlockDeviceMappingList
@@ -4520,13 +3406,7 @@ module AWS::Ec2
           Stubs::LaunchTemplateBlockDeviceMapping.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LaunchTemplateBlockDeviceMapping
@@ -4543,11 +3423,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LaunchTemplateEbsBlockDevice
@@ -4568,11 +3443,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LaunchTemplateIamInstanceProfileSpecification
@@ -4587,11 +3457,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateLocalGatewayRoute
@@ -4603,9 +3468,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for LocalGatewayRoute
@@ -4625,11 +3487,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateLocalGatewayRouteTableVpcAssociation
@@ -4641,9 +3498,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for LocalGatewayRouteTableVpcAssociation
@@ -4664,11 +3518,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateManagedPrefixList
@@ -4680,9 +3529,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for ManagedPrefixList
@@ -4705,11 +3551,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateNatGateway
@@ -4722,9 +3563,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for NatGateway
@@ -4749,11 +3587,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ProvisionedBandwidth
@@ -4771,11 +3604,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for NatGatewayAddressList
@@ -4787,13 +3615,7 @@ module AWS::Ec2
           Stubs::NatGatewayAddress.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for NatGatewayAddress
@@ -4810,11 +3632,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateNetworkAcl
@@ -4826,9 +3643,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for NetworkAcl
@@ -4848,11 +3662,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for NetworkAclEntryList
@@ -4864,13 +3673,7 @@ module AWS::Ec2
           Stubs::NetworkAclEntry.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for NetworkAclEntry
@@ -4891,11 +3694,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PortRange
@@ -4910,11 +3708,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for IcmpTypeCode
@@ -4929,11 +3722,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for NetworkAclAssociationList
@@ -4945,13 +3733,7 @@ module AWS::Ec2
           Stubs::NetworkAclAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for NetworkAclAssociation
@@ -4967,11 +3749,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateNetworkAclEntry
@@ -4982,9 +3759,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateNetworkInsightsAccessScope
@@ -4997,9 +3771,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for NetworkInsightsAccessScopeContent
@@ -5015,11 +3786,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AccessScopePathList
@@ -5031,13 +3797,7 @@ module AWS::Ec2
           Stubs::AccessScopePath.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AccessScopePath
@@ -5053,11 +3813,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ThroughResourcesStatementList
@@ -5069,13 +3824,7 @@ module AWS::Ec2
           Stubs::ThroughResourcesStatement.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ThroughResourcesStatement
@@ -5089,11 +3838,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ResourceStatement
@@ -5108,11 +3852,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PathStatement
@@ -5127,11 +3866,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PacketHeaderStatement
@@ -5151,11 +3885,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ProtocolList
@@ -5167,13 +3896,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for NetworkInsightsAccessScope
@@ -5191,11 +3914,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateNetworkInsightsPath
@@ -5207,9 +3925,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for NetworkInsightsPath
@@ -5232,11 +3947,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateNetworkInterface
@@ -5249,9 +3959,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for NetworkInterface
@@ -5290,11 +3997,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for Ipv6PrefixesList
@@ -5306,13 +4008,7 @@ module AWS::Ec2
           Stubs::Ipv6PrefixSpecification.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Ipv6PrefixSpecification
@@ -5326,11 +4022,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for NetworkInterfacePrivateIpAddressList
@@ -5342,13 +4033,7 @@ module AWS::Ec2
           Stubs::NetworkInterfacePrivateIpAddress.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for NetworkInterfacePrivateIpAddress
@@ -5365,11 +4050,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for NetworkInterfaceAssociation
@@ -5389,11 +4069,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for NetworkInterfaceIpv6AddressesList
@@ -5405,13 +4080,7 @@ module AWS::Ec2
           Stubs::NetworkInterfaceIpv6Address.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for NetworkInterfaceIpv6Address
@@ -5425,11 +4094,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for GroupIdentifierList
@@ -5441,13 +4105,7 @@ module AWS::Ec2
           Stubs::GroupIdentifier.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for GroupIdentifier
@@ -5462,11 +4120,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for NetworkInterfaceAttachment
@@ -5487,11 +4140,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateNetworkInterfacePermission
@@ -5503,9 +4151,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for NetworkInterfacePermission
@@ -5524,11 +4169,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for NetworkInterfacePermissionState
@@ -5543,11 +4183,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreatePlacementGroup
@@ -5559,9 +4194,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for PlacementGroup
@@ -5581,11 +4213,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreatePublicIpv4Pool
@@ -5597,9 +4224,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateReplaceRootVolumeTask
@@ -5611,9 +4235,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for ReplaceRootVolumeTask
@@ -5632,11 +4253,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateReservedInstancesListing
@@ -5648,9 +4264,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateRestoreImageTask
@@ -5662,9 +4275,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateRoute
@@ -5676,9 +4286,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateRouteTable
@@ -5690,9 +4297,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for RouteTable
@@ -5712,11 +4316,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for RouteList
@@ -5728,13 +4327,7 @@ module AWS::Ec2
           Stubs::Route.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Route
@@ -5763,11 +4356,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for PropagatingVgwList
@@ -5779,13 +4367,7 @@ module AWS::Ec2
           Stubs::PropagatingVgw.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PropagatingVgw
@@ -5799,11 +4381,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for RouteTableAssociationList
@@ -5815,13 +4392,7 @@ module AWS::Ec2
           Stubs::RouteTableAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for RouteTableAssociation
@@ -5840,11 +4411,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateSecurityGroup
@@ -5857,9 +4423,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateSnapshot
@@ -5887,9 +4450,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateSnapshots
@@ -5901,9 +4461,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for SnapshotSet
@@ -5915,13 +4472,7 @@ module AWS::Ec2
           Stubs::SnapshotInfo.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SnapshotInfo
@@ -5945,11 +4496,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateSpotDatafeedSubscription
@@ -5961,9 +4507,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for SpotDatafeedSubscription
@@ -5981,11 +4524,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for SpotInstanceStateFault
@@ -6000,11 +4538,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateStoreImageTask
@@ -6016,9 +4549,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateSubnet
@@ -6030,9 +4560,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateSubnetCidrReservation
@@ -6044,9 +4571,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for SubnetCidrReservation
@@ -6066,11 +4590,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateTags
@@ -6081,9 +4600,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateTrafficMirrorFilter
@@ -6096,9 +4612,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TrafficMirrorFilter
@@ -6117,11 +4630,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for TrafficMirrorNetworkServiceList
@@ -6133,13 +4641,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for TrafficMirrorFilterRuleList
@@ -6151,13 +4653,7 @@ module AWS::Ec2
           Stubs::TrafficMirrorFilterRule.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TrafficMirrorFilterRule
@@ -6181,11 +4677,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for TrafficMirrorPortRange
@@ -6200,11 +4691,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateTrafficMirrorFilterRule
@@ -6217,9 +4703,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateTrafficMirrorSession
@@ -6232,9 +4715,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TrafficMirrorSession
@@ -6257,11 +4737,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateTrafficMirrorTarget
@@ -6274,9 +4749,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TrafficMirrorTarget
@@ -6296,11 +4768,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateTransitGateway
@@ -6312,9 +4779,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGateway
@@ -6335,11 +4799,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for TransitGatewayOptions
@@ -6362,11 +4821,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateTransitGatewayConnect
@@ -6378,9 +4832,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayConnect
@@ -6400,11 +4851,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for TransitGatewayConnectOptions
@@ -6418,11 +4864,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateTransitGatewayConnectPeer
@@ -6434,9 +4875,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayConnectPeer
@@ -6455,11 +4893,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for TransitGatewayConnectPeerConfiguration
@@ -6477,11 +4910,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for TransitGatewayAttachmentBgpConfigurationList
@@ -6493,13 +4921,7 @@ module AWS::Ec2
           Stubs::TransitGatewayAttachmentBgpConfiguration.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TransitGatewayAttachmentBgpConfiguration
@@ -6517,11 +4939,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InsideCidrBlocksStringList
@@ -6533,13 +4950,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for CreateTransitGatewayMulticastDomain
@@ -6551,9 +4962,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayMulticastDomain
@@ -6574,11 +4982,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for TransitGatewayMulticastDomainOptions
@@ -6594,11 +4997,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateTransitGatewayPeeringAttachment
@@ -6610,9 +5008,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateTransitGatewayPrefixListReference
@@ -6624,9 +5019,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayPrefixListReference
@@ -6645,11 +5037,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for TransitGatewayPrefixListAttachment
@@ -6665,11 +5052,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateTransitGatewayRoute
@@ -6681,9 +5063,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayRoute
@@ -6701,11 +5080,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for TransitGatewayRouteAttachmentList
@@ -6717,13 +5091,7 @@ module AWS::Ec2
           Stubs::TransitGatewayRouteAttachment.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TransitGatewayRouteAttachment
@@ -6739,11 +5107,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateTransitGatewayRouteTable
@@ -6755,9 +5118,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayRouteTable
@@ -6777,11 +5137,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateTransitGatewayVpcAttachment
@@ -6793,9 +5148,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateVolume
@@ -6822,9 +5174,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for VolumeAttachmentList
@@ -6836,13 +5185,7 @@ module AWS::Ec2
           Stubs::VolumeAttachment.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for VolumeAttachment
@@ -6861,11 +5204,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateVpc
@@ -6877,9 +5215,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateVpcEndpoint
@@ -6892,9 +5227,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for VpcEndpoint
@@ -6924,11 +5256,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LastError
@@ -6943,11 +5270,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for DnsEntrySet
@@ -6959,13 +5281,7 @@ module AWS::Ec2
           Stubs::DnsEntry.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DnsEntry
@@ -6980,11 +5296,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for GroupIdentifierSet
@@ -6996,13 +5307,7 @@ module AWS::Ec2
           Stubs::SecurityGroupIdentifier.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SecurityGroupIdentifier
@@ -7017,11 +5322,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateVpcEndpointConnectionNotification
@@ -7034,9 +5334,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for ConnectionNotification
@@ -7056,11 +5353,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateVpcEndpointServiceConfiguration
@@ -7073,9 +5365,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for ServiceConfiguration
@@ -7102,11 +5391,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PrivateDnsNameConfiguration
@@ -7123,11 +5407,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ServiceTypeDetailSet
@@ -7139,13 +5418,7 @@ module AWS::Ec2
           Stubs::ServiceTypeDetail.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ServiceTypeDetail
@@ -7159,11 +5432,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateVpcPeeringConnection
@@ -7175,9 +5443,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateVpnConnection
@@ -7189,9 +5454,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for VpnConnection
@@ -7219,11 +5481,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for VgwTelemetryList
@@ -7235,13 +5492,7 @@ module AWS::Ec2
           Stubs::VgwTelemetry.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for VgwTelemetry
@@ -7260,11 +5511,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for VpnStaticRouteList
@@ -7276,13 +5522,7 @@ module AWS::Ec2
           Stubs::VpnStaticRoute.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for VpnStaticRoute
@@ -7298,11 +5538,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for VpnConnectionOptions
@@ -7323,11 +5558,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for TunnelOptionsList
@@ -7339,13 +5569,7 @@ module AWS::Ec2
           Stubs::TunnelOption.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TunnelOption
@@ -7377,11 +5601,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for IKEVersionsList
@@ -7393,13 +5612,7 @@ module AWS::Ec2
           Stubs::IKEVersionsListValue.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for IKEVersionsListValue
@@ -7413,11 +5626,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for Phase2DHGroupNumbersList
@@ -7429,13 +5637,7 @@ module AWS::Ec2
           Stubs::Phase2DHGroupNumbersListValue.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Phase2DHGroupNumbersListValue
@@ -7449,11 +5651,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for Phase1DHGroupNumbersList
@@ -7465,13 +5662,7 @@ module AWS::Ec2
           Stubs::Phase1DHGroupNumbersListValue.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Phase1DHGroupNumbersListValue
@@ -7485,11 +5676,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for Phase2IntegrityAlgorithmsList
@@ -7501,13 +5687,7 @@ module AWS::Ec2
           Stubs::Phase2IntegrityAlgorithmsListValue.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Phase2IntegrityAlgorithmsListValue
@@ -7521,11 +5701,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for Phase1IntegrityAlgorithmsList
@@ -7537,13 +5712,7 @@ module AWS::Ec2
           Stubs::Phase1IntegrityAlgorithmsListValue.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Phase1IntegrityAlgorithmsListValue
@@ -7557,11 +5726,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for Phase2EncryptionAlgorithmsList
@@ -7573,13 +5737,7 @@ module AWS::Ec2
           Stubs::Phase2EncryptionAlgorithmsListValue.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Phase2EncryptionAlgorithmsListValue
@@ -7593,11 +5751,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for Phase1EncryptionAlgorithmsList
@@ -7609,13 +5762,7 @@ module AWS::Ec2
           Stubs::Phase1EncryptionAlgorithmsListValue.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Phase1EncryptionAlgorithmsListValue
@@ -7629,11 +5776,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for CreateVpnConnectionRoute
@@ -7644,9 +5786,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for CreateVpnGateway
@@ -7658,9 +5797,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for VpnGateway
@@ -7680,11 +5816,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for VpcAttachmentList
@@ -7696,13 +5827,7 @@ module AWS::Ec2
           Stubs::VpcAttachment.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DeleteCarrierGateway
@@ -7714,9 +5839,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteClientVpnEndpoint
@@ -7728,9 +5850,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteClientVpnRoute
@@ -7742,9 +5861,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteCustomerGateway
@@ -7755,9 +5871,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteDhcpOptions
@@ -7768,9 +5881,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteEgressOnlyInternetGateway
@@ -7782,9 +5892,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteFleets
@@ -7797,9 +5904,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for DeleteFleetErrorSet
@@ -7811,13 +5915,7 @@ module AWS::Ec2
           Stubs::DeleteFleetErrorItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DeleteFleetErrorItem
@@ -7832,11 +5930,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for DeleteFleetError
@@ -7851,11 +5944,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for DeleteFleetSuccessSet
@@ -7867,13 +5955,7 @@ module AWS::Ec2
           Stubs::DeleteFleetSuccessItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DeleteFleetSuccessItem
@@ -7889,11 +5971,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DeleteFlowLogs
@@ -7905,9 +5982,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteFpgaImage
@@ -7919,9 +5993,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteInstanceEventWindow
@@ -7933,9 +6004,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for InstanceEventWindowStateChange
@@ -7950,11 +6018,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DeleteInternetGateway
@@ -7965,9 +6028,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteIpam
@@ -7979,9 +6039,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteIpamPool
@@ -7993,9 +6050,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteIpamScope
@@ -8007,9 +6061,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteKeyPair
@@ -8020,9 +6071,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteLaunchTemplate
@@ -8034,9 +6082,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteLaunchTemplateVersions
@@ -8049,9 +6094,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for DeleteLaunchTemplateVersionsResponseErrorSet
@@ -8063,13 +6105,7 @@ module AWS::Ec2
           Stubs::DeleteLaunchTemplateVersionsResponseErrorItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DeleteLaunchTemplateVersionsResponseErrorItem
@@ -8086,11 +6122,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ResponseError
@@ -8105,11 +6136,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for DeleteLaunchTemplateVersionsResponseSuccessSet
@@ -8121,13 +6147,7 @@ module AWS::Ec2
           Stubs::DeleteLaunchTemplateVersionsResponseSuccessItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DeleteLaunchTemplateVersionsResponseSuccessItem
@@ -8143,11 +6163,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DeleteLocalGatewayRoute
@@ -8159,9 +6174,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteLocalGatewayRouteTableVpcAssociation
@@ -8173,9 +6185,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteManagedPrefixList
@@ -8187,9 +6196,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteNatGateway
@@ -8201,9 +6207,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteNetworkAcl
@@ -8214,9 +6217,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteNetworkAclEntry
@@ -8227,9 +6227,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteNetworkInsightsAccessScope
@@ -8241,9 +6238,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteNetworkInsightsAccessScopeAnalysis
@@ -8255,9 +6249,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteNetworkInsightsAnalysis
@@ -8269,9 +6260,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteNetworkInsightsPath
@@ -8283,9 +6271,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteNetworkInterface
@@ -8296,9 +6281,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteNetworkInterfacePermission
@@ -8310,9 +6292,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeletePlacementGroup
@@ -8323,9 +6302,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeletePublicIpv4Pool
@@ -8337,9 +6313,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteQueuedReservedInstances
@@ -8352,9 +6325,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for FailedQueuedPurchaseDeletionSet
@@ -8366,13 +6336,7 @@ module AWS::Ec2
           Stubs::FailedQueuedPurchaseDeletion.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for FailedQueuedPurchaseDeletion
@@ -8387,11 +6351,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for DeleteQueuedReservedInstancesError
@@ -8406,11 +6365,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for SuccessfulQueuedPurchaseDeletionSet
@@ -8422,13 +6376,7 @@ module AWS::Ec2
           Stubs::SuccessfulQueuedPurchaseDeletion.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SuccessfulQueuedPurchaseDeletion
@@ -8442,11 +6390,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DeleteRoute
@@ -8457,9 +6400,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteRouteTable
@@ -8470,9 +6410,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteSecurityGroup
@@ -8483,9 +6420,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteSnapshot
@@ -8496,9 +6430,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteSpotDatafeedSubscription
@@ -8509,9 +6440,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteSubnet
@@ -8522,9 +6450,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteSubnetCidrReservation
@@ -8536,9 +6461,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTags
@@ -8549,9 +6471,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTrafficMirrorFilter
@@ -8563,9 +6482,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTrafficMirrorFilterRule
@@ -8577,9 +6493,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTrafficMirrorSession
@@ -8591,9 +6504,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTrafficMirrorTarget
@@ -8605,9 +6515,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTransitGateway
@@ -8619,9 +6526,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTransitGatewayConnect
@@ -8633,9 +6537,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTransitGatewayConnectPeer
@@ -8647,9 +6548,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTransitGatewayMulticastDomain
@@ -8661,9 +6559,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTransitGatewayPeeringAttachment
@@ -8675,9 +6570,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTransitGatewayPrefixListReference
@@ -8689,9 +6581,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTransitGatewayRoute
@@ -8703,9 +6592,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTransitGatewayRouteTable
@@ -8717,9 +6603,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteTransitGatewayVpcAttachment
@@ -8731,9 +6614,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteVolume
@@ -8744,9 +6624,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteVpc
@@ -8757,9 +6634,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteVpcEndpointConnectionNotifications
@@ -8771,9 +6645,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteVpcEndpointServiceConfigurations
@@ -8785,9 +6656,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteVpcEndpoints
@@ -8799,9 +6667,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteVpcPeeringConnection
@@ -8813,9 +6678,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteVpnConnection
@@ -8826,9 +6688,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteVpnConnectionRoute
@@ -8839,9 +6698,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeleteVpnGateway
@@ -8852,9 +6708,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeprovisionByoipCidr
@@ -8866,9 +6719,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeprovisionIpamPoolCidr
@@ -8880,9 +6730,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for IpamPoolCidr
@@ -8898,11 +6745,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for IpamPoolCidrFailureReason
@@ -8917,11 +6759,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DeprovisionPublicIpv4PoolCidr
@@ -8934,9 +6771,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for DeprovisionedAddressSet
@@ -8948,13 +6782,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DeregisterImage
@@ -8965,9 +6793,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DeregisterInstanceEventNotificationAttributes
@@ -8979,9 +6804,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for InstanceTagNotificationAttribute
@@ -8996,11 +6818,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InstanceTagKeySet
@@ -9012,13 +6829,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DeregisterTransitGatewayMulticastGroupMembers
@@ -9030,9 +6841,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayMulticastDeregisteredGroupMembers
@@ -9048,11 +6856,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DeregisterTransitGatewayMulticastGroupSources
@@ -9064,9 +6867,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayMulticastDeregisteredGroupSources
@@ -9082,11 +6882,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeAccountAttributes
@@ -9098,9 +6893,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for AccountAttributeList
@@ -9112,13 +6904,7 @@ module AWS::Ec2
           Stubs::AccountAttribute.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AccountAttribute
@@ -9133,11 +6919,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AccountAttributeValueList
@@ -9149,13 +6930,7 @@ module AWS::Ec2
           Stubs::AccountAttributeValue.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AccountAttributeValue
@@ -9169,11 +6944,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeAddresses
@@ -9185,9 +6955,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for AddressList
@@ -9199,13 +6966,7 @@ module AWS::Ec2
           Stubs::Address.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Address
@@ -9232,11 +6993,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeAddressesAttribute
@@ -9249,9 +7005,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for AddressSet
@@ -9263,13 +7016,7 @@ module AWS::Ec2
           Stubs::AddressAttribute.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AddressAttribute
@@ -9286,11 +7033,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PtrUpdateStatus
@@ -9306,11 +7048,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeAggregateIdFormat
@@ -9323,9 +7060,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for IdFormatList
@@ -9337,13 +7071,7 @@ module AWS::Ec2
           Stubs::IdFormat.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for IdFormat
@@ -9359,11 +7087,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeAvailabilityZones
@@ -9375,9 +7098,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for AvailabilityZoneList
@@ -9389,13 +7109,7 @@ module AWS::Ec2
           Stubs::AvailabilityZone.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AvailabilityZone
@@ -9419,11 +7133,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AvailabilityZoneMessageList
@@ -9435,13 +7144,7 @@ module AWS::Ec2
           Stubs::AvailabilityZoneMessage.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AvailabilityZoneMessage
@@ -9455,11 +7158,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeBundleTasks
@@ -9471,9 +7169,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for BundleTaskList
@@ -9485,13 +7180,7 @@ module AWS::Ec2
           Stubs::BundleTask.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeByoipCidrs
@@ -9504,9 +7193,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ByoipCidrSet
@@ -9518,13 +7204,7 @@ module AWS::Ec2
           Stubs::ByoipCidr.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeCapacityReservationFleets
@@ -9537,9 +7217,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for CapacityReservationFleetSet
@@ -9551,13 +7228,7 @@ module AWS::Ec2
           Stubs::CapacityReservationFleet.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CapacityReservationFleet
@@ -9582,11 +7253,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeCapacityReservations
@@ -9599,9 +7265,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for CapacityReservationSet
@@ -9613,13 +7276,7 @@ module AWS::Ec2
           Stubs::CapacityReservation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeCarrierGateways
@@ -9632,9 +7289,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for CarrierGatewaySet
@@ -9646,13 +7300,7 @@ module AWS::Ec2
           Stubs::CarrierGateway.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeClassicLinkInstances
@@ -9665,9 +7313,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ClassicLinkInstanceList
@@ -9679,13 +7324,7 @@ module AWS::Ec2
           Stubs::ClassicLinkInstance.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ClassicLinkInstance
@@ -9702,11 +7341,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeClientVpnAuthorizationRules
@@ -9719,9 +7353,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for AuthorizationRuleSet
@@ -9733,13 +7364,7 @@ module AWS::Ec2
           Stubs::AuthorizationRule.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AuthorizationRule
@@ -9758,11 +7383,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeClientVpnConnections
@@ -9775,9 +7395,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ClientVpnConnectionSet
@@ -9789,13 +7406,7 @@ module AWS::Ec2
           Stubs::ClientVpnConnection.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ClientVpnConnection
@@ -9822,11 +7433,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ClientVpnConnectionStatus
@@ -9841,11 +7447,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeClientVpnEndpoints
@@ -9858,9 +7459,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for EndpointSet
@@ -9872,13 +7470,7 @@ module AWS::Ec2
           Stubs::ClientVpnEndpoint.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ClientVpnEndpoint
@@ -9912,11 +7504,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ClientConnectResponseOptions
@@ -9932,11 +7519,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ClientVpnEndpointAttributeStatus
@@ -9951,11 +7533,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ConnectionLogResponseOptions
@@ -9971,11 +7548,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ClientVpnAuthenticationList
@@ -9987,13 +7559,7 @@ module AWS::Ec2
           Stubs::ClientVpnAuthentication.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ClientVpnAuthentication
@@ -10010,11 +7576,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for FederatedAuthentication
@@ -10029,11 +7590,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CertificateAuthentication
@@ -10047,11 +7603,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for DirectoryServiceAuthentication
@@ -10065,11 +7616,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AssociatedTargetNetworkSet
@@ -10081,13 +7627,7 @@ module AWS::Ec2
           Stubs::AssociatedTargetNetwork.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AssociatedTargetNetwork
@@ -10102,11 +7642,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeClientVpnRoutes
@@ -10119,9 +7654,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ClientVpnRouteSet
@@ -10133,13 +7665,7 @@ module AWS::Ec2
           Stubs::ClientVpnRoute.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ClientVpnRoute
@@ -10159,11 +7685,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeClientVpnTargetNetworks
@@ -10176,9 +7697,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TargetNetworkSet
@@ -10190,13 +7708,7 @@ module AWS::Ec2
           Stubs::TargetNetwork.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TargetNetwork
@@ -10215,11 +7727,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeCoipPools
@@ -10232,9 +7739,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for CoipPoolSet
@@ -10246,13 +7750,7 @@ module AWS::Ec2
           Stubs::CoipPool.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CoipPool
@@ -10270,11 +7768,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeConversionTasks
@@ -10286,9 +7779,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for DescribeConversionTaskList
@@ -10300,13 +7790,7 @@ module AWS::Ec2
           Stubs::ConversionTask.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ConversionTask
@@ -10326,11 +7810,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ImportVolumeTaskDetails
@@ -10348,11 +7827,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for DiskImageVolumeDescription
@@ -10367,11 +7841,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for DiskImageDescription
@@ -10388,11 +7857,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ImportInstanceTaskDetails
@@ -10409,11 +7873,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ImportInstanceVolumeDetailSet
@@ -10425,13 +7884,7 @@ module AWS::Ec2
           Stubs::ImportInstanceVolumeDetailItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ImportInstanceVolumeDetailItem
@@ -10451,11 +7904,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeCustomerGateways
@@ -10467,9 +7915,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for CustomerGatewayList
@@ -10481,13 +7926,7 @@ module AWS::Ec2
           Stubs::CustomerGateway.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeDhcpOptions
@@ -10500,9 +7939,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for DhcpOptionsList
@@ -10514,13 +7950,7 @@ module AWS::Ec2
           Stubs::DhcpOptions.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeEgressOnlyInternetGateways
@@ -10533,9 +7963,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for EgressOnlyInternetGatewayList
@@ -10547,13 +7974,7 @@ module AWS::Ec2
           Stubs::EgressOnlyInternetGateway.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeElasticGpus
@@ -10567,9 +7988,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ElasticGpuSet
@@ -10581,13 +7999,7 @@ module AWS::Ec2
           Stubs::ElasticGpus.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ElasticGpus
@@ -10607,11 +8019,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ElasticGpuHealth
@@ -10625,11 +8032,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeExportImageTasks
@@ -10642,9 +8044,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ExportImageTaskList
@@ -10656,13 +8055,7 @@ module AWS::Ec2
           Stubs::ExportImageTask.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ExportImageTask
@@ -10683,11 +8076,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ExportTaskS3Location
@@ -10702,11 +8090,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeExportTasks
@@ -10718,9 +8101,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ExportTaskList
@@ -10732,13 +8112,7 @@ module AWS::Ec2
           Stubs::ExportTask.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeFastSnapshotRestores
@@ -10751,9 +8125,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for DescribeFastSnapshotRestoreSuccessSet
@@ -10765,13 +8136,7 @@ module AWS::Ec2
           Stubs::DescribeFastSnapshotRestoreSuccessItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DescribeFastSnapshotRestoreSuccessItem
@@ -10795,11 +8160,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeFleetHistory
@@ -10815,9 +8175,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for HistoryRecordSet
@@ -10829,13 +8186,7 @@ module AWS::Ec2
           Stubs::HistoryRecordEntry.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for HistoryRecordEntry
@@ -10851,11 +8202,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for EventInformation
@@ -10871,11 +8217,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeFleetInstances
@@ -10889,9 +8230,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ActiveInstanceSet
@@ -10903,13 +8241,7 @@ module AWS::Ec2
           Stubs::ActiveInstance.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ActiveInstance
@@ -10926,11 +8258,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeFleets
@@ -10943,9 +8270,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for FleetSet
@@ -10957,13 +8281,7 @@ module AWS::Ec2
           Stubs::FleetData.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for FleetData
@@ -10997,11 +8315,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for DescribeFleetsInstancesSet
@@ -11013,13 +8326,7 @@ module AWS::Ec2
           Stubs::DescribeFleetsInstances.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DescribeFleetsInstances
@@ -11037,11 +8344,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for DescribeFleetsErrorSet
@@ -11053,13 +8355,7 @@ module AWS::Ec2
           Stubs::DescribeFleetError.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DescribeFleetError
@@ -11076,11 +8372,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for OnDemandOptions
@@ -11099,11 +8390,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CapacityReservationOptions
@@ -11117,11 +8403,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for SpotOptions
@@ -11142,11 +8423,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for FleetSpotMaintenanceStrategies
@@ -11160,11 +8436,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for FleetSpotCapacityRebalance
@@ -11179,11 +8450,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for TargetCapacitySpecification
@@ -11201,11 +8467,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for FleetLaunchTemplateConfigList
@@ -11217,13 +8478,7 @@ module AWS::Ec2
           Stubs::FleetLaunchTemplateConfig.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for FleetLaunchTemplateConfig
@@ -11238,11 +8493,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for FleetLaunchTemplateOverridesList
@@ -11254,13 +8504,7 @@ module AWS::Ec2
           Stubs::FleetLaunchTemplateOverrides.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeFlowLogs
@@ -11273,9 +8517,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for FlowLogSet
@@ -11287,13 +8528,7 @@ module AWS::Ec2
           Stubs::FlowLog.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for FlowLog
@@ -11321,11 +8556,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for DestinationOptionsResponse
@@ -11341,11 +8571,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeFpgaImageAttribute
@@ -11357,9 +8582,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for FpgaImageAttribute
@@ -11377,11 +8599,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ProductCodeList
@@ -11393,13 +8610,7 @@ module AWS::Ec2
           Stubs::ProductCode.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ProductCode
@@ -11414,11 +8625,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LoadPermissionList
@@ -11430,13 +8636,7 @@ module AWS::Ec2
           Stubs::LoadPermission.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LoadPermission
@@ -11451,11 +8651,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeFpgaImages
@@ -11468,9 +8663,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for FpgaImageList
@@ -11482,13 +8674,7 @@ module AWS::Ec2
           Stubs::FpgaImage.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for FpgaImage
@@ -11516,11 +8702,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for FpgaImageState
@@ -11535,11 +8716,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PciId
@@ -11556,11 +8732,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeHostReservationOfferings
@@ -11573,9 +8744,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for HostOfferingSet
@@ -11587,13 +8755,7 @@ module AWS::Ec2
           Stubs::HostOffering.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for HostOffering
@@ -11613,11 +8775,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeHostReservations
@@ -11630,9 +8787,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for HostReservationSet
@@ -11644,13 +8798,7 @@ module AWS::Ec2
           Stubs::HostReservation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for HostReservation
@@ -11677,11 +8825,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ResponseHostIdSet
@@ -11693,13 +8836,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeHosts
@@ -11712,9 +8849,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for HostList
@@ -11726,13 +8860,7 @@ module AWS::Ec2
           Stubs::Host.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Host
@@ -11762,11 +8890,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for HostInstanceList
@@ -11778,13 +8901,7 @@ module AWS::Ec2
           Stubs::HostInstance.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for HostInstance
@@ -11800,11 +8917,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for HostProperties
@@ -11822,11 +8934,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for AvailableCapacity
@@ -11841,11 +8948,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AvailableInstanceCapacityList
@@ -11857,13 +8959,7 @@ module AWS::Ec2
           Stubs::InstanceCapacity.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceCapacity
@@ -11879,11 +8975,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeIamInstanceProfileAssociations
@@ -11896,9 +8987,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for IamInstanceProfileAssociationSet
@@ -11910,13 +8998,7 @@ module AWS::Ec2
           Stubs::IamInstanceProfileAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeIdFormat
@@ -11928,9 +9010,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeIdentityIdFormat
@@ -11942,9 +9021,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeImageAttribute
@@ -11964,9 +9040,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for LaunchPermissionList
@@ -11978,13 +9051,7 @@ module AWS::Ec2
           Stubs::LaunchPermission.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LaunchPermission
@@ -12001,11 +9068,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for BlockDeviceMappingList
@@ -12017,13 +9079,7 @@ module AWS::Ec2
           Stubs::BlockDeviceMapping.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for BlockDeviceMapping
@@ -12040,11 +9096,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for EbsBlockDevice
@@ -12066,11 +9117,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeImages
@@ -12082,9 +9128,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ImageList
@@ -12096,13 +9139,7 @@ module AWS::Ec2
           Stubs::Image.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Image
@@ -12143,11 +9180,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for StateReason
@@ -12162,11 +9194,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeImportImageTasks
@@ -12179,9 +9206,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ImportImageTaskList
@@ -12193,13 +9217,7 @@ module AWS::Ec2
           Stubs::ImportImageTask.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ImportImageTask
@@ -12229,11 +9247,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ImportImageLicenseSpecificationListResponse
@@ -12245,13 +9258,7 @@ module AWS::Ec2
           Stubs::ImportImageLicenseConfigurationResponse.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ImportImageLicenseConfigurationResponse
@@ -12265,11 +9272,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for SnapshotDetailList
@@ -12281,13 +9283,7 @@ module AWS::Ec2
           Stubs::SnapshotDetail.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SnapshotDetail
@@ -12310,11 +9306,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for UserBucketDetails
@@ -12329,11 +9320,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeImportSnapshotTasks
@@ -12346,9 +9332,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ImportSnapshotTaskList
@@ -12360,13 +9343,7 @@ module AWS::Ec2
           Stubs::ImportSnapshotTask.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ImportSnapshotTask
@@ -12383,11 +9360,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for SnapshotTaskDetail
@@ -12411,11 +9383,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeInstanceAttribute
@@ -12442,9 +9409,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for AttributeBooleanValue
@@ -12458,11 +9422,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for EnclaveOptions
@@ -12476,11 +9435,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InstanceBlockDeviceMappingList
@@ -12492,13 +9446,7 @@ module AWS::Ec2
           Stubs::InstanceBlockDeviceMapping.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceBlockDeviceMapping
@@ -12513,11 +9461,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for EbsInstanceBlockDevice
@@ -12534,11 +9477,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeInstanceCreditSpecifications
@@ -12551,9 +9489,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for InstanceCreditSpecificationList
@@ -12565,13 +9500,7 @@ module AWS::Ec2
           Stubs::InstanceCreditSpecification.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceCreditSpecification
@@ -12586,11 +9515,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeInstanceEventNotificationAttributes
@@ -12602,9 +9526,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeInstanceEventWindows
@@ -12617,9 +9538,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for InstanceEventWindowSet
@@ -12631,13 +9549,7 @@ module AWS::Ec2
           Stubs::InstanceEventWindow.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeInstanceStatus
@@ -12650,9 +9562,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for InstanceStatusList
@@ -12664,13 +9573,7 @@ module AWS::Ec2
           Stubs::InstanceStatus.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceStatus
@@ -12690,11 +9593,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for InstanceStatusSummary
@@ -12709,11 +9607,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InstanceStatusDetailsList
@@ -12725,13 +9618,7 @@ module AWS::Ec2
           Stubs::InstanceStatusDetails.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceStatusDetails
@@ -12747,11 +9634,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for InstanceState
@@ -12766,11 +9648,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InstanceStatusEventList
@@ -12782,13 +9659,7 @@ module AWS::Ec2
           Stubs::InstanceStatusEvent.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceStatusEvent
@@ -12807,11 +9678,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeInstanceTypeOfferings
@@ -12824,9 +9690,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for InstanceTypeOfferingsList
@@ -12838,13 +9701,7 @@ module AWS::Ec2
           Stubs::InstanceTypeOffering.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceTypeOffering
@@ -12860,11 +9717,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeInstanceTypes
@@ -12877,9 +9729,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for InstanceTypeInfoList
@@ -12891,13 +9740,7 @@ module AWS::Ec2
           Stubs::InstanceTypeInfo.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceTypeInfo
@@ -12934,11 +9777,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for BootModeTypeList
@@ -12950,13 +9788,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InferenceAcceleratorInfo
@@ -12970,11 +9802,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InferenceDeviceInfoList
@@ -12986,13 +9813,7 @@ module AWS::Ec2
           Stubs::InferenceDeviceInfo.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InferenceDeviceInfo
@@ -13008,11 +9829,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PlacementGroupInfo
@@ -13026,11 +9842,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for PlacementGroupStrategyList
@@ -13042,13 +9853,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for FpgaInfo
@@ -13063,11 +9868,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for FpgaDeviceInfoList
@@ -13079,13 +9879,7 @@ module AWS::Ec2
           Stubs::FpgaDeviceInfo.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for FpgaDeviceInfo
@@ -13102,11 +9896,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for FpgaDeviceMemoryInfo
@@ -13120,11 +9909,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for GpuInfo
@@ -13139,11 +9923,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for GpuDeviceInfoList
@@ -13155,13 +9934,7 @@ module AWS::Ec2
           Stubs::GpuDeviceInfo.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for GpuDeviceInfo
@@ -13178,11 +9951,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for GpuDeviceMemoryInfo
@@ -13196,11 +9964,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for NetworkInfo
@@ -13225,11 +9988,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for EfaInfo
@@ -13243,11 +10001,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for NetworkCardInfoList
@@ -13259,13 +10012,7 @@ module AWS::Ec2
           Stubs::NetworkCardInfo.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for NetworkCardInfo
@@ -13281,11 +10028,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for EbsInfo
@@ -13302,11 +10044,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for EbsOptimizedInfo
@@ -13325,11 +10062,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for InstanceStorageInfo
@@ -13346,11 +10078,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for DiskInfoList
@@ -13362,13 +10089,7 @@ module AWS::Ec2
           Stubs::DiskInfo.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DiskInfo
@@ -13384,11 +10105,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for MemoryInfo
@@ -13402,11 +10118,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for VCpuInfo
@@ -13424,11 +10135,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ThreadsPerCoreList
@@ -13440,13 +10146,7 @@ module AWS::Ec2
           1
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for CoreCountList
@@ -13458,13 +10158,7 @@ module AWS::Ec2
           1
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ProcessorInfo
@@ -13479,11 +10173,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ArchitectureTypeList
@@ -13495,13 +10184,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for VirtualizationTypeList
@@ -13513,13 +10196,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for RootDeviceTypeList
@@ -13531,13 +10208,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for UsageClassTypeList
@@ -13549,13 +10220,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeInstances
@@ -13568,9 +10233,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ReservationList
@@ -13582,13 +10244,7 @@ module AWS::Ec2
           Stubs::Reservation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Reservation
@@ -13606,11 +10262,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InstanceList
@@ -13622,13 +10273,7 @@ module AWS::Ec2
           Stubs::Instance.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Instance
@@ -13695,11 +10340,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for PrivateDnsNameOptionsResponse
@@ -13715,11 +10355,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for InstanceMetadataOptionsResponse
@@ -13738,11 +10373,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LicenseList
@@ -13754,13 +10384,7 @@ module AWS::Ec2
           Stubs::LicenseConfiguration.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LicenseConfiguration
@@ -13774,11 +10398,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for HibernationOptions
@@ -13792,11 +10411,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CapacityReservationSpecificationResponse
@@ -13811,11 +10425,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for CpuOptions
@@ -13830,11 +10439,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InstanceNetworkInterfaceList
@@ -13846,13 +10450,7 @@ module AWS::Ec2
           Stubs::InstanceNetworkInterface.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceNetworkInterface
@@ -13883,11 +10481,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InstanceIpv6PrefixList
@@ -13899,13 +10492,7 @@ module AWS::Ec2
           Stubs::InstanceIpv6Prefix.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceIpv6Prefix
@@ -13919,11 +10506,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InstanceIpv4PrefixList
@@ -13935,13 +10517,7 @@ module AWS::Ec2
           Stubs::InstanceIpv4Prefix.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceIpv4Prefix
@@ -13955,11 +10531,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InstancePrivateIpAddressList
@@ -13971,13 +10542,7 @@ module AWS::Ec2
           Stubs::InstancePrivateIpAddress.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstancePrivateIpAddress
@@ -13994,11 +10559,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for InstanceNetworkInterfaceAssociation
@@ -14016,11 +10576,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for InstanceNetworkInterfaceAttachment
@@ -14039,11 +10594,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ElasticInferenceAcceleratorAssociationList
@@ -14055,13 +10605,7 @@ module AWS::Ec2
           Stubs::ElasticInferenceAcceleratorAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ElasticInferenceAcceleratorAssociation
@@ -14078,11 +10622,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ElasticGpuAssociationList
@@ -14094,13 +10633,7 @@ module AWS::Ec2
           Stubs::ElasticGpuAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ElasticGpuAssociation
@@ -14117,11 +10650,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for Placement
@@ -14142,11 +10670,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for Monitoring
@@ -14160,11 +10683,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeInternetGateways
@@ -14177,9 +10695,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for InternetGatewayList
@@ -14191,13 +10706,7 @@ module AWS::Ec2
           Stubs::InternetGateway.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeIpamPools
@@ -14210,9 +10719,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for IpamPoolSet
@@ -14224,13 +10730,7 @@ module AWS::Ec2
           Stubs::IpamPool.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeIpamScopes
@@ -14243,9 +10743,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for IpamScopeSet
@@ -14257,13 +10754,7 @@ module AWS::Ec2
           Stubs::IpamScope.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeIpams
@@ -14276,9 +10767,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for IpamSet
@@ -14290,13 +10778,7 @@ module AWS::Ec2
           Stubs::Ipam.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeIpv6Pools
@@ -14309,9 +10791,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for Ipv6PoolSet
@@ -14323,13 +10802,7 @@ module AWS::Ec2
           Stubs::Ipv6Pool.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Ipv6Pool
@@ -14346,11 +10819,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for PoolCidrBlocksSet
@@ -14362,13 +10830,7 @@ module AWS::Ec2
           Stubs::PoolCidrBlock.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PoolCidrBlock
@@ -14382,11 +10844,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeKeyPairs
@@ -14398,9 +10855,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for KeyPairList
@@ -14412,13 +10866,7 @@ module AWS::Ec2
           Stubs::KeyPairInfo.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for KeyPairInfo
@@ -14436,11 +10884,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeLaunchTemplateVersions
@@ -14453,9 +10896,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for LaunchTemplateVersionSet
@@ -14467,13 +10907,7 @@ module AWS::Ec2
           Stubs::LaunchTemplateVersion.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeLaunchTemplates
@@ -14486,9 +10920,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for LaunchTemplateSet
@@ -14500,13 +10931,7 @@ module AWS::Ec2
           Stubs::LaunchTemplate.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
@@ -14519,9 +10944,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet
@@ -14533,13 +10955,7 @@ module AWS::Ec2
           Stubs::LocalGatewayRouteTableVirtualInterfaceGroupAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LocalGatewayRouteTableVirtualInterfaceGroupAssociation
@@ -14560,11 +10976,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeLocalGatewayRouteTableVpcAssociations
@@ -14577,9 +10988,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for LocalGatewayRouteTableVpcAssociationSet
@@ -14591,13 +10999,7 @@ module AWS::Ec2
           Stubs::LocalGatewayRouteTableVpcAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeLocalGatewayRouteTables
@@ -14610,9 +11012,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for LocalGatewayRouteTableSet
@@ -14624,13 +11023,7 @@ module AWS::Ec2
           Stubs::LocalGatewayRouteTable.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LocalGatewayRouteTable
@@ -14650,11 +11043,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeLocalGatewayVirtualInterfaceGroups
@@ -14667,9 +11055,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for LocalGatewayVirtualInterfaceGroupSet
@@ -14681,13 +11066,7 @@ module AWS::Ec2
           Stubs::LocalGatewayVirtualInterfaceGroup.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LocalGatewayVirtualInterfaceGroup
@@ -14705,11 +11084,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LocalGatewayVirtualInterfaceIdSet
@@ -14721,13 +11095,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeLocalGatewayVirtualInterfaces
@@ -14740,9 +11108,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for LocalGatewayVirtualInterfaceSet
@@ -14754,13 +11119,7 @@ module AWS::Ec2
           Stubs::LocalGatewayVirtualInterface.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LocalGatewayVirtualInterface
@@ -14782,11 +11141,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeLocalGateways
@@ -14799,9 +11153,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for LocalGatewaySet
@@ -14813,13 +11164,7 @@ module AWS::Ec2
           Stubs::LocalGateway.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LocalGateway
@@ -14837,11 +11182,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeManagedPrefixLists
@@ -14854,9 +11194,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ManagedPrefixListSet
@@ -14868,13 +11205,7 @@ module AWS::Ec2
           Stubs::ManagedPrefixList.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeMovingAddresses
@@ -14887,9 +11218,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for MovingAddressStatusSet
@@ -14901,13 +11229,7 @@ module AWS::Ec2
           Stubs::MovingAddressStatus.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for MovingAddressStatus
@@ -14922,11 +11244,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeNatGateways
@@ -14939,9 +11256,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for NatGatewayList
@@ -14953,13 +11267,7 @@ module AWS::Ec2
           Stubs::NatGateway.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeNetworkAcls
@@ -14972,9 +11280,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for NetworkAclList
@@ -14986,13 +11291,7 @@ module AWS::Ec2
           Stubs::NetworkAcl.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeNetworkInsightsAccessScopeAnalyses
@@ -15005,9 +11304,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for NetworkInsightsAccessScopeAnalysisList
@@ -15019,13 +11315,7 @@ module AWS::Ec2
           Stubs::NetworkInsightsAccessScopeAnalysis.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for NetworkInsightsAccessScopeAnalysis
@@ -15049,11 +11339,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeNetworkInsightsAccessScopes
@@ -15066,9 +11351,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for NetworkInsightsAccessScopeList
@@ -15080,13 +11362,7 @@ module AWS::Ec2
           Stubs::NetworkInsightsAccessScope.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeNetworkInsightsAnalyses
@@ -15099,9 +11375,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for NetworkInsightsAnalysisList
@@ -15113,13 +11386,7 @@ module AWS::Ec2
           Stubs::NetworkInsightsAnalysis.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for NetworkInsightsAnalysis
@@ -15146,11 +11413,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AlternatePathHintList
@@ -15162,13 +11424,7 @@ module AWS::Ec2
           Stubs::AlternatePathHint.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AlternatePathHint
@@ -15183,11 +11439,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ExplanationList
@@ -15199,13 +11450,7 @@ module AWS::Ec2
           Stubs::Explanation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Explanation
@@ -15263,11 +11508,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for AnalysisComponent
@@ -15283,11 +11523,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for AnalysisComponentList
@@ -15299,13 +11534,7 @@ module AWS::Ec2
           Stubs::AnalysisComponent.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AnalysisSecurityGroupRule
@@ -15324,11 +11553,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for AnalysisRouteTableRoute
@@ -15351,11 +11575,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for StringList
@@ -15367,13 +11586,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for PortRangeList
@@ -15385,13 +11598,7 @@ module AWS::Ec2
           Stubs::PortRange.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AnalysisLoadBalancerTarget
@@ -15408,11 +11615,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for AnalysisLoadBalancerListener
@@ -15427,11 +11629,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for IpAddressList
@@ -15443,13 +11640,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AnalysisAclRule
@@ -15468,11 +11659,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for PathComponentList
@@ -15484,13 +11670,7 @@ module AWS::Ec2
           Stubs::PathComponent.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PathComponent
@@ -15515,11 +11695,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for AnalysisPacketHeader
@@ -15537,11 +11712,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ArnList
@@ -15553,13 +11723,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeNetworkInsightsPaths
@@ -15572,9 +11736,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for NetworkInsightsPathList
@@ -15586,13 +11747,7 @@ module AWS::Ec2
           Stubs::NetworkInsightsPath.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeNetworkInterfaceAttribute
@@ -15608,9 +11763,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeNetworkInterfacePermissions
@@ -15623,9 +11775,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for NetworkInterfacePermissionList
@@ -15637,13 +11786,7 @@ module AWS::Ec2
           Stubs::NetworkInterfacePermission.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeNetworkInterfaces
@@ -15656,9 +11799,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for NetworkInterfaceList
@@ -15670,13 +11810,7 @@ module AWS::Ec2
           Stubs::NetworkInterface.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribePlacementGroups
@@ -15688,9 +11822,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for PlacementGroupList
@@ -15702,13 +11833,7 @@ module AWS::Ec2
           Stubs::PlacementGroup.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribePrefixLists
@@ -15721,9 +11846,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for PrefixListSet
@@ -15735,13 +11857,7 @@ module AWS::Ec2
           Stubs::PrefixList.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PrefixList
@@ -15757,11 +11873,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribePrincipalIdFormat
@@ -15774,9 +11885,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for PrincipalIdFormatList
@@ -15788,13 +11896,7 @@ module AWS::Ec2
           Stubs::PrincipalIdFormat.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PrincipalIdFormat
@@ -15809,11 +11911,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribePublicIpv4Pools
@@ -15826,9 +11923,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for PublicIpv4PoolSet
@@ -15840,13 +11934,7 @@ module AWS::Ec2
           Stubs::PublicIpv4Pool.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PublicIpv4Pool
@@ -15866,11 +11954,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for PublicIpv4PoolRangeSet
@@ -15882,13 +11965,7 @@ module AWS::Ec2
           Stubs::PublicIpv4PoolRange.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PublicIpv4PoolRange
@@ -15905,11 +11982,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeRegions
@@ -15921,9 +11993,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for RegionList
@@ -15935,13 +12004,7 @@ module AWS::Ec2
           Stubs::Region.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Region
@@ -15957,11 +12020,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeReplaceRootVolumeTasks
@@ -15974,9 +12032,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ReplaceRootVolumeTasks
@@ -15988,13 +12043,7 @@ module AWS::Ec2
           Stubs::ReplaceRootVolumeTask.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeReservedInstances
@@ -16006,9 +12055,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ReservedInstancesList
@@ -16020,13 +12066,7 @@ module AWS::Ec2
           Stubs::ReservedInstances.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ReservedInstances
@@ -16057,11 +12097,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for RecurringChargesList
@@ -16073,13 +12108,7 @@ module AWS::Ec2
           Stubs::RecurringCharge.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for RecurringCharge
@@ -16094,11 +12123,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeReservedInstancesListings
@@ -16110,9 +12134,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeReservedInstancesModifications
@@ -16125,9 +12146,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ReservedInstancesModificationList
@@ -16139,13 +12157,7 @@ module AWS::Ec2
           Stubs::ReservedInstancesModification.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ReservedInstancesModification
@@ -16167,11 +12179,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ReservedIntancesIds
@@ -16183,13 +12190,7 @@ module AWS::Ec2
           Stubs::ReservedInstancesId.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ReservedInstancesId
@@ -16203,11 +12204,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ReservedInstancesModificationResultList
@@ -16219,13 +12215,7 @@ module AWS::Ec2
           Stubs::ReservedInstancesModificationResult.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ReservedInstancesModificationResult
@@ -16240,11 +12230,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ReservedInstancesConfiguration
@@ -16262,11 +12247,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeReservedInstancesOfferings
@@ -16279,9 +12259,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ReservedInstancesOfferingList
@@ -16293,13 +12270,7 @@ module AWS::Ec2
           Stubs::ReservedInstancesOffering.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ReservedInstancesOffering
@@ -16327,11 +12298,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for PricingDetailsList
@@ -16343,13 +12309,7 @@ module AWS::Ec2
           Stubs::PricingDetail.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PricingDetail
@@ -16364,11 +12324,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeRouteTables
@@ -16381,9 +12336,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for RouteTableList
@@ -16395,13 +12347,7 @@ module AWS::Ec2
           Stubs::RouteTable.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeScheduledInstanceAvailability
@@ -16414,9 +12360,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ScheduledInstanceAvailabilitySet
@@ -16428,13 +12371,7 @@ module AWS::Ec2
           Stubs::ScheduledInstanceAvailability.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ScheduledInstanceAvailability
@@ -16460,11 +12397,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ScheduledInstanceRecurrence
@@ -16482,11 +12414,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for OccurrenceDaySet
@@ -16498,13 +12425,7 @@ module AWS::Ec2
           1
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeScheduledInstances
@@ -16517,9 +12438,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ScheduledInstanceSet
@@ -16531,13 +12449,7 @@ module AWS::Ec2
           Stubs::ScheduledInstance.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ScheduledInstance
@@ -16565,11 +12477,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeSecurityGroupReferences
@@ -16581,9 +12488,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for SecurityGroupReferences
@@ -16595,13 +12499,7 @@ module AWS::Ec2
           Stubs::SecurityGroupReference.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SecurityGroupReference
@@ -16617,11 +12515,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeSecurityGroupRules
@@ -16634,9 +12527,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeSecurityGroups
@@ -16649,9 +12539,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for SecurityGroupList
@@ -16663,13 +12550,7 @@ module AWS::Ec2
           Stubs::SecurityGroup.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SecurityGroup
@@ -16690,11 +12571,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for IpPermissionList
@@ -16706,13 +12582,7 @@ module AWS::Ec2
           Stubs::IpPermission.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for IpPermission
@@ -16732,11 +12602,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for UserIdGroupPairList
@@ -16748,13 +12613,7 @@ module AWS::Ec2
           Stubs::UserIdGroupPair.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for UserIdGroupPair
@@ -16774,11 +12633,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for PrefixListIdList
@@ -16790,13 +12644,7 @@ module AWS::Ec2
           Stubs::PrefixListId.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PrefixListId
@@ -16811,11 +12659,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for Ipv6RangeList
@@ -16827,13 +12670,7 @@ module AWS::Ec2
           Stubs::Ipv6Range.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Ipv6Range
@@ -16848,11 +12685,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for IpRangeList
@@ -16864,13 +12696,7 @@ module AWS::Ec2
           Stubs::IpRange.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for IpRange
@@ -16885,11 +12711,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeSnapshotAttribute
@@ -16903,9 +12724,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for CreateVolumePermissionList
@@ -16917,13 +12735,7 @@ module AWS::Ec2
           Stubs::CreateVolumePermission.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CreateVolumePermission
@@ -16938,11 +12750,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeSnapshotTierStatus
@@ -16955,9 +12762,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for snapshotTierStatusSet
@@ -16969,13 +12773,7 @@ module AWS::Ec2
           Stubs::SnapshotTierStatus.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SnapshotTierStatus
@@ -17000,11 +12798,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeSnapshots
@@ -17017,9 +12810,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for SnapshotList
@@ -17031,13 +12821,7 @@ module AWS::Ec2
           Stubs::Snapshot.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Snapshot
@@ -17067,11 +12851,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeSpotDatafeedSubscription
@@ -17083,9 +12862,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeSpotFleetInstances
@@ -17099,9 +12875,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeSpotFleetRequestHistory
@@ -17117,9 +12890,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for HistoryRecords
@@ -17131,13 +12901,7 @@ module AWS::Ec2
           Stubs::HistoryRecord.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for HistoryRecord
@@ -17153,11 +12917,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeSpotFleetRequests
@@ -17170,9 +12929,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for SpotFleetRequestConfigSet
@@ -17184,13 +12940,7 @@ module AWS::Ec2
           Stubs::SpotFleetRequestConfig.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SpotFleetRequestConfig
@@ -17209,11 +12959,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for SpotFleetRequestConfigData
@@ -17252,11 +12997,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for TagSpecificationList
@@ -17268,13 +13008,7 @@ module AWS::Ec2
           Stubs::TagSpecification.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TagSpecification
@@ -17289,11 +13023,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LoadBalancersConfig
@@ -17308,11 +13037,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for TargetGroupsConfig
@@ -17326,11 +13050,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for TargetGroups
@@ -17342,13 +13061,7 @@ module AWS::Ec2
           Stubs::TargetGroup.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TargetGroup
@@ -17362,11 +13075,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ClassicLoadBalancersConfig
@@ -17380,11 +13088,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ClassicLoadBalancers
@@ -17396,13 +13099,7 @@ module AWS::Ec2
           Stubs::ClassicLoadBalancer.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ClassicLoadBalancer
@@ -17416,11 +13113,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LaunchTemplateConfigList
@@ -17432,13 +13124,7 @@ module AWS::Ec2
           Stubs::LaunchTemplateConfig.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LaunchTemplateConfig
@@ -17453,11 +13139,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LaunchTemplateOverridesList
@@ -17469,13 +13150,7 @@ module AWS::Ec2
           Stubs::LaunchTemplateOverrides.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for LaunchTemplateOverrides
@@ -17495,11 +13170,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for LaunchSpecsList
@@ -17511,13 +13181,7 @@ module AWS::Ec2
           Stubs::SpotFleetLaunchSpecification.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SpotFleetLaunchSpecification
@@ -17549,11 +13213,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for SpotFleetTagSpecificationList
@@ -17565,13 +13224,7 @@ module AWS::Ec2
           Stubs::SpotFleetTagSpecification.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SpotFleetTagSpecification
@@ -17586,11 +13239,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for SpotPlacement
@@ -17606,11 +13254,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for InstanceNetworkInterfaceSpecificationList
@@ -17622,13 +13265,7 @@ module AWS::Ec2
           Stubs::InstanceNetworkInterfaceSpecification.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceNetworkInterfaceSpecification
@@ -17660,11 +13297,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for Ipv6PrefixList
@@ -17676,13 +13308,7 @@ module AWS::Ec2
           Stubs::Ipv6PrefixSpecificationRequest.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Ipv6PrefixSpecificationRequest
@@ -17696,11 +13322,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for Ipv4PrefixList
@@ -17712,13 +13333,7 @@ module AWS::Ec2
           Stubs::Ipv4PrefixSpecificationRequest.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Ipv4PrefixSpecificationRequest
@@ -17732,11 +13347,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for SecurityGroupIdStringList
@@ -17748,13 +13358,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SpotFleetMonitoring
@@ -17768,11 +13372,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for IamInstanceProfileSpecification
@@ -17787,11 +13386,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for SpotMaintenanceStrategies
@@ -17805,11 +13399,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for SpotCapacityRebalance
@@ -17824,11 +13413,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeSpotInstanceRequests
@@ -17841,9 +13425,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for SpotInstanceRequestList
@@ -17855,13 +13436,7 @@ module AWS::Ec2
           Stubs::SpotInstanceRequest.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SpotInstanceRequest
@@ -17893,11 +13468,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for SpotInstanceStatus
@@ -17913,11 +13483,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for LaunchSpecification
@@ -17945,11 +13510,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for RunInstancesMonitoringEnabled
@@ -17963,11 +13523,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeSpotPriceHistory
@@ -17980,9 +13535,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for SpotPriceHistoryList
@@ -17994,13 +13546,7 @@ module AWS::Ec2
           Stubs::SpotPrice.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SpotPrice
@@ -18018,11 +13564,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeStaleSecurityGroups
@@ -18035,9 +13576,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for StaleSecurityGroupSet
@@ -18049,13 +13587,7 @@ module AWS::Ec2
           Stubs::StaleSecurityGroup.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for StaleSecurityGroup
@@ -18074,11 +13606,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for StaleIpPermissionSet
@@ -18090,13 +13617,7 @@ module AWS::Ec2
           Stubs::StaleIpPermission.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for StaleIpPermission
@@ -18115,11 +13636,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for UserIdGroupPairSet
@@ -18131,13 +13647,7 @@ module AWS::Ec2
           Stubs::UserIdGroupPair.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for PrefixListIdSet
@@ -18149,13 +13659,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # List Stubber for IpRanges
@@ -18167,13 +13671,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeStoreImageTasks
@@ -18186,9 +13684,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for StoreImageTaskResultSet
@@ -18200,13 +13695,7 @@ module AWS::Ec2
           Stubs::StoreImageTaskResult.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for StoreImageTaskResult
@@ -18226,11 +13715,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeSubnets
@@ -18243,9 +13727,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for SubnetList
@@ -18257,13 +13738,7 @@ module AWS::Ec2
           Stubs::Subnet.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeTags
@@ -18276,9 +13751,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TagDescriptionList
@@ -18290,13 +13762,7 @@ module AWS::Ec2
           Stubs::TagDescription.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TagDescription
@@ -18313,11 +13779,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeTrafficMirrorFilters
@@ -18330,9 +13791,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TrafficMirrorFilterSet
@@ -18344,13 +13802,7 @@ module AWS::Ec2
           Stubs::TrafficMirrorFilter.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeTrafficMirrorSessions
@@ -18363,9 +13815,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TrafficMirrorSessionSet
@@ -18377,13 +13826,7 @@ module AWS::Ec2
           Stubs::TrafficMirrorSession.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeTrafficMirrorTargets
@@ -18396,9 +13839,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TrafficMirrorTargetSet
@@ -18410,13 +13850,7 @@ module AWS::Ec2
           Stubs::TrafficMirrorTarget.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeTransitGatewayAttachments
@@ -18429,9 +13863,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayAttachmentList
@@ -18443,13 +13874,7 @@ module AWS::Ec2
           Stubs::TransitGatewayAttachment.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TransitGatewayAttachment
@@ -18472,11 +13897,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for TransitGatewayAttachmentAssociation
@@ -18491,11 +13911,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeTransitGatewayConnectPeers
@@ -18508,9 +13923,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayConnectPeerList
@@ -18522,13 +13934,7 @@ module AWS::Ec2
           Stubs::TransitGatewayConnectPeer.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeTransitGatewayConnects
@@ -18541,9 +13947,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayConnectList
@@ -18555,13 +13958,7 @@ module AWS::Ec2
           Stubs::TransitGatewayConnect.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeTransitGatewayMulticastDomains
@@ -18574,9 +13971,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayMulticastDomainList
@@ -18588,13 +13982,7 @@ module AWS::Ec2
           Stubs::TransitGatewayMulticastDomain.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeTransitGatewayPeeringAttachments
@@ -18607,9 +13995,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayPeeringAttachmentList
@@ -18621,13 +14006,7 @@ module AWS::Ec2
           Stubs::TransitGatewayPeeringAttachment.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeTransitGatewayRouteTables
@@ -18640,9 +14019,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayRouteTableList
@@ -18654,13 +14030,7 @@ module AWS::Ec2
           Stubs::TransitGatewayRouteTable.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeTransitGatewayVpcAttachments
@@ -18673,9 +14043,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayVpcAttachmentList
@@ -18687,13 +14054,7 @@ module AWS::Ec2
           Stubs::TransitGatewayVpcAttachment.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeTransitGateways
@@ -18706,9 +14067,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayList
@@ -18720,13 +14078,7 @@ module AWS::Ec2
           Stubs::TransitGateway.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeTrunkInterfaceAssociations
@@ -18739,9 +14091,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TrunkInterfaceAssociationList
@@ -18753,13 +14102,7 @@ module AWS::Ec2
           Stubs::TrunkInterfaceAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeVolumeAttribute
@@ -18773,9 +14116,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeVolumeStatus
@@ -18788,9 +14128,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for VolumeStatusList
@@ -18802,13 +14139,7 @@ module AWS::Ec2
           Stubs::VolumeStatusItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for VolumeStatusItem
@@ -18828,11 +14159,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for VolumeStatusAttachmentStatusList
@@ -18844,13 +14170,7 @@ module AWS::Ec2
           Stubs::VolumeStatusAttachmentStatus.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for VolumeStatusAttachmentStatus
@@ -18865,11 +14185,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for VolumeStatusInfo
@@ -18884,11 +14199,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for VolumeStatusDetailsList
@@ -18900,13 +14210,7 @@ module AWS::Ec2
           Stubs::VolumeStatusDetails.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for VolumeStatusDetails
@@ -18921,11 +14225,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for VolumeStatusEventsList
@@ -18937,13 +14236,7 @@ module AWS::Ec2
           Stubs::VolumeStatusEvent.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for VolumeStatusEvent
@@ -18962,11 +14255,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for VolumeStatusActionsList
@@ -18978,13 +14266,7 @@ module AWS::Ec2
           Stubs::VolumeStatusAction.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for VolumeStatusAction
@@ -19001,11 +14283,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeVolumes
@@ -19018,9 +14295,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for VolumeList
@@ -19032,13 +14306,7 @@ module AWS::Ec2
           Stubs::Volume.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Volume
@@ -19067,11 +14335,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeVolumesModifications
@@ -19084,9 +14347,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for VolumeModificationList
@@ -19098,13 +14358,7 @@ module AWS::Ec2
           Stubs::VolumeModification.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for VolumeModification
@@ -19133,11 +14387,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeVpcAttribute
@@ -19151,9 +14400,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DescribeVpcClassicLink
@@ -19165,9 +14411,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for VpcClassicLinkList
@@ -19179,13 +14422,7 @@ module AWS::Ec2
           Stubs::VpcClassicLink.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for VpcClassicLink
@@ -19201,11 +14438,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeVpcClassicLinkDnsSupport
@@ -19218,9 +14450,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ClassicLinkDnsSupportList
@@ -19232,13 +14461,7 @@ module AWS::Ec2
           Stubs::ClassicLinkDnsSupport.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ClassicLinkDnsSupport
@@ -19253,11 +14476,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeVpcEndpointConnectionNotifications
@@ -19270,9 +14488,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ConnectionNotificationSet
@@ -19284,13 +14499,7 @@ module AWS::Ec2
           Stubs::ConnectionNotification.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeVpcEndpointConnections
@@ -19303,9 +14512,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for VpcEndpointConnectionSet
@@ -19317,13 +14523,7 @@ module AWS::Ec2
           Stubs::VpcEndpointConnection.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for VpcEndpointConnection
@@ -19344,11 +14544,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeVpcEndpointServiceConfigurations
@@ -19361,9 +14556,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ServiceConfigurationSet
@@ -19375,13 +14567,7 @@ module AWS::Ec2
           Stubs::ServiceConfiguration.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeVpcEndpointServicePermissions
@@ -19394,9 +14580,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for AllowedPrincipalSet
@@ -19408,13 +14591,7 @@ module AWS::Ec2
           Stubs::AllowedPrincipal.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AllowedPrincipal
@@ -19429,11 +14606,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeVpcEndpointServices
@@ -19447,9 +14619,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for ServiceDetailSet
@@ -19461,13 +14630,7 @@ module AWS::Ec2
           Stubs::ServiceDetail.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ServiceDetail
@@ -19494,11 +14657,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for PrivateDnsDetailsSet
@@ -19510,13 +14668,7 @@ module AWS::Ec2
           Stubs::PrivateDnsDetails.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PrivateDnsDetails
@@ -19530,11 +14682,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DescribeVpcEndpoints
@@ -19547,9 +14694,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for VpcEndpointSet
@@ -19561,13 +14705,7 @@ module AWS::Ec2
           Stubs::VpcEndpoint.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeVpcPeeringConnections
@@ -19580,9 +14718,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for VpcPeeringConnectionList
@@ -19594,13 +14729,7 @@ module AWS::Ec2
           Stubs::VpcPeeringConnection.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeVpcs
@@ -19613,9 +14742,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for VpcList
@@ -19627,13 +14753,7 @@ module AWS::Ec2
           Stubs::Vpc.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeVpnConnections
@@ -19645,9 +14765,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for VpnConnectionList
@@ -19659,13 +14776,7 @@ module AWS::Ec2
           Stubs::VpnConnection.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DescribeVpnGateways
@@ -19677,9 +14788,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for VpnGatewayList
@@ -19691,13 +14799,7 @@ module AWS::Ec2
           Stubs::VpnGateway.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for DetachClassicLinkVpc
@@ -19709,9 +14811,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DetachInternetGateway
@@ -19722,9 +14821,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DetachNetworkInterface
@@ -19735,9 +14831,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DetachVolume
@@ -19754,9 +14847,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DetachVpnGateway
@@ -19767,9 +14857,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisableEbsEncryptionByDefault
@@ -19781,9 +14868,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisableFastSnapshotRestores
@@ -19796,9 +14880,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for DisableFastSnapshotRestoreErrorSet
@@ -19810,13 +14891,7 @@ module AWS::Ec2
           Stubs::DisableFastSnapshotRestoreErrorItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DisableFastSnapshotRestoreErrorItem
@@ -19831,11 +14906,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for DisableFastSnapshotRestoreStateErrorSet
@@ -19847,13 +14917,7 @@ module AWS::Ec2
           Stubs::DisableFastSnapshotRestoreStateErrorItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DisableFastSnapshotRestoreStateErrorItem
@@ -19868,11 +14932,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for DisableFastSnapshotRestoreStateError
@@ -19887,11 +14946,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for DisableFastSnapshotRestoreSuccessSet
@@ -19903,13 +14957,7 @@ module AWS::Ec2
           Stubs::DisableFastSnapshotRestoreSuccessItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for DisableFastSnapshotRestoreSuccessItem
@@ -19933,11 +14981,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DisableImageDeprecation
@@ -19949,9 +14992,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisableIpamOrganizationAdminAccount
@@ -19963,9 +15003,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisableSerialConsoleAccess
@@ -19977,9 +15014,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisableTransitGatewayRouteTablePropagation
@@ -19991,9 +15025,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayPropagation
@@ -20011,11 +15042,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for DisableVgwRoutePropagation
@@ -20026,9 +15052,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisableVpcClassicLink
@@ -20040,9 +15063,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisableVpcClassicLinkDnsSupport
@@ -20054,9 +15074,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisassociateAddress
@@ -20067,9 +15084,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisassociateClientVpnTargetNetwork
@@ -20082,9 +15096,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisassociateEnclaveCertificateIamRole
@@ -20096,9 +15107,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisassociateIamInstanceProfile
@@ -20110,9 +15118,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisassociateInstanceEventWindow
@@ -20124,9 +15129,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisassociateRouteTable
@@ -20137,9 +15139,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisassociateSubnetCidrBlock
@@ -20152,9 +15151,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisassociateTransitGatewayMulticastDomain
@@ -20166,9 +15162,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisassociateTransitGatewayRouteTable
@@ -20180,9 +15173,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisassociateTrunkInterface
@@ -20195,9 +15185,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for DisassociateVpcCidrBlock
@@ -20211,9 +15198,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for EnableEbsEncryptionByDefault
@@ -20225,9 +15209,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for EnableFastSnapshotRestores
@@ -20240,9 +15221,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for EnableFastSnapshotRestoreErrorSet
@@ -20254,13 +15232,7 @@ module AWS::Ec2
           Stubs::EnableFastSnapshotRestoreErrorItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for EnableFastSnapshotRestoreErrorItem
@@ -20275,11 +15247,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for EnableFastSnapshotRestoreStateErrorSet
@@ -20291,13 +15258,7 @@ module AWS::Ec2
           Stubs::EnableFastSnapshotRestoreStateErrorItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for EnableFastSnapshotRestoreStateErrorItem
@@ -20312,11 +15273,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for EnableFastSnapshotRestoreStateError
@@ -20331,11 +15287,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for EnableFastSnapshotRestoreSuccessSet
@@ -20347,13 +15298,7 @@ module AWS::Ec2
           Stubs::EnableFastSnapshotRestoreSuccessItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for EnableFastSnapshotRestoreSuccessItem
@@ -20377,11 +15322,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for EnableImageDeprecation
@@ -20393,9 +15333,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for EnableIpamOrganizationAdminAccount
@@ -20407,9 +15344,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for EnableSerialConsoleAccess
@@ -20421,9 +15355,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for EnableTransitGatewayRouteTablePropagation
@@ -20435,9 +15366,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for EnableVgwRoutePropagation
@@ -20448,9 +15376,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for EnableVolumeIO
@@ -20461,9 +15386,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for EnableVpcClassicLink
@@ -20475,9 +15397,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for EnableVpcClassicLinkDnsSupport
@@ -20489,9 +15408,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ExportClientVpnClientCertificateRevocationList
@@ -20504,9 +15420,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for ClientCertificateRevocationListStatus
@@ -20521,11 +15434,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ExportClientVpnClientConfiguration
@@ -20537,9 +15445,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ExportImage
@@ -20560,9 +15465,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ExportTransitGatewayRoutes
@@ -20574,9 +15476,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetAssociatedEnclaveCertificateIamRoles
@@ -20588,9 +15487,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for AssociatedRolesList
@@ -20602,13 +15498,7 @@ module AWS::Ec2
           Stubs::AssociatedRole.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AssociatedRole
@@ -20625,11 +15515,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetAssociatedIpv6PoolCidrs
@@ -20642,9 +15527,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for Ipv6CidrAssociationSet
@@ -20656,13 +15538,7 @@ module AWS::Ec2
           Stubs::Ipv6CidrAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Ipv6CidrAssociation
@@ -20677,11 +15553,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetCapacityReservationUsage
@@ -20699,9 +15570,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for InstanceUsageSet
@@ -20713,13 +15581,7 @@ module AWS::Ec2
           Stubs::InstanceUsage.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceUsage
@@ -20734,11 +15596,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetCoipPoolUsage
@@ -20752,9 +15609,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for CoipAddressUsageSet
@@ -20766,13 +15620,7 @@ module AWS::Ec2
           Stubs::CoipAddressUsage.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CoipAddressUsage
@@ -20789,11 +15637,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetConsoleOutput
@@ -20807,9 +15650,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetConsoleScreenshot
@@ -20822,9 +15662,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetDefaultCreditSpecification
@@ -20836,9 +15673,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for InstanceFamilyCreditSpecification
@@ -20853,11 +15687,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetEbsDefaultKmsKeyId
@@ -20869,9 +15698,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetEbsEncryptionByDefault
@@ -20883,9 +15709,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetFlowLogsIntegrationTemplate
@@ -20897,9 +15720,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetGroupsForCapacityReservation
@@ -20912,9 +15732,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for CapacityReservationGroupSet
@@ -20926,13 +15743,7 @@ module AWS::Ec2
           Stubs::CapacityReservationGroup.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for CapacityReservationGroup
@@ -20947,11 +15758,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetHostReservationPurchasePreview
@@ -20966,9 +15772,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for PurchaseSet
@@ -20980,13 +15783,7 @@ module AWS::Ec2
           Stubs::Purchase.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for Purchase
@@ -21007,11 +15804,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetInstanceTypesFromInstanceRequirements
@@ -21024,9 +15816,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for InstanceTypeInfoFromInstanceRequirementsSet
@@ -21038,13 +15827,7 @@ module AWS::Ec2
           Stubs::InstanceTypeInfoFromInstanceRequirements.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceTypeInfoFromInstanceRequirements
@@ -21058,11 +15841,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetIpamAddressHistory
@@ -21075,9 +15853,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for IpamAddressHistoryRecordSet
@@ -21089,13 +15864,7 @@ module AWS::Ec2
           Stubs::IpamAddressHistoryRecord.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for IpamAddressHistoryRecord
@@ -21119,11 +15888,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetIpamPoolAllocations
@@ -21136,9 +15900,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for IpamPoolAllocationSet
@@ -21150,13 +15911,7 @@ module AWS::Ec2
           Stubs::IpamPoolAllocation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for GetIpamPoolCidrs
@@ -21169,9 +15924,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for IpamPoolCidrSet
@@ -21183,13 +15935,7 @@ module AWS::Ec2
           Stubs::IpamPoolCidr.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for GetIpamResourceCidrs
@@ -21202,9 +15948,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for IpamResourceCidrSet
@@ -21216,13 +15959,7 @@ module AWS::Ec2
           Stubs::IpamResourceCidr.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for IpamResourceCidr
@@ -21250,11 +15987,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetLaunchTemplateData
@@ -21266,9 +15998,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetManagedPrefixListAssociations
@@ -21281,9 +16010,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for PrefixListAssociationSet
@@ -21295,13 +16021,7 @@ module AWS::Ec2
           Stubs::PrefixListAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PrefixListAssociation
@@ -21316,11 +16036,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetManagedPrefixListEntries
@@ -21333,9 +16048,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for PrefixListEntrySet
@@ -21347,13 +16059,7 @@ module AWS::Ec2
           Stubs::PrefixListEntry.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for PrefixListEntry
@@ -21368,11 +16074,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetNetworkInsightsAccessScopeAnalysisFindings
@@ -21387,9 +16088,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for AccessScopeAnalysisFindingList
@@ -21401,13 +16099,7 @@ module AWS::Ec2
           Stubs::AccessScopeAnalysisFinding.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for AccessScopeAnalysisFinding
@@ -21424,11 +16116,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetNetworkInsightsAccessScopeContent
@@ -21440,9 +16127,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetPasswordData
@@ -21456,9 +16140,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetReservedInstancesExchangeQuote
@@ -21478,9 +16159,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TargetReservationValueSet
@@ -21492,13 +16170,7 @@ module AWS::Ec2
           Stubs::TargetReservationValue.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TargetReservationValue
@@ -21513,11 +16185,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for TargetConfiguration
@@ -21532,11 +16199,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for ReservationValue
@@ -21552,11 +16214,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for ReservedInstanceReservationValueSet
@@ -21568,13 +16225,7 @@ module AWS::Ec2
           Stubs::ReservedInstanceReservationValue.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for ReservedInstanceReservationValue
@@ -21589,11 +16240,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetSerialConsoleAccessStatus
@@ -21605,9 +16251,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetSpotPlacementScores
@@ -21620,9 +16263,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for SpotPlacementScores
@@ -21634,13 +16274,7 @@ module AWS::Ec2
           Stubs::SpotPlacementScore.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SpotPlacementScore
@@ -21656,11 +16290,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetSubnetCidrReservations
@@ -21674,9 +16303,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for SubnetCidrReservationList
@@ -21688,13 +16314,7 @@ module AWS::Ec2
           Stubs::SubnetCidrReservation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for GetTransitGatewayAttachmentPropagations
@@ -21707,9 +16327,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayAttachmentPropagationList
@@ -21721,13 +16338,7 @@ module AWS::Ec2
           Stubs::TransitGatewayAttachmentPropagation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TransitGatewayAttachmentPropagation
@@ -21742,11 +16353,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetTransitGatewayMulticastDomainAssociations
@@ -21759,9 +16365,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayMulticastDomainAssociationList
@@ -21773,13 +16376,7 @@ module AWS::Ec2
           Stubs::TransitGatewayMulticastDomainAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TransitGatewayMulticastDomainAssociation
@@ -21797,11 +16394,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetTransitGatewayPrefixListReferences
@@ -21814,9 +16406,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayPrefixListReferenceSet
@@ -21828,13 +16417,7 @@ module AWS::Ec2
           Stubs::TransitGatewayPrefixListReference.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for GetTransitGatewayRouteTableAssociations
@@ -21847,9 +16430,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayRouteTableAssociationList
@@ -21861,13 +16441,7 @@ module AWS::Ec2
           Stubs::TransitGatewayRouteTableAssociation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TransitGatewayRouteTableAssociation
@@ -21884,11 +16458,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetTransitGatewayRouteTablePropagations
@@ -21901,9 +16470,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayRouteTablePropagationList
@@ -21915,13 +16481,7 @@ module AWS::Ec2
           Stubs::TransitGatewayRouteTablePropagation.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TransitGatewayRouteTablePropagation
@@ -21938,11 +16498,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for GetVpnConnectionDeviceSampleConfiguration
@@ -21954,9 +16509,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for GetVpnConnectionDeviceTypes
@@ -21969,9 +16521,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for VpnConnectionDeviceTypeList
@@ -21983,13 +16532,7 @@ module AWS::Ec2
           Stubs::VpnConnectionDeviceType.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for VpnConnectionDeviceType
@@ -22006,11 +16549,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ImportClientVpnClientCertificateRevocationList
@@ -22022,9 +16560,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ImportImage
@@ -22051,9 +16586,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ImportInstance
@@ -22065,9 +16597,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ImportKeyPair
@@ -22082,9 +16611,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ImportSnapshot
@@ -22099,9 +16625,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ImportVolume
@@ -22113,9 +16636,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ListSnapshotsInRecycleBin
@@ -22128,9 +16648,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for SnapshotRecycleBinInfoList
@@ -22142,13 +16659,7 @@ module AWS::Ec2
           Stubs::SnapshotRecycleBinInfo.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SnapshotRecycleBinInfo
@@ -22166,11 +16677,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ModifyAddressAttribute
@@ -22182,9 +16688,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyAvailabilityZoneGroup
@@ -22196,9 +16699,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyCapacityReservation
@@ -22210,9 +16710,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyCapacityReservationFleet
@@ -22224,9 +16721,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyClientVpnEndpoint
@@ -22238,9 +16732,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyDefaultCreditSpecification
@@ -22252,9 +16743,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyEbsDefaultKmsKeyId
@@ -22266,9 +16754,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyFleet
@@ -22280,9 +16765,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyFpgaImageAttribute
@@ -22294,9 +16776,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyHosts
@@ -22309,9 +16788,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for UnsuccessfulItemList
@@ -22323,13 +16799,7 @@ module AWS::Ec2
           Stubs::UnsuccessfulItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for ModifyIdFormat
@@ -22340,9 +16810,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyIdentityIdFormat
@@ -22353,9 +16820,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyImageAttribute
@@ -22366,9 +16830,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyInstanceAttribute
@@ -22379,9 +16840,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyInstanceCapacityReservationAttributes
@@ -22393,9 +16851,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyInstanceCreditSpecification
@@ -22408,9 +16863,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for UnsuccessfulInstanceCreditSpecificationSet
@@ -22422,13 +16874,7 @@ module AWS::Ec2
           Stubs::UnsuccessfulInstanceCreditSpecificationItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for UnsuccessfulInstanceCreditSpecificationItem
@@ -22443,11 +16889,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Structure Stubber for UnsuccessfulInstanceCreditSpecificationItemError
@@ -22462,11 +16903,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # List Stubber for SuccessfulInstanceCreditSpecificationSet
@@ -22478,13 +16914,7 @@ module AWS::Ec2
           Stubs::SuccessfulInstanceCreditSpecificationItem.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for SuccessfulInstanceCreditSpecificationItem
@@ -22498,11 +16928,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ModifyInstanceEventStartTime
@@ -22514,9 +16939,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyInstanceEventWindow
@@ -22528,9 +16950,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyInstanceMetadataOptions
@@ -22543,9 +16962,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyInstancePlacement
@@ -22557,9 +16973,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyIpam
@@ -22571,9 +16984,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyIpamPool
@@ -22585,9 +16995,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyIpamResourceCidr
@@ -22599,9 +17006,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyIpamScope
@@ -22613,9 +17017,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyLaunchTemplate
@@ -22627,9 +17028,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyManagedPrefixList
@@ -22641,9 +17039,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyNetworkInterfaceAttribute
@@ -22654,9 +17049,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyPrivateDnsNameOptions
@@ -22668,9 +17060,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyReservedInstances
@@ -22682,9 +17071,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifySecurityGroupRules
@@ -22696,9 +17082,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifySnapshotAttribute
@@ -22709,9 +17092,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifySnapshotTier
@@ -22724,9 +17104,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifySpotFleetRequest
@@ -22738,9 +17115,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifySubnetAttribute
@@ -22751,9 +17125,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyTrafficMirrorFilterNetworkServices
@@ -22765,9 +17136,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyTrafficMirrorFilterRule
@@ -22779,9 +17147,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyTrafficMirrorSession
@@ -22793,9 +17158,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyTransitGateway
@@ -22807,9 +17169,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyTransitGatewayPrefixListReference
@@ -22821,9 +17180,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyTransitGatewayVpcAttachment
@@ -22835,9 +17191,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyVolume
@@ -22849,9 +17202,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyVolumeAttribute
@@ -22862,9 +17212,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyVpcAttribute
@@ -22875,9 +17222,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyVpcEndpoint
@@ -22889,9 +17233,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyVpcEndpointConnectionNotification
@@ -22903,9 +17244,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyVpcEndpointServiceConfiguration
@@ -22917,9 +17255,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyVpcEndpointServicePayerResponsibility
@@ -22931,9 +17266,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyVpcEndpointServicePermissions
@@ -22945,9 +17277,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyVpcPeeringConnectionOptions
@@ -22960,9 +17289,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for PeeringConnectionOptions
@@ -22978,11 +17304,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for ModifyVpcTenancy
@@ -22994,9 +17315,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyVpnConnection
@@ -23008,9 +17326,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyVpnConnectionOptions
@@ -23022,9 +17337,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyVpnTunnelCertificate
@@ -23036,9 +17348,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ModifyVpnTunnelOptions
@@ -23050,9 +17359,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for MonitorInstances
@@ -23064,9 +17370,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for InstanceMonitoringList
@@ -23078,13 +17381,7 @@ module AWS::Ec2
           Stubs::InstanceMonitoring.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceMonitoring
@@ -23099,11 +17396,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for MoveAddressToVpc
@@ -23116,9 +17408,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for MoveByoipCidrToIpam
@@ -23130,9 +17419,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ProvisionByoipCidr
@@ -23144,9 +17430,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ProvisionIpamPoolCidr
@@ -23158,9 +17441,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ProvisionPublicIpv4PoolCidr
@@ -23173,9 +17453,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for PurchaseHostReservation
@@ -23191,9 +17468,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for PurchaseReservedInstancesOffering
@@ -23205,9 +17479,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for PurchaseScheduledInstances
@@ -23219,9 +17490,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for PurchasedScheduledInstanceSet
@@ -23233,13 +17501,7 @@ module AWS::Ec2
           Stubs::ScheduledInstance.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for RebootInstances
@@ -23250,9 +17512,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RegisterImage
@@ -23264,9 +17523,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RegisterInstanceEventNotificationAttributes
@@ -23278,9 +17534,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RegisterTransitGatewayMulticastGroupMembers
@@ -23292,9 +17545,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayMulticastRegisteredGroupMembers
@@ -23310,11 +17560,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for RegisterTransitGatewayMulticastGroupSources
@@ -23326,9 +17571,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Structure Stubber for TransitGatewayMulticastRegisteredGroupSources
@@ -23344,11 +17586,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for RejectTransitGatewayMulticastDomainAssociations
@@ -23360,9 +17597,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RejectTransitGatewayPeeringAttachment
@@ -23374,9 +17608,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RejectTransitGatewayVpcAttachment
@@ -23388,9 +17619,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RejectVpcEndpointConnections
@@ -23402,9 +17630,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RejectVpcPeeringConnection
@@ -23416,9 +17641,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ReleaseAddress
@@ -23429,9 +17651,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ReleaseHosts
@@ -23444,9 +17663,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ReleaseIpamPoolAllocation
@@ -23458,9 +17674,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ReplaceIamInstanceProfileAssociation
@@ -23472,9 +17685,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ReplaceNetworkAclAssociation
@@ -23486,9 +17696,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ReplaceNetworkAclEntry
@@ -23499,9 +17706,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ReplaceRoute
@@ -23512,9 +17716,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ReplaceRouteTableAssociation
@@ -23527,9 +17728,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ReplaceTransitGatewayRoute
@@ -23541,9 +17739,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ReportInstanceStatus
@@ -23554,9 +17749,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RequestSpotFleet
@@ -23568,9 +17760,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RequestSpotInstances
@@ -23582,9 +17771,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ResetAddressAttribute
@@ -23596,9 +17782,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ResetEbsDefaultKmsKeyId
@@ -23610,9 +17793,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ResetFpgaImageAttribute
@@ -23624,9 +17804,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ResetImageAttribute
@@ -23637,9 +17814,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ResetInstanceAttribute
@@ -23650,9 +17824,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ResetNetworkInterfaceAttribute
@@ -23663,9 +17834,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for ResetSnapshotAttribute
@@ -23676,9 +17844,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RestoreAddressToClassic
@@ -23691,9 +17856,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RestoreManagedPrefixListVersion
@@ -23705,9 +17867,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RestoreSnapshotFromRecycleBin
@@ -23728,9 +17887,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RestoreSnapshotTier
@@ -23745,9 +17901,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RevokeClientVpnIngress
@@ -23759,9 +17912,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RevokeSecurityGroupEgress
@@ -23774,9 +17924,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RevokeSecurityGroupIngress
@@ -23789,9 +17936,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RunInstances
@@ -23807,9 +17951,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for RunScheduledInstances
@@ -23821,9 +17962,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for InstanceIdSet
@@ -23835,13 +17973,7 @@ module AWS::Ec2
           'member'
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for SearchLocalGatewayRoutes
@@ -23854,9 +17986,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for LocalGatewayRouteList
@@ -23868,13 +17997,7 @@ module AWS::Ec2
           Stubs::LocalGatewayRoute.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for SearchTransitGatewayMulticastGroups
@@ -23887,9 +18010,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayMulticastGroupList
@@ -23901,13 +18021,7 @@ module AWS::Ec2
           Stubs::TransitGatewayMulticastGroup.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TransitGatewayMulticastGroup
@@ -23931,11 +18045,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for SearchTransitGatewayRoutes
@@ -23948,9 +18057,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TransitGatewayRouteList
@@ -23962,13 +18068,7 @@ module AWS::Ec2
           Stubs::TransitGatewayRoute.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Operation Stubber for SendDiagnosticInterrupt
@@ -23979,9 +18079,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for StartInstances
@@ -23993,9 +18090,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for InstanceStateChangeList
@@ -24007,13 +18101,7 @@ module AWS::Ec2
           Stubs::InstanceStateChange.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for InstanceStateChange
@@ -24029,11 +18117,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for StartNetworkInsightsAccessScopeAnalysis
@@ -24045,9 +18128,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for StartNetworkInsightsAnalysis
@@ -24059,9 +18139,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for StartVpcEndpointServicePrivateDnsVerification
@@ -24073,9 +18150,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for StopInstances
@@ -24087,9 +18161,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for TerminateClientVpnConnections
@@ -24103,9 +18174,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # List Stubber for TerminateConnectionStatusSet
@@ -24117,13 +18185,7 @@ module AWS::Ec2
           Stubs::TerminateConnectionStatus.default(visited)
         ]
       end
-      def self.stub(stub = [])
-        stub ||= []
-        data = []
-        stub.each do |element|
-        end
-        data
-      end
+
     end
 
     # Structure Stubber for TerminateConnectionStatus
@@ -24139,11 +18201,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
-        data = {}
-        data
-      end
     end
 
     # Operation Stubber for TerminateInstances
@@ -24155,9 +18212,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for UnassignIpv6Addresses
@@ -24171,9 +18225,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for UnassignPrivateIpAddresses
@@ -24184,9 +18235,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for UnmonitorInstances
@@ -24198,9 +18246,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for UpdateSecurityGroupRuleDescriptionsEgress
@@ -24212,9 +18257,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for UpdateSecurityGroupRuleDescriptionsIngress
@@ -24226,9 +18268,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
 
     # Operation Stubber for WithdrawByoipCidr
@@ -24240,9 +18279,6 @@ module AWS::Ec2
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-      end
     end
   end
 end

@@ -11,7 +11,7 @@ module AWS::Dynamodb
   module Errors
 
     # Base class for all errors returned by this service
-    class ApiError < Seahorse::HTTP::ApiError; end
+    class ApiError < Hearth::HTTP::ApiError; end
 
     # Base class for all errors returned where the client is at fault.
     # These are generally errors with 4XX HTTP status codes.
@@ -34,7 +34,7 @@ module AWS::Dynamodb
     end
 
     class BackupInUseException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -53,7 +53,7 @@ module AWS::Dynamodb
     end
 
     class BackupNotFoundException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -72,7 +72,7 @@ module AWS::Dynamodb
     end
 
     class ConditionalCheckFailedException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -91,7 +91,7 @@ module AWS::Dynamodb
     end
 
     class ContinuousBackupsUnavailableException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -110,7 +110,7 @@ module AWS::Dynamodb
     end
 
     class DuplicateItemException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -129,7 +129,7 @@ module AWS::Dynamodb
     end
 
     class ExportConflictException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -148,7 +148,7 @@ module AWS::Dynamodb
     end
 
     class ExportNotFoundException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -167,7 +167,7 @@ module AWS::Dynamodb
     end
 
     class GlobalTableAlreadyExistsException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -186,7 +186,7 @@ module AWS::Dynamodb
     end
 
     class GlobalTableNotFoundException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -205,7 +205,7 @@ module AWS::Dynamodb
     end
 
     class IdempotentParameterMismatchException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -224,7 +224,7 @@ module AWS::Dynamodb
     end
 
     class IndexNotFoundException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -243,7 +243,7 @@ module AWS::Dynamodb
     end
 
     class InternalServerError < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -262,7 +262,7 @@ module AWS::Dynamodb
     end
 
     class InvalidEndpointException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -281,7 +281,7 @@ module AWS::Dynamodb
     end
 
     class InvalidExportTimeException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -300,7 +300,7 @@ module AWS::Dynamodb
     end
 
     class InvalidRestoreTimeException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -319,7 +319,7 @@ module AWS::Dynamodb
     end
 
     class ItemCollectionSizeLimitExceededException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -338,7 +338,7 @@ module AWS::Dynamodb
     end
 
     class LimitExceededException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -357,7 +357,7 @@ module AWS::Dynamodb
     end
 
     class PointInTimeRecoveryUnavailableException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -376,7 +376,7 @@ module AWS::Dynamodb
     end
 
     class ProvisionedThroughputExceededException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -395,7 +395,7 @@ module AWS::Dynamodb
     end
 
     class ReplicaAlreadyExistsException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -414,7 +414,7 @@ module AWS::Dynamodb
     end
 
     class ReplicaNotFoundException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -433,7 +433,7 @@ module AWS::Dynamodb
     end
 
     class RequestLimitExceeded < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -452,7 +452,7 @@ module AWS::Dynamodb
     end
 
     class ResourceInUseException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -471,7 +471,7 @@ module AWS::Dynamodb
     end
 
     class ResourceNotFoundException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -490,7 +490,7 @@ module AWS::Dynamodb
     end
 
     class TableAlreadyExistsException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -509,7 +509,7 @@ module AWS::Dynamodb
     end
 
     class TableInUseException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -528,7 +528,7 @@ module AWS::Dynamodb
     end
 
     class TableNotFoundException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -547,7 +547,7 @@ module AWS::Dynamodb
     end
 
     class TransactionCanceledException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -566,7 +566,7 @@ module AWS::Dynamodb
     end
 
     class TransactionConflictException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -585,7 +585,7 @@ module AWS::Dynamodb
     end
 
     class TransactionInProgressException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #

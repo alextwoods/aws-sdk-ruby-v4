@@ -14,10 +14,6 @@ module AWS::Sts
 
     # Operation Builder for AssumeRole
     class AssumeRole
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # List Builder for tagKeyListType
@@ -42,58 +38,30 @@ module AWS::Sts
 
     # Operation Builder for AssumeRoleWithSAML
     class AssumeRoleWithSAML
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for AssumeRoleWithWebIdentity
     class AssumeRoleWithWebIdentity
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for DecodeAuthorizationMessage
     class DecodeAuthorizationMessage
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for GetAccessKeyInfo
     class GetAccessKeyInfo
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for GetCallerIdentity
     class GetCallerIdentity
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for GetFederationToken
     class GetFederationToken
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
 
     # Operation Builder for GetSessionToken
     class GetSessionToken
-      def self.build(http_req, input:)
-        http_req.http_method = 'POST'
-        http_req.append_path('/')
-      end
     end
   end
 end

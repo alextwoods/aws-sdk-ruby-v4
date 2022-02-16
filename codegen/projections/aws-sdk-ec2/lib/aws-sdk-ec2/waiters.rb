@@ -26,18 +26,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_bundle_tasks,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "bundle_tasks[].state",
+                    path: "\"bundle_tasks\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'complete'
                   }
@@ -47,7 +47,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "bundle_tasks[].state",
+                    path: "\"bundle_tasks\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'failed'
                   }
@@ -91,18 +91,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_conversion_tasks,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "conversion_tasks[].state",
+                    path: "\"conversion_tasks\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'cancelled'
                   }
@@ -146,18 +146,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_conversion_tasks,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "conversion_tasks[].state",
+                    path: "\"conversion_tasks\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'completed'
                   }
@@ -167,7 +167,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "conversion_tasks[].state",
+                    path: "\"conversion_tasks\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'cancelled'
                   }
@@ -177,7 +177,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "conversion_tasks[].state",
+                    path: "\"conversion_tasks\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'cancelling'
                   }
@@ -221,18 +221,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_conversion_tasks,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "conversion_tasks[].state",
+                    path: "\"conversion_tasks\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'deleted'
                   }
@@ -276,18 +276,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_customer_gateways,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "customer_gateways[].state",
+                    path: "\"customer_gateways\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'available'
                   }
@@ -297,7 +297,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "customer_gateways[].state",
+                    path: "\"customer_gateways\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'deleted'
                   }
@@ -307,7 +307,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "customer_gateways[].state",
+                    path: "\"customer_gateways\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'deleting'
                   }
@@ -351,18 +351,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_export_tasks,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "export_tasks[].state",
+                    path: "\"export_tasks\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'cancelled'
                   }
@@ -406,18 +406,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_export_tasks,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "export_tasks[].state",
+                    path: "\"export_tasks\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'completed'
                   }
@@ -461,18 +461,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_images,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "images[].state",
+                    path: "\"images\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'available'
                   }
@@ -482,7 +482,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "images[].state",
+                    path: "\"images\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'failed'
                   }
@@ -526,18 +526,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_images,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "length(images[]) > `0`",
+                    path: "length(\"images\"[]) > `0.0`",
                     comparator: "booleanEquals",
                     expected: 'true'
                   }
@@ -587,18 +587,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 5 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_instances,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "length(reservations[]) > `0`",
+                    path: "length(\"reservations\"[]) > `0.0`",
                     comparator: "booleanEquals",
                     expected: 'true'
                   }
@@ -648,18 +648,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_instances,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "reservations[].instances[].state.name",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
                     comparator: "allStringEquals",
                     expected: 'running'
                   }
@@ -669,7 +669,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "reservations[].instances[].state.name",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
                     comparator: "anyStringEquals",
                     expected: 'shutting-down'
                   }
@@ -679,7 +679,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "reservations[].instances[].state.name",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
                     comparator: "anyStringEquals",
                     expected: 'terminated'
                   }
@@ -689,7 +689,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "reservations[].instances[].state.name",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
                     comparator: "anyStringEquals",
                     expected: 'stopping'
                   }
@@ -739,18 +739,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_instances,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "reservations[].instances[].state.name",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
                     comparator: "allStringEquals",
                     expected: 'stopped'
                   }
@@ -760,7 +760,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "reservations[].instances[].state.name",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
                     comparator: "anyStringEquals",
                     expected: 'pending'
                   }
@@ -770,7 +770,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "reservations[].instances[].state.name",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
                     comparator: "anyStringEquals",
                     expected: 'terminated'
                   }
@@ -814,18 +814,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_instances,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "reservations[].instances[].state.name",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
                     comparator: "allStringEquals",
                     expected: 'terminated'
                   }
@@ -835,7 +835,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "reservations[].instances[].state.name",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
                     comparator: "anyStringEquals",
                     expected: 'pending'
                   }
@@ -845,7 +845,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "reservations[].instances[].state.name",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
                     comparator: "anyStringEquals",
                     expected: 'stopping'
                   }
@@ -889,18 +889,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_instance_status,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "instance_statuses[].instance_status.status",
+                    path: "\"instance_statuses\"[].\"instance_status\".\"status\"",
                     comparator: "allStringEquals",
                     expected: 'ok'
                   }
@@ -950,18 +950,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_instance_status,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "instance_statuses[].system_status.status",
+                    path: "\"instance_statuses\"[].\"system_status\".\"status\"",
                     comparator: "allStringEquals",
                     expected: 'ok'
                   }
@@ -1005,18 +1005,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 5 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_internet_gateways,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "length(internet_gateways[].internet_gateway_id) > `0`",
+                    path: "length(\"internet_gateways\"[].\"internet_gateway_id\") > `0.0`",
                     comparator: "booleanEquals",
                     expected: 'true'
                   }
@@ -1066,18 +1066,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 5 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_key_pairs,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "length(key_pairs[].key_name) > `0`",
+                    path: "length(\"key_pairs\"[].\"key_name\") > `0.0`",
                     comparator: "booleanEquals",
                     expected: 'true'
                   }
@@ -1127,18 +1127,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_nat_gateways,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "nat_gateways[].state",
+                    path: "\"nat_gateways\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'available'
                   }
@@ -1148,7 +1148,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "nat_gateways[].state",
+                    path: "\"nat_gateways\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'failed'
                   }
@@ -1158,7 +1158,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "nat_gateways[].state",
+                    path: "\"nat_gateways\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'deleting'
                   }
@@ -1168,7 +1168,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "nat_gateways[].state",
+                    path: "\"nat_gateways\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'deleted'
                   }
@@ -1218,18 +1218,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 20 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_network_interfaces,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "network_interfaces[].status",
+                    path: "\"network_interfaces\"[].\"status\"",
                     comparator: "allStringEquals",
                     expected: 'available'
                   }
@@ -1279,18 +1279,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 5 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_security_groups,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "length(security_groups[].group_id) > `0`",
+                    path: "length(\"security_groups\"[].\"group_id\") > `0.0`",
                     comparator: "booleanEquals",
                     expected: 'true'
                   }
@@ -1340,18 +1340,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_snapshots,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "snapshots[].state",
+                    path: "\"snapshots\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'completed'
                   }
@@ -1361,7 +1361,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "snapshots[].state",
+                    path: "\"snapshots\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'error'
                   }
@@ -1405,18 +1405,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_spot_instance_requests,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "spot_instance_requests[].status.code",
+                    path: "\"spot_instance_requests\"[].\"status\".\"code\"",
                     comparator: "allStringEquals",
                     expected: 'fulfilled'
                   }
@@ -1426,7 +1426,7 @@ module AWS::Ec2
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "spot_instance_requests[].status.code",
+                    path: "\"spot_instance_requests\"[].\"status\".\"code\"",
                     comparator: "allStringEquals",
                     expected: 'request-canceled-and-instance-running'
                   }
@@ -1436,7 +1436,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "spot_instance_requests[].status.code",
+                    path: "\"spot_instance_requests\"[].\"status\".\"code\"",
                     comparator: "anyStringEquals",
                     expected: 'schedule-expired'
                   }
@@ -1446,7 +1446,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "spot_instance_requests[].status.code",
+                    path: "\"spot_instance_requests\"[].\"status\".\"code\"",
                     comparator: "anyStringEquals",
                     expected: 'canceled-before-fulfillment'
                   }
@@ -1456,7 +1456,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "spot_instance_requests[].status.code",
+                    path: "\"spot_instance_requests\"[].\"status\".\"code\"",
                     comparator: "anyStringEquals",
                     expected: 'bad-parameters'
                   }
@@ -1466,7 +1466,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "spot_instance_requests[].status.code",
+                    path: "\"spot_instance_requests\"[].\"status\".\"code\"",
                     comparator: "anyStringEquals",
                     expected: 'system-error'
                   }
@@ -1516,18 +1516,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_subnets,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "subnets[].state",
+                    path: "\"subnets\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'available'
                   }
@@ -1571,18 +1571,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_volumes,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "volumes[].state",
+                    path: "\"volumes\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'available'
                   }
@@ -1592,7 +1592,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "volumes[].state",
+                    path: "\"volumes\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'deleted'
                   }
@@ -1636,18 +1636,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_volumes,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "volumes[].state",
+                    path: "\"volumes\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'deleted'
                   }
@@ -1697,18 +1697,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_volumes,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "volumes[].state",
+                    path: "\"volumes\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'in-use'
                   }
@@ -1718,7 +1718,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "volumes[].state",
+                    path: "\"volumes\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'deleted'
                   }
@@ -1762,18 +1762,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_vpc_peering_connections,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "vpc_peering_connections[].status.code",
+                    path: "\"vpc_peering_connections\"[].\"status\".\"code\"",
                     comparator: "allStringEquals",
                     expected: 'deleted'
                   }
@@ -1823,11 +1823,11 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_vpc_peering_connections,
             acceptors: [
               {
@@ -1880,18 +1880,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_vpcs,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "vpcs[].state",
+                    path: "\"vpcs\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'available'
                   }
@@ -1935,11 +1935,11 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 1 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_vpcs,
             acceptors: [
               {
@@ -1992,18 +1992,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_vpn_connections,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "vpn_connections[].state",
+                    path: "\"vpn_connections\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'available'
                   }
@@ -2013,7 +2013,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "vpn_connections[].state",
+                    path: "\"vpn_connections\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'deleting'
                   }
@@ -2023,7 +2023,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "vpn_connections[].state",
+                    path: "\"vpn_connections\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'deleted'
                   }
@@ -2067,18 +2067,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :describe_vpn_connections,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "vpn_connections[].state",
+                    path: "\"vpn_connections\"[].\"state\"",
                     comparator: "allStringEquals",
                     expected: 'deleted'
                   }
@@ -2088,7 +2088,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "vpn_connections[].state",
+                    path: "\"vpn_connections\"[].\"state\"",
                     comparator: "anyStringEquals",
                     expected: 'pending'
                   }
@@ -2132,18 +2132,18 @@ module AWS::Ec2
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 15 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :get_password_data,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "length(password_data) > `0`",
+                    path: "length(\"password_data\") > `0.0`",
                     comparator: "booleanEquals",
                     expected: 'true'
                   }

@@ -11,7 +11,7 @@ module AWS::Sts
   module Errors
 
     # Base class for all errors returned by this service
-    class ApiError < Seahorse::HTTP::ApiError; end
+    class ApiError < Hearth::HTTP::ApiError; end
 
     # Base class for all errors returned where the client is at fault.
     # These are generally errors with 4XX HTTP status codes.
@@ -34,7 +34,7 @@ module AWS::Sts
     end
 
     class ExpiredTokenException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -53,7 +53,7 @@ module AWS::Sts
     end
 
     class IDPCommunicationErrorException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -72,7 +72,7 @@ module AWS::Sts
     end
 
     class IDPRejectedClaimException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -91,7 +91,7 @@ module AWS::Sts
     end
 
     class InvalidAuthorizationMessageException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -110,7 +110,7 @@ module AWS::Sts
     end
 
     class InvalidIdentityTokenException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -129,7 +129,7 @@ module AWS::Sts
     end
 
     class MalformedPolicyDocumentException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -148,7 +148,7 @@ module AWS::Sts
     end
 
     class PackedPolicyTooLargeException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -167,7 +167,7 @@ module AWS::Sts
     end
 
     class RegionDisabledException < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #

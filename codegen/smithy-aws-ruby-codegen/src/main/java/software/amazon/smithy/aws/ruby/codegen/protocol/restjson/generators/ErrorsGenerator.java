@@ -29,7 +29,7 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
         writer
                 .openBlock("def self.error_code(http_resp)")
                 .openBlock("if !(200..299).cover?(http_resp.status)")
-                .write("json = Seahorse::JSON.load(http_resp.body)")
+                .write("json = Hearth::JSON.load(http_resp.body)")
                 .write("http_resp.body.rewind")
                 .write("code = json['__type'] || json['code'] if json")
                 .closeBlock("end")

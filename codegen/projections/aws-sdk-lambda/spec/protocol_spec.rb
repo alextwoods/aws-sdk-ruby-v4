@@ -9,6 +9,8 @@
 
 require 'aws-sdk-lambda'
 
+require 'hearth/xml/node_matcher'
+
 module AWS::Lambda
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }
