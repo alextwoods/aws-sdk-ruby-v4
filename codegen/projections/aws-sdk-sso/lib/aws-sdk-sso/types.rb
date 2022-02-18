@@ -33,7 +33,7 @@ module AWS::Sso
       :email_address,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute role_name
@@ -61,7 +61,7 @@ module AWS::Sso
       :access_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Sso::Types::GetRoleCredentialsInput "\
@@ -80,7 +80,7 @@ module AWS::Sso
       :role_credentials,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Indicates that a problem occurred with the input to the request. For example, a required
@@ -94,7 +94,7 @@ module AWS::Sso
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -128,7 +128,7 @@ module AWS::Sso
       :account_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Sso::Types::ListAccountRolesInput "\
@@ -154,7 +154,7 @@ module AWS::Sso
       :role_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_token
@@ -182,7 +182,7 @@ module AWS::Sso
       :access_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Sso::Types::ListAccountsInput "\
@@ -207,7 +207,7 @@ module AWS::Sso
       :account_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute access_token
@@ -223,7 +223,7 @@ module AWS::Sso
       :access_token,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Sso::Types::LogoutInput "\
@@ -235,7 +235,7 @@ module AWS::Sso
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified resource doesn't exist.</p>
@@ -248,7 +248,7 @@ module AWS::Sso
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Provides information about the role credentials that are assigned to the user.</p>
@@ -290,7 +290,7 @@ module AWS::Sso
       :expiration,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Sso::Types::RoleCredentials "\
@@ -318,7 +318,7 @@ module AWS::Sso
       :account_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Indicates that the request is being made too frequently and is more than what the server can handle.</p>
@@ -331,7 +331,7 @@ module AWS::Sso
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Indicates that the request is not authorized. This can happen due to an invalid access token in the request.</p>
@@ -344,7 +344,7 @@ module AWS::Sso
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
   end

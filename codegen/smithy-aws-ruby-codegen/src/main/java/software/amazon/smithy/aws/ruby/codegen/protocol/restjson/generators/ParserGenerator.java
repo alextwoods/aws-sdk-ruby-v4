@@ -32,7 +32,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
 
     @Override
     protected void renderBodyParser(Shape outputShape) {
-        writer.write("map = Seahorse::JSON.load(http_resp.body)");
+        writer.write("map = Hearth::JSON.load(http_resp.body)");
         renderMemberParsers(outputShape);
     }
 
@@ -201,7 +201,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("$LSeahorse::NumberHelper.deserialize($L)$L", dataSetter, jsonGetter, checkRequired());
+            writer.write("$LHearth::NumberHelper.deserialize($L)$L", dataSetter, jsonGetter, checkRequired());
         }
 
         @Override
@@ -317,7 +317,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
         @Override
         public Void documentShape(DocumentShape shape) {
             writer
-                    .write("payload = Seahorse::JSON.load(http_resp.body.read)")
+                    .write("payload = Hearth::JSON.load(http_resp.body.read)")
                     .write("$Lpayload", dataSetter);
             return null;
         }
@@ -348,7 +348,7 @@ public class ParserGenerator extends RestParserGeneratorBase {
 
         private void defaultComplexDeserializer(Shape shape) {
             writer
-                    .write("json = Seahorse::JSON.load(http_resp.body)")
+                    .write("json = Hearth::JSON.load(http_resp.body)")
                     .write("$LParsers::$L.parse(json)", dataSetter, symbolProvider.toSymbol(shape).getName());
         }
 

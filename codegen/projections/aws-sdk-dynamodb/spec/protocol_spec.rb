@@ -9,6 +9,8 @@
 
 require 'aws-sdk-dynamodb'
 
+require 'hearth/xml/node_matcher'
+
 module AWS::Dynamodb
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }

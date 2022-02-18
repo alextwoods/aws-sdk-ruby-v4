@@ -20,7 +20,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of key groups, and the public keys in each key group,
@@ -50,7 +50,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of Amazon Web Services accounts and the active CloudFront key pairs in each account that CloudFront can use
@@ -80,7 +80,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Amazon Web Services services in China customers must file for an Internet Content Provider (ICP) recordal if they want to serve content
@@ -126,7 +126,7 @@ module AWS::Cloudfront
       :icp_recordal_status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
@@ -149,7 +149,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that controls which HTTP methods CloudFront processes and forwards to your
@@ -210,7 +210,7 @@ module AWS::Cloudfront
       :cached_methods,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute target_distribution_id
@@ -228,14 +228,14 @@ module AWS::Cloudfront
       :alias,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     AssociateAliasOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Invalidation batch specified is too large.</p>
@@ -248,7 +248,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The CNAME specified is already defined for CloudFront.</p>
@@ -261,7 +261,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that describes how CloudFront processes requests.</p>
@@ -540,7 +540,7 @@ module AWS::Cloudfront
       :max_ttl,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that contains zero or more <code>CacheBehavior</code> elements.
@@ -562,7 +562,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A cache policy.</p>
@@ -606,7 +606,7 @@ module AWS::Cloudfront
       :cache_policy_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A cache policy with this name already exists. You must provide a unique name. To
@@ -620,7 +620,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A cache policy configuration.</p>
@@ -702,7 +702,7 @@ module AWS::Cloudfront
       :parameters_in_cache_key_and_forwarded_to_origin,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An object that determines whether any cookies in viewer requests (and if so, which cookies)
@@ -756,7 +756,7 @@ module AWS::Cloudfront
       :cookies,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An object that determines whether any HTTP headers (and if so, which headers) are included
@@ -796,7 +796,7 @@ module AWS::Cloudfront
       :headers,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Cannot delete the cache policy because it is attached to one or more cache
@@ -810,7 +810,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of cache policies.</p>
@@ -844,7 +844,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An object that determines whether any URL query strings in viewer requests (and if so, which
@@ -912,7 +912,7 @@ module AWS::Cloudfront
       :query_strings,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains a cache policy.</p>
@@ -933,7 +933,7 @@ module AWS::Cloudfront
       :cache_policy,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that controls whether CloudFront caches the response to requests using the
@@ -970,7 +970,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You can't change the value of a public key.</p>
@@ -983,7 +983,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>CloudFront origin access identity.</p>
@@ -1011,7 +1011,7 @@ module AWS::Cloudfront
       :cloud_front_origin_access_identity_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>If the <code>CallerReference</code> is a value you already sent in a previous request to create an identity but the content
@@ -1026,7 +1026,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Origin access identity configuration. Send a <code>GET</code> request to the
@@ -1060,7 +1060,7 @@ module AWS::Cloudfront
       :comment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The Origin Access Identity specified is already in use.</p>
@@ -1073,7 +1073,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Lists the origin access identities for CloudFront.Send a <code>GET</code> request to the
@@ -1133,7 +1133,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Summary of the information about a CloudFront origin access identity.</p>
@@ -1162,7 +1162,7 @@ module AWS::Cloudfront
       :comment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An alias (also called a CNAME) and the CloudFront distribution and Amazon Web Services account ID that it’s
@@ -1192,7 +1192,7 @@ module AWS::Cloudfront
       :account_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of aliases (also called CNAMEs) and the CloudFront distributions and Amazon Web Services accounts that
@@ -1229,7 +1229,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A field-level encryption content type profile. </p>
@@ -1255,7 +1255,7 @@ module AWS::Cloudfront
       :content_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The configuration for a field-level encryption content type-profile mapping. </p>
@@ -1278,7 +1278,7 @@ module AWS::Cloudfront
       :content_type_profiles,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Field-level encryption content type-profile. </p>
@@ -1298,7 +1298,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains a list of cookie names.</p>
@@ -1318,7 +1318,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>This field is deprecated. We recommend that you use a cache policy or an origin
@@ -1375,7 +1375,7 @@ module AWS::Cloudfront
       :whitelisted_names,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cache_policy_config
@@ -1387,7 +1387,7 @@ module AWS::Cloudfront
       :cache_policy_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cache_policy
@@ -1411,7 +1411,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to create a new origin access identity (OAI). An origin access identity is a
@@ -1429,7 +1429,7 @@ module AWS::Cloudfront
       :cloud_front_origin_access_identity_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request.</p>
@@ -1455,7 +1455,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to create a new distribution.</p>
@@ -1469,7 +1469,7 @@ module AWS::Cloudfront
       :distribution_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request.</p>
@@ -1495,7 +1495,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to create a new distribution with tags. </p>
@@ -1509,7 +1509,7 @@ module AWS::Cloudfront
       :distribution_config_with_tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request. </p>
@@ -1535,7 +1535,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute field_level_encryption_config
@@ -1547,7 +1547,7 @@ module AWS::Cloudfront
       :field_level_encryption_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute field_level_encryption
@@ -1571,7 +1571,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute field_level_encryption_profile_config
@@ -1583,7 +1583,7 @@ module AWS::Cloudfront
       :field_level_encryption_profile_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute field_level_encryption_profile
@@ -1607,7 +1607,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute member_name
@@ -1636,7 +1636,7 @@ module AWS::Cloudfront
       :function_code,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Cloudfront::Types::CreateFunctionInput "\
@@ -1668,7 +1668,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to create an invalidation.</p>
@@ -1688,7 +1688,7 @@ module AWS::Cloudfront
       :invalidation_batch,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request.</p>
@@ -1709,7 +1709,7 @@ module AWS::Cloudfront
       :invalidation,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute key_group_config
@@ -1721,7 +1721,7 @@ module AWS::Cloudfront
       :key_group_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute key_group
@@ -1745,7 +1745,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute distribution_id
@@ -1764,7 +1764,7 @@ module AWS::Cloudfront
       :monitoring_subscription,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute monitoring_subscription
@@ -1777,7 +1777,7 @@ module AWS::Cloudfront
       :monitoring_subscription,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute origin_request_policy_config
@@ -1789,7 +1789,7 @@ module AWS::Cloudfront
       :origin_request_policy_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute origin_request_policy
@@ -1813,7 +1813,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute public_key_config
@@ -1825,7 +1825,7 @@ module AWS::Cloudfront
       :public_key_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute public_key
@@ -1849,7 +1849,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute end_points
@@ -1884,7 +1884,7 @@ module AWS::Cloudfront
       :sampling_rate,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute realtime_log_config
@@ -1896,7 +1896,7 @@ module AWS::Cloudfront
       :realtime_log_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute response_headers_policy_config
@@ -1909,7 +1909,7 @@ module AWS::Cloudfront
       :response_headers_policy_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute response_headers_policy
@@ -1933,7 +1933,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to create a new streaming distribution.</p>
@@ -1947,7 +1947,7 @@ module AWS::Cloudfront
       :streaming_distribution_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request.</p>
@@ -1973,7 +1973,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to create a new streaming distribution with tags.</p>
@@ -1987,7 +1987,7 @@ module AWS::Cloudfront
       :streaming_distribution_config_with_tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request. </p>
@@ -2013,7 +2013,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that controls:</p>
@@ -2104,7 +2104,7 @@ module AWS::Cloudfront
       :error_caching_min_ttl,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that controls:</p>
@@ -2139,7 +2139,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that contains the list of Custom Headers for each origin. </p>
@@ -2162,7 +2162,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A custom origin. A custom origin is any origin that is <i>not</i> an Amazon S3
@@ -2242,7 +2242,7 @@ module AWS::Cloudfront
       :origin_keepalive_timeout,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that describes the default cache behavior if you don’t specify a
@@ -2490,7 +2490,7 @@ module AWS::Cloudfront
       :max_ttl,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -2512,14 +2512,14 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteCachePolicyOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Deletes a origin access identity.</p>
@@ -2540,14 +2540,14 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteCloudFrontOriginAccessIdentityOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>This action deletes a web distribution. To delete a web distribution using the CloudFront
@@ -2614,14 +2614,14 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteDistributionOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -2640,14 +2640,14 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteFieldLevelEncryptionConfigOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -2666,14 +2666,14 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteFieldLevelEncryptionProfileOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute member_name
@@ -2692,14 +2692,14 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteFunctionOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -2720,14 +2720,14 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteKeyGroupOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute distribution_id
@@ -2739,14 +2739,14 @@ module AWS::Cloudfront
       :distribution_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteMonitoringSubscriptionOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -2768,14 +2768,14 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteOriginRequestPolicyOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -2794,14 +2794,14 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeletePublicKeyOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute member_name
@@ -2819,14 +2819,14 @@ module AWS::Cloudfront
       :arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteRealtimeLogConfigOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -2849,14 +2849,14 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteResponseHeadersPolicyOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to delete a streaming distribution.</p>
@@ -2877,14 +2877,14 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteStreamingDistributionOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute member_name
@@ -2902,7 +2902,7 @@ module AWS::Cloudfront
       :stage,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_summary
@@ -2920,7 +2920,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A distribution tells CloudFront where you want content to be delivered from, and the details about how to
@@ -3010,7 +3010,7 @@ module AWS::Cloudfront
       :alias_icp_recordals,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The caller reference you attempted to create the distribution with is associated with another distribution.</p>
@@ -3023,7 +3023,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A distribution configuration.</p>
@@ -3238,7 +3238,7 @@ module AWS::Cloudfront
       :is_ipv6_enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Cloudfront::Types::DistributionConfig "\
@@ -3280,7 +3280,7 @@ module AWS::Cloudfront
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of distribution IDs.</p>
@@ -3327,7 +3327,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A distribution list.</p>
@@ -3376,7 +3376,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified CloudFront distribution is not disabled. You must disable
@@ -3390,7 +3390,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A summary of the information about a CloudFront distribution.</p>
@@ -3539,7 +3539,7 @@ module AWS::Cloudfront
       :alias_icp_recordals,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Complex data type for field-level encryption profiles that includes all of the encryption entities. </p>
@@ -3559,7 +3559,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Complex data type for field-level encryption profiles that includes the encryption key and field pattern specifications. </p>
@@ -3589,7 +3589,7 @@ module AWS::Cloudfront
       :field_patterns,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains information about the Amazon Kinesis data stream where you are sending real-time
@@ -3612,7 +3612,7 @@ module AWS::Cloudfront
       :kinesis_stream_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex data type that includes the profile configurations and other options specified for field-level encryption. </p>
@@ -3639,7 +3639,7 @@ module AWS::Cloudfront
       :field_level_encryption_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex data type that includes the profile configurations specified for field-level encryption. </p>
@@ -3674,7 +3674,7 @@ module AWS::Cloudfront
       :content_type_profile_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified configuration for field-level encryption already exists.</p>
@@ -3687,7 +3687,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified configuration for field-level encryption is in use.</p>
@@ -3700,7 +3700,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>List of field-level encrpytion configurations.</p>
@@ -3734,7 +3734,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex data type for field-level encryption profiles.</p>
@@ -3761,7 +3761,7 @@ module AWS::Cloudfront
       :field_level_encryption_profile_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified profile for field-level encryption already exists.</p>
@@ -3774,7 +3774,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex data type of profiles for the field-level encryption.</p>
@@ -3808,7 +3808,7 @@ module AWS::Cloudfront
       :encryption_entities,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified profile for field-level encryption is in use.</p>
@@ -3821,7 +3821,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>List of field-level encryption profiles.</p>
@@ -3855,7 +3855,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The maximum size of a profile for field-level encryption was exceeded.</p>
@@ -3868,7 +3868,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The field-level encryption profile summary.</p>
@@ -3908,7 +3908,7 @@ module AWS::Cloudfront
       :comment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A summary of a field-level encryption item.</p>
@@ -3951,7 +3951,7 @@ module AWS::Cloudfront
       :content_type_profile_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex data type that includes the field patterns to match for field-level encryption.</p>
@@ -3971,7 +3971,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>This field is deprecated. We recommend that you use a cache policy or an origin
@@ -4061,7 +4061,7 @@ module AWS::Cloudfront
       :query_string_cache_keys,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A function with the same name already exists in this Amazon Web Services account. To create a
@@ -4076,7 +4076,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A CloudFront function that is associated with a cache behavior in a CloudFront
@@ -4100,7 +4100,7 @@ module AWS::Cloudfront
       :event_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of CloudFront functions that are associated with a cache behavior in a CloudFront distribution.
@@ -4124,7 +4124,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains configuration information about a CloudFront function.</p>
@@ -4145,7 +4145,7 @@ module AWS::Cloudfront
       :runtime,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Cannot delete the function because it’s attached to one or more cache
@@ -4159,7 +4159,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of CloudFront functions.</p>
@@ -4193,7 +4193,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains metadata about a CloudFront function.</p>
@@ -4231,7 +4231,7 @@ module AWS::Cloudfront
       :last_modified_time,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
@@ -4245,7 +4245,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains configuration information and metadata about a CloudFront function.</p>
@@ -4277,7 +4277,7 @@ module AWS::Cloudfront
       :function_metadata,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that controls the countries in which your content is distributed. CloudFront
@@ -4334,7 +4334,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -4350,7 +4350,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cache_policy_config
@@ -4368,7 +4368,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -4384,7 +4384,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cache_policy
@@ -4402,7 +4402,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The origin access identity's configuration information. For more information, see
@@ -4417,7 +4417,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request.</p>
@@ -4438,7 +4438,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to get an origin access identity's information.</p>
@@ -4452,7 +4452,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request.</p>
@@ -4473,7 +4473,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to get a distribution configuration.</p>
@@ -4487,7 +4487,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request.</p>
@@ -4508,7 +4508,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to get a distribution's information.</p>
@@ -4522,7 +4522,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request.</p>
@@ -4543,7 +4543,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -4555,7 +4555,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute field_level_encryption_config
@@ -4573,7 +4573,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -4585,7 +4585,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute field_level_encryption
@@ -4603,7 +4603,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -4615,7 +4615,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute field_level_encryption_profile_config
@@ -4633,7 +4633,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -4645,7 +4645,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute field_level_encryption_profile
@@ -4663,7 +4663,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute member_name
@@ -4681,7 +4681,7 @@ module AWS::Cloudfront
       :stage,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_code
@@ -4708,7 +4708,7 @@ module AWS::Cloudfront
       :content_type,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Cloudfront::Types::GetFunctionOutput "\
@@ -4736,7 +4736,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request.</p>
@@ -4750,7 +4750,7 @@ module AWS::Cloudfront
       :invalidation,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -4763,7 +4763,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute key_group_config
@@ -4781,7 +4781,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -4794,7 +4794,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute key_group
@@ -4812,7 +4812,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute distribution_id
@@ -4824,7 +4824,7 @@ module AWS::Cloudfront
       :distribution_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute monitoring_subscription
@@ -4837,7 +4837,7 @@ module AWS::Cloudfront
       :monitoring_subscription,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -4853,7 +4853,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute origin_request_policy_config
@@ -4871,7 +4871,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -4887,7 +4887,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute origin_request_policy
@@ -4905,7 +4905,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -4917,7 +4917,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute public_key_config
@@ -4935,7 +4935,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -4947,7 +4947,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute public_key
@@ -4965,7 +4965,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute member_name
@@ -4983,7 +4983,7 @@ module AWS::Cloudfront
       :arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute realtime_log_config
@@ -4995,7 +4995,7 @@ module AWS::Cloudfront
       :realtime_log_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -5012,7 +5012,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute response_headers_policy_config
@@ -5030,7 +5030,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute id
@@ -5047,7 +5047,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute response_headers_policy
@@ -5065,7 +5065,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>To request to get a streaming distribution configuration.</p>
@@ -5079,7 +5079,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request.</p>
@@ -5100,7 +5100,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to get a streaming distribution's information.</p>
@@ -5114,7 +5114,7 @@ module AWS::Cloudfront
       :id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request.</p>
@@ -5135,7 +5135,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains a list of HTTP header names.</p>
@@ -5155,7 +5155,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You cannot delete a managed policy.</p>
@@ -5168,7 +5168,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
@@ -5181,7 +5181,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The update contains modifications that are not allowed.</p>
@@ -5194,7 +5194,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
@@ -5207,7 +5207,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An argument is invalid.</p>
@@ -5220,7 +5220,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The default root object file name is too big or contains an invalid character.</p>
@@ -5233,7 +5233,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An invalid error code was specified.</p>
@@ -5246,7 +5246,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code>
@@ -5260,7 +5260,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A CloudFront function association is invalid.</p>
@@ -5273,7 +5273,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified geo restriction parameter is not valid.</p>
@@ -5286,7 +5286,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The headers specified are not valid for an Amazon S3 origin.</p>
@@ -5299,7 +5299,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The <code>If-Match</code> version is missing or not valid.</p>
@@ -5312,7 +5312,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified Lambda@Edge function association is invalid.</p>
@@ -5325,7 +5325,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The location code specified is not valid.</p>
@@ -5338,7 +5338,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The minimum protocol version specified is not valid.</p>
@@ -5351,7 +5351,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The Amazon S3 origin server specified does not refer to a valid Amazon S3 bucket.</p>
@@ -5364,7 +5364,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The origin access identity is not valid or doesn't exist.</p>
@@ -5377,7 +5377,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The keep alive timeout specified for the origin is not valid.</p>
@@ -5390,7 +5390,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The read timeout specified for the origin is not valid.</p>
@@ -5403,7 +5403,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You cannot specify SSLv3 as the minimum protocol version if you only want to support only clients that support
@@ -5417,7 +5417,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The query string parameters specified are not valid.</p>
@@ -5430,7 +5430,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
@@ -5443,7 +5443,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the
@@ -5457,7 +5457,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A response code is not valid.</p>
@@ -5470,7 +5470,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The TTL order specified is not valid.</p>
@@ -5483,7 +5483,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The tagging specified is not valid.</p>
@@ -5496,7 +5496,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A viewer certificate specified is not valid.</p>
@@ -5509,7 +5509,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest
@@ -5526,7 +5526,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An invalidation. </p>
@@ -5560,7 +5560,7 @@ module AWS::Cloudfront
       :invalidation_batch,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An invalidation batch.</p>
@@ -5594,7 +5594,7 @@ module AWS::Cloudfront
       :caller_reference,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The <code>InvalidationList</code> complex type describes the list of invalidation
@@ -5647,7 +5647,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A summary of an invalidation request.</p>
@@ -5673,7 +5673,7 @@ module AWS::Cloudfront
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of identifiers for the public keys that CloudFront can use to verify the
@@ -5694,7 +5694,7 @@ module AWS::Cloudfront
       :key_pair_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A key group.</p>
@@ -5721,7 +5721,7 @@ module AWS::Cloudfront
       :key_group_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A key group with this name already exists. You must provide a unique name. To modify an
@@ -5735,7 +5735,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A key group configuration.</p>
@@ -5763,7 +5763,7 @@ module AWS::Cloudfront
       :comment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of key groups.</p>
@@ -5797,7 +5797,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains information about a key group.</p>
@@ -5811,7 +5811,7 @@ module AWS::Cloudfront
       :key_group,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of CloudFront key pair identifiers.</p>
@@ -5831,7 +5831,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains information about the Amazon Kinesis data stream where you are sending
@@ -5856,7 +5856,7 @@ module AWS::Cloudfront
       :stream_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that contains a Lambda@Edge function association.</p>
@@ -5909,7 +5909,7 @@ module AWS::Cloudfront
       :include_body,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that specifies a list of Lambda@Edge functions associations for a cache
@@ -5942,7 +5942,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute type
@@ -5980,7 +5980,7 @@ module AWS::Cloudfront
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cache_policy_list
@@ -5992,7 +5992,7 @@ module AWS::Cloudfront
       :cache_policy_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to list origin access identities. </p>
@@ -6017,7 +6017,7 @@ module AWS::Cloudfront
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request. </p>
@@ -6031,7 +6031,7 @@ module AWS::Cloudfront
       :cloud_front_origin_access_identity_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute distribution_id
@@ -6065,7 +6065,7 @@ module AWS::Cloudfront
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute conflicting_aliases_list
@@ -6077,7 +6077,7 @@ module AWS::Cloudfront
       :conflicting_aliases_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute marker
@@ -6104,7 +6104,7 @@ module AWS::Cloudfront
       :cache_policy_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute distribution_id_list
@@ -6116,7 +6116,7 @@ module AWS::Cloudfront
       :distribution_id_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute marker
@@ -6143,7 +6143,7 @@ module AWS::Cloudfront
       :key_group_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute distribution_id_list
@@ -6155,7 +6155,7 @@ module AWS::Cloudfront
       :distribution_id_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute marker
@@ -6183,7 +6183,7 @@ module AWS::Cloudfront
       :origin_request_policy_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute distribution_id_list
@@ -6195,7 +6195,7 @@ module AWS::Cloudfront
       :distribution_id_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute marker
@@ -6230,7 +6230,7 @@ module AWS::Cloudfront
       :realtime_log_config_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute distribution_list
@@ -6242,7 +6242,7 @@ module AWS::Cloudfront
       :distribution_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute marker
@@ -6270,7 +6270,7 @@ module AWS::Cloudfront
       :response_headers_policy_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute distribution_id_list
@@ -6282,7 +6282,7 @@ module AWS::Cloudfront
       :distribution_id_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to list distributions that are associated with a specified WAF web
@@ -6316,7 +6316,7 @@ module AWS::Cloudfront
       :web_acl_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The response to a request to list the distributions that are associated with a
@@ -6331,7 +6331,7 @@ module AWS::Cloudfront
       :distribution_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to list your distributions. </p>
@@ -6355,7 +6355,7 @@ module AWS::Cloudfront
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request. </p>
@@ -6369,7 +6369,7 @@ module AWS::Cloudfront
       :distribution_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute marker
@@ -6389,7 +6389,7 @@ module AWS::Cloudfront
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute field_level_encryption_list
@@ -6401,7 +6401,7 @@ module AWS::Cloudfront
       :field_level_encryption_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute marker
@@ -6421,7 +6421,7 @@ module AWS::Cloudfront
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute field_level_encryption_profile_list
@@ -6433,7 +6433,7 @@ module AWS::Cloudfront
       :field_level_encryption_profile_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute marker
@@ -6461,7 +6461,7 @@ module AWS::Cloudfront
       :stage,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_list
@@ -6473,7 +6473,7 @@ module AWS::Cloudfront
       :function_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to list invalidations. </p>
@@ -6505,7 +6505,7 @@ module AWS::Cloudfront
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request. </p>
@@ -6519,7 +6519,7 @@ module AWS::Cloudfront
       :invalidation_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute marker
@@ -6540,7 +6540,7 @@ module AWS::Cloudfront
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute key_group_list
@@ -6552,7 +6552,7 @@ module AWS::Cloudfront
       :key_group_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute type
@@ -6590,7 +6590,7 @@ module AWS::Cloudfront
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute origin_request_policy_list
@@ -6602,7 +6602,7 @@ module AWS::Cloudfront
       :origin_request_policy_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute marker
@@ -6622,7 +6622,7 @@ module AWS::Cloudfront
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute public_key_list
@@ -6634,7 +6634,7 @@ module AWS::Cloudfront
       :public_key_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute max_items
@@ -6655,7 +6655,7 @@ module AWS::Cloudfront
       :marker,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute realtime_log_configs
@@ -6667,7 +6667,7 @@ module AWS::Cloudfront
       :realtime_log_configs,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute type
@@ -6706,7 +6706,7 @@ module AWS::Cloudfront
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute response_headers_policy_list
@@ -6718,7 +6718,7 @@ module AWS::Cloudfront
       :response_headers_policy_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to list your streaming distributions. </p>
@@ -6738,7 +6738,7 @@ module AWS::Cloudfront
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request. </p>
@@ -6752,7 +6752,7 @@ module AWS::Cloudfront
       :streaming_distribution_list,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> The request to list tags for a CloudFront resource.</p>
@@ -6766,7 +6766,7 @@ module AWS::Cloudfront
       :resource,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> The returned result of the corresponding request.</p>
@@ -6780,7 +6780,7 @@ module AWS::Cloudfront
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that controls whether access logs are written for the
@@ -6827,7 +6827,7 @@ module AWS::Cloudfront
       :prefix,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
@@ -6840,7 +6840,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A monitoring subscription. This structure contains information about whether additional
@@ -6855,7 +6855,7 @@ module AWS::Cloudfront
       :realtime_metrics_subscription_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The cache policy does not exist.</p>
@@ -6868,7 +6868,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified origin access identity does not exist.</p>
@@ -6881,7 +6881,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified distribution does not exist.</p>
@@ -6894,7 +6894,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified configuration for field-level encryption doesn't exist.</p>
@@ -6907,7 +6907,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified profile for field-level encryption doesn't exist.</p>
@@ -6920,7 +6920,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The function does not exist.</p>
@@ -6933,7 +6933,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified invalidation does not exist.</p>
@@ -6946,7 +6946,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>No origin exists with the specified <code>Origin Id</code>. </p>
@@ -6959,7 +6959,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The origin request policy does not exist.</p>
@@ -6972,7 +6972,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified public key doesn't exist.</p>
@@ -6985,7 +6985,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The real-time log configuration does not exist.</p>
@@ -6998,7 +6998,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A resource that was specified is not valid.</p>
@@ -7011,7 +7011,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The response headers policy does not exist.</p>
@@ -7024,7 +7024,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified streaming distribution does not exist.</p>
@@ -7037,7 +7037,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An origin.</p>
@@ -7159,7 +7159,7 @@ module AWS::Cloudfront
       :origin_shield,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that contains <code>HeaderName</code> and <code>HeaderValue</code>
@@ -7186,7 +7186,7 @@ module AWS::Cloudfront
       :header_value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Cloudfront::Types::OriginCustomHeader "\
@@ -7221,7 +7221,7 @@ module AWS::Cloudfront
       :members,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex data type that includes information about the failover criteria for an origin group, including
@@ -7237,7 +7237,7 @@ module AWS::Cloudfront
       :status_codes,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An origin in an origin group.</p>
@@ -7251,7 +7251,7 @@ module AWS::Cloudfront
       :origin_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex data type for the origins included in an origin group.</p>
@@ -7271,7 +7271,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex data type for the origin groups specified for a distribution.</p>
@@ -7291,7 +7291,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An origin request policy.</p>
@@ -7339,7 +7339,7 @@ module AWS::Cloudfront
       :origin_request_policy_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An origin request policy with this name already exists. You must provide a unique
@@ -7354,7 +7354,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An origin request policy configuration.</p>
@@ -7415,7 +7415,7 @@ module AWS::Cloudfront
       :query_strings_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An object that determines whether any cookies in viewer requests (and if so, which cookies)
@@ -7458,7 +7458,7 @@ module AWS::Cloudfront
       :cookies,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An object that determines whether any HTTP headers (and if so, which headers) are included
@@ -7507,7 +7507,7 @@ module AWS::Cloudfront
       :headers,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Cannot delete the origin request policy because it is attached to one or more cache
@@ -7521,7 +7521,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of origin request policies.</p>
@@ -7556,7 +7556,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An object that determines whether any URL query strings in viewer requests (and if so, which
@@ -7599,7 +7599,7 @@ module AWS::Cloudfront
       :query_strings,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains an origin request policy.</p>
@@ -7620,7 +7620,7 @@ module AWS::Cloudfront
       :origin_request_policy,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>CloudFront Origin Shield.</p>
@@ -7652,7 +7652,7 @@ module AWS::Cloudfront
       :origin_shield_region,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that contains information about the SSL/TLS protocols that CloudFront can use
@@ -7674,7 +7674,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains information about the origins for this distribution.</p>
@@ -7694,7 +7694,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>This object determines the values that CloudFront includes in the cache key. These values can
@@ -7803,7 +7803,7 @@ module AWS::Cloudfront
       :query_strings_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that contains information about the objects that you want to invalidate.
@@ -7825,7 +7825,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The precondition in one or more of the request fields evaluated to
@@ -7839,7 +7839,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A public key that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
@@ -7865,7 +7865,7 @@ module AWS::Cloudfront
       :public_key_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified public key already exists.</p>
@@ -7878,7 +7878,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Configuration information about a public key that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
@@ -7912,7 +7912,7 @@ module AWS::Cloudfront
       :comment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified public key is in use. </p>
@@ -7925,7 +7925,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of public keys that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
@@ -7959,7 +7959,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains information about a public key.</p>
@@ -7998,7 +7998,7 @@ module AWS::Cloudfront
       :comment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute member_name
@@ -8017,7 +8017,7 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_summary
@@ -8029,7 +8029,7 @@ module AWS::Cloudfront
       :function_summary,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Query argument-profile mapping for field-level encryption.</p>
@@ -8049,7 +8049,7 @@ module AWS::Cloudfront
       :profile_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Configuration for query argument-profile mapping for field-level encryption.</p>
@@ -8070,7 +8070,7 @@ module AWS::Cloudfront
       :query_arg_profiles,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>No profile specified for the field-level encryption query argument.</p>
@@ -8083,7 +8083,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Query argument-profile mapping for field-level encryption.</p>
@@ -8103,7 +8103,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>This field is deprecated. We recommend that you use a cache policy or an origin
@@ -8136,7 +8136,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains a list of query string names.</p>
@@ -8156,7 +8156,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A real-time log configuration.</p>
@@ -8201,7 +8201,7 @@ module AWS::Cloudfront
       :fields,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A real-time log configuration with this name already exists. You must provide a unique name.
@@ -8216,7 +8216,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Cannot delete the real-time log configuration because it is attached to one or more cache
@@ -8230,7 +8230,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified real-time log configuration belongs to a different Amazon Web Services account.</p>
@@ -8243,7 +8243,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of real-time log configurations.</p>
@@ -8285,7 +8285,7 @@ module AWS::Cloudfront
       :next_marker,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A subscription configuration for additional CloudWatch metrics.</p>
@@ -8300,7 +8300,7 @@ module AWS::Cloudfront
       :realtime_metrics_subscription_status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Cannot delete this resource because it is in use.</p>
@@ -8313,7 +8313,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A response headers policy.</p>
@@ -8350,7 +8350,7 @@ module AWS::Cloudfront
       :response_headers_policy_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of HTTP header names that CloudFront includes as values for the
@@ -8373,7 +8373,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of HTTP methods that CloudFront includes as values for the
@@ -8441,7 +8441,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of origins (domain names) that CloudFront can use as the value for the
@@ -8465,7 +8465,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of HTTP headers that CloudFront includes as values for the
@@ -8488,7 +8488,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A response headers policy with this name already exists. You must provide a unique name. To
@@ -8503,7 +8503,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A response headers policy configuration.</p>
@@ -8548,7 +8548,7 @@ module AWS::Cloudfront
       :custom_headers_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The policy directives and their values that CloudFront includes as values for the
@@ -8574,7 +8574,7 @@ module AWS::Cloudfront
       :content_security_policy,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Determines whether CloudFront includes the <code>X-Content-Type-Options</code> HTTP response
@@ -8593,7 +8593,7 @@ module AWS::Cloudfront
       :override,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A configuration for a set of HTTP response headers that are used for cross-origin resource
@@ -8667,7 +8667,7 @@ module AWS::Cloudfront
       :origin_override,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An HTTP response header name and its value. CloudFront includes this header in HTTP responses that
@@ -8696,7 +8696,7 @@ module AWS::Cloudfront
       :override,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of HTTP response header names and their values. CloudFront includes these headers in HTTP
@@ -8718,7 +8718,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Determines whether CloudFront includes the <code>X-Frame-Options</code> HTTP response header and
@@ -8745,7 +8745,7 @@ module AWS::Cloudfront
       :frame_option,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Cannot delete the response headers policy because it is attached to one or more cache
@@ -8759,7 +8759,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of response headers policies.</p>
@@ -8793,7 +8793,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Determines whether CloudFront includes the <code>Referrer-Policy</code> HTTP response header and
@@ -8862,7 +8862,7 @@ module AWS::Cloudfront
       :referrer_policy,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A configuration for a set of security-related HTTP response headers. CloudFront adds these headers
@@ -8926,7 +8926,7 @@ module AWS::Cloudfront
       :strict_transport_security,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Determines whether CloudFront includes the <code>Strict-Transport-Security</code> HTTP response
@@ -8966,7 +8966,7 @@ module AWS::Cloudfront
       :access_control_max_age_sec,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains a response headers policy.</p>
@@ -8987,7 +8987,7 @@ module AWS::Cloudfront
       :response_headers_policy,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Determines whether CloudFront includes the <code>X-XSS-Protection</code> HTTP response header and
@@ -9035,7 +9035,7 @@ module AWS::Cloudfront
       :report_uri,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that identifies ways in which you want to restrict distribution of your
@@ -9051,7 +9051,7 @@ module AWS::Cloudfront
       :geo_restriction,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that contains information about the Amazon S3 bucket from which you want
@@ -9084,7 +9084,7 @@ module AWS::Cloudfront
       :origin_access_identity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that contains information about the Amazon S3 origin. If the origin is a
@@ -9118,7 +9118,7 @@ module AWS::Cloudfront
       :origin_access_identity,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of Amazon Web Services accounts and the active CloudFront key pairs in each account that CloudFront can use to
@@ -9142,7 +9142,7 @@ module AWS::Cloudfront
       :key_pair_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex data type for the status codes that you specify that, when returned by a primary origin, trigger
@@ -9163,7 +9163,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A streaming distribution tells CloudFront where you want RTMP content to be delivered from, and the details about how to
@@ -9227,7 +9227,7 @@ module AWS::Cloudfront
       :streaming_distribution_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The caller reference you attempted to create the streaming distribution with
@@ -9241,7 +9241,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The RTMP distribution's configuration information.</p>
@@ -9311,7 +9311,7 @@ module AWS::Cloudfront
       :enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A streaming distribution Configuration and a list of tags to be associated with the
@@ -9332,7 +9332,7 @@ module AWS::Cloudfront
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A streaming distribution list. </p>
@@ -9382,7 +9382,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified CloudFront distribution is not disabled. You must disable
@@ -9396,7 +9396,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> A summary of the information for a CloudFront streaming distribution.</p>
@@ -9489,7 +9489,7 @@ module AWS::Cloudfront
       :enabled,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that controls whether access logs are written for this streaming distribution.</p>
@@ -9523,7 +9523,7 @@ module AWS::Cloudfront
       :prefix,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> A complex type that contains <code>Tag</code> key and <code>Tag</code> value.</p>
@@ -9549,7 +9549,7 @@ module AWS::Cloudfront
       :value,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> A complex type that contains zero or more <code>Tag</code> elements.</p>
@@ -9563,7 +9563,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> The request to add tags to a CloudFront resource.</p>
@@ -9583,14 +9583,14 @@ module AWS::Cloudfront
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     TagResourceOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> A complex type that contains zero or more <code>Tag</code> elements.</p>
@@ -9604,7 +9604,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The CloudFront function failed.</p>
@@ -9617,7 +9617,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute member_name
@@ -9653,7 +9653,7 @@ module AWS::Cloudfront
       :event_object,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Cloudfront::Types::TestFunctionInput "\
@@ -9674,7 +9674,7 @@ module AWS::Cloudfront
       :test_result,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Contains the result of testing a CloudFront function with <code>TestFunction</code>.</p>
@@ -9727,7 +9727,7 @@ module AWS::Cloudfront
       :function_output,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Cloudfront::Types::TestResult "\
@@ -9749,7 +9749,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You have reached the maximum number of cache policies for this Amazon Web Services account. For more
@@ -9764,7 +9764,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You cannot create anymore custom SSL/TLS certificates.</p>
@@ -9777,7 +9777,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Processing your request would cause you to exceed the maximum number of origin access identities allowed.</p>
@@ -9790,7 +9790,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
@@ -9803,7 +9803,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The number of cookies in the cache policy exceeds the maximum. For more information,
@@ -9818,7 +9818,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The number of cookies in the origin request policy exceeds the maximum. For more
@@ -9833,7 +9833,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The number of custom headers in the response headers policy exceeds the maximum.</p>
@@ -9848,7 +9848,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Your request contains more CNAMEs than are allowed per distribution.</p>
@@ -9861,7 +9861,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Processing your request would cause you to exceed the maximum number of distributions allowed.</p>
@@ -9874,7 +9874,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The maximum number of distributions have been associated with the specified cache
@@ -9889,7 +9889,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
@@ -9902,7 +9902,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The number of distributions that reference this key group is more than the maximum
@@ -9917,7 +9917,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The maximum number of distributions have been associated with the specified origin
@@ -9932,7 +9932,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The maximum number of distributions have been associated with the specified response headers
@@ -9948,7 +9948,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You have reached the maximum number of distributions that are associated with a CloudFront
@@ -9963,7 +9963,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Processing your request would cause the maximum number of distributions with Lambda@Edge function associations per owner
@@ -9977,7 +9977,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The maximum number of distributions have been associated with the specified Lambda@Edge
@@ -9991,7 +9991,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The maximum number of configurations for field-level encryption have been created.</p>
@@ -10004,7 +10004,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The maximum number of content type profiles for field-level encryption have been created.</p>
@@ -10017,7 +10017,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The maximum number of encryption entities for field-level encryption have been created.</p>
@@ -10030,7 +10030,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The maximum number of field patterns for field-level encryption have been created.</p>
@@ -10043,7 +10043,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The maximum number of profiles for field-level encryption have been created.</p>
@@ -10056,7 +10056,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The maximum number of query arg profiles for field-level encryption have been created.</p>
@@ -10069,7 +10069,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You have reached the maximum number of CloudFront function associations for this
@@ -10084,7 +10084,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You have reached the maximum number of CloudFront functions for this Amazon Web Services account. For more
@@ -10099,7 +10099,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The number of headers in the cache policy exceeds the maximum. For more information,
@@ -10114,7 +10114,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Your request contains too many headers in forwarded values.</p>
@@ -10127,7 +10127,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The number of headers in the origin request policy exceeds the maximum. For more
@@ -10142,7 +10142,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You have exceeded the maximum number of allowable InProgress invalidation batch requests, or invalidation objects.</p>
@@ -10155,7 +10155,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You have reached the maximum number of key groups for this Amazon Web Services account. For more
@@ -10170,7 +10170,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The number of key groups referenced by this distribution is more than the maximum
@@ -10185,7 +10185,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Your request contains more Lambda@Edge function associations than are allowed per distribution.</p>
@@ -10198,7 +10198,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Your request contains too many origin custom headers.</p>
@@ -10211,7 +10211,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
@@ -10224,7 +10224,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You have reached the maximum number of origin request policies for this Amazon Web Services account.
@@ -10239,7 +10239,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You cannot create more origins for the distribution.</p>
@@ -10252,7 +10252,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.</p>
@@ -10265,7 +10265,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The number of public keys in this key group is more than the maximum allowed. For more
@@ -10280,7 +10280,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Your request contains too many query string parameters.</p>
@@ -10293,7 +10293,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The number of query strings in the cache policy exceeds the maximum. For more
@@ -10308,7 +10308,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The number of query strings in the origin request policy exceeds the maximum. For more
@@ -10323,7 +10323,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You have reached the maximum number of real-time log configurations for this Amazon Web Services account.
@@ -10338,7 +10338,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You have reached the maximum number of response headers policies for this
@@ -10354,7 +10354,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Your request contains more CNAMEs than are allowed per distribution.</p>
@@ -10367,7 +10367,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
@@ -10380,7 +10380,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Your request contains more trusted signers than are allowed per distribution.</p>
@@ -10393,7 +10393,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified key group does not exist.</p>
@@ -10406,7 +10406,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of key groups whose public keys CloudFront can use to verify the signatures of signed
@@ -10435,7 +10435,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>One or more of your trusted signers don't exist.</p>
@@ -10448,7 +10448,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of Amazon Web Services accounts whose public keys CloudFront can use to verify the signatures of signed
@@ -10477,7 +10477,7 @@ module AWS::Cloudfront
       :items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>This operation is not supported in this region.</p>
@@ -10490,7 +10490,7 @@ module AWS::Cloudfront
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p> The request to remove tags from a CloudFront resource.</p>
@@ -10510,14 +10510,14 @@ module AWS::Cloudfront
       :tag_keys,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     UntagResourceOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cache_policy_config
@@ -10545,7 +10545,7 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute cache_policy
@@ -10563,7 +10563,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to update an origin access identity.</p>
@@ -10590,7 +10590,7 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request.</p>
@@ -10611,7 +10611,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to update a distribution.</p>
@@ -10638,7 +10638,7 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request.</p>
@@ -10659,7 +10659,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute field_level_encryption_config
@@ -10684,7 +10684,7 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute field_level_encryption
@@ -10703,7 +10703,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute field_level_encryption_profile_config
@@ -10728,7 +10728,7 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute field_level_encryption_profile
@@ -10746,7 +10746,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute member_name
@@ -10781,7 +10781,7 @@ module AWS::Cloudfront
       :function_code,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Cloudfront::Types::UpdateFunctionInput "\
@@ -10807,7 +10807,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute key_group_config
@@ -10832,7 +10832,7 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute key_group
@@ -10850,7 +10850,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute origin_request_policy_config
@@ -10878,7 +10878,7 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute origin_request_policy
@@ -10896,7 +10896,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute public_key_config
@@ -10921,7 +10921,7 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute public_key
@@ -10939,7 +10939,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute end_points
@@ -10980,7 +10980,7 @@ module AWS::Cloudfront
       :sampling_rate,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute realtime_log_config
@@ -10992,7 +10992,7 @@ module AWS::Cloudfront
       :realtime_log_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute response_headers_policy_config
@@ -11018,7 +11018,7 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute response_headers_policy
@@ -11036,7 +11036,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request to update a streaming distribution.</p>
@@ -11063,7 +11063,7 @@ module AWS::Cloudfront
       :if_match,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The returned result of the corresponding request.</p>
@@ -11084,7 +11084,7 @@ module AWS::Cloudfront
       :e_tag,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A complex type that determines the distribution’s SSL/TLS configuration for communicating
@@ -11312,7 +11312,7 @@ module AWS::Cloudfront
       :certificate_source,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
   end

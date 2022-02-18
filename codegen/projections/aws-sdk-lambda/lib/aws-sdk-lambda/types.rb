@@ -47,7 +47,7 @@ module AWS::Lambda
       :unreserved_concurrent_executions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The number of functions and amount of storage in use.</p>
@@ -67,7 +67,7 @@ module AWS::Lambda
       :function_count,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute layer_name
@@ -117,7 +117,7 @@ module AWS::Lambda
       :revision_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute statement
@@ -135,7 +135,7 @@ module AWS::Lambda
       :revision_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -220,7 +220,7 @@ module AWS::Lambda
       :revision_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute statement
@@ -232,7 +232,7 @@ module AWS::Lambda
       :statement,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
@@ -277,7 +277,7 @@ module AWS::Lambda
       :revision_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">traffic-shifting</a> configuration of a Lambda function alias.</p>
@@ -291,7 +291,7 @@ module AWS::Lambda
       :additional_version_weights,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>List of signing profiles that can sign a code package. </p>
@@ -306,7 +306,7 @@ module AWS::Lambda
       :signing_profile_version_arns,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details about a Code signing configuration. </p>
@@ -350,7 +350,7 @@ module AWS::Lambda
       :last_modified,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified code signing configuration does not exist.</p>
@@ -368,7 +368,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Code signing configuration policies specifies the validation failure action for signature mismatch or
@@ -387,7 +387,7 @@ module AWS::Lambda
       :untrusted_artifact_on_deployment,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You have exceeded your maximum total code size per account. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
@@ -407,7 +407,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The code signature failed one or more of the validation checks for signature mismatch or expiry, and the code signing policy
@@ -426,7 +426,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute reserved_concurrent_executions
@@ -438,7 +438,7 @@ module AWS::Lambda
       :reserved_concurrent_executions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -494,7 +494,7 @@ module AWS::Lambda
       :routing_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
@@ -539,7 +539,7 @@ module AWS::Lambda
       :revision_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute description
@@ -563,7 +563,7 @@ module AWS::Lambda
       :code_signing_policies,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute code_signing_config
@@ -575,7 +575,7 @@ module AWS::Lambda
       :code_signing_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute event_source_arn
@@ -756,7 +756,7 @@ module AWS::Lambda
       :function_response_types,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A mapping between an AWS resource and an AWS Lambda function. See <a>CreateEventSourceMapping</a> for details.</p>
@@ -903,7 +903,7 @@ module AWS::Lambda
       :function_response_types,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -1062,7 +1062,7 @@ module AWS::Lambda
       :code_signing_config_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details about a function's configuration.</p>
@@ -1261,7 +1261,7 @@ module AWS::Lambda
       :signing_job_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">dead-letter queue</a> for
@@ -1276,7 +1276,7 @@ module AWS::Lambda
       :target_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -1313,14 +1313,14 @@ module AWS::Lambda
       :member_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteAliasOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute code_signing_config_arn
@@ -1332,14 +1332,14 @@ module AWS::Lambda
       :code_signing_config_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteCodeSigningConfigOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute uuid
@@ -1351,7 +1351,7 @@ module AWS::Lambda
       :uuid,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A mapping between an AWS resource and an AWS Lambda function. See <a>CreateEventSourceMapping</a> for details.</p>
@@ -1498,7 +1498,7 @@ module AWS::Lambda
       :function_response_types,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -1529,14 +1529,14 @@ module AWS::Lambda
       :function_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteFunctionCodeSigningConfigOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -1567,14 +1567,14 @@ module AWS::Lambda
       :function_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteFunctionConcurrencyOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -1611,14 +1611,14 @@ module AWS::Lambda
       :qualifier,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteFunctionEventInvokeConfigOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -1655,14 +1655,14 @@ module AWS::Lambda
       :qualifier,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteFunctionOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute layer_name
@@ -1680,14 +1680,14 @@ module AWS::Lambda
       :version_number,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteLayerVersionOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -1724,14 +1724,14 @@ module AWS::Lambda
       :qualifier,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     DeleteProvisionedConcurrencyConfigOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A configuration object that specifies the destination of an event after Lambda processes it.</p>
@@ -1751,7 +1751,7 @@ module AWS::Lambda
       :on_failure,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Need additional permissions to configure VPC settings.</p>
@@ -1769,7 +1769,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>AWS Lambda was throttled by Amazon EC2 during Lambda function initialization using the execution role provided
@@ -1788,7 +1788,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>AWS Lambda received an unexpected EC2 client exception while setting up for the Lambda function.</p>
@@ -1811,7 +1811,7 @@ module AWS::Lambda
       :ec2_error_code,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An error occured when reading from or writing to a connected file system.</p>
@@ -1829,7 +1829,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The function couldn't make a network connection to the configured file system.</p>
@@ -1847,7 +1847,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The function couldn't mount the configured file system due to a permission or configuration issue.</p>
@@ -1865,7 +1865,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The function was able to make a network connection to the configured file system, but the mount operation
@@ -1884,7 +1884,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>AWS Lambda was not able to create an elastic network interface in the VPC, specified as part of Lambda
@@ -1903,7 +1903,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A function's environment variable settings.</p>
@@ -1920,7 +1920,7 @@ module AWS::Lambda
       :variables,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Lambda::Types::Environment "\
@@ -1948,7 +1948,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Lambda::Types::EnvironmentError "\
@@ -1978,7 +1978,7 @@ module AWS::Lambda
       :error,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Lambda::Types::EnvironmentResponse "\
@@ -2131,7 +2131,7 @@ module AWS::Lambda
       :function_response_types,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details about the connection between a Lambda function and an Amazon EFS file system.</p>
@@ -2151,7 +2151,7 @@ module AWS::Lambda
       :local_mount_path,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The code for the Lambda function. You can specify either an object in Amazon S3, upload a .zip file archive deployment
@@ -2194,7 +2194,7 @@ module AWS::Lambda
       :image_uri,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Lambda::Types::FunctionCode "\
@@ -2235,7 +2235,7 @@ module AWS::Lambda
       :resolved_image_uri,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details about a function's configuration.</p>
@@ -2434,7 +2434,7 @@ module AWS::Lambda
       :signing_job_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute last_modified
@@ -2491,14 +2491,14 @@ module AWS::Lambda
       :destination_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     GetAccountSettingsInput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute account_limit
@@ -2516,7 +2516,7 @@ module AWS::Lambda
       :account_usage,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -2553,7 +2553,7 @@ module AWS::Lambda
       :member_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
@@ -2598,7 +2598,7 @@ module AWS::Lambda
       :revision_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute code_signing_config_arn
@@ -2610,7 +2610,7 @@ module AWS::Lambda
       :code_signing_config_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute code_signing_config
@@ -2622,7 +2622,7 @@ module AWS::Lambda
       :code_signing_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute uuid
@@ -2634,7 +2634,7 @@ module AWS::Lambda
       :uuid,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A mapping between an AWS resource and an AWS Lambda function. See <a>CreateEventSourceMapping</a> for details.</p>
@@ -2781,7 +2781,7 @@ module AWS::Lambda
       :function_response_types,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -2812,7 +2812,7 @@ module AWS::Lambda
       :function_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute code_signing_config_arn
@@ -2849,7 +2849,7 @@ module AWS::Lambda
       :function_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -2880,7 +2880,7 @@ module AWS::Lambda
       :function_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute reserved_concurrent_executions
@@ -2892,7 +2892,7 @@ module AWS::Lambda
       :reserved_concurrent_executions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -2929,7 +2929,7 @@ module AWS::Lambda
       :qualifier,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details about a function's configuration.</p>
@@ -3128,7 +3128,7 @@ module AWS::Lambda
       :signing_job_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -3165,7 +3165,7 @@ module AWS::Lambda
       :qualifier,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute last_modified
@@ -3222,7 +3222,7 @@ module AWS::Lambda
       :destination_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -3259,7 +3259,7 @@ module AWS::Lambda
       :qualifier,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute configuration
@@ -3290,7 +3290,7 @@ module AWS::Lambda
       :concurrency,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute arn
@@ -3302,7 +3302,7 @@ module AWS::Lambda
       :arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute content
@@ -3356,7 +3356,7 @@ module AWS::Lambda
       :license_info,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute layer_name
@@ -3374,7 +3374,7 @@ module AWS::Lambda
       :version_number,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute content
@@ -3428,7 +3428,7 @@ module AWS::Lambda
       :license_info,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute layer_name
@@ -3446,7 +3446,7 @@ module AWS::Lambda
       :version_number,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute policy
@@ -3464,7 +3464,7 @@ module AWS::Lambda
       :revision_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -3501,7 +3501,7 @@ module AWS::Lambda
       :qualifier,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute policy
@@ -3519,7 +3519,7 @@ module AWS::Lambda
       :revision_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -3556,7 +3556,7 @@ module AWS::Lambda
       :qualifier,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute requested_provisioned_concurrent_executions
@@ -3598,7 +3598,7 @@ module AWS::Lambda
       :last_modified,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Configuration values that override the container image Dockerfile settings. See
@@ -3626,7 +3626,7 @@ module AWS::Lambda
       :working_directory,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Error response to GetFunctionConfiguration.</p>
@@ -3649,7 +3649,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Lambda::Types::ImageConfigError "\
@@ -3675,7 +3675,7 @@ module AWS::Lambda
       :error,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The code signature failed the integrity check. Lambda always blocks deployment if the integrity check
@@ -3694,7 +3694,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>One of the parameters in the request is invalid.</p>
@@ -3714,7 +3714,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request body could not be parsed as JSON.</p>
@@ -3734,7 +3734,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The runtime or runtime version specified is not supported.</p>
@@ -3752,7 +3752,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The Security Group ID provided in the Lambda function VPC configuration is invalid.</p>
@@ -3770,7 +3770,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The Subnet ID provided in the Lambda function VPC configuration is invalid.</p>
@@ -3788,7 +3788,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>AWS Lambda could not unzip the deployment package.</p>
@@ -3806,7 +3806,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @deprecated
@@ -3845,7 +3845,7 @@ module AWS::Lambda
       :invoke_args,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A success response (<code>202 Accepted</code>) indicates that the request is queued for invocation. </p>
@@ -3861,7 +3861,7 @@ module AWS::Lambda
       :status,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -3944,7 +3944,7 @@ module AWS::Lambda
       :qualifier,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Lambda::Types::InvokeInput "\
@@ -3997,7 +3997,7 @@ module AWS::Lambda
       :executed_version,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Lambda::Types::InvokeOutput "\
@@ -4025,7 +4025,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Lambda was unable to decrypt the environment variables because the KMS key used is disabled. Check the Lambda
@@ -4044,7 +4044,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Lambda was unable to decrypt the environment variables because the KMS key used is in an invalid state for
@@ -4063,7 +4063,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Lambda was unable to decrypt the environment variables because the KMS key was not found. Check the function's
@@ -4082,7 +4082,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>An <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
@@ -4115,7 +4115,7 @@ module AWS::Lambda
       :signing_job_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A ZIP archive that contains the contents of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
@@ -4153,7 +4153,7 @@ module AWS::Lambda
       :zip_file,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Lambda::Types::LayerVersionContentInput "\
@@ -4200,7 +4200,7 @@ module AWS::Lambda
       :signing_job_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
@@ -4245,7 +4245,7 @@ module AWS::Lambda
       :license_info,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details about an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
@@ -4272,7 +4272,7 @@ module AWS::Lambda
       :latest_matching_version,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -4321,7 +4321,7 @@ module AWS::Lambda
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_marker
@@ -4339,7 +4339,7 @@ module AWS::Lambda
       :aliases,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute marker
@@ -4357,7 +4357,7 @@ module AWS::Lambda
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_marker
@@ -4375,7 +4375,7 @@ module AWS::Lambda
       :code_signing_configs,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute event_source_arn
@@ -4446,7 +4446,7 @@ module AWS::Lambda
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_marker
@@ -4464,7 +4464,7 @@ module AWS::Lambda
       :event_source_mappings,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -4507,7 +4507,7 @@ module AWS::Lambda
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_event_invoke_configs
@@ -4525,7 +4525,7 @@ module AWS::Lambda
       :next_marker,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute code_signing_config_arn
@@ -4549,7 +4549,7 @@ module AWS::Lambda
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_marker
@@ -4567,7 +4567,7 @@ module AWS::Lambda
       :function_arns,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute master_region
@@ -4600,7 +4600,7 @@ module AWS::Lambda
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A list of Lambda functions.</p>
@@ -4620,7 +4620,7 @@ module AWS::Lambda
       :functions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute compatible_runtime
@@ -4650,7 +4650,7 @@ module AWS::Lambda
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_marker
@@ -4668,7 +4668,7 @@ module AWS::Lambda
       :layer_versions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute compatible_runtime
@@ -4692,7 +4692,7 @@ module AWS::Lambda
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_marker
@@ -4710,7 +4710,7 @@ module AWS::Lambda
       :layers,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -4753,7 +4753,7 @@ module AWS::Lambda
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute provisioned_concurrency_configs
@@ -4771,7 +4771,7 @@ module AWS::Lambda
       :next_marker,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute resource
@@ -4783,7 +4783,7 @@ module AWS::Lambda
       :resource,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute tags
@@ -4795,7 +4795,7 @@ module AWS::Lambda
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -4838,7 +4838,7 @@ module AWS::Lambda
       :max_items,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute next_marker
@@ -4856,7 +4856,7 @@ module AWS::Lambda
       :versions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A destination for events that failed processing.</p>
@@ -4870,7 +4870,7 @@ module AWS::Lambda
       :destination,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A destination for events that were processed successfully.</p>
@@ -4884,7 +4884,7 @@ module AWS::Lambda
       :destination,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The permissions policy for the resource is too large. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
@@ -4903,7 +4903,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the
@@ -4925,7 +4925,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details about the provisioned concurrency configuration for a function alias or version.</p>
@@ -4975,7 +4975,7 @@ module AWS::Lambda
       :last_modified,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The specified configuration does not exist.</p>
@@ -4993,7 +4993,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute layer_name
@@ -5043,7 +5043,7 @@ module AWS::Lambda
       :license_info,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute content
@@ -5097,7 +5097,7 @@ module AWS::Lambda
       :license_info,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -5149,7 +5149,7 @@ module AWS::Lambda
       :revision_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details about a function's configuration.</p>
@@ -5348,7 +5348,7 @@ module AWS::Lambda
       :signing_job_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute code_signing_config_arn
@@ -5385,7 +5385,7 @@ module AWS::Lambda
       :function_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute code_signing_config_arn
@@ -5422,7 +5422,7 @@ module AWS::Lambda
       :function_name,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -5459,7 +5459,7 @@ module AWS::Lambda
       :reserved_concurrent_executions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute reserved_concurrent_executions
@@ -5471,7 +5471,7 @@ module AWS::Lambda
       :reserved_concurrent_executions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -5547,7 +5547,7 @@ module AWS::Lambda
       :destination_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute last_modified
@@ -5604,7 +5604,7 @@ module AWS::Lambda
       :destination_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -5647,7 +5647,7 @@ module AWS::Lambda
       :provisioned_concurrent_executions,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute requested_provisioned_concurrent_executions
@@ -5689,7 +5689,7 @@ module AWS::Lambda
       :last_modified,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute layer_name
@@ -5720,14 +5720,14 @@ module AWS::Lambda
       :revision_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     RemoveLayerVersionPermissionOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -5777,14 +5777,14 @@ module AWS::Lambda
       :revision_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     RemovePermissionOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request payload exceeded the <code>Invoke</code> request body JSON input limit. For more information, see
@@ -5803,7 +5803,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The resource already exists, or another operation is in progress.</p>
@@ -5823,7 +5823,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The operation conflicts with the resource's availability. For example, you attempted to update an EventSource
@@ -5842,7 +5842,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The resource specified in the request does not exist.</p>
@@ -5860,7 +5860,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The function is inactive and its VPC connection is no longer available. Wait for the VPC connection to
@@ -5881,7 +5881,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The Self-Managed Apache Kafka cluster for your event source.</p>
@@ -5895,7 +5895,7 @@ module AWS::Lambda
       :endpoints,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The AWS Lambda service encountered an internal error.</p>
@@ -5913,7 +5913,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>You can specify the authentication protocol, or the VPC components to secure access to your event source.</p>
@@ -5955,7 +5955,7 @@ module AWS::Lambda
       :uri,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>AWS Lambda was not able to set up VPC access for the Lambda function because one or more configured subnets
@@ -5974,7 +5974,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute resource
@@ -5992,14 +5992,14 @@ module AWS::Lambda
       :tags,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     TagResourceOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The request throughput limit was exceeded.</p>
@@ -6028,7 +6028,7 @@ module AWS::Lambda
       :reason,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set <code>Mode</code>
@@ -6043,7 +6043,7 @@ module AWS::Lambda
       :mode,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The function's AWS X-Ray tracing configuration.</p>
@@ -6057,7 +6057,7 @@ module AWS::Lambda
       :mode,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
@@ -6075,7 +6075,7 @@ module AWS::Lambda
       :message,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute resource
@@ -6093,14 +6093,14 @@ module AWS::Lambda
       :tag_keys,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     UntagResourceOutput = ::Struct.new(
       nil,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -6163,7 +6163,7 @@ module AWS::Lambda
       :revision_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Provides configuration information about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.</p>
@@ -6208,7 +6208,7 @@ module AWS::Lambda
       :revision_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute code_signing_config_arn
@@ -6238,7 +6238,7 @@ module AWS::Lambda
       :code_signing_policies,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute code_signing_config
@@ -6250,7 +6250,7 @@ module AWS::Lambda
       :code_signing_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute uuid
@@ -6379,7 +6379,7 @@ module AWS::Lambda
       :function_response_types,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>A mapping between an AWS resource and an AWS Lambda function. See <a>CreateEventSourceMapping</a> for details.</p>
@@ -6526,7 +6526,7 @@ module AWS::Lambda
       :function_response_types,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -6612,7 +6612,7 @@ module AWS::Lambda
       :revision_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
 
       def to_s
         "#<struct AWS::Lambda::Types::UpdateFunctionCodeInput "\
@@ -6824,7 +6824,7 @@ module AWS::Lambda
       :signing_job_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -6958,7 +6958,7 @@ module AWS::Lambda
       :image_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>Details about a function's configuration.</p>
@@ -7157,7 +7157,7 @@ module AWS::Lambda
       :signing_job_arn,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute function_name
@@ -7233,7 +7233,7 @@ module AWS::Lambda
       :destination_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # @!attribute last_modified
@@ -7290,7 +7290,7 @@ module AWS::Lambda
       :destination_config,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The VPC security groups and subnets that are attached to a Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
@@ -7310,7 +7310,7 @@ module AWS::Lambda
       :security_group_ids,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
     # <p>The VPC security groups and subnets that are attached to a Lambda function.</p>
@@ -7336,7 +7336,7 @@ module AWS::Lambda
       :vpc_id,
       keyword_init: true
     ) do
-      include Seahorse::Structure
+      include Hearth::Structure
     end
 
   end

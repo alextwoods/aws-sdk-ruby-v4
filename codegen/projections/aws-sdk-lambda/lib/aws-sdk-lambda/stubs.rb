@@ -26,7 +26,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['Statement'] = stub[:statement] unless stub[:statement].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -44,7 +44,7 @@ module AWS::Lambda
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['Statement'] = stub[:statement] unless stub[:statement].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -72,7 +72,7 @@ module AWS::Lambda
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['RoutingConfig'] = Stubs::AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -109,7 +109,7 @@ module AWS::Lambda
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Seahorse::NumberHelper.serialize(value)
+          data[key] = Hearth::NumberHelper.serialize(value)
         end
         data
       end
@@ -129,7 +129,7 @@ module AWS::Lambda
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['CodeSigningConfig'] = Stubs::CodeSigningConfig.stub(stub[:code_signing_config]) unless stub[:code_signing_config].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -256,13 +256,13 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['UUID'] = stub[:uuid] unless stub[:uuid].nil?
         data['StartingPosition'] = stub[:starting_position] unless stub[:starting_position].nil?
-        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
+        data['StartingPositionTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
         data['BatchSize'] = stub[:batch_size] unless stub[:batch_size].nil?
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
-        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
@@ -276,7 +276,7 @@ module AWS::Lambda
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['TumblingWindowInSeconds'] = stub[:tumbling_window_in_seconds] unless stub[:tumbling_window_in_seconds].nil?
         data['FunctionResponseTypes'] = Stubs::FunctionResponseTypeList.stub(stub[:function_response_types]) unless stub[:function_response_types].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -573,7 +573,7 @@ module AWS::Lambda
         data['ImageConfigResponse'] = Stubs::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -975,13 +975,13 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['UUID'] = stub[:uuid] unless stub[:uuid].nil?
         data['StartingPosition'] = stub[:starting_position] unless stub[:starting_position].nil?
-        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
+        data['StartingPositionTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
         data['BatchSize'] = stub[:batch_size] unless stub[:batch_size].nil?
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
-        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
@@ -995,7 +995,7 @@ module AWS::Lambda
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['TumblingWindowInSeconds'] = stub[:tumbling_window_in_seconds] unless stub[:tumbling_window_in_seconds].nil?
         data['FunctionResponseTypes'] = Stubs::FunctionResponseTypeList.stub(stub[:function_response_types]) unless stub[:function_response_types].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1099,7 +1099,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['AccountLimit'] = Stubs::AccountLimit.stub(stub[:account_limit]) unless stub[:account_limit].nil?
         data['AccountUsage'] = Stubs::AccountUsage.stub(stub[:account_usage]) unless stub[:account_usage].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1175,7 +1175,7 @@ module AWS::Lambda
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['RoutingConfig'] = Stubs::AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1193,7 +1193,7 @@ module AWS::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['CodeSigningConfig'] = Stubs::CodeSigningConfig.stub(stub[:code_signing_config]) unless stub[:code_signing_config].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1233,13 +1233,13 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['UUID'] = stub[:uuid] unless stub[:uuid].nil?
         data['StartingPosition'] = stub[:starting_position] unless stub[:starting_position].nil?
-        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
+        data['StartingPositionTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
         data['BatchSize'] = stub[:batch_size] unless stub[:batch_size].nil?
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
-        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
@@ -1253,7 +1253,7 @@ module AWS::Lambda
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['TumblingWindowInSeconds'] = stub[:tumbling_window_in_seconds] unless stub[:tumbling_window_in_seconds].nil?
         data['FunctionResponseTypes'] = Stubs::FunctionResponseTypeList.stub(stub[:function_response_types]) unless stub[:function_response_types].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1277,7 +1277,7 @@ module AWS::Lambda
         data['Code'] = Stubs::FunctionCodeLocation.stub(stub[:code]) unless stub[:code].nil?
         data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['Concurrency'] = Stubs::Concurrency.stub(stub[:concurrency]) unless stub[:concurrency].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1440,7 +1440,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['CodeSigningConfigArn'] = stub[:code_signing_config_arn] unless stub[:code_signing_config_arn].nil?
         data['FunctionName'] = stub[:function_name] unless stub[:function_name].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1458,7 +1458,7 @@ module AWS::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ReservedConcurrentExecutions'] = stub[:reserved_concurrent_executions] unless stub[:reserved_concurrent_executions].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1536,7 +1536,7 @@ module AWS::Lambda
         data['ImageConfigResponse'] = Stubs::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1557,12 +1557,12 @@ module AWS::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = stub[:maximum_event_age_in_seconds] unless stub[:maximum_event_age_in_seconds].nil?
         data['DestinationConfig'] = Stubs::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1594,7 +1594,7 @@ module AWS::Lambda
         data['Version'] = stub[:version] unless stub[:version].nil?
         data['CompatibleRuntimes'] = Stubs::CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
         data['LicenseInfo'] = stub[:license_info] unless stub[:license_info].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1673,7 +1673,7 @@ module AWS::Lambda
         data['Version'] = stub[:version] unless stub[:version].nil?
         data['CompatibleRuntimes'] = Stubs::CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
         data['LicenseInfo'] = stub[:license_info] unless stub[:license_info].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1693,7 +1693,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1713,7 +1713,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1741,7 +1741,7 @@ module AWS::Lambda
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
         data['LastModified'] = stub[:last_modified] unless stub[:last_modified].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1802,7 +1802,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
         data['Aliases'] = Stubs::AliasList.stub(stub[:aliases]) unless stub[:aliases].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1871,7 +1871,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
         data['CodeSigningConfigs'] = Stubs::CodeSigningConfigList.stub(stub[:code_signing_configs]) unless stub[:code_signing_configs].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1911,7 +1911,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
         data['EventSourceMappings'] = Stubs::EventSourceMappingsList.stub(stub[:event_source_mappings]) unless stub[:event_source_mappings].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1972,13 +1972,13 @@ module AWS::Lambda
         data = {}
         data['UUID'] = stub[:uuid] unless stub[:uuid].nil?
         data['StartingPosition'] = stub[:starting_position] unless stub[:starting_position].nil?
-        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
+        data['StartingPositionTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
         data['BatchSize'] = stub[:batch_size] unless stub[:batch_size].nil?
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
-        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
@@ -2012,7 +2012,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['FunctionEventInvokeConfigs'] = Stubs::FunctionEventInvokeConfigList.stub(stub[:function_event_invoke_configs]) unless stub[:function_event_invoke_configs].nil?
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2054,7 +2054,7 @@ module AWS::Lambda
       def self.stub(stub = {})
         stub ||= {}
         data = {}
-        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = stub[:maximum_event_age_in_seconds] unless stub[:maximum_event_age_in_seconds].nil?
@@ -2079,7 +2079,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
         data['Functions'] = Stubs::FunctionList.stub(stub[:functions]) unless stub[:functions].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2119,7 +2119,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
         data['FunctionArns'] = Stubs::FunctionArnList.stub(stub[:function_arns]) unless stub[:function_arns].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2159,7 +2159,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
         data['LayerVersions'] = Stubs::LayerVersionsList.stub(stub[:layer_versions]) unless stub[:layer_versions].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2228,7 +2228,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
         data['Layers'] = Stubs::LayersList.stub(stub[:layers]) unless stub[:layers].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2291,7 +2291,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['ProvisionedConcurrencyConfigs'] = Stubs::ProvisionedConcurrencyConfigList.stub(stub[:provisioned_concurrency_configs]) unless stub[:provisioned_concurrency_configs].nil?
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2360,7 +2360,7 @@ module AWS::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2380,7 +2380,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
         data['Versions'] = Stubs::FunctionList.stub(stub[:versions]) unless stub[:versions].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2412,7 +2412,7 @@ module AWS::Lambda
         data['Version'] = stub[:version] unless stub[:version].nil?
         data['CompatibleRuntimes'] = Stubs::CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
         data['LicenseInfo'] = stub[:license_info] unless stub[:license_info].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2490,7 +2490,7 @@ module AWS::Lambda
         data['ImageConfigResponse'] = Stubs::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2510,7 +2510,7 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['CodeSigningConfigArn'] = stub[:code_signing_config_arn] unless stub[:code_signing_config_arn].nil?
         data['FunctionName'] = stub[:function_name] unless stub[:function_name].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2528,7 +2528,7 @@ module AWS::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ReservedConcurrentExecutions'] = stub[:reserved_concurrent_executions] unless stub[:reserved_concurrent_executions].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2549,12 +2549,12 @@ module AWS::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = stub[:maximum_event_age_in_seconds] unless stub[:maximum_event_age_in_seconds].nil?
         data['DestinationConfig'] = Stubs::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2582,7 +2582,7 @@ module AWS::Lambda
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
         data['LastModified'] = stub[:last_modified] unless stub[:last_modified].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2666,7 +2666,7 @@ module AWS::Lambda
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['RoutingConfig'] = Stubs::AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2684,7 +2684,7 @@ module AWS::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['CodeSigningConfig'] = Stubs::CodeSigningConfig.stub(stub[:code_signing_config]) unless stub[:code_signing_config].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2724,13 +2724,13 @@ module AWS::Lambda
         http_resp.headers['Content-Type'] = 'application/json'
         data['UUID'] = stub[:uuid] unless stub[:uuid].nil?
         data['StartingPosition'] = stub[:starting_position] unless stub[:starting_position].nil?
-        data['StartingPositionTimestamp'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
+        data['StartingPositionTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:starting_position_timestamp]) unless stub[:starting_position_timestamp].nil?
         data['BatchSize'] = stub[:batch_size] unless stub[:batch_size].nil?
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
-        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateTransitionReason'] = stub[:state_transition_reason] unless stub[:state_transition_reason].nil?
@@ -2744,7 +2744,7 @@ module AWS::Lambda
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['TumblingWindowInSeconds'] = stub[:tumbling_window_in_seconds] unless stub[:tumbling_window_in_seconds].nil?
         data['FunctionResponseTypes'] = Stubs::FunctionResponseTypeList.stub(stub[:function_response_types]) unless stub[:function_response_types].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2822,7 +2822,7 @@ module AWS::Lambda
         data['ImageConfigResponse'] = Stubs::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2900,7 +2900,7 @@ module AWS::Lambda
         data['ImageConfigResponse'] = Stubs::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2921,12 +2921,12 @@ module AWS::Lambda
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LastModified'] = Seahorse::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
+        data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = stub[:maximum_event_age_in_seconds] unless stub[:maximum_event_age_in_seconds].nil?
         data['DestinationConfig'] = Stubs::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -28,18 +28,18 @@ module AWS::Cloudfront
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 60 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :get_distribution,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "distribution.status",
+                    path: "\"distribution\".\"status\"",
                     comparator: "stringEquals",
                     expected: 'Deployed'
                   }
@@ -85,18 +85,18 @@ module AWS::Cloudfront
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 20 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :get_invalidation,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "invalidation.status",
+                    path: "\"invalidation\".\"status\"",
                     comparator: "stringEquals",
                     expected: 'Completed'
                   }
@@ -142,18 +142,18 @@ module AWS::Cloudfront
       #
       def initialize(client, options = {})
         @client = client
-        @waiter = Seahorse::Waiters::Waiter.new({
+        @waiter = Hearth::Waiters::Waiter.new({
           max_wait_time: options[:max_wait_time],
           min_delay: 60 || options[:min_delay],
           max_delay: 120 || options[:max_delay],
-          poller: Seahorse::Waiters::Poller.new(
+          poller: Hearth::Waiters::Poller.new(
             operation_name: :get_streaming_distribution,
             acceptors: [
               {
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "streaming_distribution.status",
+                    path: "\"streaming_distribution\".\"status\"",
                     comparator: "stringEquals",
                     expected: 'Deployed'
                   }

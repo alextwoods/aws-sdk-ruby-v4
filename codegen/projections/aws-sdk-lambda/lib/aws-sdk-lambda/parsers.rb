@@ -17,7 +17,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::AddLayerVersionPermissionOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.statement = map['Statement']
         data.revision_id = map['RevisionId']
         data
@@ -29,7 +29,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ResourceNotFoundException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -41,7 +41,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::PreconditionFailedException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['message']
         data
@@ -54,7 +54,7 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::TooManyRequestsException.new
         data.retry_after_seconds = http_resp.headers['Retry-After']
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['message']
         data.reason = map['Reason']
@@ -67,7 +67,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ServiceException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -79,7 +79,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::InvalidParameterValueException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['message']
         data
@@ -91,7 +91,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::PolicyLengthExceededException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['message']
         data
@@ -103,7 +103,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ResourceConflictException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['message']
         data
@@ -115,7 +115,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::AddPermissionOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.statement = map['Statement']
         data
       end
@@ -126,7 +126,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::CreateAliasOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.alias_arn = map['AliasArn']
         data.member_name = map['Name']
         data.function_version = map['FunctionVersion']
@@ -149,7 +149,7 @@ module AWS::Lambda
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Seahorse::NumberHelper.deserialize(value) unless value.nil?
+          data[key] = Hearth::NumberHelper.deserialize(value) unless value.nil?
         end
         data
       end
@@ -160,7 +160,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::CreateCodeSigningConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.code_signing_config = (Parsers::CodeSigningConfig.parse(map['CodeSigningConfig']) unless map['CodeSigningConfig'].nil?)
         data
       end
@@ -208,7 +208,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::CreateEventSourceMappingOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.uuid = map['UUID']
         data.starting_position = map['StartingPosition']
         data.starting_position_timestamp = Time.at(map['StartingPositionTimestamp'].to_i) if map['StartingPositionTimestamp']
@@ -332,7 +332,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::CreateFunctionOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.function_name = map['FunctionName']
         data.function_arn = map['FunctionArn']
         data.runtime = map['Runtime']
@@ -515,7 +515,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::CodeVerificationFailedException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -527,7 +527,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::InvalidCodeSignatureException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -539,7 +539,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::CodeSigningConfigNotFoundException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -551,7 +551,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::CodeStorageExceededException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['message']
         data
@@ -563,7 +563,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::DeleteAliasOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data
       end
     end
@@ -573,7 +573,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::DeleteCodeSigningConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data
       end
     end
@@ -583,7 +583,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::DeleteEventSourceMappingOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.uuid = map['UUID']
         data.starting_position = map['StartingPosition']
         data.starting_position_timestamp = Time.at(map['StartingPositionTimestamp'].to_i) if map['StartingPositionTimestamp']
@@ -615,7 +615,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ResourceInUseException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -627,7 +627,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::DeleteFunctionOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data
       end
     end
@@ -637,7 +637,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::DeleteFunctionCodeSigningConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data
       end
     end
@@ -647,7 +647,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::DeleteFunctionConcurrencyOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data
       end
     end
@@ -657,7 +657,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::DeleteFunctionEventInvokeConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data
       end
     end
@@ -667,7 +667,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::DeleteLayerVersionOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data
       end
     end
@@ -677,7 +677,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::DeleteProvisionedConcurrencyConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data
       end
     end
@@ -687,7 +687,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::GetAccountSettingsOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.account_limit = (Parsers::AccountLimit.parse(map['AccountLimit']) unless map['AccountLimit'].nil?)
         data.account_usage = (Parsers::AccountUsage.parse(map['AccountUsage']) unless map['AccountUsage'].nil?)
         data
@@ -720,7 +720,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::GetAliasOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.alias_arn = map['AliasArn']
         data.member_name = map['Name']
         data.function_version = map['FunctionVersion']
@@ -736,7 +736,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::GetCodeSigningConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.code_signing_config = (Parsers::CodeSigningConfig.parse(map['CodeSigningConfig']) unless map['CodeSigningConfig'].nil?)
         data
       end
@@ -747,7 +747,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::GetEventSourceMappingOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.uuid = map['UUID']
         data.starting_position = map['StartingPosition']
         data.starting_position_timestamp = Time.at(map['StartingPositionTimestamp'].to_i) if map['StartingPositionTimestamp']
@@ -779,7 +779,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::GetFunctionOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.configuration = (Parsers::FunctionConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
         data.code = (Parsers::FunctionCodeLocation.parse(map['Code']) unless map['Code'].nil?)
         data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
@@ -860,7 +860,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::GetFunctionCodeSigningConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.code_signing_config_arn = map['CodeSigningConfigArn']
         data.function_name = map['FunctionName']
         data
@@ -872,7 +872,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::GetFunctionConcurrencyOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.reserved_concurrent_executions = map['ReservedConcurrentExecutions']
         data
       end
@@ -883,7 +883,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::GetFunctionConfigurationOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.function_name = map['FunctionName']
         data.function_arn = map['FunctionArn']
         data.runtime = map['Runtime']
@@ -924,7 +924,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::GetFunctionEventInvokeConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.function_arn = map['FunctionArn']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
@@ -939,7 +939,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::GetLayerVersionOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.content = (Parsers::LayerVersionContentOutput.parse(map['Content']) unless map['Content'].nil?)
         data.layer_arn = map['LayerArn']
         data.layer_version_arn = map['LayerVersionArn']
@@ -977,7 +977,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::GetLayerVersionByArnOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.content = (Parsers::LayerVersionContentOutput.parse(map['Content']) unless map['Content'].nil?)
         data.layer_arn = map['LayerArn']
         data.layer_version_arn = map['LayerVersionArn']
@@ -995,7 +995,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::GetLayerVersionPolicyOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.policy = map['Policy']
         data.revision_id = map['RevisionId']
         data
@@ -1007,7 +1007,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::GetPolicyOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.policy = map['Policy']
         data.revision_id = map['RevisionId']
         data
@@ -1019,7 +1019,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::GetProvisionedConcurrencyConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.requested_provisioned_concurrent_executions = map['RequestedProvisionedConcurrentExecutions']
         data.available_provisioned_concurrent_executions = map['AvailableProvisionedConcurrentExecutions']
         data.allocated_provisioned_concurrent_executions = map['AllocatedProvisionedConcurrentExecutions']
@@ -1035,7 +1035,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ProvisionedConcurrencyConfigNotFoundException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['message']
         data
@@ -1062,7 +1062,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::KMSNotFoundException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1074,7 +1074,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::InvalidSubnetIDException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1086,7 +1086,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::KMSDisabledException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1098,7 +1098,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::EFSIOException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1110,7 +1110,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::EFSMountConnectivityException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1122,7 +1122,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::EFSMountFailureException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1134,7 +1134,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ResourceNotReadyException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['message']
         data
@@ -1146,7 +1146,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::InvalidZipFileException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1158,7 +1158,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::InvalidRequestContentException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['message']
         data
@@ -1170,7 +1170,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::EC2ThrottledException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1182,7 +1182,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::SubnetIPAddressLimitReachedException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1194,7 +1194,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::InvalidSecurityGroupIDException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1206,7 +1206,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::RequestTooLargeException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['message']
         data
@@ -1218,7 +1218,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::UnsupportedMediaTypeException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['message']
         data
@@ -1230,7 +1230,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::EFSMountTimeoutException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1242,7 +1242,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ENILimitReachedException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1254,7 +1254,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::EC2UnexpectedException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data.ec2_error_code = map['EC2ErrorCode']
@@ -1267,7 +1267,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::EC2AccessDeniedException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1279,7 +1279,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::InvalidRuntimeException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1291,7 +1291,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::KMSAccessDeniedException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1303,7 +1303,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::KMSInvalidStateException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
         data.message = map['Message']
         data
@@ -1316,7 +1316,7 @@ module AWS::Lambda
       def self.parse(http_resp)
         data = Types::InvokeAsyncOutput.new
         data.status = http_resp.status
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data
       end
     end
@@ -1326,7 +1326,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ListAliasesOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
         data.aliases = (Parsers::AliasList.parse(map['Aliases']) unless map['Aliases'].nil?)
         data
@@ -1359,7 +1359,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ListCodeSigningConfigsOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
         data.code_signing_configs = (Parsers::CodeSigningConfigList.parse(map['CodeSigningConfigs']) unless map['CodeSigningConfigs'].nil?)
         data
@@ -1379,7 +1379,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ListEventSourceMappingsOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
         data.event_source_mappings = (Parsers::EventSourceMappingsList.parse(map['EventSourceMappings']) unless map['EventSourceMappings'].nil?)
         data
@@ -1428,7 +1428,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ListFunctionEventInvokeConfigsOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.function_event_invoke_configs = (Parsers::FunctionEventInvokeConfigList.parse(map['FunctionEventInvokeConfigs']) unless map['FunctionEventInvokeConfigs'].nil?)
         data.next_marker = map['NextMarker']
         data
@@ -1460,7 +1460,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ListFunctionsOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
         data.functions = (Parsers::FunctionList.parse(map['Functions']) unless map['Functions'].nil?)
         data
@@ -1480,7 +1480,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ListFunctionsByCodeSigningConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
         data.function_arns = (Parsers::FunctionArnList.parse(map['FunctionArns']) unless map['FunctionArns'].nil?)
         data
@@ -1500,7 +1500,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ListLayerVersionsOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
         data.layer_versions = (Parsers::LayerVersionsList.parse(map['LayerVersions']) unless map['LayerVersions'].nil?)
         data
@@ -1533,7 +1533,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ListLayersOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
         data.layers = (Parsers::LayersList.parse(map['Layers']) unless map['Layers'].nil?)
         data
@@ -1563,7 +1563,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ListProvisionedConcurrencyConfigsOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.provisioned_concurrency_configs = (Parsers::ProvisionedConcurrencyConfigList.parse(map['ProvisionedConcurrencyConfigs']) unless map['ProvisionedConcurrencyConfigs'].nil?)
         data.next_marker = map['NextMarker']
         data
@@ -1597,7 +1597,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ListTagsOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
@@ -1608,7 +1608,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::ListVersionsByFunctionOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.next_marker = map['NextMarker']
         data.versions = (Parsers::FunctionList.parse(map['Versions']) unless map['Versions'].nil?)
         data
@@ -1620,7 +1620,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::PublishLayerVersionOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.content = (Parsers::LayerVersionContentOutput.parse(map['Content']) unless map['Content'].nil?)
         data.layer_arn = map['LayerArn']
         data.layer_version_arn = map['LayerVersionArn']
@@ -1638,7 +1638,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::PublishVersionOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.function_name = map['FunctionName']
         data.function_arn = map['FunctionArn']
         data.runtime = map['Runtime']
@@ -1679,7 +1679,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::PutFunctionCodeSigningConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.code_signing_config_arn = map['CodeSigningConfigArn']
         data.function_name = map['FunctionName']
         data
@@ -1691,7 +1691,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::PutFunctionConcurrencyOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.reserved_concurrent_executions = map['ReservedConcurrentExecutions']
         data
       end
@@ -1702,7 +1702,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::PutFunctionEventInvokeConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.function_arn = map['FunctionArn']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
@@ -1717,7 +1717,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::PutProvisionedConcurrencyConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.requested_provisioned_concurrent_executions = map['RequestedProvisionedConcurrentExecutions']
         data.available_provisioned_concurrent_executions = map['AvailableProvisionedConcurrentExecutions']
         data.allocated_provisioned_concurrent_executions = map['AllocatedProvisionedConcurrentExecutions']
@@ -1733,7 +1733,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::RemoveLayerVersionPermissionOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data
       end
     end
@@ -1743,7 +1743,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::RemovePermissionOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data
       end
     end
@@ -1753,7 +1753,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::TagResourceOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data
       end
     end
@@ -1763,7 +1763,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::UntagResourceOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data
       end
     end
@@ -1773,7 +1773,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::UpdateAliasOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.alias_arn = map['AliasArn']
         data.member_name = map['Name']
         data.function_version = map['FunctionVersion']
@@ -1789,7 +1789,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::UpdateCodeSigningConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.code_signing_config = (Parsers::CodeSigningConfig.parse(map['CodeSigningConfig']) unless map['CodeSigningConfig'].nil?)
         data
       end
@@ -1800,7 +1800,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::UpdateEventSourceMappingOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.uuid = map['UUID']
         data.starting_position = map['StartingPosition']
         data.starting_position_timestamp = Time.at(map['StartingPositionTimestamp'].to_i) if map['StartingPositionTimestamp']
@@ -1832,7 +1832,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::UpdateFunctionCodeOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.function_name = map['FunctionName']
         data.function_arn = map['FunctionArn']
         data.runtime = map['Runtime']
@@ -1873,7 +1873,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::UpdateFunctionConfigurationOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.function_name = map['FunctionName']
         data.function_arn = map['FunctionArn']
         data.runtime = map['Runtime']
@@ -1914,7 +1914,7 @@ module AWS::Lambda
 
       def self.parse(http_resp)
         data = Types::UpdateFunctionEventInvokeConfigOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.function_arn = map['FunctionArn']
         data.maximum_retry_attempts = map['MaximumRetryAttempts']

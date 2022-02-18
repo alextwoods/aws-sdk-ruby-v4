@@ -11,7 +11,7 @@ module AWS::Cloudfront
   module Errors
 
     # Base class for all errors returned by this service
-    class ApiError < Seahorse::HTTP::ApiError; end
+    class ApiError < Hearth::HTTP::ApiError; end
 
     # Base class for all errors returned where the client is at fault.
     # These are generally errors with 4XX HTTP status codes.
@@ -34,7 +34,7 @@ module AWS::Cloudfront
     end
 
     class AccessDenied < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -53,7 +53,7 @@ module AWS::Cloudfront
     end
 
     class BatchTooLarge < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -72,7 +72,7 @@ module AWS::Cloudfront
     end
 
     class CNAMEAlreadyExists < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -91,7 +91,7 @@ module AWS::Cloudfront
     end
 
     class CachePolicyAlreadyExists < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -110,7 +110,7 @@ module AWS::Cloudfront
     end
 
     class CachePolicyInUse < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -129,7 +129,7 @@ module AWS::Cloudfront
     end
 
     class CannotChangeImmutablePublicKeyFields < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -148,7 +148,7 @@ module AWS::Cloudfront
     end
 
     class CloudFrontOriginAccessIdentityAlreadyExists < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -167,7 +167,7 @@ module AWS::Cloudfront
     end
 
     class CloudFrontOriginAccessIdentityInUse < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -186,7 +186,7 @@ module AWS::Cloudfront
     end
 
     class DistributionAlreadyExists < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -205,7 +205,7 @@ module AWS::Cloudfront
     end
 
     class DistributionNotDisabled < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -224,7 +224,7 @@ module AWS::Cloudfront
     end
 
     class FieldLevelEncryptionConfigAlreadyExists < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -243,7 +243,7 @@ module AWS::Cloudfront
     end
 
     class FieldLevelEncryptionConfigInUse < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -262,7 +262,7 @@ module AWS::Cloudfront
     end
 
     class FieldLevelEncryptionProfileAlreadyExists < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -281,7 +281,7 @@ module AWS::Cloudfront
     end
 
     class FieldLevelEncryptionProfileInUse < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -300,7 +300,7 @@ module AWS::Cloudfront
     end
 
     class FieldLevelEncryptionProfileSizeExceeded < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -319,7 +319,7 @@ module AWS::Cloudfront
     end
 
     class FunctionAlreadyExists < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -338,7 +338,7 @@ module AWS::Cloudfront
     end
 
     class FunctionInUse < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -357,7 +357,7 @@ module AWS::Cloudfront
     end
 
     class FunctionSizeLimitExceeded < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -376,7 +376,7 @@ module AWS::Cloudfront
     end
 
     class IllegalDelete < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -395,7 +395,7 @@ module AWS::Cloudfront
     end
 
     class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -414,7 +414,7 @@ module AWS::Cloudfront
     end
 
     class IllegalUpdate < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -433,7 +433,7 @@ module AWS::Cloudfront
     end
 
     class InconsistentQuantities < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -452,7 +452,7 @@ module AWS::Cloudfront
     end
 
     class InvalidArgument < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -471,7 +471,7 @@ module AWS::Cloudfront
     end
 
     class InvalidDefaultRootObject < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -490,7 +490,7 @@ module AWS::Cloudfront
     end
 
     class InvalidErrorCode < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -509,7 +509,7 @@ module AWS::Cloudfront
     end
 
     class InvalidForwardCookies < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -528,7 +528,7 @@ module AWS::Cloudfront
     end
 
     class InvalidFunctionAssociation < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -547,7 +547,7 @@ module AWS::Cloudfront
     end
 
     class InvalidGeoRestrictionParameter < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -566,7 +566,7 @@ module AWS::Cloudfront
     end
 
     class InvalidHeadersForS3Origin < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -585,7 +585,7 @@ module AWS::Cloudfront
     end
 
     class InvalidIfMatchVersion < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -604,7 +604,7 @@ module AWS::Cloudfront
     end
 
     class InvalidLambdaFunctionAssociation < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -623,7 +623,7 @@ module AWS::Cloudfront
     end
 
     class InvalidLocationCode < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -642,7 +642,7 @@ module AWS::Cloudfront
     end
 
     class InvalidMinimumProtocolVersion < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -661,7 +661,7 @@ module AWS::Cloudfront
     end
 
     class InvalidOrigin < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -680,7 +680,7 @@ module AWS::Cloudfront
     end
 
     class InvalidOriginAccessIdentity < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -699,7 +699,7 @@ module AWS::Cloudfront
     end
 
     class InvalidOriginKeepaliveTimeout < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -718,7 +718,7 @@ module AWS::Cloudfront
     end
 
     class InvalidOriginReadTimeout < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -737,7 +737,7 @@ module AWS::Cloudfront
     end
 
     class InvalidProtocolSettings < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -756,7 +756,7 @@ module AWS::Cloudfront
     end
 
     class InvalidQueryStringParameters < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -775,7 +775,7 @@ module AWS::Cloudfront
     end
 
     class InvalidRelativePath < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -794,7 +794,7 @@ module AWS::Cloudfront
     end
 
     class InvalidRequiredProtocol < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -813,7 +813,7 @@ module AWS::Cloudfront
     end
 
     class InvalidResponseCode < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -832,7 +832,7 @@ module AWS::Cloudfront
     end
 
     class InvalidTTLOrder < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -851,7 +851,7 @@ module AWS::Cloudfront
     end
 
     class InvalidTagging < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -870,7 +870,7 @@ module AWS::Cloudfront
     end
 
     class InvalidViewerCertificate < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -889,7 +889,7 @@ module AWS::Cloudfront
     end
 
     class InvalidWebACLId < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -908,7 +908,7 @@ module AWS::Cloudfront
     end
 
     class KeyGroupAlreadyExists < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -927,7 +927,7 @@ module AWS::Cloudfront
     end
 
     class MissingBody < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -946,7 +946,7 @@ module AWS::Cloudfront
     end
 
     class NoSuchCachePolicy < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -965,7 +965,7 @@ module AWS::Cloudfront
     end
 
     class NoSuchCloudFrontOriginAccessIdentity < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -984,7 +984,7 @@ module AWS::Cloudfront
     end
 
     class NoSuchDistribution < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1003,7 +1003,7 @@ module AWS::Cloudfront
     end
 
     class NoSuchFieldLevelEncryptionConfig < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1022,7 +1022,7 @@ module AWS::Cloudfront
     end
 
     class NoSuchFieldLevelEncryptionProfile < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1041,7 +1041,7 @@ module AWS::Cloudfront
     end
 
     class NoSuchFunctionExists < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1060,7 +1060,7 @@ module AWS::Cloudfront
     end
 
     class NoSuchInvalidation < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1079,7 +1079,7 @@ module AWS::Cloudfront
     end
 
     class NoSuchOrigin < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1098,7 +1098,7 @@ module AWS::Cloudfront
     end
 
     class NoSuchOriginRequestPolicy < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1117,7 +1117,7 @@ module AWS::Cloudfront
     end
 
     class NoSuchPublicKey < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1136,7 +1136,7 @@ module AWS::Cloudfront
     end
 
     class NoSuchRealtimeLogConfig < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1155,7 +1155,7 @@ module AWS::Cloudfront
     end
 
     class NoSuchResource < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1174,7 +1174,7 @@ module AWS::Cloudfront
     end
 
     class NoSuchResponseHeadersPolicy < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1193,7 +1193,7 @@ module AWS::Cloudfront
     end
 
     class NoSuchStreamingDistribution < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1212,7 +1212,7 @@ module AWS::Cloudfront
     end
 
     class OriginRequestPolicyAlreadyExists < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1231,7 +1231,7 @@ module AWS::Cloudfront
     end
 
     class OriginRequestPolicyInUse < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1250,7 +1250,7 @@ module AWS::Cloudfront
     end
 
     class PreconditionFailed < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1269,7 +1269,7 @@ module AWS::Cloudfront
     end
 
     class PublicKeyAlreadyExists < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1288,7 +1288,7 @@ module AWS::Cloudfront
     end
 
     class PublicKeyInUse < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1307,7 +1307,7 @@ module AWS::Cloudfront
     end
 
     class QueryArgProfileEmpty < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1326,7 +1326,7 @@ module AWS::Cloudfront
     end
 
     class RealtimeLogConfigAlreadyExists < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1345,7 +1345,7 @@ module AWS::Cloudfront
     end
 
     class RealtimeLogConfigInUse < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1364,7 +1364,7 @@ module AWS::Cloudfront
     end
 
     class RealtimeLogConfigOwnerMismatch < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1383,7 +1383,7 @@ module AWS::Cloudfront
     end
 
     class ResourceInUse < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1402,7 +1402,7 @@ module AWS::Cloudfront
     end
 
     class ResponseHeadersPolicyAlreadyExists < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1421,7 +1421,7 @@ module AWS::Cloudfront
     end
 
     class ResponseHeadersPolicyInUse < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1440,7 +1440,7 @@ module AWS::Cloudfront
     end
 
     class StreamingDistributionAlreadyExists < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1459,7 +1459,7 @@ module AWS::Cloudfront
     end
 
     class StreamingDistributionNotDisabled < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1478,7 +1478,7 @@ module AWS::Cloudfront
     end
 
     class TestFunctionFailed < ApiServerError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1497,7 +1497,7 @@ module AWS::Cloudfront
     end
 
     class TooManyCacheBehaviors < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1516,7 +1516,7 @@ module AWS::Cloudfront
     end
 
     class TooManyCachePolicies < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1535,7 +1535,7 @@ module AWS::Cloudfront
     end
 
     class TooManyCertificates < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1554,7 +1554,7 @@ module AWS::Cloudfront
     end
 
     class TooManyCloudFrontOriginAccessIdentities < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1573,7 +1573,7 @@ module AWS::Cloudfront
     end
 
     class TooManyCookieNamesInWhiteList < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1592,7 +1592,7 @@ module AWS::Cloudfront
     end
 
     class TooManyCookiesInCachePolicy < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1611,7 +1611,7 @@ module AWS::Cloudfront
     end
 
     class TooManyCookiesInOriginRequestPolicy < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1630,7 +1630,7 @@ module AWS::Cloudfront
     end
 
     class TooManyCustomHeadersInResponseHeadersPolicy < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1649,7 +1649,7 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionCNAMEs < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1668,7 +1668,7 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributions < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1687,7 +1687,7 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsAssociatedToCachePolicy < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1706,7 +1706,7 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsAssociatedToFieldLevelEncryptionConfig < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1725,7 +1725,7 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsAssociatedToKeyGroup < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1744,7 +1744,7 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsAssociatedToOriginRequestPolicy < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1763,7 +1763,7 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsAssociatedToResponseHeadersPolicy < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1782,7 +1782,7 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsWithFunctionAssociations < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1801,7 +1801,7 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsWithLambdaAssociations < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1820,7 +1820,7 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsWithSingleFunctionARN < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1839,7 +1839,7 @@ module AWS::Cloudfront
     end
 
     class TooManyFieldLevelEncryptionConfigs < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1858,7 +1858,7 @@ module AWS::Cloudfront
     end
 
     class TooManyFieldLevelEncryptionContentTypeProfiles < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1877,7 +1877,7 @@ module AWS::Cloudfront
     end
 
     class TooManyFieldLevelEncryptionEncryptionEntities < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1896,7 +1896,7 @@ module AWS::Cloudfront
     end
 
     class TooManyFieldLevelEncryptionFieldPatterns < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1915,7 +1915,7 @@ module AWS::Cloudfront
     end
 
     class TooManyFieldLevelEncryptionProfiles < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1934,7 +1934,7 @@ module AWS::Cloudfront
     end
 
     class TooManyFieldLevelEncryptionQueryArgProfiles < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1953,7 +1953,7 @@ module AWS::Cloudfront
     end
 
     class TooManyFunctionAssociations < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1972,7 +1972,7 @@ module AWS::Cloudfront
     end
 
     class TooManyFunctions < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -1991,7 +1991,7 @@ module AWS::Cloudfront
     end
 
     class TooManyHeadersInCachePolicy < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2010,7 +2010,7 @@ module AWS::Cloudfront
     end
 
     class TooManyHeadersInForwardedValues < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2029,7 +2029,7 @@ module AWS::Cloudfront
     end
 
     class TooManyHeadersInOriginRequestPolicy < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2048,7 +2048,7 @@ module AWS::Cloudfront
     end
 
     class TooManyInvalidationsInProgress < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2067,7 +2067,7 @@ module AWS::Cloudfront
     end
 
     class TooManyKeyGroups < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2086,7 +2086,7 @@ module AWS::Cloudfront
     end
 
     class TooManyKeyGroupsAssociatedToDistribution < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2105,7 +2105,7 @@ module AWS::Cloudfront
     end
 
     class TooManyLambdaFunctionAssociations < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2124,7 +2124,7 @@ module AWS::Cloudfront
     end
 
     class TooManyOriginCustomHeaders < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2143,7 +2143,7 @@ module AWS::Cloudfront
     end
 
     class TooManyOriginGroupsPerDistribution < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2162,7 +2162,7 @@ module AWS::Cloudfront
     end
 
     class TooManyOriginRequestPolicies < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2181,7 +2181,7 @@ module AWS::Cloudfront
     end
 
     class TooManyOrigins < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2200,7 +2200,7 @@ module AWS::Cloudfront
     end
 
     class TooManyPublicKeys < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2219,7 +2219,7 @@ module AWS::Cloudfront
     end
 
     class TooManyPublicKeysInKeyGroup < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2238,7 +2238,7 @@ module AWS::Cloudfront
     end
 
     class TooManyQueryStringParameters < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2257,7 +2257,7 @@ module AWS::Cloudfront
     end
 
     class TooManyQueryStringsInCachePolicy < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2276,7 +2276,7 @@ module AWS::Cloudfront
     end
 
     class TooManyQueryStringsInOriginRequestPolicy < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2295,7 +2295,7 @@ module AWS::Cloudfront
     end
 
     class TooManyRealtimeLogConfigs < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2314,7 +2314,7 @@ module AWS::Cloudfront
     end
 
     class TooManyResponseHeadersPolicies < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2333,7 +2333,7 @@ module AWS::Cloudfront
     end
 
     class TooManyStreamingDistributionCNAMEs < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2352,7 +2352,7 @@ module AWS::Cloudfront
     end
 
     class TooManyStreamingDistributions < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2371,7 +2371,7 @@ module AWS::Cloudfront
     end
 
     class TooManyTrustedSigners < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2390,7 +2390,7 @@ module AWS::Cloudfront
     end
 
     class TrustedKeyGroupDoesNotExist < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2409,7 +2409,7 @@ module AWS::Cloudfront
     end
 
     class TrustedSignerDoesNotExist < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #
@@ -2428,7 +2428,7 @@ module AWS::Cloudfront
     end
 
     class UnsupportedOperation < ApiClientError
-      # @param [Seahorse::HTTP::Response] http_resp
+      # @param [Hearth::HTTP::Response] http_resp
       #
       # @param [String] error_code
       #

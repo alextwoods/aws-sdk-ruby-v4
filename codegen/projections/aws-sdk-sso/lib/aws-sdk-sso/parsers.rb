@@ -17,7 +17,7 @@ module AWS::Sso
 
       def self.parse(http_resp)
         data = Types::GetRoleCredentialsOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.role_credentials = (Parsers::RoleCredentials.parse(map['roleCredentials']) unless map['roleCredentials'].nil?)
         data
       end
@@ -39,7 +39,7 @@ module AWS::Sso
 
       def self.parse(http_resp)
         data = Types::ResourceNotFoundException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.message = map['message']
         data
       end
@@ -50,7 +50,7 @@ module AWS::Sso
 
       def self.parse(http_resp)
         data = Types::InvalidRequestException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.message = map['message']
         data
       end
@@ -61,7 +61,7 @@ module AWS::Sso
 
       def self.parse(http_resp)
         data = Types::UnauthorizedException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.message = map['message']
         data
       end
@@ -72,7 +72,7 @@ module AWS::Sso
 
       def self.parse(http_resp)
         data = Types::TooManyRequestsException.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.message = map['message']
         data
       end
@@ -83,7 +83,7 @@ module AWS::Sso
 
       def self.parse(http_resp)
         data = Types::ListAccountRolesOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
         data.role_list = (Parsers::RoleListType.parse(map['roleList']) unless map['roleList'].nil?)
         data
@@ -112,7 +112,7 @@ module AWS::Sso
 
       def self.parse(http_resp)
         data = Types::ListAccountsOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
         data.account_list = (Parsers::AccountListType.parse(map['accountList']) unless map['accountList'].nil?)
         data
@@ -142,7 +142,7 @@ module AWS::Sso
 
       def self.parse(http_resp)
         data = Types::LogoutOutput.new
-        map = Seahorse::JSON.load(http_resp.body)
+        map = Hearth::JSON.load(http_resp.body)
         data
       end
     end

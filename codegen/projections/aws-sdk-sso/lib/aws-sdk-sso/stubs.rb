@@ -24,7 +24,7 @@ module AWS::Sso
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['roleCredentials'] = Stubs::RoleCredentials.stub(stub[:role_credentials]) unless stub[:role_credentials].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -69,7 +69,7 @@ module AWS::Sso
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['roleList'] = Stubs::RoleListType.stub(stub[:role_list]) unless stub[:role_list].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -130,7 +130,7 @@ module AWS::Sso
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['accountList'] = Stubs::AccountListType.stub(stub[:account_list]) unless stub[:account_list].nil?
-        http_resp.body = StringIO.new(Seahorse::JSON.dump(data))
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

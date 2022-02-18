@@ -14,7 +14,7 @@ module AWS::Dynamodb
 
     AttributeDefinition: untyped
 
-    class AttributeValue < Seahorse::Union
+    class AttributeValue < Hearth::Union
       class S < AttributeValue
         def to_h: () -> { s: Hash[Symbol,AttributeValue] }
       end
