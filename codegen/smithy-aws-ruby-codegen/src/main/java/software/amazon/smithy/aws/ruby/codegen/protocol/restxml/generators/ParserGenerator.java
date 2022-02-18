@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restxml.generators;
 
+import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
@@ -77,8 +78,10 @@ public class ParserGenerator extends RestParserGeneratorBase {
                 .write("return data if body.empty?")
                 .write("xml = Hearth::XML.parse(body)");
         if (outputShape.hasTrait(ErrorTrait.class)) {
-            // TODO: This might need to check the noErrorWrapping on the protocol trait instead
-            writer.write("xml = xml.at('ErrorResponse')&.at('Error') || xml.at('Error')");
+            if (!model.expectShape(settings.getService())
+                    .getTrait(RestXmlTrait.class).get().isNoErrorWrapping()) {
+                writer.write("xml = xml.at('Error')");
+            }
         }
         renderMemberParsers(outputShape);
     }

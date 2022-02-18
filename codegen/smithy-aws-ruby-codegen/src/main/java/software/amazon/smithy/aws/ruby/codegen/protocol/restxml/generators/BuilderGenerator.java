@@ -52,7 +52,6 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                     attributeName = member.expectTrait(XmlNameTrait.class).getValue();
                 }
                 target.accept(new AttributeMemberSerializer(member, inputGetter, true, attributeName));
-
             } else {
                 String nodeName = "'" + member.getMemberName() + "'";
                 if (member.hasTrait(XmlNameTrait.class)) {
@@ -65,7 +64,9 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
     @Override
     protected void renderPayloadBodyBuilder(OperationShape operation, Shape inputShape, MemberShape payloadMember, Shape target) {
-
+//        String symbolName = ":" + symbolProvider.toMemberName(payloadMember);
+//        String inputGetter = "input[" + symbolName + "]";
+//        target.accept(new PayloadMemberSerializer(payloadMember, inputGetter));
     }
 
     @Override
@@ -82,8 +83,13 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 .write("")
                 .write("http_req.headers['Content-Type'] = 'application/xml'")
                 .write("xml = Hearth::XML::Node.new('$L')", nodeName)
-                // TODO: Set xlmns? (get from xml namespace trait?)
-                .call(() -> renderMemberBuilders(inputShape))
+                .call(() -> {
+                    if (inputShape.hasTrait(XmlNamespaceTrait.class)) {
+                        writer.write("xml.attributes['xmlns'] = '$L'",
+                                inputShape.getTrait(XmlNamespaceTrait.class).get().getUri());
+                    }
+                    renderMemberBuilders(inputShape);
+                })
                 .write("http_req.body = StringIO.new(xml.to_str)");
     }
 
