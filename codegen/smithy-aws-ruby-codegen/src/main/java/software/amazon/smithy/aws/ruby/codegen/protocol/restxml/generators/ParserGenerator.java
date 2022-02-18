@@ -38,7 +38,6 @@ public class ParserGenerator extends RestParserGeneratorBase {
     private void renderMemberParsers(Shape s) {
         Stream<MemberShape> parseMembers = s.members().stream()
                 .filter((m) -> !m.hasTrait(HttpHeaderTrait.class) && !m.hasTrait(HttpPrefixHeadersTrait.class)
-                        && !m.hasTrait(HttpQueryTrait.class) && !m.hasTrait(HttpQueryParamsTrait.class)
                         && !m.hasTrait(HttpResponseCodeTrait.class));
         parseMembers = parseMembers.filter(NoSerializeTrait.excludeNoSerializeMembers());
 
@@ -73,6 +72,10 @@ public class ParserGenerator extends RestParserGeneratorBase {
         writer
                 .write("body = http_resp.body.read")
                 .write("xml = Hearth::XML.parse(body) unless body.empty?");
+
+        if (outputShape.getId().getName().equals("IgnoreQueryParamsInResponseOutput")) {
+            System.out.println("HERE");
+        }
         renderMemberParsers(outputShape);
     }
 
@@ -117,6 +120,25 @@ public class ParserGenerator extends RestParserGeneratorBase {
     protected void renderMapParseMethod(MapShape s) {
         writer
                 .openBlock("def self.parse(xml)")
+                .write("data = {}")
+                .openBlock("xml.each do |entry_node|")
+                .call(() -> {
+                    String keyName = "key";
+                    if (s.getKey().hasTrait(XmlNameTrait.class)) {
+                        keyName = s.getKey().getTrait(XmlNameTrait.class).get().getValue();
+                    }
+                    writer.write("key = entry_node.at('$L').text", keyName);
+
+                    Shape valueTarget = model.expectShape(s.getValue().getTarget());
+                    String valueName = "value";
+                    if (s.getValue().hasTrait(XmlNameTrait.class)) {
+                        valueName = s.getValue().getTrait(XmlNameTrait.class).get().getValue();
+                    }
+                    writer.write("node = entry_node.at('$L')", valueName);
+                    valueTarget.accept(new MemberDeserializer(s.getValue(), "data[key] = "));
+                })
+                .closeBlock("end")
+                .write("data")
                 .closeBlock("end");
     }
 
@@ -304,10 +326,15 @@ public class ParserGenerator extends RestParserGeneratorBase {
             return null;
         }
 
+        @Override
+        public Void stringShape(StringShape shape) {
+            writer.write("$L(node.text || '')", dataSetter);
+            return null;
+        }
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("$1LBase64::decode64(node.text) unless node.text.nil?", dataSetter);
+            writer.write("$1L((Base64::decode64(node.text) unless node.text.nil?) || '')", dataSetter);
             return null;
         }
 
@@ -372,7 +399,11 @@ public class ParserGenerator extends RestParserGeneratorBase {
 
         @Override
         public Void mapShape(MapShape shape) {
-            defaultComplexDeserializer(shape);
+            if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
+                writer.write("children = node.children('entry')");
+            }
+            writer.write("$1LParsers::$2L.parse(children)",
+                    dataSetter, symbolProvider.toSymbol(shape).getName());
             return null;
         }
 
