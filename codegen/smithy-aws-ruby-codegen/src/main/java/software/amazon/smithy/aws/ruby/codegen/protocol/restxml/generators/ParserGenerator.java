@@ -71,12 +71,13 @@ public class ParserGenerator extends RestParserGeneratorBase {
 
     @Override
     protected void renderBodyParser(Shape outputShape) {
+
         writer
                 .write("body = http_resp.body.read")
                 .write("xml = Hearth::XML.parse(body) unless body.empty?");
-
-        if (outputShape.getId().getName().equals("IgnoreQueryParamsInResponseOutput")) {
-            System.out.println("HERE");
+        if (outputShape.hasTrait(ErrorTrait.class)) {
+            // TODO: This might need to check the noErrorWrapping on the protocol trait instead
+            writer.write("xml = xml.at('ErrorResponse')&.at('Error') || xml.at('Error')");
         }
         renderMemberParsers(outputShape);
     }
