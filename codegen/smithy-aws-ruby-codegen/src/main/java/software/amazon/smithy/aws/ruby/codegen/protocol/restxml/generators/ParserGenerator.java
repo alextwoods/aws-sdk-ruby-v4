@@ -74,7 +74,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
 
         writer
                 .write("body = http_resp.body.read")
-                .write("xml = Hearth::XML.parse(body) unless body.empty?");
+                .write("return data if body.empty?")
+                .write("xml = Hearth::XML.parse(body)");
         if (outputShape.hasTrait(ErrorTrait.class)) {
             // TODO: This might need to check the noErrorWrapping on the protocol trait instead
             writer.write("xml = xml.at('ErrorResponse')&.at('Error') || xml.at('Error')");

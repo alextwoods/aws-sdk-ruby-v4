@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restxml.generators;
 
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.model.traits.synthetic.OriginalShapeIdTrait;
@@ -80,7 +81,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         writer
                 .write("")
                 .write("http_req.headers['Content-Type'] = 'application/xml'")
-                .write("xml = Seahorse::XML::Node.new('$L')", nodeName)
+                .write("xml = Hearth::XML::Node.new('$L')", nodeName)
                 // TODO: Set xlmns? (get from xml namespace trait?)
                 .call(() -> renderMemberBuilders(inputShape))
                 .write("http_req.body = StringIO.new(xml.to_str)");
@@ -90,7 +91,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
     protected void renderStructureBuildMethod(StructureShape shape) {
         writer
                 .openBlock("def self.build(node_name, input)")
-                .write("xml = Seahorse::XML::Node.new(node_name)")
+                .write("xml = Hearth::XML::Node.new(node_name)")
                 .call(() -> renderMemberBuilders(shape))
                 .write("xml")
                 .closeBlock("end");
@@ -130,7 +131,35 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
     @Override
     protected void renderUnionBuildMethod(UnionShape shape) {
+        Symbol symbol = symbolProvider.toSymbol(shape);
+        writer
+                .openBlock("def self.build(node_name, input)")
+                .write("xml = Hearth::XML::Node.new(node_name)")
+                .write("case input");
 
+        shape.members().forEach((member) -> {
+            writer
+                    .write("when Types::$L::$L", shape.getId().getName(), symbolProvider.toMemberName(member))
+                    .indent();
+            renderUnionMemberBuilder(shape, member);
+            writer.dedent();
+        });
+        writer.openBlock("else")
+                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of Types::$L\"",
+                        symbol.getName())
+                .closeBlock("end")
+                .write("")
+                .write("xml")
+                .closeBlock("end");
+    }
+
+    private void renderUnionMemberBuilder(UnionShape shape, MemberShape member) {
+        Shape target = model.expectShape(member.getTarget());
+        String nodeName = "'" + member.getMemberName() + "'";
+        if (member.hasTrait(XmlNameTrait.class)) {
+            nodeName = "'" + member.expectTrait(XmlNameTrait.class).getValue() + "'";
+        }
+        target.accept(new MemberSerializer(member, nodeName, "input.__getobj__", false));
     }
 
     @Override
@@ -140,7 +169,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 .write("nodes = []")
                 .openBlock("input.each do |key, value|")
                 .call(() -> {
-                    writer.write("xml = Seahorse::XML::Node.new(node_name)");
+                    writer.write("xml = Hearth::XML::Node.new(node_name)");
                     Shape keyTarget = model.expectShape(shape.getKey().getTarget());
                     String keyName = "key";
                     if (shape.getKey().hasTrait(XmlNameTrait.class)) {
@@ -189,13 +218,13 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
         @Override
         protected Void getDefault(Shape shape) {
-            writer.write("xml << Seahorse::XML::Node.new($L, $L.to_s)$L",
+            writer.write("xml << Hearth::XML::Node.new($L, $L.to_s)$L",
                     nodeName, inputGetter, checkRequired());
             return null;
         }
 
         private void rubyFloat() {
-            writer.write("xml << Seahorse::XML::Node.new($L, Seahorse::NumberHelper.serialize($L).to_s)$L",
+            writer.write("xml << Hearth::XML::Node.new($L, Hearth::NumberHelper.serialize($L).to_s)$L",
                     nodeName, inputGetter, checkRequired());
         }
 
@@ -213,7 +242,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("xml << Seahorse::XML::Node.new($L, Base64::encode64($L).strip)$L",
+            writer.write("xml << Hearth::XML::Node.new($L, Base64::encode64($L).strip)$L",
                     nodeName, inputGetter, checkRequired());
             return null;
         }
@@ -226,24 +255,24 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 switch (format.get().getFormat()) {
                     case EPOCH_SECONDS:
                         writer.write(
-                                "xml << Seahorse::XML::Node.new($L, Seahorse::TimeHelper.to_epoch_seconds($L).to_i.to_s)$L",
+                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_epoch_seconds($L).to_i.to_s)$L",
                                 nodeName, inputGetter, checkRequired());
                         break;
                     case HTTP_DATE:
                         writer.write(
-                                "xml << Seahorse::XML::Node.new($L, Seahorse::TimeHelper.to_http_date($L))$L",
+                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_http_date($L))$L",
                                 nodeName, inputGetter,checkRequired());
                         break;
                     case DATE_TIME:
                     default:
                         writer.write(
-                                "xml << Seahorse::XML::Node.new($L, Seahorse::TimeHelper.to_date_time($L))$L",
+                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_date_time($L))$L",
                                 nodeName, inputGetter, checkRequired());
                         break;
                 }
             } else {
                 writer.write(
-                        "xml << Seahorse::XML::Node.new($L, Seahorse::TimeHelper.to_date_time($L))$L",
+                        "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_date_time($L))$L",
                         nodeName, inputGetter, checkRequired());
             }
             return null;
@@ -271,7 +300,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 if (shape.getMember().hasTrait(XmlNameTrait.class)) {
                     memberName = shape.getMember().getTrait(XmlNameTrait.class).get().getValue();
                 }
-                writer.write("xml << Seahorse::XML::Node.new($2L, Builders::$1L.build('$4L', $3L)) unless $3L.nil?",
+                writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('$4L', $3L)) unless $3L.nil?",
                         symbolProvider.toSymbol(shape).getName(), nodeName,
                         inputGetter, memberName);
             }
@@ -285,7 +314,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                         symbolProvider.toSymbol(shape).getName(), nodeName,
                         inputGetter);
             } else {
-                writer.write("xml << Seahorse::XML::Node.new($2L, Builders::$1L.build('member', $3L)) unless $3L.nil?",
+                writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('member', $3L)) unless $3L.nil?",
                         symbolProvider.toSymbol(shape).getName(), nodeName,
                         inputGetter);
             }
@@ -300,7 +329,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                         symbolProvider.toSymbol(shape).getName(), nodeName,
                         inputGetter);
             } else {
-                writer.write("xml << Seahorse::XML::Node.new($2L, Builders::$1L.build('entry', $3L)) unless $3L.nil?",
+                writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('entry', $3L)) unless $3L.nil?",
                         symbolProvider.toSymbol(shape).getName(), nodeName,
                         inputGetter);
             }
@@ -350,7 +379,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("xml.attributes['$L'] = Seahorse::NumberHelper.serialize($L).to_s$L",
+            writer.write("xml.attributes['$L'] = Hearth::NumberHelper.serialize($L).to_s$L",
                     attributeName, inputGetter, checkRequired());
         }
 
@@ -374,24 +403,24 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 switch (format.get().getFormat()) {
                     case EPOCH_SECONDS:
                         writer.write(
-                                "xml.attributes['$L'] = Seahorse::TimeHelper.to_epoch_seconds($L).to_i.to_s$L",
+                                "xml.attributes['$L'] = Hearth::TimeHelper.to_epoch_seconds($L).to_i.to_s$L",
                                 attributeName, inputGetter, checkRequired());
                         break;
                     case HTTP_DATE:
                         writer.write(
-                                "xml.attributes['$L'] = Seahorse::TimeHelper.to_http_date($L)$L",
+                                "xml.attributes['$L'] = Hearth::TimeHelper.to_http_date($L)$L",
                                 attributeName, inputGetter,checkRequired());
                         break;
                     case DATE_TIME:
                     default:
                         writer.write(
-                                "xml.attributes['$L'] = Seahorse::TimeHelper.to_date_time($L)$L",
+                                "xml.attributes['$L'] = Hearth::TimeHelper.to_date_time($L)$L",
                                 attributeName, inputGetter, checkRequired());
                         break;
                 }
             } else {
                 writer.write(
-                        "xml.attributes['$L'] = Seahorse::TimeHelper.to_date_time($L)$L",
+                        "xml.attributes['$L'] = Hearth::TimeHelper.to_date_time($L)$L",
                         attributeName, inputGetter, checkRequired());
             }
             return null;
