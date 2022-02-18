@@ -15,6 +15,10 @@ module AWS::Sts
     # Operation Parser for AssumeRole
     class AssumeRole
 
+      def self.parse(http_resp)
+        data = Types::AssumeRoleOutput.new
+        data
+      end
     end
 
     class AssumedRoleUser
@@ -46,6 +50,10 @@ module AWS::Sts
     # Operation Parser for AssumeRoleWithSAML
     class AssumeRoleWithSAML
 
+      def self.parse(http_resp)
+        data = Types::AssumeRoleWithSAMLOutput.new
+        data
+      end
     end
 
     # Error Parser for IDPRejectedClaimException
@@ -61,6 +69,10 @@ module AWS::Sts
     # Operation Parser for AssumeRoleWithWebIdentity
     class AssumeRoleWithWebIdentity
 
+      def self.parse(http_resp)
+        data = Types::AssumeRoleWithWebIdentityOutput.new
+        data
+      end
     end
 
     # Error Parser for IDPCommunicationErrorException
@@ -71,6 +83,10 @@ module AWS::Sts
     # Operation Parser for DecodeAuthorizationMessage
     class DecodeAuthorizationMessage
 
+      def self.parse(http_resp)
+        data = Types::DecodeAuthorizationMessageOutput.new
+        data
+      end
     end
 
     # Error Parser for InvalidAuthorizationMessageException
@@ -81,16 +97,28 @@ module AWS::Sts
     # Operation Parser for GetAccessKeyInfo
     class GetAccessKeyInfo
 
+      def self.parse(http_resp)
+        data = Types::GetAccessKeyInfoOutput.new
+        data
+      end
     end
 
     # Operation Parser for GetCallerIdentity
     class GetCallerIdentity
 
+      def self.parse(http_resp)
+        data = Types::GetCallerIdentityOutput.new
+        data
+      end
     end
 
     # Operation Parser for GetFederationToken
     class GetFederationToken
 
+      def self.parse(http_resp)
+        data = Types::GetFederationTokenOutput.new
+        data
+      end
     end
 
     class FederatedUser
@@ -99,6 +127,10 @@ module AWS::Sts
     # Operation Parser for GetSessionToken
     class GetSessionToken
 
+      def self.parse(http_resp)
+        data = Types::GetSessionTokenOutput.new
+        data
+      end
     end
   end
 end

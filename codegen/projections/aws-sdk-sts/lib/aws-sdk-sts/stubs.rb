@@ -22,6 +22,8 @@ module AWS::Sts
         }
       end
 
+      def self.stub(http_resp, stub:)
+      end
     end
 
     # Structure Stubber for AssumedRoleUser
@@ -71,6 +73,8 @@ module AWS::Sts
         }
       end
 
+      def self.stub(http_resp, stub:)
+      end
     end
 
     # Operation Stubber for AssumeRoleWithWebIdentity
@@ -88,6 +92,8 @@ module AWS::Sts
         }
       end
 
+      def self.stub(http_resp, stub:)
+      end
     end
 
     # Operation Stubber for DecodeAuthorizationMessage
@@ -99,6 +105,8 @@ module AWS::Sts
         }
       end
 
+      def self.stub(http_resp, stub:)
+      end
     end
 
     # Operation Stubber for GetAccessKeyInfo
@@ -110,6 +118,8 @@ module AWS::Sts
         }
       end
 
+      def self.stub(http_resp, stub:)
+      end
     end
 
     # Operation Stubber for GetCallerIdentity
@@ -123,6 +133,8 @@ module AWS::Sts
         }
       end
 
+      def self.stub(http_resp, stub:)
+      end
     end
 
     # Operation Stubber for GetFederationToken
@@ -136,6 +148,8 @@ module AWS::Sts
         }
       end
 
+      def self.stub(http_resp, stub:)
+      end
     end
 
     # Structure Stubber for FederatedUser
@@ -161,6 +175,8 @@ module AWS::Sts
         }
       end
 
+      def self.stub(http_resp, stub:)
+      end
     end
   end
 end
