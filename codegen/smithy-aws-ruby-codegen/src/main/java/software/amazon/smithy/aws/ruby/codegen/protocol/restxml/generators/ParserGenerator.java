@@ -32,7 +32,9 @@ public class ParserGenerator extends RestParserGeneratorBase {
 
     @Override
     protected void renderPayloadBodyParser(Shape outputShape, MemberShape payloadMember, Shape target) {
-
+        String dataName = symbolProvider.toMemberName(payloadMember);
+        String dataSetter = "data." + dataName + " = ";
+        target.accept(new PayloadMemberDeserializer(payloadMember, dataSetter));
     }
 
     private void renderMemberParsers(Shape s) {
@@ -419,5 +421,70 @@ public class ParserGenerator extends RestParserGeneratorBase {
             return null;
         }
     }
+
+    private class PayloadMemberDeserializer extends ShapeVisitor.Default<Void> {
+
+        private final MemberShape memberShape;
+        private final String dataSetter;
+
+        PayloadMemberDeserializer(MemberShape memberShape, String dataSetter) {
+            this.memberShape = memberShape;
+            this.dataSetter = dataSetter;
+        }
+
+        @Override
+        protected Void getDefault(Shape shape) {
+            return null;
+        }
+
+        @Override
+        public Void stringShape(StringShape shape) {
+            writer
+                    .write("payload = http_resp.body.read")
+                    .write("$Lpayload unless payload.empty?", dataSetter);
+            return null;
+        }
+
+        @Override
+        public Void blobShape(BlobShape shape) {
+            writer
+                    .write("payload = http_resp.body.read")
+                    .write("$Lpayload unless payload.empty?", dataSetter);
+            return null;
+        }
+
+        @Override
+        public Void listShape(ListShape shape) {
+            defaultComplexDeserializer(shape);
+            return null;
+        }
+
+        @Override
+        public Void mapShape(MapShape shape) {
+            defaultComplexDeserializer(shape);
+            return null;
+        }
+
+        @Override
+        public Void structureShape(StructureShape shape) {
+            defaultComplexDeserializer(shape);
+            return null;
+        }
+
+        @Override
+        public Void unionShape(UnionShape shape) {
+            defaultComplexDeserializer(shape);
+            return null;
+        }
+
+        private void defaultComplexDeserializer(Shape shape) {
+            writer
+                    .write("body = http_resp.body.read")
+                    .write("xml = Hearth::XML.parse(body) unless body.empty?")
+                    .write("$LParsers::$L.parse(xml)", dataSetter, symbolProvider.toSymbol(shape).getName());
+        }
+
+    }
+
 }
 
