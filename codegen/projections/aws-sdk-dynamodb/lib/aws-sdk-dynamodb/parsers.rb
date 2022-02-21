@@ -14,7 +14,6 @@ module AWS::Dynamodb
 
     # Operation Parser for BatchExecuteStatement
     class BatchExecuteStatement
-
     end
 
     class ConsumedCapacityMultiple
@@ -61,17 +60,14 @@ module AWS::Dynamodb
 
     # Error Parser for InternalServerError
     class InternalServerError
-
     end
 
     # Error Parser for RequestLimitExceeded
     class RequestLimitExceeded
-
     end
 
     # Operation Parser for BatchGetItem
     class BatchGetItem
-
     end
 
     class BatchGetRequestMap
@@ -100,22 +96,18 @@ module AWS::Dynamodb
 
     # Error Parser for InvalidEndpointException
     class InvalidEndpointException
-
     end
 
     # Error Parser for ResourceNotFoundException
     class ResourceNotFoundException
-
     end
 
     # Error Parser for ProvisionedThroughputExceededException
     class ProvisionedThroughputExceededException
-
     end
 
     # Operation Parser for BatchWriteItem
     class BatchWriteItem
-
     end
 
     class ItemCollectionMetricsPerTable
@@ -153,12 +145,10 @@ module AWS::Dynamodb
 
     # Error Parser for ItemCollectionSizeLimitExceededException
     class ItemCollectionSizeLimitExceededException
-
     end
 
     # Operation Parser for CreateBackup
     class CreateBackup
-
     end
 
     class BackupDetails
@@ -166,32 +156,26 @@ module AWS::Dynamodb
 
     # Error Parser for LimitExceededException
     class LimitExceededException
-
     end
 
     # Error Parser for TableInUseException
     class TableInUseException
-
     end
 
     # Error Parser for BackupInUseException
     class BackupInUseException
-
     end
 
     # Error Parser for TableNotFoundException
     class TableNotFoundException
-
     end
 
     # Error Parser for ContinuousBackupsUnavailableException
     class ContinuousBackupsUnavailableException
-
     end
 
     # Operation Parser for CreateGlobalTable
     class CreateGlobalTable
-
     end
 
     class GlobalTableDescription
@@ -217,12 +201,10 @@ module AWS::Dynamodb
 
     # Error Parser for GlobalTableAlreadyExistsException
     class GlobalTableAlreadyExistsException
-
     end
 
     # Operation Parser for CreateTable
     class CreateTable
-
     end
 
     class TableDescription
@@ -278,12 +260,10 @@ module AWS::Dynamodb
 
     # Error Parser for ResourceInUseException
     class ResourceInUseException
-
     end
 
     # Operation Parser for DeleteBackup
     class DeleteBackup
-
     end
 
     class BackupDescription
@@ -315,37 +295,30 @@ module AWS::Dynamodb
 
     # Error Parser for BackupNotFoundException
     class BackupNotFoundException
-
     end
 
     # Operation Parser for DeleteItem
     class DeleteItem
-
     end
 
     # Error Parser for TransactionConflictException
     class TransactionConflictException
-
     end
 
     # Error Parser for ConditionalCheckFailedException
     class ConditionalCheckFailedException
-
     end
 
     # Operation Parser for DeleteTable
     class DeleteTable
-
     end
 
     # Operation Parser for DescribeBackup
     class DescribeBackup
-
     end
 
     # Operation Parser for DescribeContinuousBackups
     class DescribeContinuousBackups
-
     end
 
     class ContinuousBackupsDescription
@@ -356,7 +329,6 @@ module AWS::Dynamodb
 
     # Operation Parser for DescribeContributorInsights
     class DescribeContributorInsights
-
     end
 
     class FailureException
@@ -367,7 +339,6 @@ module AWS::Dynamodb
 
     # Operation Parser for DescribeEndpoints
     class DescribeEndpoints
-
     end
 
     class Endpoints
@@ -378,7 +349,6 @@ module AWS::Dynamodb
 
     # Operation Parser for DescribeExport
     class DescribeExport
-
     end
 
     class ExportDescription
@@ -386,22 +356,18 @@ module AWS::Dynamodb
 
     # Error Parser for ExportNotFoundException
     class ExportNotFoundException
-
     end
 
     # Operation Parser for DescribeGlobalTable
     class DescribeGlobalTable
-
     end
 
     # Error Parser for GlobalTableNotFoundException
     class GlobalTableNotFoundException
-
     end
 
     # Operation Parser for DescribeGlobalTableSettings
     class DescribeGlobalTableSettings
-
     end
 
     class ReplicaSettingsDescriptionList
@@ -430,7 +396,6 @@ module AWS::Dynamodb
 
     # Operation Parser for DescribeKinesisStreamingDestination
     class DescribeKinesisStreamingDestination
-
     end
 
     class KinesisDataStreamDestinations
@@ -441,17 +406,14 @@ module AWS::Dynamodb
 
     # Operation Parser for DescribeLimits
     class DescribeLimits
-
     end
 
     # Operation Parser for DescribeTable
     class DescribeTable
-
     end
 
     # Operation Parser for DescribeTableReplicaAutoScaling
     class DescribeTableReplicaAutoScaling
-
     end
 
     class TableAutoScalingDescription
@@ -471,32 +433,26 @@ module AWS::Dynamodb
 
     # Operation Parser for DescribeTimeToLive
     class DescribeTimeToLive
-
     end
 
     # Operation Parser for DisableKinesisStreamingDestination
     class DisableKinesisStreamingDestination
-
     end
 
     # Operation Parser for EnableKinesisStreamingDestination
     class EnableKinesisStreamingDestination
-
     end
 
     # Operation Parser for ExecuteStatement
     class ExecuteStatement
-
     end
 
     # Error Parser for DuplicateItemException
     class DuplicateItemException
-
     end
 
     # Operation Parser for ExecuteTransaction
     class ExecuteTransaction
-
     end
 
     class ItemResponseList
@@ -507,12 +463,10 @@ module AWS::Dynamodb
 
     # Error Parser for IdempotentParameterMismatchException
     class IdempotentParameterMismatchException
-
     end
 
     # Error Parser for TransactionCanceledException
     class TransactionCanceledException
-
     end
 
     class CancellationReasonList
@@ -523,37 +477,30 @@ module AWS::Dynamodb
 
     # Error Parser for TransactionInProgressException
     class TransactionInProgressException
-
     end
 
     # Operation Parser for ExportTableToPointInTime
     class ExportTableToPointInTime
-
     end
 
     # Error Parser for InvalidExportTimeException
     class InvalidExportTimeException
-
     end
 
     # Error Parser for PointInTimeRecoveryUnavailableException
     class PointInTimeRecoveryUnavailableException
-
     end
 
     # Error Parser for ExportConflictException
     class ExportConflictException
-
     end
 
     # Operation Parser for GetItem
     class GetItem
-
     end
 
     # Operation Parser for ListBackups
     class ListBackups
-
     end
 
     class BackupSummaries
@@ -564,7 +511,6 @@ module AWS::Dynamodb
 
     # Operation Parser for ListContributorInsights
     class ListContributorInsights
-
     end
 
     class ContributorInsightsSummaries
@@ -575,7 +521,6 @@ module AWS::Dynamodb
 
     # Operation Parser for ListExports
     class ListExports
-
     end
 
     class ExportSummaries
@@ -586,7 +531,6 @@ module AWS::Dynamodb
 
     # Operation Parser for ListGlobalTables
     class ListGlobalTables
-
     end
 
     class GlobalTableList
@@ -603,7 +547,6 @@ module AWS::Dynamodb
 
     # Operation Parser for ListTables
     class ListTables
-
     end
 
     class TableNameList
@@ -611,7 +554,6 @@ module AWS::Dynamodb
 
     # Operation Parser for ListTagsOfResource
     class ListTagsOfResource
-
     end
 
     class TagList
@@ -622,112 +564,90 @@ module AWS::Dynamodb
 
     # Operation Parser for PutItem
     class PutItem
-
     end
 
     # Operation Parser for Query
     class Query
-
     end
 
     # Operation Parser for RestoreTableFromBackup
     class RestoreTableFromBackup
-
     end
 
     # Error Parser for TableAlreadyExistsException
     class TableAlreadyExistsException
-
     end
 
     # Operation Parser for RestoreTableToPointInTime
     class RestoreTableToPointInTime
-
     end
 
     # Error Parser for InvalidRestoreTimeException
     class InvalidRestoreTimeException
-
     end
 
     # Operation Parser for Scan
     class Scan
-
     end
 
     # Operation Parser for TagResource
     class TagResource
-
     end
 
     # Operation Parser for TransactGetItems
     class TransactGetItems
-
     end
 
     # Operation Parser for TransactWriteItems
     class TransactWriteItems
-
     end
 
     # Operation Parser for UntagResource
     class UntagResource
-
     end
 
     # Operation Parser for UpdateContinuousBackups
     class UpdateContinuousBackups
-
     end
 
     # Operation Parser for UpdateContributorInsights
     class UpdateContributorInsights
-
     end
 
     # Operation Parser for UpdateGlobalTable
     class UpdateGlobalTable
-
     end
 
     # Error Parser for ReplicaNotFoundException
     class ReplicaNotFoundException
-
     end
 
     # Error Parser for ReplicaAlreadyExistsException
     class ReplicaAlreadyExistsException
-
     end
 
     # Operation Parser for UpdateGlobalTableSettings
     class UpdateGlobalTableSettings
-
     end
 
     # Error Parser for IndexNotFoundException
     class IndexNotFoundException
-
     end
 
     # Operation Parser for UpdateItem
     class UpdateItem
-
     end
 
     # Operation Parser for UpdateTable
     class UpdateTable
-
     end
 
     # Operation Parser for UpdateTableReplicaAutoScaling
     class UpdateTableReplicaAutoScaling
-
     end
 
     # Operation Parser for UpdateTimeToLive
     class UpdateTimeToLive
-
     end
 
     class TimeToLiveSpecification

@@ -15,8 +15,6 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.query.generators;
 
-import java.sql.Time;
-import java.sql.Timestamp;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
@@ -26,7 +24,6 @@ import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 
-import java.util.Optional;
 import java.util.stream.Stream;
 
 public class BuilderGenerator extends BuilderGeneratorBase {
@@ -111,12 +108,14 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
     @Override
     protected void renderUnionBuildMethod(UnionShape shape) {
-        // todo
+        writer
+                .openBlock("def self.build(input, query, context: nil)")
+                .call(() -> renderMemberBuilders(shape))
+                .closeBlock("end");
     }
 
     @Override
     protected void renderMapBuildMethod(MapShape shape) {
-        // TODO: Handle names / flat
         writer
                 .openBlock("def self.build(input, query, context: '')")
                 .openBlock("input.each_with_index do |(key, value), index|")
@@ -170,7 +169,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         }
 
         private void rubyFloat() {
-            writer.write("query[context + $L] = Seahorse::NumberHelper.serialize($L)$L", dataName, inputGetter, checkRequired());
+            writer.write("query[context + $L] = Hearth::NumberHelper.serialize($L)$L", dataName, inputGetter, checkRequired());
         }
 
         @Override
@@ -206,22 +205,22 @@ public class BuilderGenerator extends BuilderGeneratorBase {
             if (format != null) {
                 switch (format) {
                     case EPOCH_SECONDS:
-                        writer.write("query[context + $L] = Seahorse::TimeHelper.to_epoch_seconds($L)$L",
+                        writer.write("query[context + $L] = Hearth::TimeHelper.to_epoch_seconds($L)$L",
                                 dataName, inputGetter, checkRequired());
                         break;
                     case HTTP_DATE:
-                        writer.write("query[context + $L] = Seahorse::HTTP.uri_escape(Seahorse::TimeHelper.to_http_date($L))$L",
+                        writer.write("query[context + $L] = Hearth::HTTP.uri_escape(Hearth::TimeHelper.to_http_date($L))$L",
                                 dataName, inputGetter, checkRequired());
                         break;
                     case DATE_TIME:
                     default:
-                        writer.write("query[context + $L] = Seahorse::HTTP.uri_escape(Seahorse::TimeHelper.to_date_time($L))$L",
+                        writer.write("query[context + $L] = Hearth::HTTP.uri_escape(Hearth::TimeHelper.to_date_time($L))$L",
                                 dataName, inputGetter, checkRequired());
                         break;
                 }
             } else {
                 // the default protocol format is date_time
-                writer.write("query[context + $L] = Seahorse::HTTP.uri_escape(Seahorse::TimeHelper.to_date_time($L))$L",
+                writer.write("query[context + $L] = Hearth::HTTP.uri_escape(Hearth::TimeHelper.to_date_time($L))$L",
                         dataName, inputGetter, checkRequired());
             }
 
