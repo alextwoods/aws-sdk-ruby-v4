@@ -12,7 +12,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for BatchExecuteStatement
     class BatchExecuteStatement
-
       def self.default(visited=[])
         {
           responses: Stubs::PartiQLBatchResponse.default(visited),
@@ -36,7 +35,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ConsumedCapacity
     class ConsumedCapacity
-
       def self.default(visited=[])
         return nil if visited.include?('ConsumedCapacity')
         visited = visited + ['ConsumedCapacity']
@@ -67,7 +65,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for Capacity
     class Capacity
-
       def self.default(visited=[])
         return nil if visited.include?('Capacity')
         visited = visited + ['Capacity']
@@ -94,7 +91,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for BatchStatementResponse
     class BatchStatementResponse
-
       def self.default(visited=[])
         return nil if visited.include?('BatchStatementResponse')
         visited = visited + ['BatchStatementResponse']
@@ -194,7 +190,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for BatchStatementError
     class BatchStatementError
-
       def self.default(visited=[])
         return nil if visited.include?('BatchStatementError')
         visited = visited + ['BatchStatementError']
@@ -208,7 +203,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for BatchGetItem
     class BatchGetItem
-
       def self.default(visited=[])
         {
           responses: Stubs::BatchGetResponseMap.default(visited),
@@ -233,7 +227,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for KeysAndAttributes
     class KeysAndAttributes
-
       def self.default(visited=[])
         return nil if visited.include?('KeysAndAttributes')
         visited = visited + ['KeysAndAttributes']
@@ -322,7 +315,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for BatchWriteItem
     class BatchWriteItem
-
       def self.default(visited=[])
         {
           unprocessed_items: Stubs::BatchWriteItemRequestMap.default(visited),
@@ -359,7 +351,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ItemCollectionMetrics
     class ItemCollectionMetrics
-
       def self.default(visited=[])
         return nil if visited.include?('ItemCollectionMetrics')
         visited = visited + ['ItemCollectionMetrics']
@@ -421,7 +412,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for WriteRequest
     class WriteRequest
-
       def self.default(visited=[])
         return nil if visited.include?('WriteRequest')
         visited = visited + ['WriteRequest']
@@ -435,7 +425,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for DeleteRequest
     class DeleteRequest
-
       def self.default(visited=[])
         return nil if visited.include?('DeleteRequest')
         visited = visited + ['DeleteRequest']
@@ -448,7 +437,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for PutRequest
     class PutRequest
-
       def self.default(visited=[])
         return nil if visited.include?('PutRequest')
         visited = visited + ['PutRequest']
@@ -473,7 +461,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for CreateBackup
     class CreateBackup
-
       def self.default(visited=[])
         {
           backup_details: Stubs::BackupDetails.default(visited),
@@ -484,7 +471,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for BackupDetails
     class BackupDetails
-
       def self.default(visited=[])
         return nil if visited.include?('BackupDetails')
         visited = visited + ['BackupDetails']
@@ -503,7 +489,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for CreateGlobalTable
     class CreateGlobalTable
-
       def self.default(visited=[])
         {
           global_table_description: Stubs::GlobalTableDescription.default(visited),
@@ -514,7 +499,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for GlobalTableDescription
     class GlobalTableDescription
-
       def self.default(visited=[])
         return nil if visited.include?('GlobalTableDescription')
         visited = visited + ['GlobalTableDescription']
@@ -543,7 +527,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ReplicaDescription
     class ReplicaDescription
-
       def self.default(visited=[])
         return nil if visited.include?('ReplicaDescription')
         visited = visited + ['ReplicaDescription']
@@ -564,7 +547,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for TableClassSummary
     class TableClassSummary
-
       def self.default(visited=[])
         return nil if visited.include?('TableClassSummary')
         visited = visited + ['TableClassSummary']
@@ -590,7 +572,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ReplicaGlobalSecondaryIndexDescription
     class ReplicaGlobalSecondaryIndexDescription
-
       def self.default(visited=[])
         return nil if visited.include?('ReplicaGlobalSecondaryIndexDescription')
         visited = visited + ['ReplicaGlobalSecondaryIndexDescription']
@@ -604,7 +585,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ProvisionedThroughputOverride
     class ProvisionedThroughputOverride
-
       def self.default(visited=[])
         return nil if visited.include?('ProvisionedThroughputOverride')
         visited = visited + ['ProvisionedThroughputOverride']
@@ -617,7 +597,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for CreateTable
     class CreateTable
-
       def self.default(visited=[])
         {
           table_description: Stubs::TableDescription.default(visited),
@@ -628,7 +607,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for TableDescription
     class TableDescription
-
       def self.default(visited=[])
         return nil if visited.include?('TableDescription')
         visited = visited + ['TableDescription']
@@ -662,7 +640,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ArchivalSummary
     class ArchivalSummary
-
       def self.default(visited=[])
         return nil if visited.include?('ArchivalSummary')
         visited = visited + ['ArchivalSummary']
@@ -677,7 +654,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for SSEDescription
     class SSEDescription
-
       def self.default(visited=[])
         return nil if visited.include?('SSEDescription')
         visited = visited + ['SSEDescription']
@@ -693,7 +669,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for RestoreSummary
     class RestoreSummary
-
       def self.default(visited=[])
         return nil if visited.include?('RestoreSummary')
         visited = visited + ['RestoreSummary']
@@ -709,7 +684,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for StreamSpecification
     class StreamSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('StreamSpecification')
         visited = visited + ['StreamSpecification']
@@ -735,7 +709,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for GlobalSecondaryIndexDescription
     class GlobalSecondaryIndexDescription
-
       def self.default(visited=[])
         return nil if visited.include?('GlobalSecondaryIndexDescription')
         visited = visited + ['GlobalSecondaryIndexDescription']
@@ -756,7 +729,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ProvisionedThroughputDescription
     class ProvisionedThroughputDescription
-
       def self.default(visited=[])
         return nil if visited.include?('ProvisionedThroughputDescription')
         visited = visited + ['ProvisionedThroughputDescription']
@@ -773,7 +745,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for Projection
     class Projection
-
       def self.default(visited=[])
         return nil if visited.include?('Projection')
         visited = visited + ['Projection']
@@ -811,7 +782,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for KeySchemaElement
     class KeySchemaElement
-
       def self.default(visited=[])
         return nil if visited.include?('KeySchemaElement')
         visited = visited + ['KeySchemaElement']
@@ -837,7 +807,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for LocalSecondaryIndexDescription
     class LocalSecondaryIndexDescription
-
       def self.default(visited=[])
         return nil if visited.include?('LocalSecondaryIndexDescription')
         visited = visited + ['LocalSecondaryIndexDescription']
@@ -855,7 +824,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for BillingModeSummary
     class BillingModeSummary
-
       def self.default(visited=[])
         return nil if visited.include?('BillingModeSummary')
         visited = visited + ['BillingModeSummary']
@@ -881,7 +849,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for AttributeDefinition
     class AttributeDefinition
-
       def self.default(visited=[])
         return nil if visited.include?('AttributeDefinition')
         visited = visited + ['AttributeDefinition']
@@ -895,7 +862,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DeleteBackup
     class DeleteBackup
-
       def self.default(visited=[])
         {
           backup_description: Stubs::BackupDescription.default(visited),
@@ -906,7 +872,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for BackupDescription
     class BackupDescription
-
       def self.default(visited=[])
         return nil if visited.include?('BackupDescription')
         visited = visited + ['BackupDescription']
@@ -921,7 +886,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for SourceTableFeatureDetails
     class SourceTableFeatureDetails
-
       def self.default(visited=[])
         return nil if visited.include?('SourceTableFeatureDetails')
         visited = visited + ['SourceTableFeatureDetails']
@@ -938,7 +902,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for TimeToLiveDescription
     class TimeToLiveDescription
-
       def self.default(visited=[])
         return nil if visited.include?('TimeToLiveDescription')
         visited = visited + ['TimeToLiveDescription']
@@ -964,7 +927,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for GlobalSecondaryIndexInfo
     class GlobalSecondaryIndexInfo
-
       def self.default(visited=[])
         return nil if visited.include?('GlobalSecondaryIndexInfo')
         visited = visited + ['GlobalSecondaryIndexInfo']
@@ -980,7 +942,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ProvisionedThroughput
     class ProvisionedThroughput
-
       def self.default(visited=[])
         return nil if visited.include?('ProvisionedThroughput')
         visited = visited + ['ProvisionedThroughput']
@@ -1006,7 +967,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for LocalSecondaryIndexInfo
     class LocalSecondaryIndexInfo
-
       def self.default(visited=[])
         return nil if visited.include?('LocalSecondaryIndexInfo')
         visited = visited + ['LocalSecondaryIndexInfo']
@@ -1021,7 +981,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for SourceTableDetails
     class SourceTableDetails
-
       def self.default(visited=[])
         return nil if visited.include?('SourceTableDetails')
         visited = visited + ['SourceTableDetails']
@@ -1042,7 +1001,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DeleteItem
     class DeleteItem
-
       def self.default(visited=[])
         {
           attributes: Stubs::AttributeMap.default(visited),
@@ -1055,7 +1013,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DeleteTable
     class DeleteTable
-
       def self.default(visited=[])
         {
           table_description: Stubs::TableDescription.default(visited),
@@ -1066,7 +1023,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DescribeBackup
     class DescribeBackup
-
       def self.default(visited=[])
         {
           backup_description: Stubs::BackupDescription.default(visited),
@@ -1077,7 +1033,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DescribeContinuousBackups
     class DescribeContinuousBackups
-
       def self.default(visited=[])
         {
           continuous_backups_description: Stubs::ContinuousBackupsDescription.default(visited),
@@ -1088,7 +1043,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ContinuousBackupsDescription
     class ContinuousBackupsDescription
-
       def self.default(visited=[])
         return nil if visited.include?('ContinuousBackupsDescription')
         visited = visited + ['ContinuousBackupsDescription']
@@ -1102,7 +1056,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for PointInTimeRecoveryDescription
     class PointInTimeRecoveryDescription
-
       def self.default(visited=[])
         return nil if visited.include?('PointInTimeRecoveryDescription')
         visited = visited + ['PointInTimeRecoveryDescription']
@@ -1117,7 +1070,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DescribeContributorInsights
     class DescribeContributorInsights
-
       def self.default(visited=[])
         {
           table_name: 'table_name',
@@ -1133,7 +1085,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for FailureException
     class FailureException
-
       def self.default(visited=[])
         return nil if visited.include?('FailureException')
         visited = visited + ['FailureException']
@@ -1159,7 +1110,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DescribeEndpoints
     class DescribeEndpoints
-
       def self.default(visited=[])
         {
           endpoints: Stubs::Endpoints.default(visited),
@@ -1182,7 +1132,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for Endpoint
     class Endpoint
-
       def self.default(visited=[])
         return nil if visited.include?('Endpoint')
         visited = visited + ['Endpoint']
@@ -1196,7 +1145,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DescribeExport
     class DescribeExport
-
       def self.default(visited=[])
         {
           export_description: Stubs::ExportDescription.default(visited),
@@ -1207,7 +1155,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ExportDescription
     class ExportDescription
-
       def self.default(visited=[])
         return nil if visited.include?('ExportDescription')
         visited = visited + ['ExportDescription']
@@ -1238,7 +1185,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DescribeGlobalTable
     class DescribeGlobalTable
-
       def self.default(visited=[])
         {
           global_table_description: Stubs::GlobalTableDescription.default(visited),
@@ -1249,7 +1195,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DescribeGlobalTableSettings
     class DescribeGlobalTableSettings
-
       def self.default(visited=[])
         {
           global_table_name: 'global_table_name',
@@ -1273,7 +1218,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ReplicaSettingsDescription
     class ReplicaSettingsDescription
-
       def self.default(visited=[])
         return nil if visited.include?('ReplicaSettingsDescription')
         visited = visited + ['ReplicaSettingsDescription']
@@ -1306,7 +1250,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ReplicaGlobalSecondaryIndexSettingsDescription
     class ReplicaGlobalSecondaryIndexSettingsDescription
-
       def self.default(visited=[])
         return nil if visited.include?('ReplicaGlobalSecondaryIndexSettingsDescription')
         visited = visited + ['ReplicaGlobalSecondaryIndexSettingsDescription']
@@ -1324,7 +1267,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for AutoScalingSettingsDescription
     class AutoScalingSettingsDescription
-
       def self.default(visited=[])
         return nil if visited.include?('AutoScalingSettingsDescription')
         visited = visited + ['AutoScalingSettingsDescription']
@@ -1353,7 +1295,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for AutoScalingPolicyDescription
     class AutoScalingPolicyDescription
-
       def self.default(visited=[])
         return nil if visited.include?('AutoScalingPolicyDescription')
         visited = visited + ['AutoScalingPolicyDescription']
@@ -1367,7 +1308,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for AutoScalingTargetTrackingScalingPolicyConfigurationDescription
     class AutoScalingTargetTrackingScalingPolicyConfigurationDescription
-
       def self.default(visited=[])
         return nil if visited.include?('AutoScalingTargetTrackingScalingPolicyConfigurationDescription')
         visited = visited + ['AutoScalingTargetTrackingScalingPolicyConfigurationDescription']
@@ -1383,7 +1323,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DescribeKinesisStreamingDestination
     class DescribeKinesisStreamingDestination
-
       def self.default(visited=[])
         {
           table_name: 'table_name',
@@ -1407,7 +1346,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for KinesisDataStreamDestination
     class KinesisDataStreamDestination
-
       def self.default(visited=[])
         return nil if visited.include?('KinesisDataStreamDestination')
         visited = visited + ['KinesisDataStreamDestination']
@@ -1422,7 +1360,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DescribeLimits
     class DescribeLimits
-
       def self.default(visited=[])
         {
           account_max_read_capacity_units: 1,
@@ -1436,7 +1373,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DescribeTable
     class DescribeTable
-
       def self.default(visited=[])
         {
           table: Stubs::TableDescription.default(visited),
@@ -1447,7 +1383,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DescribeTableReplicaAutoScaling
     class DescribeTableReplicaAutoScaling
-
       def self.default(visited=[])
         {
           table_auto_scaling_description: Stubs::TableAutoScalingDescription.default(visited),
@@ -1458,7 +1393,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for TableAutoScalingDescription
     class TableAutoScalingDescription
-
       def self.default(visited=[])
         return nil if visited.include?('TableAutoScalingDescription')
         visited = visited + ['TableAutoScalingDescription']
@@ -1485,7 +1419,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ReplicaAutoScalingDescription
     class ReplicaAutoScalingDescription
-
       def self.default(visited=[])
         return nil if visited.include?('ReplicaAutoScalingDescription')
         visited = visited + ['ReplicaAutoScalingDescription']
@@ -1514,7 +1447,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ReplicaGlobalSecondaryIndexAutoScalingDescription
     class ReplicaGlobalSecondaryIndexAutoScalingDescription
-
       def self.default(visited=[])
         return nil if visited.include?('ReplicaGlobalSecondaryIndexAutoScalingDescription')
         visited = visited + ['ReplicaGlobalSecondaryIndexAutoScalingDescription']
@@ -1530,7 +1462,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DescribeTimeToLive
     class DescribeTimeToLive
-
       def self.default(visited=[])
         {
           time_to_live_description: Stubs::TimeToLiveDescription.default(visited),
@@ -1541,7 +1472,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for DisableKinesisStreamingDestination
     class DisableKinesisStreamingDestination
-
       def self.default(visited=[])
         {
           table_name: 'table_name',
@@ -1554,7 +1484,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for EnableKinesisStreamingDestination
     class EnableKinesisStreamingDestination
-
       def self.default(visited=[])
         {
           table_name: 'table_name',
@@ -1567,7 +1496,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for ExecuteStatement
     class ExecuteStatement
-
       def self.default(visited=[])
         {
           items: Stubs::ItemList.default(visited),
@@ -1580,7 +1508,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for ExecuteTransaction
     class ExecuteTransaction
-
       def self.default(visited=[])
         {
           responses: Stubs::ItemResponseList.default(visited),
@@ -1604,7 +1531,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ItemResponse
     class ItemResponse
-
       def self.default(visited=[])
         return nil if visited.include?('ItemResponse')
         visited = visited + ['ItemResponse']
@@ -1617,7 +1543,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for ExportTableToPointInTime
     class ExportTableToPointInTime
-
       def self.default(visited=[])
         {
           export_description: Stubs::ExportDescription.default(visited),
@@ -1628,7 +1553,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for GetItem
     class GetItem
-
       def self.default(visited=[])
         {
           item: Stubs::AttributeMap.default(visited),
@@ -1640,7 +1564,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for ListBackups
     class ListBackups
-
       def self.default(visited=[])
         {
           backup_summaries: Stubs::BackupSummaries.default(visited),
@@ -1664,7 +1587,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for BackupSummary
     class BackupSummary
-
       def self.default(visited=[])
         return nil if visited.include?('BackupSummary')
         visited = visited + ['BackupSummary']
@@ -1686,7 +1608,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for ListContributorInsights
     class ListContributorInsights
-
       def self.default(visited=[])
         {
           contributor_insights_summaries: Stubs::ContributorInsightsSummaries.default(visited),
@@ -1710,7 +1631,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ContributorInsightsSummary
     class ContributorInsightsSummary
-
       def self.default(visited=[])
         return nil if visited.include?('ContributorInsightsSummary')
         visited = visited + ['ContributorInsightsSummary']
@@ -1725,7 +1645,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for ListExports
     class ListExports
-
       def self.default(visited=[])
         {
           export_summaries: Stubs::ExportSummaries.default(visited),
@@ -1749,7 +1668,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for ExportSummary
     class ExportSummary
-
       def self.default(visited=[])
         return nil if visited.include?('ExportSummary')
         visited = visited + ['ExportSummary']
@@ -1763,7 +1681,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for ListGlobalTables
     class ListGlobalTables
-
       def self.default(visited=[])
         {
           global_tables: Stubs::GlobalTableList.default(visited),
@@ -1787,7 +1704,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for GlobalTable
     class GlobalTable
-
       def self.default(visited=[])
         return nil if visited.include?('GlobalTable')
         visited = visited + ['GlobalTable']
@@ -1813,7 +1729,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for Replica
     class Replica
-
       def self.default(visited=[])
         return nil if visited.include?('Replica')
         visited = visited + ['Replica']
@@ -1826,7 +1741,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for ListTables
     class ListTables
-
       def self.default(visited=[])
         {
           table_names: Stubs::TableNameList.default(visited),
@@ -1850,7 +1764,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for ListTagsOfResource
     class ListTagsOfResource
-
       def self.default(visited=[])
         {
           tags: Stubs::TagList.default(visited),
@@ -1874,7 +1787,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for Tag
     class Tag
-
       def self.default(visited=[])
         return nil if visited.include?('Tag')
         visited = visited + ['Tag']
@@ -1888,7 +1800,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for PutItem
     class PutItem
-
       def self.default(visited=[])
         {
           attributes: Stubs::AttributeMap.default(visited),
@@ -1901,7 +1812,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for Query
     class Query
-
       def self.default(visited=[])
         {
           items: Stubs::ItemList.default(visited),
@@ -1916,7 +1826,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for RestoreTableFromBackup
     class RestoreTableFromBackup
-
       def self.default(visited=[])
         {
           table_description: Stubs::TableDescription.default(visited),
@@ -1927,7 +1836,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for RestoreTableToPointInTime
     class RestoreTableToPointInTime
-
       def self.default(visited=[])
         {
           table_description: Stubs::TableDescription.default(visited),
@@ -1938,7 +1846,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for Scan
     class Scan
-
       def self.default(visited=[])
         {
           items: Stubs::ItemList.default(visited),
@@ -1953,7 +1860,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for TagResource
     class TagResource
-
       def self.default(visited=[])
         {
         }
@@ -1963,7 +1869,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for TransactGetItems
     class TransactGetItems
-
       def self.default(visited=[])
         {
           consumed_capacity: Stubs::ConsumedCapacityMultiple.default(visited),
@@ -1975,7 +1880,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for TransactWriteItems
     class TransactWriteItems
-
       def self.default(visited=[])
         {
           consumed_capacity: Stubs::ConsumedCapacityMultiple.default(visited),
@@ -1987,7 +1891,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for UntagResource
     class UntagResource
-
       def self.default(visited=[])
         {
         }
@@ -1997,7 +1900,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for UpdateContinuousBackups
     class UpdateContinuousBackups
-
       def self.default(visited=[])
         {
           continuous_backups_description: Stubs::ContinuousBackupsDescription.default(visited),
@@ -2008,7 +1910,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for UpdateContributorInsights
     class UpdateContributorInsights
-
       def self.default(visited=[])
         {
           table_name: 'table_name',
@@ -2021,7 +1922,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for UpdateGlobalTable
     class UpdateGlobalTable
-
       def self.default(visited=[])
         {
           global_table_description: Stubs::GlobalTableDescription.default(visited),
@@ -2032,7 +1932,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for UpdateGlobalTableSettings
     class UpdateGlobalTableSettings
-
       def self.default(visited=[])
         {
           global_table_name: 'global_table_name',
@@ -2044,7 +1943,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for UpdateItem
     class UpdateItem
-
       def self.default(visited=[])
         {
           attributes: Stubs::AttributeMap.default(visited),
@@ -2057,7 +1955,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for UpdateTable
     class UpdateTable
-
       def self.default(visited=[])
         {
           table_description: Stubs::TableDescription.default(visited),
@@ -2068,7 +1965,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for UpdateTableReplicaAutoScaling
     class UpdateTableReplicaAutoScaling
-
       def self.default(visited=[])
         {
           table_auto_scaling_description: Stubs::TableAutoScalingDescription.default(visited),
@@ -2079,7 +1975,6 @@ module AWS::Dynamodb
 
     # Operation Stubber for UpdateTimeToLive
     class UpdateTimeToLive
-
       def self.default(visited=[])
         {
           time_to_live_specification: Stubs::TimeToLiveSpecification.default(visited),
@@ -2090,7 +1985,6 @@ module AWS::Dynamodb
 
     # Structure Stubber for TimeToLiveSpecification
     class TimeToLiveSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('TimeToLiveSpecification')
         visited = visited + ['TimeToLiveSpecification']

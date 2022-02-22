@@ -12,7 +12,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for AssociateAlias
     class AssociateAlias
-
       def self.default(visited=[])
         {
         }
@@ -26,7 +25,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateCachePolicy
     class CreateCachePolicy
-
       def self.default(visited=[])
         {
           cache_policy: Stubs::CachePolicy.default(visited),
@@ -45,7 +43,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CachePolicy
     class CachePolicy
-
       def self.default(visited=[])
         return nil if visited.include?('CachePolicy')
         visited = visited + ['CachePolicy']
@@ -60,7 +57,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CachePolicyConfig
     class CachePolicyConfig
-
       def self.default(visited=[])
         return nil if visited.include?('CachePolicyConfig')
         visited = visited + ['CachePolicyConfig']
@@ -78,7 +74,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ParametersInCacheKeyAndForwardedToOrigin
     class ParametersInCacheKeyAndForwardedToOrigin
-
       def self.default(visited=[])
         return nil if visited.include?('ParametersInCacheKeyAndForwardedToOrigin')
         visited = visited + ['ParametersInCacheKeyAndForwardedToOrigin']
@@ -95,7 +90,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CachePolicyQueryStringsConfig
     class CachePolicyQueryStringsConfig
-
       def self.default(visited=[])
         return nil if visited.include?('CachePolicyQueryStringsConfig')
         visited = visited + ['CachePolicyQueryStringsConfig']
@@ -109,7 +103,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for QueryStringNames
     class QueryStringNames
-
       def self.default(visited=[])
         return nil if visited.include?('QueryStringNames')
         visited = visited + ['QueryStringNames']
@@ -135,7 +128,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CachePolicyCookiesConfig
     class CachePolicyCookiesConfig
-
       def self.default(visited=[])
         return nil if visited.include?('CachePolicyCookiesConfig')
         visited = visited + ['CachePolicyCookiesConfig']
@@ -149,7 +141,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CookieNames
     class CookieNames
-
       def self.default(visited=[])
         return nil if visited.include?('CookieNames')
         visited = visited + ['CookieNames']
@@ -175,7 +166,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CachePolicyHeadersConfig
     class CachePolicyHeadersConfig
-
       def self.default(visited=[])
         return nil if visited.include?('CachePolicyHeadersConfig')
         visited = visited + ['CachePolicyHeadersConfig']
@@ -189,7 +179,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for Headers
     class Headers
-
       def self.default(visited=[])
         return nil if visited.include?('Headers')
         visited = visited + ['Headers']
@@ -215,7 +204,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateCloudFrontOriginAccessIdentity
     class CreateCloudFrontOriginAccessIdentity
-
       def self.default(visited=[])
         {
           cloud_front_origin_access_identity: Stubs::CloudFrontOriginAccessIdentity.default(visited),
@@ -234,7 +222,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CloudFrontOriginAccessIdentity
     class CloudFrontOriginAccessIdentity
-
       def self.default(visited=[])
         return nil if visited.include?('CloudFrontOriginAccessIdentity')
         visited = visited + ['CloudFrontOriginAccessIdentity']
@@ -249,7 +236,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CloudFrontOriginAccessIdentityConfig
     class CloudFrontOriginAccessIdentityConfig
-
       def self.default(visited=[])
         return nil if visited.include?('CloudFrontOriginAccessIdentityConfig')
         visited = visited + ['CloudFrontOriginAccessIdentityConfig']
@@ -263,7 +249,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateDistribution
     class CreateDistribution
-
       def self.default(visited=[])
         {
           distribution: Stubs::Distribution.default(visited),
@@ -282,7 +267,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for Distribution
     class Distribution
-
       def self.default(visited=[])
         return nil if visited.include?('Distribution')
         visited = visited + ['Distribution']
@@ -316,7 +300,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for AliasICPRecordal
     class AliasICPRecordal
-
       def self.default(visited=[])
         return nil if visited.include?('AliasICPRecordal')
         visited = visited + ['AliasICPRecordal']
@@ -330,7 +313,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for DistributionConfig
     class DistributionConfig
-
       def self.default(visited=[])
         return nil if visited.include?('DistributionConfig')
         visited = visited + ['DistributionConfig']
@@ -359,7 +341,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for Restrictions
     class Restrictions
-
       def self.default(visited=[])
         return nil if visited.include?('Restrictions')
         visited = visited + ['Restrictions']
@@ -372,7 +353,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for GeoRestriction
     class GeoRestriction
-
       def self.default(visited=[])
         return nil if visited.include?('GeoRestriction')
         visited = visited + ['GeoRestriction']
@@ -399,7 +379,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ViewerCertificate
     class ViewerCertificate
-
       def self.default(visited=[])
         return nil if visited.include?('ViewerCertificate')
         visited = visited + ['ViewerCertificate']
@@ -418,7 +397,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for LoggingConfig
     class LoggingConfig
-
       def self.default(visited=[])
         return nil if visited.include?('LoggingConfig')
         visited = visited + ['LoggingConfig']
@@ -434,7 +412,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CustomErrorResponses
     class CustomErrorResponses
-
       def self.default(visited=[])
         return nil if visited.include?('CustomErrorResponses')
         visited = visited + ['CustomErrorResponses']
@@ -460,7 +437,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CustomErrorResponse
     class CustomErrorResponse
-
       def self.default(visited=[])
         return nil if visited.include?('CustomErrorResponse')
         visited = visited + ['CustomErrorResponse']
@@ -476,7 +452,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CacheBehaviors
     class CacheBehaviors
-
       def self.default(visited=[])
         return nil if visited.include?('CacheBehaviors')
         visited = visited + ['CacheBehaviors']
@@ -502,7 +477,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CacheBehavior
     class CacheBehavior
-
       def self.default(visited=[])
         return nil if visited.include?('CacheBehavior')
         visited = visited + ['CacheBehavior']
@@ -533,7 +507,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ForwardedValues
     class ForwardedValues
-
       def self.default(visited=[])
         return nil if visited.include?('ForwardedValues')
         visited = visited + ['ForwardedValues']
@@ -549,7 +522,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for QueryStringCacheKeys
     class QueryStringCacheKeys
-
       def self.default(visited=[])
         return nil if visited.include?('QueryStringCacheKeys')
         visited = visited + ['QueryStringCacheKeys']
@@ -575,7 +547,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CookiePreference
     class CookiePreference
-
       def self.default(visited=[])
         return nil if visited.include?('CookiePreference')
         visited = visited + ['CookiePreference']
@@ -589,7 +560,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FunctionAssociations
     class FunctionAssociations
-
       def self.default(visited=[])
         return nil if visited.include?('FunctionAssociations')
         visited = visited + ['FunctionAssociations']
@@ -615,7 +585,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FunctionAssociation
     class FunctionAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('FunctionAssociation')
         visited = visited + ['FunctionAssociation']
@@ -629,7 +598,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for LambdaFunctionAssociations
     class LambdaFunctionAssociations
-
       def self.default(visited=[])
         return nil if visited.include?('LambdaFunctionAssociations')
         visited = visited + ['LambdaFunctionAssociations']
@@ -655,7 +623,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for LambdaFunctionAssociation
     class LambdaFunctionAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('LambdaFunctionAssociation')
         visited = visited + ['LambdaFunctionAssociation']
@@ -670,7 +637,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for AllowedMethods
     class AllowedMethods
-
       def self.default(visited=[])
         return nil if visited.include?('AllowedMethods')
         visited = visited + ['AllowedMethods']
@@ -685,7 +651,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CachedMethods
     class CachedMethods
-
       def self.default(visited=[])
         return nil if visited.include?('CachedMethods')
         visited = visited + ['CachedMethods']
@@ -711,7 +676,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for TrustedKeyGroups
     class TrustedKeyGroups
-
       def self.default(visited=[])
         return nil if visited.include?('TrustedKeyGroups')
         visited = visited + ['TrustedKeyGroups']
@@ -738,7 +702,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for TrustedSigners
     class TrustedSigners
-
       def self.default(visited=[])
         return nil if visited.include?('TrustedSigners')
         visited = visited + ['TrustedSigners']
@@ -765,7 +728,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for DefaultCacheBehavior
     class DefaultCacheBehavior
-
       def self.default(visited=[])
         return nil if visited.include?('DefaultCacheBehavior')
         visited = visited + ['DefaultCacheBehavior']
@@ -795,7 +757,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginGroups
     class OriginGroups
-
       def self.default(visited=[])
         return nil if visited.include?('OriginGroups')
         visited = visited + ['OriginGroups']
@@ -821,7 +782,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginGroup
     class OriginGroup
-
       def self.default(visited=[])
         return nil if visited.include?('OriginGroup')
         visited = visited + ['OriginGroup']
@@ -836,7 +796,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginGroupMembers
     class OriginGroupMembers
-
       def self.default(visited=[])
         return nil if visited.include?('OriginGroupMembers')
         visited = visited + ['OriginGroupMembers']
@@ -862,7 +821,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginGroupMember
     class OriginGroupMember
-
       def self.default(visited=[])
         return nil if visited.include?('OriginGroupMember')
         visited = visited + ['OriginGroupMember']
@@ -875,7 +833,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginGroupFailoverCriteria
     class OriginGroupFailoverCriteria
-
       def self.default(visited=[])
         return nil if visited.include?('OriginGroupFailoverCriteria')
         visited = visited + ['OriginGroupFailoverCriteria']
@@ -888,7 +845,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for StatusCodes
     class StatusCodes
-
       def self.default(visited=[])
         return nil if visited.include?('StatusCodes')
         visited = visited + ['StatusCodes']
@@ -914,7 +870,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for Origins
     class Origins
-
       def self.default(visited=[])
         return nil if visited.include?('Origins')
         visited = visited + ['Origins']
@@ -940,7 +895,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for Origin
     class Origin
-
       def self.default(visited=[])
         return nil if visited.include?('Origin')
         visited = visited + ['Origin']
@@ -961,7 +915,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginShield
     class OriginShield
-
       def self.default(visited=[])
         return nil if visited.include?('OriginShield')
         visited = visited + ['OriginShield']
@@ -975,7 +928,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CustomOriginConfig
     class CustomOriginConfig
-
       def self.default(visited=[])
         return nil if visited.include?('CustomOriginConfig')
         visited = visited + ['CustomOriginConfig']
@@ -993,7 +945,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginSslProtocols
     class OriginSslProtocols
-
       def self.default(visited=[])
         return nil if visited.include?('OriginSslProtocols')
         visited = visited + ['OriginSslProtocols']
@@ -1019,7 +970,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for S3OriginConfig
     class S3OriginConfig
-
       def self.default(visited=[])
         return nil if visited.include?('S3OriginConfig')
         visited = visited + ['S3OriginConfig']
@@ -1032,7 +982,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CustomHeaders
     class CustomHeaders
-
       def self.default(visited=[])
         return nil if visited.include?('CustomHeaders')
         visited = visited + ['CustomHeaders']
@@ -1058,7 +1007,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginCustomHeader
     class OriginCustomHeader
-
       def self.default(visited=[])
         return nil if visited.include?('OriginCustomHeader')
         visited = visited + ['OriginCustomHeader']
@@ -1072,7 +1020,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for Aliases
     class Aliases
-
       def self.default(visited=[])
         return nil if visited.include?('Aliases')
         visited = visited + ['Aliases']
@@ -1098,7 +1045,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ActiveTrustedKeyGroups
     class ActiveTrustedKeyGroups
-
       def self.default(visited=[])
         return nil if visited.include?('ActiveTrustedKeyGroups')
         visited = visited + ['ActiveTrustedKeyGroups']
@@ -1125,7 +1071,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for KGKeyPairIds
     class KGKeyPairIds
-
       def self.default(visited=[])
         return nil if visited.include?('KGKeyPairIds')
         visited = visited + ['KGKeyPairIds']
@@ -1139,7 +1084,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for KeyPairIds
     class KeyPairIds
-
       def self.default(visited=[])
         return nil if visited.include?('KeyPairIds')
         visited = visited + ['KeyPairIds']
@@ -1165,7 +1109,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ActiveTrustedSigners
     class ActiveTrustedSigners
-
       def self.default(visited=[])
         return nil if visited.include?('ActiveTrustedSigners')
         visited = visited + ['ActiveTrustedSigners']
@@ -1192,7 +1135,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for Signer
     class Signer
-
       def self.default(visited=[])
         return nil if visited.include?('Signer')
         visited = visited + ['Signer']
@@ -1206,7 +1148,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateDistributionWithTags
     class CreateDistributionWithTags
-
       def self.default(visited=[])
         {
           distribution: Stubs::Distribution.default(visited),
@@ -1225,7 +1166,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateFieldLevelEncryptionConfig
     class CreateFieldLevelEncryptionConfig
-
       def self.default(visited=[])
         {
           field_level_encryption: Stubs::FieldLevelEncryption.default(visited),
@@ -1244,7 +1184,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FieldLevelEncryption
     class FieldLevelEncryption
-
       def self.default(visited=[])
         return nil if visited.include?('FieldLevelEncryption')
         visited = visited + ['FieldLevelEncryption']
@@ -1259,7 +1198,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FieldLevelEncryptionConfig
     class FieldLevelEncryptionConfig
-
       def self.default(visited=[])
         return nil if visited.include?('FieldLevelEncryptionConfig')
         visited = visited + ['FieldLevelEncryptionConfig']
@@ -1275,7 +1213,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ContentTypeProfileConfig
     class ContentTypeProfileConfig
-
       def self.default(visited=[])
         return nil if visited.include?('ContentTypeProfileConfig')
         visited = visited + ['ContentTypeProfileConfig']
@@ -1289,7 +1226,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ContentTypeProfiles
     class ContentTypeProfiles
-
       def self.default(visited=[])
         return nil if visited.include?('ContentTypeProfiles')
         visited = visited + ['ContentTypeProfiles']
@@ -1315,7 +1251,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ContentTypeProfile
     class ContentTypeProfile
-
       def self.default(visited=[])
         return nil if visited.include?('ContentTypeProfile')
         visited = visited + ['ContentTypeProfile']
@@ -1330,7 +1265,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for QueryArgProfileConfig
     class QueryArgProfileConfig
-
       def self.default(visited=[])
         return nil if visited.include?('QueryArgProfileConfig')
         visited = visited + ['QueryArgProfileConfig']
@@ -1344,7 +1278,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for QueryArgProfiles
     class QueryArgProfiles
-
       def self.default(visited=[])
         return nil if visited.include?('QueryArgProfiles')
         visited = visited + ['QueryArgProfiles']
@@ -1370,7 +1303,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for QueryArgProfile
     class QueryArgProfile
-
       def self.default(visited=[])
         return nil if visited.include?('QueryArgProfile')
         visited = visited + ['QueryArgProfile']
@@ -1384,7 +1316,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateFieldLevelEncryptionProfile
     class CreateFieldLevelEncryptionProfile
-
       def self.default(visited=[])
         {
           field_level_encryption_profile: Stubs::FieldLevelEncryptionProfile.default(visited),
@@ -1403,7 +1334,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FieldLevelEncryptionProfile
     class FieldLevelEncryptionProfile
-
       def self.default(visited=[])
         return nil if visited.include?('FieldLevelEncryptionProfile')
         visited = visited + ['FieldLevelEncryptionProfile']
@@ -1418,7 +1348,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FieldLevelEncryptionProfileConfig
     class FieldLevelEncryptionProfileConfig
-
       def self.default(visited=[])
         return nil if visited.include?('FieldLevelEncryptionProfileConfig')
         visited = visited + ['FieldLevelEncryptionProfileConfig']
@@ -1434,7 +1363,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for EncryptionEntities
     class EncryptionEntities
-
       def self.default(visited=[])
         return nil if visited.include?('EncryptionEntities')
         visited = visited + ['EncryptionEntities']
@@ -1460,7 +1388,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for EncryptionEntity
     class EncryptionEntity
-
       def self.default(visited=[])
         return nil if visited.include?('EncryptionEntity')
         visited = visited + ['EncryptionEntity']
@@ -1475,7 +1402,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FieldPatterns
     class FieldPatterns
-
       def self.default(visited=[])
         return nil if visited.include?('FieldPatterns')
         visited = visited + ['FieldPatterns']
@@ -1501,7 +1427,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateFunction
     class CreateFunction
-
       def self.default(visited=[])
         {
           function_summary: Stubs::FunctionSummary.default(visited),
@@ -1520,7 +1445,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FunctionSummary
     class FunctionSummary
-
       def self.default(visited=[])
         return nil if visited.include?('FunctionSummary')
         visited = visited + ['FunctionSummary']
@@ -1536,7 +1460,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FunctionMetadata
     class FunctionMetadata
-
       def self.default(visited=[])
         return nil if visited.include?('FunctionMetadata')
         visited = visited + ['FunctionMetadata']
@@ -1552,7 +1475,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FunctionConfig
     class FunctionConfig
-
       def self.default(visited=[])
         return nil if visited.include?('FunctionConfig')
         visited = visited + ['FunctionConfig']
@@ -1566,7 +1488,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateInvalidation
     class CreateInvalidation
-
       def self.default(visited=[])
         {
           location: 'location',
@@ -1583,7 +1504,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for Invalidation
     class Invalidation
-
       def self.default(visited=[])
         return nil if visited.include?('Invalidation')
         visited = visited + ['Invalidation']
@@ -1599,7 +1519,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for InvalidationBatch
     class InvalidationBatch
-
       def self.default(visited=[])
         return nil if visited.include?('InvalidationBatch')
         visited = visited + ['InvalidationBatch']
@@ -1613,7 +1532,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for Paths
     class Paths
-
       def self.default(visited=[])
         return nil if visited.include?('Paths')
         visited = visited + ['Paths']
@@ -1639,7 +1557,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateKeyGroup
     class CreateKeyGroup
-
       def self.default(visited=[])
         {
           key_group: Stubs::KeyGroup.default(visited),
@@ -1658,7 +1575,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for KeyGroup
     class KeyGroup
-
       def self.default(visited=[])
         return nil if visited.include?('KeyGroup')
         visited = visited + ['KeyGroup']
@@ -1673,7 +1589,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for KeyGroupConfig
     class KeyGroupConfig
-
       def self.default(visited=[])
         return nil if visited.include?('KeyGroupConfig')
         visited = visited + ['KeyGroupConfig']
@@ -1700,7 +1615,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateMonitoringSubscription
     class CreateMonitoringSubscription
-
       def self.default(visited=[])
         {
           monitoring_subscription: Stubs::MonitoringSubscription.default(visited),
@@ -1715,7 +1629,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for MonitoringSubscription
     class MonitoringSubscription
-
       def self.default(visited=[])
         return nil if visited.include?('MonitoringSubscription')
         visited = visited + ['MonitoringSubscription']
@@ -1728,7 +1641,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for RealtimeMetricsSubscriptionConfig
     class RealtimeMetricsSubscriptionConfig
-
       def self.default(visited=[])
         return nil if visited.include?('RealtimeMetricsSubscriptionConfig')
         visited = visited + ['RealtimeMetricsSubscriptionConfig']
@@ -1741,7 +1653,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateOriginRequestPolicy
     class CreateOriginRequestPolicy
-
       def self.default(visited=[])
         {
           origin_request_policy: Stubs::OriginRequestPolicy.default(visited),
@@ -1760,7 +1671,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginRequestPolicy
     class OriginRequestPolicy
-
       def self.default(visited=[])
         return nil if visited.include?('OriginRequestPolicy')
         visited = visited + ['OriginRequestPolicy']
@@ -1775,7 +1685,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginRequestPolicyConfig
     class OriginRequestPolicyConfig
-
       def self.default(visited=[])
         return nil if visited.include?('OriginRequestPolicyConfig')
         visited = visited + ['OriginRequestPolicyConfig']
@@ -1792,7 +1701,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginRequestPolicyQueryStringsConfig
     class OriginRequestPolicyQueryStringsConfig
-
       def self.default(visited=[])
         return nil if visited.include?('OriginRequestPolicyQueryStringsConfig')
         visited = visited + ['OriginRequestPolicyQueryStringsConfig']
@@ -1806,7 +1714,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginRequestPolicyCookiesConfig
     class OriginRequestPolicyCookiesConfig
-
       def self.default(visited=[])
         return nil if visited.include?('OriginRequestPolicyCookiesConfig')
         visited = visited + ['OriginRequestPolicyCookiesConfig']
@@ -1820,7 +1727,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginRequestPolicyHeadersConfig
     class OriginRequestPolicyHeadersConfig
-
       def self.default(visited=[])
         return nil if visited.include?('OriginRequestPolicyHeadersConfig')
         visited = visited + ['OriginRequestPolicyHeadersConfig']
@@ -1834,7 +1740,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreatePublicKey
     class CreatePublicKey
-
       def self.default(visited=[])
         {
           public_key: Stubs::PublicKey.default(visited),
@@ -1853,7 +1758,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for PublicKey
     class PublicKey
-
       def self.default(visited=[])
         return nil if visited.include?('PublicKey')
         visited = visited + ['PublicKey']
@@ -1868,7 +1772,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for PublicKeyConfig
     class PublicKeyConfig
-
       def self.default(visited=[])
         return nil if visited.include?('PublicKeyConfig')
         visited = visited + ['PublicKeyConfig']
@@ -1884,7 +1787,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateRealtimeLogConfig
     class CreateRealtimeLogConfig
-
       def self.default(visited=[])
         {
           realtime_log_config: Stubs::RealtimeLogConfig.default(visited),
@@ -1899,7 +1801,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for RealtimeLogConfig
     class RealtimeLogConfig
-
       def self.default(visited=[])
         return nil if visited.include?('RealtimeLogConfig')
         visited = visited + ['RealtimeLogConfig']
@@ -1940,7 +1841,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for EndPoint
     class EndPoint
-
       def self.default(visited=[])
         return nil if visited.include?('EndPoint')
         visited = visited + ['EndPoint']
@@ -1954,7 +1854,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for KinesisStreamConfig
     class KinesisStreamConfig
-
       def self.default(visited=[])
         return nil if visited.include?('KinesisStreamConfig')
         visited = visited + ['KinesisStreamConfig']
@@ -1968,7 +1867,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateResponseHeadersPolicy
     class CreateResponseHeadersPolicy
-
       def self.default(visited=[])
         {
           response_headers_policy: Stubs::ResponseHeadersPolicy.default(visited),
@@ -1987,7 +1885,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicy
     class ResponseHeadersPolicy
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicy')
         visited = visited + ['ResponseHeadersPolicy']
@@ -2002,7 +1899,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyConfig
     class ResponseHeadersPolicyConfig
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyConfig')
         visited = visited + ['ResponseHeadersPolicyConfig']
@@ -2019,7 +1915,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyCustomHeadersConfig
     class ResponseHeadersPolicyCustomHeadersConfig
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyCustomHeadersConfig')
         visited = visited + ['ResponseHeadersPolicyCustomHeadersConfig']
@@ -2045,7 +1940,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyCustomHeader
     class ResponseHeadersPolicyCustomHeader
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyCustomHeader')
         visited = visited + ['ResponseHeadersPolicyCustomHeader']
@@ -2060,7 +1954,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicySecurityHeadersConfig
     class ResponseHeadersPolicySecurityHeadersConfig
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicySecurityHeadersConfig')
         visited = visited + ['ResponseHeadersPolicySecurityHeadersConfig']
@@ -2078,7 +1971,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyStrictTransportSecurity
     class ResponseHeadersPolicyStrictTransportSecurity
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyStrictTransportSecurity')
         visited = visited + ['ResponseHeadersPolicyStrictTransportSecurity']
@@ -2094,7 +1986,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyContentTypeOptions
     class ResponseHeadersPolicyContentTypeOptions
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyContentTypeOptions')
         visited = visited + ['ResponseHeadersPolicyContentTypeOptions']
@@ -2107,7 +1998,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyContentSecurityPolicy
     class ResponseHeadersPolicyContentSecurityPolicy
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyContentSecurityPolicy')
         visited = visited + ['ResponseHeadersPolicyContentSecurityPolicy']
@@ -2121,7 +2011,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyReferrerPolicy
     class ResponseHeadersPolicyReferrerPolicy
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyReferrerPolicy')
         visited = visited + ['ResponseHeadersPolicyReferrerPolicy']
@@ -2135,7 +2024,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyFrameOptions
     class ResponseHeadersPolicyFrameOptions
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyFrameOptions')
         visited = visited + ['ResponseHeadersPolicyFrameOptions']
@@ -2149,7 +2037,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyXSSProtection
     class ResponseHeadersPolicyXSSProtection
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyXSSProtection')
         visited = visited + ['ResponseHeadersPolicyXSSProtection']
@@ -2165,7 +2052,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyCorsConfig
     class ResponseHeadersPolicyCorsConfig
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyCorsConfig')
         visited = visited + ['ResponseHeadersPolicyCorsConfig']
@@ -2184,7 +2070,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyAccessControlExposeHeaders
     class ResponseHeadersPolicyAccessControlExposeHeaders
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyAccessControlExposeHeaders')
         visited = visited + ['ResponseHeadersPolicyAccessControlExposeHeaders']
@@ -2210,7 +2095,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyAccessControlAllowMethods
     class ResponseHeadersPolicyAccessControlAllowMethods
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyAccessControlAllowMethods')
         visited = visited + ['ResponseHeadersPolicyAccessControlAllowMethods']
@@ -2236,7 +2120,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyAccessControlAllowHeaders
     class ResponseHeadersPolicyAccessControlAllowHeaders
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyAccessControlAllowHeaders')
         visited = visited + ['ResponseHeadersPolicyAccessControlAllowHeaders']
@@ -2262,7 +2145,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyAccessControlAllowOrigins
     class ResponseHeadersPolicyAccessControlAllowOrigins
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyAccessControlAllowOrigins')
         visited = visited + ['ResponseHeadersPolicyAccessControlAllowOrigins']
@@ -2288,7 +2170,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateStreamingDistribution
     class CreateStreamingDistribution
-
       def self.default(visited=[])
         {
           streaming_distribution: Stubs::StreamingDistribution.default(visited),
@@ -2307,7 +2188,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for StreamingDistribution
     class StreamingDistribution
-
       def self.default(visited=[])
         return nil if visited.include?('StreamingDistribution')
         visited = visited + ['StreamingDistribution']
@@ -2326,7 +2206,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for StreamingDistributionConfig
     class StreamingDistributionConfig
-
       def self.default(visited=[])
         return nil if visited.include?('StreamingDistributionConfig')
         visited = visited + ['StreamingDistributionConfig']
@@ -2346,7 +2225,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for StreamingLoggingConfig
     class StreamingLoggingConfig
-
       def self.default(visited=[])
         return nil if visited.include?('StreamingLoggingConfig')
         visited = visited + ['StreamingLoggingConfig']
@@ -2361,7 +2239,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for S3Origin
     class S3Origin
-
       def self.default(visited=[])
         return nil if visited.include?('S3Origin')
         visited = visited + ['S3Origin']
@@ -2375,7 +2252,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for CreateStreamingDistributionWithTags
     class CreateStreamingDistributionWithTags
-
       def self.default(visited=[])
         {
           streaming_distribution: Stubs::StreamingDistribution.default(visited),
@@ -2394,7 +2270,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for DeleteCachePolicy
     class DeleteCachePolicy
-
       def self.default(visited=[])
         {
         }
@@ -2408,7 +2283,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for DeleteCloudFrontOriginAccessIdentity
     class DeleteCloudFrontOriginAccessIdentity
-
       def self.default(visited=[])
         {
         }
@@ -2422,7 +2296,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for DeleteDistribution
     class DeleteDistribution
-
       def self.default(visited=[])
         {
         }
@@ -2436,7 +2309,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for DeleteFieldLevelEncryptionConfig
     class DeleteFieldLevelEncryptionConfig
-
       def self.default(visited=[])
         {
         }
@@ -2450,7 +2322,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for DeleteFieldLevelEncryptionProfile
     class DeleteFieldLevelEncryptionProfile
-
       def self.default(visited=[])
         {
         }
@@ -2464,7 +2335,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for DeleteFunction
     class DeleteFunction
-
       def self.default(visited=[])
         {
         }
@@ -2478,7 +2348,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for DeleteKeyGroup
     class DeleteKeyGroup
-
       def self.default(visited=[])
         {
         }
@@ -2492,7 +2361,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for DeleteMonitoringSubscription
     class DeleteMonitoringSubscription
-
       def self.default(visited=[])
         {
         }
@@ -2506,7 +2374,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for DeleteOriginRequestPolicy
     class DeleteOriginRequestPolicy
-
       def self.default(visited=[])
         {
         }
@@ -2520,7 +2387,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for DeletePublicKey
     class DeletePublicKey
-
       def self.default(visited=[])
         {
         }
@@ -2534,7 +2400,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for DeleteRealtimeLogConfig
     class DeleteRealtimeLogConfig
-
       def self.default(visited=[])
         {
         }
@@ -2548,7 +2413,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for DeleteResponseHeadersPolicy
     class DeleteResponseHeadersPolicy
-
       def self.default(visited=[])
         {
         }
@@ -2562,7 +2426,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for DeleteStreamingDistribution
     class DeleteStreamingDistribution
-
       def self.default(visited=[])
         {
         }
@@ -2576,7 +2439,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for DescribeFunction
     class DescribeFunction
-
       def self.default(visited=[])
         {
           function_summary: Stubs::FunctionSummary.default(visited),
@@ -2593,7 +2455,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetCachePolicy
     class GetCachePolicy
-
       def self.default(visited=[])
         {
           cache_policy: Stubs::CachePolicy.default(visited),
@@ -2610,7 +2471,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetCachePolicyConfig
     class GetCachePolicyConfig
-
       def self.default(visited=[])
         {
           cache_policy_config: Stubs::CachePolicyConfig.default(visited),
@@ -2627,7 +2487,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetCloudFrontOriginAccessIdentity
     class GetCloudFrontOriginAccessIdentity
-
       def self.default(visited=[])
         {
           cloud_front_origin_access_identity: Stubs::CloudFrontOriginAccessIdentity.default(visited),
@@ -2644,7 +2503,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetCloudFrontOriginAccessIdentityConfig
     class GetCloudFrontOriginAccessIdentityConfig
-
       def self.default(visited=[])
         {
           cloud_front_origin_access_identity_config: Stubs::CloudFrontOriginAccessIdentityConfig.default(visited),
@@ -2661,7 +2519,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetDistribution
     class GetDistribution
-
       def self.default(visited=[])
         {
           distribution: Stubs::Distribution.default(visited),
@@ -2678,7 +2535,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetDistributionConfig
     class GetDistributionConfig
-
       def self.default(visited=[])
         {
           distribution_config: Stubs::DistributionConfig.default(visited),
@@ -2695,7 +2551,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetFieldLevelEncryption
     class GetFieldLevelEncryption
-
       def self.default(visited=[])
         {
           field_level_encryption: Stubs::FieldLevelEncryption.default(visited),
@@ -2712,7 +2567,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetFieldLevelEncryptionConfig
     class GetFieldLevelEncryptionConfig
-
       def self.default(visited=[])
         {
           field_level_encryption_config: Stubs::FieldLevelEncryptionConfig.default(visited),
@@ -2729,7 +2583,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetFieldLevelEncryptionProfile
     class GetFieldLevelEncryptionProfile
-
       def self.default(visited=[])
         {
           field_level_encryption_profile: Stubs::FieldLevelEncryptionProfile.default(visited),
@@ -2746,7 +2599,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetFieldLevelEncryptionProfileConfig
     class GetFieldLevelEncryptionProfileConfig
-
       def self.default(visited=[])
         {
           field_level_encryption_profile_config: Stubs::FieldLevelEncryptionProfileConfig.default(visited),
@@ -2763,7 +2615,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetFunction
     class GetFunction
-
       def self.default(visited=[])
         {
           function_code: 'function_code',
@@ -2782,7 +2633,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetInvalidation
     class GetInvalidation
-
       def self.default(visited=[])
         {
           invalidation: Stubs::Invalidation.default(visited),
@@ -2797,7 +2647,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetKeyGroup
     class GetKeyGroup
-
       def self.default(visited=[])
         {
           key_group: Stubs::KeyGroup.default(visited),
@@ -2814,7 +2663,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetKeyGroupConfig
     class GetKeyGroupConfig
-
       def self.default(visited=[])
         {
           key_group_config: Stubs::KeyGroupConfig.default(visited),
@@ -2831,7 +2679,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetMonitoringSubscription
     class GetMonitoringSubscription
-
       def self.default(visited=[])
         {
           monitoring_subscription: Stubs::MonitoringSubscription.default(visited),
@@ -2846,7 +2693,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetOriginRequestPolicy
     class GetOriginRequestPolicy
-
       def self.default(visited=[])
         {
           origin_request_policy: Stubs::OriginRequestPolicy.default(visited),
@@ -2863,7 +2709,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetOriginRequestPolicyConfig
     class GetOriginRequestPolicyConfig
-
       def self.default(visited=[])
         {
           origin_request_policy_config: Stubs::OriginRequestPolicyConfig.default(visited),
@@ -2880,7 +2725,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetPublicKey
     class GetPublicKey
-
       def self.default(visited=[])
         {
           public_key: Stubs::PublicKey.default(visited),
@@ -2897,7 +2741,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetPublicKeyConfig
     class GetPublicKeyConfig
-
       def self.default(visited=[])
         {
           public_key_config: Stubs::PublicKeyConfig.default(visited),
@@ -2914,7 +2757,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetRealtimeLogConfig
     class GetRealtimeLogConfig
-
       def self.default(visited=[])
         {
           realtime_log_config: Stubs::RealtimeLogConfig.default(visited),
@@ -2929,7 +2771,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetResponseHeadersPolicy
     class GetResponseHeadersPolicy
-
       def self.default(visited=[])
         {
           response_headers_policy: Stubs::ResponseHeadersPolicy.default(visited),
@@ -2946,7 +2787,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetResponseHeadersPolicyConfig
     class GetResponseHeadersPolicyConfig
-
       def self.default(visited=[])
         {
           response_headers_policy_config: Stubs::ResponseHeadersPolicyConfig.default(visited),
@@ -2963,7 +2803,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetStreamingDistribution
     class GetStreamingDistribution
-
       def self.default(visited=[])
         {
           streaming_distribution: Stubs::StreamingDistribution.default(visited),
@@ -2980,7 +2819,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for GetStreamingDistributionConfig
     class GetStreamingDistributionConfig
-
       def self.default(visited=[])
         {
           streaming_distribution_config: Stubs::StreamingDistributionConfig.default(visited),
@@ -2997,7 +2835,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListCachePolicies
     class ListCachePolicies
-
       def self.default(visited=[])
         {
           cache_policy_list: Stubs::CachePolicyList.default(visited),
@@ -3012,7 +2849,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CachePolicyList
     class CachePolicyList
-
       def self.default(visited=[])
         return nil if visited.include?('CachePolicyList')
         visited = visited + ['CachePolicyList']
@@ -3040,7 +2876,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CachePolicySummary
     class CachePolicySummary
-
       def self.default(visited=[])
         return nil if visited.include?('CachePolicySummary')
         visited = visited + ['CachePolicySummary']
@@ -3054,7 +2889,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListCloudFrontOriginAccessIdentities
     class ListCloudFrontOriginAccessIdentities
-
       def self.default(visited=[])
         {
           cloud_front_origin_access_identity_list: Stubs::CloudFrontOriginAccessIdentityList.default(visited),
@@ -3069,7 +2903,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CloudFrontOriginAccessIdentityList
     class CloudFrontOriginAccessIdentityList
-
       def self.default(visited=[])
         return nil if visited.include?('CloudFrontOriginAccessIdentityList')
         visited = visited + ['CloudFrontOriginAccessIdentityList']
@@ -3099,7 +2932,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for CloudFrontOriginAccessIdentitySummary
     class CloudFrontOriginAccessIdentitySummary
-
       def self.default(visited=[])
         return nil if visited.include?('CloudFrontOriginAccessIdentitySummary')
         visited = visited + ['CloudFrontOriginAccessIdentitySummary']
@@ -3114,7 +2946,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListConflictingAliases
     class ListConflictingAliases
-
       def self.default(visited=[])
         {
           conflicting_aliases_list: Stubs::ConflictingAliasesList.default(visited),
@@ -3129,7 +2960,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ConflictingAliasesList
     class ConflictingAliasesList
-
       def self.default(visited=[])
         return nil if visited.include?('ConflictingAliasesList')
         visited = visited + ['ConflictingAliasesList']
@@ -3157,7 +2987,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ConflictingAlias
     class ConflictingAlias
-
       def self.default(visited=[])
         return nil if visited.include?('ConflictingAlias')
         visited = visited + ['ConflictingAlias']
@@ -3172,7 +3001,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListDistributions
     class ListDistributions
-
       def self.default(visited=[])
         {
           distribution_list: Stubs::DistributionList.default(visited),
@@ -3187,7 +3015,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for DistributionList
     class DistributionList
-
       def self.default(visited=[])
         return nil if visited.include?('DistributionList')
         visited = visited + ['DistributionList']
@@ -3217,7 +3044,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for DistributionSummary
     class DistributionSummary
-
       def self.default(visited=[])
         return nil if visited.include?('DistributionSummary')
         visited = visited + ['DistributionSummary']
@@ -3249,7 +3075,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListDistributionsByCachePolicyId
     class ListDistributionsByCachePolicyId
-
       def self.default(visited=[])
         {
           distribution_id_list: Stubs::DistributionIdList.default(visited),
@@ -3264,7 +3089,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for DistributionIdList
     class DistributionIdList
-
       def self.default(visited=[])
         return nil if visited.include?('DistributionIdList')
         visited = visited + ['DistributionIdList']
@@ -3294,7 +3118,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListDistributionsByKeyGroup
     class ListDistributionsByKeyGroup
-
       def self.default(visited=[])
         {
           distribution_id_list: Stubs::DistributionIdList.default(visited),
@@ -3309,7 +3132,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListDistributionsByOriginRequestPolicyId
     class ListDistributionsByOriginRequestPolicyId
-
       def self.default(visited=[])
         {
           distribution_id_list: Stubs::DistributionIdList.default(visited),
@@ -3324,7 +3146,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListDistributionsByRealtimeLogConfig
     class ListDistributionsByRealtimeLogConfig
-
       def self.default(visited=[])
         {
           distribution_list: Stubs::DistributionList.default(visited),
@@ -3339,7 +3160,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListDistributionsByResponseHeadersPolicyId
     class ListDistributionsByResponseHeadersPolicyId
-
       def self.default(visited=[])
         {
           distribution_id_list: Stubs::DistributionIdList.default(visited),
@@ -3354,7 +3174,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListDistributionsByWebACLId
     class ListDistributionsByWebACLId
-
       def self.default(visited=[])
         {
           distribution_list: Stubs::DistributionList.default(visited),
@@ -3369,7 +3188,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListFieldLevelEncryptionConfigs
     class ListFieldLevelEncryptionConfigs
-
       def self.default(visited=[])
         {
           field_level_encryption_list: Stubs::FieldLevelEncryptionList.default(visited),
@@ -3384,7 +3202,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FieldLevelEncryptionList
     class FieldLevelEncryptionList
-
       def self.default(visited=[])
         return nil if visited.include?('FieldLevelEncryptionList')
         visited = visited + ['FieldLevelEncryptionList']
@@ -3412,7 +3229,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FieldLevelEncryptionSummary
     class FieldLevelEncryptionSummary
-
       def self.default(visited=[])
         return nil if visited.include?('FieldLevelEncryptionSummary')
         visited = visited + ['FieldLevelEncryptionSummary']
@@ -3429,7 +3245,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListFieldLevelEncryptionProfiles
     class ListFieldLevelEncryptionProfiles
-
       def self.default(visited=[])
         {
           field_level_encryption_profile_list: Stubs::FieldLevelEncryptionProfileList.default(visited),
@@ -3444,7 +3259,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FieldLevelEncryptionProfileList
     class FieldLevelEncryptionProfileList
-
       def self.default(visited=[])
         return nil if visited.include?('FieldLevelEncryptionProfileList')
         visited = visited + ['FieldLevelEncryptionProfileList']
@@ -3472,7 +3286,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FieldLevelEncryptionProfileSummary
     class FieldLevelEncryptionProfileSummary
-
       def self.default(visited=[])
         return nil if visited.include?('FieldLevelEncryptionProfileSummary')
         visited = visited + ['FieldLevelEncryptionProfileSummary']
@@ -3489,7 +3302,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListFunctions
     class ListFunctions
-
       def self.default(visited=[])
         {
           function_list: Stubs::FunctionList.default(visited),
@@ -3504,7 +3316,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for FunctionList
     class FunctionList
-
       def self.default(visited=[])
         return nil if visited.include?('FunctionList')
         visited = visited + ['FunctionList']
@@ -3532,7 +3343,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListInvalidations
     class ListInvalidations
-
       def self.default(visited=[])
         {
           invalidation_list: Stubs::InvalidationList.default(visited),
@@ -3547,7 +3357,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for InvalidationList
     class InvalidationList
-
       def self.default(visited=[])
         return nil if visited.include?('InvalidationList')
         visited = visited + ['InvalidationList']
@@ -3577,7 +3386,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for InvalidationSummary
     class InvalidationSummary
-
       def self.default(visited=[])
         return nil if visited.include?('InvalidationSummary')
         visited = visited + ['InvalidationSummary']
@@ -3592,7 +3400,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListKeyGroups
     class ListKeyGroups
-
       def self.default(visited=[])
         {
           key_group_list: Stubs::KeyGroupList.default(visited),
@@ -3607,7 +3414,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for KeyGroupList
     class KeyGroupList
-
       def self.default(visited=[])
         return nil if visited.include?('KeyGroupList')
         visited = visited + ['KeyGroupList']
@@ -3635,7 +3441,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for KeyGroupSummary
     class KeyGroupSummary
-
       def self.default(visited=[])
         return nil if visited.include?('KeyGroupSummary')
         visited = visited + ['KeyGroupSummary']
@@ -3648,7 +3453,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListOriginRequestPolicies
     class ListOriginRequestPolicies
-
       def self.default(visited=[])
         {
           origin_request_policy_list: Stubs::OriginRequestPolicyList.default(visited),
@@ -3663,7 +3467,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginRequestPolicyList
     class OriginRequestPolicyList
-
       def self.default(visited=[])
         return nil if visited.include?('OriginRequestPolicyList')
         visited = visited + ['OriginRequestPolicyList']
@@ -3691,7 +3494,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for OriginRequestPolicySummary
     class OriginRequestPolicySummary
-
       def self.default(visited=[])
         return nil if visited.include?('OriginRequestPolicySummary')
         visited = visited + ['OriginRequestPolicySummary']
@@ -3705,7 +3507,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListPublicKeys
     class ListPublicKeys
-
       def self.default(visited=[])
         {
           public_key_list: Stubs::PublicKeyList.default(visited),
@@ -3720,7 +3521,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for PublicKeyList
     class PublicKeyList
-
       def self.default(visited=[])
         return nil if visited.include?('PublicKeyList')
         visited = visited + ['PublicKeyList']
@@ -3748,7 +3548,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for PublicKeySummary
     class PublicKeySummary
-
       def self.default(visited=[])
         return nil if visited.include?('PublicKeySummary')
         visited = visited + ['PublicKeySummary']
@@ -3765,7 +3564,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListRealtimeLogConfigs
     class ListRealtimeLogConfigs
-
       def self.default(visited=[])
         {
           realtime_log_configs: Stubs::RealtimeLogConfigs.default(visited),
@@ -3780,7 +3578,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for RealtimeLogConfigs
     class RealtimeLogConfigs
-
       def self.default(visited=[])
         return nil if visited.include?('RealtimeLogConfigs')
         visited = visited + ['RealtimeLogConfigs']
@@ -3809,7 +3606,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListResponseHeadersPolicies
     class ListResponseHeadersPolicies
-
       def self.default(visited=[])
         {
           response_headers_policy_list: Stubs::ResponseHeadersPolicyList.default(visited),
@@ -3824,7 +3620,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicyList
     class ResponseHeadersPolicyList
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicyList')
         visited = visited + ['ResponseHeadersPolicyList']
@@ -3852,7 +3647,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for ResponseHeadersPolicySummary
     class ResponseHeadersPolicySummary
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseHeadersPolicySummary')
         visited = visited + ['ResponseHeadersPolicySummary']
@@ -3866,7 +3660,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListStreamingDistributions
     class ListStreamingDistributions
-
       def self.default(visited=[])
         {
           streaming_distribution_list: Stubs::StreamingDistributionList.default(visited),
@@ -3881,7 +3674,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for StreamingDistributionList
     class StreamingDistributionList
-
       def self.default(visited=[])
         return nil if visited.include?('StreamingDistributionList')
         visited = visited + ['StreamingDistributionList']
@@ -3911,7 +3703,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for StreamingDistributionSummary
     class StreamingDistributionSummary
-
       def self.default(visited=[])
         return nil if visited.include?('StreamingDistributionSummary')
         visited = visited + ['StreamingDistributionSummary']
@@ -3934,7 +3725,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for ListTagsForResource
     class ListTagsForResource
-
       def self.default(visited=[])
         {
           tags: Stubs::Tags.default(visited),
@@ -3949,7 +3739,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for Tags
     class Tags
-
       def self.default(visited=[])
         return nil if visited.include?('Tags')
         visited = visited + ['Tags']
@@ -3974,7 +3763,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for Tag
     class Tag
-
       def self.default(visited=[])
         return nil if visited.include?('Tag')
         visited = visited + ['Tag']
@@ -3988,7 +3776,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for PublishFunction
     class PublishFunction
-
       def self.default(visited=[])
         {
           function_summary: Stubs::FunctionSummary.default(visited),
@@ -4003,7 +3790,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for TagResource
     class TagResource
-
       def self.default(visited=[])
         {
         }
@@ -4017,7 +3803,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for TestFunction
     class TestFunction
-
       def self.default(visited=[])
         {
           test_result: Stubs::TestResult.default(visited),
@@ -4032,7 +3817,6 @@ module AWS::Cloudfront
 
     # Structure Stubber for TestResult
     class TestResult
-
       def self.default(visited=[])
         return nil if visited.include?('TestResult')
         visited = visited + ['TestResult']
@@ -4061,7 +3845,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for UntagResource
     class UntagResource
-
       def self.default(visited=[])
         {
         }
@@ -4075,7 +3858,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for UpdateCachePolicy
     class UpdateCachePolicy
-
       def self.default(visited=[])
         {
           cache_policy: Stubs::CachePolicy.default(visited),
@@ -4092,7 +3874,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for UpdateCloudFrontOriginAccessIdentity
     class UpdateCloudFrontOriginAccessIdentity
-
       def self.default(visited=[])
         {
           cloud_front_origin_access_identity: Stubs::CloudFrontOriginAccessIdentity.default(visited),
@@ -4109,7 +3890,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for UpdateDistribution
     class UpdateDistribution
-
       def self.default(visited=[])
         {
           distribution: Stubs::Distribution.default(visited),
@@ -4126,7 +3906,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for UpdateFieldLevelEncryptionConfig
     class UpdateFieldLevelEncryptionConfig
-
       def self.default(visited=[])
         {
           field_level_encryption: Stubs::FieldLevelEncryption.default(visited),
@@ -4143,7 +3922,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for UpdateFieldLevelEncryptionProfile
     class UpdateFieldLevelEncryptionProfile
-
       def self.default(visited=[])
         {
           field_level_encryption_profile: Stubs::FieldLevelEncryptionProfile.default(visited),
@@ -4160,7 +3938,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for UpdateFunction
     class UpdateFunction
-
       def self.default(visited=[])
         {
           function_summary: Stubs::FunctionSummary.default(visited),
@@ -4177,7 +3954,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for UpdateKeyGroup
     class UpdateKeyGroup
-
       def self.default(visited=[])
         {
           key_group: Stubs::KeyGroup.default(visited),
@@ -4194,7 +3970,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for UpdateOriginRequestPolicy
     class UpdateOriginRequestPolicy
-
       def self.default(visited=[])
         {
           origin_request_policy: Stubs::OriginRequestPolicy.default(visited),
@@ -4211,7 +3986,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for UpdatePublicKey
     class UpdatePublicKey
-
       def self.default(visited=[])
         {
           public_key: Stubs::PublicKey.default(visited),
@@ -4228,7 +4002,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for UpdateRealtimeLogConfig
     class UpdateRealtimeLogConfig
-
       def self.default(visited=[])
         {
           realtime_log_config: Stubs::RealtimeLogConfig.default(visited),
@@ -4243,7 +4016,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for UpdateResponseHeadersPolicy
     class UpdateResponseHeadersPolicy
-
       def self.default(visited=[])
         {
           response_headers_policy: Stubs::ResponseHeadersPolicy.default(visited),
@@ -4260,7 +4032,6 @@ module AWS::Cloudfront
 
     # Operation Stubber for UpdateStreamingDistribution
     class UpdateStreamingDistribution
-
       def self.default(visited=[])
         {
           streaming_distribution: Stubs::StreamingDistribution.default(visited),

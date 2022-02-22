@@ -13,12 +13,12 @@ module AWS::Sts
     CODES = {
       "MalformedPolicyDocument" => "MalformedPolicyDocumentException",
       "PackedPolicyTooLarge" => "PackedPolicyTooLargeException",
-      "IDPCommunicationError" => "IDPCommunicationErrorException",
-      "ExpiredTokenException" => "ExpiredTokenException",
-      "IDPRejectedClaim" => "IDPRejectedClaimException",
-      "RegionDisabledException" => "RegionDisabledException",
       "InvalidIdentityToken" => "InvalidIdentityTokenException",
-      "InvalidAuthorizationMessageException" => "InvalidAuthorizationMessageException"
+      "ExpiredTokenException" => "ExpiredTokenException",
+      "InvalidAuthorizationMessageException" => "InvalidAuthorizationMessageException",
+      "RegionDisabledException" => "RegionDisabledException",
+      "IDPRejectedClaim" => "IDPRejectedClaimException",
+      "IDPCommunicationError" => "IDPCommunicationErrorException"
     }
 
     def self.error_code(http_resp)

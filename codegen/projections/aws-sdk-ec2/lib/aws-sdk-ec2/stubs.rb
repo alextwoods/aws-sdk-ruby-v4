@@ -12,7 +12,6 @@ module AWS::Ec2
 
     # Operation Stubber for AcceptReservedInstancesExchangeQuote
     class AcceptReservedInstancesExchangeQuote
-
       def self.default(visited=[])
         {
           exchange_id: 'exchange_id',
@@ -23,7 +22,6 @@ module AWS::Ec2
 
     # Operation Stubber for AcceptTransitGatewayMulticastDomainAssociations
     class AcceptTransitGatewayMulticastDomainAssociations
-
       def self.default(visited=[])
         {
           associations: Stubs::TransitGatewayMulticastDomainAssociations.default(visited),
@@ -34,7 +32,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayMulticastDomainAssociations
     class TransitGatewayMulticastDomainAssociations
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayMulticastDomainAssociations')
         visited = visited + ['TransitGatewayMulticastDomainAssociations']
@@ -64,7 +61,6 @@ module AWS::Ec2
 
     # Structure Stubber for SubnetAssociation
     class SubnetAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('SubnetAssociation')
         visited = visited + ['SubnetAssociation']
@@ -78,7 +74,6 @@ module AWS::Ec2
 
     # Operation Stubber for AcceptTransitGatewayPeeringAttachment
     class AcceptTransitGatewayPeeringAttachment
-
       def self.default(visited=[])
         {
           transit_gateway_peering_attachment: Stubs::TransitGatewayPeeringAttachment.default(visited),
@@ -89,7 +84,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayPeeringAttachment
     class TransitGatewayPeeringAttachment
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayPeeringAttachment')
         visited = visited + ['TransitGatewayPeeringAttachment']
@@ -120,7 +114,6 @@ module AWS::Ec2
 
     # Structure Stubber for Tag
     class Tag
-
       def self.default(visited=[])
         return nil if visited.include?('Tag')
         visited = visited + ['Tag']
@@ -134,7 +127,6 @@ module AWS::Ec2
 
     # Structure Stubber for PeeringAttachmentStatus
     class PeeringAttachmentStatus
-
       def self.default(visited=[])
         return nil if visited.include?('PeeringAttachmentStatus')
         visited = visited + ['PeeringAttachmentStatus']
@@ -148,7 +140,6 @@ module AWS::Ec2
 
     # Structure Stubber for PeeringTgwInfo
     class PeeringTgwInfo
-
       def self.default(visited=[])
         return nil if visited.include?('PeeringTgwInfo')
         visited = visited + ['PeeringTgwInfo']
@@ -163,7 +154,6 @@ module AWS::Ec2
 
     # Operation Stubber for AcceptTransitGatewayVpcAttachment
     class AcceptTransitGatewayVpcAttachment
-
       def self.default(visited=[])
         {
           transit_gateway_vpc_attachment: Stubs::TransitGatewayVpcAttachment.default(visited),
@@ -174,7 +164,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayVpcAttachment
     class TransitGatewayVpcAttachment
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayVpcAttachment')
         visited = visited + ['TransitGatewayVpcAttachment']
@@ -195,7 +184,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayVpcAttachmentOptions
     class TransitGatewayVpcAttachmentOptions
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayVpcAttachmentOptions')
         visited = visited + ['TransitGatewayVpcAttachmentOptions']
@@ -222,7 +210,6 @@ module AWS::Ec2
 
     # Operation Stubber for AcceptVpcEndpointConnections
     class AcceptVpcEndpointConnections
-
       def self.default(visited=[])
         {
           unsuccessful: Stubs::UnsuccessfulItemSet.default(visited),
@@ -245,7 +232,6 @@ module AWS::Ec2
 
     # Structure Stubber for UnsuccessfulItem
     class UnsuccessfulItem
-
       def self.default(visited=[])
         return nil if visited.include?('UnsuccessfulItem')
         visited = visited + ['UnsuccessfulItem']
@@ -259,7 +245,6 @@ module AWS::Ec2
 
     # Structure Stubber for UnsuccessfulItemError
     class UnsuccessfulItemError
-
       def self.default(visited=[])
         return nil if visited.include?('UnsuccessfulItemError')
         visited = visited + ['UnsuccessfulItemError']
@@ -273,7 +258,6 @@ module AWS::Ec2
 
     # Operation Stubber for AcceptVpcPeeringConnection
     class AcceptVpcPeeringConnection
-
       def self.default(visited=[])
         {
           vpc_peering_connection: Stubs::VpcPeeringConnection.default(visited),
@@ -284,7 +268,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpcPeeringConnection
     class VpcPeeringConnection
-
       def self.default(visited=[])
         return nil if visited.include?('VpcPeeringConnection')
         visited = visited + ['VpcPeeringConnection']
@@ -302,7 +285,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpcPeeringConnectionStateReason
     class VpcPeeringConnectionStateReason
-
       def self.default(visited=[])
         return nil if visited.include?('VpcPeeringConnectionStateReason')
         visited = visited + ['VpcPeeringConnectionStateReason']
@@ -316,7 +298,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpcPeeringConnectionVpcInfo
     class VpcPeeringConnectionVpcInfo
-
       def self.default(visited=[])
         return nil if visited.include?('VpcPeeringConnectionVpcInfo')
         visited = visited + ['VpcPeeringConnectionVpcInfo']
@@ -335,7 +316,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpcPeeringConnectionOptionsDescription
     class VpcPeeringConnectionOptionsDescription
-
       def self.default(visited=[])
         return nil if visited.include?('VpcPeeringConnectionOptionsDescription')
         visited = visited + ['VpcPeeringConnectionOptionsDescription']
@@ -362,7 +342,6 @@ module AWS::Ec2
 
     # Structure Stubber for CidrBlock
     class CidrBlock
-
       def self.default(visited=[])
         return nil if visited.include?('CidrBlock')
         visited = visited + ['CidrBlock']
@@ -387,7 +366,6 @@ module AWS::Ec2
 
     # Structure Stubber for Ipv6CidrBlock
     class Ipv6CidrBlock
-
       def self.default(visited=[])
         return nil if visited.include?('Ipv6CidrBlock')
         visited = visited + ['Ipv6CidrBlock']
@@ -400,7 +378,6 @@ module AWS::Ec2
 
     # Operation Stubber for AdvertiseByoipCidr
     class AdvertiseByoipCidr
-
       def self.default(visited=[])
         {
           byoip_cidr: Stubs::ByoipCidr.default(visited),
@@ -411,7 +388,6 @@ module AWS::Ec2
 
     # Structure Stubber for ByoipCidr
     class ByoipCidr
-
       def self.default(visited=[])
         return nil if visited.include?('ByoipCidr')
         visited = visited + ['ByoipCidr']
@@ -427,7 +403,6 @@ module AWS::Ec2
 
     # Operation Stubber for AllocateAddress
     class AllocateAddress
-
       def self.default(visited=[])
         {
           public_ip: 'public_ip',
@@ -445,7 +420,6 @@ module AWS::Ec2
 
     # Operation Stubber for AllocateHosts
     class AllocateHosts
-
       def self.default(visited=[])
         {
           host_ids: Stubs::ResponseHostIdList.default(visited),
@@ -468,7 +442,6 @@ module AWS::Ec2
 
     # Operation Stubber for AllocateIpamPoolCidr
     class AllocateIpamPoolCidr
-
       def self.default(visited=[])
         {
           ipam_pool_allocation: Stubs::IpamPoolAllocation.default(visited),
@@ -479,7 +452,6 @@ module AWS::Ec2
 
     # Structure Stubber for IpamPoolAllocation
     class IpamPoolAllocation
-
       def self.default(visited=[])
         return nil if visited.include?('IpamPoolAllocation')
         visited = visited + ['IpamPoolAllocation']
@@ -498,7 +470,6 @@ module AWS::Ec2
 
     # Operation Stubber for ApplySecurityGroupsToClientVpnTargetNetwork
     class ApplySecurityGroupsToClientVpnTargetNetwork
-
       def self.default(visited=[])
         {
           security_group_ids: Stubs::ClientVpnSecurityGroupIdSet.default(visited),
@@ -521,7 +492,6 @@ module AWS::Ec2
 
     # Operation Stubber for AssignIpv6Addresses
     class AssignIpv6Addresses
-
       def self.default(visited=[])
         {
           assigned_ipv6_addresses: Stubs::Ipv6AddressList.default(visited),
@@ -558,7 +528,6 @@ module AWS::Ec2
 
     # Operation Stubber for AssignPrivateIpAddresses
     class AssignPrivateIpAddresses
-
       def self.default(visited=[])
         {
           network_interface_id: 'network_interface_id',
@@ -583,7 +552,6 @@ module AWS::Ec2
 
     # Structure Stubber for Ipv4PrefixSpecification
     class Ipv4PrefixSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('Ipv4PrefixSpecification')
         visited = visited + ['Ipv4PrefixSpecification']
@@ -608,7 +576,6 @@ module AWS::Ec2
 
     # Structure Stubber for AssignedPrivateIpAddress
     class AssignedPrivateIpAddress
-
       def self.default(visited=[])
         return nil if visited.include?('AssignedPrivateIpAddress')
         visited = visited + ['AssignedPrivateIpAddress']
@@ -621,7 +588,6 @@ module AWS::Ec2
 
     # Operation Stubber for AssociateAddress
     class AssociateAddress
-
       def self.default(visited=[])
         {
           association_id: 'association_id',
@@ -632,7 +598,6 @@ module AWS::Ec2
 
     # Operation Stubber for AssociateClientVpnTargetNetwork
     class AssociateClientVpnTargetNetwork
-
       def self.default(visited=[])
         {
           association_id: 'association_id',
@@ -644,7 +609,6 @@ module AWS::Ec2
 
     # Structure Stubber for AssociationStatus
     class AssociationStatus
-
       def self.default(visited=[])
         return nil if visited.include?('AssociationStatus')
         visited = visited + ['AssociationStatus']
@@ -658,7 +622,6 @@ module AWS::Ec2
 
     # Operation Stubber for AssociateDhcpOptions
     class AssociateDhcpOptions
-
       def self.default(visited=[])
         {
         }
@@ -668,7 +631,6 @@ module AWS::Ec2
 
     # Operation Stubber for AssociateEnclaveCertificateIamRole
     class AssociateEnclaveCertificateIamRole
-
       def self.default(visited=[])
         {
           certificate_s3_bucket_name: 'certificate_s3_bucket_name',
@@ -681,7 +643,6 @@ module AWS::Ec2
 
     # Operation Stubber for AssociateIamInstanceProfile
     class AssociateIamInstanceProfile
-
       def self.default(visited=[])
         {
           iam_instance_profile_association: Stubs::IamInstanceProfileAssociation.default(visited),
@@ -692,7 +653,6 @@ module AWS::Ec2
 
     # Structure Stubber for IamInstanceProfileAssociation
     class IamInstanceProfileAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('IamInstanceProfileAssociation')
         visited = visited + ['IamInstanceProfileAssociation']
@@ -709,7 +669,6 @@ module AWS::Ec2
 
     # Structure Stubber for IamInstanceProfile
     class IamInstanceProfile
-
       def self.default(visited=[])
         return nil if visited.include?('IamInstanceProfile')
         visited = visited + ['IamInstanceProfile']
@@ -723,7 +682,6 @@ module AWS::Ec2
 
     # Operation Stubber for AssociateInstanceEventWindow
     class AssociateInstanceEventWindow
-
       def self.default(visited=[])
         {
           instance_event_window: Stubs::InstanceEventWindow.default(visited),
@@ -734,7 +692,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceEventWindow
     class InstanceEventWindow
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceEventWindow')
         visited = visited + ['InstanceEventWindow']
@@ -753,7 +710,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceEventWindowAssociationTarget
     class InstanceEventWindowAssociationTarget
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceEventWindowAssociationTarget')
         visited = visited + ['InstanceEventWindowAssociationTarget']
@@ -804,7 +760,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceEventWindowTimeRange
     class InstanceEventWindowTimeRange
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceEventWindowTimeRange')
         visited = visited + ['InstanceEventWindowTimeRange']
@@ -820,7 +775,6 @@ module AWS::Ec2
 
     # Operation Stubber for AssociateRouteTable
     class AssociateRouteTable
-
       def self.default(visited=[])
         {
           association_id: 'association_id',
@@ -832,7 +786,6 @@ module AWS::Ec2
 
     # Structure Stubber for RouteTableAssociationState
     class RouteTableAssociationState
-
       def self.default(visited=[])
         return nil if visited.include?('RouteTableAssociationState')
         visited = visited + ['RouteTableAssociationState']
@@ -846,7 +799,6 @@ module AWS::Ec2
 
     # Operation Stubber for AssociateSubnetCidrBlock
     class AssociateSubnetCidrBlock
-
       def self.default(visited=[])
         {
           ipv6_cidr_block_association: Stubs::SubnetIpv6CidrBlockAssociation.default(visited),
@@ -858,7 +810,6 @@ module AWS::Ec2
 
     # Structure Stubber for SubnetIpv6CidrBlockAssociation
     class SubnetIpv6CidrBlockAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('SubnetIpv6CidrBlockAssociation')
         visited = visited + ['SubnetIpv6CidrBlockAssociation']
@@ -873,7 +824,6 @@ module AWS::Ec2
 
     # Structure Stubber for SubnetCidrBlockState
     class SubnetCidrBlockState
-
       def self.default(visited=[])
         return nil if visited.include?('SubnetCidrBlockState')
         visited = visited + ['SubnetCidrBlockState']
@@ -887,7 +837,6 @@ module AWS::Ec2
 
     # Operation Stubber for AssociateTransitGatewayMulticastDomain
     class AssociateTransitGatewayMulticastDomain
-
       def self.default(visited=[])
         {
           associations: Stubs::TransitGatewayMulticastDomainAssociations.default(visited),
@@ -898,7 +847,6 @@ module AWS::Ec2
 
     # Operation Stubber for AssociateTransitGatewayRouteTable
     class AssociateTransitGatewayRouteTable
-
       def self.default(visited=[])
         {
           association: Stubs::TransitGatewayAssociation.default(visited),
@@ -909,7 +857,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayAssociation
     class TransitGatewayAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayAssociation')
         visited = visited + ['TransitGatewayAssociation']
@@ -926,7 +873,6 @@ module AWS::Ec2
 
     # Operation Stubber for AssociateTrunkInterface
     class AssociateTrunkInterface
-
       def self.default(visited=[])
         {
           interface_association: Stubs::TrunkInterfaceAssociation.default(visited),
@@ -938,7 +884,6 @@ module AWS::Ec2
 
     # Structure Stubber for TrunkInterfaceAssociation
     class TrunkInterfaceAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('TrunkInterfaceAssociation')
         visited = visited + ['TrunkInterfaceAssociation']
@@ -957,7 +902,6 @@ module AWS::Ec2
 
     # Operation Stubber for AssociateVpcCidrBlock
     class AssociateVpcCidrBlock
-
       def self.default(visited=[])
         {
           ipv6_cidr_block_association: Stubs::VpcIpv6CidrBlockAssociation.default(visited),
@@ -970,7 +914,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpcCidrBlockAssociation
     class VpcCidrBlockAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('VpcCidrBlockAssociation')
         visited = visited + ['VpcCidrBlockAssociation']
@@ -985,7 +928,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpcCidrBlockState
     class VpcCidrBlockState
-
       def self.default(visited=[])
         return nil if visited.include?('VpcCidrBlockState')
         visited = visited + ['VpcCidrBlockState']
@@ -999,7 +941,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpcIpv6CidrBlockAssociation
     class VpcIpv6CidrBlockAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('VpcIpv6CidrBlockAssociation')
         visited = visited + ['VpcIpv6CidrBlockAssociation']
@@ -1016,7 +957,6 @@ module AWS::Ec2
 
     # Operation Stubber for AttachClassicLinkVpc
     class AttachClassicLinkVpc
-
       def self.default(visited=[])
         {
           return: false,
@@ -1027,7 +967,6 @@ module AWS::Ec2
 
     # Operation Stubber for AttachInternetGateway
     class AttachInternetGateway
-
       def self.default(visited=[])
         {
         }
@@ -1037,7 +976,6 @@ module AWS::Ec2
 
     # Operation Stubber for AttachNetworkInterface
     class AttachNetworkInterface
-
       def self.default(visited=[])
         {
           attachment_id: 'attachment_id',
@@ -1049,7 +987,6 @@ module AWS::Ec2
 
     # Operation Stubber for AttachVolume
     class AttachVolume
-
       def self.default(visited=[])
         {
           attach_time: Time.now,
@@ -1065,7 +1002,6 @@ module AWS::Ec2
 
     # Operation Stubber for AttachVpnGateway
     class AttachVpnGateway
-
       def self.default(visited=[])
         {
           vpc_attachment: Stubs::VpcAttachment.default(visited),
@@ -1076,7 +1012,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpcAttachment
     class VpcAttachment
-
       def self.default(visited=[])
         return nil if visited.include?('VpcAttachment')
         visited = visited + ['VpcAttachment']
@@ -1090,7 +1025,6 @@ module AWS::Ec2
 
     # Operation Stubber for AuthorizeClientVpnIngress
     class AuthorizeClientVpnIngress
-
       def self.default(visited=[])
         {
           status: Stubs::ClientVpnAuthorizationRuleStatus.default(visited),
@@ -1101,7 +1035,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClientVpnAuthorizationRuleStatus
     class ClientVpnAuthorizationRuleStatus
-
       def self.default(visited=[])
         return nil if visited.include?('ClientVpnAuthorizationRuleStatus')
         visited = visited + ['ClientVpnAuthorizationRuleStatus']
@@ -1115,7 +1048,6 @@ module AWS::Ec2
 
     # Operation Stubber for AuthorizeSecurityGroupEgress
     class AuthorizeSecurityGroupEgress
-
       def self.default(visited=[])
         {
           return: false,
@@ -1139,7 +1071,6 @@ module AWS::Ec2
 
     # Structure Stubber for SecurityGroupRule
     class SecurityGroupRule
-
       def self.default(visited=[])
         return nil if visited.include?('SecurityGroupRule')
         visited = visited + ['SecurityGroupRule']
@@ -1164,7 +1095,6 @@ module AWS::Ec2
 
     # Structure Stubber for ReferencedSecurityGroup
     class ReferencedSecurityGroup
-
       def self.default(visited=[])
         return nil if visited.include?('ReferencedSecurityGroup')
         visited = visited + ['ReferencedSecurityGroup']
@@ -1181,7 +1111,6 @@ module AWS::Ec2
 
     # Operation Stubber for AuthorizeSecurityGroupIngress
     class AuthorizeSecurityGroupIngress
-
       def self.default(visited=[])
         {
           return: false,
@@ -1193,7 +1122,6 @@ module AWS::Ec2
 
     # Operation Stubber for BundleInstance
     class BundleInstance
-
       def self.default(visited=[])
         {
           bundle_task: Stubs::BundleTask.default(visited),
@@ -1204,7 +1132,6 @@ module AWS::Ec2
 
     # Structure Stubber for BundleTask
     class BundleTask
-
       def self.default(visited=[])
         return nil if visited.include?('BundleTask')
         visited = visited + ['BundleTask']
@@ -1224,7 +1151,6 @@ module AWS::Ec2
 
     # Structure Stubber for Storage
     class Storage
-
       def self.default(visited=[])
         return nil if visited.include?('Storage')
         visited = visited + ['Storage']
@@ -1237,7 +1163,6 @@ module AWS::Ec2
 
     # Structure Stubber for S3Storage
     class S3Storage
-
       def self.default(visited=[])
         return nil if visited.include?('S3Storage')
         visited = visited + ['S3Storage']
@@ -1254,7 +1179,6 @@ module AWS::Ec2
 
     # Structure Stubber for BundleTaskError
     class BundleTaskError
-
       def self.default(visited=[])
         return nil if visited.include?('BundleTaskError')
         visited = visited + ['BundleTaskError']
@@ -1268,7 +1192,6 @@ module AWS::Ec2
 
     # Operation Stubber for CancelBundleTask
     class CancelBundleTask
-
       def self.default(visited=[])
         {
           bundle_task: Stubs::BundleTask.default(visited),
@@ -1279,7 +1202,6 @@ module AWS::Ec2
 
     # Operation Stubber for CancelCapacityReservation
     class CancelCapacityReservation
-
       def self.default(visited=[])
         {
           return: false,
@@ -1290,7 +1212,6 @@ module AWS::Ec2
 
     # Operation Stubber for CancelCapacityReservationFleets
     class CancelCapacityReservationFleets
-
       def self.default(visited=[])
         {
           successful_fleet_cancellations: Stubs::CapacityReservationFleetCancellationStateSet.default(visited),
@@ -1314,7 +1235,6 @@ module AWS::Ec2
 
     # Structure Stubber for FailedCapacityReservationFleetCancellationResult
     class FailedCapacityReservationFleetCancellationResult
-
       def self.default(visited=[])
         return nil if visited.include?('FailedCapacityReservationFleetCancellationResult')
         visited = visited + ['FailedCapacityReservationFleetCancellationResult']
@@ -1328,7 +1248,6 @@ module AWS::Ec2
 
     # Structure Stubber for CancelCapacityReservationFleetError
     class CancelCapacityReservationFleetError
-
       def self.default(visited=[])
         return nil if visited.include?('CancelCapacityReservationFleetError')
         visited = visited + ['CancelCapacityReservationFleetError']
@@ -1354,7 +1273,6 @@ module AWS::Ec2
 
     # Structure Stubber for CapacityReservationFleetCancellationState
     class CapacityReservationFleetCancellationState
-
       def self.default(visited=[])
         return nil if visited.include?('CapacityReservationFleetCancellationState')
         visited = visited + ['CapacityReservationFleetCancellationState']
@@ -1369,7 +1287,6 @@ module AWS::Ec2
 
     # Operation Stubber for CancelConversionTask
     class CancelConversionTask
-
       def self.default(visited=[])
         {
         }
@@ -1379,7 +1296,6 @@ module AWS::Ec2
 
     # Operation Stubber for CancelExportTask
     class CancelExportTask
-
       def self.default(visited=[])
         {
         }
@@ -1389,7 +1305,6 @@ module AWS::Ec2
 
     # Operation Stubber for CancelImportTask
     class CancelImportTask
-
       def self.default(visited=[])
         {
           import_task_id: 'import_task_id',
@@ -1402,7 +1317,6 @@ module AWS::Ec2
 
     # Operation Stubber for CancelReservedInstancesListing
     class CancelReservedInstancesListing
-
       def self.default(visited=[])
         {
           reserved_instances_listings: Stubs::ReservedInstancesListingList.default(visited),
@@ -1425,7 +1339,6 @@ module AWS::Ec2
 
     # Structure Stubber for ReservedInstancesListing
     class ReservedInstancesListing
-
       def self.default(visited=[])
         return nil if visited.include?('ReservedInstancesListing')
         visited = visited + ['ReservedInstancesListing']
@@ -1459,7 +1372,6 @@ module AWS::Ec2
 
     # Structure Stubber for PriceSchedule
     class PriceSchedule
-
       def self.default(visited=[])
         return nil if visited.include?('PriceSchedule')
         visited = visited + ['PriceSchedule']
@@ -1487,7 +1399,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceCount
     class InstanceCount
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceCount')
         visited = visited + ['InstanceCount']
@@ -1501,7 +1412,6 @@ module AWS::Ec2
 
     # Operation Stubber for CancelSpotFleetRequests
     class CancelSpotFleetRequests
-
       def self.default(visited=[])
         {
           successful_fleet_requests: Stubs::CancelSpotFleetRequestsSuccessSet.default(visited),
@@ -1525,7 +1435,6 @@ module AWS::Ec2
 
     # Structure Stubber for CancelSpotFleetRequestsErrorItem
     class CancelSpotFleetRequestsErrorItem
-
       def self.default(visited=[])
         return nil if visited.include?('CancelSpotFleetRequestsErrorItem')
         visited = visited + ['CancelSpotFleetRequestsErrorItem']
@@ -1539,7 +1448,6 @@ module AWS::Ec2
 
     # Structure Stubber for CancelSpotFleetRequestsError
     class CancelSpotFleetRequestsError
-
       def self.default(visited=[])
         return nil if visited.include?('CancelSpotFleetRequestsError')
         visited = visited + ['CancelSpotFleetRequestsError']
@@ -1565,7 +1473,6 @@ module AWS::Ec2
 
     # Structure Stubber for CancelSpotFleetRequestsSuccessItem
     class CancelSpotFleetRequestsSuccessItem
-
       def self.default(visited=[])
         return nil if visited.include?('CancelSpotFleetRequestsSuccessItem')
         visited = visited + ['CancelSpotFleetRequestsSuccessItem']
@@ -1580,7 +1487,6 @@ module AWS::Ec2
 
     # Operation Stubber for CancelSpotInstanceRequests
     class CancelSpotInstanceRequests
-
       def self.default(visited=[])
         {
           cancelled_spot_instance_requests: Stubs::CancelledSpotInstanceRequestList.default(visited),
@@ -1603,7 +1509,6 @@ module AWS::Ec2
 
     # Structure Stubber for CancelledSpotInstanceRequest
     class CancelledSpotInstanceRequest
-
       def self.default(visited=[])
         return nil if visited.include?('CancelledSpotInstanceRequest')
         visited = visited + ['CancelledSpotInstanceRequest']
@@ -1617,7 +1522,6 @@ module AWS::Ec2
 
     # Operation Stubber for ConfirmProductInstance
     class ConfirmProductInstance
-
       def self.default(visited=[])
         {
           owner_id: 'owner_id',
@@ -1629,7 +1533,6 @@ module AWS::Ec2
 
     # Operation Stubber for CopyFpgaImage
     class CopyFpgaImage
-
       def self.default(visited=[])
         {
           fpga_image_id: 'fpga_image_id',
@@ -1640,7 +1543,6 @@ module AWS::Ec2
 
     # Operation Stubber for CopyImage
     class CopyImage
-
       def self.default(visited=[])
         {
           image_id: 'image_id',
@@ -1651,7 +1553,6 @@ module AWS::Ec2
 
     # Operation Stubber for CopySnapshot
     class CopySnapshot
-
       def self.default(visited=[])
         {
           snapshot_id: 'snapshot_id',
@@ -1663,7 +1564,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateCapacityReservation
     class CreateCapacityReservation
-
       def self.default(visited=[])
         {
           capacity_reservation: Stubs::CapacityReservation.default(visited),
@@ -1674,7 +1574,6 @@ module AWS::Ec2
 
     # Structure Stubber for CapacityReservation
     class CapacityReservation
-
       def self.default(visited=[])
         return nil if visited.include?('CapacityReservation')
         visited = visited + ['CapacityReservation']
@@ -1708,7 +1607,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateCapacityReservationFleet
     class CreateCapacityReservationFleet
-
       def self.default(visited=[])
         {
           capacity_reservation_fleet_id: 'capacity_reservation_fleet_id',
@@ -1741,7 +1639,6 @@ module AWS::Ec2
 
     # Structure Stubber for FleetCapacityReservation
     class FleetCapacityReservation
-
       def self.default(visited=[])
         return nil if visited.include?('FleetCapacityReservation')
         visited = visited + ['FleetCapacityReservation']
@@ -1764,7 +1661,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateCarrierGateway
     class CreateCarrierGateway
-
       def self.default(visited=[])
         {
           carrier_gateway: Stubs::CarrierGateway.default(visited),
@@ -1775,7 +1671,6 @@ module AWS::Ec2
 
     # Structure Stubber for CarrierGateway
     class CarrierGateway
-
       def self.default(visited=[])
         return nil if visited.include?('CarrierGateway')
         visited = visited + ['CarrierGateway']
@@ -1792,7 +1687,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateClientVpnEndpoint
     class CreateClientVpnEndpoint
-
       def self.default(visited=[])
         {
           client_vpn_endpoint_id: 'client_vpn_endpoint_id',
@@ -1805,7 +1699,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClientVpnEndpointStatus
     class ClientVpnEndpointStatus
-
       def self.default(visited=[])
         return nil if visited.include?('ClientVpnEndpointStatus')
         visited = visited + ['ClientVpnEndpointStatus']
@@ -1819,7 +1712,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateClientVpnRoute
     class CreateClientVpnRoute
-
       def self.default(visited=[])
         {
           status: Stubs::ClientVpnRouteStatus.default(visited),
@@ -1830,7 +1722,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClientVpnRouteStatus
     class ClientVpnRouteStatus
-
       def self.default(visited=[])
         return nil if visited.include?('ClientVpnRouteStatus')
         visited = visited + ['ClientVpnRouteStatus']
@@ -1844,7 +1735,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateCustomerGateway
     class CreateCustomerGateway
-
       def self.default(visited=[])
         {
           customer_gateway: Stubs::CustomerGateway.default(visited),
@@ -1855,7 +1745,6 @@ module AWS::Ec2
 
     # Structure Stubber for CustomerGateway
     class CustomerGateway
-
       def self.default(visited=[])
         return nil if visited.include?('CustomerGateway')
         visited = visited + ['CustomerGateway']
@@ -1875,7 +1764,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateDefaultSubnet
     class CreateDefaultSubnet
-
       def self.default(visited=[])
         {
           subnet: Stubs::Subnet.default(visited),
@@ -1886,7 +1774,6 @@ module AWS::Ec2
 
     # Structure Stubber for Subnet
     class Subnet
-
       def self.default(visited=[])
         return nil if visited.include?('Subnet')
         visited = visited + ['Subnet']
@@ -1919,7 +1806,6 @@ module AWS::Ec2
 
     # Structure Stubber for PrivateDnsNameOptionsOnLaunch
     class PrivateDnsNameOptionsOnLaunch
-
       def self.default(visited=[])
         return nil if visited.include?('PrivateDnsNameOptionsOnLaunch')
         visited = visited + ['PrivateDnsNameOptionsOnLaunch']
@@ -1946,7 +1832,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateDefaultVpc
     class CreateDefaultVpc
-
       def self.default(visited=[])
         {
           vpc: Stubs::Vpc.default(visited),
@@ -1957,7 +1842,6 @@ module AWS::Ec2
 
     # Structure Stubber for Vpc
     class Vpc
-
       def self.default(visited=[])
         return nil if visited.include?('Vpc')
         visited = visited + ['Vpc']
@@ -2003,7 +1887,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateDhcpOptions
     class CreateDhcpOptions
-
       def self.default(visited=[])
         {
           dhcp_options: Stubs::DhcpOptions.default(visited),
@@ -2014,7 +1897,6 @@ module AWS::Ec2
 
     # Structure Stubber for DhcpOptions
     class DhcpOptions
-
       def self.default(visited=[])
         return nil if visited.include?('DhcpOptions')
         visited = visited + ['DhcpOptions']
@@ -2042,7 +1924,6 @@ module AWS::Ec2
 
     # Structure Stubber for DhcpConfiguration
     class DhcpConfiguration
-
       def self.default(visited=[])
         return nil if visited.include?('DhcpConfiguration')
         visited = visited + ['DhcpConfiguration']
@@ -2068,7 +1949,6 @@ module AWS::Ec2
 
     # Structure Stubber for AttributeValue
     class AttributeValue
-
       def self.default(visited=[])
         return nil if visited.include?('AttributeValue')
         visited = visited + ['AttributeValue']
@@ -2081,7 +1961,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateEgressOnlyInternetGateway
     class CreateEgressOnlyInternetGateway
-
       def self.default(visited=[])
         {
           client_token: 'client_token',
@@ -2093,7 +1972,6 @@ module AWS::Ec2
 
     # Structure Stubber for EgressOnlyInternetGateway
     class EgressOnlyInternetGateway
-
       def self.default(visited=[])
         return nil if visited.include?('EgressOnlyInternetGateway')
         visited = visited + ['EgressOnlyInternetGateway']
@@ -2120,7 +1998,6 @@ module AWS::Ec2
 
     # Structure Stubber for InternetGatewayAttachment
     class InternetGatewayAttachment
-
       def self.default(visited=[])
         return nil if visited.include?('InternetGatewayAttachment')
         visited = visited + ['InternetGatewayAttachment']
@@ -2134,7 +2011,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateFleet
     class CreateFleet
-
       def self.default(visited=[])
         {
           fleet_id: 'fleet_id',
@@ -2159,7 +2035,6 @@ module AWS::Ec2
 
     # Structure Stubber for CreateFleetInstance
     class CreateFleetInstance
-
       def self.default(visited=[])
         return nil if visited.include?('CreateFleetInstance')
         visited = visited + ['CreateFleetInstance']
@@ -2188,7 +2063,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateAndOverridesResponse
     class LaunchTemplateAndOverridesResponse
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateAndOverridesResponse')
         visited = visited + ['LaunchTemplateAndOverridesResponse']
@@ -2202,7 +2076,6 @@ module AWS::Ec2
 
     # Structure Stubber for FleetLaunchTemplateOverrides
     class FleetLaunchTemplateOverrides
-
       def self.default(visited=[])
         return nil if visited.include?('FleetLaunchTemplateOverrides')
         visited = visited + ['FleetLaunchTemplateOverrides']
@@ -2222,7 +2095,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceRequirements
     class InstanceRequirements
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceRequirements')
         visited = visited + ['InstanceRequirements']
@@ -2255,7 +2127,6 @@ module AWS::Ec2
 
     # Structure Stubber for AcceleratorTotalMemoryMiB
     class AcceleratorTotalMemoryMiB
-
       def self.default(visited=[])
         return nil if visited.include?('AcceleratorTotalMemoryMiB')
         visited = visited + ['AcceleratorTotalMemoryMiB']
@@ -2293,7 +2164,6 @@ module AWS::Ec2
 
     # Structure Stubber for AcceleratorCount
     class AcceleratorCount
-
       def self.default(visited=[])
         return nil if visited.include?('AcceleratorCount')
         visited = visited + ['AcceleratorCount']
@@ -2319,7 +2189,6 @@ module AWS::Ec2
 
     # Structure Stubber for BaselineEbsBandwidthMbps
     class BaselineEbsBandwidthMbps
-
       def self.default(visited=[])
         return nil if visited.include?('BaselineEbsBandwidthMbps')
         visited = visited + ['BaselineEbsBandwidthMbps']
@@ -2333,7 +2202,6 @@ module AWS::Ec2
 
     # Structure Stubber for TotalLocalStorageGB
     class TotalLocalStorageGB
-
       def self.default(visited=[])
         return nil if visited.include?('TotalLocalStorageGB')
         visited = visited + ['TotalLocalStorageGB']
@@ -2359,7 +2227,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkInterfaceCount
     class NetworkInterfaceCount
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkInterfaceCount')
         visited = visited + ['NetworkInterfaceCount']
@@ -2397,7 +2264,6 @@ module AWS::Ec2
 
     # Structure Stubber for MemoryGiBPerVCpu
     class MemoryGiBPerVCpu
-
       def self.default(visited=[])
         return nil if visited.include?('MemoryGiBPerVCpu')
         visited = visited + ['MemoryGiBPerVCpu']
@@ -2423,7 +2289,6 @@ module AWS::Ec2
 
     # Structure Stubber for MemoryMiB
     class MemoryMiB
-
       def self.default(visited=[])
         return nil if visited.include?('MemoryMiB')
         visited = visited + ['MemoryMiB']
@@ -2437,7 +2302,6 @@ module AWS::Ec2
 
     # Structure Stubber for VCpuCountRange
     class VCpuCountRange
-
       def self.default(visited=[])
         return nil if visited.include?('VCpuCountRange')
         visited = visited + ['VCpuCountRange']
@@ -2451,7 +2315,6 @@ module AWS::Ec2
 
     # Structure Stubber for PlacementResponse
     class PlacementResponse
-
       def self.default(visited=[])
         return nil if visited.include?('PlacementResponse')
         visited = visited + ['PlacementResponse']
@@ -2464,7 +2327,6 @@ module AWS::Ec2
 
     # Structure Stubber for FleetLaunchTemplateSpecification
     class FleetLaunchTemplateSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('FleetLaunchTemplateSpecification')
         visited = visited + ['FleetLaunchTemplateSpecification']
@@ -2491,7 +2353,6 @@ module AWS::Ec2
 
     # Structure Stubber for CreateFleetError
     class CreateFleetError
-
       def self.default(visited=[])
         return nil if visited.include?('CreateFleetError')
         visited = visited + ['CreateFleetError']
@@ -2507,7 +2368,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateFlowLogs
     class CreateFlowLogs
-
       def self.default(visited=[])
         {
           client_token: 'client_token',
@@ -2520,7 +2380,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateFpgaImage
     class CreateFpgaImage
-
       def self.default(visited=[])
         {
           fpga_image_id: 'fpga_image_id',
@@ -2532,7 +2391,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateImage
     class CreateImage
-
       def self.default(visited=[])
         {
           image_id: 'image_id',
@@ -2543,7 +2401,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateInstanceEventWindow
     class CreateInstanceEventWindow
-
       def self.default(visited=[])
         {
           instance_event_window: Stubs::InstanceEventWindow.default(visited),
@@ -2554,7 +2411,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateInstanceExportTask
     class CreateInstanceExportTask
-
       def self.default(visited=[])
         {
           export_task: Stubs::ExportTask.default(visited),
@@ -2565,7 +2421,6 @@ module AWS::Ec2
 
     # Structure Stubber for ExportTask
     class ExportTask
-
       def self.default(visited=[])
         return nil if visited.include?('ExportTask')
         visited = visited + ['ExportTask']
@@ -2584,7 +2439,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceExportDetails
     class InstanceExportDetails
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceExportDetails')
         visited = visited + ['InstanceExportDetails']
@@ -2598,7 +2452,6 @@ module AWS::Ec2
 
     # Structure Stubber for ExportToS3Task
     class ExportToS3Task
-
       def self.default(visited=[])
         return nil if visited.include?('ExportToS3Task')
         visited = visited + ['ExportToS3Task']
@@ -2614,7 +2467,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateInternetGateway
     class CreateInternetGateway
-
       def self.default(visited=[])
         {
           internet_gateway: Stubs::InternetGateway.default(visited),
@@ -2625,7 +2477,6 @@ module AWS::Ec2
 
     # Structure Stubber for InternetGateway
     class InternetGateway
-
       def self.default(visited=[])
         return nil if visited.include?('InternetGateway')
         visited = visited + ['InternetGateway']
@@ -2641,7 +2492,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateIpam
     class CreateIpam
-
       def self.default(visited=[])
         {
           ipam: Stubs::Ipam.default(visited),
@@ -2652,7 +2502,6 @@ module AWS::Ec2
 
     # Structure Stubber for Ipam
     class Ipam
-
       def self.default(visited=[])
         return nil if visited.include?('Ipam')
         visited = visited + ['Ipam']
@@ -2687,7 +2536,6 @@ module AWS::Ec2
 
     # Structure Stubber for IpamOperatingRegion
     class IpamOperatingRegion
-
       def self.default(visited=[])
         return nil if visited.include?('IpamOperatingRegion')
         visited = visited + ['IpamOperatingRegion']
@@ -2700,7 +2548,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateIpamPool
     class CreateIpamPool
-
       def self.default(visited=[])
         {
           ipam_pool: Stubs::IpamPool.default(visited),
@@ -2711,7 +2558,6 @@ module AWS::Ec2
 
     # Structure Stubber for IpamPool
     class IpamPool
-
       def self.default(visited=[])
         return nil if visited.include?('IpamPool')
         visited = visited + ['IpamPool']
@@ -2757,7 +2603,6 @@ module AWS::Ec2
 
     # Structure Stubber for IpamResourceTag
     class IpamResourceTag
-
       def self.default(visited=[])
         return nil if visited.include?('IpamResourceTag')
         visited = visited + ['IpamResourceTag']
@@ -2771,7 +2616,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateIpamScope
     class CreateIpamScope
-
       def self.default(visited=[])
         {
           ipam_scope: Stubs::IpamScope.default(visited),
@@ -2782,7 +2626,6 @@ module AWS::Ec2
 
     # Structure Stubber for IpamScope
     class IpamScope
-
       def self.default(visited=[])
         return nil if visited.include?('IpamScope')
         visited = visited + ['IpamScope']
@@ -2805,7 +2648,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateKeyPair
     class CreateKeyPair
-
       def self.default(visited=[])
         {
           key_fingerprint: 'key_fingerprint',
@@ -2820,7 +2662,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateLaunchTemplate
     class CreateLaunchTemplate
-
       def self.default(visited=[])
         {
           launch_template: Stubs::LaunchTemplate.default(visited),
@@ -2832,7 +2673,6 @@ module AWS::Ec2
 
     # Structure Stubber for ValidationWarning
     class ValidationWarning
-
       def self.default(visited=[])
         return nil if visited.include?('ValidationWarning')
         visited = visited + ['ValidationWarning']
@@ -2857,7 +2697,6 @@ module AWS::Ec2
 
     # Structure Stubber for ValidationError
     class ValidationError
-
       def self.default(visited=[])
         return nil if visited.include?('ValidationError')
         visited = visited + ['ValidationError']
@@ -2871,7 +2710,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplate
     class LaunchTemplate
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplate')
         visited = visited + ['LaunchTemplate']
@@ -2890,7 +2728,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateLaunchTemplateVersion
     class CreateLaunchTemplateVersion
-
       def self.default(visited=[])
         {
           launch_template_version: Stubs::LaunchTemplateVersion.default(visited),
@@ -2902,7 +2739,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateVersion
     class LaunchTemplateVersion
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateVersion')
         visited = visited + ['LaunchTemplateVersion']
@@ -2922,7 +2758,6 @@ module AWS::Ec2
 
     # Structure Stubber for ResponseLaunchTemplateData
     class ResponseLaunchTemplateData
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseLaunchTemplateData')
         visited = visited + ['ResponseLaunchTemplateData']
@@ -2963,7 +2798,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplatePrivateDnsNameOptions
     class LaunchTemplatePrivateDnsNameOptions
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplatePrivateDnsNameOptions')
         visited = visited + ['LaunchTemplatePrivateDnsNameOptions']
@@ -2978,7 +2812,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateEnclaveOptions
     class LaunchTemplateEnclaveOptions
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateEnclaveOptions')
         visited = visited + ['LaunchTemplateEnclaveOptions']
@@ -2991,7 +2824,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateInstanceMetadataOptions
     class LaunchTemplateInstanceMetadataOptions
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateInstanceMetadataOptions')
         visited = visited + ['LaunchTemplateInstanceMetadataOptions']
@@ -3009,7 +2841,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateHibernationOptions
     class LaunchTemplateHibernationOptions
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateHibernationOptions')
         visited = visited + ['LaunchTemplateHibernationOptions']
@@ -3034,7 +2865,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateLicenseConfiguration
     class LaunchTemplateLicenseConfiguration
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateLicenseConfiguration')
         visited = visited + ['LaunchTemplateLicenseConfiguration']
@@ -3047,7 +2877,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateCapacityReservationSpecificationResponse
     class LaunchTemplateCapacityReservationSpecificationResponse
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateCapacityReservationSpecificationResponse')
         visited = visited + ['LaunchTemplateCapacityReservationSpecificationResponse']
@@ -3061,7 +2890,6 @@ module AWS::Ec2
 
     # Structure Stubber for CapacityReservationTargetResponse
     class CapacityReservationTargetResponse
-
       def self.default(visited=[])
         return nil if visited.include?('CapacityReservationTargetResponse')
         visited = visited + ['CapacityReservationTargetResponse']
@@ -3075,7 +2903,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateCpuOptions
     class LaunchTemplateCpuOptions
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateCpuOptions')
         visited = visited + ['LaunchTemplateCpuOptions']
@@ -3089,7 +2916,6 @@ module AWS::Ec2
 
     # Structure Stubber for CreditSpecification
     class CreditSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('CreditSpecification')
         visited = visited + ['CreditSpecification']
@@ -3102,7 +2928,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateInstanceMarketOptions
     class LaunchTemplateInstanceMarketOptions
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateInstanceMarketOptions')
         visited = visited + ['LaunchTemplateInstanceMarketOptions']
@@ -3116,7 +2941,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateSpotMarketOptions
     class LaunchTemplateSpotMarketOptions
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateSpotMarketOptions')
         visited = visited + ['LaunchTemplateSpotMarketOptions']
@@ -3145,7 +2969,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateElasticInferenceAcceleratorResponse
     class LaunchTemplateElasticInferenceAcceleratorResponse
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateElasticInferenceAcceleratorResponse')
         visited = visited + ['LaunchTemplateElasticInferenceAcceleratorResponse']
@@ -3171,7 +2994,6 @@ module AWS::Ec2
 
     # Structure Stubber for ElasticGpuSpecificationResponse
     class ElasticGpuSpecificationResponse
-
       def self.default(visited=[])
         return nil if visited.include?('ElasticGpuSpecificationResponse')
         visited = visited + ['ElasticGpuSpecificationResponse']
@@ -3196,7 +3018,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateTagSpecification
     class LaunchTemplateTagSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateTagSpecification')
         visited = visited + ['LaunchTemplateTagSpecification']
@@ -3210,7 +3031,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplatePlacement
     class LaunchTemplatePlacement
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplatePlacement')
         visited = visited + ['LaunchTemplatePlacement']
@@ -3230,7 +3050,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplatesMonitoring
     class LaunchTemplatesMonitoring
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplatesMonitoring')
         visited = visited + ['LaunchTemplatesMonitoring']
@@ -3255,7 +3074,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateInstanceNetworkInterfaceSpecification
     class LaunchTemplateInstanceNetworkInterfaceSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateInstanceNetworkInterfaceSpecification')
         visited = visited + ['LaunchTemplateInstanceNetworkInterfaceSpecification']
@@ -3298,7 +3116,6 @@ module AWS::Ec2
 
     # Structure Stubber for Ipv6PrefixSpecificationResponse
     class Ipv6PrefixSpecificationResponse
-
       def self.default(visited=[])
         return nil if visited.include?('Ipv6PrefixSpecificationResponse')
         visited = visited + ['Ipv6PrefixSpecificationResponse']
@@ -3323,7 +3140,6 @@ module AWS::Ec2
 
     # Structure Stubber for Ipv4PrefixSpecificationResponse
     class Ipv4PrefixSpecificationResponse
-
       def self.default(visited=[])
         return nil if visited.include?('Ipv4PrefixSpecificationResponse')
         visited = visited + ['Ipv4PrefixSpecificationResponse']
@@ -3348,7 +3164,6 @@ module AWS::Ec2
 
     # Structure Stubber for PrivateIpAddressSpecification
     class PrivateIpAddressSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('PrivateIpAddressSpecification')
         visited = visited + ['PrivateIpAddressSpecification']
@@ -3374,7 +3189,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceIpv6Address
     class InstanceIpv6Address
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceIpv6Address')
         visited = visited + ['InstanceIpv6Address']
@@ -3411,7 +3225,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateBlockDeviceMapping
     class LaunchTemplateBlockDeviceMapping
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateBlockDeviceMapping')
         visited = visited + ['LaunchTemplateBlockDeviceMapping']
@@ -3427,7 +3240,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateEbsBlockDevice
     class LaunchTemplateEbsBlockDevice
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateEbsBlockDevice')
         visited = visited + ['LaunchTemplateEbsBlockDevice']
@@ -3447,7 +3259,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateIamInstanceProfileSpecification
     class LaunchTemplateIamInstanceProfileSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateIamInstanceProfileSpecification')
         visited = visited + ['LaunchTemplateIamInstanceProfileSpecification']
@@ -3461,7 +3272,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateLocalGatewayRoute
     class CreateLocalGatewayRoute
-
       def self.default(visited=[])
         {
           route: Stubs::LocalGatewayRoute.default(visited),
@@ -3472,7 +3282,6 @@ module AWS::Ec2
 
     # Structure Stubber for LocalGatewayRoute
     class LocalGatewayRoute
-
       def self.default(visited=[])
         return nil if visited.include?('LocalGatewayRoute')
         visited = visited + ['LocalGatewayRoute']
@@ -3491,7 +3300,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateLocalGatewayRouteTableVpcAssociation
     class CreateLocalGatewayRouteTableVpcAssociation
-
       def self.default(visited=[])
         {
           local_gateway_route_table_vpc_association: Stubs::LocalGatewayRouteTableVpcAssociation.default(visited),
@@ -3502,7 +3310,6 @@ module AWS::Ec2
 
     # Structure Stubber for LocalGatewayRouteTableVpcAssociation
     class LocalGatewayRouteTableVpcAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('LocalGatewayRouteTableVpcAssociation')
         visited = visited + ['LocalGatewayRouteTableVpcAssociation']
@@ -3522,7 +3329,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateManagedPrefixList
     class CreateManagedPrefixList
-
       def self.default(visited=[])
         {
           prefix_list: Stubs::ManagedPrefixList.default(visited),
@@ -3533,7 +3339,6 @@ module AWS::Ec2
 
     # Structure Stubber for ManagedPrefixList
     class ManagedPrefixList
-
       def self.default(visited=[])
         return nil if visited.include?('ManagedPrefixList')
         visited = visited + ['ManagedPrefixList']
@@ -3555,7 +3360,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateNatGateway
     class CreateNatGateway
-
       def self.default(visited=[])
         {
           client_token: 'client_token',
@@ -3567,7 +3371,6 @@ module AWS::Ec2
 
     # Structure Stubber for NatGateway
     class NatGateway
-
       def self.default(visited=[])
         return nil if visited.include?('NatGateway')
         visited = visited + ['NatGateway']
@@ -3591,7 +3394,6 @@ module AWS::Ec2
 
     # Structure Stubber for ProvisionedBandwidth
     class ProvisionedBandwidth
-
       def self.default(visited=[])
         return nil if visited.include?('ProvisionedBandwidth')
         visited = visited + ['ProvisionedBandwidth']
@@ -3620,7 +3422,6 @@ module AWS::Ec2
 
     # Structure Stubber for NatGatewayAddress
     class NatGatewayAddress
-
       def self.default(visited=[])
         return nil if visited.include?('NatGatewayAddress')
         visited = visited + ['NatGatewayAddress']
@@ -3636,7 +3437,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateNetworkAcl
     class CreateNetworkAcl
-
       def self.default(visited=[])
         {
           network_acl: Stubs::NetworkAcl.default(visited),
@@ -3647,7 +3447,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkAcl
     class NetworkAcl
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkAcl')
         visited = visited + ['NetworkAcl']
@@ -3678,7 +3477,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkAclEntry
     class NetworkAclEntry
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkAclEntry')
         visited = visited + ['NetworkAclEntry']
@@ -3698,7 +3496,6 @@ module AWS::Ec2
 
     # Structure Stubber for PortRange
     class PortRange
-
       def self.default(visited=[])
         return nil if visited.include?('PortRange')
         visited = visited + ['PortRange']
@@ -3712,7 +3509,6 @@ module AWS::Ec2
 
     # Structure Stubber for IcmpTypeCode
     class IcmpTypeCode
-
       def self.default(visited=[])
         return nil if visited.include?('IcmpTypeCode')
         visited = visited + ['IcmpTypeCode']
@@ -3738,7 +3534,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkAclAssociation
     class NetworkAclAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkAclAssociation')
         visited = visited + ['NetworkAclAssociation']
@@ -3753,7 +3548,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateNetworkAclEntry
     class CreateNetworkAclEntry
-
       def self.default(visited=[])
         {
         }
@@ -3763,7 +3557,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateNetworkInsightsAccessScope
     class CreateNetworkInsightsAccessScope
-
       def self.default(visited=[])
         {
           network_insights_access_scope: Stubs::NetworkInsightsAccessScope.default(visited),
@@ -3775,7 +3568,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkInsightsAccessScopeContent
     class NetworkInsightsAccessScopeContent
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkInsightsAccessScopeContent')
         visited = visited + ['NetworkInsightsAccessScopeContent']
@@ -3802,7 +3594,6 @@ module AWS::Ec2
 
     # Structure Stubber for AccessScopePath
     class AccessScopePath
-
       def self.default(visited=[])
         return nil if visited.include?('AccessScopePath')
         visited = visited + ['AccessScopePath']
@@ -3829,7 +3620,6 @@ module AWS::Ec2
 
     # Structure Stubber for ThroughResourcesStatement
     class ThroughResourcesStatement
-
       def self.default(visited=[])
         return nil if visited.include?('ThroughResourcesStatement')
         visited = visited + ['ThroughResourcesStatement']
@@ -3842,7 +3632,6 @@ module AWS::Ec2
 
     # Structure Stubber for ResourceStatement
     class ResourceStatement
-
       def self.default(visited=[])
         return nil if visited.include?('ResourceStatement')
         visited = visited + ['ResourceStatement']
@@ -3856,7 +3645,6 @@ module AWS::Ec2
 
     # Structure Stubber for PathStatement
     class PathStatement
-
       def self.default(visited=[])
         return nil if visited.include?('PathStatement')
         visited = visited + ['PathStatement']
@@ -3870,7 +3658,6 @@ module AWS::Ec2
 
     # Structure Stubber for PacketHeaderStatement
     class PacketHeaderStatement
-
       def self.default(visited=[])
         return nil if visited.include?('PacketHeaderStatement')
         visited = visited + ['PacketHeaderStatement']
@@ -3901,7 +3688,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkInsightsAccessScope
     class NetworkInsightsAccessScope
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkInsightsAccessScope')
         visited = visited + ['NetworkInsightsAccessScope']
@@ -3918,7 +3704,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateNetworkInsightsPath
     class CreateNetworkInsightsPath
-
       def self.default(visited=[])
         {
           network_insights_path: Stubs::NetworkInsightsPath.default(visited),
@@ -3929,7 +3714,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkInsightsPath
     class NetworkInsightsPath
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkInsightsPath')
         visited = visited + ['NetworkInsightsPath']
@@ -3951,7 +3735,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateNetworkInterface
     class CreateNetworkInterface
-
       def self.default(visited=[])
         {
           network_interface: Stubs::NetworkInterface.default(visited),
@@ -3963,7 +3746,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkInterface
     class NetworkInterface
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkInterface')
         visited = visited + ['NetworkInterface']
@@ -4013,7 +3795,6 @@ module AWS::Ec2
 
     # Structure Stubber for Ipv6PrefixSpecification
     class Ipv6PrefixSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('Ipv6PrefixSpecification')
         visited = visited + ['Ipv6PrefixSpecification']
@@ -4038,7 +3819,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkInterfacePrivateIpAddress
     class NetworkInterfacePrivateIpAddress
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkInterfacePrivateIpAddress')
         visited = visited + ['NetworkInterfacePrivateIpAddress']
@@ -4054,7 +3834,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkInterfaceAssociation
     class NetworkInterfaceAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkInterfaceAssociation')
         visited = visited + ['NetworkInterfaceAssociation']
@@ -4085,7 +3864,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkInterfaceIpv6Address
     class NetworkInterfaceIpv6Address
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkInterfaceIpv6Address')
         visited = visited + ['NetworkInterfaceIpv6Address']
@@ -4110,7 +3888,6 @@ module AWS::Ec2
 
     # Structure Stubber for GroupIdentifier
     class GroupIdentifier
-
       def self.default(visited=[])
         return nil if visited.include?('GroupIdentifier')
         visited = visited + ['GroupIdentifier']
@@ -4124,7 +3901,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkInterfaceAttachment
     class NetworkInterfaceAttachment
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkInterfaceAttachment')
         visited = visited + ['NetworkInterfaceAttachment']
@@ -4144,7 +3920,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateNetworkInterfacePermission
     class CreateNetworkInterfacePermission
-
       def self.default(visited=[])
         {
           interface_permission: Stubs::NetworkInterfacePermission.default(visited),
@@ -4155,7 +3930,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkInterfacePermission
     class NetworkInterfacePermission
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkInterfacePermission')
         visited = visited + ['NetworkInterfacePermission']
@@ -4173,7 +3947,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkInterfacePermissionState
     class NetworkInterfacePermissionState
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkInterfacePermissionState')
         visited = visited + ['NetworkInterfacePermissionState']
@@ -4187,7 +3960,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreatePlacementGroup
     class CreatePlacementGroup
-
       def self.default(visited=[])
         {
           placement_group: Stubs::PlacementGroup.default(visited),
@@ -4198,7 +3970,6 @@ module AWS::Ec2
 
     # Structure Stubber for PlacementGroup
     class PlacementGroup
-
       def self.default(visited=[])
         return nil if visited.include?('PlacementGroup')
         visited = visited + ['PlacementGroup']
@@ -4217,7 +3988,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreatePublicIpv4Pool
     class CreatePublicIpv4Pool
-
       def self.default(visited=[])
         {
           pool_id: 'pool_id',
@@ -4228,7 +3998,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateReplaceRootVolumeTask
     class CreateReplaceRootVolumeTask
-
       def self.default(visited=[])
         {
           replace_root_volume_task: Stubs::ReplaceRootVolumeTask.default(visited),
@@ -4239,7 +4008,6 @@ module AWS::Ec2
 
     # Structure Stubber for ReplaceRootVolumeTask
     class ReplaceRootVolumeTask
-
       def self.default(visited=[])
         return nil if visited.include?('ReplaceRootVolumeTask')
         visited = visited + ['ReplaceRootVolumeTask']
@@ -4257,7 +4025,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateReservedInstancesListing
     class CreateReservedInstancesListing
-
       def self.default(visited=[])
         {
           reserved_instances_listings: Stubs::ReservedInstancesListingList.default(visited),
@@ -4268,7 +4035,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateRestoreImageTask
     class CreateRestoreImageTask
-
       def self.default(visited=[])
         {
           image_id: 'image_id',
@@ -4279,7 +4045,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateRoute
     class CreateRoute
-
       def self.default(visited=[])
         {
           return: false,
@@ -4290,7 +4055,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateRouteTable
     class CreateRouteTable
-
       def self.default(visited=[])
         {
           route_table: Stubs::RouteTable.default(visited),
@@ -4301,7 +4065,6 @@ module AWS::Ec2
 
     # Structure Stubber for RouteTable
     class RouteTable
-
       def self.default(visited=[])
         return nil if visited.include?('RouteTable')
         visited = visited + ['RouteTable']
@@ -4332,7 +4095,6 @@ module AWS::Ec2
 
     # Structure Stubber for Route
     class Route
-
       def self.default(visited=[])
         return nil if visited.include?('Route')
         visited = visited + ['Route']
@@ -4372,7 +4134,6 @@ module AWS::Ec2
 
     # Structure Stubber for PropagatingVgw
     class PropagatingVgw
-
       def self.default(visited=[])
         return nil if visited.include?('PropagatingVgw')
         visited = visited + ['PropagatingVgw']
@@ -4397,7 +4158,6 @@ module AWS::Ec2
 
     # Structure Stubber for RouteTableAssociation
     class RouteTableAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('RouteTableAssociation')
         visited = visited + ['RouteTableAssociation']
@@ -4415,7 +4175,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateSecurityGroup
     class CreateSecurityGroup
-
       def self.default(visited=[])
         {
           group_id: 'group_id',
@@ -4427,7 +4186,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateSnapshot
     class CreateSnapshot
-
       def self.default(visited=[])
         {
           data_encryption_key_id: 'data_encryption_key_id',
@@ -4454,7 +4212,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateSnapshots
     class CreateSnapshots
-
       def self.default(visited=[])
         {
           snapshots: Stubs::SnapshotSet.default(visited),
@@ -4477,7 +4234,6 @@ module AWS::Ec2
 
     # Structure Stubber for SnapshotInfo
     class SnapshotInfo
-
       def self.default(visited=[])
         return nil if visited.include?('SnapshotInfo')
         visited = visited + ['SnapshotInfo']
@@ -4500,7 +4256,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateSpotDatafeedSubscription
     class CreateSpotDatafeedSubscription
-
       def self.default(visited=[])
         {
           spot_datafeed_subscription: Stubs::SpotDatafeedSubscription.default(visited),
@@ -4511,7 +4266,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotDatafeedSubscription
     class SpotDatafeedSubscription
-
       def self.default(visited=[])
         return nil if visited.include?('SpotDatafeedSubscription')
         visited = visited + ['SpotDatafeedSubscription']
@@ -4528,7 +4282,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotInstanceStateFault
     class SpotInstanceStateFault
-
       def self.default(visited=[])
         return nil if visited.include?('SpotInstanceStateFault')
         visited = visited + ['SpotInstanceStateFault']
@@ -4542,7 +4295,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateStoreImageTask
     class CreateStoreImageTask
-
       def self.default(visited=[])
         {
           object_key: 'object_key',
@@ -4553,7 +4305,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateSubnet
     class CreateSubnet
-
       def self.default(visited=[])
         {
           subnet: Stubs::Subnet.default(visited),
@@ -4564,7 +4315,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateSubnetCidrReservation
     class CreateSubnetCidrReservation
-
       def self.default(visited=[])
         {
           subnet_cidr_reservation: Stubs::SubnetCidrReservation.default(visited),
@@ -4575,7 +4325,6 @@ module AWS::Ec2
 
     # Structure Stubber for SubnetCidrReservation
     class SubnetCidrReservation
-
       def self.default(visited=[])
         return nil if visited.include?('SubnetCidrReservation')
         visited = visited + ['SubnetCidrReservation']
@@ -4594,7 +4343,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateTags
     class CreateTags
-
       def self.default(visited=[])
         {
         }
@@ -4604,7 +4352,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateTrafficMirrorFilter
     class CreateTrafficMirrorFilter
-
       def self.default(visited=[])
         {
           traffic_mirror_filter: Stubs::TrafficMirrorFilter.default(visited),
@@ -4616,7 +4363,6 @@ module AWS::Ec2
 
     # Structure Stubber for TrafficMirrorFilter
     class TrafficMirrorFilter
-
       def self.default(visited=[])
         return nil if visited.include?('TrafficMirrorFilter')
         visited = visited + ['TrafficMirrorFilter']
@@ -4658,7 +4404,6 @@ module AWS::Ec2
 
     # Structure Stubber for TrafficMirrorFilterRule
     class TrafficMirrorFilterRule
-
       def self.default(visited=[])
         return nil if visited.include?('TrafficMirrorFilterRule')
         visited = visited + ['TrafficMirrorFilterRule']
@@ -4681,7 +4426,6 @@ module AWS::Ec2
 
     # Structure Stubber for TrafficMirrorPortRange
     class TrafficMirrorPortRange
-
       def self.default(visited=[])
         return nil if visited.include?('TrafficMirrorPortRange')
         visited = visited + ['TrafficMirrorPortRange']
@@ -4695,7 +4439,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateTrafficMirrorFilterRule
     class CreateTrafficMirrorFilterRule
-
       def self.default(visited=[])
         {
           traffic_mirror_filter_rule: Stubs::TrafficMirrorFilterRule.default(visited),
@@ -4707,7 +4450,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateTrafficMirrorSession
     class CreateTrafficMirrorSession
-
       def self.default(visited=[])
         {
           traffic_mirror_session: Stubs::TrafficMirrorSession.default(visited),
@@ -4719,7 +4461,6 @@ module AWS::Ec2
 
     # Structure Stubber for TrafficMirrorSession
     class TrafficMirrorSession
-
       def self.default(visited=[])
         return nil if visited.include?('TrafficMirrorSession')
         visited = visited + ['TrafficMirrorSession']
@@ -4741,7 +4482,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateTrafficMirrorTarget
     class CreateTrafficMirrorTarget
-
       def self.default(visited=[])
         {
           traffic_mirror_target: Stubs::TrafficMirrorTarget.default(visited),
@@ -4753,7 +4493,6 @@ module AWS::Ec2
 
     # Structure Stubber for TrafficMirrorTarget
     class TrafficMirrorTarget
-
       def self.default(visited=[])
         return nil if visited.include?('TrafficMirrorTarget')
         visited = visited + ['TrafficMirrorTarget']
@@ -4772,7 +4511,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateTransitGateway
     class CreateTransitGateway
-
       def self.default(visited=[])
         {
           transit_gateway: Stubs::TransitGateway.default(visited),
@@ -4783,7 +4521,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGateway
     class TransitGateway
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGateway')
         visited = visited + ['TransitGateway']
@@ -4803,7 +4540,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayOptions
     class TransitGatewayOptions
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayOptions')
         visited = visited + ['TransitGatewayOptions']
@@ -4825,7 +4561,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateTransitGatewayConnect
     class CreateTransitGatewayConnect
-
       def self.default(visited=[])
         {
           transit_gateway_connect: Stubs::TransitGatewayConnect.default(visited),
@@ -4836,7 +4571,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayConnect
     class TransitGatewayConnect
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayConnect')
         visited = visited + ['TransitGatewayConnect']
@@ -4855,7 +4589,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayConnectOptions
     class TransitGatewayConnectOptions
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayConnectOptions')
         visited = visited + ['TransitGatewayConnectOptions']
@@ -4868,7 +4601,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateTransitGatewayConnectPeer
     class CreateTransitGatewayConnectPeer
-
       def self.default(visited=[])
         {
           transit_gateway_connect_peer: Stubs::TransitGatewayConnectPeer.default(visited),
@@ -4879,7 +4611,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayConnectPeer
     class TransitGatewayConnectPeer
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayConnectPeer')
         visited = visited + ['TransitGatewayConnectPeer']
@@ -4897,7 +4628,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayConnectPeerConfiguration
     class TransitGatewayConnectPeerConfiguration
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayConnectPeerConfiguration')
         visited = visited + ['TransitGatewayConnectPeerConfiguration']
@@ -4926,7 +4656,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayAttachmentBgpConfiguration
     class TransitGatewayAttachmentBgpConfiguration
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayAttachmentBgpConfiguration')
         visited = visited + ['TransitGatewayAttachmentBgpConfiguration']
@@ -4955,7 +4684,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateTransitGatewayMulticastDomain
     class CreateTransitGatewayMulticastDomain
-
       def self.default(visited=[])
         {
           transit_gateway_multicast_domain: Stubs::TransitGatewayMulticastDomain.default(visited),
@@ -4966,7 +4694,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayMulticastDomain
     class TransitGatewayMulticastDomain
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayMulticastDomain')
         visited = visited + ['TransitGatewayMulticastDomain']
@@ -4986,7 +4713,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayMulticastDomainOptions
     class TransitGatewayMulticastDomainOptions
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayMulticastDomainOptions')
         visited = visited + ['TransitGatewayMulticastDomainOptions']
@@ -5001,7 +4727,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateTransitGatewayPeeringAttachment
     class CreateTransitGatewayPeeringAttachment
-
       def self.default(visited=[])
         {
           transit_gateway_peering_attachment: Stubs::TransitGatewayPeeringAttachment.default(visited),
@@ -5012,7 +4737,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateTransitGatewayPrefixListReference
     class CreateTransitGatewayPrefixListReference
-
       def self.default(visited=[])
         {
           transit_gateway_prefix_list_reference: Stubs::TransitGatewayPrefixListReference.default(visited),
@@ -5023,7 +4747,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayPrefixListReference
     class TransitGatewayPrefixListReference
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayPrefixListReference')
         visited = visited + ['TransitGatewayPrefixListReference']
@@ -5041,7 +4764,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayPrefixListAttachment
     class TransitGatewayPrefixListAttachment
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayPrefixListAttachment')
         visited = visited + ['TransitGatewayPrefixListAttachment']
@@ -5056,7 +4778,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateTransitGatewayRoute
     class CreateTransitGatewayRoute
-
       def self.default(visited=[])
         {
           route: Stubs::TransitGatewayRoute.default(visited),
@@ -5067,7 +4788,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayRoute
     class TransitGatewayRoute
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayRoute')
         visited = visited + ['TransitGatewayRoute']
@@ -5096,7 +4816,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayRouteAttachment
     class TransitGatewayRouteAttachment
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayRouteAttachment')
         visited = visited + ['TransitGatewayRouteAttachment']
@@ -5111,7 +4830,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateTransitGatewayRouteTable
     class CreateTransitGatewayRouteTable
-
       def self.default(visited=[])
         {
           transit_gateway_route_table: Stubs::TransitGatewayRouteTable.default(visited),
@@ -5122,7 +4840,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayRouteTable
     class TransitGatewayRouteTable
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayRouteTable')
         visited = visited + ['TransitGatewayRouteTable']
@@ -5141,7 +4858,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateTransitGatewayVpcAttachment
     class CreateTransitGatewayVpcAttachment
-
       def self.default(visited=[])
         {
           transit_gateway_vpc_attachment: Stubs::TransitGatewayVpcAttachment.default(visited),
@@ -5152,7 +4868,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateVolume
     class CreateVolume
-
       def self.default(visited=[])
         {
           attachments: Stubs::VolumeAttachmentList.default(visited),
@@ -5190,7 +4905,6 @@ module AWS::Ec2
 
     # Structure Stubber for VolumeAttachment
     class VolumeAttachment
-
       def self.default(visited=[])
         return nil if visited.include?('VolumeAttachment')
         visited = visited + ['VolumeAttachment']
@@ -5208,7 +4922,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateVpc
     class CreateVpc
-
       def self.default(visited=[])
         {
           vpc: Stubs::Vpc.default(visited),
@@ -5219,7 +4932,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateVpcEndpoint
     class CreateVpcEndpoint
-
       def self.default(visited=[])
         {
           vpc_endpoint: Stubs::VpcEndpoint.default(visited),
@@ -5231,7 +4943,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpcEndpoint
     class VpcEndpoint
-
       def self.default(visited=[])
         return nil if visited.include?('VpcEndpoint')
         visited = visited + ['VpcEndpoint']
@@ -5260,7 +4971,6 @@ module AWS::Ec2
 
     # Structure Stubber for LastError
     class LastError
-
       def self.default(visited=[])
         return nil if visited.include?('LastError')
         visited = visited + ['LastError']
@@ -5286,7 +4996,6 @@ module AWS::Ec2
 
     # Structure Stubber for DnsEntry
     class DnsEntry
-
       def self.default(visited=[])
         return nil if visited.include?('DnsEntry')
         visited = visited + ['DnsEntry']
@@ -5312,7 +5021,6 @@ module AWS::Ec2
 
     # Structure Stubber for SecurityGroupIdentifier
     class SecurityGroupIdentifier
-
       def self.default(visited=[])
         return nil if visited.include?('SecurityGroupIdentifier')
         visited = visited + ['SecurityGroupIdentifier']
@@ -5326,7 +5034,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateVpcEndpointConnectionNotification
     class CreateVpcEndpointConnectionNotification
-
       def self.default(visited=[])
         {
           connection_notification: Stubs::ConnectionNotification.default(visited),
@@ -5338,7 +5045,6 @@ module AWS::Ec2
 
     # Structure Stubber for ConnectionNotification
     class ConnectionNotification
-
       def self.default(visited=[])
         return nil if visited.include?('ConnectionNotification')
         visited = visited + ['ConnectionNotification']
@@ -5357,7 +5063,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateVpcEndpointServiceConfiguration
     class CreateVpcEndpointServiceConfiguration
-
       def self.default(visited=[])
         {
           service_configuration: Stubs::ServiceConfiguration.default(visited),
@@ -5369,7 +5074,6 @@ module AWS::Ec2
 
     # Structure Stubber for ServiceConfiguration
     class ServiceConfiguration
-
       def self.default(visited=[])
         return nil if visited.include?('ServiceConfiguration')
         visited = visited + ['ServiceConfiguration']
@@ -5395,7 +5099,6 @@ module AWS::Ec2
 
     # Structure Stubber for PrivateDnsNameConfiguration
     class PrivateDnsNameConfiguration
-
       def self.default(visited=[])
         return nil if visited.include?('PrivateDnsNameConfiguration')
         visited = visited + ['PrivateDnsNameConfiguration']
@@ -5423,7 +5126,6 @@ module AWS::Ec2
 
     # Structure Stubber for ServiceTypeDetail
     class ServiceTypeDetail
-
       def self.default(visited=[])
         return nil if visited.include?('ServiceTypeDetail')
         visited = visited + ['ServiceTypeDetail']
@@ -5436,7 +5138,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateVpcPeeringConnection
     class CreateVpcPeeringConnection
-
       def self.default(visited=[])
         {
           vpc_peering_connection: Stubs::VpcPeeringConnection.default(visited),
@@ -5447,7 +5148,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateVpnConnection
     class CreateVpnConnection
-
       def self.default(visited=[])
         {
           vpn_connection: Stubs::VpnConnection.default(visited),
@@ -5458,7 +5158,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpnConnection
     class VpnConnection
-
       def self.default(visited=[])
         return nil if visited.include?('VpnConnection')
         visited = visited + ['VpnConnection']
@@ -5497,7 +5196,6 @@ module AWS::Ec2
 
     # Structure Stubber for VgwTelemetry
     class VgwTelemetry
-
       def self.default(visited=[])
         return nil if visited.include?('VgwTelemetry')
         visited = visited + ['VgwTelemetry']
@@ -5527,7 +5225,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpnStaticRoute
     class VpnStaticRoute
-
       def self.default(visited=[])
         return nil if visited.include?('VpnStaticRoute')
         visited = visited + ['VpnStaticRoute']
@@ -5542,7 +5239,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpnConnectionOptions
     class VpnConnectionOptions
-
       def self.default(visited=[])
         return nil if visited.include?('VpnConnectionOptions')
         visited = visited + ['VpnConnectionOptions']
@@ -5574,7 +5270,6 @@ module AWS::Ec2
 
     # Structure Stubber for TunnelOption
     class TunnelOption
-
       def self.default(visited=[])
         return nil if visited.include?('TunnelOption')
         visited = visited + ['TunnelOption']
@@ -5617,7 +5312,6 @@ module AWS::Ec2
 
     # Structure Stubber for IKEVersionsListValue
     class IKEVersionsListValue
-
       def self.default(visited=[])
         return nil if visited.include?('IKEVersionsListValue')
         visited = visited + ['IKEVersionsListValue']
@@ -5642,7 +5336,6 @@ module AWS::Ec2
 
     # Structure Stubber for Phase2DHGroupNumbersListValue
     class Phase2DHGroupNumbersListValue
-
       def self.default(visited=[])
         return nil if visited.include?('Phase2DHGroupNumbersListValue')
         visited = visited + ['Phase2DHGroupNumbersListValue']
@@ -5667,7 +5360,6 @@ module AWS::Ec2
 
     # Structure Stubber for Phase1DHGroupNumbersListValue
     class Phase1DHGroupNumbersListValue
-
       def self.default(visited=[])
         return nil if visited.include?('Phase1DHGroupNumbersListValue')
         visited = visited + ['Phase1DHGroupNumbersListValue']
@@ -5692,7 +5384,6 @@ module AWS::Ec2
 
     # Structure Stubber for Phase2IntegrityAlgorithmsListValue
     class Phase2IntegrityAlgorithmsListValue
-
       def self.default(visited=[])
         return nil if visited.include?('Phase2IntegrityAlgorithmsListValue')
         visited = visited + ['Phase2IntegrityAlgorithmsListValue']
@@ -5717,7 +5408,6 @@ module AWS::Ec2
 
     # Structure Stubber for Phase1IntegrityAlgorithmsListValue
     class Phase1IntegrityAlgorithmsListValue
-
       def self.default(visited=[])
         return nil if visited.include?('Phase1IntegrityAlgorithmsListValue')
         visited = visited + ['Phase1IntegrityAlgorithmsListValue']
@@ -5742,7 +5432,6 @@ module AWS::Ec2
 
     # Structure Stubber for Phase2EncryptionAlgorithmsListValue
     class Phase2EncryptionAlgorithmsListValue
-
       def self.default(visited=[])
         return nil if visited.include?('Phase2EncryptionAlgorithmsListValue')
         visited = visited + ['Phase2EncryptionAlgorithmsListValue']
@@ -5767,7 +5456,6 @@ module AWS::Ec2
 
     # Structure Stubber for Phase1EncryptionAlgorithmsListValue
     class Phase1EncryptionAlgorithmsListValue
-
       def self.default(visited=[])
         return nil if visited.include?('Phase1EncryptionAlgorithmsListValue')
         visited = visited + ['Phase1EncryptionAlgorithmsListValue']
@@ -5780,7 +5468,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateVpnConnectionRoute
     class CreateVpnConnectionRoute
-
       def self.default(visited=[])
         {
         }
@@ -5790,7 +5477,6 @@ module AWS::Ec2
 
     # Operation Stubber for CreateVpnGateway
     class CreateVpnGateway
-
       def self.default(visited=[])
         {
           vpn_gateway: Stubs::VpnGateway.default(visited),
@@ -5801,7 +5487,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpnGateway
     class VpnGateway
-
       def self.default(visited=[])
         return nil if visited.include?('VpnGateway')
         visited = visited + ['VpnGateway']
@@ -5832,7 +5517,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteCarrierGateway
     class DeleteCarrierGateway
-
       def self.default(visited=[])
         {
           carrier_gateway: Stubs::CarrierGateway.default(visited),
@@ -5843,7 +5527,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteClientVpnEndpoint
     class DeleteClientVpnEndpoint
-
       def self.default(visited=[])
         {
           status: Stubs::ClientVpnEndpointStatus.default(visited),
@@ -5854,7 +5537,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteClientVpnRoute
     class DeleteClientVpnRoute
-
       def self.default(visited=[])
         {
           status: Stubs::ClientVpnRouteStatus.default(visited),
@@ -5865,7 +5547,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteCustomerGateway
     class DeleteCustomerGateway
-
       def self.default(visited=[])
         {
         }
@@ -5875,7 +5556,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteDhcpOptions
     class DeleteDhcpOptions
-
       def self.default(visited=[])
         {
         }
@@ -5885,7 +5565,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteEgressOnlyInternetGateway
     class DeleteEgressOnlyInternetGateway
-
       def self.default(visited=[])
         {
           return_code: false,
@@ -5896,7 +5575,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteFleets
     class DeleteFleets
-
       def self.default(visited=[])
         {
           successful_fleet_deletions: Stubs::DeleteFleetSuccessSet.default(visited),
@@ -5920,7 +5598,6 @@ module AWS::Ec2
 
     # Structure Stubber for DeleteFleetErrorItem
     class DeleteFleetErrorItem
-
       def self.default(visited=[])
         return nil if visited.include?('DeleteFleetErrorItem')
         visited = visited + ['DeleteFleetErrorItem']
@@ -5934,7 +5611,6 @@ module AWS::Ec2
 
     # Structure Stubber for DeleteFleetError
     class DeleteFleetError
-
       def self.default(visited=[])
         return nil if visited.include?('DeleteFleetError')
         visited = visited + ['DeleteFleetError']
@@ -5960,7 +5636,6 @@ module AWS::Ec2
 
     # Structure Stubber for DeleteFleetSuccessItem
     class DeleteFleetSuccessItem
-
       def self.default(visited=[])
         return nil if visited.include?('DeleteFleetSuccessItem')
         visited = visited + ['DeleteFleetSuccessItem']
@@ -5975,7 +5650,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteFlowLogs
     class DeleteFlowLogs
-
       def self.default(visited=[])
         {
           unsuccessful: Stubs::UnsuccessfulItemSet.default(visited),
@@ -5986,7 +5660,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteFpgaImage
     class DeleteFpgaImage
-
       def self.default(visited=[])
         {
           return: false,
@@ -5997,7 +5670,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteInstanceEventWindow
     class DeleteInstanceEventWindow
-
       def self.default(visited=[])
         {
           instance_event_window_state: Stubs::InstanceEventWindowStateChange.default(visited),
@@ -6008,7 +5680,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceEventWindowStateChange
     class InstanceEventWindowStateChange
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceEventWindowStateChange')
         visited = visited + ['InstanceEventWindowStateChange']
@@ -6022,7 +5693,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteInternetGateway
     class DeleteInternetGateway
-
       def self.default(visited=[])
         {
         }
@@ -6032,7 +5702,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteIpam
     class DeleteIpam
-
       def self.default(visited=[])
         {
           ipam: Stubs::Ipam.default(visited),
@@ -6043,7 +5712,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteIpamPool
     class DeleteIpamPool
-
       def self.default(visited=[])
         {
           ipam_pool: Stubs::IpamPool.default(visited),
@@ -6054,7 +5722,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteIpamScope
     class DeleteIpamScope
-
       def self.default(visited=[])
         {
           ipam_scope: Stubs::IpamScope.default(visited),
@@ -6065,7 +5732,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteKeyPair
     class DeleteKeyPair
-
       def self.default(visited=[])
         {
         }
@@ -6075,7 +5741,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteLaunchTemplate
     class DeleteLaunchTemplate
-
       def self.default(visited=[])
         {
           launch_template: Stubs::LaunchTemplate.default(visited),
@@ -6086,7 +5751,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteLaunchTemplateVersions
     class DeleteLaunchTemplateVersions
-
       def self.default(visited=[])
         {
           successfully_deleted_launch_template_versions: Stubs::DeleteLaunchTemplateVersionsResponseSuccessSet.default(visited),
@@ -6110,7 +5774,6 @@ module AWS::Ec2
 
     # Structure Stubber for DeleteLaunchTemplateVersionsResponseErrorItem
     class DeleteLaunchTemplateVersionsResponseErrorItem
-
       def self.default(visited=[])
         return nil if visited.include?('DeleteLaunchTemplateVersionsResponseErrorItem')
         visited = visited + ['DeleteLaunchTemplateVersionsResponseErrorItem']
@@ -6126,7 +5789,6 @@ module AWS::Ec2
 
     # Structure Stubber for ResponseError
     class ResponseError
-
       def self.default(visited=[])
         return nil if visited.include?('ResponseError')
         visited = visited + ['ResponseError']
@@ -6152,7 +5814,6 @@ module AWS::Ec2
 
     # Structure Stubber for DeleteLaunchTemplateVersionsResponseSuccessItem
     class DeleteLaunchTemplateVersionsResponseSuccessItem
-
       def self.default(visited=[])
         return nil if visited.include?('DeleteLaunchTemplateVersionsResponseSuccessItem')
         visited = visited + ['DeleteLaunchTemplateVersionsResponseSuccessItem']
@@ -6167,7 +5828,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteLocalGatewayRoute
     class DeleteLocalGatewayRoute
-
       def self.default(visited=[])
         {
           route: Stubs::LocalGatewayRoute.default(visited),
@@ -6178,7 +5838,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteLocalGatewayRouteTableVpcAssociation
     class DeleteLocalGatewayRouteTableVpcAssociation
-
       def self.default(visited=[])
         {
           local_gateway_route_table_vpc_association: Stubs::LocalGatewayRouteTableVpcAssociation.default(visited),
@@ -6189,7 +5848,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteManagedPrefixList
     class DeleteManagedPrefixList
-
       def self.default(visited=[])
         {
           prefix_list: Stubs::ManagedPrefixList.default(visited),
@@ -6200,7 +5858,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteNatGateway
     class DeleteNatGateway
-
       def self.default(visited=[])
         {
           nat_gateway_id: 'nat_gateway_id',
@@ -6211,7 +5868,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteNetworkAcl
     class DeleteNetworkAcl
-
       def self.default(visited=[])
         {
         }
@@ -6221,7 +5877,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteNetworkAclEntry
     class DeleteNetworkAclEntry
-
       def self.default(visited=[])
         {
         }
@@ -6231,7 +5886,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteNetworkInsightsAccessScope
     class DeleteNetworkInsightsAccessScope
-
       def self.default(visited=[])
         {
           network_insights_access_scope_id: 'network_insights_access_scope_id',
@@ -6242,7 +5896,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteNetworkInsightsAccessScopeAnalysis
     class DeleteNetworkInsightsAccessScopeAnalysis
-
       def self.default(visited=[])
         {
           network_insights_access_scope_analysis_id: 'network_insights_access_scope_analysis_id',
@@ -6253,7 +5906,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteNetworkInsightsAnalysis
     class DeleteNetworkInsightsAnalysis
-
       def self.default(visited=[])
         {
           network_insights_analysis_id: 'network_insights_analysis_id',
@@ -6264,7 +5916,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteNetworkInsightsPath
     class DeleteNetworkInsightsPath
-
       def self.default(visited=[])
         {
           network_insights_path_id: 'network_insights_path_id',
@@ -6275,7 +5926,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteNetworkInterface
     class DeleteNetworkInterface
-
       def self.default(visited=[])
         {
         }
@@ -6285,7 +5935,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteNetworkInterfacePermission
     class DeleteNetworkInterfacePermission
-
       def self.default(visited=[])
         {
           return: false,
@@ -6296,7 +5945,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeletePlacementGroup
     class DeletePlacementGroup
-
       def self.default(visited=[])
         {
         }
@@ -6306,7 +5954,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeletePublicIpv4Pool
     class DeletePublicIpv4Pool
-
       def self.default(visited=[])
         {
           return_value: false,
@@ -6317,7 +5964,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteQueuedReservedInstances
     class DeleteQueuedReservedInstances
-
       def self.default(visited=[])
         {
           successful_queued_purchase_deletions: Stubs::SuccessfulQueuedPurchaseDeletionSet.default(visited),
@@ -6341,7 +5987,6 @@ module AWS::Ec2
 
     # Structure Stubber for FailedQueuedPurchaseDeletion
     class FailedQueuedPurchaseDeletion
-
       def self.default(visited=[])
         return nil if visited.include?('FailedQueuedPurchaseDeletion')
         visited = visited + ['FailedQueuedPurchaseDeletion']
@@ -6355,7 +6000,6 @@ module AWS::Ec2
 
     # Structure Stubber for DeleteQueuedReservedInstancesError
     class DeleteQueuedReservedInstancesError
-
       def self.default(visited=[])
         return nil if visited.include?('DeleteQueuedReservedInstancesError')
         visited = visited + ['DeleteQueuedReservedInstancesError']
@@ -6381,7 +6025,6 @@ module AWS::Ec2
 
     # Structure Stubber for SuccessfulQueuedPurchaseDeletion
     class SuccessfulQueuedPurchaseDeletion
-
       def self.default(visited=[])
         return nil if visited.include?('SuccessfulQueuedPurchaseDeletion')
         visited = visited + ['SuccessfulQueuedPurchaseDeletion']
@@ -6394,7 +6037,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteRoute
     class DeleteRoute
-
       def self.default(visited=[])
         {
         }
@@ -6404,7 +6046,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteRouteTable
     class DeleteRouteTable
-
       def self.default(visited=[])
         {
         }
@@ -6414,7 +6055,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteSecurityGroup
     class DeleteSecurityGroup
-
       def self.default(visited=[])
         {
         }
@@ -6424,7 +6064,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteSnapshot
     class DeleteSnapshot
-
       def self.default(visited=[])
         {
         }
@@ -6434,7 +6073,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteSpotDatafeedSubscription
     class DeleteSpotDatafeedSubscription
-
       def self.default(visited=[])
         {
         }
@@ -6444,7 +6082,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteSubnet
     class DeleteSubnet
-
       def self.default(visited=[])
         {
         }
@@ -6454,7 +6091,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteSubnetCidrReservation
     class DeleteSubnetCidrReservation
-
       def self.default(visited=[])
         {
           deleted_subnet_cidr_reservation: Stubs::SubnetCidrReservation.default(visited),
@@ -6465,7 +6101,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteTags
     class DeleteTags
-
       def self.default(visited=[])
         {
         }
@@ -6475,7 +6110,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteTrafficMirrorFilter
     class DeleteTrafficMirrorFilter
-
       def self.default(visited=[])
         {
           traffic_mirror_filter_id: 'traffic_mirror_filter_id',
@@ -6486,7 +6120,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteTrafficMirrorFilterRule
     class DeleteTrafficMirrorFilterRule
-
       def self.default(visited=[])
         {
           traffic_mirror_filter_rule_id: 'traffic_mirror_filter_rule_id',
@@ -6497,7 +6130,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteTrafficMirrorSession
     class DeleteTrafficMirrorSession
-
       def self.default(visited=[])
         {
           traffic_mirror_session_id: 'traffic_mirror_session_id',
@@ -6508,7 +6140,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteTrafficMirrorTarget
     class DeleteTrafficMirrorTarget
-
       def self.default(visited=[])
         {
           traffic_mirror_target_id: 'traffic_mirror_target_id',
@@ -6519,7 +6150,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteTransitGateway
     class DeleteTransitGateway
-
       def self.default(visited=[])
         {
           transit_gateway: Stubs::TransitGateway.default(visited),
@@ -6530,7 +6160,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteTransitGatewayConnect
     class DeleteTransitGatewayConnect
-
       def self.default(visited=[])
         {
           transit_gateway_connect: Stubs::TransitGatewayConnect.default(visited),
@@ -6541,7 +6170,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteTransitGatewayConnectPeer
     class DeleteTransitGatewayConnectPeer
-
       def self.default(visited=[])
         {
           transit_gateway_connect_peer: Stubs::TransitGatewayConnectPeer.default(visited),
@@ -6552,7 +6180,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteTransitGatewayMulticastDomain
     class DeleteTransitGatewayMulticastDomain
-
       def self.default(visited=[])
         {
           transit_gateway_multicast_domain: Stubs::TransitGatewayMulticastDomain.default(visited),
@@ -6563,7 +6190,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteTransitGatewayPeeringAttachment
     class DeleteTransitGatewayPeeringAttachment
-
       def self.default(visited=[])
         {
           transit_gateway_peering_attachment: Stubs::TransitGatewayPeeringAttachment.default(visited),
@@ -6574,7 +6200,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteTransitGatewayPrefixListReference
     class DeleteTransitGatewayPrefixListReference
-
       def self.default(visited=[])
         {
           transit_gateway_prefix_list_reference: Stubs::TransitGatewayPrefixListReference.default(visited),
@@ -6585,7 +6210,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteTransitGatewayRoute
     class DeleteTransitGatewayRoute
-
       def self.default(visited=[])
         {
           route: Stubs::TransitGatewayRoute.default(visited),
@@ -6596,7 +6220,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteTransitGatewayRouteTable
     class DeleteTransitGatewayRouteTable
-
       def self.default(visited=[])
         {
           transit_gateway_route_table: Stubs::TransitGatewayRouteTable.default(visited),
@@ -6607,7 +6230,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteTransitGatewayVpcAttachment
     class DeleteTransitGatewayVpcAttachment
-
       def self.default(visited=[])
         {
           transit_gateway_vpc_attachment: Stubs::TransitGatewayVpcAttachment.default(visited),
@@ -6618,7 +6240,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteVolume
     class DeleteVolume
-
       def self.default(visited=[])
         {
         }
@@ -6628,7 +6249,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteVpc
     class DeleteVpc
-
       def self.default(visited=[])
         {
         }
@@ -6638,7 +6258,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteVpcEndpointConnectionNotifications
     class DeleteVpcEndpointConnectionNotifications
-
       def self.default(visited=[])
         {
           unsuccessful: Stubs::UnsuccessfulItemSet.default(visited),
@@ -6649,7 +6268,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteVpcEndpointServiceConfigurations
     class DeleteVpcEndpointServiceConfigurations
-
       def self.default(visited=[])
         {
           unsuccessful: Stubs::UnsuccessfulItemSet.default(visited),
@@ -6660,7 +6278,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteVpcEndpoints
     class DeleteVpcEndpoints
-
       def self.default(visited=[])
         {
           unsuccessful: Stubs::UnsuccessfulItemSet.default(visited),
@@ -6671,7 +6288,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteVpcPeeringConnection
     class DeleteVpcPeeringConnection
-
       def self.default(visited=[])
         {
           return: false,
@@ -6682,7 +6298,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteVpnConnection
     class DeleteVpnConnection
-
       def self.default(visited=[])
         {
         }
@@ -6692,7 +6307,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteVpnConnectionRoute
     class DeleteVpnConnectionRoute
-
       def self.default(visited=[])
         {
         }
@@ -6702,7 +6316,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeleteVpnGateway
     class DeleteVpnGateway
-
       def self.default(visited=[])
         {
         }
@@ -6712,7 +6325,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeprovisionByoipCidr
     class DeprovisionByoipCidr
-
       def self.default(visited=[])
         {
           byoip_cidr: Stubs::ByoipCidr.default(visited),
@@ -6723,7 +6335,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeprovisionIpamPoolCidr
     class DeprovisionIpamPoolCidr
-
       def self.default(visited=[])
         {
           ipam_pool_cidr: Stubs::IpamPoolCidr.default(visited),
@@ -6734,7 +6345,6 @@ module AWS::Ec2
 
     # Structure Stubber for IpamPoolCidr
     class IpamPoolCidr
-
       def self.default(visited=[])
         return nil if visited.include?('IpamPoolCidr')
         visited = visited + ['IpamPoolCidr']
@@ -6749,7 +6359,6 @@ module AWS::Ec2
 
     # Structure Stubber for IpamPoolCidrFailureReason
     class IpamPoolCidrFailureReason
-
       def self.default(visited=[])
         return nil if visited.include?('IpamPoolCidrFailureReason')
         visited = visited + ['IpamPoolCidrFailureReason']
@@ -6763,7 +6372,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeprovisionPublicIpv4PoolCidr
     class DeprovisionPublicIpv4PoolCidr
-
       def self.default(visited=[])
         {
           pool_id: 'pool_id',
@@ -6787,7 +6395,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeregisterImage
     class DeregisterImage
-
       def self.default(visited=[])
         {
         }
@@ -6797,7 +6404,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeregisterInstanceEventNotificationAttributes
     class DeregisterInstanceEventNotificationAttributes
-
       def self.default(visited=[])
         {
           instance_tag_attribute: Stubs::InstanceTagNotificationAttribute.default(visited),
@@ -6808,7 +6414,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceTagNotificationAttribute
     class InstanceTagNotificationAttribute
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceTagNotificationAttribute')
         visited = visited + ['InstanceTagNotificationAttribute']
@@ -6834,7 +6439,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeregisterTransitGatewayMulticastGroupMembers
     class DeregisterTransitGatewayMulticastGroupMembers
-
       def self.default(visited=[])
         {
           deregistered_multicast_group_members: Stubs::TransitGatewayMulticastDeregisteredGroupMembers.default(visited),
@@ -6845,7 +6449,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayMulticastDeregisteredGroupMembers
     class TransitGatewayMulticastDeregisteredGroupMembers
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayMulticastDeregisteredGroupMembers')
         visited = visited + ['TransitGatewayMulticastDeregisteredGroupMembers']
@@ -6860,7 +6463,6 @@ module AWS::Ec2
 
     # Operation Stubber for DeregisterTransitGatewayMulticastGroupSources
     class DeregisterTransitGatewayMulticastGroupSources
-
       def self.default(visited=[])
         {
           deregistered_multicast_group_sources: Stubs::TransitGatewayMulticastDeregisteredGroupSources.default(visited),
@@ -6871,7 +6473,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayMulticastDeregisteredGroupSources
     class TransitGatewayMulticastDeregisteredGroupSources
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayMulticastDeregisteredGroupSources')
         visited = visited + ['TransitGatewayMulticastDeregisteredGroupSources']
@@ -6886,7 +6487,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeAccountAttributes
     class DescribeAccountAttributes
-
       def self.default(visited=[])
         {
           account_attributes: Stubs::AccountAttributeList.default(visited),
@@ -6909,7 +6509,6 @@ module AWS::Ec2
 
     # Structure Stubber for AccountAttribute
     class AccountAttribute
-
       def self.default(visited=[])
         return nil if visited.include?('AccountAttribute')
         visited = visited + ['AccountAttribute']
@@ -6935,7 +6534,6 @@ module AWS::Ec2
 
     # Structure Stubber for AccountAttributeValue
     class AccountAttributeValue
-
       def self.default(visited=[])
         return nil if visited.include?('AccountAttributeValue')
         visited = visited + ['AccountAttributeValue']
@@ -6948,7 +6546,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeAddresses
     class DescribeAddresses
-
       def self.default(visited=[])
         {
           addresses: Stubs::AddressList.default(visited),
@@ -6971,7 +6568,6 @@ module AWS::Ec2
 
     # Structure Stubber for Address
     class Address
-
       def self.default(visited=[])
         return nil if visited.include?('Address')
         visited = visited + ['Address']
@@ -6997,7 +6593,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeAddressesAttribute
     class DescribeAddressesAttribute
-
       def self.default(visited=[])
         {
           addresses: Stubs::AddressSet.default(visited),
@@ -7021,7 +6616,6 @@ module AWS::Ec2
 
     # Structure Stubber for AddressAttribute
     class AddressAttribute
-
       def self.default(visited=[])
         return nil if visited.include?('AddressAttribute')
         visited = visited + ['AddressAttribute']
@@ -7037,7 +6631,6 @@ module AWS::Ec2
 
     # Structure Stubber for PtrUpdateStatus
     class PtrUpdateStatus
-
       def self.default(visited=[])
         return nil if visited.include?('PtrUpdateStatus')
         visited = visited + ['PtrUpdateStatus']
@@ -7052,7 +6645,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeAggregateIdFormat
     class DescribeAggregateIdFormat
-
       def self.default(visited=[])
         {
           use_long_ids_aggregated: false,
@@ -7076,7 +6668,6 @@ module AWS::Ec2
 
     # Structure Stubber for IdFormat
     class IdFormat
-
       def self.default(visited=[])
         return nil if visited.include?('IdFormat')
         visited = visited + ['IdFormat']
@@ -7091,7 +6682,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeAvailabilityZones
     class DescribeAvailabilityZones
-
       def self.default(visited=[])
         {
           availability_zones: Stubs::AvailabilityZoneList.default(visited),
@@ -7114,7 +6704,6 @@ module AWS::Ec2
 
     # Structure Stubber for AvailabilityZone
     class AvailabilityZone
-
       def self.default(visited=[])
         return nil if visited.include?('AvailabilityZone')
         visited = visited + ['AvailabilityZone']
@@ -7149,7 +6738,6 @@ module AWS::Ec2
 
     # Structure Stubber for AvailabilityZoneMessage
     class AvailabilityZoneMessage
-
       def self.default(visited=[])
         return nil if visited.include?('AvailabilityZoneMessage')
         visited = visited + ['AvailabilityZoneMessage']
@@ -7162,7 +6750,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeBundleTasks
     class DescribeBundleTasks
-
       def self.default(visited=[])
         {
           bundle_tasks: Stubs::BundleTaskList.default(visited),
@@ -7185,7 +6772,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeByoipCidrs
     class DescribeByoipCidrs
-
       def self.default(visited=[])
         {
           byoip_cidrs: Stubs::ByoipCidrSet.default(visited),
@@ -7209,7 +6795,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeCapacityReservationFleets
     class DescribeCapacityReservationFleets
-
       def self.default(visited=[])
         {
           capacity_reservation_fleets: Stubs::CapacityReservationFleetSet.default(visited),
@@ -7233,7 +6818,6 @@ module AWS::Ec2
 
     # Structure Stubber for CapacityReservationFleet
     class CapacityReservationFleet
-
       def self.default(visited=[])
         return nil if visited.include?('CapacityReservationFleet')
         visited = visited + ['CapacityReservationFleet']
@@ -7257,7 +6841,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeCapacityReservations
     class DescribeCapacityReservations
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -7281,7 +6864,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeCarrierGateways
     class DescribeCarrierGateways
-
       def self.default(visited=[])
         {
           carrier_gateways: Stubs::CarrierGatewaySet.default(visited),
@@ -7305,7 +6887,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeClassicLinkInstances
     class DescribeClassicLinkInstances
-
       def self.default(visited=[])
         {
           instances: Stubs::ClassicLinkInstanceList.default(visited),
@@ -7329,7 +6910,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClassicLinkInstance
     class ClassicLinkInstance
-
       def self.default(visited=[])
         return nil if visited.include?('ClassicLinkInstance')
         visited = visited + ['ClassicLinkInstance']
@@ -7345,7 +6925,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeClientVpnAuthorizationRules
     class DescribeClientVpnAuthorizationRules
-
       def self.default(visited=[])
         {
           authorization_rules: Stubs::AuthorizationRuleSet.default(visited),
@@ -7369,7 +6948,6 @@ module AWS::Ec2
 
     # Structure Stubber for AuthorizationRule
     class AuthorizationRule
-
       def self.default(visited=[])
         return nil if visited.include?('AuthorizationRule')
         visited = visited + ['AuthorizationRule']
@@ -7387,7 +6965,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeClientVpnConnections
     class DescribeClientVpnConnections
-
       def self.default(visited=[])
         {
           connections: Stubs::ClientVpnConnectionSet.default(visited),
@@ -7411,7 +6988,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClientVpnConnection
     class ClientVpnConnection
-
       def self.default(visited=[])
         return nil if visited.include?('ClientVpnConnection')
         visited = visited + ['ClientVpnConnection']
@@ -7437,7 +7013,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClientVpnConnectionStatus
     class ClientVpnConnectionStatus
-
       def self.default(visited=[])
         return nil if visited.include?('ClientVpnConnectionStatus')
         visited = visited + ['ClientVpnConnectionStatus']
@@ -7451,7 +7026,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeClientVpnEndpoints
     class DescribeClientVpnEndpoints
-
       def self.default(visited=[])
         {
           client_vpn_endpoints: Stubs::EndpointSet.default(visited),
@@ -7475,7 +7049,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClientVpnEndpoint
     class ClientVpnEndpoint
-
       def self.default(visited=[])
         return nil if visited.include?('ClientVpnEndpoint')
         visited = visited + ['ClientVpnEndpoint']
@@ -7508,7 +7081,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClientConnectResponseOptions
     class ClientConnectResponseOptions
-
       def self.default(visited=[])
         return nil if visited.include?('ClientConnectResponseOptions')
         visited = visited + ['ClientConnectResponseOptions']
@@ -7523,7 +7095,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClientVpnEndpointAttributeStatus
     class ClientVpnEndpointAttributeStatus
-
       def self.default(visited=[])
         return nil if visited.include?('ClientVpnEndpointAttributeStatus')
         visited = visited + ['ClientVpnEndpointAttributeStatus']
@@ -7537,7 +7108,6 @@ module AWS::Ec2
 
     # Structure Stubber for ConnectionLogResponseOptions
     class ConnectionLogResponseOptions
-
       def self.default(visited=[])
         return nil if visited.include?('ConnectionLogResponseOptions')
         visited = visited + ['ConnectionLogResponseOptions']
@@ -7564,7 +7134,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClientVpnAuthentication
     class ClientVpnAuthentication
-
       def self.default(visited=[])
         return nil if visited.include?('ClientVpnAuthentication')
         visited = visited + ['ClientVpnAuthentication']
@@ -7580,7 +7149,6 @@ module AWS::Ec2
 
     # Structure Stubber for FederatedAuthentication
     class FederatedAuthentication
-
       def self.default(visited=[])
         return nil if visited.include?('FederatedAuthentication')
         visited = visited + ['FederatedAuthentication']
@@ -7594,7 +7162,6 @@ module AWS::Ec2
 
     # Structure Stubber for CertificateAuthentication
     class CertificateAuthentication
-
       def self.default(visited=[])
         return nil if visited.include?('CertificateAuthentication')
         visited = visited + ['CertificateAuthentication']
@@ -7607,7 +7174,6 @@ module AWS::Ec2
 
     # Structure Stubber for DirectoryServiceAuthentication
     class DirectoryServiceAuthentication
-
       def self.default(visited=[])
         return nil if visited.include?('DirectoryServiceAuthentication')
         visited = visited + ['DirectoryServiceAuthentication']
@@ -7632,7 +7198,6 @@ module AWS::Ec2
 
     # Structure Stubber for AssociatedTargetNetwork
     class AssociatedTargetNetwork
-
       def self.default(visited=[])
         return nil if visited.include?('AssociatedTargetNetwork')
         visited = visited + ['AssociatedTargetNetwork']
@@ -7646,7 +7211,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeClientVpnRoutes
     class DescribeClientVpnRoutes
-
       def self.default(visited=[])
         {
           routes: Stubs::ClientVpnRouteSet.default(visited),
@@ -7670,7 +7234,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClientVpnRoute
     class ClientVpnRoute
-
       def self.default(visited=[])
         return nil if visited.include?('ClientVpnRoute')
         visited = visited + ['ClientVpnRoute']
@@ -7689,7 +7252,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeClientVpnTargetNetworks
     class DescribeClientVpnTargetNetworks
-
       def self.default(visited=[])
         {
           client_vpn_target_networks: Stubs::TargetNetworkSet.default(visited),
@@ -7713,7 +7275,6 @@ module AWS::Ec2
 
     # Structure Stubber for TargetNetwork
     class TargetNetwork
-
       def self.default(visited=[])
         return nil if visited.include?('TargetNetwork')
         visited = visited + ['TargetNetwork']
@@ -7731,7 +7292,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeCoipPools
     class DescribeCoipPools
-
       def self.default(visited=[])
         {
           coip_pools: Stubs::CoipPoolSet.default(visited),
@@ -7755,7 +7315,6 @@ module AWS::Ec2
 
     # Structure Stubber for CoipPool
     class CoipPool
-
       def self.default(visited=[])
         return nil if visited.include?('CoipPool')
         visited = visited + ['CoipPool']
@@ -7772,7 +7331,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeConversionTasks
     class DescribeConversionTasks
-
       def self.default(visited=[])
         {
           conversion_tasks: Stubs::DescribeConversionTaskList.default(visited),
@@ -7795,7 +7353,6 @@ module AWS::Ec2
 
     # Structure Stubber for ConversionTask
     class ConversionTask
-
       def self.default(visited=[])
         return nil if visited.include?('ConversionTask')
         visited = visited + ['ConversionTask']
@@ -7814,7 +7371,6 @@ module AWS::Ec2
 
     # Structure Stubber for ImportVolumeTaskDetails
     class ImportVolumeTaskDetails
-
       def self.default(visited=[])
         return nil if visited.include?('ImportVolumeTaskDetails')
         visited = visited + ['ImportVolumeTaskDetails']
@@ -7831,7 +7387,6 @@ module AWS::Ec2
 
     # Structure Stubber for DiskImageVolumeDescription
     class DiskImageVolumeDescription
-
       def self.default(visited=[])
         return nil if visited.include?('DiskImageVolumeDescription')
         visited = visited + ['DiskImageVolumeDescription']
@@ -7845,7 +7400,6 @@ module AWS::Ec2
 
     # Structure Stubber for DiskImageDescription
     class DiskImageDescription
-
       def self.default(visited=[])
         return nil if visited.include?('DiskImageDescription')
         visited = visited + ['DiskImageDescription']
@@ -7861,7 +7415,6 @@ module AWS::Ec2
 
     # Structure Stubber for ImportInstanceTaskDetails
     class ImportInstanceTaskDetails
-
       def self.default(visited=[])
         return nil if visited.include?('ImportInstanceTaskDetails')
         visited = visited + ['ImportInstanceTaskDetails']
@@ -7889,7 +7442,6 @@ module AWS::Ec2
 
     # Structure Stubber for ImportInstanceVolumeDetailItem
     class ImportInstanceVolumeDetailItem
-
       def self.default(visited=[])
         return nil if visited.include?('ImportInstanceVolumeDetailItem')
         visited = visited + ['ImportInstanceVolumeDetailItem']
@@ -7908,7 +7460,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeCustomerGateways
     class DescribeCustomerGateways
-
       def self.default(visited=[])
         {
           customer_gateways: Stubs::CustomerGatewayList.default(visited),
@@ -7931,7 +7482,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeDhcpOptions
     class DescribeDhcpOptions
-
       def self.default(visited=[])
         {
           dhcp_options: Stubs::DhcpOptionsList.default(visited),
@@ -7955,7 +7505,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeEgressOnlyInternetGateways
     class DescribeEgressOnlyInternetGateways
-
       def self.default(visited=[])
         {
           egress_only_internet_gateways: Stubs::EgressOnlyInternetGatewayList.default(visited),
@@ -7979,7 +7528,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeElasticGpus
     class DescribeElasticGpus
-
       def self.default(visited=[])
         {
           elastic_gpu_set: Stubs::ElasticGpuSet.default(visited),
@@ -8004,7 +7552,6 @@ module AWS::Ec2
 
     # Structure Stubber for ElasticGpus
     class ElasticGpus
-
       def self.default(visited=[])
         return nil if visited.include?('ElasticGpus')
         visited = visited + ['ElasticGpus']
@@ -8023,7 +7570,6 @@ module AWS::Ec2
 
     # Structure Stubber for ElasticGpuHealth
     class ElasticGpuHealth
-
       def self.default(visited=[])
         return nil if visited.include?('ElasticGpuHealth')
         visited = visited + ['ElasticGpuHealth']
@@ -8036,7 +7582,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeExportImageTasks
     class DescribeExportImageTasks
-
       def self.default(visited=[])
         {
           export_image_tasks: Stubs::ExportImageTaskList.default(visited),
@@ -8060,7 +7605,6 @@ module AWS::Ec2
 
     # Structure Stubber for ExportImageTask
     class ExportImageTask
-
       def self.default(visited=[])
         return nil if visited.include?('ExportImageTask')
         visited = visited + ['ExportImageTask']
@@ -8080,7 +7624,6 @@ module AWS::Ec2
 
     # Structure Stubber for ExportTaskS3Location
     class ExportTaskS3Location
-
       def self.default(visited=[])
         return nil if visited.include?('ExportTaskS3Location')
         visited = visited + ['ExportTaskS3Location']
@@ -8094,7 +7637,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeExportTasks
     class DescribeExportTasks
-
       def self.default(visited=[])
         {
           export_tasks: Stubs::ExportTaskList.default(visited),
@@ -8117,7 +7659,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeFastSnapshotRestores
     class DescribeFastSnapshotRestores
-
       def self.default(visited=[])
         {
           fast_snapshot_restores: Stubs::DescribeFastSnapshotRestoreSuccessSet.default(visited),
@@ -8141,7 +7682,6 @@ module AWS::Ec2
 
     # Structure Stubber for DescribeFastSnapshotRestoreSuccessItem
     class DescribeFastSnapshotRestoreSuccessItem
-
       def self.default(visited=[])
         return nil if visited.include?('DescribeFastSnapshotRestoreSuccessItem')
         visited = visited + ['DescribeFastSnapshotRestoreSuccessItem']
@@ -8164,7 +7704,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeFleetHistory
     class DescribeFleetHistory
-
       def self.default(visited=[])
         {
           history_records: Stubs::HistoryRecordSet.default(visited),
@@ -8191,7 +7730,6 @@ module AWS::Ec2
 
     # Structure Stubber for HistoryRecordEntry
     class HistoryRecordEntry
-
       def self.default(visited=[])
         return nil if visited.include?('HistoryRecordEntry')
         visited = visited + ['HistoryRecordEntry']
@@ -8206,7 +7744,6 @@ module AWS::Ec2
 
     # Structure Stubber for EventInformation
     class EventInformation
-
       def self.default(visited=[])
         return nil if visited.include?('EventInformation')
         visited = visited + ['EventInformation']
@@ -8221,7 +7758,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeFleetInstances
     class DescribeFleetInstances
-
       def self.default(visited=[])
         {
           active_instances: Stubs::ActiveInstanceSet.default(visited),
@@ -8246,7 +7782,6 @@ module AWS::Ec2
 
     # Structure Stubber for ActiveInstance
     class ActiveInstance
-
       def self.default(visited=[])
         return nil if visited.include?('ActiveInstance')
         visited = visited + ['ActiveInstance']
@@ -8262,7 +7797,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeFleets
     class DescribeFleets
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -8286,7 +7820,6 @@ module AWS::Ec2
 
     # Structure Stubber for FleetData
     class FleetData
-
       def self.default(visited=[])
         return nil if visited.include?('FleetData')
         visited = visited + ['FleetData']
@@ -8331,7 +7864,6 @@ module AWS::Ec2
 
     # Structure Stubber for DescribeFleetsInstances
     class DescribeFleetsInstances
-
       def self.default(visited=[])
         return nil if visited.include?('DescribeFleetsInstances')
         visited = visited + ['DescribeFleetsInstances']
@@ -8360,7 +7892,6 @@ module AWS::Ec2
 
     # Structure Stubber for DescribeFleetError
     class DescribeFleetError
-
       def self.default(visited=[])
         return nil if visited.include?('DescribeFleetError')
         visited = visited + ['DescribeFleetError']
@@ -8376,7 +7907,6 @@ module AWS::Ec2
 
     # Structure Stubber for OnDemandOptions
     class OnDemandOptions
-
       def self.default(visited=[])
         return nil if visited.include?('OnDemandOptions')
         visited = visited + ['OnDemandOptions']
@@ -8394,7 +7924,6 @@ module AWS::Ec2
 
     # Structure Stubber for CapacityReservationOptions
     class CapacityReservationOptions
-
       def self.default(visited=[])
         return nil if visited.include?('CapacityReservationOptions')
         visited = visited + ['CapacityReservationOptions']
@@ -8407,7 +7936,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotOptions
     class SpotOptions
-
       def self.default(visited=[])
         return nil if visited.include?('SpotOptions')
         visited = visited + ['SpotOptions']
@@ -8427,7 +7955,6 @@ module AWS::Ec2
 
     # Structure Stubber for FleetSpotMaintenanceStrategies
     class FleetSpotMaintenanceStrategies
-
       def self.default(visited=[])
         return nil if visited.include?('FleetSpotMaintenanceStrategies')
         visited = visited + ['FleetSpotMaintenanceStrategies']
@@ -8440,7 +7967,6 @@ module AWS::Ec2
 
     # Structure Stubber for FleetSpotCapacityRebalance
     class FleetSpotCapacityRebalance
-
       def self.default(visited=[])
         return nil if visited.include?('FleetSpotCapacityRebalance')
         visited = visited + ['FleetSpotCapacityRebalance']
@@ -8454,7 +7980,6 @@ module AWS::Ec2
 
     # Structure Stubber for TargetCapacitySpecification
     class TargetCapacitySpecification
-
       def self.default(visited=[])
         return nil if visited.include?('TargetCapacitySpecification')
         visited = visited + ['TargetCapacitySpecification']
@@ -8483,7 +8008,6 @@ module AWS::Ec2
 
     # Structure Stubber for FleetLaunchTemplateConfig
     class FleetLaunchTemplateConfig
-
       def self.default(visited=[])
         return nil if visited.include?('FleetLaunchTemplateConfig')
         visited = visited + ['FleetLaunchTemplateConfig']
@@ -8509,7 +8033,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeFlowLogs
     class DescribeFlowLogs
-
       def self.default(visited=[])
         {
           flow_logs: Stubs::FlowLogSet.default(visited),
@@ -8533,7 +8056,6 @@ module AWS::Ec2
 
     # Structure Stubber for FlowLog
     class FlowLog
-
       def self.default(visited=[])
         return nil if visited.include?('FlowLog')
         visited = visited + ['FlowLog']
@@ -8560,7 +8082,6 @@ module AWS::Ec2
 
     # Structure Stubber for DestinationOptionsResponse
     class DestinationOptionsResponse
-
       def self.default(visited=[])
         return nil if visited.include?('DestinationOptionsResponse')
         visited = visited + ['DestinationOptionsResponse']
@@ -8575,7 +8096,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeFpgaImageAttribute
     class DescribeFpgaImageAttribute
-
       def self.default(visited=[])
         {
           fpga_image_attribute: Stubs::FpgaImageAttribute.default(visited),
@@ -8586,7 +8106,6 @@ module AWS::Ec2
 
     # Structure Stubber for FpgaImageAttribute
     class FpgaImageAttribute
-
       def self.default(visited=[])
         return nil if visited.include?('FpgaImageAttribute')
         visited = visited + ['FpgaImageAttribute']
@@ -8615,7 +8134,6 @@ module AWS::Ec2
 
     # Structure Stubber for ProductCode
     class ProductCode
-
       def self.default(visited=[])
         return nil if visited.include?('ProductCode')
         visited = visited + ['ProductCode']
@@ -8641,7 +8159,6 @@ module AWS::Ec2
 
     # Structure Stubber for LoadPermission
     class LoadPermission
-
       def self.default(visited=[])
         return nil if visited.include?('LoadPermission')
         visited = visited + ['LoadPermission']
@@ -8655,7 +8172,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeFpgaImages
     class DescribeFpgaImages
-
       def self.default(visited=[])
         {
           fpga_images: Stubs::FpgaImageList.default(visited),
@@ -8679,7 +8195,6 @@ module AWS::Ec2
 
     # Structure Stubber for FpgaImage
     class FpgaImage
-
       def self.default(visited=[])
         return nil if visited.include?('FpgaImage')
         visited = visited + ['FpgaImage']
@@ -8706,7 +8221,6 @@ module AWS::Ec2
 
     # Structure Stubber for FpgaImageState
     class FpgaImageState
-
       def self.default(visited=[])
         return nil if visited.include?('FpgaImageState')
         visited = visited + ['FpgaImageState']
@@ -8720,7 +8234,6 @@ module AWS::Ec2
 
     # Structure Stubber for PciId
     class PciId
-
       def self.default(visited=[])
         return nil if visited.include?('PciId')
         visited = visited + ['PciId']
@@ -8736,7 +8249,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeHostReservationOfferings
     class DescribeHostReservationOfferings
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -8760,7 +8272,6 @@ module AWS::Ec2
 
     # Structure Stubber for HostOffering
     class HostOffering
-
       def self.default(visited=[])
         return nil if visited.include?('HostOffering')
         visited = visited + ['HostOffering']
@@ -8779,7 +8290,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeHostReservations
     class DescribeHostReservations
-
       def self.default(visited=[])
         {
           host_reservation_set: Stubs::HostReservationSet.default(visited),
@@ -8803,7 +8313,6 @@ module AWS::Ec2
 
     # Structure Stubber for HostReservation
     class HostReservation
-
       def self.default(visited=[])
         return nil if visited.include?('HostReservation')
         visited = visited + ['HostReservation']
@@ -8841,7 +8350,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeHosts
     class DescribeHosts
-
       def self.default(visited=[])
         {
           hosts: Stubs::HostList.default(visited),
@@ -8865,7 +8373,6 @@ module AWS::Ec2
 
     # Structure Stubber for Host
     class Host
-
       def self.default(visited=[])
         return nil if visited.include?('Host')
         visited = visited + ['Host']
@@ -8906,7 +8413,6 @@ module AWS::Ec2
 
     # Structure Stubber for HostInstance
     class HostInstance
-
       def self.default(visited=[])
         return nil if visited.include?('HostInstance')
         visited = visited + ['HostInstance']
@@ -8921,7 +8427,6 @@ module AWS::Ec2
 
     # Structure Stubber for HostProperties
     class HostProperties
-
       def self.default(visited=[])
         return nil if visited.include?('HostProperties')
         visited = visited + ['HostProperties']
@@ -8938,7 +8443,6 @@ module AWS::Ec2
 
     # Structure Stubber for AvailableCapacity
     class AvailableCapacity
-
       def self.default(visited=[])
         return nil if visited.include?('AvailableCapacity')
         visited = visited + ['AvailableCapacity']
@@ -8964,7 +8468,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceCapacity
     class InstanceCapacity
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceCapacity')
         visited = visited + ['InstanceCapacity']
@@ -8979,7 +8482,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeIamInstanceProfileAssociations
     class DescribeIamInstanceProfileAssociations
-
       def self.default(visited=[])
         {
           iam_instance_profile_associations: Stubs::IamInstanceProfileAssociationSet.default(visited),
@@ -9003,7 +8505,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeIdFormat
     class DescribeIdFormat
-
       def self.default(visited=[])
         {
           statuses: Stubs::IdFormatList.default(visited),
@@ -9014,7 +8515,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeIdentityIdFormat
     class DescribeIdentityIdFormat
-
       def self.default(visited=[])
         {
           statuses: Stubs::IdFormatList.default(visited),
@@ -9025,7 +8525,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeImageAttribute
     class DescribeImageAttribute
-
       def self.default(visited=[])
         {
           block_device_mappings: Stubs::BlockDeviceMappingList.default(visited),
@@ -9056,7 +8555,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchPermission
     class LaunchPermission
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchPermission')
         visited = visited + ['LaunchPermission']
@@ -9084,7 +8582,6 @@ module AWS::Ec2
 
     # Structure Stubber for BlockDeviceMapping
     class BlockDeviceMapping
-
       def self.default(visited=[])
         return nil if visited.include?('BlockDeviceMapping')
         visited = visited + ['BlockDeviceMapping']
@@ -9100,7 +8597,6 @@ module AWS::Ec2
 
     # Structure Stubber for EbsBlockDevice
     class EbsBlockDevice
-
       def self.default(visited=[])
         return nil if visited.include?('EbsBlockDevice')
         visited = visited + ['EbsBlockDevice']
@@ -9121,7 +8617,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeImages
     class DescribeImages
-
       def self.default(visited=[])
         {
           images: Stubs::ImageList.default(visited),
@@ -9144,7 +8639,6 @@ module AWS::Ec2
 
     # Structure Stubber for Image
     class Image
-
       def self.default(visited=[])
         return nil if visited.include?('Image')
         visited = visited + ['Image']
@@ -9184,7 +8678,6 @@ module AWS::Ec2
 
     # Structure Stubber for StateReason
     class StateReason
-
       def self.default(visited=[])
         return nil if visited.include?('StateReason')
         visited = visited + ['StateReason']
@@ -9198,7 +8691,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeImportImageTasks
     class DescribeImportImageTasks
-
       def self.default(visited=[])
         {
           import_image_tasks: Stubs::ImportImageTaskList.default(visited),
@@ -9222,7 +8714,6 @@ module AWS::Ec2
 
     # Structure Stubber for ImportImageTask
     class ImportImageTask
-
       def self.default(visited=[])
         return nil if visited.include?('ImportImageTask')
         visited = visited + ['ImportImageTask']
@@ -9263,7 +8754,6 @@ module AWS::Ec2
 
     # Structure Stubber for ImportImageLicenseConfigurationResponse
     class ImportImageLicenseConfigurationResponse
-
       def self.default(visited=[])
         return nil if visited.include?('ImportImageLicenseConfigurationResponse')
         visited = visited + ['ImportImageLicenseConfigurationResponse']
@@ -9288,7 +8778,6 @@ module AWS::Ec2
 
     # Structure Stubber for SnapshotDetail
     class SnapshotDetail
-
       def self.default(visited=[])
         return nil if visited.include?('SnapshotDetail')
         visited = visited + ['SnapshotDetail']
@@ -9310,7 +8799,6 @@ module AWS::Ec2
 
     # Structure Stubber for UserBucketDetails
     class UserBucketDetails
-
       def self.default(visited=[])
         return nil if visited.include?('UserBucketDetails')
         visited = visited + ['UserBucketDetails']
@@ -9324,7 +8812,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeImportSnapshotTasks
     class DescribeImportSnapshotTasks
-
       def self.default(visited=[])
         {
           import_snapshot_tasks: Stubs::ImportSnapshotTaskList.default(visited),
@@ -9348,7 +8835,6 @@ module AWS::Ec2
 
     # Structure Stubber for ImportSnapshotTask
     class ImportSnapshotTask
-
       def self.default(visited=[])
         return nil if visited.include?('ImportSnapshotTask')
         visited = visited + ['ImportSnapshotTask']
@@ -9364,7 +8850,6 @@ module AWS::Ec2
 
     # Structure Stubber for SnapshotTaskDetail
     class SnapshotTaskDetail
-
       def self.default(visited=[])
         return nil if visited.include?('SnapshotTaskDetail')
         visited = visited + ['SnapshotTaskDetail']
@@ -9387,7 +8872,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeInstanceAttribute
     class DescribeInstanceAttribute
-
       def self.default(visited=[])
         {
           groups: Stubs::GroupIdentifierList.default(visited),
@@ -9413,7 +8897,6 @@ module AWS::Ec2
 
     # Structure Stubber for AttributeBooleanValue
     class AttributeBooleanValue
-
       def self.default(visited=[])
         return nil if visited.include?('AttributeBooleanValue')
         visited = visited + ['AttributeBooleanValue']
@@ -9426,7 +8909,6 @@ module AWS::Ec2
 
     # Structure Stubber for EnclaveOptions
     class EnclaveOptions
-
       def self.default(visited=[])
         return nil if visited.include?('EnclaveOptions')
         visited = visited + ['EnclaveOptions']
@@ -9451,7 +8933,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceBlockDeviceMapping
     class InstanceBlockDeviceMapping
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceBlockDeviceMapping')
         visited = visited + ['InstanceBlockDeviceMapping']
@@ -9465,7 +8946,6 @@ module AWS::Ec2
 
     # Structure Stubber for EbsInstanceBlockDevice
     class EbsInstanceBlockDevice
-
       def self.default(visited=[])
         return nil if visited.include?('EbsInstanceBlockDevice')
         visited = visited + ['EbsInstanceBlockDevice']
@@ -9481,7 +8961,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeInstanceCreditSpecifications
     class DescribeInstanceCreditSpecifications
-
       def self.default(visited=[])
         {
           instance_credit_specifications: Stubs::InstanceCreditSpecificationList.default(visited),
@@ -9505,7 +8984,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceCreditSpecification
     class InstanceCreditSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceCreditSpecification')
         visited = visited + ['InstanceCreditSpecification']
@@ -9519,7 +8997,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeInstanceEventNotificationAttributes
     class DescribeInstanceEventNotificationAttributes
-
       def self.default(visited=[])
         {
           instance_tag_attribute: Stubs::InstanceTagNotificationAttribute.default(visited),
@@ -9530,7 +9007,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeInstanceEventWindows
     class DescribeInstanceEventWindows
-
       def self.default(visited=[])
         {
           instance_event_windows: Stubs::InstanceEventWindowSet.default(visited),
@@ -9554,7 +9030,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeInstanceStatus
     class DescribeInstanceStatus
-
       def self.default(visited=[])
         {
           instance_statuses: Stubs::InstanceStatusList.default(visited),
@@ -9578,7 +9053,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceStatus
     class InstanceStatus
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceStatus')
         visited = visited + ['InstanceStatus']
@@ -9597,7 +9071,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceStatusSummary
     class InstanceStatusSummary
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceStatusSummary')
         visited = visited + ['InstanceStatusSummary']
@@ -9623,7 +9096,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceStatusDetails
     class InstanceStatusDetails
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceStatusDetails')
         visited = visited + ['InstanceStatusDetails']
@@ -9638,7 +9110,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceState
     class InstanceState
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceState')
         visited = visited + ['InstanceState']
@@ -9664,7 +9135,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceStatusEvent
     class InstanceStatusEvent
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceStatusEvent')
         visited = visited + ['InstanceStatusEvent']
@@ -9682,7 +9152,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeInstanceTypeOfferings
     class DescribeInstanceTypeOfferings
-
       def self.default(visited=[])
         {
           instance_type_offerings: Stubs::InstanceTypeOfferingsList.default(visited),
@@ -9706,7 +9175,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceTypeOffering
     class InstanceTypeOffering
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceTypeOffering')
         visited = visited + ['InstanceTypeOffering']
@@ -9721,7 +9189,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeInstanceTypes
     class DescribeInstanceTypes
-
       def self.default(visited=[])
         {
           instance_types: Stubs::InstanceTypeInfoList.default(visited),
@@ -9745,7 +9212,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceTypeInfo
     class InstanceTypeInfo
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceTypeInfo')
         visited = visited + ['InstanceTypeInfo']
@@ -9793,7 +9259,6 @@ module AWS::Ec2
 
     # Structure Stubber for InferenceAcceleratorInfo
     class InferenceAcceleratorInfo
-
       def self.default(visited=[])
         return nil if visited.include?('InferenceAcceleratorInfo')
         visited = visited + ['InferenceAcceleratorInfo']
@@ -9818,7 +9283,6 @@ module AWS::Ec2
 
     # Structure Stubber for InferenceDeviceInfo
     class InferenceDeviceInfo
-
       def self.default(visited=[])
         return nil if visited.include?('InferenceDeviceInfo')
         visited = visited + ['InferenceDeviceInfo']
@@ -9833,7 +9297,6 @@ module AWS::Ec2
 
     # Structure Stubber for PlacementGroupInfo
     class PlacementGroupInfo
-
       def self.default(visited=[])
         return nil if visited.include?('PlacementGroupInfo')
         visited = visited + ['PlacementGroupInfo']
@@ -9858,7 +9321,6 @@ module AWS::Ec2
 
     # Structure Stubber for FpgaInfo
     class FpgaInfo
-
       def self.default(visited=[])
         return nil if visited.include?('FpgaInfo')
         visited = visited + ['FpgaInfo']
@@ -9884,7 +9346,6 @@ module AWS::Ec2
 
     # Structure Stubber for FpgaDeviceInfo
     class FpgaDeviceInfo
-
       def self.default(visited=[])
         return nil if visited.include?('FpgaDeviceInfo')
         visited = visited + ['FpgaDeviceInfo']
@@ -9900,7 +9361,6 @@ module AWS::Ec2
 
     # Structure Stubber for FpgaDeviceMemoryInfo
     class FpgaDeviceMemoryInfo
-
       def self.default(visited=[])
         return nil if visited.include?('FpgaDeviceMemoryInfo')
         visited = visited + ['FpgaDeviceMemoryInfo']
@@ -9913,7 +9373,6 @@ module AWS::Ec2
 
     # Structure Stubber for GpuInfo
     class GpuInfo
-
       def self.default(visited=[])
         return nil if visited.include?('GpuInfo')
         visited = visited + ['GpuInfo']
@@ -9939,7 +9398,6 @@ module AWS::Ec2
 
     # Structure Stubber for GpuDeviceInfo
     class GpuDeviceInfo
-
       def self.default(visited=[])
         return nil if visited.include?('GpuDeviceInfo')
         visited = visited + ['GpuDeviceInfo']
@@ -9955,7 +9413,6 @@ module AWS::Ec2
 
     # Structure Stubber for GpuDeviceMemoryInfo
     class GpuDeviceMemoryInfo
-
       def self.default(visited=[])
         return nil if visited.include?('GpuDeviceMemoryInfo')
         visited = visited + ['GpuDeviceMemoryInfo']
@@ -9968,7 +9425,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkInfo
     class NetworkInfo
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkInfo')
         visited = visited + ['NetworkInfo']
@@ -9992,7 +9448,6 @@ module AWS::Ec2
 
     # Structure Stubber for EfaInfo
     class EfaInfo
-
       def self.default(visited=[])
         return nil if visited.include?('EfaInfo')
         visited = visited + ['EfaInfo']
@@ -10017,7 +9472,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkCardInfo
     class NetworkCardInfo
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkCardInfo')
         visited = visited + ['NetworkCardInfo']
@@ -10032,7 +9486,6 @@ module AWS::Ec2
 
     # Structure Stubber for EbsInfo
     class EbsInfo
-
       def self.default(visited=[])
         return nil if visited.include?('EbsInfo')
         visited = visited + ['EbsInfo']
@@ -10048,7 +9501,6 @@ module AWS::Ec2
 
     # Structure Stubber for EbsOptimizedInfo
     class EbsOptimizedInfo
-
       def self.default(visited=[])
         return nil if visited.include?('EbsOptimizedInfo')
         visited = visited + ['EbsOptimizedInfo']
@@ -10066,7 +9518,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceStorageInfo
     class InstanceStorageInfo
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceStorageInfo')
         visited = visited + ['InstanceStorageInfo']
@@ -10094,7 +9545,6 @@ module AWS::Ec2
 
     # Structure Stubber for DiskInfo
     class DiskInfo
-
       def self.default(visited=[])
         return nil if visited.include?('DiskInfo')
         visited = visited + ['DiskInfo']
@@ -10109,7 +9559,6 @@ module AWS::Ec2
 
     # Structure Stubber for MemoryInfo
     class MemoryInfo
-
       def self.default(visited=[])
         return nil if visited.include?('MemoryInfo')
         visited = visited + ['MemoryInfo']
@@ -10122,7 +9571,6 @@ module AWS::Ec2
 
     # Structure Stubber for VCpuInfo
     class VCpuInfo
-
       def self.default(visited=[])
         return nil if visited.include?('VCpuInfo')
         visited = visited + ['VCpuInfo']
@@ -10163,7 +9611,6 @@ module AWS::Ec2
 
     # Structure Stubber for ProcessorInfo
     class ProcessorInfo
-
       def self.default(visited=[])
         return nil if visited.include?('ProcessorInfo')
         visited = visited + ['ProcessorInfo']
@@ -10225,7 +9672,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeInstances
     class DescribeInstances
-
       def self.default(visited=[])
         {
           reservations: Stubs::ReservationList.default(visited),
@@ -10249,7 +9695,6 @@ module AWS::Ec2
 
     # Structure Stubber for Reservation
     class Reservation
-
       def self.default(visited=[])
         return nil if visited.include?('Reservation')
         visited = visited + ['Reservation']
@@ -10278,7 +9723,6 @@ module AWS::Ec2
 
     # Structure Stubber for Instance
     class Instance
-
       def self.default(visited=[])
         return nil if visited.include?('Instance')
         visited = visited + ['Instance']
@@ -10344,7 +9788,6 @@ module AWS::Ec2
 
     # Structure Stubber for PrivateDnsNameOptionsResponse
     class PrivateDnsNameOptionsResponse
-
       def self.default(visited=[])
         return nil if visited.include?('PrivateDnsNameOptionsResponse')
         visited = visited + ['PrivateDnsNameOptionsResponse']
@@ -10359,7 +9802,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceMetadataOptionsResponse
     class InstanceMetadataOptionsResponse
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceMetadataOptionsResponse')
         visited = visited + ['InstanceMetadataOptionsResponse']
@@ -10389,7 +9831,6 @@ module AWS::Ec2
 
     # Structure Stubber for LicenseConfiguration
     class LicenseConfiguration
-
       def self.default(visited=[])
         return nil if visited.include?('LicenseConfiguration')
         visited = visited + ['LicenseConfiguration']
@@ -10402,7 +9843,6 @@ module AWS::Ec2
 
     # Structure Stubber for HibernationOptions
     class HibernationOptions
-
       def self.default(visited=[])
         return nil if visited.include?('HibernationOptions')
         visited = visited + ['HibernationOptions']
@@ -10415,7 +9855,6 @@ module AWS::Ec2
 
     # Structure Stubber for CapacityReservationSpecificationResponse
     class CapacityReservationSpecificationResponse
-
       def self.default(visited=[])
         return nil if visited.include?('CapacityReservationSpecificationResponse')
         visited = visited + ['CapacityReservationSpecificationResponse']
@@ -10429,7 +9868,6 @@ module AWS::Ec2
 
     # Structure Stubber for CpuOptions
     class CpuOptions
-
       def self.default(visited=[])
         return nil if visited.include?('CpuOptions')
         visited = visited + ['CpuOptions']
@@ -10455,7 +9893,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceNetworkInterface
     class InstanceNetworkInterface
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceNetworkInterface')
         visited = visited + ['InstanceNetworkInterface']
@@ -10497,7 +9934,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceIpv6Prefix
     class InstanceIpv6Prefix
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceIpv6Prefix')
         visited = visited + ['InstanceIpv6Prefix']
@@ -10522,7 +9958,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceIpv4Prefix
     class InstanceIpv4Prefix
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceIpv4Prefix')
         visited = visited + ['InstanceIpv4Prefix']
@@ -10547,7 +9982,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstancePrivateIpAddress
     class InstancePrivateIpAddress
-
       def self.default(visited=[])
         return nil if visited.include?('InstancePrivateIpAddress')
         visited = visited + ['InstancePrivateIpAddress']
@@ -10563,7 +9997,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceNetworkInterfaceAssociation
     class InstanceNetworkInterfaceAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceNetworkInterfaceAssociation')
         visited = visited + ['InstanceNetworkInterfaceAssociation']
@@ -10580,7 +10013,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceNetworkInterfaceAttachment
     class InstanceNetworkInterfaceAttachment
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceNetworkInterfaceAttachment')
         visited = visited + ['InstanceNetworkInterfaceAttachment']
@@ -10610,7 +10042,6 @@ module AWS::Ec2
 
     # Structure Stubber for ElasticInferenceAcceleratorAssociation
     class ElasticInferenceAcceleratorAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('ElasticInferenceAcceleratorAssociation')
         visited = visited + ['ElasticInferenceAcceleratorAssociation']
@@ -10638,7 +10069,6 @@ module AWS::Ec2
 
     # Structure Stubber for ElasticGpuAssociation
     class ElasticGpuAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('ElasticGpuAssociation')
         visited = visited + ['ElasticGpuAssociation']
@@ -10654,7 +10084,6 @@ module AWS::Ec2
 
     # Structure Stubber for Placement
     class Placement
-
       def self.default(visited=[])
         return nil if visited.include?('Placement')
         visited = visited + ['Placement']
@@ -10674,7 +10103,6 @@ module AWS::Ec2
 
     # Structure Stubber for Monitoring
     class Monitoring
-
       def self.default(visited=[])
         return nil if visited.include?('Monitoring')
         visited = visited + ['Monitoring']
@@ -10687,7 +10115,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeInternetGateways
     class DescribeInternetGateways
-
       def self.default(visited=[])
         {
           internet_gateways: Stubs::InternetGatewayList.default(visited),
@@ -10711,7 +10138,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeIpamPools
     class DescribeIpamPools
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -10735,7 +10161,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeIpamScopes
     class DescribeIpamScopes
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -10759,7 +10184,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeIpams
     class DescribeIpams
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -10783,7 +10207,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeIpv6Pools
     class DescribeIpv6Pools
-
       def self.default(visited=[])
         {
           ipv6_pools: Stubs::Ipv6PoolSet.default(visited),
@@ -10807,7 +10230,6 @@ module AWS::Ec2
 
     # Structure Stubber for Ipv6Pool
     class Ipv6Pool
-
       def self.default(visited=[])
         return nil if visited.include?('Ipv6Pool')
         visited = visited + ['Ipv6Pool']
@@ -10835,7 +10257,6 @@ module AWS::Ec2
 
     # Structure Stubber for PoolCidrBlock
     class PoolCidrBlock
-
       def self.default(visited=[])
         return nil if visited.include?('PoolCidrBlock')
         visited = visited + ['PoolCidrBlock']
@@ -10848,7 +10269,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeKeyPairs
     class DescribeKeyPairs
-
       def self.default(visited=[])
         {
           key_pairs: Stubs::KeyPairList.default(visited),
@@ -10871,7 +10291,6 @@ module AWS::Ec2
 
     # Structure Stubber for KeyPairInfo
     class KeyPairInfo
-
       def self.default(visited=[])
         return nil if visited.include?('KeyPairInfo')
         visited = visited + ['KeyPairInfo']
@@ -10888,7 +10307,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeLaunchTemplateVersions
     class DescribeLaunchTemplateVersions
-
       def self.default(visited=[])
         {
           launch_template_versions: Stubs::LaunchTemplateVersionSet.default(visited),
@@ -10912,7 +10330,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeLaunchTemplates
     class DescribeLaunchTemplates
-
       def self.default(visited=[])
         {
           launch_templates: Stubs::LaunchTemplateSet.default(visited),
@@ -10936,7 +10353,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
     class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
-
       def self.default(visited=[])
         {
           local_gateway_route_table_virtual_interface_group_associations: Stubs::LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet.default(visited),
@@ -10960,7 +10376,6 @@ module AWS::Ec2
 
     # Structure Stubber for LocalGatewayRouteTableVirtualInterfaceGroupAssociation
     class LocalGatewayRouteTableVirtualInterfaceGroupAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('LocalGatewayRouteTableVirtualInterfaceGroupAssociation')
         visited = visited + ['LocalGatewayRouteTableVirtualInterfaceGroupAssociation']
@@ -10980,7 +10395,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeLocalGatewayRouteTableVpcAssociations
     class DescribeLocalGatewayRouteTableVpcAssociations
-
       def self.default(visited=[])
         {
           local_gateway_route_table_vpc_associations: Stubs::LocalGatewayRouteTableVpcAssociationSet.default(visited),
@@ -11004,7 +10418,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeLocalGatewayRouteTables
     class DescribeLocalGatewayRouteTables
-
       def self.default(visited=[])
         {
           local_gateway_route_tables: Stubs::LocalGatewayRouteTableSet.default(visited),
@@ -11028,7 +10441,6 @@ module AWS::Ec2
 
     # Structure Stubber for LocalGatewayRouteTable
     class LocalGatewayRouteTable
-
       def self.default(visited=[])
         return nil if visited.include?('LocalGatewayRouteTable')
         visited = visited + ['LocalGatewayRouteTable']
@@ -11047,7 +10459,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeLocalGatewayVirtualInterfaceGroups
     class DescribeLocalGatewayVirtualInterfaceGroups
-
       def self.default(visited=[])
         {
           local_gateway_virtual_interface_groups: Stubs::LocalGatewayVirtualInterfaceGroupSet.default(visited),
@@ -11071,7 +10482,6 @@ module AWS::Ec2
 
     # Structure Stubber for LocalGatewayVirtualInterfaceGroup
     class LocalGatewayVirtualInterfaceGroup
-
       def self.default(visited=[])
         return nil if visited.include?('LocalGatewayVirtualInterfaceGroup')
         visited = visited + ['LocalGatewayVirtualInterfaceGroup']
@@ -11100,7 +10510,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeLocalGatewayVirtualInterfaces
     class DescribeLocalGatewayVirtualInterfaces
-
       def self.default(visited=[])
         {
           local_gateway_virtual_interfaces: Stubs::LocalGatewayVirtualInterfaceSet.default(visited),
@@ -11124,7 +10533,6 @@ module AWS::Ec2
 
     # Structure Stubber for LocalGatewayVirtualInterface
     class LocalGatewayVirtualInterface
-
       def self.default(visited=[])
         return nil if visited.include?('LocalGatewayVirtualInterface')
         visited = visited + ['LocalGatewayVirtualInterface']
@@ -11145,7 +10553,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeLocalGateways
     class DescribeLocalGateways
-
       def self.default(visited=[])
         {
           local_gateways: Stubs::LocalGatewaySet.default(visited),
@@ -11169,7 +10576,6 @@ module AWS::Ec2
 
     # Structure Stubber for LocalGateway
     class LocalGateway
-
       def self.default(visited=[])
         return nil if visited.include?('LocalGateway')
         visited = visited + ['LocalGateway']
@@ -11186,7 +10592,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeManagedPrefixLists
     class DescribeManagedPrefixLists
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -11210,7 +10615,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeMovingAddresses
     class DescribeMovingAddresses
-
       def self.default(visited=[])
         {
           moving_address_statuses: Stubs::MovingAddressStatusSet.default(visited),
@@ -11234,7 +10638,6 @@ module AWS::Ec2
 
     # Structure Stubber for MovingAddressStatus
     class MovingAddressStatus
-
       def self.default(visited=[])
         return nil if visited.include?('MovingAddressStatus')
         visited = visited + ['MovingAddressStatus']
@@ -11248,7 +10651,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeNatGateways
     class DescribeNatGateways
-
       def self.default(visited=[])
         {
           nat_gateways: Stubs::NatGatewayList.default(visited),
@@ -11272,7 +10674,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeNetworkAcls
     class DescribeNetworkAcls
-
       def self.default(visited=[])
         {
           network_acls: Stubs::NetworkAclList.default(visited),
@@ -11296,7 +10697,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeNetworkInsightsAccessScopeAnalyses
     class DescribeNetworkInsightsAccessScopeAnalyses
-
       def self.default(visited=[])
         {
           network_insights_access_scope_analyses: Stubs::NetworkInsightsAccessScopeAnalysisList.default(visited),
@@ -11320,7 +10720,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkInsightsAccessScopeAnalysis
     class NetworkInsightsAccessScopeAnalysis
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkInsightsAccessScopeAnalysis')
         visited = visited + ['NetworkInsightsAccessScopeAnalysis']
@@ -11343,7 +10742,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeNetworkInsightsAccessScopes
     class DescribeNetworkInsightsAccessScopes
-
       def self.default(visited=[])
         {
           network_insights_access_scopes: Stubs::NetworkInsightsAccessScopeList.default(visited),
@@ -11367,7 +10765,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeNetworkInsightsAnalyses
     class DescribeNetworkInsightsAnalyses
-
       def self.default(visited=[])
         {
           network_insights_analyses: Stubs::NetworkInsightsAnalysisList.default(visited),
@@ -11391,7 +10788,6 @@ module AWS::Ec2
 
     # Structure Stubber for NetworkInsightsAnalysis
     class NetworkInsightsAnalysis
-
       def self.default(visited=[])
         return nil if visited.include?('NetworkInsightsAnalysis')
         visited = visited + ['NetworkInsightsAnalysis']
@@ -11429,7 +10825,6 @@ module AWS::Ec2
 
     # Structure Stubber for AlternatePathHint
     class AlternatePathHint
-
       def self.default(visited=[])
         return nil if visited.include?('AlternatePathHint')
         visited = visited + ['AlternatePathHint']
@@ -11455,7 +10850,6 @@ module AWS::Ec2
 
     # Structure Stubber for Explanation
     class Explanation
-
       def self.default(visited=[])
         return nil if visited.include?('Explanation')
         visited = visited + ['Explanation']
@@ -11512,7 +10906,6 @@ module AWS::Ec2
 
     # Structure Stubber for AnalysisComponent
     class AnalysisComponent
-
       def self.default(visited=[])
         return nil if visited.include?('AnalysisComponent')
         visited = visited + ['AnalysisComponent']
@@ -11539,7 +10932,6 @@ module AWS::Ec2
 
     # Structure Stubber for AnalysisSecurityGroupRule
     class AnalysisSecurityGroupRule
-
       def self.default(visited=[])
         return nil if visited.include?('AnalysisSecurityGroupRule')
         visited = visited + ['AnalysisSecurityGroupRule']
@@ -11557,7 +10949,6 @@ module AWS::Ec2
 
     # Structure Stubber for AnalysisRouteTableRoute
     class AnalysisRouteTableRoute
-
       def self.default(visited=[])
         return nil if visited.include?('AnalysisRouteTableRoute')
         visited = visited + ['AnalysisRouteTableRoute']
@@ -11603,7 +10994,6 @@ module AWS::Ec2
 
     # Structure Stubber for AnalysisLoadBalancerTarget
     class AnalysisLoadBalancerTarget
-
       def self.default(visited=[])
         return nil if visited.include?('AnalysisLoadBalancerTarget')
         visited = visited + ['AnalysisLoadBalancerTarget']
@@ -11619,7 +11009,6 @@ module AWS::Ec2
 
     # Structure Stubber for AnalysisLoadBalancerListener
     class AnalysisLoadBalancerListener
-
       def self.default(visited=[])
         return nil if visited.include?('AnalysisLoadBalancerListener')
         visited = visited + ['AnalysisLoadBalancerListener']
@@ -11645,7 +11034,6 @@ module AWS::Ec2
 
     # Structure Stubber for AnalysisAclRule
     class AnalysisAclRule
-
       def self.default(visited=[])
         return nil if visited.include?('AnalysisAclRule')
         visited = visited + ['AnalysisAclRule']
@@ -11675,7 +11063,6 @@ module AWS::Ec2
 
     # Structure Stubber for PathComponent
     class PathComponent
-
       def self.default(visited=[])
         return nil if visited.include?('PathComponent')
         visited = visited + ['PathComponent']
@@ -11699,7 +11086,6 @@ module AWS::Ec2
 
     # Structure Stubber for AnalysisPacketHeader
     class AnalysisPacketHeader
-
       def self.default(visited=[])
         return nil if visited.include?('AnalysisPacketHeader')
         visited = visited + ['AnalysisPacketHeader']
@@ -11728,7 +11114,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeNetworkInsightsPaths
     class DescribeNetworkInsightsPaths
-
       def self.default(visited=[])
         {
           network_insights_paths: Stubs::NetworkInsightsPathList.default(visited),
@@ -11752,7 +11137,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeNetworkInterfaceAttribute
     class DescribeNetworkInterfaceAttribute
-
       def self.default(visited=[])
         {
           attachment: Stubs::NetworkInterfaceAttachment.default(visited),
@@ -11767,7 +11151,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeNetworkInterfacePermissions
     class DescribeNetworkInterfacePermissions
-
       def self.default(visited=[])
         {
           network_interface_permissions: Stubs::NetworkInterfacePermissionList.default(visited),
@@ -11791,7 +11174,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeNetworkInterfaces
     class DescribeNetworkInterfaces
-
       def self.default(visited=[])
         {
           network_interfaces: Stubs::NetworkInterfaceList.default(visited),
@@ -11815,7 +11197,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribePlacementGroups
     class DescribePlacementGroups
-
       def self.default(visited=[])
         {
           placement_groups: Stubs::PlacementGroupList.default(visited),
@@ -11838,7 +11219,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribePrefixLists
     class DescribePrefixLists
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -11862,7 +11242,6 @@ module AWS::Ec2
 
     # Structure Stubber for PrefixList
     class PrefixList
-
       def self.default(visited=[])
         return nil if visited.include?('PrefixList')
         visited = visited + ['PrefixList']
@@ -11877,7 +11256,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribePrincipalIdFormat
     class DescribePrincipalIdFormat
-
       def self.default(visited=[])
         {
           principals: Stubs::PrincipalIdFormatList.default(visited),
@@ -11901,7 +11279,6 @@ module AWS::Ec2
 
     # Structure Stubber for PrincipalIdFormat
     class PrincipalIdFormat
-
       def self.default(visited=[])
         return nil if visited.include?('PrincipalIdFormat')
         visited = visited + ['PrincipalIdFormat']
@@ -11915,7 +11292,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribePublicIpv4Pools
     class DescribePublicIpv4Pools
-
       def self.default(visited=[])
         {
           public_ipv4_pools: Stubs::PublicIpv4PoolSet.default(visited),
@@ -11939,7 +11315,6 @@ module AWS::Ec2
 
     # Structure Stubber for PublicIpv4Pool
     class PublicIpv4Pool
-
       def self.default(visited=[])
         return nil if visited.include?('PublicIpv4Pool')
         visited = visited + ['PublicIpv4Pool']
@@ -11970,7 +11345,6 @@ module AWS::Ec2
 
     # Structure Stubber for PublicIpv4PoolRange
     class PublicIpv4PoolRange
-
       def self.default(visited=[])
         return nil if visited.include?('PublicIpv4PoolRange')
         visited = visited + ['PublicIpv4PoolRange']
@@ -11986,7 +11360,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeRegions
     class DescribeRegions
-
       def self.default(visited=[])
         {
           regions: Stubs::RegionList.default(visited),
@@ -12009,7 +11382,6 @@ module AWS::Ec2
 
     # Structure Stubber for Region
     class Region
-
       def self.default(visited=[])
         return nil if visited.include?('Region')
         visited = visited + ['Region']
@@ -12024,7 +11396,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeReplaceRootVolumeTasks
     class DescribeReplaceRootVolumeTasks
-
       def self.default(visited=[])
         {
           replace_root_volume_tasks: Stubs::ReplaceRootVolumeTasks.default(visited),
@@ -12048,7 +11419,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeReservedInstances
     class DescribeReservedInstances
-
       def self.default(visited=[])
         {
           reserved_instances: Stubs::ReservedInstancesList.default(visited),
@@ -12071,7 +11441,6 @@ module AWS::Ec2
 
     # Structure Stubber for ReservedInstances
     class ReservedInstances
-
       def self.default(visited=[])
         return nil if visited.include?('ReservedInstances')
         visited = visited + ['ReservedInstances']
@@ -12113,7 +11482,6 @@ module AWS::Ec2
 
     # Structure Stubber for RecurringCharge
     class RecurringCharge
-
       def self.default(visited=[])
         return nil if visited.include?('RecurringCharge')
         visited = visited + ['RecurringCharge']
@@ -12127,7 +11495,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeReservedInstancesListings
     class DescribeReservedInstancesListings
-
       def self.default(visited=[])
         {
           reserved_instances_listings: Stubs::ReservedInstancesListingList.default(visited),
@@ -12138,7 +11505,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeReservedInstancesModifications
     class DescribeReservedInstancesModifications
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -12162,7 +11528,6 @@ module AWS::Ec2
 
     # Structure Stubber for ReservedInstancesModification
     class ReservedInstancesModification
-
       def self.default(visited=[])
         return nil if visited.include?('ReservedInstancesModification')
         visited = visited + ['ReservedInstancesModification']
@@ -12195,7 +11560,6 @@ module AWS::Ec2
 
     # Structure Stubber for ReservedInstancesId
     class ReservedInstancesId
-
       def self.default(visited=[])
         return nil if visited.include?('ReservedInstancesId')
         visited = visited + ['ReservedInstancesId']
@@ -12220,7 +11584,6 @@ module AWS::Ec2
 
     # Structure Stubber for ReservedInstancesModificationResult
     class ReservedInstancesModificationResult
-
       def self.default(visited=[])
         return nil if visited.include?('ReservedInstancesModificationResult')
         visited = visited + ['ReservedInstancesModificationResult']
@@ -12234,7 +11597,6 @@ module AWS::Ec2
 
     # Structure Stubber for ReservedInstancesConfiguration
     class ReservedInstancesConfiguration
-
       def self.default(visited=[])
         return nil if visited.include?('ReservedInstancesConfiguration')
         visited = visited + ['ReservedInstancesConfiguration']
@@ -12251,7 +11613,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeReservedInstancesOfferings
     class DescribeReservedInstancesOfferings
-
       def self.default(visited=[])
         {
           reserved_instances_offerings: Stubs::ReservedInstancesOfferingList.default(visited),
@@ -12275,7 +11636,6 @@ module AWS::Ec2
 
     # Structure Stubber for ReservedInstancesOffering
     class ReservedInstancesOffering
-
       def self.default(visited=[])
         return nil if visited.include?('ReservedInstancesOffering')
         visited = visited + ['ReservedInstancesOffering']
@@ -12314,7 +11674,6 @@ module AWS::Ec2
 
     # Structure Stubber for PricingDetail
     class PricingDetail
-
       def self.default(visited=[])
         return nil if visited.include?('PricingDetail')
         visited = visited + ['PricingDetail']
@@ -12328,7 +11687,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeRouteTables
     class DescribeRouteTables
-
       def self.default(visited=[])
         {
           route_tables: Stubs::RouteTableList.default(visited),
@@ -12352,7 +11710,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeScheduledInstanceAvailability
     class DescribeScheduledInstanceAvailability
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -12376,7 +11733,6 @@ module AWS::Ec2
 
     # Structure Stubber for ScheduledInstanceAvailability
     class ScheduledInstanceAvailability
-
       def self.default(visited=[])
         return nil if visited.include?('ScheduledInstanceAvailability')
         visited = visited + ['ScheduledInstanceAvailability']
@@ -12401,7 +11757,6 @@ module AWS::Ec2
 
     # Structure Stubber for ScheduledInstanceRecurrence
     class ScheduledInstanceRecurrence
-
       def self.default(visited=[])
         return nil if visited.include?('ScheduledInstanceRecurrence')
         visited = visited + ['ScheduledInstanceRecurrence']
@@ -12430,7 +11785,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeScheduledInstances
     class DescribeScheduledInstances
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -12454,7 +11808,6 @@ module AWS::Ec2
 
     # Structure Stubber for ScheduledInstance
     class ScheduledInstance
-
       def self.default(visited=[])
         return nil if visited.include?('ScheduledInstance')
         visited = visited + ['ScheduledInstance']
@@ -12481,7 +11834,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeSecurityGroupReferences
     class DescribeSecurityGroupReferences
-
       def self.default(visited=[])
         {
           security_group_reference_set: Stubs::SecurityGroupReferences.default(visited),
@@ -12504,7 +11856,6 @@ module AWS::Ec2
 
     # Structure Stubber for SecurityGroupReference
     class SecurityGroupReference
-
       def self.default(visited=[])
         return nil if visited.include?('SecurityGroupReference')
         visited = visited + ['SecurityGroupReference']
@@ -12519,7 +11870,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeSecurityGroupRules
     class DescribeSecurityGroupRules
-
       def self.default(visited=[])
         {
           security_group_rules: Stubs::SecurityGroupRuleList.default(visited),
@@ -12531,7 +11881,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeSecurityGroups
     class DescribeSecurityGroups
-
       def self.default(visited=[])
         {
           security_groups: Stubs::SecurityGroupList.default(visited),
@@ -12555,7 +11904,6 @@ module AWS::Ec2
 
     # Structure Stubber for SecurityGroup
     class SecurityGroup
-
       def self.default(visited=[])
         return nil if visited.include?('SecurityGroup')
         visited = visited + ['SecurityGroup']
@@ -12587,7 +11935,6 @@ module AWS::Ec2
 
     # Structure Stubber for IpPermission
     class IpPermission
-
       def self.default(visited=[])
         return nil if visited.include?('IpPermission')
         visited = visited + ['IpPermission']
@@ -12618,7 +11965,6 @@ module AWS::Ec2
 
     # Structure Stubber for UserIdGroupPair
     class UserIdGroupPair
-
       def self.default(visited=[])
         return nil if visited.include?('UserIdGroupPair')
         visited = visited + ['UserIdGroupPair']
@@ -12649,7 +11995,6 @@ module AWS::Ec2
 
     # Structure Stubber for PrefixListId
     class PrefixListId
-
       def self.default(visited=[])
         return nil if visited.include?('PrefixListId')
         visited = visited + ['PrefixListId']
@@ -12675,7 +12020,6 @@ module AWS::Ec2
 
     # Structure Stubber for Ipv6Range
     class Ipv6Range
-
       def self.default(visited=[])
         return nil if visited.include?('Ipv6Range')
         visited = visited + ['Ipv6Range']
@@ -12701,7 +12045,6 @@ module AWS::Ec2
 
     # Structure Stubber for IpRange
     class IpRange
-
       def self.default(visited=[])
         return nil if visited.include?('IpRange')
         visited = visited + ['IpRange']
@@ -12715,7 +12058,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeSnapshotAttribute
     class DescribeSnapshotAttribute
-
       def self.default(visited=[])
         {
           create_volume_permissions: Stubs::CreateVolumePermissionList.default(visited),
@@ -12740,7 +12082,6 @@ module AWS::Ec2
 
     # Structure Stubber for CreateVolumePermission
     class CreateVolumePermission
-
       def self.default(visited=[])
         return nil if visited.include?('CreateVolumePermission')
         visited = visited + ['CreateVolumePermission']
@@ -12754,7 +12095,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeSnapshotTierStatus
     class DescribeSnapshotTierStatus
-
       def self.default(visited=[])
         {
           snapshot_tier_statuses: Stubs::SnapshotTierStatusSet.default(visited),
@@ -12778,7 +12118,6 @@ module AWS::Ec2
 
     # Structure Stubber for SnapshotTierStatus
     class SnapshotTierStatus
-
       def self.default(visited=[])
         return nil if visited.include?('SnapshotTierStatus')
         visited = visited + ['SnapshotTierStatus']
@@ -12802,7 +12141,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeSnapshots
     class DescribeSnapshots
-
       def self.default(visited=[])
         {
           snapshots: Stubs::SnapshotList.default(visited),
@@ -12826,7 +12164,6 @@ module AWS::Ec2
 
     # Structure Stubber for Snapshot
     class Snapshot
-
       def self.default(visited=[])
         return nil if visited.include?('Snapshot')
         visited = visited + ['Snapshot']
@@ -12855,7 +12192,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeSpotDatafeedSubscription
     class DescribeSpotDatafeedSubscription
-
       def self.default(visited=[])
         {
           spot_datafeed_subscription: Stubs::SpotDatafeedSubscription.default(visited),
@@ -12866,7 +12202,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeSpotFleetInstances
     class DescribeSpotFleetInstances
-
       def self.default(visited=[])
         {
           active_instances: Stubs::ActiveInstanceSet.default(visited),
@@ -12879,7 +12214,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeSpotFleetRequestHistory
     class DescribeSpotFleetRequestHistory
-
       def self.default(visited=[])
         {
           history_records: Stubs::HistoryRecords.default(visited),
@@ -12906,7 +12240,6 @@ module AWS::Ec2
 
     # Structure Stubber for HistoryRecord
     class HistoryRecord
-
       def self.default(visited=[])
         return nil if visited.include?('HistoryRecord')
         visited = visited + ['HistoryRecord']
@@ -12921,7 +12254,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeSpotFleetRequests
     class DescribeSpotFleetRequests
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -12945,7 +12277,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotFleetRequestConfig
     class SpotFleetRequestConfig
-
       def self.default(visited=[])
         return nil if visited.include?('SpotFleetRequestConfig')
         visited = visited + ['SpotFleetRequestConfig']
@@ -12963,7 +12294,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotFleetRequestConfigData
     class SpotFleetRequestConfigData
-
       def self.default(visited=[])
         return nil if visited.include?('SpotFleetRequestConfigData')
         visited = visited + ['SpotFleetRequestConfigData']
@@ -13013,7 +12343,6 @@ module AWS::Ec2
 
     # Structure Stubber for TagSpecification
     class TagSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('TagSpecification')
         visited = visited + ['TagSpecification']
@@ -13027,7 +12356,6 @@ module AWS::Ec2
 
     # Structure Stubber for LoadBalancersConfig
     class LoadBalancersConfig
-
       def self.default(visited=[])
         return nil if visited.include?('LoadBalancersConfig')
         visited = visited + ['LoadBalancersConfig']
@@ -13041,7 +12369,6 @@ module AWS::Ec2
 
     # Structure Stubber for TargetGroupsConfig
     class TargetGroupsConfig
-
       def self.default(visited=[])
         return nil if visited.include?('TargetGroupsConfig')
         visited = visited + ['TargetGroupsConfig']
@@ -13066,7 +12393,6 @@ module AWS::Ec2
 
     # Structure Stubber for TargetGroup
     class TargetGroup
-
       def self.default(visited=[])
         return nil if visited.include?('TargetGroup')
         visited = visited + ['TargetGroup']
@@ -13079,7 +12405,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClassicLoadBalancersConfig
     class ClassicLoadBalancersConfig
-
       def self.default(visited=[])
         return nil if visited.include?('ClassicLoadBalancersConfig')
         visited = visited + ['ClassicLoadBalancersConfig']
@@ -13104,7 +12429,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClassicLoadBalancer
     class ClassicLoadBalancer
-
       def self.default(visited=[])
         return nil if visited.include?('ClassicLoadBalancer')
         visited = visited + ['ClassicLoadBalancer']
@@ -13129,7 +12453,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateConfig
     class LaunchTemplateConfig
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateConfig')
         visited = visited + ['LaunchTemplateConfig']
@@ -13155,7 +12478,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchTemplateOverrides
     class LaunchTemplateOverrides
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchTemplateOverrides')
         visited = visited + ['LaunchTemplateOverrides']
@@ -13186,7 +12508,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotFleetLaunchSpecification
     class SpotFleetLaunchSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('SpotFleetLaunchSpecification')
         visited = visited + ['SpotFleetLaunchSpecification']
@@ -13229,7 +12550,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotFleetTagSpecification
     class SpotFleetTagSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('SpotFleetTagSpecification')
         visited = visited + ['SpotFleetTagSpecification']
@@ -13243,7 +12563,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotPlacement
     class SpotPlacement
-
       def self.default(visited=[])
         return nil if visited.include?('SpotPlacement')
         visited = visited + ['SpotPlacement']
@@ -13270,7 +12589,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceNetworkInterfaceSpecification
     class InstanceNetworkInterfaceSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceNetworkInterfaceSpecification')
         visited = visited + ['InstanceNetworkInterfaceSpecification']
@@ -13313,7 +12631,6 @@ module AWS::Ec2
 
     # Structure Stubber for Ipv6PrefixSpecificationRequest
     class Ipv6PrefixSpecificationRequest
-
       def self.default(visited=[])
         return nil if visited.include?('Ipv6PrefixSpecificationRequest')
         visited = visited + ['Ipv6PrefixSpecificationRequest']
@@ -13338,7 +12655,6 @@ module AWS::Ec2
 
     # Structure Stubber for Ipv4PrefixSpecificationRequest
     class Ipv4PrefixSpecificationRequest
-
       def self.default(visited=[])
         return nil if visited.include?('Ipv4PrefixSpecificationRequest')
         visited = visited + ['Ipv4PrefixSpecificationRequest']
@@ -13363,7 +12679,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotFleetMonitoring
     class SpotFleetMonitoring
-
       def self.default(visited=[])
         return nil if visited.include?('SpotFleetMonitoring')
         visited = visited + ['SpotFleetMonitoring']
@@ -13376,7 +12691,6 @@ module AWS::Ec2
 
     # Structure Stubber for IamInstanceProfileSpecification
     class IamInstanceProfileSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('IamInstanceProfileSpecification')
         visited = visited + ['IamInstanceProfileSpecification']
@@ -13390,7 +12704,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotMaintenanceStrategies
     class SpotMaintenanceStrategies
-
       def self.default(visited=[])
         return nil if visited.include?('SpotMaintenanceStrategies')
         visited = visited + ['SpotMaintenanceStrategies']
@@ -13403,7 +12716,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotCapacityRebalance
     class SpotCapacityRebalance
-
       def self.default(visited=[])
         return nil if visited.include?('SpotCapacityRebalance')
         visited = visited + ['SpotCapacityRebalance']
@@ -13417,7 +12729,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeSpotInstanceRequests
     class DescribeSpotInstanceRequests
-
       def self.default(visited=[])
         {
           spot_instance_requests: Stubs::SpotInstanceRequestList.default(visited),
@@ -13441,7 +12752,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotInstanceRequest
     class SpotInstanceRequest
-
       def self.default(visited=[])
         return nil if visited.include?('SpotInstanceRequest')
         visited = visited + ['SpotInstanceRequest']
@@ -13472,7 +12782,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotInstanceStatus
     class SpotInstanceStatus
-
       def self.default(visited=[])
         return nil if visited.include?('SpotInstanceStatus')
         visited = visited + ['SpotInstanceStatus']
@@ -13487,7 +12796,6 @@ module AWS::Ec2
 
     # Structure Stubber for LaunchSpecification
     class LaunchSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('LaunchSpecification')
         visited = visited + ['LaunchSpecification']
@@ -13514,7 +12822,6 @@ module AWS::Ec2
 
     # Structure Stubber for RunInstancesMonitoringEnabled
     class RunInstancesMonitoringEnabled
-
       def self.default(visited=[])
         return nil if visited.include?('RunInstancesMonitoringEnabled')
         visited = visited + ['RunInstancesMonitoringEnabled']
@@ -13527,7 +12834,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeSpotPriceHistory
     class DescribeSpotPriceHistory
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -13551,7 +12857,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotPrice
     class SpotPrice
-
       def self.default(visited=[])
         return nil if visited.include?('SpotPrice')
         visited = visited + ['SpotPrice']
@@ -13568,7 +12873,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeStaleSecurityGroups
     class DescribeStaleSecurityGroups
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -13592,7 +12896,6 @@ module AWS::Ec2
 
     # Structure Stubber for StaleSecurityGroup
     class StaleSecurityGroup
-
       def self.default(visited=[])
         return nil if visited.include?('StaleSecurityGroup')
         visited = visited + ['StaleSecurityGroup']
@@ -13622,7 +12925,6 @@ module AWS::Ec2
 
     # Structure Stubber for StaleIpPermission
     class StaleIpPermission
-
       def self.default(visited=[])
         return nil if visited.include?('StaleIpPermission')
         visited = visited + ['StaleIpPermission']
@@ -13676,7 +12978,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeStoreImageTasks
     class DescribeStoreImageTasks
-
       def self.default(visited=[])
         {
           store_image_task_results: Stubs::StoreImageTaskResultSet.default(visited),
@@ -13700,7 +13001,6 @@ module AWS::Ec2
 
     # Structure Stubber for StoreImageTaskResult
     class StoreImageTaskResult
-
       def self.default(visited=[])
         return nil if visited.include?('StoreImageTaskResult')
         visited = visited + ['StoreImageTaskResult']
@@ -13719,7 +13019,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeSubnets
     class DescribeSubnets
-
       def self.default(visited=[])
         {
           subnets: Stubs::SubnetList.default(visited),
@@ -13743,7 +13042,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeTags
     class DescribeTags
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -13767,7 +13065,6 @@ module AWS::Ec2
 
     # Structure Stubber for TagDescription
     class TagDescription
-
       def self.default(visited=[])
         return nil if visited.include?('TagDescription')
         visited = visited + ['TagDescription']
@@ -13783,7 +13080,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeTrafficMirrorFilters
     class DescribeTrafficMirrorFilters
-
       def self.default(visited=[])
         {
           traffic_mirror_filters: Stubs::TrafficMirrorFilterSet.default(visited),
@@ -13807,7 +13103,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeTrafficMirrorSessions
     class DescribeTrafficMirrorSessions
-
       def self.default(visited=[])
         {
           traffic_mirror_sessions: Stubs::TrafficMirrorSessionSet.default(visited),
@@ -13831,7 +13126,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeTrafficMirrorTargets
     class DescribeTrafficMirrorTargets
-
       def self.default(visited=[])
         {
           traffic_mirror_targets: Stubs::TrafficMirrorTargetSet.default(visited),
@@ -13855,7 +13149,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeTransitGatewayAttachments
     class DescribeTransitGatewayAttachments
-
       def self.default(visited=[])
         {
           transit_gateway_attachments: Stubs::TransitGatewayAttachmentList.default(visited),
@@ -13879,7 +13172,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayAttachment
     class TransitGatewayAttachment
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayAttachment')
         visited = visited + ['TransitGatewayAttachment']
@@ -13901,7 +13193,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayAttachmentAssociation
     class TransitGatewayAttachmentAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayAttachmentAssociation')
         visited = visited + ['TransitGatewayAttachmentAssociation']
@@ -13915,7 +13206,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeTransitGatewayConnectPeers
     class DescribeTransitGatewayConnectPeers
-
       def self.default(visited=[])
         {
           transit_gateway_connect_peers: Stubs::TransitGatewayConnectPeerList.default(visited),
@@ -13939,7 +13229,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeTransitGatewayConnects
     class DescribeTransitGatewayConnects
-
       def self.default(visited=[])
         {
           transit_gateway_connects: Stubs::TransitGatewayConnectList.default(visited),
@@ -13963,7 +13252,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeTransitGatewayMulticastDomains
     class DescribeTransitGatewayMulticastDomains
-
       def self.default(visited=[])
         {
           transit_gateway_multicast_domains: Stubs::TransitGatewayMulticastDomainList.default(visited),
@@ -13987,7 +13275,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeTransitGatewayPeeringAttachments
     class DescribeTransitGatewayPeeringAttachments
-
       def self.default(visited=[])
         {
           transit_gateway_peering_attachments: Stubs::TransitGatewayPeeringAttachmentList.default(visited),
@@ -14011,7 +13298,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeTransitGatewayRouteTables
     class DescribeTransitGatewayRouteTables
-
       def self.default(visited=[])
         {
           transit_gateway_route_tables: Stubs::TransitGatewayRouteTableList.default(visited),
@@ -14035,7 +13321,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeTransitGatewayVpcAttachments
     class DescribeTransitGatewayVpcAttachments
-
       def self.default(visited=[])
         {
           transit_gateway_vpc_attachments: Stubs::TransitGatewayVpcAttachmentList.default(visited),
@@ -14059,7 +13344,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeTransitGateways
     class DescribeTransitGateways
-
       def self.default(visited=[])
         {
           transit_gateways: Stubs::TransitGatewayList.default(visited),
@@ -14083,7 +13367,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeTrunkInterfaceAssociations
     class DescribeTrunkInterfaceAssociations
-
       def self.default(visited=[])
         {
           interface_associations: Stubs::TrunkInterfaceAssociationList.default(visited),
@@ -14107,7 +13390,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVolumeAttribute
     class DescribeVolumeAttribute
-
       def self.default(visited=[])
         {
           auto_enable_io: Stubs::AttributeBooleanValue.default(visited),
@@ -14120,7 +13402,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVolumeStatus
     class DescribeVolumeStatus
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -14144,7 +13425,6 @@ module AWS::Ec2
 
     # Structure Stubber for VolumeStatusItem
     class VolumeStatusItem
-
       def self.default(visited=[])
         return nil if visited.include?('VolumeStatusItem')
         visited = visited + ['VolumeStatusItem']
@@ -14175,7 +13455,6 @@ module AWS::Ec2
 
     # Structure Stubber for VolumeStatusAttachmentStatus
     class VolumeStatusAttachmentStatus
-
       def self.default(visited=[])
         return nil if visited.include?('VolumeStatusAttachmentStatus')
         visited = visited + ['VolumeStatusAttachmentStatus']
@@ -14189,7 +13468,6 @@ module AWS::Ec2
 
     # Structure Stubber for VolumeStatusInfo
     class VolumeStatusInfo
-
       def self.default(visited=[])
         return nil if visited.include?('VolumeStatusInfo')
         visited = visited + ['VolumeStatusInfo']
@@ -14215,7 +13493,6 @@ module AWS::Ec2
 
     # Structure Stubber for VolumeStatusDetails
     class VolumeStatusDetails
-
       def self.default(visited=[])
         return nil if visited.include?('VolumeStatusDetails')
         visited = visited + ['VolumeStatusDetails']
@@ -14241,7 +13518,6 @@ module AWS::Ec2
 
     # Structure Stubber for VolumeStatusEvent
     class VolumeStatusEvent
-
       def self.default(visited=[])
         return nil if visited.include?('VolumeStatusEvent')
         visited = visited + ['VolumeStatusEvent']
@@ -14271,7 +13547,6 @@ module AWS::Ec2
 
     # Structure Stubber for VolumeStatusAction
     class VolumeStatusAction
-
       def self.default(visited=[])
         return nil if visited.include?('VolumeStatusAction')
         visited = visited + ['VolumeStatusAction']
@@ -14287,7 +13562,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVolumes
     class DescribeVolumes
-
       def self.default(visited=[])
         {
           volumes: Stubs::VolumeList.default(visited),
@@ -14311,7 +13585,6 @@ module AWS::Ec2
 
     # Structure Stubber for Volume
     class Volume
-
       def self.default(visited=[])
         return nil if visited.include?('Volume')
         visited = visited + ['Volume']
@@ -14339,7 +13612,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVolumesModifications
     class DescribeVolumesModifications
-
       def self.default(visited=[])
         {
           volumes_modifications: Stubs::VolumeModificationList.default(visited),
@@ -14363,7 +13635,6 @@ module AWS::Ec2
 
     # Structure Stubber for VolumeModification
     class VolumeModification
-
       def self.default(visited=[])
         return nil if visited.include?('VolumeModification')
         visited = visited + ['VolumeModification']
@@ -14391,7 +13662,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVpcAttribute
     class DescribeVpcAttribute
-
       def self.default(visited=[])
         {
           vpc_id: 'vpc_id',
@@ -14404,7 +13674,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVpcClassicLink
     class DescribeVpcClassicLink
-
       def self.default(visited=[])
         {
           vpcs: Stubs::VpcClassicLinkList.default(visited),
@@ -14427,7 +13696,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpcClassicLink
     class VpcClassicLink
-
       def self.default(visited=[])
         return nil if visited.include?('VpcClassicLink')
         visited = visited + ['VpcClassicLink']
@@ -14442,7 +13710,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVpcClassicLinkDnsSupport
     class DescribeVpcClassicLinkDnsSupport
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -14466,7 +13733,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClassicLinkDnsSupport
     class ClassicLinkDnsSupport
-
       def self.default(visited=[])
         return nil if visited.include?('ClassicLinkDnsSupport')
         visited = visited + ['ClassicLinkDnsSupport']
@@ -14480,7 +13746,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVpcEndpointConnectionNotifications
     class DescribeVpcEndpointConnectionNotifications
-
       def self.default(visited=[])
         {
           connection_notification_set: Stubs::ConnectionNotificationSet.default(visited),
@@ -14504,7 +13769,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVpcEndpointConnections
     class DescribeVpcEndpointConnections
-
       def self.default(visited=[])
         {
           vpc_endpoint_connections: Stubs::VpcEndpointConnectionSet.default(visited),
@@ -14528,7 +13792,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpcEndpointConnection
     class VpcEndpointConnection
-
       def self.default(visited=[])
         return nil if visited.include?('VpcEndpointConnection')
         visited = visited + ['VpcEndpointConnection']
@@ -14548,7 +13811,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVpcEndpointServiceConfigurations
     class DescribeVpcEndpointServiceConfigurations
-
       def self.default(visited=[])
         {
           service_configurations: Stubs::ServiceConfigurationSet.default(visited),
@@ -14572,7 +13834,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVpcEndpointServicePermissions
     class DescribeVpcEndpointServicePermissions
-
       def self.default(visited=[])
         {
           allowed_principals: Stubs::AllowedPrincipalSet.default(visited),
@@ -14596,7 +13857,6 @@ module AWS::Ec2
 
     # Structure Stubber for AllowedPrincipal
     class AllowedPrincipal
-
       def self.default(visited=[])
         return nil if visited.include?('AllowedPrincipal')
         visited = visited + ['AllowedPrincipal']
@@ -14610,7 +13870,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVpcEndpointServices
     class DescribeVpcEndpointServices
-
       def self.default(visited=[])
         {
           service_names: Stubs::ValueStringList.default(visited),
@@ -14635,7 +13894,6 @@ module AWS::Ec2
 
     # Structure Stubber for ServiceDetail
     class ServiceDetail
-
       def self.default(visited=[])
         return nil if visited.include?('ServiceDetail')
         visited = visited + ['ServiceDetail']
@@ -14673,7 +13931,6 @@ module AWS::Ec2
 
     # Structure Stubber for PrivateDnsDetails
     class PrivateDnsDetails
-
       def self.default(visited=[])
         return nil if visited.include?('PrivateDnsDetails')
         visited = visited + ['PrivateDnsDetails']
@@ -14686,7 +13943,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVpcEndpoints
     class DescribeVpcEndpoints
-
       def self.default(visited=[])
         {
           vpc_endpoints: Stubs::VpcEndpointSet.default(visited),
@@ -14710,7 +13966,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVpcPeeringConnections
     class DescribeVpcPeeringConnections
-
       def self.default(visited=[])
         {
           vpc_peering_connections: Stubs::VpcPeeringConnectionList.default(visited),
@@ -14734,7 +13989,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVpcs
     class DescribeVpcs
-
       def self.default(visited=[])
         {
           vpcs: Stubs::VpcList.default(visited),
@@ -14758,7 +14012,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVpnConnections
     class DescribeVpnConnections
-
       def self.default(visited=[])
         {
           vpn_connections: Stubs::VpnConnectionList.default(visited),
@@ -14781,7 +14034,6 @@ module AWS::Ec2
 
     # Operation Stubber for DescribeVpnGateways
     class DescribeVpnGateways
-
       def self.default(visited=[])
         {
           vpn_gateways: Stubs::VpnGatewayList.default(visited),
@@ -14804,7 +14056,6 @@ module AWS::Ec2
 
     # Operation Stubber for DetachClassicLinkVpc
     class DetachClassicLinkVpc
-
       def self.default(visited=[])
         {
           return: false,
@@ -14815,7 +14066,6 @@ module AWS::Ec2
 
     # Operation Stubber for DetachInternetGateway
     class DetachInternetGateway
-
       def self.default(visited=[])
         {
         }
@@ -14825,7 +14075,6 @@ module AWS::Ec2
 
     # Operation Stubber for DetachNetworkInterface
     class DetachNetworkInterface
-
       def self.default(visited=[])
         {
         }
@@ -14835,7 +14084,6 @@ module AWS::Ec2
 
     # Operation Stubber for DetachVolume
     class DetachVolume
-
       def self.default(visited=[])
         {
           attach_time: Time.now,
@@ -14851,7 +14099,6 @@ module AWS::Ec2
 
     # Operation Stubber for DetachVpnGateway
     class DetachVpnGateway
-
       def self.default(visited=[])
         {
         }
@@ -14861,7 +14108,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisableEbsEncryptionByDefault
     class DisableEbsEncryptionByDefault
-
       def self.default(visited=[])
         {
           ebs_encryption_by_default: false,
@@ -14872,7 +14118,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisableFastSnapshotRestores
     class DisableFastSnapshotRestores
-
       def self.default(visited=[])
         {
           successful: Stubs::DisableFastSnapshotRestoreSuccessSet.default(visited),
@@ -14896,7 +14141,6 @@ module AWS::Ec2
 
     # Structure Stubber for DisableFastSnapshotRestoreErrorItem
     class DisableFastSnapshotRestoreErrorItem
-
       def self.default(visited=[])
         return nil if visited.include?('DisableFastSnapshotRestoreErrorItem')
         visited = visited + ['DisableFastSnapshotRestoreErrorItem']
@@ -14922,7 +14166,6 @@ module AWS::Ec2
 
     # Structure Stubber for DisableFastSnapshotRestoreStateErrorItem
     class DisableFastSnapshotRestoreStateErrorItem
-
       def self.default(visited=[])
         return nil if visited.include?('DisableFastSnapshotRestoreStateErrorItem')
         visited = visited + ['DisableFastSnapshotRestoreStateErrorItem']
@@ -14936,7 +14179,6 @@ module AWS::Ec2
 
     # Structure Stubber for DisableFastSnapshotRestoreStateError
     class DisableFastSnapshotRestoreStateError
-
       def self.default(visited=[])
         return nil if visited.include?('DisableFastSnapshotRestoreStateError')
         visited = visited + ['DisableFastSnapshotRestoreStateError']
@@ -14962,7 +14204,6 @@ module AWS::Ec2
 
     # Structure Stubber for DisableFastSnapshotRestoreSuccessItem
     class DisableFastSnapshotRestoreSuccessItem
-
       def self.default(visited=[])
         return nil if visited.include?('DisableFastSnapshotRestoreSuccessItem')
         visited = visited + ['DisableFastSnapshotRestoreSuccessItem']
@@ -14985,7 +14226,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisableImageDeprecation
     class DisableImageDeprecation
-
       def self.default(visited=[])
         {
           return: false,
@@ -14996,7 +14236,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisableIpamOrganizationAdminAccount
     class DisableIpamOrganizationAdminAccount
-
       def self.default(visited=[])
         {
           success: false,
@@ -15007,7 +14246,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisableSerialConsoleAccess
     class DisableSerialConsoleAccess
-
       def self.default(visited=[])
         {
           serial_console_access_enabled: false,
@@ -15018,7 +14256,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisableTransitGatewayRouteTablePropagation
     class DisableTransitGatewayRouteTablePropagation
-
       def self.default(visited=[])
         {
           propagation: Stubs::TransitGatewayPropagation.default(visited),
@@ -15029,7 +14266,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayPropagation
     class TransitGatewayPropagation
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayPropagation')
         visited = visited + ['TransitGatewayPropagation']
@@ -15046,7 +14282,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisableVgwRoutePropagation
     class DisableVgwRoutePropagation
-
       def self.default(visited=[])
         {
         }
@@ -15056,7 +14291,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisableVpcClassicLink
     class DisableVpcClassicLink
-
       def self.default(visited=[])
         {
           return: false,
@@ -15067,7 +14301,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisableVpcClassicLinkDnsSupport
     class DisableVpcClassicLinkDnsSupport
-
       def self.default(visited=[])
         {
           return: false,
@@ -15078,7 +14311,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisassociateAddress
     class DisassociateAddress
-
       def self.default(visited=[])
         {
         }
@@ -15088,7 +14320,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisassociateClientVpnTargetNetwork
     class DisassociateClientVpnTargetNetwork
-
       def self.default(visited=[])
         {
           association_id: 'association_id',
@@ -15100,7 +14331,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisassociateEnclaveCertificateIamRole
     class DisassociateEnclaveCertificateIamRole
-
       def self.default(visited=[])
         {
           return: false,
@@ -15111,7 +14341,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisassociateIamInstanceProfile
     class DisassociateIamInstanceProfile
-
       def self.default(visited=[])
         {
           iam_instance_profile_association: Stubs::IamInstanceProfileAssociation.default(visited),
@@ -15122,7 +14351,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisassociateInstanceEventWindow
     class DisassociateInstanceEventWindow
-
       def self.default(visited=[])
         {
           instance_event_window: Stubs::InstanceEventWindow.default(visited),
@@ -15133,7 +14361,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisassociateRouteTable
     class DisassociateRouteTable
-
       def self.default(visited=[])
         {
         }
@@ -15143,7 +14370,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisassociateSubnetCidrBlock
     class DisassociateSubnetCidrBlock
-
       def self.default(visited=[])
         {
           ipv6_cidr_block_association: Stubs::SubnetIpv6CidrBlockAssociation.default(visited),
@@ -15155,7 +14381,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisassociateTransitGatewayMulticastDomain
     class DisassociateTransitGatewayMulticastDomain
-
       def self.default(visited=[])
         {
           associations: Stubs::TransitGatewayMulticastDomainAssociations.default(visited),
@@ -15166,7 +14391,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisassociateTransitGatewayRouteTable
     class DisassociateTransitGatewayRouteTable
-
       def self.default(visited=[])
         {
           association: Stubs::TransitGatewayAssociation.default(visited),
@@ -15177,7 +14401,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisassociateTrunkInterface
     class DisassociateTrunkInterface
-
       def self.default(visited=[])
         {
           return: false,
@@ -15189,7 +14412,6 @@ module AWS::Ec2
 
     # Operation Stubber for DisassociateVpcCidrBlock
     class DisassociateVpcCidrBlock
-
       def self.default(visited=[])
         {
           ipv6_cidr_block_association: Stubs::VpcIpv6CidrBlockAssociation.default(visited),
@@ -15202,7 +14424,6 @@ module AWS::Ec2
 
     # Operation Stubber for EnableEbsEncryptionByDefault
     class EnableEbsEncryptionByDefault
-
       def self.default(visited=[])
         {
           ebs_encryption_by_default: false,
@@ -15213,7 +14434,6 @@ module AWS::Ec2
 
     # Operation Stubber for EnableFastSnapshotRestores
     class EnableFastSnapshotRestores
-
       def self.default(visited=[])
         {
           successful: Stubs::EnableFastSnapshotRestoreSuccessSet.default(visited),
@@ -15237,7 +14457,6 @@ module AWS::Ec2
 
     # Structure Stubber for EnableFastSnapshotRestoreErrorItem
     class EnableFastSnapshotRestoreErrorItem
-
       def self.default(visited=[])
         return nil if visited.include?('EnableFastSnapshotRestoreErrorItem')
         visited = visited + ['EnableFastSnapshotRestoreErrorItem']
@@ -15263,7 +14482,6 @@ module AWS::Ec2
 
     # Structure Stubber for EnableFastSnapshotRestoreStateErrorItem
     class EnableFastSnapshotRestoreStateErrorItem
-
       def self.default(visited=[])
         return nil if visited.include?('EnableFastSnapshotRestoreStateErrorItem')
         visited = visited + ['EnableFastSnapshotRestoreStateErrorItem']
@@ -15277,7 +14495,6 @@ module AWS::Ec2
 
     # Structure Stubber for EnableFastSnapshotRestoreStateError
     class EnableFastSnapshotRestoreStateError
-
       def self.default(visited=[])
         return nil if visited.include?('EnableFastSnapshotRestoreStateError')
         visited = visited + ['EnableFastSnapshotRestoreStateError']
@@ -15303,7 +14520,6 @@ module AWS::Ec2
 
     # Structure Stubber for EnableFastSnapshotRestoreSuccessItem
     class EnableFastSnapshotRestoreSuccessItem
-
       def self.default(visited=[])
         return nil if visited.include?('EnableFastSnapshotRestoreSuccessItem')
         visited = visited + ['EnableFastSnapshotRestoreSuccessItem']
@@ -15326,7 +14542,6 @@ module AWS::Ec2
 
     # Operation Stubber for EnableImageDeprecation
     class EnableImageDeprecation
-
       def self.default(visited=[])
         {
           return: false,
@@ -15337,7 +14552,6 @@ module AWS::Ec2
 
     # Operation Stubber for EnableIpamOrganizationAdminAccount
     class EnableIpamOrganizationAdminAccount
-
       def self.default(visited=[])
         {
           success: false,
@@ -15348,7 +14562,6 @@ module AWS::Ec2
 
     # Operation Stubber for EnableSerialConsoleAccess
     class EnableSerialConsoleAccess
-
       def self.default(visited=[])
         {
           serial_console_access_enabled: false,
@@ -15359,7 +14572,6 @@ module AWS::Ec2
 
     # Operation Stubber for EnableTransitGatewayRouteTablePropagation
     class EnableTransitGatewayRouteTablePropagation
-
       def self.default(visited=[])
         {
           propagation: Stubs::TransitGatewayPropagation.default(visited),
@@ -15370,7 +14582,6 @@ module AWS::Ec2
 
     # Operation Stubber for EnableVgwRoutePropagation
     class EnableVgwRoutePropagation
-
       def self.default(visited=[])
         {
         }
@@ -15380,7 +14591,6 @@ module AWS::Ec2
 
     # Operation Stubber for EnableVolumeIO
     class EnableVolumeIO
-
       def self.default(visited=[])
         {
         }
@@ -15390,7 +14600,6 @@ module AWS::Ec2
 
     # Operation Stubber for EnableVpcClassicLink
     class EnableVpcClassicLink
-
       def self.default(visited=[])
         {
           return: false,
@@ -15401,7 +14610,6 @@ module AWS::Ec2
 
     # Operation Stubber for EnableVpcClassicLinkDnsSupport
     class EnableVpcClassicLinkDnsSupport
-
       def self.default(visited=[])
         {
           return: false,
@@ -15412,7 +14620,6 @@ module AWS::Ec2
 
     # Operation Stubber for ExportClientVpnClientCertificateRevocationList
     class ExportClientVpnClientCertificateRevocationList
-
       def self.default(visited=[])
         {
           certificate_revocation_list: 'certificate_revocation_list',
@@ -15424,7 +14631,6 @@ module AWS::Ec2
 
     # Structure Stubber for ClientCertificateRevocationListStatus
     class ClientCertificateRevocationListStatus
-
       def self.default(visited=[])
         return nil if visited.include?('ClientCertificateRevocationListStatus')
         visited = visited + ['ClientCertificateRevocationListStatus']
@@ -15438,7 +14644,6 @@ module AWS::Ec2
 
     # Operation Stubber for ExportClientVpnClientConfiguration
     class ExportClientVpnClientConfiguration
-
       def self.default(visited=[])
         {
           client_configuration: 'client_configuration',
@@ -15449,7 +14654,6 @@ module AWS::Ec2
 
     # Operation Stubber for ExportImage
     class ExportImage
-
       def self.default(visited=[])
         {
           description: 'description',
@@ -15469,7 +14673,6 @@ module AWS::Ec2
 
     # Operation Stubber for ExportTransitGatewayRoutes
     class ExportTransitGatewayRoutes
-
       def self.default(visited=[])
         {
           s3_location: 's3_location',
@@ -15480,7 +14683,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetAssociatedEnclaveCertificateIamRoles
     class GetAssociatedEnclaveCertificateIamRoles
-
       def self.default(visited=[])
         {
           associated_roles: Stubs::AssociatedRolesList.default(visited),
@@ -15503,7 +14705,6 @@ module AWS::Ec2
 
     # Structure Stubber for AssociatedRole
     class AssociatedRole
-
       def self.default(visited=[])
         return nil if visited.include?('AssociatedRole')
         visited = visited + ['AssociatedRole']
@@ -15519,7 +14720,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetAssociatedIpv6PoolCidrs
     class GetAssociatedIpv6PoolCidrs
-
       def self.default(visited=[])
         {
           ipv6_cidr_associations: Stubs::Ipv6CidrAssociationSet.default(visited),
@@ -15543,7 +14743,6 @@ module AWS::Ec2
 
     # Structure Stubber for Ipv6CidrAssociation
     class Ipv6CidrAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('Ipv6CidrAssociation')
         visited = visited + ['Ipv6CidrAssociation']
@@ -15557,7 +14756,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetCapacityReservationUsage
     class GetCapacityReservationUsage
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -15586,7 +14784,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceUsage
     class InstanceUsage
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceUsage')
         visited = visited + ['InstanceUsage']
@@ -15600,7 +14797,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetCoipPoolUsage
     class GetCoipPoolUsage
-
       def self.default(visited=[])
         {
           coip_pool_id: 'coip_pool_id',
@@ -15625,7 +14821,6 @@ module AWS::Ec2
 
     # Structure Stubber for CoipAddressUsage
     class CoipAddressUsage
-
       def self.default(visited=[])
         return nil if visited.include?('CoipAddressUsage')
         visited = visited + ['CoipAddressUsage']
@@ -15641,7 +14836,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetConsoleOutput
     class GetConsoleOutput
-
       def self.default(visited=[])
         {
           instance_id: 'instance_id',
@@ -15654,7 +14848,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetConsoleScreenshot
     class GetConsoleScreenshot
-
       def self.default(visited=[])
         {
           image_data: 'image_data',
@@ -15666,7 +14859,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetDefaultCreditSpecification
     class GetDefaultCreditSpecification
-
       def self.default(visited=[])
         {
           instance_family_credit_specification: Stubs::InstanceFamilyCreditSpecification.default(visited),
@@ -15677,7 +14869,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceFamilyCreditSpecification
     class InstanceFamilyCreditSpecification
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceFamilyCreditSpecification')
         visited = visited + ['InstanceFamilyCreditSpecification']
@@ -15691,7 +14882,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetEbsDefaultKmsKeyId
     class GetEbsDefaultKmsKeyId
-
       def self.default(visited=[])
         {
           kms_key_id: 'kms_key_id',
@@ -15702,7 +14892,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetEbsEncryptionByDefault
     class GetEbsEncryptionByDefault
-
       def self.default(visited=[])
         {
           ebs_encryption_by_default: false,
@@ -15713,7 +14902,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetFlowLogsIntegrationTemplate
     class GetFlowLogsIntegrationTemplate
-
       def self.default(visited=[])
         {
           result: 'result',
@@ -15724,7 +14912,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetGroupsForCapacityReservation
     class GetGroupsForCapacityReservation
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -15748,7 +14935,6 @@ module AWS::Ec2
 
     # Structure Stubber for CapacityReservationGroup
     class CapacityReservationGroup
-
       def self.default(visited=[])
         return nil if visited.include?('CapacityReservationGroup')
         visited = visited + ['CapacityReservationGroup']
@@ -15762,7 +14948,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetHostReservationPurchasePreview
     class GetHostReservationPurchasePreview
-
       def self.default(visited=[])
         {
           currency_code: 'currency_code',
@@ -15788,7 +14973,6 @@ module AWS::Ec2
 
     # Structure Stubber for Purchase
     class Purchase
-
       def self.default(visited=[])
         return nil if visited.include?('Purchase')
         visited = visited + ['Purchase']
@@ -15808,7 +14992,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetInstanceTypesFromInstanceRequirements
     class GetInstanceTypesFromInstanceRequirements
-
       def self.default(visited=[])
         {
           instance_types: Stubs::InstanceTypeInfoFromInstanceRequirementsSet.default(visited),
@@ -15832,7 +15015,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceTypeInfoFromInstanceRequirements
     class InstanceTypeInfoFromInstanceRequirements
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceTypeInfoFromInstanceRequirements')
         visited = visited + ['InstanceTypeInfoFromInstanceRequirements']
@@ -15845,7 +15027,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetIpamAddressHistory
     class GetIpamAddressHistory
-
       def self.default(visited=[])
         {
           history_records: Stubs::IpamAddressHistoryRecordSet.default(visited),
@@ -15869,7 +15050,6 @@ module AWS::Ec2
 
     # Structure Stubber for IpamAddressHistoryRecord
     class IpamAddressHistoryRecord
-
       def self.default(visited=[])
         return nil if visited.include?('IpamAddressHistoryRecord')
         visited = visited + ['IpamAddressHistoryRecord']
@@ -15892,7 +15072,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetIpamPoolAllocations
     class GetIpamPoolAllocations
-
       def self.default(visited=[])
         {
           ipam_pool_allocations: Stubs::IpamPoolAllocationSet.default(visited),
@@ -15916,7 +15095,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetIpamPoolCidrs
     class GetIpamPoolCidrs
-
       def self.default(visited=[])
         {
           ipam_pool_cidrs: Stubs::IpamPoolCidrSet.default(visited),
@@ -15940,7 +15118,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetIpamResourceCidrs
     class GetIpamResourceCidrs
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -15964,7 +15141,6 @@ module AWS::Ec2
 
     # Structure Stubber for IpamResourceCidr
     class IpamResourceCidr
-
       def self.default(visited=[])
         return nil if visited.include?('IpamResourceCidr')
         visited = visited + ['IpamResourceCidr']
@@ -15991,7 +15167,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetLaunchTemplateData
     class GetLaunchTemplateData
-
       def self.default(visited=[])
         {
           launch_template_data: Stubs::ResponseLaunchTemplateData.default(visited),
@@ -16002,7 +15177,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetManagedPrefixListAssociations
     class GetManagedPrefixListAssociations
-
       def self.default(visited=[])
         {
           prefix_list_associations: Stubs::PrefixListAssociationSet.default(visited),
@@ -16026,7 +15200,6 @@ module AWS::Ec2
 
     # Structure Stubber for PrefixListAssociation
     class PrefixListAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('PrefixListAssociation')
         visited = visited + ['PrefixListAssociation']
@@ -16040,7 +15213,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetManagedPrefixListEntries
     class GetManagedPrefixListEntries
-
       def self.default(visited=[])
         {
           entries: Stubs::PrefixListEntrySet.default(visited),
@@ -16064,7 +15236,6 @@ module AWS::Ec2
 
     # Structure Stubber for PrefixListEntry
     class PrefixListEntry
-
       def self.default(visited=[])
         return nil if visited.include?('PrefixListEntry')
         visited = visited + ['PrefixListEntry']
@@ -16078,7 +15249,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetNetworkInsightsAccessScopeAnalysisFindings
     class GetNetworkInsightsAccessScopeAnalysisFindings
-
       def self.default(visited=[])
         {
           network_insights_access_scope_analysis_id: 'network_insights_access_scope_analysis_id',
@@ -16104,7 +15274,6 @@ module AWS::Ec2
 
     # Structure Stubber for AccessScopeAnalysisFinding
     class AccessScopeAnalysisFinding
-
       def self.default(visited=[])
         return nil if visited.include?('AccessScopeAnalysisFinding')
         visited = visited + ['AccessScopeAnalysisFinding']
@@ -16120,7 +15289,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetNetworkInsightsAccessScopeContent
     class GetNetworkInsightsAccessScopeContent
-
       def self.default(visited=[])
         {
           network_insights_access_scope_content: Stubs::NetworkInsightsAccessScopeContent.default(visited),
@@ -16131,7 +15299,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetPasswordData
     class GetPasswordData
-
       def self.default(visited=[])
         {
           instance_id: 'instance_id',
@@ -16144,7 +15311,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetReservedInstancesExchangeQuote
     class GetReservedInstancesExchangeQuote
-
       def self.default(visited=[])
         {
           currency_code: 'currency_code',
@@ -16175,7 +15341,6 @@ module AWS::Ec2
 
     # Structure Stubber for TargetReservationValue
     class TargetReservationValue
-
       def self.default(visited=[])
         return nil if visited.include?('TargetReservationValue')
         visited = visited + ['TargetReservationValue']
@@ -16189,7 +15354,6 @@ module AWS::Ec2
 
     # Structure Stubber for TargetConfiguration
     class TargetConfiguration
-
       def self.default(visited=[])
         return nil if visited.include?('TargetConfiguration')
         visited = visited + ['TargetConfiguration']
@@ -16203,7 +15367,6 @@ module AWS::Ec2
 
     # Structure Stubber for ReservationValue
     class ReservationValue
-
       def self.default(visited=[])
         return nil if visited.include?('ReservationValue')
         visited = visited + ['ReservationValue']
@@ -16230,7 +15393,6 @@ module AWS::Ec2
 
     # Structure Stubber for ReservedInstanceReservationValue
     class ReservedInstanceReservationValue
-
       def self.default(visited=[])
         return nil if visited.include?('ReservedInstanceReservationValue')
         visited = visited + ['ReservedInstanceReservationValue']
@@ -16244,7 +15406,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetSerialConsoleAccessStatus
     class GetSerialConsoleAccessStatus
-
       def self.default(visited=[])
         {
           serial_console_access_enabled: false,
@@ -16255,7 +15416,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetSpotPlacementScores
     class GetSpotPlacementScores
-
       def self.default(visited=[])
         {
           spot_placement_scores: Stubs::SpotPlacementScores.default(visited),
@@ -16279,7 +15439,6 @@ module AWS::Ec2
 
     # Structure Stubber for SpotPlacementScore
     class SpotPlacementScore
-
       def self.default(visited=[])
         return nil if visited.include?('SpotPlacementScore')
         visited = visited + ['SpotPlacementScore']
@@ -16294,7 +15453,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetSubnetCidrReservations
     class GetSubnetCidrReservations
-
       def self.default(visited=[])
         {
           subnet_ipv4_cidr_reservations: Stubs::SubnetCidrReservationList.default(visited),
@@ -16319,7 +15477,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetTransitGatewayAttachmentPropagations
     class GetTransitGatewayAttachmentPropagations
-
       def self.default(visited=[])
         {
           transit_gateway_attachment_propagations: Stubs::TransitGatewayAttachmentPropagationList.default(visited),
@@ -16343,7 +15500,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayAttachmentPropagation
     class TransitGatewayAttachmentPropagation
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayAttachmentPropagation')
         visited = visited + ['TransitGatewayAttachmentPropagation']
@@ -16357,7 +15513,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetTransitGatewayMulticastDomainAssociations
     class GetTransitGatewayMulticastDomainAssociations
-
       def self.default(visited=[])
         {
           multicast_domain_associations: Stubs::TransitGatewayMulticastDomainAssociationList.default(visited),
@@ -16381,7 +15536,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayMulticastDomainAssociation
     class TransitGatewayMulticastDomainAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayMulticastDomainAssociation')
         visited = visited + ['TransitGatewayMulticastDomainAssociation']
@@ -16398,7 +15552,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetTransitGatewayPrefixListReferences
     class GetTransitGatewayPrefixListReferences
-
       def self.default(visited=[])
         {
           transit_gateway_prefix_list_references: Stubs::TransitGatewayPrefixListReferenceSet.default(visited),
@@ -16422,7 +15575,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetTransitGatewayRouteTableAssociations
     class GetTransitGatewayRouteTableAssociations
-
       def self.default(visited=[])
         {
           associations: Stubs::TransitGatewayRouteTableAssociationList.default(visited),
@@ -16446,7 +15598,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayRouteTableAssociation
     class TransitGatewayRouteTableAssociation
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayRouteTableAssociation')
         visited = visited + ['TransitGatewayRouteTableAssociation']
@@ -16462,7 +15613,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetTransitGatewayRouteTablePropagations
     class GetTransitGatewayRouteTablePropagations
-
       def self.default(visited=[])
         {
           transit_gateway_route_table_propagations: Stubs::TransitGatewayRouteTablePropagationList.default(visited),
@@ -16486,7 +15636,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayRouteTablePropagation
     class TransitGatewayRouteTablePropagation
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayRouteTablePropagation')
         visited = visited + ['TransitGatewayRouteTablePropagation']
@@ -16502,7 +15651,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetVpnConnectionDeviceSampleConfiguration
     class GetVpnConnectionDeviceSampleConfiguration
-
       def self.default(visited=[])
         {
           vpn_connection_device_sample_configuration: 'vpn_connection_device_sample_configuration',
@@ -16513,7 +15661,6 @@ module AWS::Ec2
 
     # Operation Stubber for GetVpnConnectionDeviceTypes
     class GetVpnConnectionDeviceTypes
-
       def self.default(visited=[])
         {
           vpn_connection_device_types: Stubs::VpnConnectionDeviceTypeList.default(visited),
@@ -16537,7 +15684,6 @@ module AWS::Ec2
 
     # Structure Stubber for VpnConnectionDeviceType
     class VpnConnectionDeviceType
-
       def self.default(visited=[])
         return nil if visited.include?('VpnConnectionDeviceType')
         visited = visited + ['VpnConnectionDeviceType']
@@ -16553,7 +15699,6 @@ module AWS::Ec2
 
     # Operation Stubber for ImportClientVpnClientCertificateRevocationList
     class ImportClientVpnClientCertificateRevocationList
-
       def self.default(visited=[])
         {
           return: false,
@@ -16564,7 +15709,6 @@ module AWS::Ec2
 
     # Operation Stubber for ImportImage
     class ImportImage
-
       def self.default(visited=[])
         {
           architecture: 'architecture',
@@ -16590,7 +15734,6 @@ module AWS::Ec2
 
     # Operation Stubber for ImportInstance
     class ImportInstance
-
       def self.default(visited=[])
         {
           conversion_task: Stubs::ConversionTask.default(visited),
@@ -16601,7 +15744,6 @@ module AWS::Ec2
 
     # Operation Stubber for ImportKeyPair
     class ImportKeyPair
-
       def self.default(visited=[])
         {
           key_fingerprint: 'key_fingerprint',
@@ -16615,7 +15757,6 @@ module AWS::Ec2
 
     # Operation Stubber for ImportSnapshot
     class ImportSnapshot
-
       def self.default(visited=[])
         {
           description: 'description',
@@ -16629,7 +15770,6 @@ module AWS::Ec2
 
     # Operation Stubber for ImportVolume
     class ImportVolume
-
       def self.default(visited=[])
         {
           conversion_task: Stubs::ConversionTask.default(visited),
@@ -16640,7 +15780,6 @@ module AWS::Ec2
 
     # Operation Stubber for ListSnapshotsInRecycleBin
     class ListSnapshotsInRecycleBin
-
       def self.default(visited=[])
         {
           snapshots: Stubs::SnapshotRecycleBinInfoList.default(visited),
@@ -16664,7 +15803,6 @@ module AWS::Ec2
 
     # Structure Stubber for SnapshotRecycleBinInfo
     class SnapshotRecycleBinInfo
-
       def self.default(visited=[])
         return nil if visited.include?('SnapshotRecycleBinInfo')
         visited = visited + ['SnapshotRecycleBinInfo']
@@ -16681,7 +15819,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyAddressAttribute
     class ModifyAddressAttribute
-
       def self.default(visited=[])
         {
           address: Stubs::AddressAttribute.default(visited),
@@ -16692,7 +15829,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyAvailabilityZoneGroup
     class ModifyAvailabilityZoneGroup
-
       def self.default(visited=[])
         {
           return: false,
@@ -16703,7 +15839,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyCapacityReservation
     class ModifyCapacityReservation
-
       def self.default(visited=[])
         {
           return: false,
@@ -16714,7 +15849,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyCapacityReservationFleet
     class ModifyCapacityReservationFleet
-
       def self.default(visited=[])
         {
           return: false,
@@ -16725,7 +15859,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyClientVpnEndpoint
     class ModifyClientVpnEndpoint
-
       def self.default(visited=[])
         {
           return: false,
@@ -16736,7 +15869,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyDefaultCreditSpecification
     class ModifyDefaultCreditSpecification
-
       def self.default(visited=[])
         {
           instance_family_credit_specification: Stubs::InstanceFamilyCreditSpecification.default(visited),
@@ -16747,7 +15879,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyEbsDefaultKmsKeyId
     class ModifyEbsDefaultKmsKeyId
-
       def self.default(visited=[])
         {
           kms_key_id: 'kms_key_id',
@@ -16758,7 +15889,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyFleet
     class ModifyFleet
-
       def self.default(visited=[])
         {
           return: false,
@@ -16769,7 +15899,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyFpgaImageAttribute
     class ModifyFpgaImageAttribute
-
       def self.default(visited=[])
         {
           fpga_image_attribute: Stubs::FpgaImageAttribute.default(visited),
@@ -16780,7 +15909,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyHosts
     class ModifyHosts
-
       def self.default(visited=[])
         {
           successful: Stubs::ResponseHostIdList.default(visited),
@@ -16804,7 +15932,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyIdFormat
     class ModifyIdFormat
-
       def self.default(visited=[])
         {
         }
@@ -16814,7 +15941,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyIdentityIdFormat
     class ModifyIdentityIdFormat
-
       def self.default(visited=[])
         {
         }
@@ -16824,7 +15950,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyImageAttribute
     class ModifyImageAttribute
-
       def self.default(visited=[])
         {
         }
@@ -16834,7 +15959,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyInstanceAttribute
     class ModifyInstanceAttribute
-
       def self.default(visited=[])
         {
         }
@@ -16844,7 +15968,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyInstanceCapacityReservationAttributes
     class ModifyInstanceCapacityReservationAttributes
-
       def self.default(visited=[])
         {
           return: false,
@@ -16855,7 +15978,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyInstanceCreditSpecification
     class ModifyInstanceCreditSpecification
-
       def self.default(visited=[])
         {
           successful_instance_credit_specifications: Stubs::SuccessfulInstanceCreditSpecificationSet.default(visited),
@@ -16879,7 +16001,6 @@ module AWS::Ec2
 
     # Structure Stubber for UnsuccessfulInstanceCreditSpecificationItem
     class UnsuccessfulInstanceCreditSpecificationItem
-
       def self.default(visited=[])
         return nil if visited.include?('UnsuccessfulInstanceCreditSpecificationItem')
         visited = visited + ['UnsuccessfulInstanceCreditSpecificationItem']
@@ -16893,7 +16014,6 @@ module AWS::Ec2
 
     # Structure Stubber for UnsuccessfulInstanceCreditSpecificationItemError
     class UnsuccessfulInstanceCreditSpecificationItemError
-
       def self.default(visited=[])
         return nil if visited.include?('UnsuccessfulInstanceCreditSpecificationItemError')
         visited = visited + ['UnsuccessfulInstanceCreditSpecificationItemError']
@@ -16919,7 +16039,6 @@ module AWS::Ec2
 
     # Structure Stubber for SuccessfulInstanceCreditSpecificationItem
     class SuccessfulInstanceCreditSpecificationItem
-
       def self.default(visited=[])
         return nil if visited.include?('SuccessfulInstanceCreditSpecificationItem')
         visited = visited + ['SuccessfulInstanceCreditSpecificationItem']
@@ -16932,7 +16051,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyInstanceEventStartTime
     class ModifyInstanceEventStartTime
-
       def self.default(visited=[])
         {
           event: Stubs::InstanceStatusEvent.default(visited),
@@ -16943,7 +16061,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyInstanceEventWindow
     class ModifyInstanceEventWindow
-
       def self.default(visited=[])
         {
           instance_event_window: Stubs::InstanceEventWindow.default(visited),
@@ -16954,7 +16071,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyInstanceMetadataOptions
     class ModifyInstanceMetadataOptions
-
       def self.default(visited=[])
         {
           instance_id: 'instance_id',
@@ -16966,7 +16082,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyInstancePlacement
     class ModifyInstancePlacement
-
       def self.default(visited=[])
         {
           return: false,
@@ -16977,7 +16092,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyIpam
     class ModifyIpam
-
       def self.default(visited=[])
         {
           ipam: Stubs::Ipam.default(visited),
@@ -16988,7 +16102,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyIpamPool
     class ModifyIpamPool
-
       def self.default(visited=[])
         {
           ipam_pool: Stubs::IpamPool.default(visited),
@@ -16999,7 +16112,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyIpamResourceCidr
     class ModifyIpamResourceCidr
-
       def self.default(visited=[])
         {
           ipam_resource_cidr: Stubs::IpamResourceCidr.default(visited),
@@ -17010,7 +16122,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyIpamScope
     class ModifyIpamScope
-
       def self.default(visited=[])
         {
           ipam_scope: Stubs::IpamScope.default(visited),
@@ -17021,7 +16132,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyLaunchTemplate
     class ModifyLaunchTemplate
-
       def self.default(visited=[])
         {
           launch_template: Stubs::LaunchTemplate.default(visited),
@@ -17032,7 +16142,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyManagedPrefixList
     class ModifyManagedPrefixList
-
       def self.default(visited=[])
         {
           prefix_list: Stubs::ManagedPrefixList.default(visited),
@@ -17043,7 +16152,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyNetworkInterfaceAttribute
     class ModifyNetworkInterfaceAttribute
-
       def self.default(visited=[])
         {
         }
@@ -17053,7 +16161,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyPrivateDnsNameOptions
     class ModifyPrivateDnsNameOptions
-
       def self.default(visited=[])
         {
           return: false,
@@ -17064,7 +16171,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyReservedInstances
     class ModifyReservedInstances
-
       def self.default(visited=[])
         {
           reserved_instances_modification_id: 'reserved_instances_modification_id',
@@ -17075,7 +16181,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifySecurityGroupRules
     class ModifySecurityGroupRules
-
       def self.default(visited=[])
         {
           return: false,
@@ -17086,7 +16191,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifySnapshotAttribute
     class ModifySnapshotAttribute
-
       def self.default(visited=[])
         {
         }
@@ -17096,7 +16200,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifySnapshotTier
     class ModifySnapshotTier
-
       def self.default(visited=[])
         {
           snapshot_id: 'snapshot_id',
@@ -17108,7 +16211,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifySpotFleetRequest
     class ModifySpotFleetRequest
-
       def self.default(visited=[])
         {
           return: false,
@@ -17119,7 +16221,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifySubnetAttribute
     class ModifySubnetAttribute
-
       def self.default(visited=[])
         {
         }
@@ -17129,7 +16230,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyTrafficMirrorFilterNetworkServices
     class ModifyTrafficMirrorFilterNetworkServices
-
       def self.default(visited=[])
         {
           traffic_mirror_filter: Stubs::TrafficMirrorFilter.default(visited),
@@ -17140,7 +16240,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyTrafficMirrorFilterRule
     class ModifyTrafficMirrorFilterRule
-
       def self.default(visited=[])
         {
           traffic_mirror_filter_rule: Stubs::TrafficMirrorFilterRule.default(visited),
@@ -17151,7 +16250,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyTrafficMirrorSession
     class ModifyTrafficMirrorSession
-
       def self.default(visited=[])
         {
           traffic_mirror_session: Stubs::TrafficMirrorSession.default(visited),
@@ -17162,7 +16260,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyTransitGateway
     class ModifyTransitGateway
-
       def self.default(visited=[])
         {
           transit_gateway: Stubs::TransitGateway.default(visited),
@@ -17173,7 +16270,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyTransitGatewayPrefixListReference
     class ModifyTransitGatewayPrefixListReference
-
       def self.default(visited=[])
         {
           transit_gateway_prefix_list_reference: Stubs::TransitGatewayPrefixListReference.default(visited),
@@ -17184,7 +16280,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyTransitGatewayVpcAttachment
     class ModifyTransitGatewayVpcAttachment
-
       def self.default(visited=[])
         {
           transit_gateway_vpc_attachment: Stubs::TransitGatewayVpcAttachment.default(visited),
@@ -17195,7 +16290,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyVolume
     class ModifyVolume
-
       def self.default(visited=[])
         {
           volume_modification: Stubs::VolumeModification.default(visited),
@@ -17206,7 +16300,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyVolumeAttribute
     class ModifyVolumeAttribute
-
       def self.default(visited=[])
         {
         }
@@ -17216,7 +16309,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyVpcAttribute
     class ModifyVpcAttribute
-
       def self.default(visited=[])
         {
         }
@@ -17226,7 +16318,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyVpcEndpoint
     class ModifyVpcEndpoint
-
       def self.default(visited=[])
         {
           return: false,
@@ -17237,7 +16328,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyVpcEndpointConnectionNotification
     class ModifyVpcEndpointConnectionNotification
-
       def self.default(visited=[])
         {
           return_value: false,
@@ -17248,7 +16338,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyVpcEndpointServiceConfiguration
     class ModifyVpcEndpointServiceConfiguration
-
       def self.default(visited=[])
         {
           return: false,
@@ -17259,7 +16348,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyVpcEndpointServicePayerResponsibility
     class ModifyVpcEndpointServicePayerResponsibility
-
       def self.default(visited=[])
         {
           return_value: false,
@@ -17270,7 +16358,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyVpcEndpointServicePermissions
     class ModifyVpcEndpointServicePermissions
-
       def self.default(visited=[])
         {
           return_value: false,
@@ -17281,7 +16368,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyVpcPeeringConnectionOptions
     class ModifyVpcPeeringConnectionOptions
-
       def self.default(visited=[])
         {
           accepter_peering_connection_options: Stubs::PeeringConnectionOptions.default(visited),
@@ -17293,7 +16379,6 @@ module AWS::Ec2
 
     # Structure Stubber for PeeringConnectionOptions
     class PeeringConnectionOptions
-
       def self.default(visited=[])
         return nil if visited.include?('PeeringConnectionOptions')
         visited = visited + ['PeeringConnectionOptions']
@@ -17308,7 +16393,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyVpcTenancy
     class ModifyVpcTenancy
-
       def self.default(visited=[])
         {
           return_value: false,
@@ -17319,7 +16403,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyVpnConnection
     class ModifyVpnConnection
-
       def self.default(visited=[])
         {
           vpn_connection: Stubs::VpnConnection.default(visited),
@@ -17330,7 +16413,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyVpnConnectionOptions
     class ModifyVpnConnectionOptions
-
       def self.default(visited=[])
         {
           vpn_connection: Stubs::VpnConnection.default(visited),
@@ -17341,7 +16423,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyVpnTunnelCertificate
     class ModifyVpnTunnelCertificate
-
       def self.default(visited=[])
         {
           vpn_connection: Stubs::VpnConnection.default(visited),
@@ -17352,7 +16433,6 @@ module AWS::Ec2
 
     # Operation Stubber for ModifyVpnTunnelOptions
     class ModifyVpnTunnelOptions
-
       def self.default(visited=[])
         {
           vpn_connection: Stubs::VpnConnection.default(visited),
@@ -17363,7 +16443,6 @@ module AWS::Ec2
 
     # Operation Stubber for MonitorInstances
     class MonitorInstances
-
       def self.default(visited=[])
         {
           instance_monitorings: Stubs::InstanceMonitoringList.default(visited),
@@ -17386,7 +16465,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceMonitoring
     class InstanceMonitoring
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceMonitoring')
         visited = visited + ['InstanceMonitoring']
@@ -17400,7 +16478,6 @@ module AWS::Ec2
 
     # Operation Stubber for MoveAddressToVpc
     class MoveAddressToVpc
-
       def self.default(visited=[])
         {
           allocation_id: 'allocation_id',
@@ -17412,7 +16489,6 @@ module AWS::Ec2
 
     # Operation Stubber for MoveByoipCidrToIpam
     class MoveByoipCidrToIpam
-
       def self.default(visited=[])
         {
           byoip_cidr: Stubs::ByoipCidr.default(visited),
@@ -17423,7 +16499,6 @@ module AWS::Ec2
 
     # Operation Stubber for ProvisionByoipCidr
     class ProvisionByoipCidr
-
       def self.default(visited=[])
         {
           byoip_cidr: Stubs::ByoipCidr.default(visited),
@@ -17434,7 +16509,6 @@ module AWS::Ec2
 
     # Operation Stubber for ProvisionIpamPoolCidr
     class ProvisionIpamPoolCidr
-
       def self.default(visited=[])
         {
           ipam_pool_cidr: Stubs::IpamPoolCidr.default(visited),
@@ -17445,7 +16519,6 @@ module AWS::Ec2
 
     # Operation Stubber for ProvisionPublicIpv4PoolCidr
     class ProvisionPublicIpv4PoolCidr
-
       def self.default(visited=[])
         {
           pool_id: 'pool_id',
@@ -17457,7 +16530,6 @@ module AWS::Ec2
 
     # Operation Stubber for PurchaseHostReservation
     class PurchaseHostReservation
-
       def self.default(visited=[])
         {
           client_token: 'client_token',
@@ -17472,7 +16544,6 @@ module AWS::Ec2
 
     # Operation Stubber for PurchaseReservedInstancesOffering
     class PurchaseReservedInstancesOffering
-
       def self.default(visited=[])
         {
           reserved_instances_id: 'reserved_instances_id',
@@ -17483,7 +16554,6 @@ module AWS::Ec2
 
     # Operation Stubber for PurchaseScheduledInstances
     class PurchaseScheduledInstances
-
       def self.default(visited=[])
         {
           scheduled_instance_set: Stubs::PurchasedScheduledInstanceSet.default(visited),
@@ -17506,7 +16576,6 @@ module AWS::Ec2
 
     # Operation Stubber for RebootInstances
     class RebootInstances
-
       def self.default(visited=[])
         {
         }
@@ -17516,7 +16585,6 @@ module AWS::Ec2
 
     # Operation Stubber for RegisterImage
     class RegisterImage
-
       def self.default(visited=[])
         {
           image_id: 'image_id',
@@ -17527,7 +16595,6 @@ module AWS::Ec2
 
     # Operation Stubber for RegisterInstanceEventNotificationAttributes
     class RegisterInstanceEventNotificationAttributes
-
       def self.default(visited=[])
         {
           instance_tag_attribute: Stubs::InstanceTagNotificationAttribute.default(visited),
@@ -17538,7 +16605,6 @@ module AWS::Ec2
 
     # Operation Stubber for RegisterTransitGatewayMulticastGroupMembers
     class RegisterTransitGatewayMulticastGroupMembers
-
       def self.default(visited=[])
         {
           registered_multicast_group_members: Stubs::TransitGatewayMulticastRegisteredGroupMembers.default(visited),
@@ -17549,7 +16615,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayMulticastRegisteredGroupMembers
     class TransitGatewayMulticastRegisteredGroupMembers
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayMulticastRegisteredGroupMembers')
         visited = visited + ['TransitGatewayMulticastRegisteredGroupMembers']
@@ -17564,7 +16629,6 @@ module AWS::Ec2
 
     # Operation Stubber for RegisterTransitGatewayMulticastGroupSources
     class RegisterTransitGatewayMulticastGroupSources
-
       def self.default(visited=[])
         {
           registered_multicast_group_sources: Stubs::TransitGatewayMulticastRegisteredGroupSources.default(visited),
@@ -17575,7 +16639,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayMulticastRegisteredGroupSources
     class TransitGatewayMulticastRegisteredGroupSources
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayMulticastRegisteredGroupSources')
         visited = visited + ['TransitGatewayMulticastRegisteredGroupSources']
@@ -17590,7 +16653,6 @@ module AWS::Ec2
 
     # Operation Stubber for RejectTransitGatewayMulticastDomainAssociations
     class RejectTransitGatewayMulticastDomainAssociations
-
       def self.default(visited=[])
         {
           associations: Stubs::TransitGatewayMulticastDomainAssociations.default(visited),
@@ -17601,7 +16663,6 @@ module AWS::Ec2
 
     # Operation Stubber for RejectTransitGatewayPeeringAttachment
     class RejectTransitGatewayPeeringAttachment
-
       def self.default(visited=[])
         {
           transit_gateway_peering_attachment: Stubs::TransitGatewayPeeringAttachment.default(visited),
@@ -17612,7 +16673,6 @@ module AWS::Ec2
 
     # Operation Stubber for RejectTransitGatewayVpcAttachment
     class RejectTransitGatewayVpcAttachment
-
       def self.default(visited=[])
         {
           transit_gateway_vpc_attachment: Stubs::TransitGatewayVpcAttachment.default(visited),
@@ -17623,7 +16683,6 @@ module AWS::Ec2
 
     # Operation Stubber for RejectVpcEndpointConnections
     class RejectVpcEndpointConnections
-
       def self.default(visited=[])
         {
           unsuccessful: Stubs::UnsuccessfulItemSet.default(visited),
@@ -17634,7 +16693,6 @@ module AWS::Ec2
 
     # Operation Stubber for RejectVpcPeeringConnection
     class RejectVpcPeeringConnection
-
       def self.default(visited=[])
         {
           return: false,
@@ -17645,7 +16703,6 @@ module AWS::Ec2
 
     # Operation Stubber for ReleaseAddress
     class ReleaseAddress
-
       def self.default(visited=[])
         {
         }
@@ -17655,7 +16712,6 @@ module AWS::Ec2
 
     # Operation Stubber for ReleaseHosts
     class ReleaseHosts
-
       def self.default(visited=[])
         {
           successful: Stubs::ResponseHostIdList.default(visited),
@@ -17667,7 +16723,6 @@ module AWS::Ec2
 
     # Operation Stubber for ReleaseIpamPoolAllocation
     class ReleaseIpamPoolAllocation
-
       def self.default(visited=[])
         {
           success: false,
@@ -17678,7 +16733,6 @@ module AWS::Ec2
 
     # Operation Stubber for ReplaceIamInstanceProfileAssociation
     class ReplaceIamInstanceProfileAssociation
-
       def self.default(visited=[])
         {
           iam_instance_profile_association: Stubs::IamInstanceProfileAssociation.default(visited),
@@ -17689,7 +16743,6 @@ module AWS::Ec2
 
     # Operation Stubber for ReplaceNetworkAclAssociation
     class ReplaceNetworkAclAssociation
-
       def self.default(visited=[])
         {
           new_association_id: 'new_association_id',
@@ -17700,7 +16753,6 @@ module AWS::Ec2
 
     # Operation Stubber for ReplaceNetworkAclEntry
     class ReplaceNetworkAclEntry
-
       def self.default(visited=[])
         {
         }
@@ -17710,7 +16762,6 @@ module AWS::Ec2
 
     # Operation Stubber for ReplaceRoute
     class ReplaceRoute
-
       def self.default(visited=[])
         {
         }
@@ -17720,7 +16771,6 @@ module AWS::Ec2
 
     # Operation Stubber for ReplaceRouteTableAssociation
     class ReplaceRouteTableAssociation
-
       def self.default(visited=[])
         {
           new_association_id: 'new_association_id',
@@ -17732,7 +16782,6 @@ module AWS::Ec2
 
     # Operation Stubber for ReplaceTransitGatewayRoute
     class ReplaceTransitGatewayRoute
-
       def self.default(visited=[])
         {
           route: Stubs::TransitGatewayRoute.default(visited),
@@ -17743,7 +16792,6 @@ module AWS::Ec2
 
     # Operation Stubber for ReportInstanceStatus
     class ReportInstanceStatus
-
       def self.default(visited=[])
         {
         }
@@ -17753,7 +16801,6 @@ module AWS::Ec2
 
     # Operation Stubber for RequestSpotFleet
     class RequestSpotFleet
-
       def self.default(visited=[])
         {
           spot_fleet_request_id: 'spot_fleet_request_id',
@@ -17764,7 +16811,6 @@ module AWS::Ec2
 
     # Operation Stubber for RequestSpotInstances
     class RequestSpotInstances
-
       def self.default(visited=[])
         {
           spot_instance_requests: Stubs::SpotInstanceRequestList.default(visited),
@@ -17775,7 +16821,6 @@ module AWS::Ec2
 
     # Operation Stubber for ResetAddressAttribute
     class ResetAddressAttribute
-
       def self.default(visited=[])
         {
           address: Stubs::AddressAttribute.default(visited),
@@ -17786,7 +16831,6 @@ module AWS::Ec2
 
     # Operation Stubber for ResetEbsDefaultKmsKeyId
     class ResetEbsDefaultKmsKeyId
-
       def self.default(visited=[])
         {
           kms_key_id: 'kms_key_id',
@@ -17797,7 +16841,6 @@ module AWS::Ec2
 
     # Operation Stubber for ResetFpgaImageAttribute
     class ResetFpgaImageAttribute
-
       def self.default(visited=[])
         {
           return: false,
@@ -17808,7 +16851,6 @@ module AWS::Ec2
 
     # Operation Stubber for ResetImageAttribute
     class ResetImageAttribute
-
       def self.default(visited=[])
         {
         }
@@ -17818,7 +16860,6 @@ module AWS::Ec2
 
     # Operation Stubber for ResetInstanceAttribute
     class ResetInstanceAttribute
-
       def self.default(visited=[])
         {
         }
@@ -17828,7 +16869,6 @@ module AWS::Ec2
 
     # Operation Stubber for ResetNetworkInterfaceAttribute
     class ResetNetworkInterfaceAttribute
-
       def self.default(visited=[])
         {
         }
@@ -17838,7 +16878,6 @@ module AWS::Ec2
 
     # Operation Stubber for ResetSnapshotAttribute
     class ResetSnapshotAttribute
-
       def self.default(visited=[])
         {
         }
@@ -17848,7 +16887,6 @@ module AWS::Ec2
 
     # Operation Stubber for RestoreAddressToClassic
     class RestoreAddressToClassic
-
       def self.default(visited=[])
         {
           public_ip: 'public_ip',
@@ -17860,7 +16898,6 @@ module AWS::Ec2
 
     # Operation Stubber for RestoreManagedPrefixListVersion
     class RestoreManagedPrefixListVersion
-
       def self.default(visited=[])
         {
           prefix_list: Stubs::ManagedPrefixList.default(visited),
@@ -17871,7 +16908,6 @@ module AWS::Ec2
 
     # Operation Stubber for RestoreSnapshotFromRecycleBin
     class RestoreSnapshotFromRecycleBin
-
       def self.default(visited=[])
         {
           snapshot_id: 'snapshot_id',
@@ -17891,7 +16927,6 @@ module AWS::Ec2
 
     # Operation Stubber for RestoreSnapshotTier
     class RestoreSnapshotTier
-
       def self.default(visited=[])
         {
           snapshot_id: 'snapshot_id',
@@ -17905,7 +16940,6 @@ module AWS::Ec2
 
     # Operation Stubber for RevokeClientVpnIngress
     class RevokeClientVpnIngress
-
       def self.default(visited=[])
         {
           status: Stubs::ClientVpnAuthorizationRuleStatus.default(visited),
@@ -17916,7 +16950,6 @@ module AWS::Ec2
 
     # Operation Stubber for RevokeSecurityGroupEgress
     class RevokeSecurityGroupEgress
-
       def self.default(visited=[])
         {
           return: false,
@@ -17928,7 +16961,6 @@ module AWS::Ec2
 
     # Operation Stubber for RevokeSecurityGroupIngress
     class RevokeSecurityGroupIngress
-
       def self.default(visited=[])
         {
           return: false,
@@ -17940,7 +16972,6 @@ module AWS::Ec2
 
     # Operation Stubber for RunInstances
     class RunInstances
-
       def self.default(visited=[])
         {
           groups: Stubs::GroupIdentifierList.default(visited),
@@ -17955,7 +16986,6 @@ module AWS::Ec2
 
     # Operation Stubber for RunScheduledInstances
     class RunScheduledInstances
-
       def self.default(visited=[])
         {
           instance_id_set: Stubs::InstanceIdSet.default(visited),
@@ -17978,7 +17008,6 @@ module AWS::Ec2
 
     # Operation Stubber for SearchLocalGatewayRoutes
     class SearchLocalGatewayRoutes
-
       def self.default(visited=[])
         {
           routes: Stubs::LocalGatewayRouteList.default(visited),
@@ -18002,7 +17031,6 @@ module AWS::Ec2
 
     # Operation Stubber for SearchTransitGatewayMulticastGroups
     class SearchTransitGatewayMulticastGroups
-
       def self.default(visited=[])
         {
           multicast_groups: Stubs::TransitGatewayMulticastGroupList.default(visited),
@@ -18026,7 +17054,6 @@ module AWS::Ec2
 
     # Structure Stubber for TransitGatewayMulticastGroup
     class TransitGatewayMulticastGroup
-
       def self.default(visited=[])
         return nil if visited.include?('TransitGatewayMulticastGroup')
         visited = visited + ['TransitGatewayMulticastGroup']
@@ -18049,7 +17076,6 @@ module AWS::Ec2
 
     # Operation Stubber for SearchTransitGatewayRoutes
     class SearchTransitGatewayRoutes
-
       def self.default(visited=[])
         {
           routes: Stubs::TransitGatewayRouteList.default(visited),
@@ -18073,7 +17099,6 @@ module AWS::Ec2
 
     # Operation Stubber for SendDiagnosticInterrupt
     class SendDiagnosticInterrupt
-
       def self.default(visited=[])
         {
         }
@@ -18083,7 +17108,6 @@ module AWS::Ec2
 
     # Operation Stubber for StartInstances
     class StartInstances
-
       def self.default(visited=[])
         {
           starting_instances: Stubs::InstanceStateChangeList.default(visited),
@@ -18106,7 +17130,6 @@ module AWS::Ec2
 
     # Structure Stubber for InstanceStateChange
     class InstanceStateChange
-
       def self.default(visited=[])
         return nil if visited.include?('InstanceStateChange')
         visited = visited + ['InstanceStateChange']
@@ -18121,7 +17144,6 @@ module AWS::Ec2
 
     # Operation Stubber for StartNetworkInsightsAccessScopeAnalysis
     class StartNetworkInsightsAccessScopeAnalysis
-
       def self.default(visited=[])
         {
           network_insights_access_scope_analysis: Stubs::NetworkInsightsAccessScopeAnalysis.default(visited),
@@ -18132,7 +17154,6 @@ module AWS::Ec2
 
     # Operation Stubber for StartNetworkInsightsAnalysis
     class StartNetworkInsightsAnalysis
-
       def self.default(visited=[])
         {
           network_insights_analysis: Stubs::NetworkInsightsAnalysis.default(visited),
@@ -18143,7 +17164,6 @@ module AWS::Ec2
 
     # Operation Stubber for StartVpcEndpointServicePrivateDnsVerification
     class StartVpcEndpointServicePrivateDnsVerification
-
       def self.default(visited=[])
         {
           return_value: false,
@@ -18154,7 +17174,6 @@ module AWS::Ec2
 
     # Operation Stubber for StopInstances
     class StopInstances
-
       def self.default(visited=[])
         {
           stopping_instances: Stubs::InstanceStateChangeList.default(visited),
@@ -18165,7 +17184,6 @@ module AWS::Ec2
 
     # Operation Stubber for TerminateClientVpnConnections
     class TerminateClientVpnConnections
-
       def self.default(visited=[])
         {
           client_vpn_endpoint_id: 'client_vpn_endpoint_id',
@@ -18190,7 +17208,6 @@ module AWS::Ec2
 
     # Structure Stubber for TerminateConnectionStatus
     class TerminateConnectionStatus
-
       def self.default(visited=[])
         return nil if visited.include?('TerminateConnectionStatus')
         visited = visited + ['TerminateConnectionStatus']
@@ -18205,7 +17222,6 @@ module AWS::Ec2
 
     # Operation Stubber for TerminateInstances
     class TerminateInstances
-
       def self.default(visited=[])
         {
           terminating_instances: Stubs::InstanceStateChangeList.default(visited),
@@ -18216,7 +17232,6 @@ module AWS::Ec2
 
     # Operation Stubber for UnassignIpv6Addresses
     class UnassignIpv6Addresses
-
       def self.default(visited=[])
         {
           network_interface_id: 'network_interface_id',
@@ -18229,7 +17244,6 @@ module AWS::Ec2
 
     # Operation Stubber for UnassignPrivateIpAddresses
     class UnassignPrivateIpAddresses
-
       def self.default(visited=[])
         {
         }
@@ -18239,7 +17253,6 @@ module AWS::Ec2
 
     # Operation Stubber for UnmonitorInstances
     class UnmonitorInstances
-
       def self.default(visited=[])
         {
           instance_monitorings: Stubs::InstanceMonitoringList.default(visited),
@@ -18250,7 +17263,6 @@ module AWS::Ec2
 
     # Operation Stubber for UpdateSecurityGroupRuleDescriptionsEgress
     class UpdateSecurityGroupRuleDescriptionsEgress
-
       def self.default(visited=[])
         {
           return: false,
@@ -18261,7 +17273,6 @@ module AWS::Ec2
 
     # Operation Stubber for UpdateSecurityGroupRuleDescriptionsIngress
     class UpdateSecurityGroupRuleDescriptionsIngress
-
       def self.default(visited=[])
         {
           return: false,
@@ -18272,7 +17283,6 @@ module AWS::Ec2
 
     # Operation Stubber for WithdrawByoipCidr
     class WithdrawByoipCidr
-
       def self.default(visited=[])
         {
           byoip_cidr: Stubs::ByoipCidr.default(visited),
