@@ -311,19 +311,29 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
          * For complex shapes, simply delegate to their builder.
          */
         private void defaultComplexSerializer(Shape shape) {
-            // TODO: handle sparse/checkRequired better?
-            writer.write("xml << Builders::$1L.build($2L, $3L) unless $3L.nil?",
-                    symbolProvider.toSymbol(shape).getName(), nodeName,
-                    inputGetter);
-
+            if (memberShape.hasTrait(XmlNamespaceTrait.class)) {
+                XmlNamespaceTrait xmlns = memberShape.expectTrait(XmlNamespaceTrait.class);
+                writer
+                        .openBlock("unless $L.nil?", inputGetter)
+                        .write("xml << Builders::$1L.build($2L, $3L).tap { |n| n.attributes['xmlns$4L'] = '$5L' }",
+                                symbolProvider.toSymbol(shape).getName(),
+                                nodeName,
+                                inputGetter,
+                                xmlns.getPrefix().isPresent() ? ":" + xmlns.getPrefix().get() : "",
+                                xmlns.getUri()
+                        )
+                        .closeBlock("end");
+            } else {
+                writer.write("xml << Builders::$1L.build($2L, $3L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
+                        inputGetter);
+            }
         }
 
         @Override
         public Void listShape(ListShape shape) {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
-                writer.write("xml << Builders::$1L.build($2L, $3L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter);
+                defaultComplexSerializer(shape);
             } else {
                 String memberName = "member";
                 if (shape.getMember().hasTrait(XmlNameTrait.class)) {
@@ -339,9 +349,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         @Override
         public Void setShape(SetShape shape) {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
-                writer.write("xml << Builders::$1L.build($2L, $3L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter, xmlnsAttribute());
+                defaultComplexSerializer(shape);
             } else {
                 writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('member', $3L)$4L) unless $3L.nil?",
                         symbolProvider.toSymbol(shape).getName(), nodeName,
@@ -354,9 +362,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         @Override
         public Void mapShape(MapShape shape) {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
-                writer.write("xml << Builders::$1L.build($2L, $3L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter);
+                defaultComplexSerializer(shape);
             } else {
                 writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('entry', $3L)$4L) unless $3L.nil?",
                         symbolProvider.toSymbol(shape).getName(), nodeName,
@@ -438,7 +444,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                     case HTTP_DATE:
                         writer.write(
                                 "xml.attributes['$L'] = Hearth::TimeHelper.to_http_date($L)$L",
-                                attributeName, inputGetter,checkRequired());
+                                attributeName, inputGetter, checkRequired());
                         break;
                     case DATE_TIME:
                     default:
@@ -559,7 +565,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                     .write("http_req.headers['Content-Type'] = 'application/xml'")
                     .write("xml = Builders::$1L.build($2L, $3L) unless $3L.nil?", symbolProvider.toSymbol(shape).getName(),
                             nodeName, inputGetter)
-                    .call( ()-> {
+                    .call(() -> {
                         if (shape.hasTrait(XmlNamespaceTrait.class)) {
                             writeXmlNamespaceForShape(shape, "xml");
                         }
