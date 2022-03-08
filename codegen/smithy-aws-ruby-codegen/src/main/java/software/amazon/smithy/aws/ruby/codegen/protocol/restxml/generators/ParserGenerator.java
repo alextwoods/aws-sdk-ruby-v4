@@ -485,7 +485,8 @@ public class ParserGenerator extends RestParserGeneratorBase {
         private void defaultComplexDeserializer(Shape shape) {
             writer
                     .write("body = http_resp.body.read")
-                    .write("xml = Hearth::XML.parse(body) unless body.empty?")
+                    .write("return data if body.empty?")
+                    .write("xml = Hearth::XML.parse(body)")
                     .write("$LParsers::$L.parse(xml)", dataSetter, symbolProvider.toSymbol(shape).getName());
         }
 

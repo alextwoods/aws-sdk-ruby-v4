@@ -64,9 +64,9 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
     @Override
     protected void renderPayloadBodyBuilder(OperationShape operation, Shape inputShape, MemberShape payloadMember, Shape target) {
-//        String symbolName = ":" + symbolProvider.toMemberName(payloadMember);
-//        String inputGetter = "input[" + symbolName + "]";
-//        target.accept(new PayloadMemberSerializer(payloadMember, inputGetter));
+        String symbolName = ":" + symbolProvider.toMemberName(payloadMember);
+        String inputGetter = "input[" + symbolName + "]";
+        target.accept(new PayloadMemberSerializer(payloadMember, inputGetter));
     }
 
     @Override
@@ -457,6 +457,92 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
             return null;
         }
     }
+
+    private class PayloadMemberSerializer extends ShapeVisitor.Default<Void> {
+
+        private final MemberShape memberShape;
+        private final String inputGetter;
+
+        PayloadMemberSerializer(MemberShape memberShape, String inputGetter) {
+            this.memberShape = memberShape;
+            this.inputGetter = inputGetter;
+        }
+
+        @Override
+        protected Void getDefault(Shape shape) {
+            return null;
+        }
+
+        @Override
+        public Void stringShape(StringShape shape) {
+            writer
+                    .write("http_req.headers['Content-Type'] = 'text/plain'")
+                    .write("http_req.body = StringIO.new($L || '')", inputGetter);
+            return null;
+        }
+
+        @Override
+        public Void blobShape(BlobShape shape) {
+            Optional<MediaTypeTrait> mediaTypeTrait = shape.getTrait(MediaTypeTrait.class);
+            String mediaType = "application/octet-stream";
+            if (mediaTypeTrait.isPresent()) {
+                mediaType = mediaTypeTrait.get().getValue();
+            }
+
+            writer
+                    .write("http_req.headers['Content-Type'] = '$L'", mediaType)
+                    .write("http_req.body = StringIO.new($L || '')", inputGetter);
+            return null;
+        }
+
+        @Override
+        public Void documentShape(DocumentShape shape) {
+            // Not supported in xml
+            return null;
+        }
+
+        @Override
+        public Void listShape(ListShape shape) {
+            defaultComplexSerializer(shape);
+            return null;
+        }
+
+        @Override
+        public Void mapShape(MapShape shape) {
+            defaultComplexSerializer(shape);
+            return null;
+        }
+
+        @Override
+        public Void structureShape(StructureShape shape) {
+            defaultComplexSerializer(shape);
+            return null;
+        }
+
+        @Override
+        public Void unionShape(UnionShape shape) {
+            defaultComplexSerializer(shape);
+            return null;
+        }
+
+        private void defaultComplexSerializer(Shape shape) {
+            String nodeName = "'" + symbolProvider.toSymbol(shape).getName()+ "'";
+            if (shape.hasTrait(XmlNameTrait.class)) {
+                nodeName = "'" + shape.expectTrait(XmlNameTrait.class).getValue() + "'";
+            }
+            if (nodeName.equals("nested")) {
+                System.out.println("wtf");
+            }
+            System.out.println("WARBLE: " + nodeName);
+            writer
+                    .write("http_req.headers['Content-Type'] = 'application/xml'")
+                    .write("xml = Builders::$1L.build($2L, $3L) unless $3L.nil?", symbolProvider.toSymbol(shape).getName(),
+                            nodeName, inputGetter)
+                    .write("http_req.body = StringIO.new(xml.to_str)");
+        }
+
+    }
+
 }
 
 
