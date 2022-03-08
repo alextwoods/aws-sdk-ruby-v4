@@ -29,8 +29,8 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
 
     @Override
     public void renderErrorCode() {
-        renderErrorCodesMap();
         writer
+                .call(() -> renderErrorCodesMap())
                 .write("")
                 .openBlock("def self.error_code(http_resp)")
                 .openBlock("if !(200..299).cover?(http_resp.status)")

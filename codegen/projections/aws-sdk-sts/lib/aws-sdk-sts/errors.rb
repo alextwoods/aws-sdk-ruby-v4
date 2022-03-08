@@ -11,13 +11,13 @@ module AWS::Sts
   module Errors
 
     CODES = {
-      "MalformedPolicyDocument" => "MalformedPolicyDocumentException",
       "PackedPolicyTooLarge" => "PackedPolicyTooLargeException",
-      "InvalidIdentityToken" => "InvalidIdentityTokenException",
+      "MalformedPolicyDocument" => "MalformedPolicyDocumentException",
       "ExpiredTokenException" => "ExpiredTokenException",
+      "InvalidIdentityToken" => "InvalidIdentityTokenException",
       "InvalidAuthorizationMessageException" => "InvalidAuthorizationMessageException",
-      "RegionDisabledException" => "RegionDisabledException",
       "IDPRejectedClaim" => "IDPRejectedClaimException",
+      "RegionDisabledException" => "RegionDisabledException",
       "IDPCommunicationError" => "IDPCommunicationErrorException"
     }
 

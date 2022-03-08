@@ -198,8 +198,6 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 format = memberShape.getTrait(TimestampFormatTrait.class).get().getFormat();
             } else if (shape.hasTrait(TimestampFormatTrait.class)) {
                 format = shape.getTrait(TimestampFormatTrait.class).get().getFormat();
-            } else if (context.getService().hasTrait(TimestampFormatTrait.class)) {
-                format = context.getService().getTrait(TimestampFormatTrait.class).get().getFormat();
             }
 
             if (format != null) {
