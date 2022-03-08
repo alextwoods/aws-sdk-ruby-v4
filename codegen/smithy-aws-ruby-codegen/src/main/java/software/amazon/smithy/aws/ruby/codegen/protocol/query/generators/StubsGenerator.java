@@ -72,30 +72,30 @@ public class StubsGenerator extends StubsGeneratorBase {
         });
     }
 
-    private void writeXmlNamespaceForShape(Shape shape, String dataSetter) {
-        XmlNamespaceTrait trait = shape.getTrait(XmlNamespaceTrait.class).get();
-        Optional<String> prefix = trait.getPrefix();
-        String uri = trait.getUri();
-        String xmlns = "xmlns";
-        if (prefix.isPresent()) {
-            xmlns += ":" + prefix;
-        }
-        writer.write("$L.attributes['$L'] = '$L'", dataSetter, xmlns, uri);
-    }
+//    private void writeXmlNamespaceForShape(Shape shape, String dataSetter) {
+//        XmlNamespaceTrait trait = shape.getTrait(XmlNamespaceTrait.class).get();
+//        Optional<String> prefix = trait.getPrefix();
+//        String uri = trait.getUri();
+//        String xmlns = "xmlns";
+//        if (prefix.isPresent()) {
+//            xmlns += ":" + prefix;
+//        }
+//        writer.write("$L.attributes['$L'] = '$L'", dataSetter, xmlns, uri);
+//    }
 
-    private void writeNodeWithOptionalXmlNamespace(Shape shape, Runnable task) {
-        if (shape.hasTrait(XmlNamespaceTrait.class)) {
-            writer
-                    .writeInline("node = ")
-                    .call(task)
-                    .call(() -> writeXmlNamespaceForShape(shape, "node"))
-                    .write("xml << node");
-        } else {
-            writer
-                    .writeInline("xml << ")
-                    .call(task);
-        }
-    }
+//    private void writeNodeWithOptionalXmlNamespace(Shape shape, Runnable task) {
+//        if (shape.hasTrait(XmlNamespaceTrait.class)) {
+//            writer
+//                    .writeInline("node = ")
+//                    .call(task)
+//                    .call(() -> writeXmlNamespaceForShape(shape, "node"))
+//                    .write("xml << node");
+//        } else {
+//            writer
+//                    .writeInline("xml << ")
+//                    .call(task);
+//        }
+//    }
 
     @Override
     protected void renderUnionStubMethod(UnionShape shape) {
@@ -113,10 +113,10 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .openBlock("stub.each do |element|")
                 .call(() -> {
                     Shape memberTarget = model.expectShape(shape.getMember().getTarget());
-                    writeNodeWithOptionalXmlNamespace(shape.getMember(), () -> {
+                    // writeNodeWithOptionalXmlNamespace(shape.getMember(), () -> {
                         memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
                                 !shape.hasTrait(SparseTrait.class)));
-                    });
+                    // });
                 })
                 .closeBlock("end")
                 .write("xml")
@@ -131,10 +131,10 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .openBlock("stub.each do |element|")
                 .call(() -> {
                     Shape memberTarget = model.expectShape(shape.getMember().getTarget());
-                    writeNodeWithOptionalXmlNamespace(shape.getMember(), () -> {
+                    // writeNodeWithOptionalXmlNamespace(shape.getMember(), () -> {
                         memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
                                 !shape.hasTrait(SparseTrait.class)));
-                    });
+                    // });
                 })
                 .closeBlock("end")
                 .write("xml.to_a")
@@ -154,7 +154,7 @@ public class StubsGenerator extends StubsGeneratorBase {
                     if (shape.getKey().hasTrait(XmlNameTrait.class)) {
                         keyName = shape.getKey().getTrait(XmlNameTrait.class).get().getValue();
                     }
-                    keyTarget.accept(new MemberSerializer(shape.getValue(), "'" + keyName + "'", "key",
+                    keyTarget.accept(new MemberSerializer(shape.getKey(), "'" + keyName + "'", "key",
                             !shape.hasTrait(SparseTrait.class)));
 
                     Shape valueTarget = model.expectShape(shape.getValue().getTarget());
@@ -177,11 +177,6 @@ public class StubsGenerator extends StubsGeneratorBase {
         writer
                 .openBlock("def self.stub(node_name, stub = {})")
                 .write("xml = Hearth::XML::Node.new(node_name)")
-                .call(() -> {
-                    if (shape.hasTrait(XmlNamespaceTrait.class)) {
-                        writeXmlNamespaceForShape(shape, "xml");
-                    }
-                })
                 .call(() -> renderMemberBuilders(shape))
                 .write("xml")
                 .closeBlock("end");
@@ -198,8 +193,6 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .call(() -> {
                     if (context.getService().hasTrait(XmlNamespaceTrait.class)) {
                         writeXmlNamespaceForShape(context.getService(), "response");
-                    } else if(outputShape.hasTrait(XmlNamespaceTrait.class)) {
-                        writeXmlNamespaceForShape(outputShape, "response");
                     }
                 })
                 .write("xml = Hearth::XML::Node.new('$LResult')", nodeName)
@@ -207,6 +200,17 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .write("response << xml")
                 .write("http_resp.body = StringIO.new(response.to_str)")
                 .closeBlock("end");
+    }
+
+    private void writeXmlNamespaceForShape(Shape shape, String dataSetter) {
+        XmlNamespaceTrait trait = shape.getTrait(XmlNamespaceTrait.class).get();
+        Optional<String> prefix = trait.getPrefix();
+        String uri = trait.getUri();
+        String xmlns = "xmlns";
+        if (prefix.isPresent()) {
+            xmlns += ":" + prefix.get();
+        }
+        writer.write("$L.attributes['$L'] = '$L'", dataSetter, xmlns, uri);
     }
 
     private class MemberSerializer extends ShapeVisitor.Default<Void> {
@@ -232,82 +236,77 @@ public class StubsGenerator extends StubsGeneratorBase {
             }
         }
 
+        private String xmlnsAttribute() {
+            if (memberShape.hasTrait(XmlNamespaceTrait.class)) {
+                XmlNamespaceTrait xmlns = memberShape.expectTrait(XmlNamespaceTrait.class);
+                return writer.format(
+                        ", attributes: { 'xmlns$L' => '$L' }",
+                        xmlns.getPrefix().isPresent() ? ":" + xmlns.getPrefix().get() : "",
+                        xmlns.getUri()
+                );
+            } else {
+                return "";
+            }
+        }
+
         @Override
         protected Void getDefault(Shape shape) {
-            writeNodeWithOptionalXmlNamespace(shape, () -> {
-                writer.write("Hearth::XML::Node.new($L, $L.to_s)$L",
-                        nodeName, inputGetter, checkRequired());
-            });
-
+            writer.write("xml << Hearth::XML::Node.new($L, $L.to_s$L)$L",
+                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
             return null;
         }
 
-        private void rubyFloat(Shape shape) {
-            writeNodeWithOptionalXmlNamespace(shape, () -> {
-                writer.write("Hearth::XML::Node.new($L, Hearth::NumberHelper.serialize($L).to_s)$L",
-                        nodeName, inputGetter, checkRequired());
-            });
+        private void rubyFloat() {
+            writer.write("xml << Hearth::XML::Node.new($L, Hearth::NumberHelper.serialize($L).to_s$L)$L",
+                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
         }
 
         @Override
         public Void doubleShape(DoubleShape shape) {
-            rubyFloat(shape);
+            rubyFloat();
             return null;
         }
 
         @Override
         public Void floatShape(FloatShape shape) {
-            rubyFloat(shape);
+            rubyFloat();
             return null;
         }
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writeNodeWithOptionalXmlNamespace(shape, () -> {
-                writer.write("Hearth::XML::Node.new($L, Base64::encode64($L).strip)$L",
-                        nodeName, inputGetter, checkRequired());
-            });
-
+            writer.write("xml << Hearth::XML::Node.new($L, Base64::encode64($L).strip$L)$L",
+                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
             return null;
         }
 
         @Override
         public Void timestampShape(TimestampShape shape) {
-            TimestampFormatTrait.Format format = null;
-            if (memberShape.hasTrait(TimestampFormatTrait.class)) {
-                format = memberShape.getTrait(TimestampFormatTrait.class).get().getFormat();
-            } else if (shape.hasTrait(TimestampFormatTrait.class)) {
-                format = shape.getTrait(TimestampFormatTrait.class).get().getFormat();
-            }
-
-            if (format != null) {
-                switch (format) {
+            // the default protocol format is date_time
+            Optional<TimestampFormatTrait> format = memberShape.getTrait(TimestampFormatTrait.class);
+            if (format.isPresent()) {
+                switch (format.get().getFormat()) {
                     case EPOCH_SECONDS:
-                        writeNodeWithOptionalXmlNamespace(shape, () -> {
-                            writer.write("Hearth::XML::Node.new($L, Hearth::TimeHelper.to_epoch_seconds($L).to_i.to_s)$L",
-                                    nodeName, inputGetter, checkRequired());
-                        });
+                        writer.write(
+                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_epoch_seconds($L).to_i.to_s$L)$L",
+                                nodeName, inputGetter, xmlnsAttribute(), checkRequired());
                         break;
                     case HTTP_DATE:
-                        writeNodeWithOptionalXmlNamespace(shape, () -> {
-                            writer.write("Hearth::XML::Node.new($L, Hearth::TimeHelper.to_http_date($L))$L",
-                                    nodeName, inputGetter, checkRequired());
-                        });
+                        writer.write(
+                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_http_date($L)$L)$L",
+                                nodeName, inputGetter, xmlnsAttribute(), checkRequired());
                         break;
                     case DATE_TIME:
                     default:
-                        // the default protocol format is date_time
-                        writeNodeWithOptionalXmlNamespace(shape, () -> {
-                            writer.write("Hearth::XML::Node.new($L, Hearth::TimeHelper.to_date_time($L))$L",
-                                    nodeName, inputGetter, checkRequired());
-                        });
+                        writer.write(
+                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_date_time($L)$L)$L",
+                                nodeName, inputGetter, xmlnsAttribute(), checkRequired());
                         break;
                 }
             } else {
-                writeNodeWithOptionalXmlNamespace(shape, () -> {
-                    writer.write("Hearth::XML::Node.new($L, Hearth::TimeHelper.to_date_time($L))$L",
-                            nodeName, inputGetter, checkRequired());
-                });
+                writer.write(
+                        "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_date_time($L)$L)$L",
+                        nodeName, inputGetter, xmlnsAttribute(), checkRequired());
             }
             return null;
         }
@@ -316,28 +315,38 @@ public class StubsGenerator extends StubsGeneratorBase {
          * For complex shapes, simply delegate to their builder.
          */
         private void defaultComplexSerializer(Shape shape) {
-            // TODO: handle sparse/checkRequired better?
-            writer.write("xml << Stubs::$1L.stub($2L, $3L) unless $3L.nil?",
-                    symbolProvider.toSymbol(shape).getName(), nodeName,
-                    inputGetter);
+            if (memberShape.hasTrait(XmlNamespaceTrait.class)) {
+                XmlNamespaceTrait xmlns = memberShape.expectTrait(XmlNamespaceTrait.class);
+                writer
+                        .openBlock("unless $L.nil?", inputGetter)
+                        .write("nodes = Stubs::$1L.stub($2L, $3L)",
+                                symbolProvider.toSymbol(shape).getName(),
+                                nodeName,
+                                inputGetter)
+                        .write("nodes.each { |n| n.attributes['xmlns$1L'] = '$2L' }",
+                                xmlns.getPrefix().isPresent() ? ":" + xmlns.getPrefix().get() : "",
+                                xmlns.getUri())
+                        .write("xml << nodes")
+                        .closeBlock("end");
+            } else {
+                writer.write("xml << Stubs::$1L.stub($2L, $3L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
+                        inputGetter);
+            }
         }
 
         @Override
         public Void listShape(ListShape shape) {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
-                writer.write("xml << Stubs::$1L.stub($2L, $3L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName, inputGetter);
+                defaultComplexSerializer(shape);
             } else {
                 String memberName = "member";
                 if (shape.getMember().hasTrait(XmlNameTrait.class)) {
                     memberName = shape.getMember().getTrait(XmlNameTrait.class).get().getValue();
                 }
-                String finalMemberName = memberName;
-                writeNodeWithOptionalXmlNamespace(shape, () -> {
-                    writer.write("Hearth::XML::Node.new($2L, Stubs::$1L.stub('$4L', $3L)) unless $3L.nil?",
-                            symbolProvider.toSymbol(shape).getName(), nodeName,
-                            inputGetter, finalMemberName);
-                });
+                writer.write("xml << Hearth::XML::Node.new($2L, Stubs::$1L.stub('$4L', $3L)$5L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
+                        inputGetter, memberName, xmlnsAttribute());
             }
             return null;
         }
@@ -345,15 +354,11 @@ public class StubsGenerator extends StubsGeneratorBase {
         @Override
         public Void setShape(SetShape shape) {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
-                writer.write("xml << Stubs::$1L.stub($2L, $3L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter);
+                defaultComplexSerializer(shape);
             } else {
-                writeNodeWithOptionalXmlNamespace(shape, () -> {
-                    writer.write("Hearth::XML::Node.new($2L, Stubs::$1L.stub('member', $3L)) unless $3L.nil?",
-                            symbolProvider.toSymbol(shape).getName(), nodeName,
-                            inputGetter);
-                });
+                writer.write("xml << Hearth::XML::Node.new($2L, Stubs::$1L.stub('member', $3L)$4L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
+                        inputGetter, xmlnsAttribute());
             }
 
             return null;
@@ -362,15 +367,11 @@ public class StubsGenerator extends StubsGeneratorBase {
         @Override
         public Void mapShape(MapShape shape) {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
-                writer.write("xml << Stubs::$1L.stub($2L, $3L) unless $3L.nil?",
-                        symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter);
+                defaultComplexSerializer(shape);
             } else {
-                writeNodeWithOptionalXmlNamespace(shape, () -> {
-                    writer.write("Hearth::XML::Node.new($2L, Stubs::$1L.stub('entry', $3L)) unless $3L.nil?",
-                            symbolProvider.toSymbol(shape).getName(), nodeName,
-                            inputGetter);
-                });
+                writer.write("xml << Hearth::XML::Node.new($2L, Stubs::$1L.stub('entry', $3L)$4L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
+                        inputGetter, xmlnsAttribute());
             }
 
             return null;
@@ -448,7 +449,7 @@ public class StubsGenerator extends StubsGeneratorBase {
                     case HTTP_DATE:
                         writer.write(
                                 "xml.attributes['$L'] = Hearth::TimeHelper.to_http_date($L)$L",
-                                attributeName, inputGetter,checkRequired());
+                                attributeName, inputGetter, checkRequired());
                         break;
                     case DATE_TIME:
                     default:
