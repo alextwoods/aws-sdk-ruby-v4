@@ -330,10 +330,32 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
             }
         }
 
+        private void defaultCollectionSerializer(Shape shape) {
+            if (memberShape.hasTrait(XmlNamespaceTrait.class)) {
+                XmlNamespaceTrait xmlns = memberShape.expectTrait(XmlNamespaceTrait.class);
+                writer
+                        .openBlock("unless $L.nil?", inputGetter)
+                        .write("nodes = Builders::$1L.build($2L, $3L) = '$5L' }",
+                                symbolProvider.toSymbol(shape).getName(),
+                                nodeName,
+                                inputGetter)
+                        .write("nodes.each { |n| n.attributes['xmlns$L'] = '$L' }",
+                                xmlns.getPrefix().isPresent() ? ":" + xmlns.getPrefix().get() : "",
+                                xmlns.getUri()
+                        )
+                        .write("xml << nodes")
+                        .closeBlock("end");
+            } else {
+                writer.write("xml << Builders::$1L.build($2L, $3L) unless $3L.nil?",
+                        symbolProvider.toSymbol(shape).getName(), nodeName,
+                        inputGetter);
+            }
+        }
+
         @Override
         public Void listShape(ListShape shape) {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
-                defaultComplexSerializer(shape);
+                defaultCollectionSerializer(shape);
             } else {
                 String memberName = "member";
                 if (shape.getMember().hasTrait(XmlNameTrait.class)) {
@@ -349,7 +371,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         @Override
         public Void setShape(SetShape shape) {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
-                defaultComplexSerializer(shape);
+                defaultCollectionSerializer(shape);
             } else {
                 writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('member', $3L)$4L) unless $3L.nil?",
                         symbolProvider.toSymbol(shape).getName(), nodeName,
@@ -362,7 +384,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         @Override
         public Void mapShape(MapShape shape) {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
-                defaultComplexSerializer(shape);
+                defaultCollectionSerializer(shape);
             } else {
                 writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('entry', $3L)$4L) unless $3L.nil?",
                         symbolProvider.toSymbol(shape).getName(), nodeName,
