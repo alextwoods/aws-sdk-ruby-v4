@@ -14,12 +14,10 @@ module AWS::Ec2
 
     # Operation Parser for AcceptReservedInstancesExchangeQuote
     class AcceptReservedInstancesExchangeQuote
-
     end
 
     # Operation Parser for AcceptTransitGatewayMulticastDomainAssociations
     class AcceptTransitGatewayMulticastDomainAssociations
-
     end
 
     class TransitGatewayMulticastDomainAssociations
@@ -33,7 +31,6 @@ module AWS::Ec2
 
     # Operation Parser for AcceptTransitGatewayPeeringAttachment
     class AcceptTransitGatewayPeeringAttachment
-
     end
 
     class TransitGatewayPeeringAttachment
@@ -53,7 +50,6 @@ module AWS::Ec2
 
     # Operation Parser for AcceptTransitGatewayVpcAttachment
     class AcceptTransitGatewayVpcAttachment
-
     end
 
     class TransitGatewayVpcAttachment
@@ -67,7 +63,6 @@ module AWS::Ec2
 
     # Operation Parser for AcceptVpcEndpointConnections
     class AcceptVpcEndpointConnections
-
     end
 
     class UnsuccessfulItemSet
@@ -81,7 +76,6 @@ module AWS::Ec2
 
     # Operation Parser for AcceptVpcPeeringConnection
     class AcceptVpcPeeringConnection
-
     end
 
     class VpcPeeringConnection
@@ -110,7 +104,6 @@ module AWS::Ec2
 
     # Operation Parser for AdvertiseByoipCidr
     class AdvertiseByoipCidr
-
     end
 
     class ByoipCidr
@@ -118,12 +111,10 @@ module AWS::Ec2
 
     # Operation Parser for AllocateAddress
     class AllocateAddress
-
     end
 
     # Operation Parser for AllocateHosts
     class AllocateHosts
-
     end
 
     class ResponseHostIdList
@@ -131,7 +122,6 @@ module AWS::Ec2
 
     # Operation Parser for AllocateIpamPoolCidr
     class AllocateIpamPoolCidr
-
     end
 
     class IpamPoolAllocation
@@ -139,7 +129,6 @@ module AWS::Ec2
 
     # Operation Parser for ApplySecurityGroupsToClientVpnTargetNetwork
     class ApplySecurityGroupsToClientVpnTargetNetwork
-
     end
 
     class ClientVpnSecurityGroupIdSet
@@ -147,7 +136,6 @@ module AWS::Ec2
 
     # Operation Parser for AssignIpv6Addresses
     class AssignIpv6Addresses
-
     end
 
     class IpPrefixList
@@ -158,7 +146,6 @@ module AWS::Ec2
 
     # Operation Parser for AssignPrivateIpAddresses
     class AssignPrivateIpAddresses
-
     end
 
     class Ipv4PrefixesList
@@ -175,12 +162,10 @@ module AWS::Ec2
 
     # Operation Parser for AssociateAddress
     class AssociateAddress
-
     end
 
     # Operation Parser for AssociateClientVpnTargetNetwork
     class AssociateClientVpnTargetNetwork
-
     end
 
     class AssociationStatus
@@ -188,17 +173,14 @@ module AWS::Ec2
 
     # Operation Parser for AssociateDhcpOptions
     class AssociateDhcpOptions
-
     end
 
     # Operation Parser for AssociateEnclaveCertificateIamRole
     class AssociateEnclaveCertificateIamRole
-
     end
 
     # Operation Parser for AssociateIamInstanceProfile
     class AssociateIamInstanceProfile
-
     end
 
     class IamInstanceProfileAssociation
@@ -209,7 +191,6 @@ module AWS::Ec2
 
     # Operation Parser for AssociateInstanceEventWindow
     class AssociateInstanceEventWindow
-
     end
 
     class InstanceEventWindow
@@ -232,7 +213,6 @@ module AWS::Ec2
 
     # Operation Parser for AssociateRouteTable
     class AssociateRouteTable
-
     end
 
     class RouteTableAssociationState
@@ -240,7 +220,6 @@ module AWS::Ec2
 
     # Operation Parser for AssociateSubnetCidrBlock
     class AssociateSubnetCidrBlock
-
     end
 
     class SubnetIpv6CidrBlockAssociation
@@ -251,12 +230,10 @@ module AWS::Ec2
 
     # Operation Parser for AssociateTransitGatewayMulticastDomain
     class AssociateTransitGatewayMulticastDomain
-
     end
 
     # Operation Parser for AssociateTransitGatewayRouteTable
     class AssociateTransitGatewayRouteTable
-
     end
 
     class TransitGatewayAssociation
@@ -264,7 +241,6 @@ module AWS::Ec2
 
     # Operation Parser for AssociateTrunkInterface
     class AssociateTrunkInterface
-
     end
 
     class TrunkInterfaceAssociation
@@ -272,7 +248,6 @@ module AWS::Ec2
 
     # Operation Parser for AssociateVpcCidrBlock
     class AssociateVpcCidrBlock
-
     end
 
     class VpcCidrBlockAssociation
@@ -286,27 +261,22 @@ module AWS::Ec2
 
     # Operation Parser for AttachClassicLinkVpc
     class AttachClassicLinkVpc
-
     end
 
     # Operation Parser for AttachInternetGateway
     class AttachInternetGateway
-
     end
 
     # Operation Parser for AttachNetworkInterface
     class AttachNetworkInterface
-
     end
 
     # Operation Parser for AttachVolume
     class AttachVolume
-
     end
 
     # Operation Parser for AttachVpnGateway
     class AttachVpnGateway
-
     end
 
     class VpcAttachment
@@ -314,7 +284,6 @@ module AWS::Ec2
 
     # Operation Parser for AuthorizeClientVpnIngress
     class AuthorizeClientVpnIngress
-
     end
 
     class ClientVpnAuthorizationRuleStatus
@@ -322,7 +291,6 @@ module AWS::Ec2
 
     # Operation Parser for AuthorizeSecurityGroupEgress
     class AuthorizeSecurityGroupEgress
-
     end
 
     class SecurityGroupRuleList
@@ -336,12 +304,10 @@ module AWS::Ec2
 
     # Operation Parser for AuthorizeSecurityGroupIngress
     class AuthorizeSecurityGroupIngress
-
     end
 
     # Operation Parser for BundleInstance
     class BundleInstance
-
     end
 
     class BundleTask
@@ -358,17 +324,14 @@ module AWS::Ec2
 
     # Operation Parser for CancelBundleTask
     class CancelBundleTask
-
     end
 
     # Operation Parser for CancelCapacityReservation
     class CancelCapacityReservation
-
     end
 
     # Operation Parser for CancelCapacityReservationFleets
     class CancelCapacityReservationFleets
-
     end
 
     class FailedCapacityReservationFleetCancellationResultSet
@@ -388,22 +351,18 @@ module AWS::Ec2
 
     # Operation Parser for CancelConversionTask
     class CancelConversionTask
-
     end
 
     # Operation Parser for CancelExportTask
     class CancelExportTask
-
     end
 
     # Operation Parser for CancelImportTask
     class CancelImportTask
-
     end
 
     # Operation Parser for CancelReservedInstancesListing
     class CancelReservedInstancesListing
-
     end
 
     class ReservedInstancesListingList
@@ -426,7 +385,6 @@ module AWS::Ec2
 
     # Operation Parser for CancelSpotFleetRequests
     class CancelSpotFleetRequests
-
     end
 
     class CancelSpotFleetRequestsErrorSet
@@ -446,7 +404,6 @@ module AWS::Ec2
 
     # Operation Parser for CancelSpotInstanceRequests
     class CancelSpotInstanceRequests
-
     end
 
     class CancelledSpotInstanceRequestList
@@ -457,27 +414,22 @@ module AWS::Ec2
 
     # Operation Parser for ConfirmProductInstance
     class ConfirmProductInstance
-
     end
 
     # Operation Parser for CopyFpgaImage
     class CopyFpgaImage
-
     end
 
     # Operation Parser for CopyImage
     class CopyImage
-
     end
 
     # Operation Parser for CopySnapshot
     class CopySnapshot
-
     end
 
     # Operation Parser for CreateCapacityReservation
     class CreateCapacityReservation
-
     end
 
     class CapacityReservation
@@ -485,7 +437,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateCapacityReservationFleet
     class CreateCapacityReservationFleet
-
     end
 
     class FleetCapacityReservationSet
@@ -496,7 +447,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateCarrierGateway
     class CreateCarrierGateway
-
     end
 
     class CarrierGateway
@@ -504,7 +454,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateClientVpnEndpoint
     class CreateClientVpnEndpoint
-
     end
 
     class ClientVpnEndpointStatus
@@ -512,7 +461,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateClientVpnRoute
     class CreateClientVpnRoute
-
     end
 
     class ClientVpnRouteStatus
@@ -520,7 +468,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateCustomerGateway
     class CreateCustomerGateway
-
     end
 
     class CustomerGateway
@@ -528,7 +475,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateDefaultSubnet
     class CreateDefaultSubnet
-
     end
 
     class Subnet
@@ -542,7 +488,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateDefaultVpc
     class CreateDefaultVpc
-
     end
 
     class Vpc
@@ -556,7 +501,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateDhcpOptions
     class CreateDhcpOptions
-
     end
 
     class DhcpOptions
@@ -576,7 +520,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateEgressOnlyInternetGateway
     class CreateEgressOnlyInternetGateway
-
     end
 
     class EgressOnlyInternetGateway
@@ -590,7 +533,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateFleet
     class CreateFleet
-
     end
 
     class CreateFleetInstancesSet
@@ -670,27 +612,22 @@ module AWS::Ec2
 
     # Operation Parser for CreateFlowLogs
     class CreateFlowLogs
-
     end
 
     # Operation Parser for CreateFpgaImage
     class CreateFpgaImage
-
     end
 
     # Operation Parser for CreateImage
     class CreateImage
-
     end
 
     # Operation Parser for CreateInstanceEventWindow
     class CreateInstanceEventWindow
-
     end
 
     # Operation Parser for CreateInstanceExportTask
     class CreateInstanceExportTask
-
     end
 
     class ExportTask
@@ -704,7 +641,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateInternetGateway
     class CreateInternetGateway
-
     end
 
     class InternetGateway
@@ -712,7 +648,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateIpam
     class CreateIpam
-
     end
 
     class Ipam
@@ -726,7 +661,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateIpamPool
     class CreateIpamPool
-
     end
 
     class IpamPool
@@ -740,7 +674,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateIpamScope
     class CreateIpamScope
-
     end
 
     class IpamScope
@@ -748,12 +681,10 @@ module AWS::Ec2
 
     # Operation Parser for CreateKeyPair
     class CreateKeyPair
-
     end
 
     # Operation Parser for CreateLaunchTemplate
     class CreateLaunchTemplate
-
     end
 
     class ValidationWarning
@@ -770,7 +701,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateLaunchTemplateVersion
     class CreateLaunchTemplateVersion
-
     end
 
     class LaunchTemplateVersion
@@ -886,7 +816,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateLocalGatewayRoute
     class CreateLocalGatewayRoute
-
     end
 
     class LocalGatewayRoute
@@ -894,7 +823,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateLocalGatewayRouteTableVpcAssociation
     class CreateLocalGatewayRouteTableVpcAssociation
-
     end
 
     class LocalGatewayRouteTableVpcAssociation
@@ -902,7 +830,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateManagedPrefixList
     class CreateManagedPrefixList
-
     end
 
     class ManagedPrefixList
@@ -910,7 +837,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateNatGateway
     class CreateNatGateway
-
     end
 
     class NatGateway
@@ -927,7 +853,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateNetworkAcl
     class CreateNetworkAcl
-
     end
 
     class NetworkAcl
@@ -953,12 +878,10 @@ module AWS::Ec2
 
     # Operation Parser for CreateNetworkAclEntry
     class CreateNetworkAclEntry
-
     end
 
     # Operation Parser for CreateNetworkInsightsAccessScope
     class CreateNetworkInsightsAccessScope
-
     end
 
     class NetworkInsightsAccessScopeContent
@@ -993,7 +916,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateNetworkInsightsPath
     class CreateNetworkInsightsPath
-
     end
 
     class NetworkInsightsPath
@@ -1001,7 +923,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateNetworkInterface
     class CreateNetworkInterface
-
     end
 
     class NetworkInterface
@@ -1039,7 +960,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateNetworkInterfacePermission
     class CreateNetworkInterfacePermission
-
     end
 
     class NetworkInterfacePermission
@@ -1050,7 +970,6 @@ module AWS::Ec2
 
     # Operation Parser for CreatePlacementGroup
     class CreatePlacementGroup
-
     end
 
     class PlacementGroup
@@ -1058,12 +977,10 @@ module AWS::Ec2
 
     # Operation Parser for CreatePublicIpv4Pool
     class CreatePublicIpv4Pool
-
     end
 
     # Operation Parser for CreateReplaceRootVolumeTask
     class CreateReplaceRootVolumeTask
-
     end
 
     class ReplaceRootVolumeTask
@@ -1071,22 +988,18 @@ module AWS::Ec2
 
     # Operation Parser for CreateReservedInstancesListing
     class CreateReservedInstancesListing
-
     end
 
     # Operation Parser for CreateRestoreImageTask
     class CreateRestoreImageTask
-
     end
 
     # Operation Parser for CreateRoute
     class CreateRoute
-
     end
 
     # Operation Parser for CreateRouteTable
     class CreateRouteTable
-
     end
 
     class RouteTable
@@ -1112,17 +1025,14 @@ module AWS::Ec2
 
     # Operation Parser for CreateSecurityGroup
     class CreateSecurityGroup
-
     end
 
     # Operation Parser for CreateSnapshot
     class CreateSnapshot
-
     end
 
     # Operation Parser for CreateSnapshots
     class CreateSnapshots
-
     end
 
     class SnapshotSet
@@ -1133,7 +1043,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateSpotDatafeedSubscription
     class CreateSpotDatafeedSubscription
-
     end
 
     class SpotDatafeedSubscription
@@ -1144,17 +1053,14 @@ module AWS::Ec2
 
     # Operation Parser for CreateStoreImageTask
     class CreateStoreImageTask
-
     end
 
     # Operation Parser for CreateSubnet
     class CreateSubnet
-
     end
 
     # Operation Parser for CreateSubnetCidrReservation
     class CreateSubnetCidrReservation
-
     end
 
     class SubnetCidrReservation
@@ -1162,12 +1068,10 @@ module AWS::Ec2
 
     # Operation Parser for CreateTags
     class CreateTags
-
     end
 
     # Operation Parser for CreateTrafficMirrorFilter
     class CreateTrafficMirrorFilter
-
     end
 
     class TrafficMirrorFilter
@@ -1187,12 +1091,10 @@ module AWS::Ec2
 
     # Operation Parser for CreateTrafficMirrorFilterRule
     class CreateTrafficMirrorFilterRule
-
     end
 
     # Operation Parser for CreateTrafficMirrorSession
     class CreateTrafficMirrorSession
-
     end
 
     class TrafficMirrorSession
@@ -1200,7 +1102,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateTrafficMirrorTarget
     class CreateTrafficMirrorTarget
-
     end
 
     class TrafficMirrorTarget
@@ -1208,7 +1109,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateTransitGateway
     class CreateTransitGateway
-
     end
 
     class TransitGateway
@@ -1219,7 +1119,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateTransitGatewayConnect
     class CreateTransitGatewayConnect
-
     end
 
     class TransitGatewayConnect
@@ -1230,7 +1129,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateTransitGatewayConnectPeer
     class CreateTransitGatewayConnectPeer
-
     end
 
     class TransitGatewayConnectPeer
@@ -1250,7 +1148,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateTransitGatewayMulticastDomain
     class CreateTransitGatewayMulticastDomain
-
     end
 
     class TransitGatewayMulticastDomain
@@ -1261,12 +1158,10 @@ module AWS::Ec2
 
     # Operation Parser for CreateTransitGatewayPeeringAttachment
     class CreateTransitGatewayPeeringAttachment
-
     end
 
     # Operation Parser for CreateTransitGatewayPrefixListReference
     class CreateTransitGatewayPrefixListReference
-
     end
 
     class TransitGatewayPrefixListReference
@@ -1277,7 +1172,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateTransitGatewayRoute
     class CreateTransitGatewayRoute
-
     end
 
     class TransitGatewayRoute
@@ -1291,7 +1185,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateTransitGatewayRouteTable
     class CreateTransitGatewayRouteTable
-
     end
 
     class TransitGatewayRouteTable
@@ -1299,12 +1192,10 @@ module AWS::Ec2
 
     # Operation Parser for CreateTransitGatewayVpcAttachment
     class CreateTransitGatewayVpcAttachment
-
     end
 
     # Operation Parser for CreateVolume
     class CreateVolume
-
     end
 
     class VolumeAttachmentList
@@ -1315,12 +1206,10 @@ module AWS::Ec2
 
     # Operation Parser for CreateVpc
     class CreateVpc
-
     end
 
     # Operation Parser for CreateVpcEndpoint
     class CreateVpcEndpoint
-
     end
 
     class VpcEndpoint
@@ -1343,7 +1232,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateVpcEndpointConnectionNotification
     class CreateVpcEndpointConnectionNotification
-
     end
 
     class ConnectionNotification
@@ -1351,7 +1239,6 @@ module AWS::Ec2
 
     # Operation Parser for CreateVpcEndpointServiceConfiguration
     class CreateVpcEndpointServiceConfiguration
-
     end
 
     class ServiceConfiguration
@@ -1368,12 +1255,10 @@ module AWS::Ec2
 
     # Operation Parser for CreateVpcPeeringConnection
     class CreateVpcPeeringConnection
-
     end
 
     # Operation Parser for CreateVpnConnection
     class CreateVpnConnection
-
     end
 
     class VpnConnection
@@ -1444,12 +1329,10 @@ module AWS::Ec2
 
     # Operation Parser for CreateVpnConnectionRoute
     class CreateVpnConnectionRoute
-
     end
 
     # Operation Parser for CreateVpnGateway
     class CreateVpnGateway
-
     end
 
     class VpnGateway
@@ -1460,37 +1343,30 @@ module AWS::Ec2
 
     # Operation Parser for DeleteCarrierGateway
     class DeleteCarrierGateway
-
     end
 
     # Operation Parser for DeleteClientVpnEndpoint
     class DeleteClientVpnEndpoint
-
     end
 
     # Operation Parser for DeleteClientVpnRoute
     class DeleteClientVpnRoute
-
     end
 
     # Operation Parser for DeleteCustomerGateway
     class DeleteCustomerGateway
-
     end
 
     # Operation Parser for DeleteDhcpOptions
     class DeleteDhcpOptions
-
     end
 
     # Operation Parser for DeleteEgressOnlyInternetGateway
     class DeleteEgressOnlyInternetGateway
-
     end
 
     # Operation Parser for DeleteFleets
     class DeleteFleets
-
     end
 
     class DeleteFleetErrorSet
@@ -1510,17 +1386,14 @@ module AWS::Ec2
 
     # Operation Parser for DeleteFlowLogs
     class DeleteFlowLogs
-
     end
 
     # Operation Parser for DeleteFpgaImage
     class DeleteFpgaImage
-
     end
 
     # Operation Parser for DeleteInstanceEventWindow
     class DeleteInstanceEventWindow
-
     end
 
     class InstanceEventWindowStateChange
@@ -1528,37 +1401,30 @@ module AWS::Ec2
 
     # Operation Parser for DeleteInternetGateway
     class DeleteInternetGateway
-
     end
 
     # Operation Parser for DeleteIpam
     class DeleteIpam
-
     end
 
     # Operation Parser for DeleteIpamPool
     class DeleteIpamPool
-
     end
 
     # Operation Parser for DeleteIpamScope
     class DeleteIpamScope
-
     end
 
     # Operation Parser for DeleteKeyPair
     class DeleteKeyPair
-
     end
 
     # Operation Parser for DeleteLaunchTemplate
     class DeleteLaunchTemplate
-
     end
 
     # Operation Parser for DeleteLaunchTemplateVersions
     class DeleteLaunchTemplateVersions
-
     end
 
     class DeleteLaunchTemplateVersionsResponseErrorSet
@@ -1578,77 +1444,62 @@ module AWS::Ec2
 
     # Operation Parser for DeleteLocalGatewayRoute
     class DeleteLocalGatewayRoute
-
     end
 
     # Operation Parser for DeleteLocalGatewayRouteTableVpcAssociation
     class DeleteLocalGatewayRouteTableVpcAssociation
-
     end
 
     # Operation Parser for DeleteManagedPrefixList
     class DeleteManagedPrefixList
-
     end
 
     # Operation Parser for DeleteNatGateway
     class DeleteNatGateway
-
     end
 
     # Operation Parser for DeleteNetworkAcl
     class DeleteNetworkAcl
-
     end
 
     # Operation Parser for DeleteNetworkAclEntry
     class DeleteNetworkAclEntry
-
     end
 
     # Operation Parser for DeleteNetworkInsightsAccessScope
     class DeleteNetworkInsightsAccessScope
-
     end
 
     # Operation Parser for DeleteNetworkInsightsAccessScopeAnalysis
     class DeleteNetworkInsightsAccessScopeAnalysis
-
     end
 
     # Operation Parser for DeleteNetworkInsightsAnalysis
     class DeleteNetworkInsightsAnalysis
-
     end
 
     # Operation Parser for DeleteNetworkInsightsPath
     class DeleteNetworkInsightsPath
-
     end
 
     # Operation Parser for DeleteNetworkInterface
     class DeleteNetworkInterface
-
     end
 
     # Operation Parser for DeleteNetworkInterfacePermission
     class DeleteNetworkInterfacePermission
-
     end
 
     # Operation Parser for DeletePlacementGroup
     class DeletePlacementGroup
-
     end
 
     # Operation Parser for DeletePublicIpv4Pool
     class DeletePublicIpv4Pool
-
     end
 
     # Operation Parser for DeleteQueuedReservedInstances
     class DeleteQueuedReservedInstances
-
     end
 
     class FailedQueuedPurchaseDeletionSet
@@ -1668,162 +1519,130 @@ module AWS::Ec2
 
     # Operation Parser for DeleteRoute
     class DeleteRoute
-
     end
 
     # Operation Parser for DeleteRouteTable
     class DeleteRouteTable
-
     end
 
     # Operation Parser for DeleteSecurityGroup
     class DeleteSecurityGroup
-
     end
 
     # Operation Parser for DeleteSnapshot
     class DeleteSnapshot
-
     end
 
     # Operation Parser for DeleteSpotDatafeedSubscription
     class DeleteSpotDatafeedSubscription
-
     end
 
     # Operation Parser for DeleteSubnet
     class DeleteSubnet
-
     end
 
     # Operation Parser for DeleteSubnetCidrReservation
     class DeleteSubnetCidrReservation
-
     end
 
     # Operation Parser for DeleteTags
     class DeleteTags
-
     end
 
     # Operation Parser for DeleteTrafficMirrorFilter
     class DeleteTrafficMirrorFilter
-
     end
 
     # Operation Parser for DeleteTrafficMirrorFilterRule
     class DeleteTrafficMirrorFilterRule
-
     end
 
     # Operation Parser for DeleteTrafficMirrorSession
     class DeleteTrafficMirrorSession
-
     end
 
     # Operation Parser for DeleteTrafficMirrorTarget
     class DeleteTrafficMirrorTarget
-
     end
 
     # Operation Parser for DeleteTransitGateway
     class DeleteTransitGateway
-
     end
 
     # Operation Parser for DeleteTransitGatewayConnect
     class DeleteTransitGatewayConnect
-
     end
 
     # Operation Parser for DeleteTransitGatewayConnectPeer
     class DeleteTransitGatewayConnectPeer
-
     end
 
     # Operation Parser for DeleteTransitGatewayMulticastDomain
     class DeleteTransitGatewayMulticastDomain
-
     end
 
     # Operation Parser for DeleteTransitGatewayPeeringAttachment
     class DeleteTransitGatewayPeeringAttachment
-
     end
 
     # Operation Parser for DeleteTransitGatewayPrefixListReference
     class DeleteTransitGatewayPrefixListReference
-
     end
 
     # Operation Parser for DeleteTransitGatewayRoute
     class DeleteTransitGatewayRoute
-
     end
 
     # Operation Parser for DeleteTransitGatewayRouteTable
     class DeleteTransitGatewayRouteTable
-
     end
 
     # Operation Parser for DeleteTransitGatewayVpcAttachment
     class DeleteTransitGatewayVpcAttachment
-
     end
 
     # Operation Parser for DeleteVolume
     class DeleteVolume
-
     end
 
     # Operation Parser for DeleteVpc
     class DeleteVpc
-
     end
 
     # Operation Parser for DeleteVpcEndpointConnectionNotifications
     class DeleteVpcEndpointConnectionNotifications
-
     end
 
     # Operation Parser for DeleteVpcEndpointServiceConfigurations
     class DeleteVpcEndpointServiceConfigurations
-
     end
 
     # Operation Parser for DeleteVpcEndpoints
     class DeleteVpcEndpoints
-
     end
 
     # Operation Parser for DeleteVpcPeeringConnection
     class DeleteVpcPeeringConnection
-
     end
 
     # Operation Parser for DeleteVpnConnection
     class DeleteVpnConnection
-
     end
 
     # Operation Parser for DeleteVpnConnectionRoute
     class DeleteVpnConnectionRoute
-
     end
 
     # Operation Parser for DeleteVpnGateway
     class DeleteVpnGateway
-
     end
 
     # Operation Parser for DeprovisionByoipCidr
     class DeprovisionByoipCidr
-
     end
 
     # Operation Parser for DeprovisionIpamPoolCidr
     class DeprovisionIpamPoolCidr
-
     end
 
     class IpamPoolCidr
@@ -1834,7 +1653,6 @@ module AWS::Ec2
 
     # Operation Parser for DeprovisionPublicIpv4PoolCidr
     class DeprovisionPublicIpv4PoolCidr
-
     end
 
     class DeprovisionedAddressSet
@@ -1842,12 +1660,10 @@ module AWS::Ec2
 
     # Operation Parser for DeregisterImage
     class DeregisterImage
-
     end
 
     # Operation Parser for DeregisterInstanceEventNotificationAttributes
     class DeregisterInstanceEventNotificationAttributes
-
     end
 
     class InstanceTagNotificationAttribute
@@ -1858,7 +1674,6 @@ module AWS::Ec2
 
     # Operation Parser for DeregisterTransitGatewayMulticastGroupMembers
     class DeregisterTransitGatewayMulticastGroupMembers
-
     end
 
     class TransitGatewayMulticastDeregisteredGroupMembers
@@ -1866,7 +1681,6 @@ module AWS::Ec2
 
     # Operation Parser for DeregisterTransitGatewayMulticastGroupSources
     class DeregisterTransitGatewayMulticastGroupSources
-
     end
 
     class TransitGatewayMulticastDeregisteredGroupSources
@@ -1874,7 +1688,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeAccountAttributes
     class DescribeAccountAttributes
-
     end
 
     class AccountAttributeList
@@ -1891,7 +1704,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeAddresses
     class DescribeAddresses
-
     end
 
     class AddressList
@@ -1902,7 +1714,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeAddressesAttribute
     class DescribeAddressesAttribute
-
     end
 
     class AddressSet
@@ -1916,7 +1727,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeAggregateIdFormat
     class DescribeAggregateIdFormat
-
     end
 
     class IdFormatList
@@ -1927,7 +1737,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeAvailabilityZones
     class DescribeAvailabilityZones
-
     end
 
     class AvailabilityZoneList
@@ -1944,7 +1753,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeBundleTasks
     class DescribeBundleTasks
-
     end
 
     class BundleTaskList
@@ -1952,7 +1760,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeByoipCidrs
     class DescribeByoipCidrs
-
     end
 
     class ByoipCidrSet
@@ -1960,7 +1767,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeCapacityReservationFleets
     class DescribeCapacityReservationFleets
-
     end
 
     class CapacityReservationFleetSet
@@ -1971,7 +1777,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeCapacityReservations
     class DescribeCapacityReservations
-
     end
 
     class CapacityReservationSet
@@ -1979,7 +1784,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeCarrierGateways
     class DescribeCarrierGateways
-
     end
 
     class CarrierGatewaySet
@@ -1987,7 +1791,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeClassicLinkInstances
     class DescribeClassicLinkInstances
-
     end
 
     class ClassicLinkInstanceList
@@ -1998,7 +1801,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeClientVpnAuthorizationRules
     class DescribeClientVpnAuthorizationRules
-
     end
 
     class AuthorizationRuleSet
@@ -2009,7 +1811,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeClientVpnConnections
     class DescribeClientVpnConnections
-
     end
 
     class ClientVpnConnectionSet
@@ -2023,7 +1824,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeClientVpnEndpoints
     class DescribeClientVpnEndpoints
-
     end
 
     class EndpointSet
@@ -2064,7 +1864,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeClientVpnRoutes
     class DescribeClientVpnRoutes
-
     end
 
     class ClientVpnRouteSet
@@ -2075,7 +1874,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeClientVpnTargetNetworks
     class DescribeClientVpnTargetNetworks
-
     end
 
     class TargetNetworkSet
@@ -2086,7 +1884,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeCoipPools
     class DescribeCoipPools
-
     end
 
     class CoipPoolSet
@@ -2097,7 +1894,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeConversionTasks
     class DescribeConversionTasks
-
     end
 
     class DescribeConversionTaskList
@@ -2126,7 +1922,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeCustomerGateways
     class DescribeCustomerGateways
-
     end
 
     class CustomerGatewayList
@@ -2134,7 +1929,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeDhcpOptions
     class DescribeDhcpOptions
-
     end
 
     class DhcpOptionsList
@@ -2142,7 +1936,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeEgressOnlyInternetGateways
     class DescribeEgressOnlyInternetGateways
-
     end
 
     class EgressOnlyInternetGatewayList
@@ -2150,7 +1943,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeElasticGpus
     class DescribeElasticGpus
-
     end
 
     class ElasticGpuSet
@@ -2164,7 +1956,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeExportImageTasks
     class DescribeExportImageTasks
-
     end
 
     class ExportImageTaskList
@@ -2178,7 +1969,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeExportTasks
     class DescribeExportTasks
-
     end
 
     class ExportTaskList
@@ -2186,7 +1976,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeFastSnapshotRestores
     class DescribeFastSnapshotRestores
-
     end
 
     class DescribeFastSnapshotRestoreSuccessSet
@@ -2197,7 +1986,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeFleetHistory
     class DescribeFleetHistory
-
     end
 
     class HistoryRecordSet
@@ -2211,7 +1999,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeFleetInstances
     class DescribeFleetInstances
-
     end
 
     class ActiveInstanceSet
@@ -2222,7 +2009,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeFleets
     class DescribeFleets
-
     end
 
     class FleetSet
@@ -2272,7 +2058,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeFlowLogs
     class DescribeFlowLogs
-
     end
 
     class FlowLogSet
@@ -2286,7 +2071,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeFpgaImageAttribute
     class DescribeFpgaImageAttribute
-
     end
 
     class FpgaImageAttribute
@@ -2306,7 +2090,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeFpgaImages
     class DescribeFpgaImages
-
     end
 
     class FpgaImageList
@@ -2323,7 +2106,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeHostReservationOfferings
     class DescribeHostReservationOfferings
-
     end
 
     class HostOfferingSet
@@ -2334,7 +2116,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeHostReservations
     class DescribeHostReservations
-
     end
 
     class HostReservationSet
@@ -2348,7 +2129,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeHosts
     class DescribeHosts
-
     end
 
     class HostList
@@ -2377,7 +2157,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeIamInstanceProfileAssociations
     class DescribeIamInstanceProfileAssociations
-
     end
 
     class IamInstanceProfileAssociationSet
@@ -2385,17 +2164,14 @@ module AWS::Ec2
 
     # Operation Parser for DescribeIdFormat
     class DescribeIdFormat
-
     end
 
     # Operation Parser for DescribeIdentityIdFormat
     class DescribeIdentityIdFormat
-
     end
 
     # Operation Parser for DescribeImageAttribute
     class DescribeImageAttribute
-
     end
 
     class LaunchPermissionList
@@ -2415,7 +2191,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeImages
     class DescribeImages
-
     end
 
     class ImageList
@@ -2429,7 +2204,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeImportImageTasks
     class DescribeImportImageTasks
-
     end
 
     class ImportImageTaskList
@@ -2455,7 +2229,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeImportSnapshotTasks
     class DescribeImportSnapshotTasks
-
     end
 
     class ImportSnapshotTaskList
@@ -2469,7 +2242,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeInstanceAttribute
     class DescribeInstanceAttribute
-
     end
 
     class AttributeBooleanValue
@@ -2489,7 +2261,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeInstanceCreditSpecifications
     class DescribeInstanceCreditSpecifications
-
     end
 
     class InstanceCreditSpecificationList
@@ -2500,12 +2271,10 @@ module AWS::Ec2
 
     # Operation Parser for DescribeInstanceEventNotificationAttributes
     class DescribeInstanceEventNotificationAttributes
-
     end
 
     # Operation Parser for DescribeInstanceEventWindows
     class DescribeInstanceEventWindows
-
     end
 
     class InstanceEventWindowSet
@@ -2513,7 +2282,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeInstanceStatus
     class DescribeInstanceStatus
-
     end
 
     class InstanceStatusList
@@ -2542,7 +2310,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeInstanceTypeOfferings
     class DescribeInstanceTypeOfferings
-
     end
 
     class InstanceTypeOfferingsList
@@ -2553,7 +2320,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeInstanceTypes
     class DescribeInstanceTypes
-
     end
 
     class InstanceTypeInfoList
@@ -2660,7 +2426,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeInstances
     class DescribeInstances
-
     end
 
     class ReservationList
@@ -2746,7 +2511,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeInternetGateways
     class DescribeInternetGateways
-
     end
 
     class InternetGatewayList
@@ -2754,7 +2518,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeIpamPools
     class DescribeIpamPools
-
     end
 
     class IpamPoolSet
@@ -2762,7 +2525,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeIpamScopes
     class DescribeIpamScopes
-
     end
 
     class IpamScopeSet
@@ -2770,7 +2532,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeIpams
     class DescribeIpams
-
     end
 
     class IpamSet
@@ -2778,7 +2539,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeIpv6Pools
     class DescribeIpv6Pools
-
     end
 
     class Ipv6PoolSet
@@ -2795,7 +2555,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeKeyPairs
     class DescribeKeyPairs
-
     end
 
     class KeyPairList
@@ -2806,7 +2565,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeLaunchTemplateVersions
     class DescribeLaunchTemplateVersions
-
     end
 
     class LaunchTemplateVersionSet
@@ -2814,7 +2572,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeLaunchTemplates
     class DescribeLaunchTemplates
-
     end
 
     class LaunchTemplateSet
@@ -2822,7 +2579,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
     class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
-
     end
 
     class LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet
@@ -2833,7 +2589,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeLocalGatewayRouteTableVpcAssociations
     class DescribeLocalGatewayRouteTableVpcAssociations
-
     end
 
     class LocalGatewayRouteTableVpcAssociationSet
@@ -2841,7 +2596,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeLocalGatewayRouteTables
     class DescribeLocalGatewayRouteTables
-
     end
 
     class LocalGatewayRouteTableSet
@@ -2852,7 +2606,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeLocalGatewayVirtualInterfaceGroups
     class DescribeLocalGatewayVirtualInterfaceGroups
-
     end
 
     class LocalGatewayVirtualInterfaceGroupSet
@@ -2866,7 +2619,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeLocalGatewayVirtualInterfaces
     class DescribeLocalGatewayVirtualInterfaces
-
     end
 
     class LocalGatewayVirtualInterfaceSet
@@ -2877,7 +2629,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeLocalGateways
     class DescribeLocalGateways
-
     end
 
     class LocalGatewaySet
@@ -2888,7 +2639,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeManagedPrefixLists
     class DescribeManagedPrefixLists
-
     end
 
     class ManagedPrefixListSet
@@ -2896,7 +2646,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeMovingAddresses
     class DescribeMovingAddresses
-
     end
 
     class MovingAddressStatusSet
@@ -2907,7 +2656,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeNatGateways
     class DescribeNatGateways
-
     end
 
     class NatGatewayList
@@ -2915,7 +2663,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeNetworkAcls
     class DescribeNetworkAcls
-
     end
 
     class NetworkAclList
@@ -2923,7 +2670,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeNetworkInsightsAccessScopeAnalyses
     class DescribeNetworkInsightsAccessScopeAnalyses
-
     end
 
     class NetworkInsightsAccessScopeAnalysisList
@@ -2934,7 +2680,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeNetworkInsightsAccessScopes
     class DescribeNetworkInsightsAccessScopes
-
     end
 
     class NetworkInsightsAccessScopeList
@@ -2942,7 +2687,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeNetworkInsightsAnalyses
     class DescribeNetworkInsightsAnalyses
-
     end
 
     class NetworkInsightsAnalysisList
@@ -3007,7 +2751,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeNetworkInsightsPaths
     class DescribeNetworkInsightsPaths
-
     end
 
     class NetworkInsightsPathList
@@ -3015,12 +2758,10 @@ module AWS::Ec2
 
     # Operation Parser for DescribeNetworkInterfaceAttribute
     class DescribeNetworkInterfaceAttribute
-
     end
 
     # Operation Parser for DescribeNetworkInterfacePermissions
     class DescribeNetworkInterfacePermissions
-
     end
 
     class NetworkInterfacePermissionList
@@ -3028,7 +2769,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeNetworkInterfaces
     class DescribeNetworkInterfaces
-
     end
 
     class NetworkInterfaceList
@@ -3036,7 +2776,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribePlacementGroups
     class DescribePlacementGroups
-
     end
 
     class PlacementGroupList
@@ -3044,7 +2783,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribePrefixLists
     class DescribePrefixLists
-
     end
 
     class PrefixListSet
@@ -3055,7 +2793,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribePrincipalIdFormat
     class DescribePrincipalIdFormat
-
     end
 
     class PrincipalIdFormatList
@@ -3066,7 +2803,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribePublicIpv4Pools
     class DescribePublicIpv4Pools
-
     end
 
     class PublicIpv4PoolSet
@@ -3083,7 +2819,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeRegions
     class DescribeRegions
-
     end
 
     class RegionList
@@ -3094,7 +2829,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeReplaceRootVolumeTasks
     class DescribeReplaceRootVolumeTasks
-
     end
 
     class ReplaceRootVolumeTasks
@@ -3102,7 +2836,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeReservedInstances
     class DescribeReservedInstances
-
     end
 
     class ReservedInstancesList
@@ -3119,12 +2852,10 @@ module AWS::Ec2
 
     # Operation Parser for DescribeReservedInstancesListings
     class DescribeReservedInstancesListings
-
     end
 
     # Operation Parser for DescribeReservedInstancesModifications
     class DescribeReservedInstancesModifications
-
     end
 
     class ReservedInstancesModificationList
@@ -3150,7 +2881,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeReservedInstancesOfferings
     class DescribeReservedInstancesOfferings
-
     end
 
     class ReservedInstancesOfferingList
@@ -3167,7 +2897,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeRouteTables
     class DescribeRouteTables
-
     end
 
     class RouteTableList
@@ -3175,7 +2904,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeScheduledInstanceAvailability
     class DescribeScheduledInstanceAvailability
-
     end
 
     class ScheduledInstanceAvailabilitySet
@@ -3192,7 +2920,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeScheduledInstances
     class DescribeScheduledInstances
-
     end
 
     class ScheduledInstanceSet
@@ -3203,7 +2930,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeSecurityGroupReferences
     class DescribeSecurityGroupReferences
-
     end
 
     class SecurityGroupReferences
@@ -3214,12 +2940,10 @@ module AWS::Ec2
 
     # Operation Parser for DescribeSecurityGroupRules
     class DescribeSecurityGroupRules
-
     end
 
     # Operation Parser for DescribeSecurityGroups
     class DescribeSecurityGroups
-
     end
 
     class SecurityGroupList
@@ -3260,7 +2984,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeSnapshotAttribute
     class DescribeSnapshotAttribute
-
     end
 
     class CreateVolumePermissionList
@@ -3271,7 +2994,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeSnapshotTierStatus
     class DescribeSnapshotTierStatus
-
     end
 
     class SnapshotTierStatusSet
@@ -3282,7 +3004,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeSnapshots
     class DescribeSnapshots
-
     end
 
     class SnapshotList
@@ -3293,17 +3014,14 @@ module AWS::Ec2
 
     # Operation Parser for DescribeSpotDatafeedSubscription
     class DescribeSpotDatafeedSubscription
-
     end
 
     # Operation Parser for DescribeSpotFleetInstances
     class DescribeSpotFleetInstances
-
     end
 
     # Operation Parser for DescribeSpotFleetRequestHistory
     class DescribeSpotFleetRequestHistory
-
     end
 
     class HistoryRecords
@@ -3314,7 +3032,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeSpotFleetRequests
     class DescribeSpotFleetRequests
-
     end
 
     class SpotFleetRequestConfigSet
@@ -3415,7 +3132,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeSpotInstanceRequests
     class DescribeSpotInstanceRequests
-
     end
 
     class SpotInstanceRequestList
@@ -3435,7 +3151,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeSpotPriceHistory
     class DescribeSpotPriceHistory
-
     end
 
     class SpotPriceHistoryList
@@ -3446,7 +3161,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeStaleSecurityGroups
     class DescribeStaleSecurityGroups
-
     end
 
     class StaleSecurityGroupSet
@@ -3472,7 +3186,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeStoreImageTasks
     class DescribeStoreImageTasks
-
     end
 
     class StoreImageTaskResultSet
@@ -3483,7 +3196,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeSubnets
     class DescribeSubnets
-
     end
 
     class SubnetList
@@ -3491,7 +3203,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeTags
     class DescribeTags
-
     end
 
     class TagDescriptionList
@@ -3502,7 +3213,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeTrafficMirrorFilters
     class DescribeTrafficMirrorFilters
-
     end
 
     class TrafficMirrorFilterSet
@@ -3510,7 +3220,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeTrafficMirrorSessions
     class DescribeTrafficMirrorSessions
-
     end
 
     class TrafficMirrorSessionSet
@@ -3518,7 +3227,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeTrafficMirrorTargets
     class DescribeTrafficMirrorTargets
-
     end
 
     class TrafficMirrorTargetSet
@@ -3526,7 +3234,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeTransitGatewayAttachments
     class DescribeTransitGatewayAttachments
-
     end
 
     class TransitGatewayAttachmentList
@@ -3540,7 +3247,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeTransitGatewayConnectPeers
     class DescribeTransitGatewayConnectPeers
-
     end
 
     class TransitGatewayConnectPeerList
@@ -3548,7 +3254,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeTransitGatewayConnects
     class DescribeTransitGatewayConnects
-
     end
 
     class TransitGatewayConnectList
@@ -3556,7 +3261,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeTransitGatewayMulticastDomains
     class DescribeTransitGatewayMulticastDomains
-
     end
 
     class TransitGatewayMulticastDomainList
@@ -3564,7 +3268,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeTransitGatewayPeeringAttachments
     class DescribeTransitGatewayPeeringAttachments
-
     end
 
     class TransitGatewayPeeringAttachmentList
@@ -3572,7 +3275,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeTransitGatewayRouteTables
     class DescribeTransitGatewayRouteTables
-
     end
 
     class TransitGatewayRouteTableList
@@ -3580,7 +3282,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeTransitGatewayVpcAttachments
     class DescribeTransitGatewayVpcAttachments
-
     end
 
     class TransitGatewayVpcAttachmentList
@@ -3588,7 +3289,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeTransitGateways
     class DescribeTransitGateways
-
     end
 
     class TransitGatewayList
@@ -3596,7 +3296,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeTrunkInterfaceAssociations
     class DescribeTrunkInterfaceAssociations
-
     end
 
     class TrunkInterfaceAssociationList
@@ -3604,12 +3303,10 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVolumeAttribute
     class DescribeVolumeAttribute
-
     end
 
     # Operation Parser for DescribeVolumeStatus
     class DescribeVolumeStatus
-
     end
 
     class VolumeStatusList
@@ -3647,7 +3344,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVolumes
     class DescribeVolumes
-
     end
 
     class VolumeList
@@ -3658,7 +3354,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVolumesModifications
     class DescribeVolumesModifications
-
     end
 
     class VolumeModificationList
@@ -3669,12 +3364,10 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVpcAttribute
     class DescribeVpcAttribute
-
     end
 
     # Operation Parser for DescribeVpcClassicLink
     class DescribeVpcClassicLink
-
     end
 
     class VpcClassicLinkList
@@ -3685,7 +3378,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVpcClassicLinkDnsSupport
     class DescribeVpcClassicLinkDnsSupport
-
     end
 
     class ClassicLinkDnsSupportList
@@ -3696,7 +3388,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVpcEndpointConnectionNotifications
     class DescribeVpcEndpointConnectionNotifications
-
     end
 
     class ConnectionNotificationSet
@@ -3704,7 +3395,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVpcEndpointConnections
     class DescribeVpcEndpointConnections
-
     end
 
     class VpcEndpointConnectionSet
@@ -3715,7 +3405,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVpcEndpointServiceConfigurations
     class DescribeVpcEndpointServiceConfigurations
-
     end
 
     class ServiceConfigurationSet
@@ -3723,7 +3412,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVpcEndpointServicePermissions
     class DescribeVpcEndpointServicePermissions
-
     end
 
     class AllowedPrincipalSet
@@ -3734,7 +3422,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVpcEndpointServices
     class DescribeVpcEndpointServices
-
     end
 
     class ServiceDetailSet
@@ -3751,7 +3438,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVpcEndpoints
     class DescribeVpcEndpoints
-
     end
 
     class VpcEndpointSet
@@ -3759,7 +3445,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVpcPeeringConnections
     class DescribeVpcPeeringConnections
-
     end
 
     class VpcPeeringConnectionList
@@ -3767,7 +3452,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVpcs
     class DescribeVpcs
-
     end
 
     class VpcList
@@ -3775,7 +3459,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVpnConnections
     class DescribeVpnConnections
-
     end
 
     class VpnConnectionList
@@ -3783,7 +3466,6 @@ module AWS::Ec2
 
     # Operation Parser for DescribeVpnGateways
     class DescribeVpnGateways
-
     end
 
     class VpnGatewayList
@@ -3791,37 +3473,30 @@ module AWS::Ec2
 
     # Operation Parser for DetachClassicLinkVpc
     class DetachClassicLinkVpc
-
     end
 
     # Operation Parser for DetachInternetGateway
     class DetachInternetGateway
-
     end
 
     # Operation Parser for DetachNetworkInterface
     class DetachNetworkInterface
-
     end
 
     # Operation Parser for DetachVolume
     class DetachVolume
-
     end
 
     # Operation Parser for DetachVpnGateway
     class DetachVpnGateway
-
     end
 
     # Operation Parser for DisableEbsEncryptionByDefault
     class DisableEbsEncryptionByDefault
-
     end
 
     # Operation Parser for DisableFastSnapshotRestores
     class DisableFastSnapshotRestores
-
     end
 
     class DisableFastSnapshotRestoreErrorSet
@@ -3847,22 +3522,18 @@ module AWS::Ec2
 
     # Operation Parser for DisableImageDeprecation
     class DisableImageDeprecation
-
     end
 
     # Operation Parser for DisableIpamOrganizationAdminAccount
     class DisableIpamOrganizationAdminAccount
-
     end
 
     # Operation Parser for DisableSerialConsoleAccess
     class DisableSerialConsoleAccess
-
     end
 
     # Operation Parser for DisableTransitGatewayRouteTablePropagation
     class DisableTransitGatewayRouteTablePropagation
-
     end
 
     class TransitGatewayPropagation
@@ -3870,82 +3541,66 @@ module AWS::Ec2
 
     # Operation Parser for DisableVgwRoutePropagation
     class DisableVgwRoutePropagation
-
     end
 
     # Operation Parser for DisableVpcClassicLink
     class DisableVpcClassicLink
-
     end
 
     # Operation Parser for DisableVpcClassicLinkDnsSupport
     class DisableVpcClassicLinkDnsSupport
-
     end
 
     # Operation Parser for DisassociateAddress
     class DisassociateAddress
-
     end
 
     # Operation Parser for DisassociateClientVpnTargetNetwork
     class DisassociateClientVpnTargetNetwork
-
     end
 
     # Operation Parser for DisassociateEnclaveCertificateIamRole
     class DisassociateEnclaveCertificateIamRole
-
     end
 
     # Operation Parser for DisassociateIamInstanceProfile
     class DisassociateIamInstanceProfile
-
     end
 
     # Operation Parser for DisassociateInstanceEventWindow
     class DisassociateInstanceEventWindow
-
     end
 
     # Operation Parser for DisassociateRouteTable
     class DisassociateRouteTable
-
     end
 
     # Operation Parser for DisassociateSubnetCidrBlock
     class DisassociateSubnetCidrBlock
-
     end
 
     # Operation Parser for DisassociateTransitGatewayMulticastDomain
     class DisassociateTransitGatewayMulticastDomain
-
     end
 
     # Operation Parser for DisassociateTransitGatewayRouteTable
     class DisassociateTransitGatewayRouteTable
-
     end
 
     # Operation Parser for DisassociateTrunkInterface
     class DisassociateTrunkInterface
-
     end
 
     # Operation Parser for DisassociateVpcCidrBlock
     class DisassociateVpcCidrBlock
-
     end
 
     # Operation Parser for EnableEbsEncryptionByDefault
     class EnableEbsEncryptionByDefault
-
     end
 
     # Operation Parser for EnableFastSnapshotRestores
     class EnableFastSnapshotRestores
-
     end
 
     class EnableFastSnapshotRestoreErrorSet
@@ -3971,47 +3626,38 @@ module AWS::Ec2
 
     # Operation Parser for EnableImageDeprecation
     class EnableImageDeprecation
-
     end
 
     # Operation Parser for EnableIpamOrganizationAdminAccount
     class EnableIpamOrganizationAdminAccount
-
     end
 
     # Operation Parser for EnableSerialConsoleAccess
     class EnableSerialConsoleAccess
-
     end
 
     # Operation Parser for EnableTransitGatewayRouteTablePropagation
     class EnableTransitGatewayRouteTablePropagation
-
     end
 
     # Operation Parser for EnableVgwRoutePropagation
     class EnableVgwRoutePropagation
-
     end
 
     # Operation Parser for EnableVolumeIO
     class EnableVolumeIO
-
     end
 
     # Operation Parser for EnableVpcClassicLink
     class EnableVpcClassicLink
-
     end
 
     # Operation Parser for EnableVpcClassicLinkDnsSupport
     class EnableVpcClassicLinkDnsSupport
-
     end
 
     # Operation Parser for ExportClientVpnClientCertificateRevocationList
     class ExportClientVpnClientCertificateRevocationList
-
     end
 
     class ClientCertificateRevocationListStatus
@@ -4019,22 +3665,18 @@ module AWS::Ec2
 
     # Operation Parser for ExportClientVpnClientConfiguration
     class ExportClientVpnClientConfiguration
-
     end
 
     # Operation Parser for ExportImage
     class ExportImage
-
     end
 
     # Operation Parser for ExportTransitGatewayRoutes
     class ExportTransitGatewayRoutes
-
     end
 
     # Operation Parser for GetAssociatedEnclaveCertificateIamRoles
     class GetAssociatedEnclaveCertificateIamRoles
-
     end
 
     class AssociatedRolesList
@@ -4045,7 +3687,6 @@ module AWS::Ec2
 
     # Operation Parser for GetAssociatedIpv6PoolCidrs
     class GetAssociatedIpv6PoolCidrs
-
     end
 
     class Ipv6CidrAssociationSet
@@ -4056,7 +3697,6 @@ module AWS::Ec2
 
     # Operation Parser for GetCapacityReservationUsage
     class GetCapacityReservationUsage
-
     end
 
     class InstanceUsageSet
@@ -4067,7 +3707,6 @@ module AWS::Ec2
 
     # Operation Parser for GetCoipPoolUsage
     class GetCoipPoolUsage
-
     end
 
     class CoipAddressUsageSet
@@ -4078,17 +3717,14 @@ module AWS::Ec2
 
     # Operation Parser for GetConsoleOutput
     class GetConsoleOutput
-
     end
 
     # Operation Parser for GetConsoleScreenshot
     class GetConsoleScreenshot
-
     end
 
     # Operation Parser for GetDefaultCreditSpecification
     class GetDefaultCreditSpecification
-
     end
 
     class InstanceFamilyCreditSpecification
@@ -4096,22 +3732,18 @@ module AWS::Ec2
 
     # Operation Parser for GetEbsDefaultKmsKeyId
     class GetEbsDefaultKmsKeyId
-
     end
 
     # Operation Parser for GetEbsEncryptionByDefault
     class GetEbsEncryptionByDefault
-
     end
 
     # Operation Parser for GetFlowLogsIntegrationTemplate
     class GetFlowLogsIntegrationTemplate
-
     end
 
     # Operation Parser for GetGroupsForCapacityReservation
     class GetGroupsForCapacityReservation
-
     end
 
     class CapacityReservationGroupSet
@@ -4122,7 +3754,6 @@ module AWS::Ec2
 
     # Operation Parser for GetHostReservationPurchasePreview
     class GetHostReservationPurchasePreview
-
     end
 
     class PurchaseSet
@@ -4133,7 +3764,6 @@ module AWS::Ec2
 
     # Operation Parser for GetInstanceTypesFromInstanceRequirements
     class GetInstanceTypesFromInstanceRequirements
-
     end
 
     class InstanceTypeInfoFromInstanceRequirementsSet
@@ -4144,7 +3774,6 @@ module AWS::Ec2
 
     # Operation Parser for GetIpamAddressHistory
     class GetIpamAddressHistory
-
     end
 
     class IpamAddressHistoryRecordSet
@@ -4155,7 +3784,6 @@ module AWS::Ec2
 
     # Operation Parser for GetIpamPoolAllocations
     class GetIpamPoolAllocations
-
     end
 
     class IpamPoolAllocationSet
@@ -4163,7 +3791,6 @@ module AWS::Ec2
 
     # Operation Parser for GetIpamPoolCidrs
     class GetIpamPoolCidrs
-
     end
 
     class IpamPoolCidrSet
@@ -4171,7 +3798,6 @@ module AWS::Ec2
 
     # Operation Parser for GetIpamResourceCidrs
     class GetIpamResourceCidrs
-
     end
 
     class IpamResourceCidrSet
@@ -4182,12 +3808,10 @@ module AWS::Ec2
 
     # Operation Parser for GetLaunchTemplateData
     class GetLaunchTemplateData
-
     end
 
     # Operation Parser for GetManagedPrefixListAssociations
     class GetManagedPrefixListAssociations
-
     end
 
     class PrefixListAssociationSet
@@ -4198,7 +3822,6 @@ module AWS::Ec2
 
     # Operation Parser for GetManagedPrefixListEntries
     class GetManagedPrefixListEntries
-
     end
 
     class PrefixListEntrySet
@@ -4209,7 +3832,6 @@ module AWS::Ec2
 
     # Operation Parser for GetNetworkInsightsAccessScopeAnalysisFindings
     class GetNetworkInsightsAccessScopeAnalysisFindings
-
     end
 
     class AccessScopeAnalysisFindingList
@@ -4220,17 +3842,14 @@ module AWS::Ec2
 
     # Operation Parser for GetNetworkInsightsAccessScopeContent
     class GetNetworkInsightsAccessScopeContent
-
     end
 
     # Operation Parser for GetPasswordData
     class GetPasswordData
-
     end
 
     # Operation Parser for GetReservedInstancesExchangeQuote
     class GetReservedInstancesExchangeQuote
-
     end
 
     class TargetReservationValueSet
@@ -4253,12 +3872,10 @@ module AWS::Ec2
 
     # Operation Parser for GetSerialConsoleAccessStatus
     class GetSerialConsoleAccessStatus
-
     end
 
     # Operation Parser for GetSpotPlacementScores
     class GetSpotPlacementScores
-
     end
 
     class SpotPlacementScores
@@ -4269,7 +3886,6 @@ module AWS::Ec2
 
     # Operation Parser for GetSubnetCidrReservations
     class GetSubnetCidrReservations
-
     end
 
     class SubnetCidrReservationList
@@ -4277,7 +3893,6 @@ module AWS::Ec2
 
     # Operation Parser for GetTransitGatewayAttachmentPropagations
     class GetTransitGatewayAttachmentPropagations
-
     end
 
     class TransitGatewayAttachmentPropagationList
@@ -4288,7 +3903,6 @@ module AWS::Ec2
 
     # Operation Parser for GetTransitGatewayMulticastDomainAssociations
     class GetTransitGatewayMulticastDomainAssociations
-
     end
 
     class TransitGatewayMulticastDomainAssociationList
@@ -4299,7 +3913,6 @@ module AWS::Ec2
 
     # Operation Parser for GetTransitGatewayPrefixListReferences
     class GetTransitGatewayPrefixListReferences
-
     end
 
     class TransitGatewayPrefixListReferenceSet
@@ -4307,7 +3920,6 @@ module AWS::Ec2
 
     # Operation Parser for GetTransitGatewayRouteTableAssociations
     class GetTransitGatewayRouteTableAssociations
-
     end
 
     class TransitGatewayRouteTableAssociationList
@@ -4318,7 +3930,6 @@ module AWS::Ec2
 
     # Operation Parser for GetTransitGatewayRouteTablePropagations
     class GetTransitGatewayRouteTablePropagations
-
     end
 
     class TransitGatewayRouteTablePropagationList
@@ -4329,12 +3940,10 @@ module AWS::Ec2
 
     # Operation Parser for GetVpnConnectionDeviceSampleConfiguration
     class GetVpnConnectionDeviceSampleConfiguration
-
     end
 
     # Operation Parser for GetVpnConnectionDeviceTypes
     class GetVpnConnectionDeviceTypes
-
     end
 
     class VpnConnectionDeviceTypeList
@@ -4345,37 +3954,30 @@ module AWS::Ec2
 
     # Operation Parser for ImportClientVpnClientCertificateRevocationList
     class ImportClientVpnClientCertificateRevocationList
-
     end
 
     # Operation Parser for ImportImage
     class ImportImage
-
     end
 
     # Operation Parser for ImportInstance
     class ImportInstance
-
     end
 
     # Operation Parser for ImportKeyPair
     class ImportKeyPair
-
     end
 
     # Operation Parser for ImportSnapshot
     class ImportSnapshot
-
     end
 
     # Operation Parser for ImportVolume
     class ImportVolume
-
     end
 
     # Operation Parser for ListSnapshotsInRecycleBin
     class ListSnapshotsInRecycleBin
-
     end
 
     class SnapshotRecycleBinInfoList
@@ -4386,52 +3988,42 @@ module AWS::Ec2
 
     # Operation Parser for ModifyAddressAttribute
     class ModifyAddressAttribute
-
     end
 
     # Operation Parser for ModifyAvailabilityZoneGroup
     class ModifyAvailabilityZoneGroup
-
     end
 
     # Operation Parser for ModifyCapacityReservation
     class ModifyCapacityReservation
-
     end
 
     # Operation Parser for ModifyCapacityReservationFleet
     class ModifyCapacityReservationFleet
-
     end
 
     # Operation Parser for ModifyClientVpnEndpoint
     class ModifyClientVpnEndpoint
-
     end
 
     # Operation Parser for ModifyDefaultCreditSpecification
     class ModifyDefaultCreditSpecification
-
     end
 
     # Operation Parser for ModifyEbsDefaultKmsKeyId
     class ModifyEbsDefaultKmsKeyId
-
     end
 
     # Operation Parser for ModifyFleet
     class ModifyFleet
-
     end
 
     # Operation Parser for ModifyFpgaImageAttribute
     class ModifyFpgaImageAttribute
-
     end
 
     # Operation Parser for ModifyHosts
     class ModifyHosts
-
     end
 
     class UnsuccessfulItemList
@@ -4439,32 +4031,26 @@ module AWS::Ec2
 
     # Operation Parser for ModifyIdFormat
     class ModifyIdFormat
-
     end
 
     # Operation Parser for ModifyIdentityIdFormat
     class ModifyIdentityIdFormat
-
     end
 
     # Operation Parser for ModifyImageAttribute
     class ModifyImageAttribute
-
     end
 
     # Operation Parser for ModifyInstanceAttribute
     class ModifyInstanceAttribute
-
     end
 
     # Operation Parser for ModifyInstanceCapacityReservationAttributes
     class ModifyInstanceCapacityReservationAttributes
-
     end
 
     # Operation Parser for ModifyInstanceCreditSpecification
     class ModifyInstanceCreditSpecification
-
     end
 
     class UnsuccessfulInstanceCreditSpecificationSet
@@ -4484,167 +4070,134 @@ module AWS::Ec2
 
     # Operation Parser for ModifyInstanceEventStartTime
     class ModifyInstanceEventStartTime
-
     end
 
     # Operation Parser for ModifyInstanceEventWindow
     class ModifyInstanceEventWindow
-
     end
 
     # Operation Parser for ModifyInstanceMetadataOptions
     class ModifyInstanceMetadataOptions
-
     end
 
     # Operation Parser for ModifyInstancePlacement
     class ModifyInstancePlacement
-
     end
 
     # Operation Parser for ModifyIpam
     class ModifyIpam
-
     end
 
     # Operation Parser for ModifyIpamPool
     class ModifyIpamPool
-
     end
 
     # Operation Parser for ModifyIpamResourceCidr
     class ModifyIpamResourceCidr
-
     end
 
     # Operation Parser for ModifyIpamScope
     class ModifyIpamScope
-
     end
 
     # Operation Parser for ModifyLaunchTemplate
     class ModifyLaunchTemplate
-
     end
 
     # Operation Parser for ModifyManagedPrefixList
     class ModifyManagedPrefixList
-
     end
 
     # Operation Parser for ModifyNetworkInterfaceAttribute
     class ModifyNetworkInterfaceAttribute
-
     end
 
     # Operation Parser for ModifyPrivateDnsNameOptions
     class ModifyPrivateDnsNameOptions
-
     end
 
     # Operation Parser for ModifyReservedInstances
     class ModifyReservedInstances
-
     end
 
     # Operation Parser for ModifySecurityGroupRules
     class ModifySecurityGroupRules
-
     end
 
     # Operation Parser for ModifySnapshotAttribute
     class ModifySnapshotAttribute
-
     end
 
     # Operation Parser for ModifySnapshotTier
     class ModifySnapshotTier
-
     end
 
     # Operation Parser for ModifySpotFleetRequest
     class ModifySpotFleetRequest
-
     end
 
     # Operation Parser for ModifySubnetAttribute
     class ModifySubnetAttribute
-
     end
 
     # Operation Parser for ModifyTrafficMirrorFilterNetworkServices
     class ModifyTrafficMirrorFilterNetworkServices
-
     end
 
     # Operation Parser for ModifyTrafficMirrorFilterRule
     class ModifyTrafficMirrorFilterRule
-
     end
 
     # Operation Parser for ModifyTrafficMirrorSession
     class ModifyTrafficMirrorSession
-
     end
 
     # Operation Parser for ModifyTransitGateway
     class ModifyTransitGateway
-
     end
 
     # Operation Parser for ModifyTransitGatewayPrefixListReference
     class ModifyTransitGatewayPrefixListReference
-
     end
 
     # Operation Parser for ModifyTransitGatewayVpcAttachment
     class ModifyTransitGatewayVpcAttachment
-
     end
 
     # Operation Parser for ModifyVolume
     class ModifyVolume
-
     end
 
     # Operation Parser for ModifyVolumeAttribute
     class ModifyVolumeAttribute
-
     end
 
     # Operation Parser for ModifyVpcAttribute
     class ModifyVpcAttribute
-
     end
 
     # Operation Parser for ModifyVpcEndpoint
     class ModifyVpcEndpoint
-
     end
 
     # Operation Parser for ModifyVpcEndpointConnectionNotification
     class ModifyVpcEndpointConnectionNotification
-
     end
 
     # Operation Parser for ModifyVpcEndpointServiceConfiguration
     class ModifyVpcEndpointServiceConfiguration
-
     end
 
     # Operation Parser for ModifyVpcEndpointServicePayerResponsibility
     class ModifyVpcEndpointServicePayerResponsibility
-
     end
 
     # Operation Parser for ModifyVpcEndpointServicePermissions
     class ModifyVpcEndpointServicePermissions
-
     end
 
     # Operation Parser for ModifyVpcPeeringConnectionOptions
     class ModifyVpcPeeringConnectionOptions
-
     end
 
     class PeeringConnectionOptions
@@ -4652,32 +4205,26 @@ module AWS::Ec2
 
     # Operation Parser for ModifyVpcTenancy
     class ModifyVpcTenancy
-
     end
 
     # Operation Parser for ModifyVpnConnection
     class ModifyVpnConnection
-
     end
 
     # Operation Parser for ModifyVpnConnectionOptions
     class ModifyVpnConnectionOptions
-
     end
 
     # Operation Parser for ModifyVpnTunnelCertificate
     class ModifyVpnTunnelCertificate
-
     end
 
     # Operation Parser for ModifyVpnTunnelOptions
     class ModifyVpnTunnelOptions
-
     end
 
     # Operation Parser for MonitorInstances
     class MonitorInstances
-
     end
 
     class InstanceMonitoringList
@@ -4688,42 +4235,34 @@ module AWS::Ec2
 
     # Operation Parser for MoveAddressToVpc
     class MoveAddressToVpc
-
     end
 
     # Operation Parser for MoveByoipCidrToIpam
     class MoveByoipCidrToIpam
-
     end
 
     # Operation Parser for ProvisionByoipCidr
     class ProvisionByoipCidr
-
     end
 
     # Operation Parser for ProvisionIpamPoolCidr
     class ProvisionIpamPoolCidr
-
     end
 
     # Operation Parser for ProvisionPublicIpv4PoolCidr
     class ProvisionPublicIpv4PoolCidr
-
     end
 
     # Operation Parser for PurchaseHostReservation
     class PurchaseHostReservation
-
     end
 
     # Operation Parser for PurchaseReservedInstancesOffering
     class PurchaseReservedInstancesOffering
-
     end
 
     # Operation Parser for PurchaseScheduledInstances
     class PurchaseScheduledInstances
-
     end
 
     class PurchasedScheduledInstanceSet
@@ -4731,22 +4270,18 @@ module AWS::Ec2
 
     # Operation Parser for RebootInstances
     class RebootInstances
-
     end
 
     # Operation Parser for RegisterImage
     class RegisterImage
-
     end
 
     # Operation Parser for RegisterInstanceEventNotificationAttributes
     class RegisterInstanceEventNotificationAttributes
-
     end
 
     # Operation Parser for RegisterTransitGatewayMulticastGroupMembers
     class RegisterTransitGatewayMulticastGroupMembers
-
     end
 
     class TransitGatewayMulticastRegisteredGroupMembers
@@ -4754,7 +4289,6 @@ module AWS::Ec2
 
     # Operation Parser for RegisterTransitGatewayMulticastGroupSources
     class RegisterTransitGatewayMulticastGroupSources
-
     end
 
     class TransitGatewayMulticastRegisteredGroupSources
@@ -4762,167 +4296,134 @@ module AWS::Ec2
 
     # Operation Parser for RejectTransitGatewayMulticastDomainAssociations
     class RejectTransitGatewayMulticastDomainAssociations
-
     end
 
     # Operation Parser for RejectTransitGatewayPeeringAttachment
     class RejectTransitGatewayPeeringAttachment
-
     end
 
     # Operation Parser for RejectTransitGatewayVpcAttachment
     class RejectTransitGatewayVpcAttachment
-
     end
 
     # Operation Parser for RejectVpcEndpointConnections
     class RejectVpcEndpointConnections
-
     end
 
     # Operation Parser for RejectVpcPeeringConnection
     class RejectVpcPeeringConnection
-
     end
 
     # Operation Parser for ReleaseAddress
     class ReleaseAddress
-
     end
 
     # Operation Parser for ReleaseHosts
     class ReleaseHosts
-
     end
 
     # Operation Parser for ReleaseIpamPoolAllocation
     class ReleaseIpamPoolAllocation
-
     end
 
     # Operation Parser for ReplaceIamInstanceProfileAssociation
     class ReplaceIamInstanceProfileAssociation
-
     end
 
     # Operation Parser for ReplaceNetworkAclAssociation
     class ReplaceNetworkAclAssociation
-
     end
 
     # Operation Parser for ReplaceNetworkAclEntry
     class ReplaceNetworkAclEntry
-
     end
 
     # Operation Parser for ReplaceRoute
     class ReplaceRoute
-
     end
 
     # Operation Parser for ReplaceRouteTableAssociation
     class ReplaceRouteTableAssociation
-
     end
 
     # Operation Parser for ReplaceTransitGatewayRoute
     class ReplaceTransitGatewayRoute
-
     end
 
     # Operation Parser for ReportInstanceStatus
     class ReportInstanceStatus
-
     end
 
     # Operation Parser for RequestSpotFleet
     class RequestSpotFleet
-
     end
 
     # Operation Parser for RequestSpotInstances
     class RequestSpotInstances
-
     end
 
     # Operation Parser for ResetAddressAttribute
     class ResetAddressAttribute
-
     end
 
     # Operation Parser for ResetEbsDefaultKmsKeyId
     class ResetEbsDefaultKmsKeyId
-
     end
 
     # Operation Parser for ResetFpgaImageAttribute
     class ResetFpgaImageAttribute
-
     end
 
     # Operation Parser for ResetImageAttribute
     class ResetImageAttribute
-
     end
 
     # Operation Parser for ResetInstanceAttribute
     class ResetInstanceAttribute
-
     end
 
     # Operation Parser for ResetNetworkInterfaceAttribute
     class ResetNetworkInterfaceAttribute
-
     end
 
     # Operation Parser for ResetSnapshotAttribute
     class ResetSnapshotAttribute
-
     end
 
     # Operation Parser for RestoreAddressToClassic
     class RestoreAddressToClassic
-
     end
 
     # Operation Parser for RestoreManagedPrefixListVersion
     class RestoreManagedPrefixListVersion
-
     end
 
     # Operation Parser for RestoreSnapshotFromRecycleBin
     class RestoreSnapshotFromRecycleBin
-
     end
 
     # Operation Parser for RestoreSnapshotTier
     class RestoreSnapshotTier
-
     end
 
     # Operation Parser for RevokeClientVpnIngress
     class RevokeClientVpnIngress
-
     end
 
     # Operation Parser for RevokeSecurityGroupEgress
     class RevokeSecurityGroupEgress
-
     end
 
     # Operation Parser for RevokeSecurityGroupIngress
     class RevokeSecurityGroupIngress
-
     end
 
     # Operation Parser for RunInstances
     class RunInstances
-
     end
 
     # Operation Parser for RunScheduledInstances
     class RunScheduledInstances
-
     end
 
     class InstanceIdSet
@@ -4930,7 +4431,6 @@ module AWS::Ec2
 
     # Operation Parser for SearchLocalGatewayRoutes
     class SearchLocalGatewayRoutes
-
     end
 
     class LocalGatewayRouteList
@@ -4938,7 +4438,6 @@ module AWS::Ec2
 
     # Operation Parser for SearchTransitGatewayMulticastGroups
     class SearchTransitGatewayMulticastGroups
-
     end
 
     class TransitGatewayMulticastGroupList
@@ -4949,7 +4448,6 @@ module AWS::Ec2
 
     # Operation Parser for SearchTransitGatewayRoutes
     class SearchTransitGatewayRoutes
-
     end
 
     class TransitGatewayRouteList
@@ -4957,12 +4455,10 @@ module AWS::Ec2
 
     # Operation Parser for SendDiagnosticInterrupt
     class SendDiagnosticInterrupt
-
     end
 
     # Operation Parser for StartInstances
     class StartInstances
-
     end
 
     class InstanceStateChangeList
@@ -4973,27 +4469,22 @@ module AWS::Ec2
 
     # Operation Parser for StartNetworkInsightsAccessScopeAnalysis
     class StartNetworkInsightsAccessScopeAnalysis
-
     end
 
     # Operation Parser for StartNetworkInsightsAnalysis
     class StartNetworkInsightsAnalysis
-
     end
 
     # Operation Parser for StartVpcEndpointServicePrivateDnsVerification
     class StartVpcEndpointServicePrivateDnsVerification
-
     end
 
     # Operation Parser for StopInstances
     class StopInstances
-
     end
 
     # Operation Parser for TerminateClientVpnConnections
     class TerminateClientVpnConnections
-
     end
 
     class TerminateConnectionStatusSet
@@ -5004,37 +4495,30 @@ module AWS::Ec2
 
     # Operation Parser for TerminateInstances
     class TerminateInstances
-
     end
 
     # Operation Parser for UnassignIpv6Addresses
     class UnassignIpv6Addresses
-
     end
 
     # Operation Parser for UnassignPrivateIpAddresses
     class UnassignPrivateIpAddresses
-
     end
 
     # Operation Parser for UnmonitorInstances
     class UnmonitorInstances
-
     end
 
     # Operation Parser for UpdateSecurityGroupRuleDescriptionsEgress
     class UpdateSecurityGroupRuleDescriptionsEgress
-
     end
 
     # Operation Parser for UpdateSecurityGroupRuleDescriptionsIngress
     class UpdateSecurityGroupRuleDescriptionsIngress
-
     end
 
     # Operation Parser for WithdrawByoipCidr
     class WithdrawByoipCidr
-
     end
   end
 end

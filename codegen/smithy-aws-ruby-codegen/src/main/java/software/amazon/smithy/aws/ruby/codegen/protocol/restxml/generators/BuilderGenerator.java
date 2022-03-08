@@ -85,8 +85,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 .write("xml = Hearth::XML::Node.new('$L')", nodeName)
                 .call(() -> {
                     if (inputShape.hasTrait(XmlNamespaceTrait.class)) {
-                        writer.write("xml.attributes['xmlns'] = '$L'",
-                                inputShape.getTrait(XmlNamespaceTrait.class).get().getUri());
+                        writeXmlNamespaceForShape(inputShape, "xml");
                     }
                     renderMemberBuilders(inputShape);
                 })
@@ -199,6 +198,17 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 .closeBlock("end");
     }
 
+    private void writeXmlNamespaceForShape(Shape shape, String dataSetter) {
+        XmlNamespaceTrait trait = shape.getTrait(XmlNamespaceTrait.class).get();
+        Optional<String> prefix = trait.getPrefix();
+        String uri = trait.getUri();
+        String xmlns = "xmlns";
+        if (prefix.isPresent()) {
+            xmlns += ":" + prefix.get();
+        }
+        writer.write("$L.attributes['$L'] = '$L'", dataSetter, xmlns, uri);
+    }
+
     private class MemberSerializer extends ShapeVisitor.Default<Void> {
 
         private final String inputGetter;
@@ -222,16 +232,29 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
             }
         }
 
+        private String xmlnsAttribute() {
+            if (memberShape.hasTrait(XmlNamespaceTrait.class)) {
+                XmlNamespaceTrait xmlns = memberShape.expectTrait(XmlNamespaceTrait.class);
+                return writer.format(
+                        ", attributes: { 'xmlns$L' => '$L' }",
+                        xmlns.getPrefix().isPresent() ? ":" + xmlns.getPrefix().get() : "",
+                        xmlns.getUri()
+                );
+            } else {
+                return "";
+            }
+        }
+
         @Override
         protected Void getDefault(Shape shape) {
-            writer.write("xml << Hearth::XML::Node.new($L, $L.to_s)$L",
-                    nodeName, inputGetter, checkRequired());
+            writer.write("xml << Hearth::XML::Node.new($L, $L.to_s$L)$L",
+                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
             return null;
         }
 
         private void rubyFloat() {
-            writer.write("xml << Hearth::XML::Node.new($L, Hearth::NumberHelper.serialize($L).to_s)$L",
-                    nodeName, inputGetter, checkRequired());
+            writer.write("xml << Hearth::XML::Node.new($L, Hearth::NumberHelper.serialize($L).to_s$L)$L",
+                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
         }
 
         @Override
@@ -248,8 +271,8 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("xml << Hearth::XML::Node.new($L, Base64::encode64($L).strip)$L",
-                    nodeName, inputGetter, checkRequired());
+            writer.write("xml << Hearth::XML::Node.new($L, Base64::encode64($L).strip$L)$L",
+                    nodeName, inputGetter, xmlnsAttribute(), checkRequired());
             return null;
         }
 
@@ -261,25 +284,25 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 switch (format.get().getFormat()) {
                     case EPOCH_SECONDS:
                         writer.write(
-                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_epoch_seconds($L).to_i.to_s)$L",
-                                nodeName, inputGetter, checkRequired());
+                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_epoch_seconds($L).to_i.to_s$L)$L",
+                                nodeName, inputGetter, xmlnsAttribute(), checkRequired());
                         break;
                     case HTTP_DATE:
                         writer.write(
-                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_http_date($L))$L",
-                                nodeName, inputGetter,checkRequired());
+                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_http_date($L)$L)$L",
+                                nodeName, inputGetter, xmlnsAttribute(), checkRequired());
                         break;
                     case DATE_TIME:
                     default:
                         writer.write(
-                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_date_time($L))$L",
-                                nodeName, inputGetter, checkRequired());
+                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_date_time($L)$L)$L",
+                                nodeName, inputGetter, xmlnsAttribute(), checkRequired());
                         break;
                 }
             } else {
                 writer.write(
-                        "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_date_time($L))$L",
-                        nodeName, inputGetter, checkRequired());
+                        "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_date_time($L)$L)$L",
+                        nodeName, inputGetter, xmlnsAttribute(), checkRequired());
             }
             return null;
         }
@@ -306,9 +329,9 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 if (shape.getMember().hasTrait(XmlNameTrait.class)) {
                     memberName = shape.getMember().getTrait(XmlNameTrait.class).get().getValue();
                 }
-                writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('$4L', $3L)) unless $3L.nil?",
+                writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('$4L', $3L)$5L) unless $3L.nil?",
                         symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter, memberName);
+                        inputGetter, memberName, xmlnsAttribute());
             }
             return null;
         }
@@ -318,11 +341,11 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
             if (memberShape.hasTrait(XmlFlattenedTrait.class) || shape.hasTrait(XmlFlattenedTrait.class)) {
                 writer.write("xml << Builders::$1L.build($2L, $3L) unless $3L.nil?",
                         symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter);
+                        inputGetter, xmlnsAttribute());
             } else {
-                writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('member', $3L)) unless $3L.nil?",
+                writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('member', $3L)$4L) unless $3L.nil?",
                         symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter);
+                        inputGetter, xmlnsAttribute());
             }
 
             return null;
@@ -335,9 +358,9 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                         symbolProvider.toSymbol(shape).getName(), nodeName,
                         inputGetter);
             } else {
-                writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('entry', $3L)) unless $3L.nil?",
+                writer.write("xml << Hearth::XML::Node.new($2L, Builders::$1L.build('entry', $3L)$4L) unless $3L.nil?",
                         symbolProvider.toSymbol(shape).getName(), nodeName,
-                        inputGetter);
+                        inputGetter, xmlnsAttribute());
             }
 
             return null;
@@ -526,18 +549,21 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
         }
 
         private void defaultComplexSerializer(Shape shape) {
-            String nodeName = "'" + symbolProvider.toSymbol(shape).getName()+ "'";
-            if (shape.hasTrait(XmlNameTrait.class)) {
+            String nodeName = "'" + symbolProvider.toSymbol(shape).getName() + "'";
+            if (memberShape.hasTrait(XmlNameTrait.class)) {
+                nodeName = "'" + memberShape.expectTrait(XmlNameTrait.class).getValue() + "'";
+            } else if (shape.hasTrait(XmlNameTrait.class)) {
                 nodeName = "'" + shape.expectTrait(XmlNameTrait.class).getValue() + "'";
             }
-            if (nodeName.equals("nested")) {
-                System.out.println("wtf");
-            }
-            System.out.println("WARBLE: " + nodeName);
             writer
                     .write("http_req.headers['Content-Type'] = 'application/xml'")
                     .write("xml = Builders::$1L.build($2L, $3L) unless $3L.nil?", symbolProvider.toSymbol(shape).getName(),
                             nodeName, inputGetter)
+                    .call( ()-> {
+                        if (shape.hasTrait(XmlNamespaceTrait.class)) {
+                            writeXmlNamespaceForShape(shape, "xml");
+                        }
+                    })
                     .write("http_req.body = StringIO.new(xml.to_str)");
         }
 

@@ -14,7 +14,6 @@ module AWS::Cloudfront
 
     # Operation Parser for AssociateAlias
     class AssociateAlias
-
       def self.parse(http_resp)
         data = Types::AssociateAliasOutput.new
         body = http_resp.body.read
@@ -26,7 +25,6 @@ module AWS::Cloudfront
 
     # Error Parser for AccessDenied
     class AccessDenied
-
       def self.parse(http_resp)
         data = Types::AccessDenied.new
         body = http_resp.body.read
@@ -42,7 +40,6 @@ module AWS::Cloudfront
 
     # Error Parser for IllegalUpdate
     class IllegalUpdate
-
       def self.parse(http_resp)
         data = Types::IllegalUpdate.new
         body = http_resp.body.read
@@ -58,7 +55,6 @@ module AWS::Cloudfront
 
     # Error Parser for NoSuchDistribution
     class NoSuchDistribution
-
       def self.parse(http_resp)
         data = Types::NoSuchDistribution.new
         body = http_resp.body.read
@@ -74,7 +70,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidArgument
     class InvalidArgument
-
       def self.parse(http_resp)
         data = Types::InvalidArgument.new
         body = http_resp.body.read
@@ -90,7 +85,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyDistributionCNAMEs
     class TooManyDistributionCNAMEs
-
       def self.parse(http_resp)
         data = Types::TooManyDistributionCNAMEs.new
         body = http_resp.body.read
@@ -106,13 +100,13 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateCachePolicy
     class CreateCachePolicy
-
       def self.parse(http_resp)
         data = Types::CreateCachePolicyOutput.new
         data.location = http_resp.headers['Location']
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.cache_policy = Parsers::CachePolicy.parse(xml)
         data
       end
@@ -294,7 +288,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyCookiesInCachePolicy
     class TooManyCookiesInCachePolicy
-
       def self.parse(http_resp)
         data = Types::TooManyCookiesInCachePolicy.new
         body = http_resp.body.read
@@ -310,7 +303,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyHeadersInCachePolicy
     class TooManyHeadersInCachePolicy
-
       def self.parse(http_resp)
         data = Types::TooManyHeadersInCachePolicy.new
         body = http_resp.body.read
@@ -326,7 +318,6 @@ module AWS::Cloudfront
 
     # Error Parser for InconsistentQuantities
     class InconsistentQuantities
-
       def self.parse(http_resp)
         data = Types::InconsistentQuantities.new
         body = http_resp.body.read
@@ -342,7 +333,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyCachePolicies
     class TooManyCachePolicies
-
       def self.parse(http_resp)
         data = Types::TooManyCachePolicies.new
         body = http_resp.body.read
@@ -358,7 +348,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyQueryStringsInCachePolicy
     class TooManyQueryStringsInCachePolicy
-
       def self.parse(http_resp)
         data = Types::TooManyQueryStringsInCachePolicy.new
         body = http_resp.body.read
@@ -374,7 +363,6 @@ module AWS::Cloudfront
 
     # Error Parser for CachePolicyAlreadyExists
     class CachePolicyAlreadyExists
-
       def self.parse(http_resp)
         data = Types::CachePolicyAlreadyExists.new
         body = http_resp.body.read
@@ -390,13 +378,13 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateCloudFrontOriginAccessIdentity
     class CreateCloudFrontOriginAccessIdentity
-
       def self.parse(http_resp)
         data = Types::CreateCloudFrontOriginAccessIdentityOutput.new
         data.location = http_resp.headers['Location']
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.cloud_front_origin_access_identity = Parsers::CloudFrontOriginAccessIdentity.parse(xml)
         data
       end
@@ -433,7 +421,6 @@ module AWS::Cloudfront
 
     # Error Parser for MissingBody
     class MissingBody
-
       def self.parse(http_resp)
         data = Types::MissingBody.new
         body = http_resp.body.read
@@ -449,7 +436,6 @@ module AWS::Cloudfront
 
     # Error Parser for CloudFrontOriginAccessIdentityAlreadyExists
     class CloudFrontOriginAccessIdentityAlreadyExists
-
       def self.parse(http_resp)
         data = Types::CloudFrontOriginAccessIdentityAlreadyExists.new
         body = http_resp.body.read
@@ -465,7 +451,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyCloudFrontOriginAccessIdentities
     class TooManyCloudFrontOriginAccessIdentities
-
       def self.parse(http_resp)
         data = Types::TooManyCloudFrontOriginAccessIdentities.new
         body = http_resp.body.read
@@ -481,13 +466,13 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateDistribution
     class CreateDistribution
-
       def self.parse(http_resp)
         data = Types::CreateDistributionOutput.new
         data.location = http_resp.headers['Location']
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.distribution = Parsers::Distribution.parse(xml)
         data
       end
@@ -1521,7 +1506,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyDistributionsAssociatedToOriginRequestPolicy
     class TooManyDistributionsAssociatedToOriginRequestPolicy
-
       def self.parse(http_resp)
         data = Types::TooManyDistributionsAssociatedToOriginRequestPolicy.new
         body = http_resp.body.read
@@ -1537,7 +1521,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidRelativePath
     class InvalidRelativePath
-
       def self.parse(http_resp)
         data = Types::InvalidRelativePath.new
         body = http_resp.body.read
@@ -1553,7 +1536,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyQueryStringParameters
     class TooManyQueryStringParameters
-
       def self.parse(http_resp)
         data = Types::TooManyQueryStringParameters.new
         body = http_resp.body.read
@@ -1569,7 +1551,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyLambdaFunctionAssociations
     class TooManyLambdaFunctionAssociations
-
       def self.parse(http_resp)
         data = Types::TooManyLambdaFunctionAssociations.new
         body = http_resp.body.read
@@ -1585,7 +1566,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidWebACLId
     class InvalidWebACLId
-
       def self.parse(http_resp)
         data = Types::InvalidWebACLId.new
         body = http_resp.body.read
@@ -1601,7 +1581,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidTTLOrder
     class InvalidTTLOrder
-
       def self.parse(http_resp)
         data = Types::InvalidTTLOrder.new
         body = http_resp.body.read
@@ -1617,7 +1596,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyDistributions
     class TooManyDistributions
-
       def self.parse(http_resp)
         data = Types::TooManyDistributions.new
         body = http_resp.body.read
@@ -1633,7 +1611,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyDistributionsWithFunctionAssociations
     class TooManyDistributionsWithFunctionAssociations
-
       def self.parse(http_resp)
         data = Types::TooManyDistributionsWithFunctionAssociations.new
         body = http_resp.body.read
@@ -1649,7 +1626,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyHeadersInForwardedValues
     class TooManyHeadersInForwardedValues
-
       def self.parse(http_resp)
         data = Types::TooManyHeadersInForwardedValues.new
         body = http_resp.body.read
@@ -1665,7 +1641,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
     class TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
-
       def self.parse(http_resp)
         data = Types::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig.new
         body = http_resp.body.read
@@ -1681,7 +1656,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidOriginAccessIdentity
     class InvalidOriginAccessIdentity
-
       def self.parse(http_resp)
         data = Types::InvalidOriginAccessIdentity.new
         body = http_resp.body.read
@@ -1697,7 +1671,6 @@ module AWS::Cloudfront
 
     # Error Parser for DistributionAlreadyExists
     class DistributionAlreadyExists
-
       def self.parse(http_resp)
         data = Types::DistributionAlreadyExists.new
         body = http_resp.body.read
@@ -1713,7 +1686,6 @@ module AWS::Cloudfront
 
     # Error Parser for RealtimeLogConfigOwnerMismatch
     class RealtimeLogConfigOwnerMismatch
-
       def self.parse(http_resp)
         data = Types::RealtimeLogConfigOwnerMismatch.new
         body = http_resp.body.read
@@ -1729,7 +1701,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyCacheBehaviors
     class TooManyCacheBehaviors
-
       def self.parse(http_resp)
         data = Types::TooManyCacheBehaviors.new
         body = http_resp.body.read
@@ -1745,7 +1716,6 @@ module AWS::Cloudfront
 
     # Error Parser for NoSuchOrigin
     class NoSuchOrigin
-
       def self.parse(http_resp)
         data = Types::NoSuchOrigin.new
         body = http_resp.body.read
@@ -1761,7 +1731,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyDistributionsAssociatedToCachePolicy
     class TooManyDistributionsAssociatedToCachePolicy
-
       def self.parse(http_resp)
         data = Types::TooManyDistributionsAssociatedToCachePolicy.new
         body = http_resp.body.read
@@ -1777,7 +1746,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidViewerCertificate
     class InvalidViewerCertificate
-
       def self.parse(http_resp)
         data = Types::InvalidViewerCertificate.new
         body = http_resp.body.read
@@ -1793,7 +1761,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidFunctionAssociation
     class InvalidFunctionAssociation
-
       def self.parse(http_resp)
         data = Types::InvalidFunctionAssociation.new
         body = http_resp.body.read
@@ -1809,7 +1776,6 @@ module AWS::Cloudfront
 
     # Error Parser for NoSuchResponseHeadersPolicy
     class NoSuchResponseHeadersPolicy
-
       def self.parse(http_resp)
         data = Types::NoSuchResponseHeadersPolicy.new
         body = http_resp.body.read
@@ -1825,7 +1791,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidDefaultRootObject
     class InvalidDefaultRootObject
-
       def self.parse(http_resp)
         data = Types::InvalidDefaultRootObject.new
         body = http_resp.body.read
@@ -1841,7 +1806,6 @@ module AWS::Cloudfront
 
     # Error Parser for NoSuchCachePolicy
     class NoSuchCachePolicy
-
       def self.parse(http_resp)
         data = Types::NoSuchCachePolicy.new
         body = http_resp.body.read
@@ -1857,7 +1821,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidProtocolSettings
     class InvalidProtocolSettings
-
       def self.parse(http_resp)
         data = Types::InvalidProtocolSettings.new
         body = http_resp.body.read
@@ -1873,7 +1836,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidMinimumProtocolVersion
     class InvalidMinimumProtocolVersion
-
       def self.parse(http_resp)
         data = Types::InvalidMinimumProtocolVersion.new
         body = http_resp.body.read
@@ -1889,7 +1851,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidLambdaFunctionAssociation
     class InvalidLambdaFunctionAssociation
-
       def self.parse(http_resp)
         data = Types::InvalidLambdaFunctionAssociation.new
         body = http_resp.body.read
@@ -1905,7 +1866,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidResponseCode
     class InvalidResponseCode
-
       def self.parse(http_resp)
         data = Types::InvalidResponseCode.new
         body = http_resp.body.read
@@ -1921,7 +1881,6 @@ module AWS::Cloudfront
 
     # Error Parser for NoSuchOriginRequestPolicy
     class NoSuchOriginRequestPolicy
-
       def self.parse(http_resp)
         data = Types::NoSuchOriginRequestPolicy.new
         body = http_resp.body.read
@@ -1937,7 +1896,6 @@ module AWS::Cloudfront
 
     # Error Parser for NoSuchFieldLevelEncryptionConfig
     class NoSuchFieldLevelEncryptionConfig
-
       def self.parse(http_resp)
         data = Types::NoSuchFieldLevelEncryptionConfig.new
         body = http_resp.body.read
@@ -1953,7 +1911,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidHeadersForS3Origin
     class InvalidHeadersForS3Origin
-
       def self.parse(http_resp)
         data = Types::InvalidHeadersForS3Origin.new
         body = http_resp.body.read
@@ -1969,7 +1926,6 @@ module AWS::Cloudfront
 
     # Error Parser for TrustedSignerDoesNotExist
     class TrustedSignerDoesNotExist
-
       def self.parse(http_resp)
         data = Types::TrustedSignerDoesNotExist.new
         body = http_resp.body.read
@@ -1985,7 +1941,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyCookieNamesInWhiteList
     class TooManyCookieNamesInWhiteList
-
       def self.parse(http_resp)
         data = Types::TooManyCookieNamesInWhiteList.new
         body = http_resp.body.read
@@ -2001,7 +1956,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyDistributionsAssociatedToKeyGroup
     class TooManyDistributionsAssociatedToKeyGroup
-
       def self.parse(http_resp)
         data = Types::TooManyDistributionsAssociatedToKeyGroup.new
         body = http_resp.body.read
@@ -2017,7 +1971,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyOrigins
     class TooManyOrigins
-
       def self.parse(http_resp)
         data = Types::TooManyOrigins.new
         body = http_resp.body.read
@@ -2033,7 +1986,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyTrustedSigners
     class TooManyTrustedSigners
-
       def self.parse(http_resp)
         data = Types::TooManyTrustedSigners.new
         body = http_resp.body.read
@@ -2049,7 +2001,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyDistributionsWithSingleFunctionARN
     class TooManyDistributionsWithSingleFunctionARN
-
       def self.parse(http_resp)
         data = Types::TooManyDistributionsWithSingleFunctionARN.new
         body = http_resp.body.read
@@ -2065,7 +2016,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidGeoRestrictionParameter
     class InvalidGeoRestrictionParameter
-
       def self.parse(http_resp)
         data = Types::InvalidGeoRestrictionParameter.new
         body = http_resp.body.read
@@ -2081,7 +2031,6 @@ module AWS::Cloudfront
 
     # Error Parser for NoSuchRealtimeLogConfig
     class NoSuchRealtimeLogConfig
-
       def self.parse(http_resp)
         data = Types::NoSuchRealtimeLogConfig.new
         body = http_resp.body.read
@@ -2097,7 +2046,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidOriginReadTimeout
     class InvalidOriginReadTimeout
-
       def self.parse(http_resp)
         data = Types::InvalidOriginReadTimeout.new
         body = http_resp.body.read
@@ -2113,7 +2061,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyCertificates
     class TooManyCertificates
-
       def self.parse(http_resp)
         data = Types::TooManyCertificates.new
         body = http_resp.body.read
@@ -2129,7 +2076,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidLocationCode
     class InvalidLocationCode
-
       def self.parse(http_resp)
         data = Types::InvalidLocationCode.new
         body = http_resp.body.read
@@ -2145,7 +2091,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidQueryStringParameters
     class InvalidQueryStringParameters
-
       def self.parse(http_resp)
         data = Types::InvalidQueryStringParameters.new
         body = http_resp.body.read
@@ -2161,7 +2106,6 @@ module AWS::Cloudfront
 
     # Error Parser for CNAMEAlreadyExists
     class CNAMEAlreadyExists
-
       def self.parse(http_resp)
         data = Types::CNAMEAlreadyExists.new
         body = http_resp.body.read
@@ -2177,7 +2121,6 @@ module AWS::Cloudfront
 
     # Error Parser for IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
     class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
-
       def self.parse(http_resp)
         data = Types::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior.new
         body = http_resp.body.read
@@ -2193,7 +2136,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidErrorCode
     class InvalidErrorCode
-
       def self.parse(http_resp)
         data = Types::InvalidErrorCode.new
         body = http_resp.body.read
@@ -2209,7 +2151,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyKeyGroupsAssociatedToDistribution
     class TooManyKeyGroupsAssociatedToDistribution
-
       def self.parse(http_resp)
         data = Types::TooManyKeyGroupsAssociatedToDistribution.new
         body = http_resp.body.read
@@ -2225,7 +2166,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyDistributionsWithLambdaAssociations
     class TooManyDistributionsWithLambdaAssociations
-
       def self.parse(http_resp)
         data = Types::TooManyDistributionsWithLambdaAssociations.new
         body = http_resp.body.read
@@ -2241,7 +2181,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyOriginCustomHeaders
     class TooManyOriginCustomHeaders
-
       def self.parse(http_resp)
         data = Types::TooManyOriginCustomHeaders.new
         body = http_resp.body.read
@@ -2257,7 +2196,6 @@ module AWS::Cloudfront
 
     # Error Parser for TrustedKeyGroupDoesNotExist
     class TrustedKeyGroupDoesNotExist
-
       def self.parse(http_resp)
         data = Types::TrustedKeyGroupDoesNotExist.new
         body = http_resp.body.read
@@ -2273,7 +2211,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidOriginKeepaliveTimeout
     class InvalidOriginKeepaliveTimeout
-
       def self.parse(http_resp)
         data = Types::InvalidOriginKeepaliveTimeout.new
         body = http_resp.body.read
@@ -2289,7 +2226,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidForwardCookies
     class InvalidForwardCookies
-
       def self.parse(http_resp)
         data = Types::InvalidForwardCookies.new
         body = http_resp.body.read
@@ -2305,7 +2241,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidOrigin
     class InvalidOrigin
-
       def self.parse(http_resp)
         data = Types::InvalidOrigin.new
         body = http_resp.body.read
@@ -2321,7 +2256,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyDistributionsAssociatedToResponseHeadersPolicy
     class TooManyDistributionsAssociatedToResponseHeadersPolicy
-
       def self.parse(http_resp)
         data = Types::TooManyDistributionsAssociatedToResponseHeadersPolicy.new
         body = http_resp.body.read
@@ -2337,7 +2271,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyOriginGroupsPerDistribution
     class TooManyOriginGroupsPerDistribution
-
       def self.parse(http_resp)
         data = Types::TooManyOriginGroupsPerDistribution.new
         body = http_resp.body.read
@@ -2353,7 +2286,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidRequiredProtocol
     class InvalidRequiredProtocol
-
       def self.parse(http_resp)
         data = Types::InvalidRequiredProtocol.new
         body = http_resp.body.read
@@ -2369,7 +2301,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyFunctionAssociations
     class TooManyFunctionAssociations
-
       def self.parse(http_resp)
         data = Types::TooManyFunctionAssociations.new
         body = http_resp.body.read
@@ -2385,13 +2316,13 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateDistributionWithTags
     class CreateDistributionWithTags
-
       def self.parse(http_resp)
         data = Types::CreateDistributionWithTagsOutput.new
         data.location = http_resp.headers['Location']
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.distribution = Parsers::Distribution.parse(xml)
         data
       end
@@ -2399,7 +2330,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidTagging
     class InvalidTagging
-
       def self.parse(http_resp)
         data = Types::InvalidTagging.new
         body = http_resp.body.read
@@ -2415,13 +2345,13 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateFieldLevelEncryptionConfig
     class CreateFieldLevelEncryptionConfig
-
       def self.parse(http_resp)
         data = Types::CreateFieldLevelEncryptionConfigOutput.new
         data.location = http_resp.headers['Location']
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.field_level_encryption = Parsers::FieldLevelEncryption.parse(xml)
         data
       end
@@ -2567,7 +2497,6 @@ module AWS::Cloudfront
 
     # Error Parser for QueryArgProfileEmpty
     class QueryArgProfileEmpty
-
       def self.parse(http_resp)
         data = Types::QueryArgProfileEmpty.new
         body = http_resp.body.read
@@ -2583,7 +2512,6 @@ module AWS::Cloudfront
 
     # Error Parser for FieldLevelEncryptionConfigAlreadyExists
     class FieldLevelEncryptionConfigAlreadyExists
-
       def self.parse(http_resp)
         data = Types::FieldLevelEncryptionConfigAlreadyExists.new
         body = http_resp.body.read
@@ -2599,7 +2527,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyFieldLevelEncryptionContentTypeProfiles
     class TooManyFieldLevelEncryptionContentTypeProfiles
-
       def self.parse(http_resp)
         data = Types::TooManyFieldLevelEncryptionContentTypeProfiles.new
         body = http_resp.body.read
@@ -2615,7 +2542,6 @@ module AWS::Cloudfront
 
     # Error Parser for NoSuchFieldLevelEncryptionProfile
     class NoSuchFieldLevelEncryptionProfile
-
       def self.parse(http_resp)
         data = Types::NoSuchFieldLevelEncryptionProfile.new
         body = http_resp.body.read
@@ -2631,7 +2557,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyFieldLevelEncryptionConfigs
     class TooManyFieldLevelEncryptionConfigs
-
       def self.parse(http_resp)
         data = Types::TooManyFieldLevelEncryptionConfigs.new
         body = http_resp.body.read
@@ -2647,7 +2572,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyFieldLevelEncryptionQueryArgProfiles
     class TooManyFieldLevelEncryptionQueryArgProfiles
-
       def self.parse(http_resp)
         data = Types::TooManyFieldLevelEncryptionQueryArgProfiles.new
         body = http_resp.body.read
@@ -2663,13 +2587,13 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateFieldLevelEncryptionProfile
     class CreateFieldLevelEncryptionProfile
-
       def self.parse(http_resp)
         data = Types::CreateFieldLevelEncryptionProfileOutput.new
         data.location = http_resp.headers['Location']
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.field_level_encryption_profile = Parsers::FieldLevelEncryptionProfile.parse(xml)
         data
       end
@@ -2776,7 +2700,6 @@ module AWS::Cloudfront
 
     # Error Parser for FieldLevelEncryptionProfileAlreadyExists
     class FieldLevelEncryptionProfileAlreadyExists
-
       def self.parse(http_resp)
         data = Types::FieldLevelEncryptionProfileAlreadyExists.new
         body = http_resp.body.read
@@ -2792,7 +2715,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyFieldLevelEncryptionFieldPatterns
     class TooManyFieldLevelEncryptionFieldPatterns
-
       def self.parse(http_resp)
         data = Types::TooManyFieldLevelEncryptionFieldPatterns.new
         body = http_resp.body.read
@@ -2808,7 +2730,6 @@ module AWS::Cloudfront
 
     # Error Parser for NoSuchPublicKey
     class NoSuchPublicKey
-
       def self.parse(http_resp)
         data = Types::NoSuchPublicKey.new
         body = http_resp.body.read
@@ -2824,7 +2745,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyFieldLevelEncryptionEncryptionEntities
     class TooManyFieldLevelEncryptionEncryptionEntities
-
       def self.parse(http_resp)
         data = Types::TooManyFieldLevelEncryptionEncryptionEntities.new
         body = http_resp.body.read
@@ -2840,7 +2760,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyFieldLevelEncryptionProfiles
     class TooManyFieldLevelEncryptionProfiles
-
       def self.parse(http_resp)
         data = Types::TooManyFieldLevelEncryptionProfiles.new
         body = http_resp.body.read
@@ -2856,7 +2775,6 @@ module AWS::Cloudfront
 
     # Error Parser for FieldLevelEncryptionProfileSizeExceeded
     class FieldLevelEncryptionProfileSizeExceeded
-
       def self.parse(http_resp)
         data = Types::FieldLevelEncryptionProfileSizeExceeded.new
         body = http_resp.body.read
@@ -2872,13 +2790,13 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateFunction
     class CreateFunction
-
       def self.parse(http_resp)
         data = Types::CreateFunctionOutput.new
         data.location = http_resp.headers['Location']
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.function_summary = Parsers::FunctionSummary.parse(xml)
         data
       end
@@ -2937,7 +2855,6 @@ module AWS::Cloudfront
 
     # Error Parser for UnsupportedOperation
     class UnsupportedOperation
-
       def self.parse(http_resp)
         data = Types::UnsupportedOperation.new
         body = http_resp.body.read
@@ -2953,7 +2870,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyFunctions
     class TooManyFunctions
-
       def self.parse(http_resp)
         data = Types::TooManyFunctions.new
         body = http_resp.body.read
@@ -2969,7 +2885,6 @@ module AWS::Cloudfront
 
     # Error Parser for FunctionAlreadyExists
     class FunctionAlreadyExists
-
       def self.parse(http_resp)
         data = Types::FunctionAlreadyExists.new
         body = http_resp.body.read
@@ -2985,7 +2900,6 @@ module AWS::Cloudfront
 
     # Error Parser for FunctionSizeLimitExceeded
     class FunctionSizeLimitExceeded
-
       def self.parse(http_resp)
         data = Types::FunctionSizeLimitExceeded.new
         body = http_resp.body.read
@@ -3001,12 +2915,12 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateInvalidation
     class CreateInvalidation
-
       def self.parse(http_resp)
         data = Types::CreateInvalidationOutput.new
         data.location = http_resp.headers['Location']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.invalidation = Parsers::Invalidation.parse(xml)
         data
       end
@@ -3070,7 +2984,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyInvalidationsInProgress
     class TooManyInvalidationsInProgress
-
       def self.parse(http_resp)
         data = Types::TooManyInvalidationsInProgress.new
         body = http_resp.body.read
@@ -3086,7 +2999,6 @@ module AWS::Cloudfront
 
     # Error Parser for BatchTooLarge
     class BatchTooLarge
-
       def self.parse(http_resp)
         data = Types::BatchTooLarge.new
         body = http_resp.body.read
@@ -3102,13 +3014,13 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateKeyGroup
     class CreateKeyGroup
-
       def self.parse(http_resp)
         data = Types::CreateKeyGroupOutput.new
         data.location = http_resp.headers['Location']
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.key_group = Parsers::KeyGroup.parse(xml)
         data
       end
@@ -3159,7 +3071,6 @@ module AWS::Cloudfront
 
     # Error Parser for KeyGroupAlreadyExists
     class KeyGroupAlreadyExists
-
       def self.parse(http_resp)
         data = Types::KeyGroupAlreadyExists.new
         body = http_resp.body.read
@@ -3175,7 +3086,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyKeyGroups
     class TooManyKeyGroups
-
       def self.parse(http_resp)
         data = Types::TooManyKeyGroups.new
         body = http_resp.body.read
@@ -3191,7 +3101,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyPublicKeysInKeyGroup
     class TooManyPublicKeysInKeyGroup
-
       def self.parse(http_resp)
         data = Types::TooManyPublicKeysInKeyGroup.new
         body = http_resp.body.read
@@ -3207,11 +3116,11 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateMonitoringSubscription
     class CreateMonitoringSubscription
-
       def self.parse(http_resp)
         data = Types::CreateMonitoringSubscriptionOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.monitoring_subscription = Parsers::MonitoringSubscription.parse(xml)
         data
       end
@@ -3239,13 +3148,13 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateOriginRequestPolicy
     class CreateOriginRequestPolicy
-
       def self.parse(http_resp)
         data = Types::CreateOriginRequestPolicyOutput.new
         data.location = http_resp.headers['Location']
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.origin_request_policy = Parsers::OriginRequestPolicy.parse(xml)
         data
       end
@@ -3330,7 +3239,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyHeadersInOriginRequestPolicy
     class TooManyHeadersInOriginRequestPolicy
-
       def self.parse(http_resp)
         data = Types::TooManyHeadersInOriginRequestPolicy.new
         body = http_resp.body.read
@@ -3346,7 +3254,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyOriginRequestPolicies
     class TooManyOriginRequestPolicies
-
       def self.parse(http_resp)
         data = Types::TooManyOriginRequestPolicies.new
         body = http_resp.body.read
@@ -3362,7 +3269,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyQueryStringsInOriginRequestPolicy
     class TooManyQueryStringsInOriginRequestPolicy
-
       def self.parse(http_resp)
         data = Types::TooManyQueryStringsInOriginRequestPolicy.new
         body = http_resp.body.read
@@ -3378,7 +3284,6 @@ module AWS::Cloudfront
 
     # Error Parser for OriginRequestPolicyAlreadyExists
     class OriginRequestPolicyAlreadyExists
-
       def self.parse(http_resp)
         data = Types::OriginRequestPolicyAlreadyExists.new
         body = http_resp.body.read
@@ -3394,7 +3299,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyCookiesInOriginRequestPolicy
     class TooManyCookiesInOriginRequestPolicy
-
       def self.parse(http_resp)
         data = Types::TooManyCookiesInOriginRequestPolicy.new
         body = http_resp.body.read
@@ -3410,13 +3314,13 @@ module AWS::Cloudfront
 
     # Operation Parser for CreatePublicKey
     class CreatePublicKey
-
       def self.parse(http_resp)
         data = Types::CreatePublicKeyOutput.new
         data.location = http_resp.headers['Location']
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.public_key = Parsers::PublicKey.parse(xml)
         data
       end
@@ -3459,7 +3363,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyPublicKeys
     class TooManyPublicKeys
-
       def self.parse(http_resp)
         data = Types::TooManyPublicKeys.new
         body = http_resp.body.read
@@ -3475,7 +3378,6 @@ module AWS::Cloudfront
 
     # Error Parser for PublicKeyAlreadyExists
     class PublicKeyAlreadyExists
-
       def self.parse(http_resp)
         data = Types::PublicKeyAlreadyExists.new
         body = http_resp.body.read
@@ -3491,7 +3393,6 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateRealtimeLogConfig
     class CreateRealtimeLogConfig
-
       def self.parse(http_resp)
         data = Types::CreateRealtimeLogConfigOutput.new
         body = http_resp.body.read
@@ -3576,7 +3477,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyRealtimeLogConfigs
     class TooManyRealtimeLogConfigs
-
       def self.parse(http_resp)
         data = Types::TooManyRealtimeLogConfigs.new
         body = http_resp.body.read
@@ -3592,7 +3492,6 @@ module AWS::Cloudfront
 
     # Error Parser for RealtimeLogConfigAlreadyExists
     class RealtimeLogConfigAlreadyExists
-
       def self.parse(http_resp)
         data = Types::RealtimeLogConfigAlreadyExists.new
         body = http_resp.body.read
@@ -3608,13 +3507,13 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateResponseHeadersPolicy
     class CreateResponseHeadersPolicy
-
       def self.parse(http_resp)
         data = Types::CreateResponseHeadersPolicyOutput.new
         data.location = http_resp.headers['Location']
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.response_headers_policy = Parsers::ResponseHeadersPolicy.parse(xml)
         data
       end
@@ -3936,7 +3835,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyCustomHeadersInResponseHeadersPolicy
     class TooManyCustomHeadersInResponseHeadersPolicy
-
       def self.parse(http_resp)
         data = Types::TooManyCustomHeadersInResponseHeadersPolicy.new
         body = http_resp.body.read
@@ -3952,7 +3850,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyResponseHeadersPolicies
     class TooManyResponseHeadersPolicies
-
       def self.parse(http_resp)
         data = Types::TooManyResponseHeadersPolicies.new
         body = http_resp.body.read
@@ -3968,7 +3865,6 @@ module AWS::Cloudfront
 
     # Error Parser for ResponseHeadersPolicyAlreadyExists
     class ResponseHeadersPolicyAlreadyExists
-
       def self.parse(http_resp)
         data = Types::ResponseHeadersPolicyAlreadyExists.new
         body = http_resp.body.read
@@ -3984,13 +3880,13 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateStreamingDistribution
     class CreateStreamingDistribution
-
       def self.parse(http_resp)
         data = Types::CreateStreamingDistributionOutput.new
         data.location = http_resp.headers['Location']
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.streaming_distribution = Parsers::StreamingDistribution.parse(xml)
         data
       end
@@ -4086,7 +3982,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyStreamingDistributions
     class TooManyStreamingDistributions
-
       def self.parse(http_resp)
         data = Types::TooManyStreamingDistributions.new
         body = http_resp.body.read
@@ -4102,7 +3997,6 @@ module AWS::Cloudfront
 
     # Error Parser for StreamingDistributionAlreadyExists
     class StreamingDistributionAlreadyExists
-
       def self.parse(http_resp)
         data = Types::StreamingDistributionAlreadyExists.new
         body = http_resp.body.read
@@ -4118,7 +4012,6 @@ module AWS::Cloudfront
 
     # Error Parser for TooManyStreamingDistributionCNAMEs
     class TooManyStreamingDistributionCNAMEs
-
       def self.parse(http_resp)
         data = Types::TooManyStreamingDistributionCNAMEs.new
         body = http_resp.body.read
@@ -4134,13 +4027,13 @@ module AWS::Cloudfront
 
     # Operation Parser for CreateStreamingDistributionWithTags
     class CreateStreamingDistributionWithTags
-
       def self.parse(http_resp)
         data = Types::CreateStreamingDistributionWithTagsOutput.new
         data.location = http_resp.headers['Location']
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.streaming_distribution = Parsers::StreamingDistribution.parse(xml)
         data
       end
@@ -4148,7 +4041,6 @@ module AWS::Cloudfront
 
     # Operation Parser for DeleteCachePolicy
     class DeleteCachePolicy
-
       def self.parse(http_resp)
         data = Types::DeleteCachePolicyOutput.new
         body = http_resp.body.read
@@ -4160,7 +4052,6 @@ module AWS::Cloudfront
 
     # Error Parser for PreconditionFailed
     class PreconditionFailed
-
       def self.parse(http_resp)
         data = Types::PreconditionFailed.new
         body = http_resp.body.read
@@ -4176,7 +4067,6 @@ module AWS::Cloudfront
 
     # Error Parser for InvalidIfMatchVersion
     class InvalidIfMatchVersion
-
       def self.parse(http_resp)
         data = Types::InvalidIfMatchVersion.new
         body = http_resp.body.read
@@ -4192,7 +4082,6 @@ module AWS::Cloudfront
 
     # Error Parser for IllegalDelete
     class IllegalDelete
-
       def self.parse(http_resp)
         data = Types::IllegalDelete.new
         body = http_resp.body.read
@@ -4208,7 +4097,6 @@ module AWS::Cloudfront
 
     # Error Parser for CachePolicyInUse
     class CachePolicyInUse
-
       def self.parse(http_resp)
         data = Types::CachePolicyInUse.new
         body = http_resp.body.read
@@ -4224,7 +4112,6 @@ module AWS::Cloudfront
 
     # Operation Parser for DeleteCloudFrontOriginAccessIdentity
     class DeleteCloudFrontOriginAccessIdentity
-
       def self.parse(http_resp)
         data = Types::DeleteCloudFrontOriginAccessIdentityOutput.new
         body = http_resp.body.read
@@ -4236,7 +4123,6 @@ module AWS::Cloudfront
 
     # Error Parser for CloudFrontOriginAccessIdentityInUse
     class CloudFrontOriginAccessIdentityInUse
-
       def self.parse(http_resp)
         data = Types::CloudFrontOriginAccessIdentityInUse.new
         body = http_resp.body.read
@@ -4252,7 +4138,6 @@ module AWS::Cloudfront
 
     # Error Parser for NoSuchCloudFrontOriginAccessIdentity
     class NoSuchCloudFrontOriginAccessIdentity
-
       def self.parse(http_resp)
         data = Types::NoSuchCloudFrontOriginAccessIdentity.new
         body = http_resp.body.read
@@ -4268,7 +4153,6 @@ module AWS::Cloudfront
 
     # Operation Parser for DeleteDistribution
     class DeleteDistribution
-
       def self.parse(http_resp)
         data = Types::DeleteDistributionOutput.new
         body = http_resp.body.read
@@ -4280,7 +4164,6 @@ module AWS::Cloudfront
 
     # Error Parser for DistributionNotDisabled
     class DistributionNotDisabled
-
       def self.parse(http_resp)
         data = Types::DistributionNotDisabled.new
         body = http_resp.body.read
@@ -4296,7 +4179,6 @@ module AWS::Cloudfront
 
     # Operation Parser for DeleteFieldLevelEncryptionConfig
     class DeleteFieldLevelEncryptionConfig
-
       def self.parse(http_resp)
         data = Types::DeleteFieldLevelEncryptionConfigOutput.new
         body = http_resp.body.read
@@ -4308,7 +4190,6 @@ module AWS::Cloudfront
 
     # Error Parser for FieldLevelEncryptionConfigInUse
     class FieldLevelEncryptionConfigInUse
-
       def self.parse(http_resp)
         data = Types::FieldLevelEncryptionConfigInUse.new
         body = http_resp.body.read
@@ -4324,7 +4205,6 @@ module AWS::Cloudfront
 
     # Operation Parser for DeleteFieldLevelEncryptionProfile
     class DeleteFieldLevelEncryptionProfile
-
       def self.parse(http_resp)
         data = Types::DeleteFieldLevelEncryptionProfileOutput.new
         body = http_resp.body.read
@@ -4336,7 +4216,6 @@ module AWS::Cloudfront
 
     # Error Parser for FieldLevelEncryptionProfileInUse
     class FieldLevelEncryptionProfileInUse
-
       def self.parse(http_resp)
         data = Types::FieldLevelEncryptionProfileInUse.new
         body = http_resp.body.read
@@ -4352,7 +4231,6 @@ module AWS::Cloudfront
 
     # Operation Parser for DeleteFunction
     class DeleteFunction
-
       def self.parse(http_resp)
         data = Types::DeleteFunctionOutput.new
         body = http_resp.body.read
@@ -4364,7 +4242,6 @@ module AWS::Cloudfront
 
     # Error Parser for NoSuchFunctionExists
     class NoSuchFunctionExists
-
       def self.parse(http_resp)
         data = Types::NoSuchFunctionExists.new
         body = http_resp.body.read
@@ -4380,7 +4257,6 @@ module AWS::Cloudfront
 
     # Error Parser for FunctionInUse
     class FunctionInUse
-
       def self.parse(http_resp)
         data = Types::FunctionInUse.new
         body = http_resp.body.read
@@ -4396,7 +4272,6 @@ module AWS::Cloudfront
 
     # Operation Parser for DeleteKeyGroup
     class DeleteKeyGroup
-
       def self.parse(http_resp)
         data = Types::DeleteKeyGroupOutput.new
         body = http_resp.body.read
@@ -4408,7 +4283,6 @@ module AWS::Cloudfront
 
     # Error Parser for NoSuchResource
     class NoSuchResource
-
       def self.parse(http_resp)
         data = Types::NoSuchResource.new
         body = http_resp.body.read
@@ -4424,7 +4298,6 @@ module AWS::Cloudfront
 
     # Error Parser for ResourceInUse
     class ResourceInUse
-
       def self.parse(http_resp)
         data = Types::ResourceInUse.new
         body = http_resp.body.read
@@ -4440,7 +4313,6 @@ module AWS::Cloudfront
 
     # Operation Parser for DeleteMonitoringSubscription
     class DeleteMonitoringSubscription
-
       def self.parse(http_resp)
         data = Types::DeleteMonitoringSubscriptionOutput.new
         body = http_resp.body.read
@@ -4452,7 +4324,6 @@ module AWS::Cloudfront
 
     # Operation Parser for DeleteOriginRequestPolicy
     class DeleteOriginRequestPolicy
-
       def self.parse(http_resp)
         data = Types::DeleteOriginRequestPolicyOutput.new
         body = http_resp.body.read
@@ -4464,7 +4335,6 @@ module AWS::Cloudfront
 
     # Error Parser for OriginRequestPolicyInUse
     class OriginRequestPolicyInUse
-
       def self.parse(http_resp)
         data = Types::OriginRequestPolicyInUse.new
         body = http_resp.body.read
@@ -4480,7 +4350,6 @@ module AWS::Cloudfront
 
     # Operation Parser for DeletePublicKey
     class DeletePublicKey
-
       def self.parse(http_resp)
         data = Types::DeletePublicKeyOutput.new
         body = http_resp.body.read
@@ -4492,7 +4361,6 @@ module AWS::Cloudfront
 
     # Error Parser for PublicKeyInUse
     class PublicKeyInUse
-
       def self.parse(http_resp)
         data = Types::PublicKeyInUse.new
         body = http_resp.body.read
@@ -4508,7 +4376,6 @@ module AWS::Cloudfront
 
     # Operation Parser for DeleteRealtimeLogConfig
     class DeleteRealtimeLogConfig
-
       def self.parse(http_resp)
         data = Types::DeleteRealtimeLogConfigOutput.new
         body = http_resp.body.read
@@ -4520,7 +4387,6 @@ module AWS::Cloudfront
 
     # Error Parser for RealtimeLogConfigInUse
     class RealtimeLogConfigInUse
-
       def self.parse(http_resp)
         data = Types::RealtimeLogConfigInUse.new
         body = http_resp.body.read
@@ -4536,7 +4402,6 @@ module AWS::Cloudfront
 
     # Operation Parser for DeleteResponseHeadersPolicy
     class DeleteResponseHeadersPolicy
-
       def self.parse(http_resp)
         data = Types::DeleteResponseHeadersPolicyOutput.new
         body = http_resp.body.read
@@ -4548,7 +4413,6 @@ module AWS::Cloudfront
 
     # Error Parser for ResponseHeadersPolicyInUse
     class ResponseHeadersPolicyInUse
-
       def self.parse(http_resp)
         data = Types::ResponseHeadersPolicyInUse.new
         body = http_resp.body.read
@@ -4564,7 +4428,6 @@ module AWS::Cloudfront
 
     # Operation Parser for DeleteStreamingDistribution
     class DeleteStreamingDistribution
-
       def self.parse(http_resp)
         data = Types::DeleteStreamingDistributionOutput.new
         body = http_resp.body.read
@@ -4576,7 +4439,6 @@ module AWS::Cloudfront
 
     # Error Parser for StreamingDistributionNotDisabled
     class StreamingDistributionNotDisabled
-
       def self.parse(http_resp)
         data = Types::StreamingDistributionNotDisabled.new
         body = http_resp.body.read
@@ -4592,7 +4454,6 @@ module AWS::Cloudfront
 
     # Error Parser for NoSuchStreamingDistribution
     class NoSuchStreamingDistribution
-
       def self.parse(http_resp)
         data = Types::NoSuchStreamingDistribution.new
         body = http_resp.body.read
@@ -4608,12 +4469,12 @@ module AWS::Cloudfront
 
     # Operation Parser for DescribeFunction
     class DescribeFunction
-
       def self.parse(http_resp)
         data = Types::DescribeFunctionOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.function_summary = Parsers::FunctionSummary.parse(xml)
         data
       end
@@ -4621,12 +4482,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetCachePolicy
     class GetCachePolicy
-
       def self.parse(http_resp)
         data = Types::GetCachePolicyOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.cache_policy = Parsers::CachePolicy.parse(xml)
         data
       end
@@ -4634,12 +4495,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetCachePolicyConfig
     class GetCachePolicyConfig
-
       def self.parse(http_resp)
         data = Types::GetCachePolicyConfigOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.cache_policy_config = Parsers::CachePolicyConfig.parse(xml)
         data
       end
@@ -4647,12 +4508,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetCloudFrontOriginAccessIdentity
     class GetCloudFrontOriginAccessIdentity
-
       def self.parse(http_resp)
         data = Types::GetCloudFrontOriginAccessIdentityOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.cloud_front_origin_access_identity = Parsers::CloudFrontOriginAccessIdentity.parse(xml)
         data
       end
@@ -4660,12 +4521,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetCloudFrontOriginAccessIdentityConfig
     class GetCloudFrontOriginAccessIdentityConfig
-
       def self.parse(http_resp)
         data = Types::GetCloudFrontOriginAccessIdentityConfigOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.cloud_front_origin_access_identity_config = Parsers::CloudFrontOriginAccessIdentityConfig.parse(xml)
         data
       end
@@ -4673,12 +4534,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetDistribution
     class GetDistribution
-
       def self.parse(http_resp)
         data = Types::GetDistributionOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.distribution = Parsers::Distribution.parse(xml)
         data
       end
@@ -4686,12 +4547,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetDistributionConfig
     class GetDistributionConfig
-
       def self.parse(http_resp)
         data = Types::GetDistributionConfigOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.distribution_config = Parsers::DistributionConfig.parse(xml)
         data
       end
@@ -4699,12 +4560,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetFieldLevelEncryption
     class GetFieldLevelEncryption
-
       def self.parse(http_resp)
         data = Types::GetFieldLevelEncryptionOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.field_level_encryption = Parsers::FieldLevelEncryption.parse(xml)
         data
       end
@@ -4712,12 +4573,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetFieldLevelEncryptionConfig
     class GetFieldLevelEncryptionConfig
-
       def self.parse(http_resp)
         data = Types::GetFieldLevelEncryptionConfigOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.field_level_encryption_config = Parsers::FieldLevelEncryptionConfig.parse(xml)
         data
       end
@@ -4725,12 +4586,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetFieldLevelEncryptionProfile
     class GetFieldLevelEncryptionProfile
-
       def self.parse(http_resp)
         data = Types::GetFieldLevelEncryptionProfileOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.field_level_encryption_profile = Parsers::FieldLevelEncryptionProfile.parse(xml)
         data
       end
@@ -4738,12 +4599,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetFieldLevelEncryptionProfileConfig
     class GetFieldLevelEncryptionProfileConfig
-
       def self.parse(http_resp)
         data = Types::GetFieldLevelEncryptionProfileConfigOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.field_level_encryption_profile_config = Parsers::FieldLevelEncryptionProfileConfig.parse(xml)
         data
       end
@@ -4751,7 +4612,6 @@ module AWS::Cloudfront
 
     # Operation Parser for GetFunction
     class GetFunction
-
       def self.parse(http_resp)
         data = Types::GetFunctionOutput.new
         data.e_tag = http_resp.headers['ETag']
@@ -4764,11 +4624,11 @@ module AWS::Cloudfront
 
     # Operation Parser for GetInvalidation
     class GetInvalidation
-
       def self.parse(http_resp)
         data = Types::GetInvalidationOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.invalidation = Parsers::Invalidation.parse(xml)
         data
       end
@@ -4776,7 +4636,6 @@ module AWS::Cloudfront
 
     # Error Parser for NoSuchInvalidation
     class NoSuchInvalidation
-
       def self.parse(http_resp)
         data = Types::NoSuchInvalidation.new
         body = http_resp.body.read
@@ -4792,12 +4651,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetKeyGroup
     class GetKeyGroup
-
       def self.parse(http_resp)
         data = Types::GetKeyGroupOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.key_group = Parsers::KeyGroup.parse(xml)
         data
       end
@@ -4805,12 +4664,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetKeyGroupConfig
     class GetKeyGroupConfig
-
       def self.parse(http_resp)
         data = Types::GetKeyGroupConfigOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.key_group_config = Parsers::KeyGroupConfig.parse(xml)
         data
       end
@@ -4818,11 +4677,11 @@ module AWS::Cloudfront
 
     # Operation Parser for GetMonitoringSubscription
     class GetMonitoringSubscription
-
       def self.parse(http_resp)
         data = Types::GetMonitoringSubscriptionOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.monitoring_subscription = Parsers::MonitoringSubscription.parse(xml)
         data
       end
@@ -4830,12 +4689,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetOriginRequestPolicy
     class GetOriginRequestPolicy
-
       def self.parse(http_resp)
         data = Types::GetOriginRequestPolicyOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.origin_request_policy = Parsers::OriginRequestPolicy.parse(xml)
         data
       end
@@ -4843,12 +4702,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetOriginRequestPolicyConfig
     class GetOriginRequestPolicyConfig
-
       def self.parse(http_resp)
         data = Types::GetOriginRequestPolicyConfigOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.origin_request_policy_config = Parsers::OriginRequestPolicyConfig.parse(xml)
         data
       end
@@ -4856,12 +4715,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetPublicKey
     class GetPublicKey
-
       def self.parse(http_resp)
         data = Types::GetPublicKeyOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.public_key = Parsers::PublicKey.parse(xml)
         data
       end
@@ -4869,12 +4728,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetPublicKeyConfig
     class GetPublicKeyConfig
-
       def self.parse(http_resp)
         data = Types::GetPublicKeyConfigOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.public_key_config = Parsers::PublicKeyConfig.parse(xml)
         data
       end
@@ -4882,7 +4741,6 @@ module AWS::Cloudfront
 
     # Operation Parser for GetRealtimeLogConfig
     class GetRealtimeLogConfig
-
       def self.parse(http_resp)
         data = Types::GetRealtimeLogConfigOutput.new
         body = http_resp.body.read
@@ -4897,12 +4755,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetResponseHeadersPolicy
     class GetResponseHeadersPolicy
-
       def self.parse(http_resp)
         data = Types::GetResponseHeadersPolicyOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.response_headers_policy = Parsers::ResponseHeadersPolicy.parse(xml)
         data
       end
@@ -4910,12 +4768,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetResponseHeadersPolicyConfig
     class GetResponseHeadersPolicyConfig
-
       def self.parse(http_resp)
         data = Types::GetResponseHeadersPolicyConfigOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.response_headers_policy_config = Parsers::ResponseHeadersPolicyConfig.parse(xml)
         data
       end
@@ -4923,12 +4781,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetStreamingDistribution
     class GetStreamingDistribution
-
       def self.parse(http_resp)
         data = Types::GetStreamingDistributionOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.streaming_distribution = Parsers::StreamingDistribution.parse(xml)
         data
       end
@@ -4936,12 +4794,12 @@ module AWS::Cloudfront
 
     # Operation Parser for GetStreamingDistributionConfig
     class GetStreamingDistributionConfig
-
       def self.parse(http_resp)
         data = Types::GetStreamingDistributionConfigOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.streaming_distribution_config = Parsers::StreamingDistributionConfig.parse(xml)
         data
       end
@@ -4949,11 +4807,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListCachePolicies
     class ListCachePolicies
-
       def self.parse(http_resp)
         data = Types::ListCachePoliciesOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.cache_policy_list = Parsers::CachePolicyList.parse(xml)
         data
       end
@@ -5004,11 +4862,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListCloudFrontOriginAccessIdentities
     class ListCloudFrontOriginAccessIdentities
-
       def self.parse(http_resp)
         data = Types::ListCloudFrontOriginAccessIdentitiesOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.cloud_front_origin_access_identity_list = Parsers::CloudFrontOriginAccessIdentityList.parse(xml)
         data
       end
@@ -5068,11 +4926,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListConflictingAliases
     class ListConflictingAliases
-
       def self.parse(http_resp)
         data = Types::ListConflictingAliasesOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.conflicting_aliases_list = Parsers::ConflictingAliasesList.parse(xml)
         data
       end
@@ -5126,11 +4984,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListDistributions
     class ListDistributions
-
       def self.parse(http_resp)
         data = Types::ListDistributionsOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.distribution_list = Parsers::DistributionList.parse(xml)
         data
       end
@@ -5242,11 +5100,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListDistributionsByCachePolicyId
     class ListDistributionsByCachePolicyId
-
       def self.parse(http_resp)
         data = Types::ListDistributionsByCachePolicyIdOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.distribution_id_list = Parsers::DistributionIdList.parse(xml)
         data
       end
@@ -5290,11 +5148,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListDistributionsByKeyGroup
     class ListDistributionsByKeyGroup
-
       def self.parse(http_resp)
         data = Types::ListDistributionsByKeyGroupOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.distribution_id_list = Parsers::DistributionIdList.parse(xml)
         data
       end
@@ -5302,11 +5160,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListDistributionsByOriginRequestPolicyId
     class ListDistributionsByOriginRequestPolicyId
-
       def self.parse(http_resp)
         data = Types::ListDistributionsByOriginRequestPolicyIdOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.distribution_id_list = Parsers::DistributionIdList.parse(xml)
         data
       end
@@ -5314,11 +5172,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListDistributionsByRealtimeLogConfig
     class ListDistributionsByRealtimeLogConfig
-
       def self.parse(http_resp)
         data = Types::ListDistributionsByRealtimeLogConfigOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.distribution_list = Parsers::DistributionList.parse(xml)
         data
       end
@@ -5326,11 +5184,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListDistributionsByResponseHeadersPolicyId
     class ListDistributionsByResponseHeadersPolicyId
-
       def self.parse(http_resp)
         data = Types::ListDistributionsByResponseHeadersPolicyIdOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.distribution_id_list = Parsers::DistributionIdList.parse(xml)
         data
       end
@@ -5338,11 +5196,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListDistributionsByWebACLId
     class ListDistributionsByWebACLId
-
       def self.parse(http_resp)
         data = Types::ListDistributionsByWebACLIdOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.distribution_list = Parsers::DistributionList.parse(xml)
         data
       end
@@ -5350,11 +5208,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListFieldLevelEncryptionConfigs
     class ListFieldLevelEncryptionConfigs
-
       def self.parse(http_resp)
         data = Types::ListFieldLevelEncryptionConfigsOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.field_level_encryption_list = Parsers::FieldLevelEncryptionList.parse(xml)
         data
       end
@@ -5414,11 +5272,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListFieldLevelEncryptionProfiles
     class ListFieldLevelEncryptionProfiles
-
       def self.parse(http_resp)
         data = Types::ListFieldLevelEncryptionProfilesOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.field_level_encryption_profile_list = Parsers::FieldLevelEncryptionProfileList.parse(xml)
         data
       end
@@ -5478,11 +5336,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListFunctions
     class ListFunctions
-
       def self.parse(http_resp)
         data = Types::ListFunctionsOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.function_list = Parsers::FunctionList.parse(xml)
         data
       end
@@ -5520,11 +5378,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListInvalidations
     class ListInvalidations
-
       def self.parse(http_resp)
         data = Types::ListInvalidationsOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.invalidation_list = Parsers::InvalidationList.parse(xml)
         data
       end
@@ -5584,11 +5442,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListKeyGroups
     class ListKeyGroups
-
       def self.parse(http_resp)
         data = Types::ListKeyGroupsOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.key_group_list = Parsers::KeyGroupList.parse(xml)
         data
       end
@@ -5636,11 +5494,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListOriginRequestPolicies
     class ListOriginRequestPolicies
-
       def self.parse(http_resp)
         data = Types::ListOriginRequestPoliciesOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.origin_request_policy_list = Parsers::OriginRequestPolicyList.parse(xml)
         data
       end
@@ -5691,11 +5549,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListPublicKeys
     class ListPublicKeys
-
       def self.parse(http_resp)
         data = Types::ListPublicKeysOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.public_key_list = Parsers::PublicKeyList.parse(xml)
         data
       end
@@ -5755,11 +5613,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListRealtimeLogConfigs
     class ListRealtimeLogConfigs
-
       def self.parse(http_resp)
         data = Types::ListRealtimeLogConfigsOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.realtime_log_configs = Parsers::RealtimeLogConfigs.parse(xml)
         data
       end
@@ -5800,11 +5658,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListResponseHeadersPolicies
     class ListResponseHeadersPolicies
-
       def self.parse(http_resp)
         data = Types::ListResponseHeadersPoliciesOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.response_headers_policy_list = Parsers::ResponseHeadersPolicyList.parse(xml)
         data
       end
@@ -5855,11 +5713,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListStreamingDistributions
     class ListStreamingDistributions
-
       def self.parse(http_resp)
         data = Types::ListStreamingDistributionsOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.streaming_distribution_list = Parsers::StreamingDistributionList.parse(xml)
         data
       end
@@ -5943,11 +5801,11 @@ module AWS::Cloudfront
 
     # Operation Parser for ListTagsForResource
     class ListTagsForResource
-
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.tags = Parsers::Tags.parse(xml)
         data
       end
@@ -5989,11 +5847,11 @@ module AWS::Cloudfront
 
     # Operation Parser for PublishFunction
     class PublishFunction
-
       def self.parse(http_resp)
         data = Types::PublishFunctionOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.function_summary = Parsers::FunctionSummary.parse(xml)
         data
       end
@@ -6001,7 +5859,6 @@ module AWS::Cloudfront
 
     # Operation Parser for TagResource
     class TagResource
-
       def self.parse(http_resp)
         data = Types::TagResourceOutput.new
         body = http_resp.body.read
@@ -6013,11 +5870,11 @@ module AWS::Cloudfront
 
     # Operation Parser for TestFunction
     class TestFunction
-
       def self.parse(http_resp)
         data = Types::TestFunctionOutput.new
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.test_result = Parsers::TestResult.parse(xml)
         data
       end
@@ -6058,7 +5915,6 @@ module AWS::Cloudfront
 
     # Error Parser for TestFunctionFailed
     class TestFunctionFailed
-
       def self.parse(http_resp)
         data = Types::TestFunctionFailed.new
         body = http_resp.body.read
@@ -6074,7 +5930,6 @@ module AWS::Cloudfront
 
     # Operation Parser for UntagResource
     class UntagResource
-
       def self.parse(http_resp)
         data = Types::UntagResourceOutput.new
         body = http_resp.body.read
@@ -6086,12 +5941,12 @@ module AWS::Cloudfront
 
     # Operation Parser for UpdateCachePolicy
     class UpdateCachePolicy
-
       def self.parse(http_resp)
         data = Types::UpdateCachePolicyOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.cache_policy = Parsers::CachePolicy.parse(xml)
         data
       end
@@ -6099,12 +5954,12 @@ module AWS::Cloudfront
 
     # Operation Parser for UpdateCloudFrontOriginAccessIdentity
     class UpdateCloudFrontOriginAccessIdentity
-
       def self.parse(http_resp)
         data = Types::UpdateCloudFrontOriginAccessIdentityOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.cloud_front_origin_access_identity = Parsers::CloudFrontOriginAccessIdentity.parse(xml)
         data
       end
@@ -6112,12 +5967,12 @@ module AWS::Cloudfront
 
     # Operation Parser for UpdateDistribution
     class UpdateDistribution
-
       def self.parse(http_resp)
         data = Types::UpdateDistributionOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.distribution = Parsers::Distribution.parse(xml)
         data
       end
@@ -6125,12 +5980,12 @@ module AWS::Cloudfront
 
     # Operation Parser for UpdateFieldLevelEncryptionConfig
     class UpdateFieldLevelEncryptionConfig
-
       def self.parse(http_resp)
         data = Types::UpdateFieldLevelEncryptionConfigOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.field_level_encryption = Parsers::FieldLevelEncryption.parse(xml)
         data
       end
@@ -6138,12 +5993,12 @@ module AWS::Cloudfront
 
     # Operation Parser for UpdateFieldLevelEncryptionProfile
     class UpdateFieldLevelEncryptionProfile
-
       def self.parse(http_resp)
         data = Types::UpdateFieldLevelEncryptionProfileOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.field_level_encryption_profile = Parsers::FieldLevelEncryptionProfile.parse(xml)
         data
       end
@@ -6151,12 +6006,12 @@ module AWS::Cloudfront
 
     # Operation Parser for UpdateFunction
     class UpdateFunction
-
       def self.parse(http_resp)
         data = Types::UpdateFunctionOutput.new
         data.e_tag = http_resp.headers['ETtag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.function_summary = Parsers::FunctionSummary.parse(xml)
         data
       end
@@ -6164,12 +6019,12 @@ module AWS::Cloudfront
 
     # Operation Parser for UpdateKeyGroup
     class UpdateKeyGroup
-
       def self.parse(http_resp)
         data = Types::UpdateKeyGroupOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.key_group = Parsers::KeyGroup.parse(xml)
         data
       end
@@ -6177,12 +6032,12 @@ module AWS::Cloudfront
 
     # Operation Parser for UpdateOriginRequestPolicy
     class UpdateOriginRequestPolicy
-
       def self.parse(http_resp)
         data = Types::UpdateOriginRequestPolicyOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.origin_request_policy = Parsers::OriginRequestPolicy.parse(xml)
         data
       end
@@ -6190,12 +6045,12 @@ module AWS::Cloudfront
 
     # Operation Parser for UpdatePublicKey
     class UpdatePublicKey
-
       def self.parse(http_resp)
         data = Types::UpdatePublicKeyOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.public_key = Parsers::PublicKey.parse(xml)
         data
       end
@@ -6203,7 +6058,6 @@ module AWS::Cloudfront
 
     # Error Parser for CannotChangeImmutablePublicKeyFields
     class CannotChangeImmutablePublicKeyFields
-
       def self.parse(http_resp)
         data = Types::CannotChangeImmutablePublicKeyFields.new
         body = http_resp.body.read
@@ -6219,7 +6073,6 @@ module AWS::Cloudfront
 
     # Operation Parser for UpdateRealtimeLogConfig
     class UpdateRealtimeLogConfig
-
       def self.parse(http_resp)
         data = Types::UpdateRealtimeLogConfigOutput.new
         body = http_resp.body.read
@@ -6234,12 +6087,12 @@ module AWS::Cloudfront
 
     # Operation Parser for UpdateResponseHeadersPolicy
     class UpdateResponseHeadersPolicy
-
       def self.parse(http_resp)
         data = Types::UpdateResponseHeadersPolicyOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.response_headers_policy = Parsers::ResponseHeadersPolicy.parse(xml)
         data
       end
@@ -6247,12 +6100,12 @@ module AWS::Cloudfront
 
     # Operation Parser for UpdateStreamingDistribution
     class UpdateStreamingDistribution
-
       def self.parse(http_resp)
         data = Types::UpdateStreamingDistributionOutput.new
         data.e_tag = http_resp.headers['ETag']
         body = http_resp.body.read
-        xml = Hearth::XML.parse(body) unless body.empty?
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
         data.streaming_distribution = Parsers::StreamingDistribution.parse(xml)
         data
       end

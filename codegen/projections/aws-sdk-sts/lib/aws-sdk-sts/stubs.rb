@@ -12,7 +12,6 @@ module AWS::Sts
 
     # Operation Stubber for AssumeRole
     class AssumeRole
-
       def self.default(visited=[])
         {
           credentials: Stubs::Credentials.default(visited),
@@ -26,7 +25,6 @@ module AWS::Sts
 
     # Structure Stubber for AssumedRoleUser
     class AssumedRoleUser
-
       def self.default(visited=[])
         return nil if visited.include?('AssumedRoleUser')
         visited = visited + ['AssumedRoleUser']
@@ -40,7 +38,6 @@ module AWS::Sts
 
     # Structure Stubber for Credentials
     class Credentials
-
       def self.default(visited=[])
         return nil if visited.include?('Credentials')
         visited = visited + ['Credentials']
@@ -56,7 +53,6 @@ module AWS::Sts
 
     # Operation Stubber for AssumeRoleWithSAML
     class AssumeRoleWithSAML
-
       def self.default(visited=[])
         {
           credentials: Stubs::Credentials.default(visited),
@@ -75,7 +71,6 @@ module AWS::Sts
 
     # Operation Stubber for AssumeRoleWithWebIdentity
     class AssumeRoleWithWebIdentity
-
       def self.default(visited=[])
         {
           credentials: Stubs::Credentials.default(visited),
@@ -92,7 +87,6 @@ module AWS::Sts
 
     # Operation Stubber for DecodeAuthorizationMessage
     class DecodeAuthorizationMessage
-
       def self.default(visited=[])
         {
           decoded_message: 'decoded_message',
@@ -103,7 +97,6 @@ module AWS::Sts
 
     # Operation Stubber for GetAccessKeyInfo
     class GetAccessKeyInfo
-
       def self.default(visited=[])
         {
           account: 'account',
@@ -114,7 +107,6 @@ module AWS::Sts
 
     # Operation Stubber for GetCallerIdentity
     class GetCallerIdentity
-
       def self.default(visited=[])
         {
           user_id: 'user_id',
@@ -127,7 +119,6 @@ module AWS::Sts
 
     # Operation Stubber for GetFederationToken
     class GetFederationToken
-
       def self.default(visited=[])
         {
           credentials: Stubs::Credentials.default(visited),
@@ -140,7 +131,6 @@ module AWS::Sts
 
     # Structure Stubber for FederatedUser
     class FederatedUser
-
       def self.default(visited=[])
         return nil if visited.include?('FederatedUser')
         visited = visited + ['FederatedUser']
@@ -154,7 +144,6 @@ module AWS::Sts
 
     # Operation Stubber for GetSessionToken
     class GetSessionToken
-
       def self.default(visited=[])
         {
           credentials: Stubs::Credentials.default(visited),

@@ -30,6 +30,9 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/cache-policy')
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::CachePolicyConfig.build('CachePolicyConfig', input[:cache_policy_config]) unless input[:cache_policy_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -158,6 +161,9 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/origin-access-identity/cloudfront')
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::CloudFrontOriginAccessIdentityConfig.build('CloudFrontOriginAccessIdentityConfig', input[:cloud_front_origin_access_identity_config]) unless input[:cloud_front_origin_access_identity_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -176,6 +182,9 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/distribution')
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::DistributionConfig.build('DistributionConfig', input[:distribution_config]) unless input[:distribution_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -795,6 +804,9 @@ module AWS::Cloudfront
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2020-05-31/distribution')
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::DistributionConfigWithTags.build('DistributionConfigWithTags', input[:distribution_config_with_tags]) unless input[:distribution_config_with_tags].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -843,6 +855,9 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/field-level-encryption')
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FieldLevelEncryptionConfig.build('FieldLevelEncryptionConfig', input[:field_level_encryption_config]) unless input[:field_level_encryption_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -946,6 +961,9 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/field-level-encryption-profile')
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FieldLevelEncryptionProfileConfig.build('FieldLevelEncryptionProfileConfig', input[:field_level_encryption_profile_config]) unless input[:field_level_encryption_profile_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -1048,6 +1066,9 @@ module AWS::Cloudfront
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
         )
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::InvalidationBatch.build('InvalidationBatch', input[:invalidation_batch]) unless input[:invalidation_batch].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -1087,6 +1108,9 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/key-group')
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::KeyGroupConfig.build('KeyGroupConfig', input[:key_group_config]) unless input[:key_group_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -1121,6 +1145,9 @@ module AWS::Cloudfront
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
         )
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::MonitoringSubscription.build('MonitoringSubscription', input[:monitoring_subscription]) unless input[:monitoring_subscription].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -1147,6 +1174,9 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/origin-request-policy')
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::OriginRequestPolicyConfig.build('OriginRequestPolicyConfig', input[:origin_request_policy_config]) unless input[:origin_request_policy_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -1198,6 +1228,9 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/public-key')
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::PublicKeyConfig.build('PublicKeyConfig', input[:public_key_config]) unless input[:public_key_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -1276,6 +1309,9 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/response-headers-policy')
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::ResponseHeadersPolicyConfig.build('ResponseHeadersPolicyConfig', input[:response_headers_policy_config]) unless input[:response_headers_policy_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -1505,6 +1541,9 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/streaming-distribution')
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -1553,6 +1592,9 @@ module AWS::Cloudfront
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2020-05-31/streaming-distribution')
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::StreamingDistributionConfigWithTags.build('StreamingDistributionConfigWithTags', input[:streaming_distribution_config_with_tags]) unless input[:streaming_distribution_config_with_tags].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -2307,6 +2349,9 @@ module AWS::Cloudfront
         end
         http_req.append_path('/2020-05-31/tagging')
         http_req.append_query_param('Resource', input[:resource].to_s) unless input[:resource].nil?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::Tags.build('Tags', input[:tags]) unless input[:tags].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -2338,6 +2383,9 @@ module AWS::Cloudfront
         end
         http_req.append_path('/2020-05-31/tagging')
         http_req.append_query_param('Resource', input[:resource].to_s) unless input[:resource].nil?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::TagKeys.build('TagKeys', input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -2370,6 +2418,9 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::CachePolicyConfig.build('CachePolicyConfig', input[:cache_policy_config]) unless input[:cache_policy_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2383,6 +2434,9 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::CloudFrontOriginAccessIdentityConfig.build('CloudFrontOriginAccessIdentityConfig', input[:cloud_front_origin_access_identity_config]) unless input[:cloud_front_origin_access_identity_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2396,6 +2450,9 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::DistributionConfig.build('DistributionConfig', input[:distribution_config]) unless input[:distribution_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2409,6 +2466,9 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FieldLevelEncryptionConfig.build('FieldLevelEncryptionConfig', input[:field_level_encryption_config]) unless input[:field_level_encryption_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2422,6 +2482,9 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FieldLevelEncryptionProfileConfig.build('FieldLevelEncryptionProfileConfig', input[:field_level_encryption_profile_config]) unless input[:field_level_encryption_profile_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2454,6 +2517,9 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::KeyGroupConfig.build('KeyGroupConfig', input[:key_group_config]) unless input[:key_group_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2467,6 +2533,9 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::OriginRequestPolicyConfig.build('OriginRequestPolicyConfig', input[:origin_request_policy_config]) unless input[:origin_request_policy_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2480,6 +2549,9 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::PublicKeyConfig.build('PublicKeyConfig', input[:public_key_config]) unless input[:public_key_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2510,6 +2582,9 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::ResponseHeadersPolicyConfig.build('ResponseHeadersPolicyConfig', input[:response_headers_policy_config]) unless input[:response_headers_policy_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2523,6 +2598,9 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end

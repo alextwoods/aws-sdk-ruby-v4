@@ -12,7 +12,6 @@ module AWS::Sso
 
     # Operation Stubber for GetRoleCredentials
     class GetRoleCredentials
-
       def self.default(visited=[])
         {
           role_credentials: Stubs::RoleCredentials.default(visited),
@@ -30,7 +29,6 @@ module AWS::Sso
 
     # Structure Stubber for RoleCredentials
     class RoleCredentials
-
       def self.default(visited=[])
         return nil if visited.include?('RoleCredentials')
         visited = visited + ['RoleCredentials']
@@ -55,7 +53,6 @@ module AWS::Sso
 
     # Operation Stubber for ListAccountRoles
     class ListAccountRoles
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -95,7 +92,6 @@ module AWS::Sso
 
     # Structure Stubber for RoleInfo
     class RoleInfo
-
       def self.default(visited=[])
         return nil if visited.include?('RoleInfo')
         visited = visited + ['RoleInfo']
@@ -116,7 +112,6 @@ module AWS::Sso
 
     # Operation Stubber for ListAccounts
     class ListAccounts
-
       def self.default(visited=[])
         {
           next_token: 'next_token',
@@ -156,7 +151,6 @@ module AWS::Sso
 
     # Structure Stubber for AccountInfo
     class AccountInfo
-
       def self.default(visited=[])
         return nil if visited.include?('AccountInfo')
         visited = visited + ['AccountInfo']
@@ -179,7 +173,6 @@ module AWS::Sso
 
     # Operation Stubber for Logout
     class Logout
-
       def self.default(visited=[])
         {
         }

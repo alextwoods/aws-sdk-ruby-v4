@@ -12,7 +12,6 @@ module AWS::Lambda
 
     # Operation Stubber for AddLayerVersionPermission
     class AddLayerVersionPermission
-
       def self.default(visited=[])
         {
           statement: 'statement',
@@ -32,7 +31,6 @@ module AWS::Lambda
 
     # Operation Stubber for AddPermission
     class AddPermission
-
       def self.default(visited=[])
         {
           statement: 'statement',
@@ -50,7 +48,6 @@ module AWS::Lambda
 
     # Operation Stubber for CreateAlias
     class CreateAlias
-
       def self.default(visited=[])
         {
           alias_arn: 'alias_arn',
@@ -78,7 +75,6 @@ module AWS::Lambda
 
     # Structure Stubber for AliasRoutingConfiguration
     class AliasRoutingConfiguration
-
       def self.default(visited=[])
         return nil if visited.include?('AliasRoutingConfiguration')
         visited = visited + ['AliasRoutingConfiguration']
@@ -117,7 +113,6 @@ module AWS::Lambda
 
     # Operation Stubber for CreateCodeSigningConfig
     class CreateCodeSigningConfig
-
       def self.default(visited=[])
         {
           code_signing_config: Stubs::CodeSigningConfig.default(visited),
@@ -135,7 +130,6 @@ module AWS::Lambda
 
     # Structure Stubber for CodeSigningConfig
     class CodeSigningConfig
-
       def self.default(visited=[])
         return nil if visited.include?('CodeSigningConfig')
         visited = visited + ['CodeSigningConfig']
@@ -164,7 +158,6 @@ module AWS::Lambda
 
     # Structure Stubber for CodeSigningPolicies
     class CodeSigningPolicies
-
       def self.default(visited=[])
         return nil if visited.include?('CodeSigningPolicies')
         visited = visited + ['CodeSigningPolicies']
@@ -183,7 +176,6 @@ module AWS::Lambda
 
     # Structure Stubber for AllowedPublishers
     class AllowedPublishers
-
       def self.default(visited=[])
         return nil if visited.include?('AllowedPublishers')
         visited = visited + ['AllowedPublishers']
@@ -222,7 +214,6 @@ module AWS::Lambda
 
     # Operation Stubber for CreateEventSourceMapping
     class CreateEventSourceMapping
-
       def self.default(visited=[])
         {
           uuid: 'uuid',
@@ -302,7 +293,6 @@ module AWS::Lambda
 
     # Structure Stubber for SelfManagedEventSource
     class SelfManagedEventSource
-
       def self.default(visited=[])
         return nil if visited.include?('SelfManagedEventSource')
         visited = visited + ['SelfManagedEventSource']
@@ -381,7 +371,6 @@ module AWS::Lambda
 
     # Structure Stubber for SourceAccessConfiguration
     class SourceAccessConfiguration
-
       def self.default(visited=[])
         return nil if visited.include?('SourceAccessConfiguration')
         visited = visited + ['SourceAccessConfiguration']
@@ -442,7 +431,6 @@ module AWS::Lambda
 
     # Structure Stubber for DestinationConfig
     class DestinationConfig
-
       def self.default(visited=[])
         return nil if visited.include?('DestinationConfig')
         visited = visited + ['DestinationConfig']
@@ -463,7 +451,6 @@ module AWS::Lambda
 
     # Structure Stubber for OnFailure
     class OnFailure
-
       def self.default(visited=[])
         return nil if visited.include?('OnFailure')
         visited = visited + ['OnFailure']
@@ -482,7 +469,6 @@ module AWS::Lambda
 
     # Structure Stubber for OnSuccess
     class OnSuccess
-
       def self.default(visited=[])
         return nil if visited.include?('OnSuccess')
         visited = visited + ['OnSuccess']
@@ -501,7 +487,6 @@ module AWS::Lambda
 
     # Operation Stubber for CreateFunction
     class CreateFunction
-
       def self.default(visited=[])
         {
           function_name: 'function_name',
@@ -579,7 +564,6 @@ module AWS::Lambda
 
     # Structure Stubber for ImageConfigResponse
     class ImageConfigResponse
-
       def self.default(visited=[])
         return nil if visited.include?('ImageConfigResponse')
         visited = visited + ['ImageConfigResponse']
@@ -600,7 +584,6 @@ module AWS::Lambda
 
     # Structure Stubber for ImageConfigError
     class ImageConfigError
-
       def self.default(visited=[])
         return nil if visited.include?('ImageConfigError')
         visited = visited + ['ImageConfigError']
@@ -621,7 +604,6 @@ module AWS::Lambda
 
     # Structure Stubber for ImageConfig
     class ImageConfig
-
       def self.default(visited=[])
         return nil if visited.include?('ImageConfig')
         visited = visited + ['ImageConfig']
@@ -684,7 +666,6 @@ module AWS::Lambda
 
     # Structure Stubber for FileSystemConfig
     class FileSystemConfig
-
       def self.default(visited=[])
         return nil if visited.include?('FileSystemConfig')
         visited = visited + ['FileSystemConfig']
@@ -725,7 +706,6 @@ module AWS::Lambda
 
     # Structure Stubber for Layer
     class Layer
-
       def self.default(visited=[])
         return nil if visited.include?('Layer')
         visited = visited + ['Layer']
@@ -750,7 +730,6 @@ module AWS::Lambda
 
     # Structure Stubber for TracingConfigResponse
     class TracingConfigResponse
-
       def self.default(visited=[])
         return nil if visited.include?('TracingConfigResponse')
         visited = visited + ['TracingConfigResponse']
@@ -769,7 +748,6 @@ module AWS::Lambda
 
     # Structure Stubber for EnvironmentResponse
     class EnvironmentResponse
-
       def self.default(visited=[])
         return nil if visited.include?('EnvironmentResponse')
         visited = visited + ['EnvironmentResponse']
@@ -790,7 +768,6 @@ module AWS::Lambda
 
     # Structure Stubber for EnvironmentError
     class EnvironmentError
-
       def self.default(visited=[])
         return nil if visited.include?('EnvironmentError')
         visited = visited + ['EnvironmentError']
@@ -831,7 +808,6 @@ module AWS::Lambda
 
     # Structure Stubber for DeadLetterConfig
     class DeadLetterConfig
-
       def self.default(visited=[])
         return nil if visited.include?('DeadLetterConfig')
         visited = visited + ['DeadLetterConfig']
@@ -850,7 +826,6 @@ module AWS::Lambda
 
     # Structure Stubber for VpcConfigResponse
     class VpcConfigResponse
-
       def self.default(visited=[])
         return nil if visited.include?('VpcConfigResponse')
         visited = visited + ['VpcConfigResponse']
@@ -913,7 +888,6 @@ module AWS::Lambda
 
     # Operation Stubber for DeleteAlias
     class DeleteAlias
-
       def self.default(visited=[])
         {
         }
@@ -927,7 +901,6 @@ module AWS::Lambda
 
     # Operation Stubber for DeleteCodeSigningConfig
     class DeleteCodeSigningConfig
-
       def self.default(visited=[])
         {
         }
@@ -941,7 +914,6 @@ module AWS::Lambda
 
     # Operation Stubber for DeleteEventSourceMapping
     class DeleteEventSourceMapping
-
       def self.default(visited=[])
         {
           uuid: 'uuid',
@@ -1001,7 +973,6 @@ module AWS::Lambda
 
     # Operation Stubber for DeleteFunction
     class DeleteFunction
-
       def self.default(visited=[])
         {
         }
@@ -1015,7 +986,6 @@ module AWS::Lambda
 
     # Operation Stubber for DeleteFunctionCodeSigningConfig
     class DeleteFunctionCodeSigningConfig
-
       def self.default(visited=[])
         {
         }
@@ -1029,7 +999,6 @@ module AWS::Lambda
 
     # Operation Stubber for DeleteFunctionConcurrency
     class DeleteFunctionConcurrency
-
       def self.default(visited=[])
         {
         }
@@ -1043,7 +1012,6 @@ module AWS::Lambda
 
     # Operation Stubber for DeleteFunctionEventInvokeConfig
     class DeleteFunctionEventInvokeConfig
-
       def self.default(visited=[])
         {
         }
@@ -1057,7 +1025,6 @@ module AWS::Lambda
 
     # Operation Stubber for DeleteLayerVersion
     class DeleteLayerVersion
-
       def self.default(visited=[])
         {
         }
@@ -1071,7 +1038,6 @@ module AWS::Lambda
 
     # Operation Stubber for DeleteProvisionedConcurrencyConfig
     class DeleteProvisionedConcurrencyConfig
-
       def self.default(visited=[])
         {
         }
@@ -1085,7 +1051,6 @@ module AWS::Lambda
 
     # Operation Stubber for GetAccountSettings
     class GetAccountSettings
-
       def self.default(visited=[])
         {
           account_limit: Stubs::AccountLimit.default(visited),
@@ -1105,7 +1070,6 @@ module AWS::Lambda
 
     # Structure Stubber for AccountUsage
     class AccountUsage
-
       def self.default(visited=[])
         return nil if visited.include?('AccountUsage')
         visited = visited + ['AccountUsage']
@@ -1126,7 +1090,6 @@ module AWS::Lambda
 
     # Structure Stubber for AccountLimit
     class AccountLimit
-
       def self.default(visited=[])
         return nil if visited.include?('AccountLimit')
         visited = visited + ['AccountLimit']
@@ -1153,7 +1116,6 @@ module AWS::Lambda
 
     # Operation Stubber for GetAlias
     class GetAlias
-
       def self.default(visited=[])
         {
           alias_arn: 'alias_arn',
@@ -1181,7 +1143,6 @@ module AWS::Lambda
 
     # Operation Stubber for GetCodeSigningConfig
     class GetCodeSigningConfig
-
       def self.default(visited=[])
         {
           code_signing_config: Stubs::CodeSigningConfig.default(visited),
@@ -1199,7 +1160,6 @@ module AWS::Lambda
 
     # Operation Stubber for GetEventSourceMapping
     class GetEventSourceMapping
-
       def self.default(visited=[])
         {
           uuid: 'uuid',
@@ -1259,7 +1219,6 @@ module AWS::Lambda
 
     # Operation Stubber for GetFunction
     class GetFunction
-
       def self.default(visited=[])
         {
           configuration: Stubs::FunctionConfiguration.default(visited),
@@ -1283,7 +1242,6 @@ module AWS::Lambda
 
     # Structure Stubber for Concurrency
     class Concurrency
-
       def self.default(visited=[])
         return nil if visited.include?('Concurrency')
         visited = visited + ['Concurrency']
@@ -1322,7 +1280,6 @@ module AWS::Lambda
 
     # Structure Stubber for FunctionCodeLocation
     class FunctionCodeLocation
-
       def self.default(visited=[])
         return nil if visited.include?('FunctionCodeLocation')
         visited = visited + ['FunctionCodeLocation']
@@ -1347,7 +1304,6 @@ module AWS::Lambda
 
     # Structure Stubber for FunctionConfiguration
     class FunctionConfiguration
-
       def self.default(visited=[])
         return nil if visited.include?('FunctionConfiguration')
         visited = visited + ['FunctionConfiguration']
@@ -1426,7 +1382,6 @@ module AWS::Lambda
 
     # Operation Stubber for GetFunctionCodeSigningConfig
     class GetFunctionCodeSigningConfig
-
       def self.default(visited=[])
         {
           code_signing_config_arn: 'code_signing_config_arn',
@@ -1446,7 +1401,6 @@ module AWS::Lambda
 
     # Operation Stubber for GetFunctionConcurrency
     class GetFunctionConcurrency
-
       def self.default(visited=[])
         {
           reserved_concurrent_executions: 1,
@@ -1464,7 +1418,6 @@ module AWS::Lambda
 
     # Operation Stubber for GetFunctionConfiguration
     class GetFunctionConfiguration
-
       def self.default(visited=[])
         {
           function_name: 'function_name',
@@ -1542,7 +1495,6 @@ module AWS::Lambda
 
     # Operation Stubber for GetFunctionEventInvokeConfig
     class GetFunctionEventInvokeConfig
-
       def self.default(visited=[])
         {
           last_modified: Time.now,
@@ -1568,7 +1520,6 @@ module AWS::Lambda
 
     # Operation Stubber for GetLayerVersion
     class GetLayerVersion
-
       def self.default(visited=[])
         {
           content: Stubs::LayerVersionContentOutput.default(visited),
@@ -1620,7 +1571,6 @@ module AWS::Lambda
 
     # Structure Stubber for LayerVersionContentOutput
     class LayerVersionContentOutput
-
       def self.default(visited=[])
         return nil if visited.include?('LayerVersionContentOutput')
         visited = visited + ['LayerVersionContentOutput']
@@ -1647,7 +1597,6 @@ module AWS::Lambda
 
     # Operation Stubber for GetLayerVersionByArn
     class GetLayerVersionByArn
-
       def self.default(visited=[])
         {
           content: Stubs::LayerVersionContentOutput.default(visited),
@@ -1679,7 +1628,6 @@ module AWS::Lambda
 
     # Operation Stubber for GetLayerVersionPolicy
     class GetLayerVersionPolicy
-
       def self.default(visited=[])
         {
           policy: 'policy',
@@ -1699,7 +1647,6 @@ module AWS::Lambda
 
     # Operation Stubber for GetPolicy
     class GetPolicy
-
       def self.default(visited=[])
         {
           policy: 'policy',
@@ -1719,7 +1666,6 @@ module AWS::Lambda
 
     # Operation Stubber for GetProvisionedConcurrencyConfig
     class GetProvisionedConcurrencyConfig
-
       def self.default(visited=[])
         {
           requested_provisioned_concurrent_executions: 1,
@@ -1747,7 +1693,6 @@ module AWS::Lambda
 
     # Operation Stubber for Invoke
     class Invoke
-
       def self.default(visited=[])
         {
           status_code: 1,
@@ -1772,7 +1717,6 @@ module AWS::Lambda
 
     # Operation Stubber for InvokeAsync
     class InvokeAsync
-
       def self.default(visited=[])
         {
           status: 1,
@@ -1788,7 +1732,6 @@ module AWS::Lambda
 
     # Operation Stubber for ListAliases
     class ListAliases
-
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
@@ -1828,7 +1771,6 @@ module AWS::Lambda
 
     # Structure Stubber for AliasConfiguration
     class AliasConfiguration
-
       def self.default(visited=[])
         return nil if visited.include?('AliasConfiguration')
         visited = visited + ['AliasConfiguration']
@@ -1857,7 +1799,6 @@ module AWS::Lambda
 
     # Operation Stubber for ListCodeSigningConfigs
     class ListCodeSigningConfigs
-
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
@@ -1897,7 +1838,6 @@ module AWS::Lambda
 
     # Operation Stubber for ListEventSourceMappings
     class ListEventSourceMappings
-
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
@@ -1937,7 +1877,6 @@ module AWS::Lambda
 
     # Structure Stubber for EventSourceMappingConfiguration
     class EventSourceMappingConfiguration
-
       def self.default(visited=[])
         return nil if visited.include?('EventSourceMappingConfiguration')
         visited = visited + ['EventSourceMappingConfiguration']
@@ -1998,7 +1937,6 @@ module AWS::Lambda
 
     # Operation Stubber for ListFunctionEventInvokeConfigs
     class ListFunctionEventInvokeConfigs
-
       def self.default(visited=[])
         {
           function_event_invoke_configs: Stubs::FunctionEventInvokeConfigList.default(visited),
@@ -2038,7 +1976,6 @@ module AWS::Lambda
 
     # Structure Stubber for FunctionEventInvokeConfig
     class FunctionEventInvokeConfig
-
       def self.default(visited=[])
         return nil if visited.include?('FunctionEventInvokeConfig')
         visited = visited + ['FunctionEventInvokeConfig']
@@ -2065,7 +2002,6 @@ module AWS::Lambda
 
     # Operation Stubber for ListFunctions
     class ListFunctions
-
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
@@ -2105,7 +2041,6 @@ module AWS::Lambda
 
     # Operation Stubber for ListFunctionsByCodeSigningConfig
     class ListFunctionsByCodeSigningConfig
-
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
@@ -2145,7 +2080,6 @@ module AWS::Lambda
 
     # Operation Stubber for ListLayerVersions
     class ListLayerVersions
-
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
@@ -2185,7 +2119,6 @@ module AWS::Lambda
 
     # Structure Stubber for LayerVersionsListItem
     class LayerVersionsListItem
-
       def self.default(visited=[])
         return nil if visited.include?('LayerVersionsListItem')
         visited = visited + ['LayerVersionsListItem']
@@ -2214,7 +2147,6 @@ module AWS::Lambda
 
     # Operation Stubber for ListLayers
     class ListLayers
-
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
@@ -2254,7 +2186,6 @@ module AWS::Lambda
 
     # Structure Stubber for LayersListItem
     class LayersListItem
-
       def self.default(visited=[])
         return nil if visited.include?('LayersListItem')
         visited = visited + ['LayersListItem']
@@ -2277,7 +2208,6 @@ module AWS::Lambda
 
     # Operation Stubber for ListProvisionedConcurrencyConfigs
     class ListProvisionedConcurrencyConfigs
-
       def self.default(visited=[])
         {
           provisioned_concurrency_configs: Stubs::ProvisionedConcurrencyConfigList.default(visited),
@@ -2317,7 +2247,6 @@ module AWS::Lambda
 
     # Structure Stubber for ProvisionedConcurrencyConfigListItem
     class ProvisionedConcurrencyConfigListItem
-
       def self.default(visited=[])
         return nil if visited.include?('ProvisionedConcurrencyConfigListItem')
         visited = visited + ['ProvisionedConcurrencyConfigListItem']
@@ -2348,7 +2277,6 @@ module AWS::Lambda
 
     # Operation Stubber for ListTags
     class ListTags
-
       def self.default(visited=[])
         {
           tags: Stubs::Tags.default(visited),
@@ -2366,7 +2294,6 @@ module AWS::Lambda
 
     # Operation Stubber for ListVersionsByFunction
     class ListVersionsByFunction
-
       def self.default(visited=[])
         {
           next_marker: 'next_marker',
@@ -2386,7 +2313,6 @@ module AWS::Lambda
 
     # Operation Stubber for PublishLayerVersion
     class PublishLayerVersion
-
       def self.default(visited=[])
         {
           content: Stubs::LayerVersionContentOutput.default(visited),
@@ -2418,7 +2344,6 @@ module AWS::Lambda
 
     # Operation Stubber for PublishVersion
     class PublishVersion
-
       def self.default(visited=[])
         {
           function_name: 'function_name',
@@ -2496,7 +2421,6 @@ module AWS::Lambda
 
     # Operation Stubber for PutFunctionCodeSigningConfig
     class PutFunctionCodeSigningConfig
-
       def self.default(visited=[])
         {
           code_signing_config_arn: 'code_signing_config_arn',
@@ -2516,7 +2440,6 @@ module AWS::Lambda
 
     # Operation Stubber for PutFunctionConcurrency
     class PutFunctionConcurrency
-
       def self.default(visited=[])
         {
           reserved_concurrent_executions: 1,
@@ -2534,7 +2457,6 @@ module AWS::Lambda
 
     # Operation Stubber for PutFunctionEventInvokeConfig
     class PutFunctionEventInvokeConfig
-
       def self.default(visited=[])
         {
           last_modified: Time.now,
@@ -2560,7 +2482,6 @@ module AWS::Lambda
 
     # Operation Stubber for PutProvisionedConcurrencyConfig
     class PutProvisionedConcurrencyConfig
-
       def self.default(visited=[])
         {
           requested_provisioned_concurrent_executions: 1,
@@ -2588,7 +2509,6 @@ module AWS::Lambda
 
     # Operation Stubber for RemoveLayerVersionPermission
     class RemoveLayerVersionPermission
-
       def self.default(visited=[])
         {
         }
@@ -2602,7 +2522,6 @@ module AWS::Lambda
 
     # Operation Stubber for RemovePermission
     class RemovePermission
-
       def self.default(visited=[])
         {
         }
@@ -2616,7 +2535,6 @@ module AWS::Lambda
 
     # Operation Stubber for TagResource
     class TagResource
-
       def self.default(visited=[])
         {
         }
@@ -2630,7 +2548,6 @@ module AWS::Lambda
 
     # Operation Stubber for UntagResource
     class UntagResource
-
       def self.default(visited=[])
         {
         }
@@ -2644,7 +2561,6 @@ module AWS::Lambda
 
     # Operation Stubber for UpdateAlias
     class UpdateAlias
-
       def self.default(visited=[])
         {
           alias_arn: 'alias_arn',
@@ -2672,7 +2588,6 @@ module AWS::Lambda
 
     # Operation Stubber for UpdateCodeSigningConfig
     class UpdateCodeSigningConfig
-
       def self.default(visited=[])
         {
           code_signing_config: Stubs::CodeSigningConfig.default(visited),
@@ -2690,7 +2605,6 @@ module AWS::Lambda
 
     # Operation Stubber for UpdateEventSourceMapping
     class UpdateEventSourceMapping
-
       def self.default(visited=[])
         {
           uuid: 'uuid',
@@ -2750,7 +2664,6 @@ module AWS::Lambda
 
     # Operation Stubber for UpdateFunctionCode
     class UpdateFunctionCode
-
       def self.default(visited=[])
         {
           function_name: 'function_name',
@@ -2828,7 +2741,6 @@ module AWS::Lambda
 
     # Operation Stubber for UpdateFunctionConfiguration
     class UpdateFunctionConfiguration
-
       def self.default(visited=[])
         {
           function_name: 'function_name',
@@ -2906,7 +2818,6 @@ module AWS::Lambda
 
     # Operation Stubber for UpdateFunctionEventInvokeConfig
     class UpdateFunctionEventInvokeConfig
-
       def self.default(visited=[])
         {
           last_modified: Time.now,

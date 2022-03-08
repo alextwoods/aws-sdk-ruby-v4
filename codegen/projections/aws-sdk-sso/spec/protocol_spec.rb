@@ -19,14 +19,18 @@ module AWS::Sso
     describe '#get_role_credentials' do
 
     end
+
     describe '#list_account_roles' do
 
     end
+
     describe '#list_accounts' do
 
     end
+
     describe '#logout' do
 
     end
+
   end
 end
