@@ -72,36 +72,14 @@ public class StubsGenerator extends StubsGeneratorBase {
         });
     }
 
-//    private void writeXmlNamespaceForShape(Shape shape, String dataSetter) {
-//        XmlNamespaceTrait trait = shape.getTrait(XmlNamespaceTrait.class).get();
-//        Optional<String> prefix = trait.getPrefix();
-//        String uri = trait.getUri();
-//        String xmlns = "xmlns";
-//        if (prefix.isPresent()) {
-//            xmlns += ":" + prefix;
-//        }
-//        writer.write("$L.attributes['$L'] = '$L'", dataSetter, xmlns, uri);
-//    }
-
-//    private void writeNodeWithOptionalXmlNamespace(Shape shape, Runnable task) {
-//        if (shape.hasTrait(XmlNamespaceTrait.class)) {
-//            writer
-//                    .writeInline("node = ")
-//                    .call(task)
-//                    .call(() -> writeXmlNamespaceForShape(shape, "node"))
-//                    .write("xml << node");
-//        } else {
-//            writer
-//                    .writeInline("xml << ")
-//                    .call(task);
-//        }
-//    }
-
     @Override
     protected void renderUnionStubMethod(UnionShape shape) {
+        // TODO - should this have a switch case to ensure only 1 member is set?
         writer
-                .openBlock("def self.stub(stub = {})")
-                .write( "# TODO")
+                .openBlock("def self.stub(node_name, stub = {})")
+                .write("xml = Hearth::XML::Node.new(node_name)")
+                .call(() -> renderMemberBuilders(shape))
+                .write("xml")
                 .closeBlock("end");
     }
 
@@ -113,10 +91,8 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .openBlock("stub.each do |element|")
                 .call(() -> {
                     Shape memberTarget = model.expectShape(shape.getMember().getTarget());
-                    // writeNodeWithOptionalXmlNamespace(shape.getMember(), () -> {
                         memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
                                 !shape.hasTrait(SparseTrait.class)));
-                    // });
                 })
                 .closeBlock("end")
                 .write("xml")
@@ -131,10 +107,8 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .openBlock("stub.each do |element|")
                 .call(() -> {
                     Shape memberTarget = model.expectShape(shape.getMember().getTarget());
-                    // writeNodeWithOptionalXmlNamespace(shape.getMember(), () -> {
                         memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
                                 !shape.hasTrait(SparseTrait.class)));
-                    // });
                 })
                 .closeBlock("end")
                 .write("xml.to_a")
