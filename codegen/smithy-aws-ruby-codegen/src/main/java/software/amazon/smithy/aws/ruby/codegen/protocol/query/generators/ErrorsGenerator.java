@@ -48,7 +48,7 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
 
     private void renderErrorCodesMap() {
         writer.openBlock("CODES = {");
-        ArrayList<Shape> shapes = getErrorShapes();
+        ArrayList<Shape> shapes = (ArrayList<Shape>) getErrorShapes();
         shapes.forEach(shape -> {
             String shapeName = symbolProvider.toSymbol(shape).getName();
             String code = shapeName;
