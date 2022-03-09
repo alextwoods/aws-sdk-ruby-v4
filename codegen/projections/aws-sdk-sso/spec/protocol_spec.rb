@@ -10,6 +10,7 @@
 require 'aws-sdk-sso'
 
 require 'hearth/xml/node_matcher'
+require 'hearth/query/param_matcher'
 
 module AWS::Sso
   describe Client do
@@ -19,14 +20,18 @@ module AWS::Sso
     describe '#get_role_credentials' do
 
     end
+
     describe '#list_account_roles' do
 
     end
+
     describe '#list_accounts' do
 
     end
+
     describe '#logout' do
 
     end
+
   end
 end
