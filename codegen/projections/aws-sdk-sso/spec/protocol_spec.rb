@@ -10,6 +10,7 @@
 require 'aws-sdk-sso'
 
 require 'hearth/xml/node_matcher'
+require 'hearth/query/param_matcher'
 
 module AWS::Sso
   describe Client do

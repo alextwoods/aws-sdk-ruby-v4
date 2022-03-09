@@ -10,6 +10,7 @@
 require 'aws-sdk-dynamodb'
 
 require 'hearth/xml/node_matcher'
+require 'hearth/query/param_matcher'
 
 module AWS::Dynamodb
   describe Client do
