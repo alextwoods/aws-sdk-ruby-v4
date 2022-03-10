@@ -24,13 +24,40 @@ import software.amazon.smithy.ruby.codegen.RubyFormatter;
 import software.amazon.smithy.ruby.codegen.generators.RestStubsGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StubsGenerator extends RestStubsGeneratorBase {
 
     public StubsGenerator(GenerationContext context) {
         super(context);
+    }
+
+    // RestXml ignores queryParam trait in service responses
+    // override the base class to not filter query params from the body
+    @Override
+    protected void renderOperationBodyStubber(OperationShape operation, Shape outputShape) {
+        //determine if there are any members of the input that need to be serialized to the body
+        boolean serializeBody = outputShape.members().stream().anyMatch((m) -> !m.hasTrait(HttpLabelTrait.class)
+                && !m.hasTrait(HttpHeaderTrait.class)
+                && !m.hasTrait(HttpPrefixHeadersTrait.class)
+                && !m.hasTrait(HttpResponseCodeTrait.class));
+        //determine if there is an httpPayload member
+        List<MemberShape> httpPayloadMembers = outputShape.members()
+                .stream()
+                .filter((m) -> m.hasTrait(HttpPayloadTrait.class))
+                .collect(Collectors.toList());
+        if (httpPayloadMembers.size() == 0) {
+            if (serializeBody) {
+                renderBodyStub(operation, outputShape);
+            }
+        } else {
+            MemberShape payloadMember = httpPayloadMembers.get(0);
+            Shape target = model.expectShape(payloadMember.getTarget());
+            renderPayloadBodyStub(operation, outputShape, payloadMember, target);
+        }
     }
 
     @Override
@@ -175,7 +202,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     private void renderMemberStubbers(Shape s) {
         //remove members w/ http traits or marked NoSerialize
         Stream<MemberShape> serializeMembers = s.members().stream()
-                .filter((m) -> !m.hasTrait(HttpLabelTrait.class) && !m.hasTrait(HttpQueryTrait.class)
+                .filter((m) -> !m.hasTrait(HttpLabelTrait.class)
                         && !m.hasTrait((HttpHeaderTrait.class)));
         serializeMembers = serializeMembers.filter(NoSerializeTrait.excludeNoSerializeMembers());
 
