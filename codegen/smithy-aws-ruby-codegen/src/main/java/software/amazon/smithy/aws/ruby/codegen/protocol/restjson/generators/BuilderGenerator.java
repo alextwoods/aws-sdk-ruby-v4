@@ -125,6 +125,9 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
     private void renderUnionMemberBuilder(UnionShape shape, MemberShape member) {
         Shape target = model.expectShape(member.getTarget());
         String dataSetter = "data['" + member.getMemberName() + "'] = ";
+        if (target.isUnionShape()) {
+            writer.write("input = input.__getobj__"); // need to avoid infinite recursion
+        }
         target.accept(new MemberSerializer(member, dataSetter, "input", false));
     }
 

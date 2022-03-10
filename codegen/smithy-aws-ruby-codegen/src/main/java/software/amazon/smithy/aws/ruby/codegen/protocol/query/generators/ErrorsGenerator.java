@@ -16,6 +16,8 @@
 package software.amazon.smithy.aws.ruby.codegen.protocol.query.generators;
 
 import java.util.ArrayList;
+import java.util.Set;
+
 import software.amazon.smithy.aws.traits.protocols.AwsQueryErrorTrait;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
@@ -48,7 +50,7 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
 
     private void renderErrorCodesMap() {
         writer.openBlock("CODES = {");
-        ArrayList<Shape> shapes = (ArrayList<Shape>) getErrorShapes();
+        Set<Shape> shapes = getErrorShapes();
         shapes.forEach(shape -> {
             String shapeName = symbolProvider.toSymbol(shape).getName();
             String code = shapeName;

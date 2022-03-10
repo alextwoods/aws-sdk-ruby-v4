@@ -10,7 +10,6 @@
 require 'aws-sdk-ec2'
 
 require 'hearth/xml/node_matcher'
-require 'hearth/query/param_matcher'
 
 module AWS::Ec2
   describe Client do

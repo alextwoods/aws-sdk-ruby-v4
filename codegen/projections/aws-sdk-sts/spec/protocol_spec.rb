@@ -10,7 +10,6 @@
 require 'aws-sdk-sts'
 
 require 'hearth/xml/node_matcher'
-require 'hearth/query/param_matcher'
 
 module AWS::Sts
   describe Client do

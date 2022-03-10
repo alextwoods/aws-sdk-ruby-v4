@@ -10,7 +10,6 @@
 require 'aws-sdk-cloudfront'
 
 require 'hearth/xml/node_matcher'
-require 'hearth/query/param_matcher'
 
 module AWS::Cloudfront
   describe Client do

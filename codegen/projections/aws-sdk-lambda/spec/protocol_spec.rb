@@ -10,7 +10,6 @@
 require 'aws-sdk-lambda'
 
 require 'hearth/xml/node_matcher'
-require 'hearth/query/param_matcher'
 
 module AWS::Lambda
   describe Client do
