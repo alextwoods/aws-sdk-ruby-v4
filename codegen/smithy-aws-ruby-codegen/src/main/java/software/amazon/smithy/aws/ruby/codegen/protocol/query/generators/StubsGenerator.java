@@ -74,7 +74,13 @@ public class StubsGenerator extends StubsGeneratorBase {
 
     @Override
     protected void renderUnionStubMethod(UnionShape shape) {
-        // TODO - Revisit after work on stub param/validation is done
+        // TODO - should this have a switch case to ensure only 1 member is set?
+        writer
+                .openBlock("def self.stub(node_name, stub = {})")
+                .write("xml = Hearth::XML::Node.new(node_name)")
+                .call(() -> renderMemberBuilders(shape))
+                .write("xml")
+                .closeBlock("end");
     }
 
     @Override
@@ -85,8 +91,8 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .openBlock("stub.each do |element|")
                 .call(() -> {
                     Shape memberTarget = model.expectShape(shape.getMember().getTarget());
-                    memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
-                            !shape.hasTrait(SparseTrait.class)));
+                        memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
+                                !shape.hasTrait(SparseTrait.class)));
                 })
                 .closeBlock("end")
                 .write("xml")
@@ -97,15 +103,15 @@ public class StubsGenerator extends StubsGeneratorBase {
     protected void renderSetStubMethod(SetShape shape) {
         writer
                 .openBlock("def self.stub(node_name, stub = Set.new)")
-                .write("xml = []")
+                .write("xml = Set.new")
                 .openBlock("stub.each do |element|")
                 .call(() -> {
                     Shape memberTarget = model.expectShape(shape.getMember().getTarget());
-                    memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
-                            !shape.hasTrait(SparseTrait.class)));
+                        memberTarget.accept(new MemberSerializer(shape.getMember(), "node_name", "element",
+                                !shape.hasTrait(SparseTrait.class)));
                 })
                 .closeBlock("end")
-                .write("xml")
+                .write("xml.to_a")
                 .closeBlock("end");
     }
 
@@ -460,4 +466,5 @@ public class StubsGenerator extends StubsGeneratorBase {
         }
     }
 }
+
 
