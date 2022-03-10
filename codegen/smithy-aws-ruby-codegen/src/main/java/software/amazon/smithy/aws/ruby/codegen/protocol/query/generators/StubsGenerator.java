@@ -74,13 +74,7 @@ public class StubsGenerator extends StubsGeneratorBase {
 
     @Override
     protected void renderUnionStubMethod(UnionShape shape) {
-        // TODO - should this have a switch case to ensure only 1 member is set?
-        writer
-                .openBlock("def self.stub(node_name, stub = {})")
-                .write("xml = Hearth::XML::Node.new(node_name)")
-                .call(() -> renderMemberBuilders(shape))
-                .write("xml")
-                .closeBlock("end");
+        // TODO - revisit after param/validation is applied to stubs
     }
 
     @Override
@@ -103,7 +97,7 @@ public class StubsGenerator extends StubsGeneratorBase {
     protected void renderSetStubMethod(SetShape shape) {
         writer
                 .openBlock("def self.stub(node_name, stub = Set.new)")
-                .write("xml = Set.new")
+                .write("xml = []")
                 .openBlock("stub.each do |element|")
                 .call(() -> {
                     Shape memberTarget = model.expectShape(shape.getMember().getTarget());
@@ -111,7 +105,7 @@ public class StubsGenerator extends StubsGeneratorBase {
                                 !shape.hasTrait(SparseTrait.class)));
                 })
                 .closeBlock("end")
-                .write("xml.to_a")
+                .write("xml")
                 .closeBlock("end");
     }
 
