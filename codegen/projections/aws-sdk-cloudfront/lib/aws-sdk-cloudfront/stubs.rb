@@ -18,12 +18,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('AssociateAliasResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('AssociateAliasResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
       end
     end
 
@@ -38,15 +34,13 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateCachePolicyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreateCachePolicyResult')
-        xml << Stubs::CachePolicy.stub('CachePolicy', stub[:cache_policy]) unless stub[:cache_policy].nil?
-        xml << Hearth::XML::Node.new('Location', stub[:location].to_s) unless stub[:location].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::CachePolicy.build('CachePolicy', stub[:cache_policy]) unless stub[:cache_policy].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -63,6 +57,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('LastModifiedTime', Hearth::TimeHelper.to_date_time(stub[:last_modified_time])) unless stub[:last_modified_time].nil?
@@ -87,6 +82,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', stub[:comment].to_s) unless stub[:comment].nil?
         xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
@@ -113,6 +109,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('EnableAcceptEncodingGzip', stub[:enable_accept_encoding_gzip].to_s) unless stub[:enable_accept_encoding_gzip].nil?
         xml << Hearth::XML::Node.new('EnableAcceptEncodingBrotli', stub[:enable_accept_encoding_brotli].to_s) unless stub[:enable_accept_encoding_brotli].nil?
@@ -135,6 +132,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('QueryStringBehavior', stub[:query_string_behavior].to_s) unless stub[:query_string_behavior].nil?
         xml << Stubs::QueryStringNames.stub('QueryStrings', stub[:query_strings]) unless stub[:query_strings].nil?
@@ -154,6 +152,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::QueryStringNamesList.stub('Name', stub[:items])) unless stub[:items].nil?
@@ -172,9 +171,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -192,6 +192,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CookieBehavior', stub[:cookie_behavior].to_s) unless stub[:cookie_behavior].nil?
         xml << Stubs::CookieNames.stub('Cookies', stub[:cookies]) unless stub[:cookies].nil?
@@ -211,6 +212,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::CookieNameList.stub('Name', stub[:items])) unless stub[:items].nil?
@@ -229,9 +231,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -249,6 +252,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('HeaderBehavior', stub[:header_behavior].to_s) unless stub[:header_behavior].nil?
         xml << Stubs::Headers.stub('Headers', stub[:headers]) unless stub[:headers].nil?
@@ -268,6 +272,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::HeaderList.stub('Name', stub[:items])) unless stub[:items].nil?
@@ -286,9 +291,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -305,15 +311,13 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateCloudFrontOriginAccessIdentityResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreateCloudFrontOriginAccessIdentityResult')
-        xml << Stubs::CloudFrontOriginAccessIdentity.stub('CloudFrontOriginAccessIdentity', stub[:cloud_front_origin_access_identity]) unless stub[:cloud_front_origin_access_identity].nil?
-        xml << Hearth::XML::Node.new('Location', stub[:location].to_s) unless stub[:location].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::CloudFrontOriginAccessIdentity.build('CloudFrontOriginAccessIdentity', stub[:cloud_front_origin_access_identity]) unless stub[:cloud_front_origin_access_identity].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -330,6 +334,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('S3CanonicalUserId', stub[:s3_canonical_user_id].to_s) unless stub[:s3_canonical_user_id].nil?
@@ -350,6 +355,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CallerReference', stub[:caller_reference].to_s) unless stub[:caller_reference].nil?
         xml << Hearth::XML::Node.new('Comment', stub[:comment].to_s) unless stub[:comment].nil?
@@ -368,15 +374,13 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateDistributionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreateDistributionResult')
-        xml << Stubs::Distribution.stub('Distribution', stub[:distribution]) unless stub[:distribution].nil?
-        xml << Hearth::XML::Node.new('Location', stub[:location].to_s) unless stub[:location].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::Distribution.build('Distribution', stub[:distribution]) unless stub[:distribution].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -400,6 +404,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('ARN', stub[:arn].to_s) unless stub[:arn].nil?
@@ -426,9 +431,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::AliasICPRecordal.stub(node_name, element) unless element.nil?
+          xml << Stubs::AliasICPRecordal.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -446,6 +452,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CNAME', stub[:cname].to_s) unless stub[:cname].nil?
         xml << Hearth::XML::Node.new('ICPRecordalStatus', stub[:icp_recordal_status].to_s) unless stub[:icp_recordal_status].nil?
@@ -480,6 +487,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CallerReference', stub[:caller_reference].to_s) unless stub[:caller_reference].nil?
         xml << Stubs::Aliases.stub('Aliases', stub[:aliases]) unless stub[:aliases].nil?
@@ -513,6 +521,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Stubs::GeoRestriction.stub('GeoRestriction', stub[:geo_restriction]) unless stub[:geo_restriction].nil?
         xml
@@ -532,6 +541,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('RestrictionType', stub[:restriction_type].to_s) unless stub[:restriction_type].nil?
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
@@ -551,9 +561,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -576,6 +587,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CloudFrontDefaultCertificate', stub[:cloud_front_default_certificate].to_s) unless stub[:cloud_front_default_certificate].nil?
         xml << Hearth::XML::Node.new('IAMCertificateId', stub[:iam_certificate_id].to_s) unless stub[:iam_certificate_id].nil?
@@ -602,6 +614,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
         xml << Hearth::XML::Node.new('IncludeCookies', stub[:include_cookies].to_s) unless stub[:include_cookies].nil?
@@ -623,6 +636,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::CustomErrorResponseList.stub('CustomErrorResponse', stub[:items])) unless stub[:items].nil?
@@ -641,9 +655,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::CustomErrorResponse.stub(node_name, element) unless element.nil?
+          xml << Stubs::CustomErrorResponse.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -663,6 +678,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ErrorCode', stub[:error_code].to_s) unless stub[:error_code].nil?
         xml << Hearth::XML::Node.new('ResponsePagePath', stub[:response_page_path].to_s) unless stub[:response_page_path].nil?
@@ -684,6 +700,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::CacheBehaviorList.stub('CacheBehavior', stub[:items])) unless stub[:items].nil?
@@ -702,9 +719,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::CacheBehavior.stub(node_name, element) unless element.nil?
+          xml << Stubs::CacheBehavior.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -739,6 +757,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('PathPattern', stub[:path_pattern].to_s) unless stub[:path_pattern].nil?
         xml << Hearth::XML::Node.new('TargetOriginId', stub[:target_origin_id].to_s) unless stub[:target_origin_id].nil?
@@ -777,6 +796,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('QueryString', stub[:query_string].to_s) unless stub[:query_string].nil?
         xml << Stubs::CookiePreference.stub('Cookies', stub[:cookies]) unless stub[:cookies].nil?
@@ -798,6 +818,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::QueryStringCacheKeysList.stub('Name', stub[:items])) unless stub[:items].nil?
@@ -816,9 +837,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -836,6 +858,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Forward', stub[:forward].to_s) unless stub[:forward].nil?
         xml << Stubs::CookieNames.stub('WhitelistedNames', stub[:whitelisted_names]) unless stub[:whitelisted_names].nil?
@@ -855,6 +878,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::FunctionAssociationList.stub('FunctionAssociation', stub[:items])) unless stub[:items].nil?
@@ -873,9 +897,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::FunctionAssociation.stub(node_name, element) unless element.nil?
+          xml << Stubs::FunctionAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -893,6 +918,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('FunctionARN', stub[:function_arn].to_s) unless stub[:function_arn].nil?
         xml << Hearth::XML::Node.new('EventType', stub[:event_type].to_s) unless stub[:event_type].nil?
@@ -912,6 +938,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::LambdaFunctionAssociationList.stub('LambdaFunctionAssociation', stub[:items])) unless stub[:items].nil?
@@ -930,9 +957,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::LambdaFunctionAssociation.stub(node_name, element) unless element.nil?
+          xml << Stubs::LambdaFunctionAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -951,6 +979,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('LambdaFunctionARN', stub[:lambda_function_arn].to_s) unless stub[:lambda_function_arn].nil?
         xml << Hearth::XML::Node.new('EventType', stub[:event_type].to_s) unless stub[:event_type].nil?
@@ -972,6 +1001,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::MethodsList.stub('Method', stub[:items])) unless stub[:items].nil?
@@ -992,6 +1022,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::MethodsList.stub('Method', stub[:items])) unless stub[:items].nil?
@@ -1010,9 +1041,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -1031,6 +1063,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
@@ -1050,9 +1083,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -1071,6 +1105,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
@@ -1090,9 +1125,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -1126,6 +1162,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('TargetOriginId', stub[:target_origin_id].to_s) unless stub[:target_origin_id].nil?
         xml << Stubs::TrustedSigners.stub('TrustedSigners', stub[:trusted_signers]) unless stub[:trusted_signers].nil?
@@ -1161,6 +1198,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::OriginGroupList.stub('OriginGroup', stub[:items])) unless stub[:items].nil?
@@ -1179,9 +1217,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::OriginGroup.stub(node_name, element) unless element.nil?
+          xml << Stubs::OriginGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1200,6 +1239,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Stubs::OriginGroupFailoverCriteria.stub('FailoverCriteria', stub[:failover_criteria]) unless stub[:failover_criteria].nil?
@@ -1220,6 +1260,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::OriginGroupMemberList.stub('OriginGroupMember', stub[:items])) unless stub[:items].nil?
@@ -1238,9 +1279,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::OriginGroupMember.stub(node_name, element) unless element.nil?
+          xml << Stubs::OriginGroupMember.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1257,6 +1299,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('OriginId', stub[:origin_id].to_s) unless stub[:origin_id].nil?
         xml
@@ -1274,6 +1317,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Stubs::StatusCodes.stub('StatusCodes', stub[:status_codes]) unless stub[:status_codes].nil?
         xml
@@ -1292,6 +1336,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::StatusCodeList.stub('StatusCode', stub[:items])) unless stub[:items].nil?
@@ -1310,9 +1355,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -1330,6 +1376,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::OriginList.stub('Origin', stub[:items])) unless stub[:items].nil?
@@ -1348,9 +1395,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::Origin.stub(node_name, element) unless element.nil?
+          xml << Stubs::Origin.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1375,6 +1423,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('DomainName', stub[:domain_name].to_s) unless stub[:domain_name].nil?
@@ -1401,6 +1450,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
         xml << Hearth::XML::Node.new('OriginShieldRegion', stub[:origin_shield_region].to_s) unless stub[:origin_shield_region].nil?
@@ -1424,6 +1474,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('HTTPPort', stub[:http_port].to_s) unless stub[:http_port].nil?
         xml << Hearth::XML::Node.new('HTTPSPort', stub[:https_port].to_s) unless stub[:https_port].nil?
@@ -1447,6 +1498,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::SslProtocolsList.stub('SslProtocol', stub[:items])) unless stub[:items].nil?
@@ -1465,9 +1517,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -1484,6 +1537,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('OriginAccessIdentity', stub[:origin_access_identity].to_s) unless stub[:origin_access_identity].nil?
         xml
@@ -1502,6 +1556,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::OriginCustomHeadersList.stub('OriginCustomHeader', stub[:items])) unless stub[:items].nil?
@@ -1520,9 +1575,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::OriginCustomHeader.stub(node_name, element) unless element.nil?
+          xml << Stubs::OriginCustomHeader.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1540,6 +1596,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('HeaderName', stub[:header_name].to_s) unless stub[:header_name].nil?
         xml << Hearth::XML::Node.new('HeaderValue', stub[:header_value].to_s) unless stub[:header_value].nil?
@@ -1559,6 +1616,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::AliasList.stub('CNAME', stub[:items])) unless stub[:items].nil?
@@ -1577,9 +1635,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -1598,6 +1657,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
@@ -1617,9 +1677,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::KGKeyPairIds.stub(node_name, element) unless element.nil?
+          xml << Stubs::KGKeyPairIds.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1637,6 +1698,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('KeyGroupId', stub[:key_group_id].to_s) unless stub[:key_group_id].nil?
         xml << Stubs::KeyPairIds.stub('KeyPairIds', stub[:key_pair_ids]) unless stub[:key_pair_ids].nil?
@@ -1656,6 +1718,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::KeyPairIdList.stub('KeyPairId', stub[:items])) unless stub[:items].nil?
@@ -1674,9 +1737,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -1695,6 +1759,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
@@ -1714,9 +1779,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::Signer.stub(node_name, element) unless element.nil?
+          xml << Stubs::Signer.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1734,6 +1800,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('AwsAccountNumber', stub[:aws_account_number].to_s) unless stub[:aws_account_number].nil?
         xml << Stubs::KeyPairIds.stub('KeyPairIds', stub[:key_pair_ids]) unless stub[:key_pair_ids].nil?
@@ -1752,15 +1819,13 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateDistributionWithTagsResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreateDistributionWithTagsResult')
-        xml << Stubs::Distribution.stub('Distribution', stub[:distribution]) unless stub[:distribution].nil?
-        xml << Hearth::XML::Node.new('Location', stub[:location].to_s) unless stub[:location].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::Distribution.build('Distribution', stub[:distribution]) unless stub[:distribution].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -1775,15 +1840,13 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateFieldLevelEncryptionConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreateFieldLevelEncryptionConfigResult')
-        xml << Stubs::FieldLevelEncryption.stub('FieldLevelEncryption', stub[:field_level_encryption]) unless stub[:field_level_encryption].nil?
-        xml << Hearth::XML::Node.new('Location', stub[:location].to_s) unless stub[:location].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FieldLevelEncryption.build('FieldLevelEncryption', stub[:field_level_encryption]) unless stub[:field_level_encryption].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -1800,6 +1863,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('LastModifiedTime', Hearth::TimeHelper.to_date_time(stub[:last_modified_time])) unless stub[:last_modified_time].nil?
@@ -1822,6 +1886,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CallerReference', stub[:caller_reference].to_s) unless stub[:caller_reference].nil?
         xml << Hearth::XML::Node.new('Comment', stub[:comment].to_s) unless stub[:comment].nil?
@@ -1843,6 +1908,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ForwardWhenContentTypeIsUnknown', stub[:forward_when_content_type_is_unknown].to_s) unless stub[:forward_when_content_type_is_unknown].nil?
         xml << Stubs::ContentTypeProfiles.stub('ContentTypeProfiles', stub[:content_type_profiles]) unless stub[:content_type_profiles].nil?
@@ -1862,6 +1928,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::ContentTypeProfileList.stub('ContentTypeProfile', stub[:items])) unless stub[:items].nil?
@@ -1880,9 +1947,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::ContentTypeProfile.stub(node_name, element) unless element.nil?
+          xml << Stubs::ContentTypeProfile.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1901,6 +1969,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Format', stub[:format].to_s) unless stub[:format].nil?
         xml << Hearth::XML::Node.new('ProfileId', stub[:profile_id].to_s) unless stub[:profile_id].nil?
@@ -1921,6 +1990,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ForwardWhenQueryArgProfileIsUnknown', stub[:forward_when_query_arg_profile_is_unknown].to_s) unless stub[:forward_when_query_arg_profile_is_unknown].nil?
         xml << Stubs::QueryArgProfiles.stub('QueryArgProfiles', stub[:query_arg_profiles]) unless stub[:query_arg_profiles].nil?
@@ -1940,6 +2010,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::QueryArgProfileList.stub('QueryArgProfile', stub[:items])) unless stub[:items].nil?
@@ -1958,9 +2029,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::QueryArgProfile.stub(node_name, element) unless element.nil?
+          xml << Stubs::QueryArgProfile.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1978,6 +2050,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('QueryArg', stub[:query_arg].to_s) unless stub[:query_arg].nil?
         xml << Hearth::XML::Node.new('ProfileId', stub[:profile_id].to_s) unless stub[:profile_id].nil?
@@ -1996,15 +2069,13 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateFieldLevelEncryptionProfileResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreateFieldLevelEncryptionProfileResult')
-        xml << Stubs::FieldLevelEncryptionProfile.stub('FieldLevelEncryptionProfile', stub[:field_level_encryption_profile]) unless stub[:field_level_encryption_profile].nil?
-        xml << Hearth::XML::Node.new('Location', stub[:location].to_s) unless stub[:location].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FieldLevelEncryptionProfile.build('FieldLevelEncryptionProfile', stub[:field_level_encryption_profile]) unless stub[:field_level_encryption_profile].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -2021,6 +2092,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('LastModifiedTime', Hearth::TimeHelper.to_date_time(stub[:last_modified_time])) unless stub[:last_modified_time].nil?
@@ -2043,6 +2115,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
         xml << Hearth::XML::Node.new('CallerReference', stub[:caller_reference].to_s) unless stub[:caller_reference].nil?
@@ -2064,6 +2137,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::EncryptionEntityList.stub('EncryptionEntity', stub[:items])) unless stub[:items].nil?
@@ -2082,9 +2156,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::EncryptionEntity.stub(node_name, element) unless element.nil?
+          xml << Stubs::EncryptionEntity.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2103,6 +2178,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('PublicKeyId', stub[:public_key_id].to_s) unless stub[:public_key_id].nil?
         xml << Hearth::XML::Node.new('ProviderId', stub[:provider_id].to_s) unless stub[:provider_id].nil?
@@ -2123,6 +2199,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::FieldPatternList.stub('FieldPattern', stub[:items])) unless stub[:items].nil?
@@ -2141,9 +2218,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -2160,15 +2238,13 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateFunctionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreateFunctionResult')
-        xml << Stubs::FunctionSummary.stub('FunctionSummary', stub[:function_summary]) unless stub[:function_summary].nil?
-        xml << Hearth::XML::Node.new('Location', stub[:location].to_s) unless stub[:location].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FunctionSummary.build('FunctionSummary', stub[:function_summary]) unless stub[:function_summary].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -2186,6 +2262,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
@@ -2209,6 +2286,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('FunctionARN', stub[:function_arn].to_s) unless stub[:function_arn].nil?
         xml << Hearth::XML::Node.new('Stage', stub[:stage].to_s) unless stub[:stage].nil?
@@ -2230,6 +2308,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', stub[:comment].to_s) unless stub[:comment].nil?
         xml << Hearth::XML::Node.new('Runtime', stub[:runtime].to_s) unless stub[:runtime].nil?
@@ -2247,14 +2326,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateInvalidationResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreateInvalidationResult')
-        xml << Hearth::XML::Node.new('Location', stub[:location].to_s) unless stub[:location].nil?
-        xml << Stubs::Invalidation.stub('Invalidation', stub[:invalidation]) unless stub[:invalidation].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::Invalidation.build('Invalidation', stub[:invalidation]) unless stub[:invalidation].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -2272,6 +2349,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
@@ -2293,6 +2371,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Stubs::Paths.stub('Paths', stub[:paths]) unless stub[:paths].nil?
         xml << Hearth::XML::Node.new('CallerReference', stub[:caller_reference].to_s) unless stub[:caller_reference].nil?
@@ -2312,6 +2391,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::PathList.stub('Path', stub[:items])) unless stub[:items].nil?
@@ -2330,9 +2410,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -2349,15 +2430,13 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateKeyGroupResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreateKeyGroupResult')
-        xml << Stubs::KeyGroup.stub('KeyGroup', stub[:key_group]) unless stub[:key_group].nil?
-        xml << Hearth::XML::Node.new('Location', stub[:location].to_s) unless stub[:location].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::KeyGroup.build('KeyGroup', stub[:key_group]) unless stub[:key_group].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -2374,6 +2453,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('LastModifiedTime', Hearth::TimeHelper.to_date_time(stub[:last_modified_time])) unless stub[:last_modified_time].nil?
@@ -2395,6 +2475,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::PublicKeyIdList.stub('PublicKey', stub[:items])) unless stub[:items].nil?
@@ -2414,9 +2495,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -2431,13 +2513,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateMonitoringSubscriptionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreateMonitoringSubscriptionResult')
-        xml << Stubs::MonitoringSubscription.stub('MonitoringSubscription', stub[:monitoring_subscription]) unless stub[:monitoring_subscription].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::MonitoringSubscription.build('MonitoringSubscription', stub[:monitoring_subscription]) unless stub[:monitoring_subscription].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -2452,6 +2532,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Stubs::RealtimeMetricsSubscriptionConfig.stub('RealtimeMetricsSubscriptionConfig', stub[:realtime_metrics_subscription_config]) unless stub[:realtime_metrics_subscription_config].nil?
         xml
@@ -2469,6 +2550,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('RealtimeMetricsSubscriptionStatus', stub[:realtime_metrics_subscription_status].to_s) unless stub[:realtime_metrics_subscription_status].nil?
         xml
@@ -2486,15 +2568,13 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateOriginRequestPolicyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreateOriginRequestPolicyResult')
-        xml << Stubs::OriginRequestPolicy.stub('OriginRequestPolicy', stub[:origin_request_policy]) unless stub[:origin_request_policy].nil?
-        xml << Hearth::XML::Node.new('Location', stub[:location].to_s) unless stub[:location].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::OriginRequestPolicy.build('OriginRequestPolicy', stub[:origin_request_policy]) unless stub[:origin_request_policy].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -2511,6 +2591,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('LastModifiedTime', Hearth::TimeHelper.to_date_time(stub[:last_modified_time])) unless stub[:last_modified_time].nil?
@@ -2534,6 +2615,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', stub[:comment].to_s) unless stub[:comment].nil?
         xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
@@ -2556,6 +2638,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('QueryStringBehavior', stub[:query_string_behavior].to_s) unless stub[:query_string_behavior].nil?
         xml << Stubs::QueryStringNames.stub('QueryStrings', stub[:query_strings]) unless stub[:query_strings].nil?
@@ -2575,6 +2658,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CookieBehavior', stub[:cookie_behavior].to_s) unless stub[:cookie_behavior].nil?
         xml << Stubs::CookieNames.stub('Cookies', stub[:cookies]) unless stub[:cookies].nil?
@@ -2594,6 +2678,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('HeaderBehavior', stub[:header_behavior].to_s) unless stub[:header_behavior].nil?
         xml << Stubs::Headers.stub('Headers', stub[:headers]) unless stub[:headers].nil?
@@ -2612,15 +2697,13 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreatePublicKeyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreatePublicKeyResult')
-        xml << Stubs::PublicKey.stub('PublicKey', stub[:public_key]) unless stub[:public_key].nil?
-        xml << Hearth::XML::Node.new('Location', stub[:location].to_s) unless stub[:location].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::PublicKey.build('PublicKey', stub[:public_key]) unless stub[:public_key].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -2637,6 +2720,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('CreatedTime', Hearth::TimeHelper.to_date_time(stub[:created_time])) unless stub[:created_time].nil?
@@ -2659,6 +2743,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CallerReference', stub[:caller_reference].to_s) unless stub[:caller_reference].nil?
         xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
@@ -2677,13 +2762,14 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateRealtimeLogConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
+        data = {}
+        http_resp.status = 201
+
+        http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateRealtimeLogConfigResult')
+        xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Stubs::RealtimeLogConfig.stub('RealtimeLogConfig', stub[:realtime_log_config]) unless stub[:realtime_log_config].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -2702,6 +2788,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ARN', stub[:arn].to_s) unless stub[:arn].nil?
         xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
@@ -2723,9 +2810,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -2742,9 +2830,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::EndPoint.stub(node_name, element) unless element.nil?
+          xml << Stubs::EndPoint.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2762,6 +2851,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('StreamType', stub[:stream_type].to_s) unless stub[:stream_type].nil?
         xml << Stubs::KinesisStreamConfig.stub('KinesisStreamConfig', stub[:kinesis_stream_config]) unless stub[:kinesis_stream_config].nil?
@@ -2781,6 +2871,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('RoleARN', stub[:role_arn].to_s) unless stub[:role_arn].nil?
         xml << Hearth::XML::Node.new('StreamARN', stub[:stream_arn].to_s) unless stub[:stream_arn].nil?
@@ -2799,15 +2890,13 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateResponseHeadersPolicyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreateResponseHeadersPolicyResult')
-        xml << Stubs::ResponseHeadersPolicy.stub('ResponseHeadersPolicy', stub[:response_headers_policy]) unless stub[:response_headers_policy].nil?
-        xml << Hearth::XML::Node.new('Location', stub[:location].to_s) unless stub[:location].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::ResponseHeadersPolicy.build('ResponseHeadersPolicy', stub[:response_headers_policy]) unless stub[:response_headers_policy].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -2824,6 +2913,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('LastModifiedTime', Hearth::TimeHelper.to_date_time(stub[:last_modified_time])) unless stub[:last_modified_time].nil?
@@ -2847,6 +2937,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', stub[:comment].to_s) unless stub[:comment].nil?
         xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
@@ -2869,6 +2960,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::ResponseHeadersPolicyCustomHeaderList.stub('ResponseHeadersPolicyCustomHeader', stub[:items])) unless stub[:items].nil?
@@ -2887,9 +2979,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::ResponseHeadersPolicyCustomHeader.stub(node_name, element) unless element.nil?
+          xml << Stubs::ResponseHeadersPolicyCustomHeader.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2908,6 +3001,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Header', stub[:header].to_s) unless stub[:header].nil?
         xml << Hearth::XML::Node.new('Value', stub[:value].to_s) unless stub[:value].nil?
@@ -2932,6 +3026,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Stubs::ResponseHeadersPolicyXSSProtection.stub('XSSProtection', stub[:xss_protection]) unless stub[:xss_protection].nil?
         xml << Stubs::ResponseHeadersPolicyFrameOptions.stub('FrameOptions', stub[:frame_options]) unless stub[:frame_options].nil?
@@ -2957,6 +3052,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Override', stub[:override].to_s) unless stub[:override].nil?
         xml << Hearth::XML::Node.new('IncludeSubdomains', stub[:include_subdomains].to_s) unless stub[:include_subdomains].nil?
@@ -2977,6 +3073,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Override', stub[:override].to_s) unless stub[:override].nil?
         xml
@@ -2995,6 +3092,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Override', stub[:override].to_s) unless stub[:override].nil?
         xml << Hearth::XML::Node.new('ContentSecurityPolicy', stub[:content_security_policy].to_s) unless stub[:content_security_policy].nil?
@@ -3014,6 +3112,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Override', stub[:override].to_s) unless stub[:override].nil?
         xml << Hearth::XML::Node.new('ReferrerPolicy', stub[:referrer_policy].to_s) unless stub[:referrer_policy].nil?
@@ -3033,6 +3132,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Override', stub[:override].to_s) unless stub[:override].nil?
         xml << Hearth::XML::Node.new('FrameOption', stub[:frame_option].to_s) unless stub[:frame_option].nil?
@@ -3054,6 +3154,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Override', stub[:override].to_s) unless stub[:override].nil?
         xml << Hearth::XML::Node.new('Protection', stub[:protection].to_s) unless stub[:protection].nil?
@@ -3080,6 +3181,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Stubs::ResponseHeadersPolicyAccessControlAllowOrigins.stub('AccessControlAllowOrigins', stub[:access_control_allow_origins]) unless stub[:access_control_allow_origins].nil?
         xml << Stubs::ResponseHeadersPolicyAccessControlAllowHeaders.stub('AccessControlAllowHeaders', stub[:access_control_allow_headers]) unless stub[:access_control_allow_headers].nil?
@@ -3104,6 +3206,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::AccessControlExposeHeadersList.stub('Header', stub[:items])) unless stub[:items].nil?
@@ -3122,9 +3225,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -3142,6 +3246,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::AccessControlAllowMethodsList.stub('Method', stub[:items])) unless stub[:items].nil?
@@ -3160,9 +3265,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -3180,6 +3286,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::AccessControlAllowHeadersList.stub('Header', stub[:items])) unless stub[:items].nil?
@@ -3198,9 +3305,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -3218,6 +3326,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', stub[:quantity].to_s) unless stub[:quantity].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::AccessControlAllowOriginsList.stub('Origin', stub[:items])) unless stub[:items].nil?
@@ -3236,9 +3345,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -3255,15 +3365,13 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateStreamingDistributionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreateStreamingDistributionResult')
-        xml << Stubs::StreamingDistribution.stub('StreamingDistribution', stub[:streaming_distribution]) unless stub[:streaming_distribution].nil?
-        xml << Hearth::XML::Node.new('Location', stub[:location].to_s) unless stub[:location].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::StreamingDistribution.build('StreamingDistribution', stub[:streaming_distribution]) unless stub[:streaming_distribution].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3284,6 +3392,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('ARN', stub[:arn].to_s) unless stub[:arn].nil?
@@ -3314,6 +3423,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CallerReference', stub[:caller_reference].to_s) unless stub[:caller_reference].nil?
         xml << Stubs::S3Origin.stub('S3Origin', stub[:s3_origin]) unless stub[:s3_origin].nil?
@@ -3340,6 +3450,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
         xml << Hearth::XML::Node.new('Bucket', stub[:bucket].to_s) unless stub[:bucket].nil?
@@ -3360,6 +3471,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('DomainName', stub[:domain_name].to_s) unless stub[:domain_name].nil?
         xml << Hearth::XML::Node.new('OriginAccessIdentity', stub[:origin_access_identity].to_s) unless stub[:origin_access_identity].nil?
@@ -3378,15 +3490,13 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('CreateStreamingDistributionWithTagsResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('CreateStreamingDistributionWithTagsResult')
-        xml << Stubs::StreamingDistribution.stub('StreamingDistribution', stub[:streaming_distribution]) unless stub[:streaming_distribution].nil?
-        xml << Hearth::XML::Node.new('Location', stub[:location].to_s) unless stub[:location].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::StreamingDistribution.build('StreamingDistribution', stub[:streaming_distribution]) unless stub[:streaming_distribution].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3398,12 +3508,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('DeleteCachePolicyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('DeleteCachePolicyResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 204
       end
     end
 
@@ -3415,12 +3521,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('DeleteCloudFrontOriginAccessIdentityResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('DeleteCloudFrontOriginAccessIdentityResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 204
       end
     end
 
@@ -3432,12 +3534,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('DeleteDistributionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('DeleteDistributionResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 204
       end
     end
 
@@ -3449,12 +3547,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('DeleteFieldLevelEncryptionConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('DeleteFieldLevelEncryptionConfigResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 204
       end
     end
 
@@ -3466,12 +3560,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('DeleteFieldLevelEncryptionProfileResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('DeleteFieldLevelEncryptionProfileResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 204
       end
     end
 
@@ -3483,12 +3573,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('DeleteFunctionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('DeleteFunctionResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 204
       end
     end
 
@@ -3500,12 +3586,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('DeleteKeyGroupResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('DeleteKeyGroupResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 204
       end
     end
 
@@ -3517,12 +3599,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('DeleteMonitoringSubscriptionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('DeleteMonitoringSubscriptionResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
       end
     end
 
@@ -3534,12 +3612,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('DeleteOriginRequestPolicyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('DeleteOriginRequestPolicyResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 204
       end
     end
 
@@ -3551,12 +3625,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('DeletePublicKeyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('DeletePublicKeyResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 204
       end
     end
 
@@ -3568,12 +3638,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('DeleteRealtimeLogConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('DeleteRealtimeLogConfigResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 204
       end
     end
 
@@ -3585,12 +3651,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('DeleteResponseHeadersPolicyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('DeleteResponseHeadersPolicyResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 204
       end
     end
 
@@ -3602,12 +3664,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('DeleteStreamingDistributionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('DeleteStreamingDistributionResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 204
       end
     end
 
@@ -3621,14 +3679,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('DescribeFunctionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('DescribeFunctionResult')
-        xml << Stubs::FunctionSummary.stub('FunctionSummary', stub[:function_summary]) unless stub[:function_summary].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FunctionSummary.build('FunctionSummary', stub[:function_summary]) unless stub[:function_summary].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3642,14 +3698,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetCachePolicyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetCachePolicyResult')
-        xml << Stubs::CachePolicy.stub('CachePolicy', stub[:cache_policy]) unless stub[:cache_policy].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::CachePolicy.build('CachePolicy', stub[:cache_policy]) unless stub[:cache_policy].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3663,14 +3717,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetCachePolicyConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetCachePolicyConfigResult')
-        xml << Stubs::CachePolicyConfig.stub('CachePolicyConfig', stub[:cache_policy_config]) unless stub[:cache_policy_config].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::CachePolicyConfig.build('CachePolicyConfig', stub[:cache_policy_config]) unless stub[:cache_policy_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3684,14 +3736,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetCloudFrontOriginAccessIdentityResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetCloudFrontOriginAccessIdentityResult')
-        xml << Stubs::CloudFrontOriginAccessIdentity.stub('CloudFrontOriginAccessIdentity', stub[:cloud_front_origin_access_identity]) unless stub[:cloud_front_origin_access_identity].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::CloudFrontOriginAccessIdentity.build('CloudFrontOriginAccessIdentity', stub[:cloud_front_origin_access_identity]) unless stub[:cloud_front_origin_access_identity].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3705,14 +3755,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetCloudFrontOriginAccessIdentityConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetCloudFrontOriginAccessIdentityConfigResult')
-        xml << Stubs::CloudFrontOriginAccessIdentityConfig.stub('CloudFrontOriginAccessIdentityConfig', stub[:cloud_front_origin_access_identity_config]) unless stub[:cloud_front_origin_access_identity_config].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::CloudFrontOriginAccessIdentityConfig.build('CloudFrontOriginAccessIdentityConfig', stub[:cloud_front_origin_access_identity_config]) unless stub[:cloud_front_origin_access_identity_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3726,14 +3774,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetDistributionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetDistributionResult')
-        xml << Stubs::Distribution.stub('Distribution', stub[:distribution]) unless stub[:distribution].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::Distribution.build('Distribution', stub[:distribution]) unless stub[:distribution].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3747,14 +3793,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetDistributionConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetDistributionConfigResult')
-        xml << Stubs::DistributionConfig.stub('DistributionConfig', stub[:distribution_config]) unless stub[:distribution_config].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::DistributionConfig.build('DistributionConfig', stub[:distribution_config]) unless stub[:distribution_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3768,14 +3812,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetFieldLevelEncryptionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetFieldLevelEncryptionResult')
-        xml << Stubs::FieldLevelEncryption.stub('FieldLevelEncryption', stub[:field_level_encryption]) unless stub[:field_level_encryption].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FieldLevelEncryption.build('FieldLevelEncryption', stub[:field_level_encryption]) unless stub[:field_level_encryption].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3789,14 +3831,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetFieldLevelEncryptionConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetFieldLevelEncryptionConfigResult')
-        xml << Stubs::FieldLevelEncryptionConfig.stub('FieldLevelEncryptionConfig', stub[:field_level_encryption_config]) unless stub[:field_level_encryption_config].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FieldLevelEncryptionConfig.build('FieldLevelEncryptionConfig', stub[:field_level_encryption_config]) unless stub[:field_level_encryption_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3810,14 +3850,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetFieldLevelEncryptionProfileResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetFieldLevelEncryptionProfileResult')
-        xml << Stubs::FieldLevelEncryptionProfile.stub('FieldLevelEncryptionProfile', stub[:field_level_encryption_profile]) unless stub[:field_level_encryption_profile].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FieldLevelEncryptionProfile.build('FieldLevelEncryptionProfile', stub[:field_level_encryption_profile]) unless stub[:field_level_encryption_profile].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3831,14 +3869,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetFieldLevelEncryptionProfileConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetFieldLevelEncryptionProfileConfigResult')
-        xml << Stubs::FieldLevelEncryptionProfileConfig.stub('FieldLevelEncryptionProfileConfig', stub[:field_level_encryption_profile_config]) unless stub[:field_level_encryption_profile_config].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FieldLevelEncryptionProfileConfig.build('FieldLevelEncryptionProfileConfig', stub[:field_level_encryption_profile_config]) unless stub[:field_level_encryption_profile_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3853,15 +3889,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetFunctionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetFunctionResult')
-        xml << Hearth::XML::Node.new('FunctionCode', Base64::encode64(stub[:function_code]).strip) unless stub[:function_code].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        xml << Hearth::XML::Node.new('ContentType', stub[:content_type].to_s) unless stub[:content_type].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
+        http_req.headers['Content-Type'] = 'application/octet-stream'
+        http_req.body = StringIO.new(stub[:function_code] || '')
       end
     end
 
@@ -3874,13 +3907,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetInvalidationResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetInvalidationResult')
-        xml << Stubs::Invalidation.stub('Invalidation', stub[:invalidation]) unless stub[:invalidation].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::Invalidation.build('Invalidation', stub[:invalidation]) unless stub[:invalidation].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3894,14 +3925,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetKeyGroupResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetKeyGroupResult')
-        xml << Stubs::KeyGroup.stub('KeyGroup', stub[:key_group]) unless stub[:key_group].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::KeyGroup.build('KeyGroup', stub[:key_group]) unless stub[:key_group].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3915,14 +3944,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetKeyGroupConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetKeyGroupConfigResult')
-        xml << Stubs::KeyGroupConfig.stub('KeyGroupConfig', stub[:key_group_config]) unless stub[:key_group_config].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::KeyGroupConfig.build('KeyGroupConfig', stub[:key_group_config]) unless stub[:key_group_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3935,13 +3962,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetMonitoringSubscriptionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetMonitoringSubscriptionResult')
-        xml << Stubs::MonitoringSubscription.stub('MonitoringSubscription', stub[:monitoring_subscription]) unless stub[:monitoring_subscription].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::MonitoringSubscription.build('MonitoringSubscription', stub[:monitoring_subscription]) unless stub[:monitoring_subscription].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3955,14 +3980,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetOriginRequestPolicyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetOriginRequestPolicyResult')
-        xml << Stubs::OriginRequestPolicy.stub('OriginRequestPolicy', stub[:origin_request_policy]) unless stub[:origin_request_policy].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::OriginRequestPolicy.build('OriginRequestPolicy', stub[:origin_request_policy]) unless stub[:origin_request_policy].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3976,14 +3999,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetOriginRequestPolicyConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetOriginRequestPolicyConfigResult')
-        xml << Stubs::OriginRequestPolicyConfig.stub('OriginRequestPolicyConfig', stub[:origin_request_policy_config]) unless stub[:origin_request_policy_config].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::OriginRequestPolicyConfig.build('OriginRequestPolicyConfig', stub[:origin_request_policy_config]) unless stub[:origin_request_policy_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -3997,14 +4018,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetPublicKeyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetPublicKeyResult')
-        xml << Stubs::PublicKey.stub('PublicKey', stub[:public_key]) unless stub[:public_key].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::PublicKey.build('PublicKey', stub[:public_key]) unless stub[:public_key].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4018,14 +4037,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetPublicKeyConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetPublicKeyConfigResult')
-        xml << Stubs::PublicKeyConfig.stub('PublicKeyConfig', stub[:public_key_config]) unless stub[:public_key_config].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::PublicKeyConfig.build('PublicKeyConfig', stub[:public_key_config]) unless stub[:public_key_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4038,13 +4055,14 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetRealtimeLogConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
+        data = {}
+        http_resp.status = 200
+
+        http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetRealtimeLogConfigResult')
+        xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Stubs::RealtimeLogConfig.stub('RealtimeLogConfig', stub[:realtime_log_config]) unless stub[:realtime_log_config].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4058,14 +4076,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetResponseHeadersPolicyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetResponseHeadersPolicyResult')
-        xml << Stubs::ResponseHeadersPolicy.stub('ResponseHeadersPolicy', stub[:response_headers_policy]) unless stub[:response_headers_policy].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::ResponseHeadersPolicy.build('ResponseHeadersPolicy', stub[:response_headers_policy]) unless stub[:response_headers_policy].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4079,14 +4095,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetResponseHeadersPolicyConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetResponseHeadersPolicyConfigResult')
-        xml << Stubs::ResponseHeadersPolicyConfig.stub('ResponseHeadersPolicyConfig', stub[:response_headers_policy_config]) unless stub[:response_headers_policy_config].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::ResponseHeadersPolicyConfig.build('ResponseHeadersPolicyConfig', stub[:response_headers_policy_config]) unless stub[:response_headers_policy_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4100,14 +4114,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetStreamingDistributionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetStreamingDistributionResult')
-        xml << Stubs::StreamingDistribution.stub('StreamingDistribution', stub[:streaming_distribution]) unless stub[:streaming_distribution].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::StreamingDistribution.build('StreamingDistribution', stub[:streaming_distribution]) unless stub[:streaming_distribution].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4121,14 +4133,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('GetStreamingDistributionConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('GetStreamingDistributionConfigResult')
-        xml << Stubs::StreamingDistributionConfig.stub('StreamingDistributionConfig', stub[:streaming_distribution_config]) unless stub[:streaming_distribution_config].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', stub[:streaming_distribution_config]) unless stub[:streaming_distribution_config].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4141,13 +4151,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListCachePoliciesResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListCachePoliciesResult')
-        xml << Stubs::CachePolicyList.stub('CachePolicyList', stub[:cache_policy_list]) unless stub[:cache_policy_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::CachePolicyList.build('CachePolicyList', stub[:cache_policy_list]) unless stub[:cache_policy_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4165,6 +4173,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
@@ -4185,9 +4194,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::CachePolicySummary.stub(node_name, element) unless element.nil?
+          xml << Stubs::CachePolicySummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4205,6 +4215,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Type', stub[:type].to_s) unless stub[:type].nil?
         xml << Stubs::CachePolicy.stub('CachePolicy', stub[:cache_policy]) unless stub[:cache_policy].nil?
@@ -4221,13 +4232,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListCloudFrontOriginAccessIdentitiesResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListCloudFrontOriginAccessIdentitiesResult')
-        xml << Stubs::CloudFrontOriginAccessIdentityList.stub('CloudFrontOriginAccessIdentityList', stub[:cloud_front_origin_access_identity_list]) unless stub[:cloud_front_origin_access_identity_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::CloudFrontOriginAccessIdentityList.build('CloudFrontOriginAccessIdentityList', stub[:cloud_front_origin_access_identity_list]) unless stub[:cloud_front_origin_access_identity_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4247,6 +4256,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
@@ -4269,9 +4279,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::CloudFrontOriginAccessIdentitySummary.stub(node_name, element) unless element.nil?
+          xml << Stubs::CloudFrontOriginAccessIdentitySummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4290,6 +4301,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('S3CanonicalUserId', stub[:s3_canonical_user_id].to_s) unless stub[:s3_canonical_user_id].nil?
@@ -4307,13 +4319,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListConflictingAliasesResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListConflictingAliasesResult')
-        xml << Stubs::ConflictingAliasesList.stub('ConflictingAliasesList', stub[:conflicting_aliases_list]) unless stub[:conflicting_aliases_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::ConflictingAliasesList.build('ConflictingAliasesList', stub[:conflicting_aliases_list]) unless stub[:conflicting_aliases_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4331,6 +4341,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
@@ -4351,9 +4362,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::ConflictingAlias.stub(node_name, element) unless element.nil?
+          xml << Stubs::ConflictingAlias.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4372,6 +4384,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Alias', stub[:alias].to_s) unless stub[:alias].nil?
         xml << Hearth::XML::Node.new('DistributionId', stub[:distribution_id].to_s) unless stub[:distribution_id].nil?
@@ -4389,13 +4402,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListDistributionsResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListDistributionsResult')
-        xml << Stubs::DistributionList.stub('DistributionList', stub[:distribution_list]) unless stub[:distribution_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::DistributionList.build('DistributionList', stub[:distribution_list]) unless stub[:distribution_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4415,6 +4426,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
@@ -4437,9 +4449,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::DistributionSummary.stub(node_name, element) unless element.nil?
+          xml << Stubs::DistributionSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4475,6 +4488,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('ARN', stub[:arn].to_s) unless stub[:arn].nil?
@@ -4509,13 +4523,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListDistributionsByCachePolicyIdResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListDistributionsByCachePolicyIdResult')
-        xml << Stubs::DistributionIdList.stub('DistributionIdList', stub[:distribution_id_list]) unless stub[:distribution_id_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::DistributionIdList.build('DistributionIdList', stub[:distribution_id_list]) unless stub[:distribution_id_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4535,6 +4547,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
@@ -4557,9 +4570,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -4574,13 +4588,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListDistributionsByKeyGroupResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListDistributionsByKeyGroupResult')
-        xml << Stubs::DistributionIdList.stub('DistributionIdList', stub[:distribution_id_list]) unless stub[:distribution_id_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::DistributionIdList.build('DistributionIdList', stub[:distribution_id_list]) unless stub[:distribution_id_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4593,13 +4605,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListDistributionsByOriginRequestPolicyIdResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListDistributionsByOriginRequestPolicyIdResult')
-        xml << Stubs::DistributionIdList.stub('DistributionIdList', stub[:distribution_id_list]) unless stub[:distribution_id_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::DistributionIdList.build('DistributionIdList', stub[:distribution_id_list]) unless stub[:distribution_id_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4612,13 +4622,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListDistributionsByRealtimeLogConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListDistributionsByRealtimeLogConfigResult')
-        xml << Stubs::DistributionList.stub('DistributionList', stub[:distribution_list]) unless stub[:distribution_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::DistributionList.build('DistributionList', stub[:distribution_list]) unless stub[:distribution_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4631,13 +4639,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListDistributionsByResponseHeadersPolicyIdResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListDistributionsByResponseHeadersPolicyIdResult')
-        xml << Stubs::DistributionIdList.stub('DistributionIdList', stub[:distribution_id_list]) unless stub[:distribution_id_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::DistributionIdList.build('DistributionIdList', stub[:distribution_id_list]) unless stub[:distribution_id_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4650,13 +4656,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListDistributionsByWebACLIdResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListDistributionsByWebACLIdResult')
-        xml << Stubs::DistributionList.stub('DistributionList', stub[:distribution_list]) unless stub[:distribution_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::DistributionList.build('DistributionList', stub[:distribution_list]) unless stub[:distribution_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4669,13 +4673,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListFieldLevelEncryptionConfigsResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListFieldLevelEncryptionConfigsResult')
-        xml << Stubs::FieldLevelEncryptionList.stub('FieldLevelEncryptionList', stub[:field_level_encryption_list]) unless stub[:field_level_encryption_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FieldLevelEncryptionList.build('FieldLevelEncryptionList', stub[:field_level_encryption_list]) unless stub[:field_level_encryption_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4693,6 +4695,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
@@ -4713,9 +4716,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::FieldLevelEncryptionSummary.stub(node_name, element) unless element.nil?
+          xml << Stubs::FieldLevelEncryptionSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4736,6 +4740,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('LastModifiedTime', Hearth::TimeHelper.to_date_time(stub[:last_modified_time])) unless stub[:last_modified_time].nil?
@@ -4755,13 +4760,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListFieldLevelEncryptionProfilesResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListFieldLevelEncryptionProfilesResult')
-        xml << Stubs::FieldLevelEncryptionProfileList.stub('FieldLevelEncryptionProfileList', stub[:field_level_encryption_profile_list]) unless stub[:field_level_encryption_profile_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FieldLevelEncryptionProfileList.build('FieldLevelEncryptionProfileList', stub[:field_level_encryption_profile_list]) unless stub[:field_level_encryption_profile_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4779,6 +4782,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
@@ -4799,9 +4803,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::FieldLevelEncryptionProfileSummary.stub(node_name, element) unless element.nil?
+          xml << Stubs::FieldLevelEncryptionProfileSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4822,6 +4827,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('LastModifiedTime', Hearth::TimeHelper.to_date_time(stub[:last_modified_time])) unless stub[:last_modified_time].nil?
@@ -4841,13 +4847,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListFunctionsResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListFunctionsResult')
-        xml << Stubs::FunctionList.stub('FunctionList', stub[:function_list]) unless stub[:function_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FunctionList.build('FunctionList', stub[:function_list]) unless stub[:function_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4865,6 +4869,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
@@ -4885,9 +4890,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::FunctionSummary.stub(node_name, element) unless element.nil?
+          xml << Stubs::FunctionSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4902,13 +4908,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListInvalidationsResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListInvalidationsResult')
-        xml << Stubs::InvalidationList.stub('InvalidationList', stub[:invalidation_list]) unless stub[:invalidation_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::InvalidationList.build('InvalidationList', stub[:invalidation_list]) unless stub[:invalidation_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -4928,6 +4932,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
@@ -4950,9 +4955,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::InvalidationSummary.stub(node_name, element) unless element.nil?
+          xml << Stubs::InvalidationSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4971,6 +4977,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('CreateTime', Hearth::TimeHelper.to_date_time(stub[:create_time])) unless stub[:create_time].nil?
@@ -4988,13 +4995,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListKeyGroupsResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListKeyGroupsResult')
-        xml << Stubs::KeyGroupList.stub('KeyGroupList', stub[:key_group_list]) unless stub[:key_group_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::KeyGroupList.build('KeyGroupList', stub[:key_group_list]) unless stub[:key_group_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5012,6 +5017,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
@@ -5032,9 +5038,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::KeyGroupSummary.stub(node_name, element) unless element.nil?
+          xml << Stubs::KeyGroupSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5051,6 +5058,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Stubs::KeyGroup.stub('KeyGroup', stub[:key_group]) unless stub[:key_group].nil?
         xml
@@ -5066,13 +5074,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListOriginRequestPoliciesResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListOriginRequestPoliciesResult')
-        xml << Stubs::OriginRequestPolicyList.stub('OriginRequestPolicyList', stub[:origin_request_policy_list]) unless stub[:origin_request_policy_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::OriginRequestPolicyList.build('OriginRequestPolicyList', stub[:origin_request_policy_list]) unless stub[:origin_request_policy_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5090,6 +5096,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
@@ -5110,9 +5117,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::OriginRequestPolicySummary.stub(node_name, element) unless element.nil?
+          xml << Stubs::OriginRequestPolicySummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5130,6 +5138,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Type', stub[:type].to_s) unless stub[:type].nil?
         xml << Stubs::OriginRequestPolicy.stub('OriginRequestPolicy', stub[:origin_request_policy]) unless stub[:origin_request_policy].nil?
@@ -5146,13 +5155,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListPublicKeysResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListPublicKeysResult')
-        xml << Stubs::PublicKeyList.stub('PublicKeyList', stub[:public_key_list]) unless stub[:public_key_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::PublicKeyList.build('PublicKeyList', stub[:public_key_list]) unless stub[:public_key_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5170,6 +5177,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
@@ -5190,9 +5198,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::PublicKeySummary.stub(node_name, element) unless element.nil?
+          xml << Stubs::PublicKeySummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5213,6 +5222,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
@@ -5232,13 +5242,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListRealtimeLogConfigsResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListRealtimeLogConfigsResult')
-        xml << Stubs::RealtimeLogConfigs.stub('RealtimeLogConfigs', stub[:realtime_log_configs]) unless stub[:realtime_log_configs].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::RealtimeLogConfigs.build('RealtimeLogConfigs', stub[:realtime_log_configs]) unless stub[:realtime_log_configs].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5257,6 +5265,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::RealtimeLogConfigList.stub('member', stub[:items])) unless stub[:items].nil?
@@ -5278,9 +5287,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::RealtimeLogConfig.stub(node_name, element) unless element.nil?
+          xml << Stubs::RealtimeLogConfig.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5295,13 +5305,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListResponseHeadersPoliciesResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListResponseHeadersPoliciesResult')
-        xml << Stubs::ResponseHeadersPolicyList.stub('ResponseHeadersPolicyList', stub[:response_headers_policy_list]) unless stub[:response_headers_policy_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::ResponseHeadersPolicyList.build('ResponseHeadersPolicyList', stub[:response_headers_policy_list]) unless stub[:response_headers_policy_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5319,6 +5327,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
@@ -5339,9 +5348,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::ResponseHeadersPolicySummary.stub(node_name, element) unless element.nil?
+          xml << Stubs::ResponseHeadersPolicySummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5359,6 +5369,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Type', stub[:type].to_s) unless stub[:type].nil?
         xml << Stubs::ResponseHeadersPolicy.stub('ResponseHeadersPolicy', stub[:response_headers_policy]) unless stub[:response_headers_policy].nil?
@@ -5375,13 +5386,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListStreamingDistributionsResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListStreamingDistributionsResult')
-        xml << Stubs::StreamingDistributionList.stub('StreamingDistributionList', stub[:streaming_distribution_list]) unless stub[:streaming_distribution_list].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::StreamingDistributionList.build('StreamingDistributionList', stub[:streaming_distribution_list]) unless stub[:streaming_distribution_list].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5401,6 +5410,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
@@ -5423,9 +5433,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::StreamingDistributionSummary.stub(node_name, element) unless element.nil?
+          xml << Stubs::StreamingDistributionSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5452,6 +5463,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('ARN', stub[:arn].to_s) unless stub[:arn].nil?
@@ -5477,13 +5489,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('ListTagsForResourceResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('ListTagsForResourceResult')
-        xml << Stubs::Tags.stub('Tags', stub[:tags]) unless stub[:tags].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::Tags.build('Tags', stub[:tags]) unless stub[:tags].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5498,6 +5508,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Items', Stubs::TagList.stub('Tag', stub[:items])) unless stub[:items].nil?
         xml
@@ -5515,9 +5526,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Stubs::Tag.stub(node_name, element) unless element.nil?
+          xml << Stubs::Tag.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5535,6 +5547,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Key', stub[:key].to_s) unless stub[:key].nil?
         xml << Hearth::XML::Node.new('Value', stub[:value].to_s) unless stub[:value].nil?
@@ -5551,13 +5564,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('PublishFunctionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('PublishFunctionResult')
-        xml << Stubs::FunctionSummary.stub('FunctionSummary', stub[:function_summary]) unless stub[:function_summary].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FunctionSummary.build('FunctionSummary', stub[:function_summary]) unless stub[:function_summary].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5569,12 +5580,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('TagResourceResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('TagResourceResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 204
       end
     end
 
@@ -5587,13 +5594,11 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('TestFunctionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('TestFunctionResult')
-        xml << Stubs::TestResult.stub('TestResult', stub[:test_result]) unless stub[:test_result].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::TestResult.build('TestResult', stub[:test_result]) unless stub[:test_result].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5612,6 +5617,7 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = {})
+        stub ||= {}
         xml = Hearth::XML::Node.new(node_name)
         xml << Stubs::FunctionSummary.stub('FunctionSummary', stub[:function_summary]) unless stub[:function_summary].nil?
         xml << Hearth::XML::Node.new('ComputeUtilization', stub[:compute_utilization].to_s) unless stub[:compute_utilization].nil?
@@ -5633,9 +5639,10 @@ module AWS::Cloudfront
       end
 
       def self.stub(node_name, stub = [])
+        stub ||= []
         xml = []
         stub.each do |element|
-          xml << xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, element.to_s) unless element.nil?
         end
         xml
       end
@@ -5649,12 +5656,8 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('UntagResourceResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('UntagResourceResult')
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 204
       end
     end
 
@@ -5668,14 +5671,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('UpdateCachePolicyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('UpdateCachePolicyResult')
-        xml << Stubs::CachePolicy.stub('CachePolicy', stub[:cache_policy]) unless stub[:cache_policy].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::CachePolicy.build('CachePolicy', stub[:cache_policy]) unless stub[:cache_policy].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5689,14 +5690,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('UpdateCloudFrontOriginAccessIdentityResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('UpdateCloudFrontOriginAccessIdentityResult')
-        xml << Stubs::CloudFrontOriginAccessIdentity.stub('CloudFrontOriginAccessIdentity', stub[:cloud_front_origin_access_identity]) unless stub[:cloud_front_origin_access_identity].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::CloudFrontOriginAccessIdentity.build('CloudFrontOriginAccessIdentity', stub[:cloud_front_origin_access_identity]) unless stub[:cloud_front_origin_access_identity].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5710,14 +5709,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('UpdateDistributionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('UpdateDistributionResult')
-        xml << Stubs::Distribution.stub('Distribution', stub[:distribution]) unless stub[:distribution].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::Distribution.build('Distribution', stub[:distribution]) unless stub[:distribution].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5731,14 +5728,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('UpdateFieldLevelEncryptionConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('UpdateFieldLevelEncryptionConfigResult')
-        xml << Stubs::FieldLevelEncryption.stub('FieldLevelEncryption', stub[:field_level_encryption]) unless stub[:field_level_encryption].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FieldLevelEncryption.build('FieldLevelEncryption', stub[:field_level_encryption]) unless stub[:field_level_encryption].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5752,14 +5747,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('UpdateFieldLevelEncryptionProfileResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('UpdateFieldLevelEncryptionProfileResult')
-        xml << Stubs::FieldLevelEncryptionProfile.stub('FieldLevelEncryptionProfile', stub[:field_level_encryption_profile]) unless stub[:field_level_encryption_profile].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FieldLevelEncryptionProfile.build('FieldLevelEncryptionProfile', stub[:field_level_encryption_profile]) unless stub[:field_level_encryption_profile].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5773,14 +5766,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('UpdateFunctionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('UpdateFunctionResult')
-        xml << Stubs::FunctionSummary.stub('FunctionSummary', stub[:function_summary]) unless stub[:function_summary].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETtag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::FunctionSummary.build('FunctionSummary', stub[:function_summary]) unless stub[:function_summary].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5794,14 +5785,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('UpdateKeyGroupResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('UpdateKeyGroupResult')
-        xml << Stubs::KeyGroup.stub('KeyGroup', stub[:key_group]) unless stub[:key_group].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::KeyGroup.build('KeyGroup', stub[:key_group]) unless stub[:key_group].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5815,14 +5804,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('UpdateOriginRequestPolicyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('UpdateOriginRequestPolicyResult')
-        xml << Stubs::OriginRequestPolicy.stub('OriginRequestPolicy', stub[:origin_request_policy]) unless stub[:origin_request_policy].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::OriginRequestPolicy.build('OriginRequestPolicy', stub[:origin_request_policy]) unless stub[:origin_request_policy].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5836,14 +5823,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('UpdatePublicKeyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('UpdatePublicKeyResult')
-        xml << Stubs::PublicKey.stub('PublicKey', stub[:public_key]) unless stub[:public_key].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::PublicKey.build('PublicKey', stub[:public_key]) unless stub[:public_key].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5856,13 +5841,14 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('UpdateRealtimeLogConfigResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
+        data = {}
+        http_resp.status = 200
+
+        http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('UpdateRealtimeLogConfigResult')
+        xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Stubs::RealtimeLogConfig.stub('RealtimeLogConfig', stub[:realtime_log_config]) unless stub[:realtime_log_config].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5876,14 +5862,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('UpdateResponseHeadersPolicyResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('UpdateResponseHeadersPolicyResult')
-        xml << Stubs::ResponseHeadersPolicy.stub('ResponseHeadersPolicy', stub[:response_headers_policy]) unless stub[:response_headers_policy].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::ResponseHeadersPolicy.build('ResponseHeadersPolicy', stub[:response_headers_policy]) unless stub[:response_headers_policy].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
 
@@ -5897,14 +5881,12 @@ module AWS::Cloudfront
       end
 
       def self.stub(http_resp, stub:)
-        http_resp.headers['Content-Type'] = 'application/xml'
-        response = Hearth::XML::Node.new('UpdateStreamingDistributionResponse')
-        response.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml = Hearth::XML::Node.new('UpdateStreamingDistributionResult')
-        xml << Stubs::StreamingDistribution.stub('StreamingDistribution', stub[:streaming_distribution]) unless stub[:streaming_distribution].nil?
-        xml << Hearth::XML::Node.new('ETag', stub[:e_tag].to_s) unless stub[:e_tag].nil?
-        response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
+        http_req.headers['Content-Type'] = 'application/xml'
+        xml = Builders::StreamingDistribution.build('StreamingDistribution', stub[:streaming_distribution]) unless stub[:streaming_distribution].nil?
+        http_req.body = StringIO.new(xml.to_str)
       end
     end
   end

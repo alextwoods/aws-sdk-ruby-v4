@@ -1040,6 +1040,7 @@ module AWS::Cloudfront
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateFunctionRequest')
+        xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
         xml << Builders::FunctionConfig.build('FunctionConfig', input[:function_config]) unless input[:function_config].nil?
         xml << Hearth::XML::Node.new('FunctionCode', Base64::encode64(input[:function_code]).strip) unless input[:function_code].nil?
@@ -1254,6 +1255,7 @@ module AWS::Cloudfront
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateRealtimeLogConfigRequest')
+        xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('EndPoints', Builders::EndPointList.build('member', input[:end_points])) unless input[:end_points].nil?
         xml << Hearth::XML::Node.new('Fields', Builders::FieldList.build('Field', input[:fields])) unless input[:fields].nil?
         xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
@@ -1745,6 +1747,7 @@ module AWS::Cloudfront
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteRealtimeLogConfigRequest')
+        xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
         xml << Hearth::XML::Node.new('ARN', input[:arn].to_s) unless input[:arn].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2028,6 +2031,7 @@ module AWS::Cloudfront
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetRealtimeLogConfigRequest')
+        xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
         xml << Hearth::XML::Node.new('ARN', input[:arn].to_s) unless input[:arn].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2175,6 +2179,7 @@ module AWS::Cloudfront
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ListDistributionsByRealtimeLogConfigRequest')
+        xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('Marker', input[:marker].to_s) unless input[:marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
         xml << Hearth::XML::Node.new('RealtimeLogConfigName', input[:realtime_log_config_name].to_s) unless input[:realtime_log_config_name].nil?
@@ -2367,6 +2372,7 @@ module AWS::Cloudfront
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('TestFunctionRequest')
+        xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('Stage', input[:stage].to_s) unless input[:stage].nil?
         xml << Hearth::XML::Node.new('EventObject', Base64::encode64(input[:event_object]).strip) unless input[:event_object].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2501,6 +2507,7 @@ module AWS::Cloudfront
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('UpdateFunctionRequest')
+        xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Builders::FunctionConfig.build('FunctionConfig', input[:function_config]) unless input[:function_config].nil?
         xml << Hearth::XML::Node.new('FunctionCode', Base64::encode64(input[:function_code]).strip) unless input[:function_code].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2564,6 +2571,7 @@ module AWS::Cloudfront
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('UpdateRealtimeLogConfigRequest')
+        xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('EndPoints', Builders::EndPointList.build('member', input[:end_points])) unless input[:end_points].nil?
         xml << Hearth::XML::Node.new('Fields', Builders::FieldList.build('Field', input[:fields])) unless input[:fields].nil?
         xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?

@@ -84,8 +84,12 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 .write("http_req.headers['Content-Type'] = 'application/xml'")
                 .write("xml = Hearth::XML::Node.new('$L')", nodeName)
                 .call(() -> {
-                    if (inputShape.hasTrait(XmlNamespaceTrait.class)) {
-                        writeXmlNamespaceForShape(inputShape, "xml");
+                    XmlNamespaceTrait xmlnsTrait = context.getService()
+                            .getTrait(XmlNamespaceTrait.class)
+                            .orElse(inputShape.getTrait(XmlNamespaceTrait.class)
+                                    .orElse(null));
+                    if (xmlnsTrait != null) {
+                        writeXmlNamespace(xmlnsTrait, "xml");
                     }
                     renderMemberBuilders(inputShape);
                 })
@@ -198,10 +202,9 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 .closeBlock("end");
     }
 
-    private void writeXmlNamespaceForShape(Shape shape, String dataSetter) {
-        XmlNamespaceTrait trait = shape.getTrait(XmlNamespaceTrait.class).get();
-        Optional<String> prefix = trait.getPrefix();
-        String uri = trait.getUri();
+    private void writeXmlNamespace(XmlNamespaceTrait xmlnsTrait, String dataSetter) {
+        Optional<String> prefix = xmlnsTrait.getPrefix();
+        String uri = xmlnsTrait.getUri();
         String xmlns = "xmlns";
         if (prefix.isPresent()) {
             xmlns += ":" + prefix.get();
@@ -568,7 +571,9 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                             nodeName, inputGetter)
                     .call(() -> {
                         if (shape.hasTrait(XmlNamespaceTrait.class)) {
-                            writeXmlNamespaceForShape(shape, "xml");
+                            writeXmlNamespace(
+                                    shape.expectTrait(XmlNamespaceTrait.class),
+                                    "xml");
                         }
                     })
                     .write("http_req.body = StringIO.new(xml.to_str)");
