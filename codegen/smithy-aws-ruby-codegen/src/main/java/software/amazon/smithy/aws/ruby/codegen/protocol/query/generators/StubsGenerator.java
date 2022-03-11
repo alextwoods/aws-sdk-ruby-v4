@@ -17,6 +17,8 @@ package software.amazon.smithy.aws.ruby.codegen.protocol.query.generators;
 
 import java.util.Optional;
 import java.util.stream.Stream;
+
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.DoubleShape;
 import software.amazon.smithy.model.shapes.FloatShape;
@@ -74,7 +76,36 @@ public class StubsGenerator extends StubsGeneratorBase {
 
     @Override
     protected void renderUnionStubMethod(UnionShape shape) {
-        // TODO - revisit after param/validation is applied to stubs
+        Symbol symbol = symbolProvider.toSymbol(shape);
+        writer
+                .openBlock("def self.stub(node_name, stub = {})")
+                .write("xml = Hearth::XML::Node.new(node_name)")
+                .write("case stub");
+
+        shape.members().forEach((member) -> {
+            writer
+                    .write("when Types::$L::$L", shape.getId().getName(), symbolProvider.toMemberName(member))
+                    .indent();
+            renderUnionMemberStubber(shape, member);
+            writer.dedent();
+        });
+        writer.openBlock("else")
+                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of Types::$L\"",
+                        symbol.getName())
+                .closeBlock("end")
+                .write("")
+                .write("xml")
+                .closeBlock("end");
+
+    }
+
+    private void renderUnionMemberStubber(UnionShape shape, MemberShape member) {
+        Shape target = model.expectShape(member.getTarget());
+        String nodeName = "'" + member.getMemberName() + "'";
+        if (member.hasTrait(XmlNameTrait.class)) {
+            nodeName = "'" + member.expectTrait(XmlNameTrait.class).getValue() + "'";
+        }
+        target.accept(new MemberSerializer(member, nodeName, "stub.__getobj__", true));
     }
 
     @Override
