@@ -148,7 +148,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
         Shape target = model.expectShape(member.getTarget());
         String symbolName = "'" + member.getMemberName() + "'";
         String dataSetter = "data[" + symbolName + "] = ";
-        target.accept(new MemberSerializer(member, dataSetter, "stub", false));
+        target.accept(new MemberSerializer(member, dataSetter, "stub.__getobj__", false));
     }
 
     private void renderMemberStubbers(Shape s) {
