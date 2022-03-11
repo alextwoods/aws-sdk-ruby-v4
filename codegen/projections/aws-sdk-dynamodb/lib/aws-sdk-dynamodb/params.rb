@@ -12,6 +12,17 @@ require 'securerandom'
 module AWS::Dynamodb
   module Params
 
+    module ArchivalSummary
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ArchivalSummary, context: context)
+        type = Types::ArchivalSummary.new
+        type.archival_date_time = params[:archival_date_time]
+        type.archival_reason = params[:archival_reason]
+        type.archival_backup_arn = params[:archival_backup_arn]
+        type
+      end
+    end
+
     module AttributeDefinition
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::AttributeDefinition, context: context)
@@ -28,6 +39,17 @@ module AWS::Dynamodb
         data = []
         params.each_with_index do |element, index|
           data << AttributeDefinition.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module AttributeMap
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, context: context)
+        data = {}
+        params.each do |key, value|
+          data[key] = AttributeValue.build(value, context: "#{context}[:#{key}]") unless value.nil?
         end
         data
       end
@@ -133,12 +155,46 @@ module AWS::Dynamodb
       end
     end
 
+    module AutoScalingPolicyDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::AutoScalingPolicyDescription, context: context)
+        type = Types::AutoScalingPolicyDescription.new
+        type.policy_name = params[:policy_name]
+        type.target_tracking_scaling_policy_configuration = AutoScalingTargetTrackingScalingPolicyConfigurationDescription.build(params[:target_tracking_scaling_policy_configuration], context: "#{context}[:target_tracking_scaling_policy_configuration]") unless params[:target_tracking_scaling_policy_configuration].nil?
+        type
+      end
+    end
+
+    module AutoScalingPolicyDescriptionList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << AutoScalingPolicyDescription.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
     module AutoScalingPolicyUpdate
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::AutoScalingPolicyUpdate, context: context)
         type = Types::AutoScalingPolicyUpdate.new
         type.policy_name = params[:policy_name]
         type.target_tracking_scaling_policy_configuration = AutoScalingTargetTrackingScalingPolicyConfigurationUpdate.build(params[:target_tracking_scaling_policy_configuration], context: "#{context}[:target_tracking_scaling_policy_configuration]") unless params[:target_tracking_scaling_policy_configuration].nil?
+        type
+      end
+    end
+
+    module AutoScalingSettingsDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::AutoScalingSettingsDescription, context: context)
+        type = Types::AutoScalingSettingsDescription.new
+        type.minimum_units = params[:minimum_units]
+        type.maximum_units = params[:maximum_units]
+        type.auto_scaling_disabled = params[:auto_scaling_disabled]
+        type.auto_scaling_role_arn = params[:auto_scaling_role_arn]
+        type.scaling_policies = AutoScalingPolicyDescriptionList.build(params[:scaling_policies], context: "#{context}[:scaling_policies]") unless params[:scaling_policies].nil?
         type
       end
     end
@@ -156,6 +212,18 @@ module AWS::Dynamodb
       end
     end
 
+    module AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription, context: context)
+        type = Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription.new
+        type.disable_scale_in = params[:disable_scale_in]
+        type.scale_in_cooldown = params[:scale_in_cooldown]
+        type.scale_out_cooldown = params[:scale_out_cooldown]
+        type.target_value = params[:target_value]
+        type
+      end
+    end
+
     module AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate, context: context)
@@ -164,6 +232,79 @@ module AWS::Dynamodb
         type.scale_in_cooldown = params[:scale_in_cooldown]
         type.scale_out_cooldown = params[:scale_out_cooldown]
         type.target_value = params[:target_value]
+        type
+      end
+    end
+
+    module BackupDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::BackupDescription, context: context)
+        type = Types::BackupDescription.new
+        type.backup_details = BackupDetails.build(params[:backup_details], context: "#{context}[:backup_details]") unless params[:backup_details].nil?
+        type.source_table_details = SourceTableDetails.build(params[:source_table_details], context: "#{context}[:source_table_details]") unless params[:source_table_details].nil?
+        type.source_table_feature_details = SourceTableFeatureDetails.build(params[:source_table_feature_details], context: "#{context}[:source_table_feature_details]") unless params[:source_table_feature_details].nil?
+        type
+      end
+    end
+
+    module BackupDetails
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::BackupDetails, context: context)
+        type = Types::BackupDetails.new
+        type.backup_arn = params[:backup_arn]
+        type.backup_name = params[:backup_name]
+        type.backup_size_bytes = params[:backup_size_bytes]
+        type.backup_status = params[:backup_status]
+        type.backup_type = params[:backup_type]
+        type.backup_creation_date_time = params[:backup_creation_date_time]
+        type.backup_expiry_date_time = params[:backup_expiry_date_time]
+        type
+      end
+    end
+
+    module BackupInUseException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::BackupInUseException, context: context)
+        type = Types::BackupInUseException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module BackupNotFoundException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::BackupNotFoundException, context: context)
+        type = Types::BackupNotFoundException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module BackupSummaries
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << BackupSummary.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module BackupSummary
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::BackupSummary, context: context)
+        type = Types::BackupSummary.new
+        type.table_name = params[:table_name]
+        type.table_id = params[:table_id]
+        type.table_arn = params[:table_arn]
+        type.backup_arn = params[:backup_arn]
+        type.backup_name = params[:backup_name]
+        type.backup_creation_date_time = params[:backup_creation_date_time]
+        type.backup_expiry_date_time = params[:backup_expiry_date_time]
+        type.backup_status = params[:backup_status]
+        type.backup_type = params[:backup_type]
+        type.backup_size_bytes = params[:backup_size_bytes]
         type
       end
     end
@@ -178,12 +319,33 @@ module AWS::Dynamodb
       end
     end
 
+    module BatchExecuteStatementOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::BatchExecuteStatementOutput, context: context)
+        type = Types::BatchExecuteStatementOutput.new
+        type.responses = PartiQLBatchResponse.build(params[:responses], context: "#{context}[:responses]") unless params[:responses].nil?
+        type.consumed_capacity = ConsumedCapacityMultiple.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
+        type
+      end
+    end
+
     module BatchGetItemInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::BatchGetItemInput, context: context)
         type = Types::BatchGetItemInput.new
         type.request_items = BatchGetRequestMap.build(params[:request_items], context: "#{context}[:request_items]") unless params[:request_items].nil?
         type.return_consumed_capacity = params[:return_consumed_capacity]
+        type
+      end
+    end
+
+    module BatchGetItemOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::BatchGetItemOutput, context: context)
+        type = Types::BatchGetItemOutput.new
+        type.responses = BatchGetResponseMap.build(params[:responses], context: "#{context}[:responses]") unless params[:responses].nil?
+        type.unprocessed_keys = BatchGetRequestMap.build(params[:unprocessed_keys], context: "#{context}[:unprocessed_keys]") unless params[:unprocessed_keys].nil?
+        type.consumed_capacity = ConsumedCapacityMultiple.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
         type
       end
     end
@@ -199,6 +361,27 @@ module AWS::Dynamodb
       end
     end
 
+    module BatchGetResponseMap
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, context: context)
+        data = {}
+        params.each do |key, value|
+          data[key] = ItemList.build(value, context: "#{context}[:#{key}]") unless value.nil?
+        end
+        data
+      end
+    end
+
+    module BatchStatementError
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::BatchStatementError, context: context)
+        type = Types::BatchStatementError.new
+        type.code = params[:code]
+        type.message = params[:message]
+        type
+      end
+    end
+
     module BatchStatementRequest
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::BatchStatementRequest, context: context)
@@ -206,6 +389,17 @@ module AWS::Dynamodb
         type.statement = params[:statement]
         type.parameters = PreparedStatementParameters.build(params[:parameters], context: "#{context}[:parameters]") unless params[:parameters].nil?
         type.consistent_read = params[:consistent_read]
+        type
+      end
+    end
+
+    module BatchStatementResponse
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::BatchStatementResponse, context: context)
+        type = Types::BatchStatementResponse.new
+        type.error = BatchStatementError.build(params[:error], context: "#{context}[:error]") unless params[:error].nil?
+        type.table_name = params[:table_name]
+        type.item = AttributeMap.build(params[:item], context: "#{context}[:item]") unless params[:item].nil?
         type
       end
     end
@@ -221,6 +415,17 @@ module AWS::Dynamodb
       end
     end
 
+    module BatchWriteItemOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::BatchWriteItemOutput, context: context)
+        type = Types::BatchWriteItemOutput.new
+        type.unprocessed_items = BatchWriteItemRequestMap.build(params[:unprocessed_items], context: "#{context}[:unprocessed_items]") unless params[:unprocessed_items].nil?
+        type.item_collection_metrics = ItemCollectionMetricsPerTable.build(params[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless params[:item_collection_metrics].nil?
+        type.consumed_capacity = ConsumedCapacityMultiple.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
+        type
+      end
+    end
+
     module BatchWriteItemRequestMap
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, context: context)
@@ -232,6 +437,16 @@ module AWS::Dynamodb
       end
     end
 
+    module BillingModeSummary
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::BillingModeSummary, context: context)
+        type = Types::BillingModeSummary.new
+        type.billing_mode = params[:billing_mode]
+        type.last_update_to_pay_per_request_date_time = params[:last_update_to_pay_per_request_date_time]
+        type
+      end
+    end
+
     module BinarySetAttributeValue
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
@@ -240,6 +455,39 @@ module AWS::Dynamodb
           data << element
         end
         data
+      end
+    end
+
+    module CancellationReason
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::CancellationReason, context: context)
+        type = Types::CancellationReason.new
+        type.item = AttributeMap.build(params[:item], context: "#{context}[:item]") unless params[:item].nil?
+        type.code = params[:code]
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module CancellationReasonList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << CancellationReason.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module Capacity
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::Capacity, context: context)
+        type = Types::Capacity.new
+        type.read_capacity_units = params[:read_capacity_units]
+        type.write_capacity_units = params[:write_capacity_units]
+        type.capacity_units = params[:capacity_units]
+        type
       end
     end
 
@@ -267,12 +515,108 @@ module AWS::Dynamodb
       end
     end
 
+    module ConditionalCheckFailedException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ConditionalCheckFailedException, context: context)
+        type = Types::ConditionalCheckFailedException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module ConsumedCapacity
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ConsumedCapacity, context: context)
+        type = Types::ConsumedCapacity.new
+        type.table_name = params[:table_name]
+        type.capacity_units = params[:capacity_units]
+        type.read_capacity_units = params[:read_capacity_units]
+        type.write_capacity_units = params[:write_capacity_units]
+        type.table = Capacity.build(params[:table], context: "#{context}[:table]") unless params[:table].nil?
+        type.local_secondary_indexes = SecondaryIndexesCapacityMap.build(params[:local_secondary_indexes], context: "#{context}[:local_secondary_indexes]") unless params[:local_secondary_indexes].nil?
+        type.global_secondary_indexes = SecondaryIndexesCapacityMap.build(params[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless params[:global_secondary_indexes].nil?
+        type
+      end
+    end
+
+    module ConsumedCapacityMultiple
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << ConsumedCapacity.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module ContinuousBackupsDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ContinuousBackupsDescription, context: context)
+        type = Types::ContinuousBackupsDescription.new
+        type.continuous_backups_status = params[:continuous_backups_status]
+        type.point_in_time_recovery_description = PointInTimeRecoveryDescription.build(params[:point_in_time_recovery_description], context: "#{context}[:point_in_time_recovery_description]") unless params[:point_in_time_recovery_description].nil?
+        type
+      end
+    end
+
+    module ContinuousBackupsUnavailableException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ContinuousBackupsUnavailableException, context: context)
+        type = Types::ContinuousBackupsUnavailableException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module ContributorInsightsRuleList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << element
+        end
+        data
+      end
+    end
+
+    module ContributorInsightsSummaries
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << ContributorInsightsSummary.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module ContributorInsightsSummary
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ContributorInsightsSummary, context: context)
+        type = Types::ContributorInsightsSummary.new
+        type.table_name = params[:table_name]
+        type.index_name = params[:index_name]
+        type.contributor_insights_status = params[:contributor_insights_status]
+        type
+      end
+    end
+
     module CreateBackupInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateBackupInput, context: context)
         type = Types::CreateBackupInput.new
         type.table_name = params[:table_name]
         type.backup_name = params[:backup_name]
+        type
+      end
+    end
+
+    module CreateBackupOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateBackupOutput, context: context)
+        type = Types::CreateBackupOutput.new
+        type.backup_details = BackupDetails.build(params[:backup_details], context: "#{context}[:backup_details]") unless params[:backup_details].nil?
         type
       end
     end
@@ -295,6 +639,15 @@ module AWS::Dynamodb
         type = Types::CreateGlobalTableInput.new
         type.global_table_name = params[:global_table_name]
         type.replication_group = ReplicaList.build(params[:replication_group], context: "#{context}[:replication_group]") unless params[:replication_group].nil?
+        type
+      end
+    end
+
+    module CreateGlobalTableOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateGlobalTableOutput, context: context)
+        type = Types::CreateGlobalTableOutput.new
+        type.global_table_description = GlobalTableDescription.build(params[:global_table_description], context: "#{context}[:global_table_description]") unless params[:global_table_description].nil?
         type
       end
     end
@@ -340,6 +693,15 @@ module AWS::Dynamodb
       end
     end
 
+    module CreateTableOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateTableOutput, context: context)
+        type = Types::CreateTableOutput.new
+        type.table_description = TableDescription.build(params[:table_description], context: "#{context}[:table_description]") unless params[:table_description].nil?
+        type
+      end
+    end
+
     module Delete
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::Delete, context: context)
@@ -359,6 +721,15 @@ module AWS::Dynamodb
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteBackupInput, context: context)
         type = Types::DeleteBackupInput.new
         type.backup_arn = params[:backup_arn]
+        type
+      end
+    end
+
+    module DeleteBackupOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteBackupOutput, context: context)
+        type = Types::DeleteBackupOutput.new
+        type.backup_description = BackupDescription.build(params[:backup_description], context: "#{context}[:backup_description]") unless params[:backup_description].nil?
         type
       end
     end
@@ -386,6 +757,17 @@ module AWS::Dynamodb
         type.condition_expression = params[:condition_expression]
         type.expression_attribute_names = ExpressionAttributeNameMap.build(params[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless params[:expression_attribute_names].nil?
         type.expression_attribute_values = ExpressionAttributeValueMap.build(params[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless params[:expression_attribute_values].nil?
+        type
+      end
+    end
+
+    module DeleteItemOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteItemOutput, context: context)
+        type = Types::DeleteItemOutput.new
+        type.attributes = AttributeMap.build(params[:attributes], context: "#{context}[:attributes]") unless params[:attributes].nil?
+        type.consumed_capacity = ConsumedCapacity.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
+        type.item_collection_metrics = ItemCollectionMetrics.build(params[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless params[:item_collection_metrics].nil?
         type
       end
     end
@@ -426,6 +808,15 @@ module AWS::Dynamodb
       end
     end
 
+    module DeleteTableOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteTableOutput, context: context)
+        type = Types::DeleteTableOutput.new
+        type.table_description = TableDescription.build(params[:table_description], context: "#{context}[:table_description]") unless params[:table_description].nil?
+        type
+      end
+    end
+
     module DescribeBackupInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DescribeBackupInput, context: context)
@@ -435,11 +826,29 @@ module AWS::Dynamodb
       end
     end
 
+    module DescribeBackupOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeBackupOutput, context: context)
+        type = Types::DescribeBackupOutput.new
+        type.backup_description = BackupDescription.build(params[:backup_description], context: "#{context}[:backup_description]") unless params[:backup_description].nil?
+        type
+      end
+    end
+
     module DescribeContinuousBackupsInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DescribeContinuousBackupsInput, context: context)
         type = Types::DescribeContinuousBackupsInput.new
         type.table_name = params[:table_name]
+        type
+      end
+    end
+
+    module DescribeContinuousBackupsOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeContinuousBackupsOutput, context: context)
+        type = Types::DescribeContinuousBackupsOutput.new
+        type.continuous_backups_description = ContinuousBackupsDescription.build(params[:continuous_backups_description], context: "#{context}[:continuous_backups_description]") unless params[:continuous_backups_description].nil?
         type
       end
     end
@@ -454,10 +863,33 @@ module AWS::Dynamodb
       end
     end
 
+    module DescribeContributorInsightsOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeContributorInsightsOutput, context: context)
+        type = Types::DescribeContributorInsightsOutput.new
+        type.table_name = params[:table_name]
+        type.index_name = params[:index_name]
+        type.contributor_insights_rule_list = ContributorInsightsRuleList.build(params[:contributor_insights_rule_list], context: "#{context}[:contributor_insights_rule_list]") unless params[:contributor_insights_rule_list].nil?
+        type.contributor_insights_status = params[:contributor_insights_status]
+        type.last_update_date_time = params[:last_update_date_time]
+        type.failure_exception = FailureException.build(params[:failure_exception], context: "#{context}[:failure_exception]") unless params[:failure_exception].nil?
+        type
+      end
+    end
+
     module DescribeEndpointsInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DescribeEndpointsInput, context: context)
         type = Types::DescribeEndpointsInput.new
+        type
+      end
+    end
+
+    module DescribeEndpointsOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeEndpointsOutput, context: context)
+        type = Types::DescribeEndpointsOutput.new
+        type.endpoints = Endpoints.build(params[:endpoints], context: "#{context}[:endpoints]") unless params[:endpoints].nil?
         type
       end
     end
@@ -471,11 +903,29 @@ module AWS::Dynamodb
       end
     end
 
+    module DescribeExportOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeExportOutput, context: context)
+        type = Types::DescribeExportOutput.new
+        type.export_description = ExportDescription.build(params[:export_description], context: "#{context}[:export_description]") unless params[:export_description].nil?
+        type
+      end
+    end
+
     module DescribeGlobalTableInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DescribeGlobalTableInput, context: context)
         type = Types::DescribeGlobalTableInput.new
         type.global_table_name = params[:global_table_name]
+        type
+      end
+    end
+
+    module DescribeGlobalTableOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeGlobalTableOutput, context: context)
+        type = Types::DescribeGlobalTableOutput.new
+        type.global_table_description = GlobalTableDescription.build(params[:global_table_description], context: "#{context}[:global_table_description]") unless params[:global_table_description].nil?
         type
       end
     end
@@ -489,6 +939,16 @@ module AWS::Dynamodb
       end
     end
 
+    module DescribeGlobalTableSettingsOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeGlobalTableSettingsOutput, context: context)
+        type = Types::DescribeGlobalTableSettingsOutput.new
+        type.global_table_name = params[:global_table_name]
+        type.replica_settings = ReplicaSettingsDescriptionList.build(params[:replica_settings], context: "#{context}[:replica_settings]") unless params[:replica_settings].nil?
+        type
+      end
+    end
+
     module DescribeKinesisStreamingDestinationInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DescribeKinesisStreamingDestinationInput, context: context)
@@ -498,10 +958,32 @@ module AWS::Dynamodb
       end
     end
 
+    module DescribeKinesisStreamingDestinationOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeKinesisStreamingDestinationOutput, context: context)
+        type = Types::DescribeKinesisStreamingDestinationOutput.new
+        type.table_name = params[:table_name]
+        type.kinesis_data_stream_destinations = KinesisDataStreamDestinations.build(params[:kinesis_data_stream_destinations], context: "#{context}[:kinesis_data_stream_destinations]") unless params[:kinesis_data_stream_destinations].nil?
+        type
+      end
+    end
+
     module DescribeLimitsInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DescribeLimitsInput, context: context)
         type = Types::DescribeLimitsInput.new
+        type
+      end
+    end
+
+    module DescribeLimitsOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeLimitsOutput, context: context)
+        type = Types::DescribeLimitsOutput.new
+        type.account_max_read_capacity_units = params[:account_max_read_capacity_units]
+        type.account_max_write_capacity_units = params[:account_max_write_capacity_units]
+        type.table_max_read_capacity_units = params[:table_max_read_capacity_units]
+        type.table_max_write_capacity_units = params[:table_max_write_capacity_units]
         type
       end
     end
@@ -515,6 +997,15 @@ module AWS::Dynamodb
       end
     end
 
+    module DescribeTableOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeTableOutput, context: context)
+        type = Types::DescribeTableOutput.new
+        type.table = TableDescription.build(params[:table], context: "#{context}[:table]") unless params[:table].nil?
+        type
+      end
+    end
+
     module DescribeTableReplicaAutoScalingInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DescribeTableReplicaAutoScalingInput, context: context)
@@ -524,11 +1015,29 @@ module AWS::Dynamodb
       end
     end
 
+    module DescribeTableReplicaAutoScalingOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeTableReplicaAutoScalingOutput, context: context)
+        type = Types::DescribeTableReplicaAutoScalingOutput.new
+        type.table_auto_scaling_description = TableAutoScalingDescription.build(params[:table_auto_scaling_description], context: "#{context}[:table_auto_scaling_description]") unless params[:table_auto_scaling_description].nil?
+        type
+      end
+    end
+
     module DescribeTimeToLiveInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DescribeTimeToLiveInput, context: context)
         type = Types::DescribeTimeToLiveInput.new
         type.table_name = params[:table_name]
+        type
+      end
+    end
+
+    module DescribeTimeToLiveOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DescribeTimeToLiveOutput, context: context)
+        type = Types::DescribeTimeToLiveOutput.new
+        type.time_to_live_description = TimeToLiveDescription.build(params[:time_to_live_description], context: "#{context}[:time_to_live_description]") unless params[:time_to_live_description].nil?
         type
       end
     end
@@ -543,6 +1052,26 @@ module AWS::Dynamodb
       end
     end
 
+    module DisableKinesisStreamingDestinationOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DisableKinesisStreamingDestinationOutput, context: context)
+        type = Types::DisableKinesisStreamingDestinationOutput.new
+        type.table_name = params[:table_name]
+        type.stream_arn = params[:stream_arn]
+        type.destination_status = params[:destination_status]
+        type
+      end
+    end
+
+    module DuplicateItemException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DuplicateItemException, context: context)
+        type = Types::DuplicateItemException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
     module EnableKinesisStreamingDestinationInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::EnableKinesisStreamingDestinationInput, context: context)
@@ -550,6 +1079,38 @@ module AWS::Dynamodb
         type.table_name = params[:table_name]
         type.stream_arn = params[:stream_arn]
         type
+      end
+    end
+
+    module EnableKinesisStreamingDestinationOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::EnableKinesisStreamingDestinationOutput, context: context)
+        type = Types::EnableKinesisStreamingDestinationOutput.new
+        type.table_name = params[:table_name]
+        type.stream_arn = params[:stream_arn]
+        type.destination_status = params[:destination_status]
+        type
+      end
+    end
+
+    module Endpoint
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::Endpoint, context: context)
+        type = Types::Endpoint.new
+        type.address = params[:address]
+        type.cache_period_in_minutes = params[:cache_period_in_minutes]
+        type
+      end
+    end
+
+    module Endpoints
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << Endpoint.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
       end
     end
 
@@ -566,6 +1127,17 @@ module AWS::Dynamodb
       end
     end
 
+    module ExecuteStatementOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ExecuteStatementOutput, context: context)
+        type = Types::ExecuteStatementOutput.new
+        type.items = ItemList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
+        type.next_token = params[:next_token]
+        type.consumed_capacity = ConsumedCapacity.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
+        type
+      end
+    end
+
     module ExecuteTransactionInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::ExecuteTransactionInput, context: context)
@@ -573,6 +1145,16 @@ module AWS::Dynamodb
         type.transact_statements = ParameterizedStatements.build(params[:transact_statements], context: "#{context}[:transact_statements]") unless params[:transact_statements].nil?
         type.client_request_token = params[:client_request_token] || SecureRandom.uuid
         type.return_consumed_capacity = params[:return_consumed_capacity]
+        type
+      end
+    end
+
+    module ExecuteTransactionOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ExecuteTransactionOutput, context: context)
+        type = Types::ExecuteTransactionOutput.new
+        type.responses = ItemResponseList.build(params[:responses], context: "#{context}[:responses]") unless params[:responses].nil?
+        type.consumed_capacity = ConsumedCapacityMultiple.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
         type
       end
     end
@@ -600,6 +1182,72 @@ module AWS::Dynamodb
       end
     end
 
+    module ExportConflictException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ExportConflictException, context: context)
+        type = Types::ExportConflictException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module ExportDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ExportDescription, context: context)
+        type = Types::ExportDescription.new
+        type.export_arn = params[:export_arn]
+        type.export_status = params[:export_status]
+        type.start_time = params[:start_time]
+        type.end_time = params[:end_time]
+        type.export_manifest = params[:export_manifest]
+        type.table_arn = params[:table_arn]
+        type.table_id = params[:table_id]
+        type.export_time = params[:export_time]
+        type.client_token = params[:client_token]
+        type.s3_bucket = params[:s3_bucket]
+        type.s3_bucket_owner = params[:s3_bucket_owner]
+        type.s3_prefix = params[:s3_prefix]
+        type.s3_sse_algorithm = params[:s3_sse_algorithm]
+        type.s3_sse_kms_key_id = params[:s3_sse_kms_key_id]
+        type.failure_code = params[:failure_code]
+        type.failure_message = params[:failure_message]
+        type.export_format = params[:export_format]
+        type.billed_size_bytes = params[:billed_size_bytes]
+        type.item_count = params[:item_count]
+        type
+      end
+    end
+
+    module ExportNotFoundException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ExportNotFoundException, context: context)
+        type = Types::ExportNotFoundException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module ExportSummaries
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << ExportSummary.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module ExportSummary
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ExportSummary, context: context)
+        type = Types::ExportSummary.new
+        type.export_arn = params[:export_arn]
+        type.export_status = params[:export_status]
+        type
+      end
+    end
+
     module ExportTableToPointInTimeInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::ExportTableToPointInTimeInput, context: context)
@@ -613,6 +1261,15 @@ module AWS::Dynamodb
         type.s3_sse_algorithm = params[:s3_sse_algorithm]
         type.s3_sse_kms_key_id = params[:s3_sse_kms_key_id]
         type.export_format = params[:export_format]
+        type
+      end
+    end
+
+    module ExportTableToPointInTimeOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ExportTableToPointInTimeOutput, context: context)
+        type = Types::ExportTableToPointInTimeOutput.new
+        type.export_description = ExportDescription.build(params[:export_description], context: "#{context}[:export_description]") unless params[:export_description].nil?
         type
       end
     end
@@ -636,6 +1293,16 @@ module AWS::Dynamodb
           data[key] = AttributeValue.build(value, context: "#{context}[:#{key}]") unless value.nil?
         end
         data
+      end
+    end
+
+    module FailureException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::FailureException, context: context)
+        type = Types::FailureException.new
+        type.exception_name = params[:exception_name]
+        type.exception_description = params[:exception_description]
+        type
       end
     end
 
@@ -677,6 +1344,16 @@ module AWS::Dynamodb
       end
     end
 
+    module GetItemOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::GetItemOutput, context: context)
+        type = Types::GetItemOutput.new
+        type.item = AttributeMap.build(params[:item], context: "#{context}[:item]") unless params[:item].nil?
+        type.consumed_capacity = ConsumedCapacity.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
+        type
+      end
+    end
+
     module GlobalSecondaryIndex
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::GlobalSecondaryIndex, context: context)
@@ -707,6 +1384,46 @@ module AWS::Dynamodb
           data << GlobalSecondaryIndexAutoScalingUpdate.build(element, context: "#{context}[#{index}]") unless element.nil?
         end
         data
+      end
+    end
+
+    module GlobalSecondaryIndexDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::GlobalSecondaryIndexDescription, context: context)
+        type = Types::GlobalSecondaryIndexDescription.new
+        type.index_name = params[:index_name]
+        type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
+        type.projection = Projection.build(params[:projection], context: "#{context}[:projection]") unless params[:projection].nil?
+        type.index_status = params[:index_status]
+        type.backfilling = params[:backfilling]
+        type.provisioned_throughput = ProvisionedThroughputDescription.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
+        type.index_size_bytes = params[:index_size_bytes]
+        type.item_count = params[:item_count]
+        type.index_arn = params[:index_arn]
+        type
+      end
+    end
+
+    module GlobalSecondaryIndexDescriptionList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << GlobalSecondaryIndexDescription.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module GlobalSecondaryIndexInfo
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::GlobalSecondaryIndexInfo, context: context)
+        type = Types::GlobalSecondaryIndexInfo.new
+        type.index_name = params[:index_name]
+        type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
+        type.projection = Projection.build(params[:projection], context: "#{context}[:projection]") unless params[:projection].nil?
+        type.provisioned_throughput = ProvisionedThroughput.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
+        type
       end
     end
 
@@ -743,6 +1460,49 @@ module AWS::Dynamodb
       end
     end
 
+    module GlobalSecondaryIndexes
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << GlobalSecondaryIndexInfo.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module GlobalTable
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::GlobalTable, context: context)
+        type = Types::GlobalTable.new
+        type.global_table_name = params[:global_table_name]
+        type.replication_group = ReplicaList.build(params[:replication_group], context: "#{context}[:replication_group]") unless params[:replication_group].nil?
+        type
+      end
+    end
+
+    module GlobalTableAlreadyExistsException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::GlobalTableAlreadyExistsException, context: context)
+        type = Types::GlobalTableAlreadyExistsException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module GlobalTableDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::GlobalTableDescription, context: context)
+        type = Types::GlobalTableDescription.new
+        type.replication_group = ReplicaDescriptionList.build(params[:replication_group], context: "#{context}[:replication_group]") unless params[:replication_group].nil?
+        type.global_table_arn = params[:global_table_arn]
+        type.creation_date_time = params[:creation_date_time]
+        type.global_table_status = params[:global_table_status]
+        type.global_table_name = params[:global_table_name]
+        type
+      end
+    end
+
     module GlobalTableGlobalSecondaryIndexSettingsUpdate
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::GlobalTableGlobalSecondaryIndexSettingsUpdate, context: context)
@@ -760,6 +1520,174 @@ module AWS::Dynamodb
         data = []
         params.each_with_index do |element, index|
           data << GlobalTableGlobalSecondaryIndexSettingsUpdate.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module GlobalTableList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << GlobalTable.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module GlobalTableNotFoundException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::GlobalTableNotFoundException, context: context)
+        type = Types::GlobalTableNotFoundException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module IdempotentParameterMismatchException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::IdempotentParameterMismatchException, context: context)
+        type = Types::IdempotentParameterMismatchException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module IndexNotFoundException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::IndexNotFoundException, context: context)
+        type = Types::IndexNotFoundException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module InternalServerError
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::InternalServerError, context: context)
+        type = Types::InternalServerError.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module InvalidEndpointException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::InvalidEndpointException, context: context)
+        type = Types::InvalidEndpointException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module InvalidExportTimeException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::InvalidExportTimeException, context: context)
+        type = Types::InvalidExportTimeException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module InvalidRestoreTimeException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::InvalidRestoreTimeException, context: context)
+        type = Types::InvalidRestoreTimeException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module ItemCollectionKeyAttributeMap
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, context: context)
+        data = {}
+        params.each do |key, value|
+          data[key] = AttributeValue.build(value, context: "#{context}[:#{key}]") unless value.nil?
+        end
+        data
+      end
+    end
+
+    module ItemCollectionMetrics
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ItemCollectionMetrics, context: context)
+        type = Types::ItemCollectionMetrics.new
+        type.item_collection_key = ItemCollectionKeyAttributeMap.build(params[:item_collection_key], context: "#{context}[:item_collection_key]") unless params[:item_collection_key].nil?
+        type.size_estimate_range_gb = ItemCollectionSizeEstimateRange.build(params[:size_estimate_range_gb], context: "#{context}[:size_estimate_range_gb]") unless params[:size_estimate_range_gb].nil?
+        type
+      end
+    end
+
+    module ItemCollectionMetricsMultiple
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << ItemCollectionMetrics.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module ItemCollectionMetricsPerTable
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, context: context)
+        data = {}
+        params.each do |key, value|
+          data[key] = ItemCollectionMetricsMultiple.build(value, context: "#{context}[:#{key}]") unless value.nil?
+        end
+        data
+      end
+    end
+
+    module ItemCollectionSizeEstimateRange
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << element
+        end
+        data
+      end
+    end
+
+    module ItemCollectionSizeLimitExceededException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ItemCollectionSizeLimitExceededException, context: context)
+        type = Types::ItemCollectionSizeLimitExceededException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module ItemList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << AttributeMap.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module ItemResponse
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ItemResponse, context: context)
+        type = Types::ItemResponse.new
+        type.item = AttributeMap.build(params[:item], context: "#{context}[:item]") unless params[:item].nil?
+        type
+      end
+    end
+
+    module ItemResponseList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << ItemResponse.build(element, context: "#{context}[#{index}]") unless element.nil?
         end
         data
       end
@@ -832,6 +1760,37 @@ module AWS::Dynamodb
       end
     end
 
+    module KinesisDataStreamDestination
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::KinesisDataStreamDestination, context: context)
+        type = Types::KinesisDataStreamDestination.new
+        type.stream_arn = params[:stream_arn]
+        type.destination_status = params[:destination_status]
+        type.destination_status_description = params[:destination_status_description]
+        type
+      end
+    end
+
+    module KinesisDataStreamDestinations
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << KinesisDataStreamDestination.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module LimitExceededException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::LimitExceededException, context: context)
+        type = Types::LimitExceededException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
     module ListAttributeValue
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
@@ -857,6 +1816,16 @@ module AWS::Dynamodb
       end
     end
 
+    module ListBackupsOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ListBackupsOutput, context: context)
+        type = Types::ListBackupsOutput.new
+        type.backup_summaries = BackupSummaries.build(params[:backup_summaries], context: "#{context}[:backup_summaries]") unless params[:backup_summaries].nil?
+        type.last_evaluated_backup_arn = params[:last_evaluated_backup_arn]
+        type
+      end
+    end
+
     module ListContributorInsightsInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::ListContributorInsightsInput, context: context)
@@ -868,12 +1837,32 @@ module AWS::Dynamodb
       end
     end
 
+    module ListContributorInsightsOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ListContributorInsightsOutput, context: context)
+        type = Types::ListContributorInsightsOutput.new
+        type.contributor_insights_summaries = ContributorInsightsSummaries.build(params[:contributor_insights_summaries], context: "#{context}[:contributor_insights_summaries]") unless params[:contributor_insights_summaries].nil?
+        type.next_token = params[:next_token]
+        type
+      end
+    end
+
     module ListExportsInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::ListExportsInput, context: context)
         type = Types::ListExportsInput.new
         type.table_arn = params[:table_arn]
         type.max_results = params[:max_results]
+        type.next_token = params[:next_token]
+        type
+      end
+    end
+
+    module ListExportsOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ListExportsOutput, context: context)
+        type = Types::ListExportsOutput.new
+        type.export_summaries = ExportSummaries.build(params[:export_summaries], context: "#{context}[:export_summaries]") unless params[:export_summaries].nil?
         type.next_token = params[:next_token]
         type
       end
@@ -890,6 +1879,16 @@ module AWS::Dynamodb
       end
     end
 
+    module ListGlobalTablesOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ListGlobalTablesOutput, context: context)
+        type = Types::ListGlobalTablesOutput.new
+        type.global_tables = GlobalTableList.build(params[:global_tables], context: "#{context}[:global_tables]") unless params[:global_tables].nil?
+        type.last_evaluated_global_table_name = params[:last_evaluated_global_table_name]
+        type
+      end
+    end
+
     module ListTablesInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::ListTablesInput, context: context)
@@ -900,11 +1899,31 @@ module AWS::Dynamodb
       end
     end
 
+    module ListTablesOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ListTablesOutput, context: context)
+        type = Types::ListTablesOutput.new
+        type.table_names = TableNameList.build(params[:table_names], context: "#{context}[:table_names]") unless params[:table_names].nil?
+        type.last_evaluated_table_name = params[:last_evaluated_table_name]
+        type
+      end
+    end
+
     module ListTagsOfResourceInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::ListTagsOfResourceInput, context: context)
         type = Types::ListTagsOfResourceInput.new
         type.resource_arn = params[:resource_arn]
+        type.next_token = params[:next_token]
+        type
+      end
+    end
+
+    module ListTagsOfResourceOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ListTagsOfResourceOutput, context: context)
+        type = Types::ListTagsOfResourceOutput.new
+        type.tags = TagList.build(params[:tags], context: "#{context}[:tags]") unless params[:tags].nil?
         type.next_token = params[:next_token]
         type
       end
@@ -921,12 +1940,59 @@ module AWS::Dynamodb
       end
     end
 
+    module LocalSecondaryIndexDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::LocalSecondaryIndexDescription, context: context)
+        type = Types::LocalSecondaryIndexDescription.new
+        type.index_name = params[:index_name]
+        type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
+        type.projection = Projection.build(params[:projection], context: "#{context}[:projection]") unless params[:projection].nil?
+        type.index_size_bytes = params[:index_size_bytes]
+        type.item_count = params[:item_count]
+        type.index_arn = params[:index_arn]
+        type
+      end
+    end
+
+    module LocalSecondaryIndexDescriptionList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << LocalSecondaryIndexDescription.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module LocalSecondaryIndexInfo
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::LocalSecondaryIndexInfo, context: context)
+        type = Types::LocalSecondaryIndexInfo.new
+        type.index_name = params[:index_name]
+        type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
+        type.projection = Projection.build(params[:projection], context: "#{context}[:projection]") unless params[:projection].nil?
+        type
+      end
+    end
+
     module LocalSecondaryIndexList
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << LocalSecondaryIndex.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module LocalSecondaryIndexes
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << LocalSecondaryIndexInfo.build(element, context: "#{context}[#{index}]") unless element.nil?
         end
         data
       end
@@ -997,11 +2063,42 @@ module AWS::Dynamodb
       end
     end
 
+    module PartiQLBatchResponse
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << BatchStatementResponse.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module PointInTimeRecoveryDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::PointInTimeRecoveryDescription, context: context)
+        type = Types::PointInTimeRecoveryDescription.new
+        type.point_in_time_recovery_status = params[:point_in_time_recovery_status]
+        type.earliest_restorable_date_time = params[:earliest_restorable_date_time]
+        type.latest_restorable_date_time = params[:latest_restorable_date_time]
+        type
+      end
+    end
+
     module PointInTimeRecoverySpecification
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::PointInTimeRecoverySpecification, context: context)
         type = Types::PointInTimeRecoverySpecification.new
         type.point_in_time_recovery_enabled = params[:point_in_time_recovery_enabled]
+        type
+      end
+    end
+
+    module PointInTimeRecoveryUnavailableException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::PointInTimeRecoveryUnavailableException, context: context)
+        type = Types::PointInTimeRecoveryUnavailableException.new
+        type.message = params[:message]
         type
       end
     end
@@ -1033,6 +2130,28 @@ module AWS::Dynamodb
         type = Types::ProvisionedThroughput.new
         type.read_capacity_units = params[:read_capacity_units]
         type.write_capacity_units = params[:write_capacity_units]
+        type
+      end
+    end
+
+    module ProvisionedThroughputDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ProvisionedThroughputDescription, context: context)
+        type = Types::ProvisionedThroughputDescription.new
+        type.last_increase_date_time = params[:last_increase_date_time]
+        type.last_decrease_date_time = params[:last_decrease_date_time]
+        type.number_of_decreases_today = params[:number_of_decreases_today]
+        type.read_capacity_units = params[:read_capacity_units]
+        type.write_capacity_units = params[:write_capacity_units]
+        type
+      end
+    end
+
+    module ProvisionedThroughputExceededException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ProvisionedThroughputExceededException, context: context)
+        type = Types::ProvisionedThroughputExceededException.new
+        type.message = params[:message]
         type
       end
     end
@@ -1089,6 +2208,17 @@ module AWS::Dynamodb
       end
     end
 
+    module PutItemOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::PutItemOutput, context: context)
+        type = Types::PutItemOutput.new
+        type.attributes = AttributeMap.build(params[:attributes], context: "#{context}[:attributes]") unless params[:attributes].nil?
+        type.consumed_capacity = ConsumedCapacity.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
+        type.item_collection_metrics = ItemCollectionMetrics.build(params[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless params[:item_collection_metrics].nil?
+        type
+      end
+    end
+
     module PutRequest
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::PutRequest, context: context)
@@ -1123,12 +2253,58 @@ module AWS::Dynamodb
       end
     end
 
+    module QueryOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::QueryOutput, context: context)
+        type = Types::QueryOutput.new
+        type.items = ItemList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
+        type.count = params[:count]
+        type.scanned_count = params[:scanned_count]
+        type.last_evaluated_key = Key.build(params[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless params[:last_evaluated_key].nil?
+        type.consumed_capacity = ConsumedCapacity.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
+        type
+      end
+    end
+
     module Replica
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::Replica, context: context)
         type = Types::Replica.new
         type.region_name = params[:region_name]
         type
+      end
+    end
+
+    module ReplicaAlreadyExistsException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicaAlreadyExistsException, context: context)
+        type = Types::ReplicaAlreadyExistsException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module ReplicaAutoScalingDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicaAutoScalingDescription, context: context)
+        type = Types::ReplicaAutoScalingDescription.new
+        type.region_name = params[:region_name]
+        type.global_secondary_indexes = ReplicaGlobalSecondaryIndexAutoScalingDescriptionList.build(params[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless params[:global_secondary_indexes].nil?
+        type.replica_provisioned_read_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:replica_provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_read_capacity_auto_scaling_settings]") unless params[:replica_provisioned_read_capacity_auto_scaling_settings].nil?
+        type.replica_provisioned_write_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:replica_provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_write_capacity_auto_scaling_settings]") unless params[:replica_provisioned_write_capacity_auto_scaling_settings].nil?
+        type.replica_status = params[:replica_status]
+        type
+      end
+    end
+
+    module ReplicaAutoScalingDescriptionList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << ReplicaAutoScalingDescription.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
       end
     end
 
@@ -1154,6 +2330,34 @@ module AWS::Dynamodb
       end
     end
 
+    module ReplicaDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicaDescription, context: context)
+        type = Types::ReplicaDescription.new
+        type.region_name = params[:region_name]
+        type.replica_status = params[:replica_status]
+        type.replica_status_description = params[:replica_status_description]
+        type.replica_status_percent_progress = params[:replica_status_percent_progress]
+        type.kms_master_key_id = params[:kms_master_key_id]
+        type.provisioned_throughput_override = ProvisionedThroughputOverride.build(params[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless params[:provisioned_throughput_override].nil?
+        type.global_secondary_indexes = ReplicaGlobalSecondaryIndexDescriptionList.build(params[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless params[:global_secondary_indexes].nil?
+        type.replica_inaccessible_date_time = params[:replica_inaccessible_date_time]
+        type.replica_table_class_summary = TableClassSummary.build(params[:replica_table_class_summary], context: "#{context}[:replica_table_class_summary]") unless params[:replica_table_class_summary].nil?
+        type
+      end
+    end
+
+    module ReplicaDescriptionList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << ReplicaDescription.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
     module ReplicaGlobalSecondaryIndex
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::ReplicaGlobalSecondaryIndex, context: context)
@@ -1161,6 +2365,29 @@ module AWS::Dynamodb
         type.index_name = params[:index_name]
         type.provisioned_throughput_override = ProvisionedThroughputOverride.build(params[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless params[:provisioned_throughput_override].nil?
         type
+      end
+    end
+
+    module ReplicaGlobalSecondaryIndexAutoScalingDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexAutoScalingDescription, context: context)
+        type = Types::ReplicaGlobalSecondaryIndexAutoScalingDescription.new
+        type.index_name = params[:index_name]
+        type.index_status = params[:index_status]
+        type.provisioned_read_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:provisioned_read_capacity_auto_scaling_settings]") unless params[:provisioned_read_capacity_auto_scaling_settings].nil?
+        type.provisioned_write_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:provisioned_write_capacity_auto_scaling_settings]") unless params[:provisioned_write_capacity_auto_scaling_settings].nil?
+        type
+      end
+    end
+
+    module ReplicaGlobalSecondaryIndexAutoScalingDescriptionList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << ReplicaGlobalSecondaryIndexAutoScalingDescription.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
       end
     end
 
@@ -1185,12 +2412,58 @@ module AWS::Dynamodb
       end
     end
 
+    module ReplicaGlobalSecondaryIndexDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexDescription, context: context)
+        type = Types::ReplicaGlobalSecondaryIndexDescription.new
+        type.index_name = params[:index_name]
+        type.provisioned_throughput_override = ProvisionedThroughputOverride.build(params[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless params[:provisioned_throughput_override].nil?
+        type
+      end
+    end
+
+    module ReplicaGlobalSecondaryIndexDescriptionList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << ReplicaGlobalSecondaryIndexDescription.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
     module ReplicaGlobalSecondaryIndexList
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
         params.each_with_index do |element, index|
           data << ReplicaGlobalSecondaryIndex.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module ReplicaGlobalSecondaryIndexSettingsDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicaGlobalSecondaryIndexSettingsDescription, context: context)
+        type = Types::ReplicaGlobalSecondaryIndexSettingsDescription.new
+        type.index_name = params[:index_name]
+        type.index_status = params[:index_status]
+        type.provisioned_read_capacity_units = params[:provisioned_read_capacity_units]
+        type.provisioned_read_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:provisioned_read_capacity_auto_scaling_settings]") unless params[:provisioned_read_capacity_auto_scaling_settings].nil?
+        type.provisioned_write_capacity_units = params[:provisioned_write_capacity_units]
+        type.provisioned_write_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:provisioned_write_capacity_auto_scaling_settings]") unless params[:provisioned_write_capacity_auto_scaling_settings].nil?
+        type
+      end
+    end
+
+    module ReplicaGlobalSecondaryIndexSettingsDescriptionList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << ReplicaGlobalSecondaryIndexSettingsDescription.build(element, context: "#{context}[#{index}]") unless element.nil?
         end
         data
       end
@@ -1224,6 +2497,43 @@ module AWS::Dynamodb
         data = []
         params.each_with_index do |element, index|
           data << Replica.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module ReplicaNotFoundException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicaNotFoundException, context: context)
+        type = Types::ReplicaNotFoundException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module ReplicaSettingsDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ReplicaSettingsDescription, context: context)
+        type = Types::ReplicaSettingsDescription.new
+        type.region_name = params[:region_name]
+        type.replica_status = params[:replica_status]
+        type.replica_billing_mode_summary = BillingModeSummary.build(params[:replica_billing_mode_summary], context: "#{context}[:replica_billing_mode_summary]") unless params[:replica_billing_mode_summary].nil?
+        type.replica_provisioned_read_capacity_units = params[:replica_provisioned_read_capacity_units]
+        type.replica_provisioned_read_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:replica_provisioned_read_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_read_capacity_auto_scaling_settings]") unless params[:replica_provisioned_read_capacity_auto_scaling_settings].nil?
+        type.replica_provisioned_write_capacity_units = params[:replica_provisioned_write_capacity_units]
+        type.replica_provisioned_write_capacity_auto_scaling_settings = AutoScalingSettingsDescription.build(params[:replica_provisioned_write_capacity_auto_scaling_settings], context: "#{context}[:replica_provisioned_write_capacity_auto_scaling_settings]") unless params[:replica_provisioned_write_capacity_auto_scaling_settings].nil?
+        type.replica_global_secondary_index_settings = ReplicaGlobalSecondaryIndexSettingsDescriptionList.build(params[:replica_global_secondary_index_settings], context: "#{context}[:replica_global_secondary_index_settings]") unless params[:replica_global_secondary_index_settings].nil?
+        type.replica_table_class_summary = TableClassSummary.build(params[:replica_table_class_summary], context: "#{context}[:replica_table_class_summary]") unless params[:replica_table_class_summary].nil?
+        type
+      end
+    end
+
+    module ReplicaSettingsDescriptionList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << ReplicaSettingsDescription.build(element, context: "#{context}[#{index}]") unless element.nil?
         end
         data
       end
@@ -1296,6 +2606,45 @@ module AWS::Dynamodb
       end
     end
 
+    module RequestLimitExceeded
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::RequestLimitExceeded, context: context)
+        type = Types::RequestLimitExceeded.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module ResourceInUseException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ResourceInUseException, context: context)
+        type = Types::ResourceInUseException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module ResourceNotFoundException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ResourceNotFoundException, context: context)
+        type = Types::ResourceNotFoundException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module RestoreSummary
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::RestoreSummary, context: context)
+        type = Types::RestoreSummary.new
+        type.source_backup_arn = params[:source_backup_arn]
+        type.source_table_arn = params[:source_table_arn]
+        type.restore_date_time = params[:restore_date_time]
+        type.restore_in_progress = params[:restore_in_progress]
+        type
+      end
+    end
+
     module RestoreTableFromBackupInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::RestoreTableFromBackupInput, context: context)
@@ -1307,6 +2656,15 @@ module AWS::Dynamodb
         type.local_secondary_index_override = LocalSecondaryIndexList.build(params[:local_secondary_index_override], context: "#{context}[:local_secondary_index_override]") unless params[:local_secondary_index_override].nil?
         type.provisioned_throughput_override = ProvisionedThroughput.build(params[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless params[:provisioned_throughput_override].nil?
         type.sse_specification_override = SSESpecification.build(params[:sse_specification_override], context: "#{context}[:sse_specification_override]") unless params[:sse_specification_override].nil?
+        type
+      end
+    end
+
+    module RestoreTableFromBackupOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::RestoreTableFromBackupOutput, context: context)
+        type = Types::RestoreTableFromBackupOutput.new
+        type.table_description = TableDescription.build(params[:table_description], context: "#{context}[:table_description]") unless params[:table_description].nil?
         type
       end
     end
@@ -1325,6 +2683,27 @@ module AWS::Dynamodb
         type.local_secondary_index_override = LocalSecondaryIndexList.build(params[:local_secondary_index_override], context: "#{context}[:local_secondary_index_override]") unless params[:local_secondary_index_override].nil?
         type.provisioned_throughput_override = ProvisionedThroughput.build(params[:provisioned_throughput_override], context: "#{context}[:provisioned_throughput_override]") unless params[:provisioned_throughput_override].nil?
         type.sse_specification_override = SSESpecification.build(params[:sse_specification_override], context: "#{context}[:sse_specification_override]") unless params[:sse_specification_override].nil?
+        type
+      end
+    end
+
+    module RestoreTableToPointInTimeOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::RestoreTableToPointInTimeOutput, context: context)
+        type = Types::RestoreTableToPointInTimeOutput.new
+        type.table_description = TableDescription.build(params[:table_description], context: "#{context}[:table_description]") unless params[:table_description].nil?
+        type
+      end
+    end
+
+    module SSEDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::SSEDescription, context: context)
+        type = Types::SSEDescription.new
+        type.status = params[:status]
+        type.sse_type = params[:sse_type]
+        type.kms_master_key_arn = params[:kms_master_key_arn]
+        type.inaccessible_encryption_date_time = params[:inaccessible_encryption_date_time]
         type
       end
     end
@@ -1364,6 +2743,60 @@ module AWS::Dynamodb
       end
     end
 
+    module ScanOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ScanOutput, context: context)
+        type = Types::ScanOutput.new
+        type.items = ItemList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
+        type.count = params[:count]
+        type.scanned_count = params[:scanned_count]
+        type.last_evaluated_key = Key.build(params[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless params[:last_evaluated_key].nil?
+        type.consumed_capacity = ConsumedCapacity.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
+        type
+      end
+    end
+
+    module SecondaryIndexesCapacityMap
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, context: context)
+        data = {}
+        params.each do |key, value|
+          data[key] = Capacity.build(value, context: "#{context}[:#{key}]") unless value.nil?
+        end
+        data
+      end
+    end
+
+    module SourceTableDetails
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::SourceTableDetails, context: context)
+        type = Types::SourceTableDetails.new
+        type.table_name = params[:table_name]
+        type.table_id = params[:table_id]
+        type.table_arn = params[:table_arn]
+        type.table_size_bytes = params[:table_size_bytes]
+        type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
+        type.table_creation_date_time = params[:table_creation_date_time]
+        type.provisioned_throughput = ProvisionedThroughput.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
+        type.item_count = params[:item_count]
+        type.billing_mode = params[:billing_mode]
+        type
+      end
+    end
+
+    module SourceTableFeatureDetails
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::SourceTableFeatureDetails, context: context)
+        type = Types::SourceTableFeatureDetails.new
+        type.local_secondary_indexes = LocalSecondaryIndexes.build(params[:local_secondary_indexes], context: "#{context}[:local_secondary_indexes]") unless params[:local_secondary_indexes].nil?
+        type.global_secondary_indexes = GlobalSecondaryIndexes.build(params[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless params[:global_secondary_indexes].nil?
+        type.stream_description = StreamSpecification.build(params[:stream_description], context: "#{context}[:stream_description]") unless params[:stream_description].nil?
+        type.time_to_live_description = TimeToLiveDescription.build(params[:time_to_live_description], context: "#{context}[:time_to_live_description]") unless params[:time_to_live_description].nil?
+        type.sse_description = SSEDescription.build(params[:sse_description], context: "#{context}[:sse_description]") unless params[:sse_description].nil?
+        type
+      end
+    end
+
     module StreamSpecification
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::StreamSpecification, context: context)
@@ -1382,6 +2815,95 @@ module AWS::Dynamodb
           data << element
         end
         data
+      end
+    end
+
+    module TableAlreadyExistsException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::TableAlreadyExistsException, context: context)
+        type = Types::TableAlreadyExistsException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module TableAutoScalingDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::TableAutoScalingDescription, context: context)
+        type = Types::TableAutoScalingDescription.new
+        type.table_name = params[:table_name]
+        type.table_status = params[:table_status]
+        type.replicas = ReplicaAutoScalingDescriptionList.build(params[:replicas], context: "#{context}[:replicas]") unless params[:replicas].nil?
+        type
+      end
+    end
+
+    module TableClassSummary
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::TableClassSummary, context: context)
+        type = Types::TableClassSummary.new
+        type.table_class = params[:table_class]
+        type.last_update_date_time = params[:last_update_date_time]
+        type
+      end
+    end
+
+    module TableDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::TableDescription, context: context)
+        type = Types::TableDescription.new
+        type.attribute_definitions = AttributeDefinitions.build(params[:attribute_definitions], context: "#{context}[:attribute_definitions]") unless params[:attribute_definitions].nil?
+        type.table_name = params[:table_name]
+        type.key_schema = KeySchema.build(params[:key_schema], context: "#{context}[:key_schema]") unless params[:key_schema].nil?
+        type.table_status = params[:table_status]
+        type.creation_date_time = params[:creation_date_time]
+        type.provisioned_throughput = ProvisionedThroughputDescription.build(params[:provisioned_throughput], context: "#{context}[:provisioned_throughput]") unless params[:provisioned_throughput].nil?
+        type.table_size_bytes = params[:table_size_bytes]
+        type.item_count = params[:item_count]
+        type.table_arn = params[:table_arn]
+        type.table_id = params[:table_id]
+        type.billing_mode_summary = BillingModeSummary.build(params[:billing_mode_summary], context: "#{context}[:billing_mode_summary]") unless params[:billing_mode_summary].nil?
+        type.local_secondary_indexes = LocalSecondaryIndexDescriptionList.build(params[:local_secondary_indexes], context: "#{context}[:local_secondary_indexes]") unless params[:local_secondary_indexes].nil?
+        type.global_secondary_indexes = GlobalSecondaryIndexDescriptionList.build(params[:global_secondary_indexes], context: "#{context}[:global_secondary_indexes]") unless params[:global_secondary_indexes].nil?
+        type.stream_specification = StreamSpecification.build(params[:stream_specification], context: "#{context}[:stream_specification]") unless params[:stream_specification].nil?
+        type.latest_stream_label = params[:latest_stream_label]
+        type.latest_stream_arn = params[:latest_stream_arn]
+        type.global_table_version = params[:global_table_version]
+        type.replicas = ReplicaDescriptionList.build(params[:replicas], context: "#{context}[:replicas]") unless params[:replicas].nil?
+        type.restore_summary = RestoreSummary.build(params[:restore_summary], context: "#{context}[:restore_summary]") unless params[:restore_summary].nil?
+        type.sse_description = SSEDescription.build(params[:sse_description], context: "#{context}[:sse_description]") unless params[:sse_description].nil?
+        type.archival_summary = ArchivalSummary.build(params[:archival_summary], context: "#{context}[:archival_summary]") unless params[:archival_summary].nil?
+        type.table_class_summary = TableClassSummary.build(params[:table_class_summary], context: "#{context}[:table_class_summary]") unless params[:table_class_summary].nil?
+        type
+      end
+    end
+
+    module TableInUseException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::TableInUseException, context: context)
+        type = Types::TableInUseException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module TableNameList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << element
+        end
+        data
+      end
+    end
+
+    module TableNotFoundException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::TableNotFoundException, context: context)
+        type = Types::TableNotFoundException.new
+        type.message = params[:message]
+        type
       end
     end
 
@@ -1427,6 +2949,24 @@ module AWS::Dynamodb
       end
     end
 
+    module TagResourceOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::TagResourceOutput, context: context)
+        type = Types::TagResourceOutput.new
+        type
+      end
+    end
+
+    module TimeToLiveDescription
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::TimeToLiveDescription, context: context)
+        type = Types::TimeToLiveDescription.new
+        type.time_to_live_status = params[:time_to_live_status]
+        type.attribute_name = params[:attribute_name]
+        type
+      end
+    end
+
     module TimeToLiveSpecification
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::TimeToLiveSpecification, context: context)
@@ -1467,6 +3007,16 @@ module AWS::Dynamodb
       end
     end
 
+    module TransactGetItemsOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::TransactGetItemsOutput, context: context)
+        type = Types::TransactGetItemsOutput.new
+        type.consumed_capacity = ConsumedCapacityMultiple.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
+        type.responses = ItemResponseList.build(params[:responses], context: "#{context}[:responses]") unless params[:responses].nil?
+        type
+      end
+    end
+
     module TransactWriteItem
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::TransactWriteItem, context: context)
@@ -1502,12 +3052,58 @@ module AWS::Dynamodb
       end
     end
 
+    module TransactWriteItemsOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::TransactWriteItemsOutput, context: context)
+        type = Types::TransactWriteItemsOutput.new
+        type.consumed_capacity = ConsumedCapacityMultiple.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
+        type.item_collection_metrics = ItemCollectionMetricsPerTable.build(params[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless params[:item_collection_metrics].nil?
+        type
+      end
+    end
+
+    module TransactionCanceledException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::TransactionCanceledException, context: context)
+        type = Types::TransactionCanceledException.new
+        type.message = params[:message]
+        type.cancellation_reasons = CancellationReasonList.build(params[:cancellation_reasons], context: "#{context}[:cancellation_reasons]") unless params[:cancellation_reasons].nil?
+        type
+      end
+    end
+
+    module TransactionConflictException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::TransactionConflictException, context: context)
+        type = Types::TransactionConflictException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
+    module TransactionInProgressException
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::TransactionInProgressException, context: context)
+        type = Types::TransactionInProgressException.new
+        type.message = params[:message]
+        type
+      end
+    end
+
     module UntagResourceInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UntagResourceInput, context: context)
         type = Types::UntagResourceInput.new
         type.resource_arn = params[:resource_arn]
         type.tag_keys = TagKeyList.build(params[:tag_keys], context: "#{context}[:tag_keys]") unless params[:tag_keys].nil?
+        type
+      end
+    end
+
+    module UntagResourceOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::UntagResourceOutput, context: context)
+        type = Types::UntagResourceOutput.new
         type
       end
     end
@@ -1537,6 +3133,15 @@ module AWS::Dynamodb
       end
     end
 
+    module UpdateContinuousBackupsOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateContinuousBackupsOutput, context: context)
+        type = Types::UpdateContinuousBackupsOutput.new
+        type.continuous_backups_description = ContinuousBackupsDescription.build(params[:continuous_backups_description], context: "#{context}[:continuous_backups_description]") unless params[:continuous_backups_description].nil?
+        type
+      end
+    end
+
     module UpdateContributorInsightsInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateContributorInsightsInput, context: context)
@@ -1544,6 +3149,17 @@ module AWS::Dynamodb
         type.table_name = params[:table_name]
         type.index_name = params[:index_name]
         type.contributor_insights_action = params[:contributor_insights_action]
+        type
+      end
+    end
+
+    module UpdateContributorInsightsOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateContributorInsightsOutput, context: context)
+        type = Types::UpdateContributorInsightsOutput.new
+        type.table_name = params[:table_name]
+        type.index_name = params[:index_name]
+        type.contributor_insights_status = params[:contributor_insights_status]
         type
       end
     end
@@ -1568,6 +3184,15 @@ module AWS::Dynamodb
       end
     end
 
+    module UpdateGlobalTableOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateGlobalTableOutput, context: context)
+        type = Types::UpdateGlobalTableOutput.new
+        type.global_table_description = GlobalTableDescription.build(params[:global_table_description], context: "#{context}[:global_table_description]") unless params[:global_table_description].nil?
+        type
+      end
+    end
+
     module UpdateGlobalTableSettingsInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateGlobalTableSettingsInput, context: context)
@@ -1578,6 +3203,16 @@ module AWS::Dynamodb
         type.global_table_provisioned_write_capacity_auto_scaling_settings_update = AutoScalingSettingsUpdate.build(params[:global_table_provisioned_write_capacity_auto_scaling_settings_update], context: "#{context}[:global_table_provisioned_write_capacity_auto_scaling_settings_update]") unless params[:global_table_provisioned_write_capacity_auto_scaling_settings_update].nil?
         type.global_table_global_secondary_index_settings_update = GlobalTableGlobalSecondaryIndexSettingsUpdateList.build(params[:global_table_global_secondary_index_settings_update], context: "#{context}[:global_table_global_secondary_index_settings_update]") unless params[:global_table_global_secondary_index_settings_update].nil?
         type.replica_settings_update = ReplicaSettingsUpdateList.build(params[:replica_settings_update], context: "#{context}[:replica_settings_update]") unless params[:replica_settings_update].nil?
+        type
+      end
+    end
+
+    module UpdateGlobalTableSettingsOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateGlobalTableSettingsOutput, context: context)
+        type = Types::UpdateGlobalTableSettingsOutput.new
+        type.global_table_name = params[:global_table_name]
+        type.replica_settings = ReplicaSettingsDescriptionList.build(params[:replica_settings], context: "#{context}[:replica_settings]") unless params[:replica_settings].nil?
         type
       end
     end
@@ -1598,6 +3233,17 @@ module AWS::Dynamodb
         type.condition_expression = params[:condition_expression]
         type.expression_attribute_names = ExpressionAttributeNameMap.build(params[:expression_attribute_names], context: "#{context}[:expression_attribute_names]") unless params[:expression_attribute_names].nil?
         type.expression_attribute_values = ExpressionAttributeValueMap.build(params[:expression_attribute_values], context: "#{context}[:expression_attribute_values]") unless params[:expression_attribute_values].nil?
+        type
+      end
+    end
+
+    module UpdateItemOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateItemOutput, context: context)
+        type = Types::UpdateItemOutput.new
+        type.attributes = AttributeMap.build(params[:attributes], context: "#{context}[:attributes]") unless params[:attributes].nil?
+        type.consumed_capacity = ConsumedCapacity.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
+        type.item_collection_metrics = ItemCollectionMetrics.build(params[:item_collection_metrics], context: "#{context}[:item_collection_metrics]") unless params[:item_collection_metrics].nil?
         type
       end
     end
@@ -1632,6 +3278,15 @@ module AWS::Dynamodb
       end
     end
 
+    module UpdateTableOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateTableOutput, context: context)
+        type = Types::UpdateTableOutput.new
+        type.table_description = TableDescription.build(params[:table_description], context: "#{context}[:table_description]") unless params[:table_description].nil?
+        type
+      end
+    end
+
     module UpdateTableReplicaAutoScalingInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateTableReplicaAutoScalingInput, context: context)
@@ -1644,11 +3299,29 @@ module AWS::Dynamodb
       end
     end
 
+    module UpdateTableReplicaAutoScalingOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateTableReplicaAutoScalingOutput, context: context)
+        type = Types::UpdateTableReplicaAutoScalingOutput.new
+        type.table_auto_scaling_description = TableAutoScalingDescription.build(params[:table_auto_scaling_description], context: "#{context}[:table_auto_scaling_description]") unless params[:table_auto_scaling_description].nil?
+        type
+      end
+    end
+
     module UpdateTimeToLiveInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateTimeToLiveInput, context: context)
         type = Types::UpdateTimeToLiveInput.new
         type.table_name = params[:table_name]
+        type.time_to_live_specification = TimeToLiveSpecification.build(params[:time_to_live_specification], context: "#{context}[:time_to_live_specification]") unless params[:time_to_live_specification].nil?
+        type
+      end
+    end
+
+    module UpdateTimeToLiveOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateTimeToLiveOutput, context: context)
+        type = Types::UpdateTimeToLiveOutput.new
         type.time_to_live_specification = TimeToLiveSpecification.build(params[:time_to_live_specification], context: "#{context}[:time_to_live_specification]") unless params[:time_to_live_specification].nil?
         type
       end

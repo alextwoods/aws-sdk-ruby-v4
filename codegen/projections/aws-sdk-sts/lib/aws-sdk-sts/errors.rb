@@ -10,6 +10,30 @@
 module AWS::Sts
   module Errors
 
+    CODES = {
+      "ExpiredTokenException" => "ExpiredTokenException",
+      "IDPCommunicationError" => "IDPCommunicationErrorException",
+      "IDPRejectedClaim" => "IDPRejectedClaimException",
+      "InvalidAuthorizationMessageException" => "InvalidAuthorizationMessageException",
+      "InvalidIdentityToken" => "InvalidIdentityTokenException",
+      "MalformedPolicyDocument" => "MalformedPolicyDocumentException",
+      "PackedPolicyTooLarge" => "PackedPolicyTooLargeException",
+      "RegionDisabledException" => "RegionDisabledException"
+    }
+
+    def self.error_code(http_resp)
+      if !(200..299).cover?(http_resp.status)
+        body = http_resp.body.read
+        http_resp.body.rewind
+        xml = Hearth::XML.parse(body) unless body.empty?
+        return unless xml && xml.name == 'ErrorResponse'
+        xml = xml.at('Error')
+        if xml
+          CODES[xml.text_at('Code')]
+        end
+      end
+    end
+
     # Base class for all errors returned by this service
     class ApiError < Hearth::HTTP::ApiError; end
 
