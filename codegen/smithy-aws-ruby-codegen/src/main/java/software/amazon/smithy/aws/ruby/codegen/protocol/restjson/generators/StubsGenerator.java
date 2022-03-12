@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restjson.generators;
 
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
@@ -120,29 +121,34 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
     @Override
     protected void renderUnionStubMethod(UnionShape shape) {
+        Symbol symbol = symbolProvider.toSymbol(shape);
         writer
                 .openBlock("def self.stub(stub = {})")
-                .write("stub ||= {}")
                 .write("data = {}")
-                .call(() -> renderUnionMemberStubbers(shape))
+                .write("case stub");
+
+        shape.members().forEach((member) -> {
+            writer
+                    .write("when Types::$L::$L", shape.getId().getName(), symbolProvider.toMemberName(member))
+                    .indent();
+            renderUnionMemberStubber(shape, member);
+            writer.dedent();
+        });
+        writer.openBlock("else")
+                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of Types::$L\"",
+                        symbol.getName())
+                .closeBlock("end")
+                .write("")
                 .write("data")
                 .closeBlock("end");
 
     }
 
-    private void renderUnionMemberStubbers(UnionShape shape) {
-        shape.members().forEach((member) -> {
-            Shape target = model.expectShape(member.getTarget());
-
-            String symbolName = RubyFormatter.asSymbol(symbolProvider.toMemberName(member));
-            String dataName = "'" + member.getMemberName() + "'";
-            if (member.hasTrait(JsonNameTrait.class)) {
-                dataName = "'" + member.expectTrait(JsonNameTrait.class).getValue() + "'";
-            }
-            String dataSetter = "data[" + dataName + "] = ";
-            String inputGetter = "stub[" + symbolName + "]";
-            target.accept(new MemberSerializer(member, dataSetter, inputGetter, true));
-        });
+    private void renderUnionMemberStubber(UnionShape shape, MemberShape member) {
+        Shape target = model.expectShape(member.getTarget());
+        String symbolName = "'" + member.getMemberName() + "'";
+        String dataSetter = "data[" + symbolName + "] = ";
+        target.accept(new MemberSerializer(member, dataSetter, "stub.__getobj__", false));
     }
 
     private void renderMemberStubbers(Shape s) {

@@ -112,6 +112,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::AssociateAlias,
+        params_class: Params::AssociateAliasOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -258,6 +259,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateCachePolicy,
+        params_class: Params::CreateCachePolicyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -329,6 +331,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateCloudFrontOriginAccessIdentity,
+        params_class: Params::CreateCloudFrontOriginAccessIdentityOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -810,6 +813,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateDistribution,
+        params_class: Params::CreateDistributionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1289,6 +1293,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateDistributionWithTags,
+        params_class: Params::CreateDistributionWithTagsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1399,6 +1404,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateFieldLevelEncryptionConfig,
+        params_class: Params::CreateFieldLevelEncryptionConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1494,6 +1500,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateFieldLevelEncryptionProfile,
+        params_class: Params::CreateFieldLevelEncryptionProfileOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1587,6 +1594,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateFunction,
+        params_class: Params::CreateFunctionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1667,6 +1675,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateInvalidation,
+        params_class: Params::CreateInvalidationOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1747,6 +1756,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateKeyGroup,
+        params_class: Params::CreateKeyGroupOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1819,6 +1829,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateMonitoringSubscription,
+        params_class: Params::CreateMonitoringSubscriptionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1956,6 +1967,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateOriginRequestPolicy,
+        params_class: Params::CreateOriginRequestPolicyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2028,6 +2040,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreatePublicKey,
+        params_class: Params::CreatePublicKeyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2127,6 +2140,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateRealtimeLogConfig,
+        params_class: Params::CreateRealtimeLogConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2320,6 +2334,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateResponseHeadersPolicy,
+        params_class: Params::CreateResponseHeadersPolicyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2445,6 +2460,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateStreamingDistribution,
+        params_class: Params::CreateStreamingDistributionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2580,6 +2596,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateStreamingDistributionWithTags,
+        params_class: Params::CreateStreamingDistributionWithTagsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2651,6 +2668,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteCachePolicy,
+        params_class: Params::DeleteCachePolicyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2713,6 +2731,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteCloudFrontOriginAccessIdentity,
+        params_class: Params::DeleteCloudFrontOriginAccessIdentityOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2775,6 +2794,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteDistribution,
+        params_class: Params::DeleteDistributionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2837,6 +2857,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteFieldLevelEncryptionConfig,
+        params_class: Params::DeleteFieldLevelEncryptionConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2899,6 +2920,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteFieldLevelEncryptionProfile,
+        params_class: Params::DeleteFieldLevelEncryptionProfileOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2967,6 +2989,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteFunction,
+        params_class: Params::DeleteFunctionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3037,6 +3060,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteKeyGroup,
+        params_class: Params::DeleteKeyGroupOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3094,6 +3118,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteMonitoringSubscription,
+        params_class: Params::DeleteMonitoringSubscriptionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3165,6 +3190,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteOriginRequestPolicy,
+        params_class: Params::DeleteOriginRequestPolicyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3227,6 +3253,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeletePublicKey,
+        params_class: Params::DeletePublicKeyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3294,6 +3321,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteRealtimeLogConfig,
+        params_class: Params::DeleteRealtimeLogConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3366,6 +3394,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteResponseHeadersPolicy,
+        params_class: Params::DeleteResponseHeadersPolicyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3475,6 +3504,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteStreamingDistribution,
+        params_class: Params::DeleteStreamingDistributionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3552,6 +3582,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeFunction,
+        params_class: Params::DescribeFunctionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3657,6 +3688,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetCachePolicy,
+        params_class: Params::GetCachePolicyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3751,6 +3783,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetCachePolicyConfig,
+        params_class: Params::GetCachePolicyConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3815,6 +3848,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetCloudFrontOriginAccessIdentity,
+        params_class: Params::GetCloudFrontOriginAccessIdentityOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3876,6 +3910,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetCloudFrontOriginAccessIdentityConfig,
+        params_class: Params::GetCloudFrontOriginAccessIdentityConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4129,6 +4164,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetDistribution,
+        params_class: Params::GetDistributionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4354,6 +4390,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetDistributionConfig,
+        params_class: Params::GetDistributionConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4435,6 +4472,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFieldLevelEncryption,
+        params_class: Params::GetFieldLevelEncryptionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4513,6 +4551,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFieldLevelEncryptionConfig,
+        params_class: Params::GetFieldLevelEncryptionConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4588,6 +4627,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFieldLevelEncryptionProfile,
+        params_class: Params::GetFieldLevelEncryptionProfileOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4660,6 +4700,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFieldLevelEncryptionProfileConfig,
+        params_class: Params::GetFieldLevelEncryptionProfileConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4727,6 +4768,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFunction,
+        params_class: Params::GetFunctionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4799,6 +4841,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetInvalidation,
+        params_class: Params::GetInvalidationOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4871,6 +4914,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetKeyGroup,
+        params_class: Params::GetKeyGroupOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4940,6 +4984,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetKeyGroupConfig,
+        params_class: Params::GetKeyGroupConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5001,6 +5046,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetMonitoringSubscription,
+        params_class: Params::GetMonitoringSubscriptionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5100,6 +5146,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetOriginRequestPolicy,
+        params_class: Params::GetOriginRequestPolicyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5189,6 +5236,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetOriginRequestPolicyConfig,
+        params_class: Params::GetOriginRequestPolicyConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5255,6 +5303,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetPublicKey,
+        params_class: Params::GetPublicKeyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5318,6 +5367,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetPublicKeyConfig,
+        params_class: Params::GetPublicKeyConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5394,6 +5444,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetRealtimeLogConfig,
+        params_class: Params::GetRealtimeLogConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5519,6 +5570,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetResponseHeadersPolicy,
+        params_class: Params::GetResponseHeadersPolicyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5640,6 +5692,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetResponseHeadersPolicyConfig,
+        params_class: Params::GetResponseHeadersPolicyConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5735,6 +5788,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetStreamingDistribution,
+        params_class: Params::GetStreamingDistributionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5814,6 +5868,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetStreamingDistributionConfig,
+        params_class: Params::GetStreamingDistributionConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5937,6 +5992,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListCachePolicies,
+        params_class: Params::ListCachePoliciesOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -6014,6 +6070,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListCloudFrontOriginAccessIdentities,
+        params_class: Params::ListCloudFrontOriginAccessIdentitiesOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -6118,6 +6175,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListConflictingAliases,
+        params_class: Params::ListConflictingAliasesOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -6359,6 +6417,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListDistributions,
+        params_class: Params::ListDistributionsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -6441,6 +6500,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListDistributionsByCachePolicyId,
+        params_class: Params::ListDistributionsByCachePolicyIdOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -6523,6 +6583,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListDistributionsByKeyGroup,
+        params_class: Params::ListDistributionsByKeyGroupOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -6606,6 +6667,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListDistributionsByOriginRequestPolicyId,
+        params_class: Params::ListDistributionsByOriginRequestPolicyIdOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -6865,6 +6927,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListDistributionsByRealtimeLogConfig,
+        params_class: Params::ListDistributionsByRealtimeLogConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -6948,6 +7011,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListDistributionsByResponseHeadersPolicyId,
+        params_class: Params::ListDistributionsByResponseHeadersPolicyIdOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -7196,6 +7260,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListDistributionsByWebACLId,
+        params_class: Params::ListDistributionsByWebACLIdOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -7285,6 +7350,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListFieldLevelEncryptionConfigs,
+        params_class: Params::ListFieldLevelEncryptionConfigsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -7368,6 +7434,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListFieldLevelEncryptionProfiles,
+        params_class: Params::ListFieldLevelEncryptionProfilesOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -7460,6 +7527,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListFunctions,
+        params_class: Params::ListFunctionsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -7542,6 +7610,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListInvalidations,
+        params_class: Params::ListInvalidationsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -7625,6 +7694,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListKeyGroups,
+        params_class: Params::ListKeyGroupsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -7742,6 +7812,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListOriginRequestPolicies,
+        params_class: Params::ListOriginRequestPoliciesOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -7816,6 +7887,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListPublicKeys,
+        params_class: Params::ListPublicKeysOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -7903,6 +7975,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListRealtimeLogConfigs,
+        params_class: Params::ListRealtimeLogConfigsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -8052,6 +8125,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListResponseHeadersPolicies,
+        params_class: Params::ListResponseHeadersPoliciesOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -8141,6 +8215,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListStreamingDistributions,
+        params_class: Params::ListStreamingDistributionsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -8203,6 +8278,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListTagsForResource,
+        params_class: Params::ListTagsForResourceOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -8284,6 +8360,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PublishFunction,
+        params_class: Params::PublishFunctionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -8352,6 +8429,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::TagResource,
+        params_class: Params::TagResourceOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -8450,6 +8528,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::TestFunction,
+        params_class: Params::TestFunctionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -8515,6 +8594,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UntagResource,
+        params_class: Params::UntagResourceOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -8669,6 +8749,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateCachePolicy,
+        params_class: Params::UpdateCachePolicyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -8745,6 +8826,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateCloudFrontOriginAccessIdentity,
+        params_class: Params::UpdateCloudFrontOriginAccessIdentityOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -9300,6 +9382,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateDistribution,
+        params_class: Params::UpdateDistributionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -9418,6 +9501,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateFieldLevelEncryptionConfig,
+        params_class: Params::UpdateFieldLevelEncryptionConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -9521,6 +9605,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateFieldLevelEncryptionProfile,
+        params_class: Params::UpdateFieldLevelEncryptionProfileOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -9612,6 +9697,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateFunction,
+        params_class: Params::UpdateFunctionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -9710,6 +9796,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateKeyGroup,
+        params_class: Params::UpdateKeyGroupOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -9851,6 +9938,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateOriginRequestPolicy,
+        params_class: Params::UpdateOriginRequestPolicyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -9931,6 +10019,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdatePublicKey,
+        params_class: Params::UpdatePublicKeyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -10051,6 +10140,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateRealtimeLogConfig,
+        params_class: Params::UpdateRealtimeLogConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -10263,6 +10353,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateResponseHeadersPolicy,
+        params_class: Params::UpdateResponseHeadersPolicyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -10394,6 +10485,7 @@ module AWS::Cloudfront
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateStreamingDistribution,
+        params_class: Params::UpdateStreamingDistributionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
