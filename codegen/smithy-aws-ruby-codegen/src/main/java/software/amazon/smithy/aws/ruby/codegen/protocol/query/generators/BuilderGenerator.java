@@ -42,7 +42,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .write("query = {}")
                 .write("context = ''")
                 .write("query['Action'] = '$L'", symbolProvider.toSymbol(operation).getName())
-                .write("query['Version'] = '$L'", context.getService().getVersion())
+                .write("query['Version'] = '$L'", context.service().getVersion())
                 .call(() -> renderMemberBuilders(inputShape))
                 // temporary hack- need a query param utility
                 .write("params = query.map { |k, v| \"#{k}=#{v}\" }.join(\"&\")")
