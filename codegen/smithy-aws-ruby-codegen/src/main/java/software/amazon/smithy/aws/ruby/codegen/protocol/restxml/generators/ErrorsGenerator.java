@@ -38,7 +38,7 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
                 .write("xml = Hearth::XML.parse(body) unless body.empty?")
                 .write("return unless xml")
                 .call( () -> {
-                    if (model.expectShape(settings.getService())
+                    if (context.service()
                             .getTrait(RestXmlTrait.class).get().isNoErrorWrapping()) {
                         writer
                                 .write("return unless xml.name == 'Error'");

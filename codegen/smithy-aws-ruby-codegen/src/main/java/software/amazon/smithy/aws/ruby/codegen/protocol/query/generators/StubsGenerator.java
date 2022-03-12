@@ -159,8 +159,8 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .write("http_resp.headers['Content-Type'] = 'application/xml'")
                 .write("response = Hearth::XML::Node.new('$LResponse')", nodeName)
                 .call(() -> {
-                    if (context.getService().hasTrait(XmlNamespaceTrait.class)) {
-                        writeXmlNamespaceForShape(context.getService(), "response");
+                    if (context.service().hasTrait(XmlNamespaceTrait.class)) {
+                        writeXmlNamespaceForShape(context.service(), "response");
                     }
                 })
                 .write("xml = Hearth::XML::Node.new('$LResult')", nodeName)

@@ -134,6 +134,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::AddLayerVersionPermission,
+        params_class: Params::AddLayerVersionPermissionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -260,6 +261,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::AddPermission,
+        params_class: Params::AddPermissionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -370,6 +372,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateAlias,
+        params_class: Params::CreateAliasOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -453,6 +456,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateCodeSigningConfig,
+        params_class: Params::CreateCodeSigningConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -765,6 +769,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateEventSourceMapping,
+        params_class: Params::CreateEventSourceMappingOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1059,6 +1064,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateFunction,
+        params_class: Params::CreateFunctionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1139,6 +1145,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteAlias,
+        params_class: Params::DeleteAliasOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1197,6 +1204,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteCodeSigningConfig,
+        params_class: Params::DeleteCodeSigningConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1291,6 +1299,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteEventSourceMapping,
+        params_class: Params::DeleteEventSourceMappingOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1376,6 +1385,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteFunction,
+        params_class: Params::DeleteFunctionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1452,6 +1462,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteFunctionCodeSigningConfig,
+        params_class: Params::DeleteFunctionCodeSigningConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1528,6 +1539,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteFunctionConcurrency,
+        params_class: Params::DeleteFunctionConcurrencyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1609,6 +1621,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteFunctionEventInvokeConfig,
+        params_class: Params::DeleteFunctionEventInvokeConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1672,6 +1685,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteLayerVersion,
+        params_class: Params::DeleteLayerVersionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1752,6 +1766,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteProvisionedConcurrencyConfig,
+        params_class: Params::DeleteProvisionedConcurrencyConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1813,6 +1828,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetAccountSettings,
+        params_class: Params::GetAccountSettingsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1901,6 +1917,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetAlias,
+        params_class: Params::GetAliasOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -1968,6 +1985,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetCodeSigningConfig,
+        params_class: Params::GetCodeSigningConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2060,6 +2078,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetEventSourceMapping,
+        params_class: Params::GetEventSourceMappingOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2211,6 +2230,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFunction,
+        params_class: Params::GetFunctionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2289,6 +2309,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFunctionCodeSigningConfig,
+        params_class: Params::GetFunctionCodeSigningConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2367,6 +2388,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFunctionConcurrency,
+        params_class: Params::GetFunctionConcurrencyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2508,6 +2530,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFunctionConfiguration,
+        params_class: Params::GetFunctionConfigurationOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2598,6 +2621,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetFunctionEventInvokeConfig,
+        params_class: Params::GetFunctionEventInvokeConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2675,6 +2699,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetLayerVersion,
+        params_class: Params::GetLayerVersionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2748,6 +2773,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetLayerVersionByArn,
+        params_class: Params::GetLayerVersionByArnOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2812,6 +2838,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetLayerVersionPolicy,
+        params_class: Params::GetLayerVersionPolicyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2894,6 +2921,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetPolicy,
+        params_class: Params::GetPolicyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -2980,6 +3008,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetProvisionedConcurrencyConfig,
+        params_class: Params::GetProvisionedConcurrencyConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3126,6 +3155,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::Invoke,
+        params_class: Params::InvokeOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3212,6 +3242,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::InvokeAsync,
+        params_class: Params::InvokeAsyncOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3312,6 +3343,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListAliases,
+        params_class: Params::ListAliasesOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3387,6 +3419,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListCodeSigningConfigs,
+        params_class: Params::ListCodeSigningConfigsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3536,6 +3569,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListEventSourceMappings,
+        params_class: Params::ListEventSourceMappingsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3633,6 +3667,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListFunctionEventInvokeConfigs,
+        params_class: Params::ListFunctionEventInvokeConfigsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3775,6 +3810,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListFunctions,
+        params_class: Params::ListFunctionsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3844,6 +3880,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListFunctionsByCodeSigningConfig,
+        params_class: Params::ListFunctionsByCodeSigningConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -3925,6 +3962,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListLayerVersions,
+        params_class: Params::ListLayerVersionsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4005,6 +4043,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListLayers,
+        params_class: Params::ListLayersOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4099,6 +4138,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListProvisionedConcurrencyConfigs,
+        params_class: Params::ListProvisionedConcurrencyConfigsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4159,6 +4199,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListTags,
+        params_class: Params::ListTagsOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4306,6 +4347,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListVersionsByFunction,
+        params_class: Params::ListVersionsByFunctionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4417,6 +4459,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PublishLayerVersion,
+        params_class: Params::PublishLayerVersionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4575,6 +4618,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PublishVersion,
+        params_class: Params::PublishVersionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4658,6 +4702,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PutFunctionCodeSigningConfig,
+        params_class: Params::PutFunctionCodeSigningConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4747,6 +4792,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PutFunctionConcurrency,
+        params_class: Params::PutFunctionConcurrencyOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4886,6 +4932,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PutFunctionEventInvokeConfig,
+        params_class: Params::PutFunctionEventInvokeConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -4976,6 +5023,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PutProvisionedConcurrencyConfig,
+        params_class: Params::PutProvisionedConcurrencyConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5048,6 +5096,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::RemoveLayerVersionPermission,
+        params_class: Params::RemoveLayerVersionPermissionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5138,6 +5187,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::RemovePermission,
+        params_class: Params::RemovePermissionOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5201,6 +5251,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::TagResource,
+        params_class: Params::TagResourceOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5264,6 +5315,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UntagResource,
+        params_class: Params::UntagResourceOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5374,6 +5426,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateAlias,
+        params_class: Params::UpdateAliasOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5460,6 +5513,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateCodeSigningConfig,
+        params_class: Params::UpdateCodeSigningConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5682,6 +5736,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateEventSourceMapping,
+        params_class: Params::UpdateEventSourceMappingOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -5861,6 +5916,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateFunctionCode,
+        params_class: Params::UpdateFunctionCodeOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -6110,6 +6166,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateFunctionConfiguration,
+        params_class: Params::UpdateFunctionConfigurationOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
@@ -6240,6 +6297,7 @@ module AWS::Lambda
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateFunctionEventInvokeConfig,
+        params_class: Params::UpdateFunctionEventInvokeConfigOutput,
         stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])

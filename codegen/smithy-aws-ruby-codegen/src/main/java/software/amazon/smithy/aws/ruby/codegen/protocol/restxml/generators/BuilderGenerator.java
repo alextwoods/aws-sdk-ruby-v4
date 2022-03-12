@@ -84,7 +84,7 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
                 .write("http_req.headers['Content-Type'] = 'application/xml'")
                 .write("xml = Hearth::XML::Node.new('$L')", nodeName)
                 .call(() -> {
-                    XmlNamespaceTrait xmlnsTrait = context.getService()
+                    XmlNamespaceTrait xmlnsTrait = context.service()
                             .getTrait(XmlNamespaceTrait.class)
                             .orElse(inputShape.getTrait(XmlNamespaceTrait.class)
                                     .orElse(null));

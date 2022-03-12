@@ -75,7 +75,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
                 .write("http_resp.headers['Content-Type'] = 'application/xml'")
                 .write("xml = Hearth::XML::Node.new('$L')", nodeName)
                 .call(() -> {
-                    XmlNamespaceTrait xmlnsTrait = model.expectShape(settings.getService())
+                    XmlNamespaceTrait xmlnsTrait = context.service()
                             .getTrait(XmlNamespaceTrait.class)
                             .orElse(outputShape.getTrait(XmlNamespaceTrait.class)
                                     .orElse(null));
