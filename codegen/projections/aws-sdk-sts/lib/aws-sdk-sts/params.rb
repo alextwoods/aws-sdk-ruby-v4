@@ -326,7 +326,7 @@ module AWS::Sts
       end
     end
 
-    module policyDescriptorListType
+    module PolicyDescriptorListType
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
@@ -337,7 +337,7 @@ module AWS::Sts
       end
     end
 
-    module tagKeyListType
+    module TagKeyListType
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
@@ -348,7 +348,7 @@ module AWS::Sts
       end
     end
 
-    module tagListType
+    module TagListType
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []

@@ -25100,7 +25100,7 @@ module AWS::Ec2
       end
     end
 
-    module snapshotTierStatusSet
+    module SnapshotTierStatusSet
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []

@@ -117,7 +117,6 @@ module AWS::Dynamodb
 
     # Union Stubber for AttributeValue
     class AttributeValue
-
       def self.default(visited=[])
         return nil if visited.include?('AttributeValue')
         visited = visited + ['AttributeValue']
