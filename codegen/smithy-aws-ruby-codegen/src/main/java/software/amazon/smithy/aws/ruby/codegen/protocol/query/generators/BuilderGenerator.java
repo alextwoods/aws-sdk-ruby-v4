@@ -39,14 +39,12 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .write("http_req.http_method = 'POST'")
                 .write("http_req.append_path('/')")
                 .write("http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'")
-                .write("query = {}")
                 .write("context = ''")
-                .write("query['Action'] = '$L'", symbolProvider.toSymbol(operation).getName())
-                .write("query['Version'] = '$L'", context.service().getVersion())
+                .write("params = Hearth::Query::ParamList.new")
+                .write("params['Action'] = '$L'", symbolProvider.toSymbol(operation).getName())
+                .write("params['Version'] = '$L'", context.service().getVersion())
                 .call(() -> renderMemberBuilders(inputShape))
-                // temporary hack- need a query param utility
-                .write("params = query.map { |k, v| \"#{k}=#{v}\" }.join(\"&\")")
-                .write("http_req.body = StringIO.new(params)")
+                .write("http_req.body = StringIO.new(params.to_s)")
                 .closeBlock("end");
     }
 
@@ -68,7 +66,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     @Override
     protected void renderStructureBuildMethod(StructureShape shape) {
         writer
-                .openBlock("def self.build(input, query, context: nil)")
+                .openBlock("def self.build(input, params, context: nil)")
                 .call(() -> renderMemberBuilders(shape))
                 .closeBlock("end");
     }
@@ -76,7 +74,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     @Override
     protected void renderListBuildMethod(ListShape shape) {
         writer
-                .openBlock("def self.build(input, query, context: '')")
+                .openBlock("def self.build(input, params, context: '')")
                 .openBlock("input.each_with_index do |element, index|")
                 .call(() -> {
                     String dataName = "\".#{index+1}\"";
@@ -93,7 +91,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     @Override
     protected void renderSetBuildMethod(SetShape shape) {
         writer
-                .openBlock("def self.build(input, query, context: '')")
+                .openBlock("def self.build(input, params, context: '')")
                 .openBlock("input.each_with_index do |element, index|")
                 .call(() -> {
                     String dataName = "\".#{index+1}\"";
@@ -109,7 +107,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     @Override
     protected void renderUnionBuildMethod(UnionShape shape) {
         writer
-                .openBlock("def self.build(input, query, context: nil)")
+                .openBlock("def self.build(input, params, context: nil)")
                 .call(() -> renderMemberBuilders(shape))
                 .closeBlock("end");
     }
@@ -117,14 +115,14 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     @Override
     protected void renderMapBuildMethod(MapShape shape) {
         writer
-                .openBlock("def self.build(input, query, context: '')")
+                .openBlock("def self.build(input, params, context: '')")
                 .openBlock("input.each_with_index do |(key, value), index|")
                 .call(() -> {
                     String key = "key";
                     if (shape.getKey().hasTrait(XmlNameTrait.class)) {
                         key = shape.getKey().getTrait(XmlNameTrait.class).get().getValue();
                     }
-                    writer.write("query[context + \".#{index+1}." + key + "\"] = key");
+                    writer.write("params[context + \".#{index+1}." + key + "\"] = key");
                     String value = "value";
                     if (shape.getValue().hasTrait(XmlNameTrait.class)) {
                         value = shape.getValue().getTrait(XmlNameTrait.class).get().getValue();
@@ -164,12 +162,12 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         @Override
         protected Void getDefault(Shape shape) {
-            writer.write("query[context + $L] = $L$L", dataName, inputGetter, checkRequired());
+            writer.write("params[context + $L] = $L.to_s$L", dataName, inputGetter, checkRequired());
             return null;
         }
 
         private void rubyFloat() {
-            writer.write("query[context + $L] = Hearth::NumberHelper.serialize($L)$L", dataName, inputGetter, checkRequired());
+            writer.write("params[context + $L] = Hearth::NumberHelper.serialize($L).to_s$L", dataName, inputGetter, checkRequired());
         }
 
         @Override
@@ -186,7 +184,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         @Override
         public Void blobShape(BlobShape shape) {
-            writer.write("query[context + $L] = Base64::encode64($L).strip$L",
+            writer.write("params[context + $L] = Base64::encode64($L).strip$L",
                     dataName, inputGetter, checkRequired());
             return null;
         }
@@ -203,22 +201,22 @@ public class BuilderGenerator extends BuilderGeneratorBase {
             if (format != null) {
                 switch (format) {
                     case EPOCH_SECONDS:
-                        writer.write("query[context + $L] = Hearth::TimeHelper.to_epoch_seconds($L)$L",
+                        writer.write("params[context + $L] = Hearth::TimeHelper.to_epoch_seconds($L).to_s$L",
                                 dataName, inputGetter, checkRequired());
                         break;
                     case HTTP_DATE:
-                        writer.write("query[context + $L] = Hearth::HTTP.uri_escape(Hearth::TimeHelper.to_http_date($L))$L",
+                        writer.write("params[context + $L] = Hearth::TimeHelper.to_http_date($L)$L",
                                 dataName, inputGetter, checkRequired());
                         break;
                     case DATE_TIME:
                     default:
-                        writer.write("query[context + $L] = Hearth::HTTP.uri_escape(Hearth::TimeHelper.to_date_time($L))$L",
+                        writer.write("params[context + $L] = Hearth::TimeHelper.to_date_time($L)$L",
                                 dataName, inputGetter, checkRequired());
                         break;
                 }
             } else {
                 // the default protocol format is date_time
-                writer.write("query[context + $L] = Hearth::HTTP.uri_escape(Hearth::TimeHelper.to_date_time($L))$L",
+                writer.write("params[context + $L] = Hearth::TimeHelper.to_date_time($L)$L",
                         dataName, inputGetter, checkRequired());
             }
 
@@ -229,7 +227,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
          * For complex shapes, simply delegate to their builder.
          */
         private void defaultComplexSerializer(Shape shape) {
-            writer.write("Builders::$1L.build($2L, query, context: context + $3L + '.') unless $2L.nil?",
+            writer.write("Builders::$1L.build($2L, params, context: context + $3L + '.') unless $2L.nil?",
                     symbolProvider.toSymbol(shape).getName(), inputGetter, dataName);
         }
 
@@ -246,7 +244,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 }
                 context += " + '." + member + "'";
             }
-            writer.write("Builders::$1L.build($2L, query, context: $3L) unless $2L.nil?",
+            writer.write("Builders::$1L.build($2L, params, context: $3L) unless $2L.nil?",
                     symbolProvider.toSymbol(shape).getName(), inputGetter, context);
         }
 
@@ -272,7 +270,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
             if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
                 context += " + '.entry'";
             }
-            writer.write("Builders::$1L.build($2L, query, context: $3L) unless $2L.nil?",
+            writer.write("Builders::$1L.build($2L, params, context: $3L) unless $2L.nil?",
                     symbolProvider.toSymbol(shape).getName(), inputGetter, context);
             return null;
         }
