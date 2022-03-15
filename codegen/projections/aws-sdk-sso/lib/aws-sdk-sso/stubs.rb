@@ -40,8 +40,8 @@ module AWS::Sso
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::RoleCredentials.new
         data = {}
         data['accessKeyId'] = stub[:access_key_id] unless stub[:access_key_id].nil?
         data['secretAccessKey'] = stub[:secret_access_key] unless stub[:secret_access_key].nil?
@@ -80,7 +80,7 @@ module AWS::Sso
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -101,8 +101,8 @@ module AWS::Sso
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::RoleInfo.new
         data = {}
         data['roleName'] = stub[:role_name] unless stub[:role_name].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
@@ -139,7 +139,7 @@ module AWS::Sso
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -161,8 +161,8 @@ module AWS::Sso
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::AccountInfo.new
         data = {}
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['accountName'] = stub[:account_name] unless stub[:account_name].nil?

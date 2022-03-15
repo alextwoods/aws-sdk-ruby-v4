@@ -19,7 +19,6 @@ import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
-import software.amazon.smithy.ruby.codegen.RubyFormatter;
 import software.amazon.smithy.ruby.codegen.generators.RestStubsGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 
@@ -51,7 +50,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     @Override
     protected void renderListStubMethod(ListShape shape) {
         writer
-                .openBlock("def self.stub(stub = [])")
+                .openBlock("def self.stub(stub)")
                 .write("stub ||= []")
                 .write("data = []")
                 .openBlock("stub.each do |element|")
@@ -72,7 +71,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     @Override
     protected void renderSetStubMethod(SetShape shape) {
         writer
-                .openBlock("def self.stub(stub = [])")
+                .openBlock("def self.stub(stub)")
                 .write("stub ||= []")
                 .write("data = Set.new")
                 .openBlock("stub.each do |element|")
@@ -92,7 +91,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     @Override
     protected void renderMapStubMethod(MapShape shape) {
         writer
-                .openBlock("def self.stub(stub = {})")
+                .openBlock("def self.stub(stub)")
                 .write("stub ||= {}")
                 .write("data = {}")
                 .openBlock("stub.each do |key, value|")
@@ -110,9 +109,10 @@ public class StubsGenerator extends RestStubsGeneratorBase {
 
     @Override
     protected void renderStructureStubMethod(StructureShape shape) {
+        String typeName = symbolProvider.toSymbol(shape).getName();
         writer
-                .openBlock("def self.stub(stub = {})")
-                .write("stub ||= {}")
+                .openBlock("def self.stub(stub)")
+                .write("stub ||= Types::$L.new", typeName)
                 .write("data = {}")
                 .call(() -> renderMemberStubbers(shape))
                 .write("data")
@@ -123,7 +123,7 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     protected void renderUnionStubMethod(UnionShape shape) {
         Symbol symbol = symbolProvider.toSymbol(shape);
         writer
-                .openBlock("def self.stub(stub = {})")
+                .openBlock("def self.stub(stub)")
                 .write("data = {}")
                 .write("case stub");
 
@@ -183,7 +183,6 @@ public class StubsGenerator extends RestStubsGeneratorBase {
             });
         }
     }
-
 
     private class MemberSerializer extends ShapeVisitor.Default<Void> {
 

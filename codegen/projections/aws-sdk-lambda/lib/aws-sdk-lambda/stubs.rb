@@ -83,8 +83,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::AliasRoutingConfiguration.new
         data = {}
         data['AdditionalVersionWeights'] = Stubs::AdditionalVersionWeights.stub(stub[:additional_version_weights]) unless stub[:additional_version_weights].nil?
         data
@@ -101,7 +101,7 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
+      def self.stub(stub)
         stub ||= {}
         data = {}
         stub.each do |key, value|
@@ -143,8 +143,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::CodeSigningConfig.new
         data = {}
         data['CodeSigningConfigId'] = stub[:code_signing_config_id] unless stub[:code_signing_config_id].nil?
         data['CodeSigningConfigArn'] = stub[:code_signing_config_arn] unless stub[:code_signing_config_arn].nil?
@@ -166,8 +166,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::CodeSigningPolicies.new
         data = {}
         data['UntrustedArtifactOnDeployment'] = stub[:untrusted_artifact_on_deployment] unless stub[:untrusted_artifact_on_deployment].nil?
         data
@@ -184,8 +184,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::AllowedPublishers.new
         data = {}
         data['SigningProfileVersionArns'] = Stubs::SigningProfileVersionArns.stub(stub[:signing_profile_version_arns]) unless stub[:signing_profile_version_arns].nil?
         data
@@ -202,7 +202,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -281,7 +281,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -301,8 +301,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::SelfManagedEventSource.new
         data = {}
         data['Endpoints'] = Stubs::Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
         data
@@ -319,7 +319,7 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
+      def self.stub(stub)
         stub ||= {}
         data = {}
         stub.each do |key, value|
@@ -339,7 +339,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -359,7 +359,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -380,8 +380,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::SourceAccessConfiguration.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['URI'] = stub[:uri] unless stub[:uri].nil?
@@ -399,7 +399,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -419,7 +419,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -440,8 +440,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::DestinationConfig.new
         data = {}
         data['OnSuccess'] = Stubs::OnSuccess.stub(stub[:on_success]) unless stub[:on_success].nil?
         data['OnFailure'] = Stubs::OnFailure.stub(stub[:on_failure]) unless stub[:on_failure].nil?
@@ -459,8 +459,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::OnFailure.new
         data = {}
         data['Destination'] = stub[:destination] unless stub[:destination].nil?
         data
@@ -477,8 +477,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::OnSuccess.new
         data = {}
         data['Destination'] = stub[:destination] unless stub[:destination].nil?
         data
@@ -573,8 +573,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::ImageConfigResponse.new
         data = {}
         data['ImageConfig'] = Stubs::ImageConfig.stub(stub[:image_config]) unless stub[:image_config].nil?
         data['Error'] = Stubs::ImageConfigError.stub(stub[:error]) unless stub[:error].nil?
@@ -593,8 +593,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::ImageConfigError.new
         data = {}
         data['ErrorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
@@ -614,8 +614,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::ImageConfig.new
         data = {}
         data['EntryPoint'] = Stubs::StringList.stub(stub[:entry_point]) unless stub[:entry_point].nil?
         data['Command'] = Stubs::StringList.stub(stub[:command]) unless stub[:command].nil?
@@ -634,7 +634,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -654,7 +654,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -675,8 +675,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::FileSystemConfig.new
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['LocalMountPath'] = stub[:local_mount_path] unless stub[:local_mount_path].nil?
@@ -694,7 +694,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -717,8 +717,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::Layer.new
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CodeSize'] = stub[:code_size] unless stub[:code_size].nil?
@@ -738,8 +738,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::TracingConfigResponse.new
         data = {}
         data['Mode'] = stub[:mode] unless stub[:mode].nil?
         data
@@ -757,8 +757,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::EnvironmentResponse.new
         data = {}
         data['Variables'] = Stubs::EnvironmentVariables.stub(stub[:variables]) unless stub[:variables].nil?
         data['Error'] = Stubs::EnvironmentError.stub(stub[:error]) unless stub[:error].nil?
@@ -777,8 +777,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::EnvironmentError.new
         data = {}
         data['ErrorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
@@ -796,7 +796,7 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
+      def self.stub(stub)
         stub ||= {}
         data = {}
         stub.each do |key, value|
@@ -816,8 +816,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::DeadLetterConfig.new
         data = {}
         data['TargetArn'] = stub[:target_arn] unless stub[:target_arn].nil?
         data
@@ -836,8 +836,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::VpcConfigResponse.new
         data = {}
         data['SubnetIds'] = Stubs::SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data['SecurityGroupIds'] = Stubs::SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
@@ -856,7 +856,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -876,7 +876,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -1079,8 +1079,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::AccountUsage.new
         data = {}
         data['TotalCodeSize'] = stub[:total_code_size] unless stub[:total_code_size].nil?
         data['FunctionCount'] = stub[:function_count] unless stub[:function_count].nil?
@@ -1102,8 +1102,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::AccountLimit.new
         data = {}
         data['TotalCodeSize'] = stub[:total_code_size] unless stub[:total_code_size].nil?
         data['CodeSizeUnzipped'] = stub[:code_size_unzipped] unless stub[:code_size_unzipped].nil?
@@ -1250,8 +1250,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::Concurrency.new
         data = {}
         data['ReservedConcurrentExecutions'] = stub[:reserved_concurrent_executions] unless stub[:reserved_concurrent_executions].nil?
         data
@@ -1268,7 +1268,7 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
+      def self.stub(stub)
         stub ||= {}
         data = {}
         stub.each do |key, value|
@@ -1291,8 +1291,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::FunctionCodeLocation.new
         data = {}
         data['RepositoryType'] = stub[:repository_type] unless stub[:repository_type].nil?
         data['Location'] = stub[:location] unless stub[:location].nil?
@@ -1342,8 +1342,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::FunctionConfiguration.new
         data = {}
         data['FunctionName'] = stub[:function_name] unless stub[:function_name].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
@@ -1559,7 +1559,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -1583,8 +1583,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::LayerVersionContentOutput.new
         data = {}
         data['Location'] = stub[:location] unless stub[:location].nil?
         data['CodeSha256'] = stub[:code_sha256] unless stub[:code_sha256].nil?
@@ -1759,7 +1759,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -1784,8 +1784,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::AliasConfiguration.new
         data = {}
         data['AliasArn'] = stub[:alias_arn] unless stub[:alias_arn].nil?
         data['Name'] = stub[:member_name] unless stub[:member_name].nil?
@@ -1826,7 +1826,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -1865,7 +1865,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -1906,8 +1906,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::EventSourceMappingConfiguration.new
         data = {}
         data['UUID'] = stub[:uuid] unless stub[:uuid].nil?
         data['StartingPosition'] = stub[:starting_position] unless stub[:starting_position].nil?
@@ -1964,7 +1964,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -1988,8 +1988,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::FunctionEventInvokeConfig.new
         data = {}
         data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]) unless stub[:last_modified].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
@@ -2029,7 +2029,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -2068,7 +2068,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -2107,7 +2107,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -2132,8 +2132,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::LayerVersionsListItem.new
         data = {}
         data['LayerVersionArn'] = stub[:layer_version_arn] unless stub[:layer_version_arn].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
@@ -2174,7 +2174,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -2196,8 +2196,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::LayersListItem.new
         data = {}
         data['LayerName'] = stub[:layer_name] unless stub[:layer_name].nil?
         data['LayerArn'] = stub[:layer_arn] unless stub[:layer_arn].nil?
@@ -2235,7 +2235,7 @@ module AWS::Lambda
         ]
       end
 
-      def self.stub(stub = [])
+      def self.stub(stub)
         stub ||= []
         data = []
         stub.each do |element|
@@ -2261,8 +2261,8 @@ module AWS::Lambda
         }
       end
 
-      def self.stub(stub = {})
-        stub ||= {}
+      def self.stub(stub)
+        stub ||= Types::ProvisionedConcurrencyConfigListItem.new
         data = {}
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['RequestedProvisionedConcurrentExecutions'] = stub[:requested_provisioned_concurrent_executions] unless stub[:requested_provisioned_concurrent_executions].nil?
