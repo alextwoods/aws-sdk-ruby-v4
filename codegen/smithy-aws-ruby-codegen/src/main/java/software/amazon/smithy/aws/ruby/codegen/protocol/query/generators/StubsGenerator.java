@@ -78,7 +78,7 @@ public class StubsGenerator extends StubsGeneratorBase {
     protected void renderUnionStubMethod(UnionShape shape) {
         Symbol symbol = symbolProvider.toSymbol(shape);
         writer
-                .openBlock("def self.stub(node_name, stub = {})")
+                .openBlock("def self.stub(node_name, stub)")
                 .write("xml = Hearth::XML::Node.new(node_name)")
                 .write("case stub");
 
@@ -111,7 +111,7 @@ public class StubsGenerator extends StubsGeneratorBase {
     @Override
     protected void renderListStubMethod(ListShape shape) {
         writer
-                .openBlock("def self.stub(node_name, stub = [])")
+                .openBlock("def self.stub(node_name, stub)")
                 .write("xml = []")
                 .openBlock("stub.each do |element|")
                 .call(() -> {
@@ -127,7 +127,7 @@ public class StubsGenerator extends StubsGeneratorBase {
     @Override
     protected void renderSetStubMethod(SetShape shape) {
         writer
-                .openBlock("def self.stub(node_name, stub = Set.new)")
+                .openBlock("def self.stub(node_name, stub)")
                 .write("xml = []")
                 .openBlock("stub.each do |element|")
                 .call(() -> {
@@ -143,9 +143,9 @@ public class StubsGenerator extends StubsGeneratorBase {
     @Override
     protected void renderMapStubMethod(MapShape shape) {
         writer
-                .openBlock("def self.stub(node_name, input = {})")
+                .openBlock("def self.stub(node_name, stub)")
                 .write("nodes = []")
-                .openBlock("input.each do |key, value|")
+                .openBlock("stub.each do |key, value|")
                 .call(() -> {
                     writer.write("xml = Hearth::XML::Node.new(node_name)");
                     Shape keyTarget = model.expectShape(shape.getKey().getTarget());
@@ -173,8 +173,10 @@ public class StubsGenerator extends StubsGeneratorBase {
 
     @Override
     protected void renderStructureStubMethod(StructureShape shape) {
+        String typeName = symbolProvider.toSymbol(shape).getName();
         writer
-                .openBlock("def self.stub(node_name, stub = {})")
+                .openBlock("def self.stub(node_name, stub)")
+                .write("stub ||= Types::$L.new", typeName)
                 .write("xml = Hearth::XML::Node.new(node_name)")
                 .call(() -> renderMemberBuilders(shape))
                 .write("xml")
