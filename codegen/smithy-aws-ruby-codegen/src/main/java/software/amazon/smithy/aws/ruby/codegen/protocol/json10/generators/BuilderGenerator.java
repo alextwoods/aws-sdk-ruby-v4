@@ -42,9 +42,6 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
             String symbolName = ":" + symbolProvider.toMemberName(member);
             String dataName = "'" + member.getMemberName() + "'";
-            if (member.hasTrait(JsonNameTrait.class)) {
-                dataName = "'" + member.expectTrait(JsonNameTrait.class).getValue() + "'";
-            }
 
             String dataSetter = "data[" + dataName + "] = ";
             String inputGetter = "input[" + symbolName + "]";
