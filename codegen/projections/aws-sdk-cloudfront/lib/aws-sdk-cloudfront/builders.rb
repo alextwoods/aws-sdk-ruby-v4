@@ -21,7 +21,9 @@ module AWS::Cloudfront
             TargetDistributionId: Hearth::HTTP.uri_escape(input[:target_distribution_id].to_s)
           )
         )
-        http_req.append_query_param('Alias', input[:alias].to_s) unless input[:alias].nil?
+        params = Hearth::Query::ParamList.new
+        params['Alias'] = input[:alias].to_s unless input[:alias].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -30,6 +32,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/cache-policy')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CachePolicyConfig.build('CachePolicyConfig', input[:cache_policy_config]) unless input[:cache_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -161,6 +165,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/origin-access-identity/cloudfront')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CloudFrontOriginAccessIdentityConfig.build('CloudFrontOriginAccessIdentityConfig', input[:cloud_front_origin_access_identity_config]) unless input[:cloud_front_origin_access_identity_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -182,6 +188,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/distribution')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionConfig.build('DistributionConfig', input[:distribution_config]) unless input[:distribution_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -804,6 +812,8 @@ module AWS::Cloudfront
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2020-05-31/distribution')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionConfigWithTags.build('DistributionConfigWithTags', input[:distribution_config_with_tags]) unless input[:distribution_config_with_tags].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -855,6 +865,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/field-level-encryption')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionConfig.build('FieldLevelEncryptionConfig', input[:field_level_encryption_config]) unless input[:field_level_encryption_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -961,6 +973,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/field-level-encryption-profile')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionProfileConfig.build('FieldLevelEncryptionProfileConfig', input[:field_level_encryption_profile_config]) unless input[:field_level_encryption_profile_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1037,6 +1051,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/function')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateFunctionRequest')
@@ -1067,6 +1083,8 @@ module AWS::Cloudfront
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::InvalidationBatch.build('InvalidationBatch', input[:invalidation_batch]) unless input[:invalidation_batch].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1109,6 +1127,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/key-group')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::KeyGroupConfig.build('KeyGroupConfig', input[:key_group_config]) unless input[:key_group_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1146,6 +1166,8 @@ module AWS::Cloudfront
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::MonitoringSubscription.build('MonitoringSubscription', input[:monitoring_subscription]) unless input[:monitoring_subscription].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1175,6 +1197,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/origin-request-policy')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::OriginRequestPolicyConfig.build('OriginRequestPolicyConfig', input[:origin_request_policy_config]) unless input[:origin_request_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1229,6 +1253,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/public-key')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicKeyConfig.build('PublicKeyConfig', input[:public_key_config]) unless input[:public_key_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1252,6 +1278,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/realtime-log-config')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateRealtimeLogConfigRequest')
@@ -1311,6 +1339,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/response-headers-policy')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ResponseHeadersPolicyConfig.build('ResponseHeadersPolicyConfig', input[:response_headers_policy_config]) unless input[:response_headers_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1543,6 +1573,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/streaming-distribution')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1594,6 +1626,8 @@ module AWS::Cloudfront
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2020-05-31/streaming-distribution')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistributionConfigWithTags.build('StreamingDistributionConfigWithTags', input[:streaming_distribution_config_with_tags]) unless input[:streaming_distribution_config_with_tags].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1619,6 +1653,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -1632,6 +1668,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -1645,6 +1683,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -1658,6 +1698,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -1671,6 +1713,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -1684,6 +1728,8 @@ module AWS::Cloudfront
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -1697,6 +1743,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -1710,6 +1758,8 @@ module AWS::Cloudfront
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1722,6 +1772,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -1735,6 +1787,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -1744,6 +1798,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/delete-realtime-log-config')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteRealtimeLogConfigRequest')
@@ -1763,6 +1819,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -1776,6 +1834,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -1789,7 +1849,9 @@ module AWS::Cloudfront
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
-        http_req.append_query_param('Stage', input[:stage].to_s) unless input[:stage].nil?
+        params = Hearth::Query::ParamList.new
+        params['Stage'] = input[:stage].to_s unless input[:stage].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -1802,6 +1864,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1814,6 +1878,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1826,6 +1892,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1838,6 +1906,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1850,6 +1920,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1862,6 +1934,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1874,6 +1948,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1886,6 +1962,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1898,6 +1976,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1910,6 +1990,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1922,7 +2004,9 @@ module AWS::Cloudfront
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
-        http_req.append_query_param('Stage', input[:stage].to_s) unless input[:stage].nil?
+        params = Hearth::Query::ParamList.new
+        params['Stage'] = input[:stage].to_s unless input[:stage].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -1936,6 +2020,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1948,6 +2034,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1960,6 +2048,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1972,6 +2062,8 @@ module AWS::Cloudfront
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1984,6 +2076,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -1996,6 +2090,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -2008,6 +2104,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -2020,6 +2118,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -2028,6 +2128,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/get-realtime-log-config')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetRealtimeLogConfigRequest')
@@ -2047,6 +2149,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -2059,6 +2163,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -2071,6 +2177,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -2083,6 +2191,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
       end
     end
 
@@ -2091,9 +2201,11 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/cache-policy')
-        http_req.append_query_param('Type', input[:type].to_s) unless input[:type].nil?
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Type'] = input[:type].to_s unless input[:type].nil?
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2102,8 +2214,10 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/origin-access-identity/cloudfront')
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2112,10 +2226,12 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/conflicting-alias')
-        http_req.append_query_param('DistributionId', input[:distribution_id].to_s) unless input[:distribution_id].nil?
-        http_req.append_query_param('Alias', input[:alias].to_s) unless input[:alias].nil?
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['DistributionId'] = input[:distribution_id].to_s unless input[:distribution_id].nil?
+        params['Alias'] = input[:alias].to_s unless input[:alias].nil?
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2124,8 +2240,10 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/distribution')
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2138,8 +2256,10 @@ module AWS::Cloudfront
             CachePolicyId: Hearth::HTTP.uri_escape(input[:cache_policy_id].to_s)
           )
         )
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2152,8 +2272,10 @@ module AWS::Cloudfront
             KeyGroupId: Hearth::HTTP.uri_escape(input[:key_group_id].to_s)
           )
         )
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2166,8 +2288,10 @@ module AWS::Cloudfront
             OriginRequestPolicyId: Hearth::HTTP.uri_escape(input[:origin_request_policy_id].to_s)
           )
         )
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2176,6 +2300,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/distributionsByRealtimeLogConfig')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ListDistributionsByRealtimeLogConfigRequest')
@@ -2197,8 +2323,10 @@ module AWS::Cloudfront
             ResponseHeadersPolicyId: Hearth::HTTP.uri_escape(input[:response_headers_policy_id].to_s)
           )
         )
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2211,8 +2339,10 @@ module AWS::Cloudfront
             WebACLId: Hearth::HTTP.uri_escape(input[:web_acl_id].to_s)
           )
         )
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2221,8 +2351,10 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/field-level-encryption')
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2231,8 +2363,10 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/field-level-encryption-profile')
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2241,9 +2375,11 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/function')
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
-        http_req.append_query_param('Stage', input[:stage].to_s) unless input[:stage].nil?
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        params['Stage'] = input[:stage].to_s unless input[:stage].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2256,8 +2392,10 @@ module AWS::Cloudfront
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
         )
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2266,8 +2404,10 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/key-group')
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2276,9 +2416,11 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/origin-request-policy')
-        http_req.append_query_param('Type', input[:type].to_s) unless input[:type].nil?
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Type'] = input[:type].to_s unless input[:type].nil?
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2287,8 +2429,10 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/public-key')
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2297,8 +2441,10 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/realtime-log-config')
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        params = Hearth::Query::ParamList.new
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2307,9 +2453,11 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/response-headers-policy')
-        http_req.append_query_param('Type', input[:type].to_s) unless input[:type].nil?
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Type'] = input[:type].to_s unless input[:type].nil?
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2318,8 +2466,10 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/streaming-distribution')
-        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
-        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2328,7 +2478,9 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/tagging')
-        http_req.append_query_param('Resource', input[:resource].to_s) unless input[:resource].nil?
+        params = Hearth::Query::ParamList.new
+        params['Resource'] = input[:resource].to_s unless input[:resource].nil?
+        http_req.append_query_params(params)
       end
     end
 
@@ -2341,6 +2493,8 @@ module AWS::Cloudfront
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2353,7 +2507,9 @@ module AWS::Cloudfront
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2020-05-31/tagging')
-        http_req.append_query_param('Resource', input[:resource].to_s) unless input[:resource].nil?
+        params = Hearth::Query::ParamList.new
+        params['Resource'] = input[:resource].to_s unless input[:resource].nil?
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::Tags.build('Tags', input[:tags]) unless input[:tags].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2369,6 +2525,8 @@ module AWS::Cloudfront
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('TestFunctionRequest')
@@ -2388,7 +2546,9 @@ module AWS::Cloudfront
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2020-05-31/tagging')
-        http_req.append_query_param('Resource', input[:resource].to_s) unless input[:resource].nil?
+        params = Hearth::Query::ParamList.new
+        params['Resource'] = input[:resource].to_s unless input[:resource].nil?
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::TagKeys.build('TagKeys', input[:tag_keys]) unless input[:tag_keys].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2424,6 +2584,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CachePolicyConfig.build('CachePolicyConfig', input[:cache_policy_config]) unless input[:cache_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2440,6 +2602,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CloudFrontOriginAccessIdentityConfig.build('CloudFrontOriginAccessIdentityConfig', input[:cloud_front_origin_access_identity_config]) unless input[:cloud_front_origin_access_identity_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2456,6 +2620,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionConfig.build('DistributionConfig', input[:distribution_config]) unless input[:distribution_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2472,6 +2638,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionConfig.build('FieldLevelEncryptionConfig', input[:field_level_encryption_config]) unless input[:field_level_encryption_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2488,6 +2656,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionProfileConfig.build('FieldLevelEncryptionProfileConfig', input[:field_level_encryption_profile_config]) unless input[:field_level_encryption_profile_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2504,6 +2674,8 @@ module AWS::Cloudfront
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('UpdateFunctionRequest')
@@ -2524,6 +2696,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::KeyGroupConfig.build('KeyGroupConfig', input[:key_group_config]) unless input[:key_group_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2540,6 +2714,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::OriginRequestPolicyConfig.build('OriginRequestPolicyConfig', input[:origin_request_policy_config]) unless input[:origin_request_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2556,6 +2732,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicKeyConfig.build('PublicKeyConfig', input[:public_key_config]) unless input[:public_key_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2568,6 +2746,8 @@ module AWS::Cloudfront
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path('/2020-05-31/realtime-log-config')
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('UpdateRealtimeLogConfigRequest')
@@ -2590,6 +2770,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ResponseHeadersPolicyConfig.build('ResponseHeadersPolicyConfig', input[:response_headers_policy_config]) unless input[:response_headers_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2606,6 +2788,8 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
+        params = Hearth::Query::ParamList.new
+        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
         http_req.body = StringIO.new(xml.to_str)
