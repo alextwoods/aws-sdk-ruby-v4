@@ -10,6 +10,18 @@
 module AWS::Dynamodb
   module Errors
 
+    def self.error_code(http_resp)
+      if !(200..299).cover?(http_resp.status)
+        json = Hearth::JSON.load(http_resp.body)
+        http_resp.body.rewind
+        code = json['__type'] || json['code'] if json
+      end
+      code ||= http_resp.headers['x-amzn-errortype']
+      if code
+        code.split('#').last.split(':').first
+      end
+    end
+
     # Base class for all errors returned by this service
     class ApiError < Hearth::HTTP::ApiError; end
 
