@@ -1,0 +1,288 @@
+name: Protocol Tests CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+env:
+  java_version: 8
+
+jobs:
+  generate-test-sdks:
+    name: Generate the test sdk
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/cache@v2
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+    - name: Set up JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: ${{ env.java_version }}
+    - name: Build and publish smithy-ruby
+      run: |
+        git clone --depth 1 https://github.com/awslabs/smithy-ruby.git
+        cd smithy-ruby/codegen
+        ./gradlew clean build publishToMavenLocal
+        cd ../..
+    - name: Run generator
+      working-directory: codegen
+      run:
+        ./gradlew :protocol-test-codegen:build
+    - name: Upload AWS Query Protocol Test SDK
+      uses: actions/upload-artifact@v2
+      with:
+        name: aws_query
+        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-query/ruby-codegen/aws_query
+    - name: Upload AWS EC2 Protocol Test SDK
+      uses: actions/upload-artifact@v2
+      with:
+        name: aws_ec2
+        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-ec2/ruby-codegen/aws_ec2
+    - name: Upload JSON 1.0 Protocol Test SDK
+      uses: actions/upload-artifact@v2
+      with:
+        name: json_rpc_10
+        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-json10/ruby-codegen/json_rpc_10
+    - name: Upload JSON 1.1 Protocol Test SDK
+      uses: actions/upload-artifact@v2
+      with:
+        name: json_protocol
+        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-json/ruby-codegen/json_protocol
+    - name: Upload Rest XML Protocol Test SDK
+      uses: actions/upload-artifact@v2
+      with:
+        name: rest_xml
+        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-restxml/ruby-codegen/rest_xml
+    - name: Upload Rest JSON Protocol Test SDK
+      uses: actions/upload-artifact@v2
+      with:
+        name: rest_json
+        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-restjson/ruby-codegen/rest_json
+
+  aws-query-protocol-specs:
+    needs: [generate-test-sdks]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [2.5, 2.6, 2.7, '3.0', 3.1]
+
+    steps:
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - uses: actions/checkout@v2
+
+      - name: Download generated test sdk
+        uses: actions/download-artifact@v2
+        with:
+          name: aws_query
+          path: aws_query
+
+      - name: Copy Gemfile
+        run: |
+          cp codegen/Gemfile aws_query/
+
+      - name: Install gems
+        run: |
+          bundle config set --local without 'docs repl'
+          bundle install
+        working-directory: ./aws_query
+
+      - name: Tests
+        run: bundle exec rspec
+        working-directory: ./aws_query
+
+  aws-ec2-protocol-specs:
+    needs: [generate-test-sdks]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [2.5, 2.6, 2.7, '3.0', 3.1]
+
+    steps:
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - uses: actions/checkout@v2
+
+      - name: Download generated test sdk
+        uses: actions/download-artifact@v2
+        with:
+          name: aws_ec2
+          path: aws_ec2
+
+      - name: Copy Gemfile
+        run: |
+          cp codegen/Gemfile aws_ec2/
+
+      - name: Install gems
+        run: |
+          bundle config set --local without 'docs repl'
+          bundle install
+        working-directory: ./aws_ec2
+
+      - name: Tests
+        run: bundle exec rspec
+        working-directory: ./aws_ec2
+
+  json-rpc-10-protocol-specs:
+    needs: [generate-test-sdks]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [2.5, 2.6, 2.7, '3.0', 3.1]
+
+    steps:
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - uses: actions/checkout@v2
+
+      - name: Download generated test sdk
+        uses: actions/download-artifact@v2
+        with:
+          name: json_rpc_10
+          path: json_rpc_10
+
+      - name: Copy Gemfile
+        run: |
+          cp codegen/Gemfile json_rpc_10/
+
+      - name: Install gems
+        run: |
+          bundle config set --local without 'docs repl'
+          bundle install
+        working-directory: ./json_rpc_10
+
+      - name: Tests
+        run: bundle exec rspec
+        working-directory: ./json_rpc_10
+
+  json-protocol-protocol-specs:
+    needs: [generate-test-sdks]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [2.5, 2.6, 2.7, '3.0', 3.1]
+
+    steps:
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - uses: actions/checkout@v2
+
+      - name: Download generated test sdk
+        uses: actions/download-artifact@v2
+        with:
+          name: json_protocol
+          path: json_protocol
+
+      - name: Copy Gemfile
+        run: |
+          cp codegen/Gemfile json_protocol/
+
+      - name: Install gems
+        run: |
+          bundle config set --local without 'docs repl'
+          bundle install
+        working-directory: ./json_protocol
+
+      - name: Tests
+        run: bundle exec rspec
+        working-directory: ./json_protocol
+
+  rest-xml-protocol-specs:
+    needs: [generate-test-sdks]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [2.5, 2.6, 2.7, '3.0', 3.1]
+
+    steps:
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - uses: actions/checkout@v2
+
+      - name: Download generated test sdk
+        uses: actions/download-artifact@v2
+        with:
+          name: rest_xml
+          path: rest_xml
+
+      - name: Copy Gemfile
+        run: |
+          cp codegen/Gemfile rest_xml/
+
+      - name: Install gems
+        run: |
+          bundle config set --local without 'docs repl'
+          bundle install
+        working-directory: ./rest_xml
+
+      - name: Tests
+        run: bundle exec rspec
+        working-directory: ./rest_xml
+
+  rest-json-protocol-specs:
+    needs: [generate-test-sdks]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [2.5, 2.6, 2.7, '3.0', 3.1]
+
+    steps:
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - uses: actions/checkout@v2
+
+      - name: Download generated test sdk
+        uses: actions/download-artifact@v2
+        with:
+          name: rest_json
+          path: rest_json
+
+      - name: Copy Gemfile
+        run: |
+          cp codegen/Gemfile rest_json/
+
+      - name: Install gems
+        run: |
+          bundle config set --local without 'docs repl'
+          bundle install
+        working-directory: ./rest_json
+
+      - name: Tests
+        run: bundle exec rspec
+        working-directory: ./rest_json
