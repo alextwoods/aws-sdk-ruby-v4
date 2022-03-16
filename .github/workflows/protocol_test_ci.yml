@@ -1,4 +1,4 @@
-name: Protocol Tests CI
+name: Protocol Test CI
 
 on:
   push:
