@@ -7,3 +7,4 @@ gem 'hearth', git: 'https://github.com/awslabs/smithy-ruby', glob: 'hearth/heart
 
 gem 'jmespath'
 gem 'rexml'
+gem 'rspec'
