@@ -1,0 +1,6 @@
+# This Gemfile is copied into generated protocol test SDKs
+
+# Use the latest hearth from Github
+gem 'hearth', git: 'https://github.com/awslabs/smithy-ruby', glob: 'hearth/hearth.gemspec'
+
+gem 'rexml'
