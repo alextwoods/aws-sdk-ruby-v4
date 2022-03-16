@@ -188,16 +188,14 @@ public class StubsGenerator extends StubsGeneratorBase {
         writer
                 .openBlock("def self.stub(http_resp, stub:)")
                 .write("http_resp.headers['Content-Type'] = 'application/xml'")
-                .write("response = Hearth::XML::Node.new('$LResponse')", nodeName)
+                .write("xml = Hearth::XML::Node.new('$LResponse')", nodeName)
                 .call(() -> {
                     if (context.service().hasTrait(XmlNamespaceTrait.class)) {
-                        writeXmlNamespaceForShape(context.service(), "response");
+                        writeXmlNamespaceForShape(context.service(), "xml");
                     }
                 })
-                .write("xml = Hearth::XML::Node.new('$LResult')", nodeName)
                 .call(() -> renderMemberBuilders(outputShape))
-                .write("response << xml")
-                .write("http_resp.body = StringIO.new(response.to_str)")
+                .write("http_resp.body = StringIO.new(xml.to_str)")
                 .closeBlock("end");
     }
 
