@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.ec2.generators;
 
+import software.amazon.smithy.aws.traits.protocols.Ec2QueryNameTrait;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
@@ -23,6 +24,7 @@ import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
+import software.amazon.smithy.utils.StringUtils;
 
 import java.util.stream.Stream;
 
@@ -30,6 +32,17 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
     public BuilderGenerator(GenerationContext context) {
         super(context);
+    }
+
+    private String getQueryParamName(MemberShape shape) {
+        String name = StringUtils.capitalize(shape.getMemberName());
+        if (shape.hasTrait(Ec2QueryNameTrait.class)) {
+            name = shape.expectTrait(Ec2QueryNameTrait.class).getValue();
+        }
+        else if (shape.hasTrait(XmlNameTrait.class)) {
+            name = StringUtils.capitalize(shape.expectTrait(XmlNameTrait.class).getValue());
+        }
+        return name;
     }
 
     @Override
@@ -56,7 +69,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         serializeMembers.forEach((member) -> {
             Shape target = model.expectShape(member.getTarget());
 
-            String dataName = "'" + member.getMemberName() + "'";
+            String dataName = writer.format("'$L'", getQueryParamName(member));
             String symbolName = ":" + symbolProvider.toMemberName(member);
             String inputGetter = "input[" + symbolName + "]";
             target.accept(new MemberSerializer(member, dataName, inputGetter, true));
@@ -106,6 +119,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
     @Override
     protected void renderUnionBuildMethod(UnionShape shape) {
+        // TODO: There are no test cases for this, but it should likely be the case statement
         writer
                 .openBlock("def self.build(input, params, context: nil)")
                 .call(() -> renderMemberBuilders(shape))
@@ -237,13 +251,6 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 name = "'" + memberShape.getTrait(XmlNameTrait.class).get().getValue() + "'";
             }
             String context = "context + " + name;
-            if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
-                String member = "member";
-                if (shape.getMember().hasTrait(XmlNameTrait.class)) {
-                    member = shape.getMember().getTrait(XmlNameTrait.class).get().getValue();
-                }
-                context += " + '." + member + "'";
-            }
             writer.write("Builders::$1L.build($2L, params, context: $3L) unless $2L.nil?",
                     symbolProvider.toSymbol(shape).getName(), inputGetter, context);
         }
