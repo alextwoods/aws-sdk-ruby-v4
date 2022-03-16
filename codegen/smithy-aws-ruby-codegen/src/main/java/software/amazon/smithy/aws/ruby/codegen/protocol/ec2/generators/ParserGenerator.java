@@ -51,7 +51,7 @@ public class ParserGenerator extends ParserGeneratorBase {
                 .write("data = Types::$L.new", symbolProvider.toSymbol(shape).getName())
                 .write("body = http_resp.body.read")
                 .write("return data if body.empty?")
-                .write("xml = Hearth::XML.parse(body).at('Error')");
+                .write("xml = Hearth::XML.parse(body).at('Errors').at('Error')");
         renderMemberParsers(shape);
         writer
                 .write("data")

@@ -128,27 +128,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
     @Override
     protected void renderMapBuildMethod(MapShape shape) {
-        writer
-                .openBlock("def self.build(input, params, context: '')")
-                .openBlock("input.each_with_index do |(key, value), index|")
-                .call(() -> {
-                    String key = "key";
-                    if (shape.getKey().hasTrait(XmlNameTrait.class)) {
-                        key = shape.getKey().getTrait(XmlNameTrait.class).get().getValue();
-                    }
-                    writer.write("params[context + \".#{index+1}." + key + "\"] = key");
-                    String value = "value";
-                    if (shape.getValue().hasTrait(XmlNameTrait.class)) {
-                        value = shape.getValue().getTrait(XmlNameTrait.class).get().getValue();
-                    }
-                    String dataName = "\".#{index+1}." + value + "\"";
-                    Shape memberTarget = model.expectShape(shape.getValue().getTarget());
-                    memberTarget.accept(
-                            new MemberSerializer(shape.getValue(),
-                                    dataName, "value", !shape.hasTrait(SparseTrait.class)));
-                })
-                .closeBlock("end")
-                .closeBlock("end");
+        // Not supported in EC2 Query
     }
 
     private class MemberSerializer extends ShapeVisitor.Default<Void> {
@@ -269,16 +249,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         @Override
         public Void mapShape(MapShape shape) {
-            String name = dataName;
-            if (memberShape.hasTrait(XmlNameTrait.class)) {
-                name = "'" + memberShape.getTrait(XmlNameTrait.class).get().getValue() + "'";
-            }
-            String context = "context + " + name;
-            if (!memberShape.hasTrait(XmlFlattenedTrait.class)) {
-                context += " + '.entry'";
-            }
-            writer.write("Builders::$1L.build($2L, params, context: $3L) unless $2L.nil?",
-                    symbolProvider.toSymbol(shape).getName(), inputGetter, context);
+            // Not supported in EC2 Query
             return null;
         }
 
