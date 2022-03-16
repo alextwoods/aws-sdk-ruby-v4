@@ -15,8 +15,12 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.ec2.generators;
 
+import software.amazon.smithy.aws.traits.protocols.AwsQueryErrorTrait;
+import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.generators.ErrorsGeneratorBase;
+
+import java.util.List;
 
 public class ErrorsGenerator extends ErrorsGeneratorBase {
 
@@ -26,6 +30,36 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
 
     @Override
     public void renderErrorCode() {
+        writer
+                .call(() -> renderErrorCodesMap())
+                .write("")
+                .openBlock("def self.error_code(http_resp)")
+                .openBlock("if !(200..299).cover?(http_resp.status)")
+                .write("body = http_resp.body.read")
+                .write("http_resp.body.rewind")
+                .write("xml = Hearth::XML.parse(body) unless body.empty?")
+                .write("return unless xml && xml.name == 'Response'")
+                .write("xml = xml.at('Errors')&.at('Error')")
+                .openBlock("if xml")
+                .write("CODES[xml.text_at('Code')]")
+                .closeBlock("end")
+                .closeBlock("end")
+                .closeBlock("end");
     }
 
+    private void renderErrorCodesMap() {
+        writer.openBlock("CODES = {");
+        List<Shape> shapes = getErrorShapes();
+        shapes.forEach(shape -> {
+            String shapeName = symbolProvider.toSymbol(shape).getName();
+            String code = shapeName;
+            if (shape.hasTrait(AwsQueryErrorTrait.class)) {
+                code = shape.getTrait(AwsQueryErrorTrait.class).get().getCode();
+            }
+            writer.write("$S => $S,", code, shapeName);
+        });
+        writer
+                .unwrite(",\n").write("")
+                .closeBlock("}");
+    }
 }

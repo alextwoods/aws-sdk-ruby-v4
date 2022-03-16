@@ -18,64 +18,65 @@ module AWS::Sts
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        query = {}
         context = ''
-        params = Hearth::Query::ParamList.new
-        params['Action'] = 'AssumeRole'
-        params['Version'] = '2011-06-15'
-        params[context + 'RoleArn'] = input[:role_arn].to_s unless input[:role_arn].nil?
-        params[context + 'RoleSessionName'] = input[:role_session_name].to_s unless input[:role_session_name].nil?
-        Builders::PolicyDescriptorListType.build(input[:policy_arns], params, context: context + 'PolicyArns' + '.member') unless input[:policy_arns].nil?
-        params[context + 'Policy'] = input[:policy].to_s unless input[:policy].nil?
-        params[context + 'DurationSeconds'] = input[:duration_seconds].to_s unless input[:duration_seconds].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        Builders::TagKeyListType.build(input[:transitive_tag_keys], params, context: context + 'TransitiveTagKeys' + '.member') unless input[:transitive_tag_keys].nil?
-        params[context + 'ExternalId'] = input[:external_id].to_s unless input[:external_id].nil?
-        params[context + 'SerialNumber'] = input[:serial_number].to_s unless input[:serial_number].nil?
-        params[context + 'TokenCode'] = input[:token_code].to_s unless input[:token_code].nil?
-        params[context + 'SourceIdentity'] = input[:source_identity].to_s unless input[:source_identity].nil?
-        http_req.body = StringIO.new(params.to_s)
+        query['Action'] = 'AssumeRole'
+        query['Version'] = '2011-06-15'
+        query[context + 'RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
+        query[context + 'RoleSessionName'] = input[:role_session_name] unless input[:role_session_name].nil?
+        Builders::PolicyDescriptorListType.build(input[:policy_arns], query, context: context + 'PolicyArns' + '.member') unless input[:policy_arns].nil?
+        query[context + 'Policy'] = input[:policy] unless input[:policy].nil?
+        query[context + 'DurationSeconds'] = input[:duration_seconds] unless input[:duration_seconds].nil?
+        Builders::TagListType.build(input[:tags], query, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        Builders::TagKeyListType.build(input[:transitive_tag_keys], query, context: context + 'TransitiveTagKeys' + '.member') unless input[:transitive_tag_keys].nil?
+        query[context + 'ExternalId'] = input[:external_id] unless input[:external_id].nil?
+        query[context + 'SerialNumber'] = input[:serial_number] unless input[:serial_number].nil?
+        query[context + 'TokenCode'] = input[:token_code] unless input[:token_code].nil?
+        query[context + 'SourceIdentity'] = input[:source_identity] unless input[:source_identity].nil?
+        params = query.map { |k, v| "#{k}=#{v}" }.join("&")
+        http_req.body = StringIO.new(params)
       end
     end
 
     # List Builder for tagKeyListType
     class TagKeyListType
-      def self.build(input, params, context: '')
+      def self.build(input, query, context: '')
         input.each_with_index do |element, index|
-          params[context + ".#{index+1}"] = element.to_s unless element.nil?
+          query[context + ".#{index+1}"] = element unless element.nil?
         end
       end
     end
 
     # List Builder for tagListType
     class TagListType
-      def self.build(input, params, context: '')
+      def self.build(input, query, context: '')
         input.each_with_index do |element, index|
-          Builders::Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Builders::Tag.build(element, query, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
 
     # Structure Builder for Tag
     class Tag
-      def self.build(input, params, context: nil)
-        params[context + 'Key'] = input[:key].to_s unless input[:key].nil?
-        params[context + 'Value'] = input[:value].to_s unless input[:value].nil?
+      def self.build(input, query, context: nil)
+        query[context + 'Key'] = input[:key] unless input[:key].nil?
+        query[context + 'Value'] = input[:value] unless input[:value].nil?
       end
     end
 
     # List Builder for policyDescriptorListType
     class PolicyDescriptorListType
-      def self.build(input, params, context: '')
+      def self.build(input, query, context: '')
         input.each_with_index do |element, index|
-          Builders::PolicyDescriptorType.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Builders::PolicyDescriptorType.build(element, query, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
 
     # Structure Builder for PolicyDescriptorType
     class PolicyDescriptorType
-      def self.build(input, params, context: nil)
-        params[context + 'arn'] = input[:arn].to_s unless input[:arn].nil?
+      def self.build(input, query, context: nil)
+        query[context + 'arn'] = input[:arn] unless input[:arn].nil?
       end
     end
 
@@ -85,17 +86,18 @@ module AWS::Sts
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        query = {}
         context = ''
-        params = Hearth::Query::ParamList.new
-        params['Action'] = 'AssumeRoleWithSAML'
-        params['Version'] = '2011-06-15'
-        params[context + 'RoleArn'] = input[:role_arn].to_s unless input[:role_arn].nil?
-        params[context + 'PrincipalArn'] = input[:principal_arn].to_s unless input[:principal_arn].nil?
-        params[context + 'SAMLAssertion'] = input[:saml_assertion].to_s unless input[:saml_assertion].nil?
-        Builders::PolicyDescriptorListType.build(input[:policy_arns], params, context: context + 'PolicyArns' + '.member') unless input[:policy_arns].nil?
-        params[context + 'Policy'] = input[:policy].to_s unless input[:policy].nil?
-        params[context + 'DurationSeconds'] = input[:duration_seconds].to_s unless input[:duration_seconds].nil?
-        http_req.body = StringIO.new(params.to_s)
+        query['Action'] = 'AssumeRoleWithSAML'
+        query['Version'] = '2011-06-15'
+        query[context + 'RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
+        query[context + 'PrincipalArn'] = input[:principal_arn] unless input[:principal_arn].nil?
+        query[context + 'SAMLAssertion'] = input[:saml_assertion] unless input[:saml_assertion].nil?
+        Builders::PolicyDescriptorListType.build(input[:policy_arns], query, context: context + 'PolicyArns' + '.member') unless input[:policy_arns].nil?
+        query[context + 'Policy'] = input[:policy] unless input[:policy].nil?
+        query[context + 'DurationSeconds'] = input[:duration_seconds] unless input[:duration_seconds].nil?
+        params = query.map { |k, v| "#{k}=#{v}" }.join("&")
+        http_req.body = StringIO.new(params)
       end
     end
 
@@ -105,18 +107,19 @@ module AWS::Sts
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        query = {}
         context = ''
-        params = Hearth::Query::ParamList.new
-        params['Action'] = 'AssumeRoleWithWebIdentity'
-        params['Version'] = '2011-06-15'
-        params[context + 'RoleArn'] = input[:role_arn].to_s unless input[:role_arn].nil?
-        params[context + 'RoleSessionName'] = input[:role_session_name].to_s unless input[:role_session_name].nil?
-        params[context + 'WebIdentityToken'] = input[:web_identity_token].to_s unless input[:web_identity_token].nil?
-        params[context + 'ProviderId'] = input[:provider_id].to_s unless input[:provider_id].nil?
-        Builders::PolicyDescriptorListType.build(input[:policy_arns], params, context: context + 'PolicyArns' + '.member') unless input[:policy_arns].nil?
-        params[context + 'Policy'] = input[:policy].to_s unless input[:policy].nil?
-        params[context + 'DurationSeconds'] = input[:duration_seconds].to_s unless input[:duration_seconds].nil?
-        http_req.body = StringIO.new(params.to_s)
+        query['Action'] = 'AssumeRoleWithWebIdentity'
+        query['Version'] = '2011-06-15'
+        query[context + 'RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
+        query[context + 'RoleSessionName'] = input[:role_session_name] unless input[:role_session_name].nil?
+        query[context + 'WebIdentityToken'] = input[:web_identity_token] unless input[:web_identity_token].nil?
+        query[context + 'ProviderId'] = input[:provider_id] unless input[:provider_id].nil?
+        Builders::PolicyDescriptorListType.build(input[:policy_arns], query, context: context + 'PolicyArns' + '.member') unless input[:policy_arns].nil?
+        query[context + 'Policy'] = input[:policy] unless input[:policy].nil?
+        query[context + 'DurationSeconds'] = input[:duration_seconds] unless input[:duration_seconds].nil?
+        params = query.map { |k, v| "#{k}=#{v}" }.join("&")
+        http_req.body = StringIO.new(params)
       end
     end
 
@@ -126,12 +129,13 @@ module AWS::Sts
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        query = {}
         context = ''
-        params = Hearth::Query::ParamList.new
-        params['Action'] = 'DecodeAuthorizationMessage'
-        params['Version'] = '2011-06-15'
-        params[context + 'EncodedMessage'] = input[:encoded_message].to_s unless input[:encoded_message].nil?
-        http_req.body = StringIO.new(params.to_s)
+        query['Action'] = 'DecodeAuthorizationMessage'
+        query['Version'] = '2011-06-15'
+        query[context + 'EncodedMessage'] = input[:encoded_message] unless input[:encoded_message].nil?
+        params = query.map { |k, v| "#{k}=#{v}" }.join("&")
+        http_req.body = StringIO.new(params)
       end
     end
 
@@ -141,12 +145,13 @@ module AWS::Sts
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        query = {}
         context = ''
-        params = Hearth::Query::ParamList.new
-        params['Action'] = 'GetAccessKeyInfo'
-        params['Version'] = '2011-06-15'
-        params[context + 'AccessKeyId'] = input[:access_key_id].to_s unless input[:access_key_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        query['Action'] = 'GetAccessKeyInfo'
+        query['Version'] = '2011-06-15'
+        query[context + 'AccessKeyId'] = input[:access_key_id] unless input[:access_key_id].nil?
+        params = query.map { |k, v| "#{k}=#{v}" }.join("&")
+        http_req.body = StringIO.new(params)
       end
     end
 
@@ -156,11 +161,12 @@ module AWS::Sts
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        query = {}
         context = ''
-        params = Hearth::Query::ParamList.new
-        params['Action'] = 'GetCallerIdentity'
-        params['Version'] = '2011-06-15'
-        http_req.body = StringIO.new(params.to_s)
+        query['Action'] = 'GetCallerIdentity'
+        query['Version'] = '2011-06-15'
+        params = query.map { |k, v| "#{k}=#{v}" }.join("&")
+        http_req.body = StringIO.new(params)
       end
     end
 
@@ -170,16 +176,17 @@ module AWS::Sts
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        query = {}
         context = ''
-        params = Hearth::Query::ParamList.new
-        params['Action'] = 'GetFederationToken'
-        params['Version'] = '2011-06-15'
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
-        params[context + 'Policy'] = input[:policy].to_s unless input[:policy].nil?
-        Builders::PolicyDescriptorListType.build(input[:policy_arns], params, context: context + 'PolicyArns' + '.member') unless input[:policy_arns].nil?
-        params[context + 'DurationSeconds'] = input[:duration_seconds].to_s unless input[:duration_seconds].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        query['Action'] = 'GetFederationToken'
+        query['Version'] = '2011-06-15'
+        query[context + 'Name'] = input[:member_name] unless input[:member_name].nil?
+        query[context + 'Policy'] = input[:policy] unless input[:policy].nil?
+        Builders::PolicyDescriptorListType.build(input[:policy_arns], query, context: context + 'PolicyArns' + '.member') unless input[:policy_arns].nil?
+        query[context + 'DurationSeconds'] = input[:duration_seconds] unless input[:duration_seconds].nil?
+        Builders::TagListType.build(input[:tags], query, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        params = query.map { |k, v| "#{k}=#{v}" }.join("&")
+        http_req.body = StringIO.new(params)
       end
     end
 
@@ -189,14 +196,15 @@ module AWS::Sts
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        query = {}
         context = ''
-        params = Hearth::Query::ParamList.new
-        params['Action'] = 'GetSessionToken'
-        params['Version'] = '2011-06-15'
-        params[context + 'DurationSeconds'] = input[:duration_seconds].to_s unless input[:duration_seconds].nil?
-        params[context + 'SerialNumber'] = input[:serial_number].to_s unless input[:serial_number].nil?
-        params[context + 'TokenCode'] = input[:token_code].to_s unless input[:token_code].nil?
-        http_req.body = StringIO.new(params.to_s)
+        query['Action'] = 'GetSessionToken'
+        query['Version'] = '2011-06-15'
+        query[context + 'DurationSeconds'] = input[:duration_seconds] unless input[:duration_seconds].nil?
+        query[context + 'SerialNumber'] = input[:serial_number] unless input[:serial_number].nil?
+        query[context + 'TokenCode'] = input[:token_code] unless input[:token_code].nil?
+        params = query.map { |k, v| "#{k}=#{v}" }.join("&")
+        http_req.body = StringIO.new(params)
       end
     end
   end
