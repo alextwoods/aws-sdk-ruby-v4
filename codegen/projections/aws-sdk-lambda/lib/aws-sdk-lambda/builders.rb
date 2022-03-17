@@ -22,9 +22,7 @@ module AWS::Lambda
             VersionNumber: Hearth::HTTP.uri_escape(input[:version_number].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['RevisionId'] = input[:revision_id].to_s unless input[:revision_id].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('RevisionId', input[:revision_id].to_s) unless input[:revision_id].nil?
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -45,9 +43,7 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -71,8 +67,6 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -109,8 +103,6 @@ module AWS::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-04-22/code-signing-configs')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -155,8 +147,6 @@ module AWS::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2015-03-31/event-source-mappings')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -300,8 +290,6 @@ module AWS::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2015-03-31/functions')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -487,8 +475,6 @@ module AWS::Lambda
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -501,8 +487,6 @@ module AWS::Lambda
             CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -515,8 +499,6 @@ module AWS::Lambda
             UUID: Hearth::HTTP.uri_escape(input[:uuid].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -529,9 +511,7 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
@@ -544,8 +524,6 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -558,8 +536,6 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -572,9 +548,7 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
@@ -588,8 +562,6 @@ module AWS::Lambda
             VersionNumber: Hearth::HTTP.uri_escape(input[:version_number].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -602,9 +574,7 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
@@ -613,8 +583,6 @@ module AWS::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2016-08-19/account-settings')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -628,8 +596,6 @@ module AWS::Lambda
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -642,8 +608,6 @@ module AWS::Lambda
             CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -656,8 +620,6 @@ module AWS::Lambda
             UUID: Hearth::HTTP.uri_escape(input[:uuid].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -670,9 +632,7 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
@@ -685,8 +645,6 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -699,8 +657,6 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -713,9 +669,7 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
@@ -728,9 +682,7 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
@@ -744,8 +696,6 @@ module AWS::Lambda
             VersionNumber: Hearth::HTTP.uri_escape(input[:version_number].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -757,9 +707,7 @@ module AWS::Lambda
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2018-10-31/layers')
-        params = Hearth::Query::ParamList.new
-        params['Arn'] = input[:arn].to_s unless input[:arn].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Arn', input[:arn].to_s) unless input[:arn].nil?
       end
     end
 
@@ -773,8 +721,6 @@ module AWS::Lambda
             VersionNumber: Hearth::HTTP.uri_escape(input[:version_number].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -787,9 +733,7 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
@@ -802,9 +746,7 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
@@ -817,9 +759,7 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
         http_req.headers['Content-Type'] = 'application/octet-stream'
         http_req.body = StringIO.new(input[:payload] || '')
         http_req.headers['X-Amz-Invocation-Type'] = input[:invocation_type] unless input[:invocation_type].nil? || input[:invocation_type].empty?
@@ -837,8 +777,6 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
         http_req.body = StringIO.new(input[:invoke_args] || '')
       end
@@ -853,11 +791,9 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['FunctionVersion'] = input[:function_version].to_s unless input[:function_version].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('FunctionVersion', input[:function_version].to_s) unless input[:function_version].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
@@ -866,10 +802,8 @@ module AWS::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-04-22/code-signing-configs')
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
@@ -878,12 +812,10 @@ module AWS::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2015-03-31/event-source-mappings')
-        params = Hearth::Query::ParamList.new
-        params['EventSourceArn'] = input[:event_source_arn].to_s unless input[:event_source_arn].nil?
-        params['FunctionName'] = input[:function_name].to_s unless input[:function_name].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('EventSourceArn', input[:event_source_arn].to_s) unless input[:event_source_arn].nil?
+        http_req.append_query_param('FunctionName', input[:function_name].to_s) unless input[:function_name].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
@@ -896,10 +828,8 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
@@ -908,12 +838,10 @@ module AWS::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2015-03-31/functions')
-        params = Hearth::Query::ParamList.new
-        params['MasterRegion'] = input[:master_region].to_s unless input[:master_region].nil?
-        params['FunctionVersion'] = input[:function_version].to_s unless input[:function_version].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('MasterRegion', input[:master_region].to_s) unless input[:master_region].nil?
+        http_req.append_query_param('FunctionVersion', input[:function_version].to_s) unless input[:function_version].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
@@ -926,10 +854,8 @@ module AWS::Lambda
             CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
@@ -942,11 +868,9 @@ module AWS::Lambda
             LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['CompatibleRuntime'] = input[:compatible_runtime].to_s unless input[:compatible_runtime].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('CompatibleRuntime', input[:compatible_runtime].to_s) unless input[:compatible_runtime].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
@@ -955,11 +879,9 @@ module AWS::Lambda
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2018-10-31/layers')
-        params = Hearth::Query::ParamList.new
-        params['CompatibleRuntime'] = input[:compatible_runtime].to_s unless input[:compatible_runtime].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('CompatibleRuntime', input[:compatible_runtime].to_s) unless input[:compatible_runtime].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
@@ -975,10 +897,8 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
@@ -991,8 +911,6 @@ module AWS::Lambda
             Resource: Hearth::HTTP.uri_escape(input[:resource].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
@@ -1005,10 +923,8 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
@@ -1021,8 +937,6 @@ module AWS::Lambda
             LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1066,8 +980,6 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1087,8 +999,6 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1106,8 +1016,6 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1125,9 +1033,7 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1147,9 +1053,7 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1169,9 +1073,7 @@ module AWS::Lambda
             StatementId: Hearth::HTTP.uri_escape(input[:statement_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['RevisionId'] = input[:revision_id].to_s unless input[:revision_id].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('RevisionId', input[:revision_id].to_s) unless input[:revision_id].nil?
       end
     end
 
@@ -1185,10 +1087,8 @@ module AWS::Lambda
             StatementId: Hearth::HTTP.uri_escape(input[:statement_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        params['RevisionId'] = input[:revision_id].to_s unless input[:revision_id].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
+        http_req.append_query_param('RevisionId', input[:revision_id].to_s) unless input[:revision_id].nil?
       end
     end
 
@@ -1201,8 +1101,6 @@ module AWS::Lambda
             Resource: Hearth::HTTP.uri_escape(input[:resource].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1220,13 +1118,11 @@ module AWS::Lambda
             Resource: Hearth::HTTP.uri_escape(input[:resource].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
         unless input[:tag_keys].nil? || input[:tag_keys].empty?
-          params['tagKeys'] = input[:tag_keys].map do |value|
-            value.to_s unless value.nil?
+          input[:tag_keys].each do |value|
+            http_req.append_query_param('tagKeys', value.to_s) unless value.nil?
           end
         end
-        http_req.append_query_params(params)
       end
     end
 
@@ -1251,8 +1147,6 @@ module AWS::Lambda
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1273,8 +1167,6 @@ module AWS::Lambda
             CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1294,8 +1186,6 @@ module AWS::Lambda
             UUID: Hearth::HTTP.uri_escape(input[:uuid].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1324,8 +1214,6 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1350,8 +1238,6 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1383,9 +1269,7 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}

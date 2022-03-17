@@ -19,12 +19,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['Responses'] = Stubs::PartiQLBatchResponse.stub(stub[:responses]) unless stub[:responses].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # List Stubber for ConsumedCapacityMultiple
@@ -37,14 +31,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::ConsumedCapacity.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for ConsumedCapacity
@@ -63,18 +49,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ConsumedCapacity.new
-        data = {}
-        data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['CapacityUnits'] = Hearth::NumberHelper.serialize(stub[:capacity_units])
-        data['ReadCapacityUnits'] = Hearth::NumberHelper.serialize(stub[:read_capacity_units])
-        data['WriteCapacityUnits'] = Hearth::NumberHelper.serialize(stub[:write_capacity_units])
-        data['Table'] = Stubs::Capacity.stub(stub[:table]) unless stub[:table].nil?
-        data['LocalSecondaryIndexes'] = Stubs::SecondaryIndexesCapacityMap.stub(stub[:local_secondary_indexes]) unless stub[:local_secondary_indexes].nil?
-        data['GlobalSecondaryIndexes'] = Stubs::SecondaryIndexesCapacityMap.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
-        data
-      end
     end
 
     # Map Stubber for SecondaryIndexesCapacityMap
@@ -87,14 +61,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-          data[key] = Stubs::Capacity.stub(value) unless value.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for Capacity
@@ -109,14 +75,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::Capacity.new
-        data = {}
-        data['ReadCapacityUnits'] = Hearth::NumberHelper.serialize(stub[:read_capacity_units])
-        data['WriteCapacityUnits'] = Hearth::NumberHelper.serialize(stub[:write_capacity_units])
-        data['CapacityUnits'] = Hearth::NumberHelper.serialize(stub[:capacity_units])
-        data
-      end
     end
 
     # List Stubber for PartiQLBatchResponse
@@ -129,14 +87,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::BatchStatementResponse.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for BatchStatementResponse
@@ -151,14 +101,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::BatchStatementResponse.new
-        data = {}
-        data['Error'] = Stubs::BatchStatementError.stub(stub[:error]) unless stub[:error].nil?
-        data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['Item'] = Stubs::AttributeMap.stub(stub[:item]) unless stub[:item].nil?
-        data
-      end
     end
 
     # Map Stubber for AttributeMap
@@ -171,14 +113,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-          data[key] = Stubs::AttributeValue.stub(value) unless value.nil?
-        end
-        data
-      end
     end
 
     # Union Stubber for AttributeValue
@@ -191,36 +125,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        data = {}
-        case stub
-        when Types::AttributeValue::S
-          data['S'] = stub.__getobj__
-        when Types::AttributeValue::N
-          data['N'] = stub.__getobj__
-        when Types::AttributeValue::B
-          data['B'] = Base64::encode64(stub.__getobj__)
-        when Types::AttributeValue::Ss
-          data['SS'] = (Stubs::StringSetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::AttributeValue::Ns
-          data['NS'] = (Stubs::NumberSetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::AttributeValue::Bs
-          data['BS'] = (Stubs::BinarySetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::AttributeValue::M
-          data['M'] = (Stubs::MapAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::AttributeValue::L
-          data['L'] = (Stubs::ListAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
-        when Types::AttributeValue::Null
-          data['NULL'] = stub.__getobj__
-        when Types::AttributeValue::Bool
-          data['BOOL'] = stub.__getobj__
-        else
-          raise ArgumentError,
-          "Expected input to be one of the subclasses of Types::AttributeValue"
-        end
-
-        data
-      end
     end
 
     # List Stubber for ListAttributeValue
@@ -233,14 +137,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::AttributeValue.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Map Stubber for MapAttributeValue
@@ -253,14 +149,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-          data[key] = Stubs::AttributeValue.stub(value) unless value.nil?
-        end
-        data
-      end
     end
 
     # List Stubber for BinarySetAttributeValue
@@ -273,14 +161,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Base64::encode64(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # List Stubber for NumberSetAttributeValue
@@ -293,14 +173,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << element unless element.nil?
-        end
-        data
-      end
     end
 
     # List Stubber for StringSetAttributeValue
@@ -313,14 +185,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << element unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for BatchStatementError
@@ -334,13 +198,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::BatchStatementError.new
-        data = {}
-        data['Code'] = stub[:code] unless stub[:code].nil?
-        data['Message'] = stub[:message] unless stub[:message].nil?
-        data
-      end
     end
 
     # Operation Stubber for BatchGetItem
@@ -353,13 +210,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['Responses'] = Stubs::BatchGetResponseMap.stub(stub[:responses]) unless stub[:responses].nil?
-        data['UnprocessedKeys'] = Stubs::BatchGetRequestMap.stub(stub[:unprocessed_keys]) unless stub[:unprocessed_keys].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Map Stubber for BatchGetRequestMap
@@ -372,14 +222,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-          data[key] = Stubs::KeysAndAttributes.stub(value) unless value.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for KeysAndAttributes
@@ -396,16 +238,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::KeysAndAttributes.new
-        data = {}
-        data['Keys'] = Stubs::KeyList.stub(stub[:keys]) unless stub[:keys].nil?
-        data['AttributesToGet'] = Stubs::AttributeNameList.stub(stub[:attributes_to_get]) unless stub[:attributes_to_get].nil?
-        data['ConsistentRead'] = stub[:consistent_read] unless stub[:consistent_read].nil?
-        data['ProjectionExpression'] = stub[:projection_expression] unless stub[:projection_expression].nil?
-        data['ExpressionAttributeNames'] = Stubs::ExpressionAttributeNameMap.stub(stub[:expression_attribute_names]) unless stub[:expression_attribute_names].nil?
-        data
-      end
     end
 
     # Map Stubber for ExpressionAttributeNameMap
@@ -418,14 +250,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-          data[key] = value unless value.nil?
-        end
-        data
-      end
     end
 
     # List Stubber for AttributeNameList
@@ -438,14 +262,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << element unless element.nil?
-        end
-        data
-      end
     end
 
     # List Stubber for KeyList
@@ -458,14 +274,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::Key.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Map Stubber for Key
@@ -478,14 +286,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-          data[key] = Stubs::AttributeValue.stub(value) unless value.nil?
-        end
-        data
-      end
     end
 
     # Map Stubber for BatchGetResponseMap
@@ -498,14 +298,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-          data[key] = Stubs::ItemList.stub(value) unless value.nil?
-        end
-        data
-      end
     end
 
     # List Stubber for ItemList
@@ -518,14 +310,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::AttributeMap.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Operation Stubber for BatchWriteItem
@@ -538,13 +322,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['UnprocessedItems'] = Stubs::BatchWriteItemRequestMap.stub(stub[:unprocessed_items]) unless stub[:unprocessed_items].nil?
-        data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetricsPerTable.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Map Stubber for ItemCollectionMetricsPerTable
@@ -557,14 +334,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-          data[key] = Stubs::ItemCollectionMetricsMultiple.stub(value) unless value.nil?
-        end
-        data
-      end
     end
 
     # List Stubber for ItemCollectionMetricsMultiple
@@ -577,14 +346,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::ItemCollectionMetrics.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for ItemCollectionMetrics
@@ -598,13 +359,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ItemCollectionMetrics.new
-        data = {}
-        data['ItemCollectionKey'] = Stubs::ItemCollectionKeyAttributeMap.stub(stub[:item_collection_key]) unless stub[:item_collection_key].nil?
-        data['SizeEstimateRangeGB'] = Stubs::ItemCollectionSizeEstimateRange.stub(stub[:size_estimate_range_gb]) unless stub[:size_estimate_range_gb].nil?
-        data
-      end
     end
 
     # List Stubber for ItemCollectionSizeEstimateRange
@@ -617,14 +371,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Hearth::NumberHelper.serialize(element)
-        end
-        data
-      end
     end
 
     # Map Stubber for ItemCollectionKeyAttributeMap
@@ -637,14 +383,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-          data[key] = Stubs::AttributeValue.stub(value) unless value.nil?
-        end
-        data
-      end
     end
 
     # Map Stubber for BatchWriteItemRequestMap
@@ -657,14 +395,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-          data[key] = Stubs::WriteRequests.stub(value) unless value.nil?
-        end
-        data
-      end
     end
 
     # List Stubber for WriteRequests
@@ -677,14 +407,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::WriteRequest.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for WriteRequest
@@ -698,13 +420,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::WriteRequest.new
-        data = {}
-        data['PutRequest'] = Stubs::PutRequest.stub(stub[:put_request]) unless stub[:put_request].nil?
-        data['DeleteRequest'] = Stubs::DeleteRequest.stub(stub[:delete_request]) unless stub[:delete_request].nil?
-        data
-      end
     end
 
     # Structure Stubber for DeleteRequest
@@ -717,12 +432,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::DeleteRequest.new
-        data = {}
-        data['Key'] = Stubs::Key.stub(stub[:key]) unless stub[:key].nil?
-        data
-      end
     end
 
     # Structure Stubber for PutRequest
@@ -735,12 +444,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::PutRequest.new
-        data = {}
-        data['Item'] = Stubs::PutItemInputAttributeMap.stub(stub[:item]) unless stub[:item].nil?
-        data
-      end
     end
 
     # Map Stubber for PutItemInputAttributeMap
@@ -753,14 +456,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= {}
-        data = {}
-        stub.each do |key, value|
-          data[key] = Stubs::AttributeValue.stub(value) unless value.nil?
-        end
-        data
-      end
     end
 
     # Operation Stubber for CreateBackup
@@ -771,11 +466,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['BackupDetails'] = Stubs::BackupDetails.stub(stub[:backup_details]) unless stub[:backup_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Structure Stubber for BackupDetails
@@ -794,18 +484,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::BackupDetails.new
-        data = {}
-        data['BackupArn'] = stub[:backup_arn] unless stub[:backup_arn].nil?
-        data['BackupName'] = stub[:backup_name] unless stub[:backup_name].nil?
-        data['BackupSizeBytes'] = stub[:backup_size_bytes] unless stub[:backup_size_bytes].nil?
-        data['BackupStatus'] = stub[:backup_status] unless stub[:backup_status].nil?
-        data['BackupType'] = stub[:backup_type] unless stub[:backup_type].nil?
-        data['BackupCreationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:backup_creation_date_time]) unless stub[:backup_creation_date_time].nil?
-        data['BackupExpiryDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:backup_expiry_date_time]) unless stub[:backup_expiry_date_time].nil?
-        data
-      end
     end
 
     # Operation Stubber for CreateGlobalTable
@@ -816,11 +494,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['GlobalTableDescription'] = Stubs::GlobalTableDescription.stub(stub[:global_table_description]) unless stub[:global_table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Structure Stubber for GlobalTableDescription
@@ -837,16 +510,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::GlobalTableDescription.new
-        data = {}
-        data['ReplicationGroup'] = Stubs::ReplicaDescriptionList.stub(stub[:replication_group]) unless stub[:replication_group].nil?
-        data['GlobalTableArn'] = stub[:global_table_arn] unless stub[:global_table_arn].nil?
-        data['CreationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]) unless stub[:creation_date_time].nil?
-        data['GlobalTableStatus'] = stub[:global_table_status] unless stub[:global_table_status].nil?
-        data['GlobalTableName'] = stub[:global_table_name] unless stub[:global_table_name].nil?
-        data
-      end
     end
 
     # List Stubber for ReplicaDescriptionList
@@ -859,14 +522,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::ReplicaDescription.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for ReplicaDescription
@@ -887,20 +542,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ReplicaDescription.new
-        data = {}
-        data['RegionName'] = stub[:region_name] unless stub[:region_name].nil?
-        data['ReplicaStatus'] = stub[:replica_status] unless stub[:replica_status].nil?
-        data['ReplicaStatusDescription'] = stub[:replica_status_description] unless stub[:replica_status_description].nil?
-        data['ReplicaStatusPercentProgress'] = stub[:replica_status_percent_progress] unless stub[:replica_status_percent_progress].nil?
-        data['KMSMasterKeyId'] = stub[:kms_master_key_id] unless stub[:kms_master_key_id].nil?
-        data['ProvisionedThroughputOverride'] = Stubs::ProvisionedThroughputOverride.stub(stub[:provisioned_throughput_override]) unless stub[:provisioned_throughput_override].nil?
-        data['GlobalSecondaryIndexes'] = Stubs::ReplicaGlobalSecondaryIndexDescriptionList.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
-        data['ReplicaInaccessibleDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:replica_inaccessible_date_time]) unless stub[:replica_inaccessible_date_time].nil?
-        data['ReplicaTableClassSummary'] = Stubs::TableClassSummary.stub(stub[:replica_table_class_summary]) unless stub[:replica_table_class_summary].nil?
-        data
-      end
     end
 
     # Structure Stubber for TableClassSummary
@@ -914,13 +555,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::TableClassSummary.new
-        data = {}
-        data['TableClass'] = stub[:table_class] unless stub[:table_class].nil?
-        data['LastUpdateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_date_time]) unless stub[:last_update_date_time].nil?
-        data
-      end
     end
 
     # List Stubber for ReplicaGlobalSecondaryIndexDescriptionList
@@ -933,14 +567,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::ReplicaGlobalSecondaryIndexDescription.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for ReplicaGlobalSecondaryIndexDescription
@@ -954,13 +580,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ReplicaGlobalSecondaryIndexDescription.new
-        data = {}
-        data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['ProvisionedThroughputOverride'] = Stubs::ProvisionedThroughputOverride.stub(stub[:provisioned_throughput_override]) unless stub[:provisioned_throughput_override].nil?
-        data
-      end
     end
 
     # Structure Stubber for ProvisionedThroughputOverride
@@ -973,12 +592,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ProvisionedThroughputOverride.new
-        data = {}
-        data['ReadCapacityUnits'] = stub[:read_capacity_units] unless stub[:read_capacity_units].nil?
-        data
-      end
     end
 
     # Operation Stubber for CreateTable
@@ -989,11 +602,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Structure Stubber for TableDescription
@@ -1027,33 +635,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::TableDescription.new
-        data = {}
-        data['AttributeDefinitions'] = Stubs::AttributeDefinitions.stub(stub[:attribute_definitions]) unless stub[:attribute_definitions].nil?
-        data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['KeySchema'] = Stubs::KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
-        data['TableStatus'] = stub[:table_status] unless stub[:table_status].nil?
-        data['CreationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]) unless stub[:creation_date_time].nil?
-        data['ProvisionedThroughput'] = Stubs::ProvisionedThroughputDescription.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
-        data['TableSizeBytes'] = stub[:table_size_bytes] unless stub[:table_size_bytes].nil?
-        data['ItemCount'] = stub[:item_count] unless stub[:item_count].nil?
-        data['TableArn'] = stub[:table_arn] unless stub[:table_arn].nil?
-        data['TableId'] = stub[:table_id] unless stub[:table_id].nil?
-        data['BillingModeSummary'] = Stubs::BillingModeSummary.stub(stub[:billing_mode_summary]) unless stub[:billing_mode_summary].nil?
-        data['LocalSecondaryIndexes'] = Stubs::LocalSecondaryIndexDescriptionList.stub(stub[:local_secondary_indexes]) unless stub[:local_secondary_indexes].nil?
-        data['GlobalSecondaryIndexes'] = Stubs::GlobalSecondaryIndexDescriptionList.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
-        data['StreamSpecification'] = Stubs::StreamSpecification.stub(stub[:stream_specification]) unless stub[:stream_specification].nil?
-        data['LatestStreamLabel'] = stub[:latest_stream_label] unless stub[:latest_stream_label].nil?
-        data['LatestStreamArn'] = stub[:latest_stream_arn] unless stub[:latest_stream_arn].nil?
-        data['GlobalTableVersion'] = stub[:global_table_version] unless stub[:global_table_version].nil?
-        data['Replicas'] = Stubs::ReplicaDescriptionList.stub(stub[:replicas]) unless stub[:replicas].nil?
-        data['RestoreSummary'] = Stubs::RestoreSummary.stub(stub[:restore_summary]) unless stub[:restore_summary].nil?
-        data['SSEDescription'] = Stubs::SSEDescription.stub(stub[:sse_description]) unless stub[:sse_description].nil?
-        data['ArchivalSummary'] = Stubs::ArchivalSummary.stub(stub[:archival_summary]) unless stub[:archival_summary].nil?
-        data['TableClassSummary'] = Stubs::TableClassSummary.stub(stub[:table_class_summary]) unless stub[:table_class_summary].nil?
-        data
-      end
     end
 
     # Structure Stubber for ArchivalSummary
@@ -1068,14 +649,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ArchivalSummary.new
-        data = {}
-        data['ArchivalDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:archival_date_time]) unless stub[:archival_date_time].nil?
-        data['ArchivalReason'] = stub[:archival_reason] unless stub[:archival_reason].nil?
-        data['ArchivalBackupArn'] = stub[:archival_backup_arn] unless stub[:archival_backup_arn].nil?
-        data
-      end
     end
 
     # Structure Stubber for SSEDescription
@@ -1091,15 +664,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::SSEDescription.new
-        data = {}
-        data['Status'] = stub[:status] unless stub[:status].nil?
-        data['SSEType'] = stub[:sse_type] unless stub[:sse_type].nil?
-        data['KMSMasterKeyArn'] = stub[:kms_master_key_arn] unless stub[:kms_master_key_arn].nil?
-        data['InaccessibleEncryptionDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:inaccessible_encryption_date_time]) unless stub[:inaccessible_encryption_date_time].nil?
-        data
-      end
     end
 
     # Structure Stubber for RestoreSummary
@@ -1115,15 +679,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::RestoreSummary.new
-        data = {}
-        data['SourceBackupArn'] = stub[:source_backup_arn] unless stub[:source_backup_arn].nil?
-        data['SourceTableArn'] = stub[:source_table_arn] unless stub[:source_table_arn].nil?
-        data['RestoreDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:restore_date_time]) unless stub[:restore_date_time].nil?
-        data['RestoreInProgress'] = stub[:restore_in_progress] unless stub[:restore_in_progress].nil?
-        data
-      end
     end
 
     # Structure Stubber for StreamSpecification
@@ -1137,13 +692,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::StreamSpecification.new
-        data = {}
-        data['StreamEnabled'] = stub[:stream_enabled] unless stub[:stream_enabled].nil?
-        data['StreamViewType'] = stub[:stream_view_type] unless stub[:stream_view_type].nil?
-        data
-      end
     end
 
     # List Stubber for GlobalSecondaryIndexDescriptionList
@@ -1156,14 +704,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::GlobalSecondaryIndexDescription.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for GlobalSecondaryIndexDescription
@@ -1184,20 +724,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::GlobalSecondaryIndexDescription.new
-        data = {}
-        data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['KeySchema'] = Stubs::KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
-        data['Projection'] = Stubs::Projection.stub(stub[:projection]) unless stub[:projection].nil?
-        data['IndexStatus'] = stub[:index_status] unless stub[:index_status].nil?
-        data['Backfilling'] = stub[:backfilling] unless stub[:backfilling].nil?
-        data['ProvisionedThroughput'] = Stubs::ProvisionedThroughputDescription.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
-        data['IndexSizeBytes'] = stub[:index_size_bytes] unless stub[:index_size_bytes].nil?
-        data['ItemCount'] = stub[:item_count] unless stub[:item_count].nil?
-        data['IndexArn'] = stub[:index_arn] unless stub[:index_arn].nil?
-        data
-      end
     end
 
     # Structure Stubber for ProvisionedThroughputDescription
@@ -1214,16 +740,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ProvisionedThroughputDescription.new
-        data = {}
-        data['LastIncreaseDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_increase_date_time]) unless stub[:last_increase_date_time].nil?
-        data['LastDecreaseDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_decrease_date_time]) unless stub[:last_decrease_date_time].nil?
-        data['NumberOfDecreasesToday'] = stub[:number_of_decreases_today] unless stub[:number_of_decreases_today].nil?
-        data['ReadCapacityUnits'] = stub[:read_capacity_units] unless stub[:read_capacity_units].nil?
-        data['WriteCapacityUnits'] = stub[:write_capacity_units] unless stub[:write_capacity_units].nil?
-        data
-      end
     end
 
     # Structure Stubber for Projection
@@ -1237,13 +753,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::Projection.new
-        data = {}
-        data['ProjectionType'] = stub[:projection_type] unless stub[:projection_type].nil?
-        data['NonKeyAttributes'] = Stubs::NonKeyAttributeNameList.stub(stub[:non_key_attributes]) unless stub[:non_key_attributes].nil?
-        data
-      end
     end
 
     # List Stubber for NonKeyAttributeNameList
@@ -1256,14 +765,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << element unless element.nil?
-        end
-        data
-      end
     end
 
     # List Stubber for KeySchema
@@ -1276,14 +777,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::KeySchemaElement.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for KeySchemaElement
@@ -1297,13 +790,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::KeySchemaElement.new
-        data = {}
-        data['AttributeName'] = stub[:attribute_name] unless stub[:attribute_name].nil?
-        data['KeyType'] = stub[:key_type] unless stub[:key_type].nil?
-        data
-      end
     end
 
     # List Stubber for LocalSecondaryIndexDescriptionList
@@ -1316,14 +802,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::LocalSecondaryIndexDescription.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for LocalSecondaryIndexDescription
@@ -1341,17 +819,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::LocalSecondaryIndexDescription.new
-        data = {}
-        data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['KeySchema'] = Stubs::KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
-        data['Projection'] = Stubs::Projection.stub(stub[:projection]) unless stub[:projection].nil?
-        data['IndexSizeBytes'] = stub[:index_size_bytes] unless stub[:index_size_bytes].nil?
-        data['ItemCount'] = stub[:item_count] unless stub[:item_count].nil?
-        data['IndexArn'] = stub[:index_arn] unless stub[:index_arn].nil?
-        data
-      end
     end
 
     # Structure Stubber for BillingModeSummary
@@ -1365,13 +832,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::BillingModeSummary.new
-        data = {}
-        data['BillingMode'] = stub[:billing_mode] unless stub[:billing_mode].nil?
-        data['LastUpdateToPayPerRequestDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_to_pay_per_request_date_time]) unless stub[:last_update_to_pay_per_request_date_time].nil?
-        data
-      end
     end
 
     # List Stubber for AttributeDefinitions
@@ -1384,14 +844,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::AttributeDefinition.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for AttributeDefinition
@@ -1405,13 +857,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::AttributeDefinition.new
-        data = {}
-        data['AttributeName'] = stub[:attribute_name] unless stub[:attribute_name].nil?
-        data['AttributeType'] = stub[:attribute_type] unless stub[:attribute_type].nil?
-        data
-      end
     end
 
     # Operation Stubber for DeleteBackup
@@ -1422,11 +867,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['BackupDescription'] = Stubs::BackupDescription.stub(stub[:backup_description]) unless stub[:backup_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Structure Stubber for BackupDescription
@@ -1441,14 +881,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::BackupDescription.new
-        data = {}
-        data['BackupDetails'] = Stubs::BackupDetails.stub(stub[:backup_details]) unless stub[:backup_details].nil?
-        data['SourceTableDetails'] = Stubs::SourceTableDetails.stub(stub[:source_table_details]) unless stub[:source_table_details].nil?
-        data['SourceTableFeatureDetails'] = Stubs::SourceTableFeatureDetails.stub(stub[:source_table_feature_details]) unless stub[:source_table_feature_details].nil?
-        data
-      end
     end
 
     # Structure Stubber for SourceTableFeatureDetails
@@ -1465,16 +897,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::SourceTableFeatureDetails.new
-        data = {}
-        data['LocalSecondaryIndexes'] = Stubs::LocalSecondaryIndexes.stub(stub[:local_secondary_indexes]) unless stub[:local_secondary_indexes].nil?
-        data['GlobalSecondaryIndexes'] = Stubs::GlobalSecondaryIndexes.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
-        data['StreamDescription'] = Stubs::StreamSpecification.stub(stub[:stream_description]) unless stub[:stream_description].nil?
-        data['TimeToLiveDescription'] = Stubs::TimeToLiveDescription.stub(stub[:time_to_live_description]) unless stub[:time_to_live_description].nil?
-        data['SSEDescription'] = Stubs::SSEDescription.stub(stub[:sse_description]) unless stub[:sse_description].nil?
-        data
-      end
     end
 
     # Structure Stubber for TimeToLiveDescription
@@ -1488,13 +910,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::TimeToLiveDescription.new
-        data = {}
-        data['TimeToLiveStatus'] = stub[:time_to_live_status] unless stub[:time_to_live_status].nil?
-        data['AttributeName'] = stub[:attribute_name] unless stub[:attribute_name].nil?
-        data
-      end
     end
 
     # List Stubber for GlobalSecondaryIndexes
@@ -1507,14 +922,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::GlobalSecondaryIndexInfo.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for GlobalSecondaryIndexInfo
@@ -1530,15 +937,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::GlobalSecondaryIndexInfo.new
-        data = {}
-        data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['KeySchema'] = Stubs::KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
-        data['Projection'] = Stubs::Projection.stub(stub[:projection]) unless stub[:projection].nil?
-        data['ProvisionedThroughput'] = Stubs::ProvisionedThroughput.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
-        data
-      end
     end
 
     # Structure Stubber for ProvisionedThroughput
@@ -1552,13 +950,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ProvisionedThroughput.new
-        data = {}
-        data['ReadCapacityUnits'] = stub[:read_capacity_units] unless stub[:read_capacity_units].nil?
-        data['WriteCapacityUnits'] = stub[:write_capacity_units] unless stub[:write_capacity_units].nil?
-        data
-      end
     end
 
     # List Stubber for LocalSecondaryIndexes
@@ -1571,14 +962,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::LocalSecondaryIndexInfo.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for LocalSecondaryIndexInfo
@@ -1593,14 +976,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::LocalSecondaryIndexInfo.new
-        data = {}
-        data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['KeySchema'] = Stubs::KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
-        data['Projection'] = Stubs::Projection.stub(stub[:projection]) unless stub[:projection].nil?
-        data
-      end
     end
 
     # Structure Stubber for SourceTableDetails
@@ -1621,20 +996,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::SourceTableDetails.new
-        data = {}
-        data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['TableId'] = stub[:table_id] unless stub[:table_id].nil?
-        data['TableArn'] = stub[:table_arn] unless stub[:table_arn].nil?
-        data['TableSizeBytes'] = stub[:table_size_bytes] unless stub[:table_size_bytes].nil?
-        data['KeySchema'] = Stubs::KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
-        data['TableCreationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:table_creation_date_time]) unless stub[:table_creation_date_time].nil?
-        data['ProvisionedThroughput'] = Stubs::ProvisionedThroughput.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
-        data['ItemCount'] = stub[:item_count] unless stub[:item_count].nil?
-        data['BillingMode'] = stub[:billing_mode] unless stub[:billing_mode].nil?
-        data
-      end
     end
 
     # Operation Stubber for DeleteItem
@@ -1647,13 +1008,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['Attributes'] = Stubs::AttributeMap.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetrics.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for DeleteTable
@@ -1664,11 +1018,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for DescribeBackup
@@ -1679,11 +1028,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['BackupDescription'] = Stubs::BackupDescription.stub(stub[:backup_description]) unless stub[:backup_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for DescribeContinuousBackups
@@ -1694,11 +1038,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['ContinuousBackupsDescription'] = Stubs::ContinuousBackupsDescription.stub(stub[:continuous_backups_description]) unless stub[:continuous_backups_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Structure Stubber for ContinuousBackupsDescription
@@ -1712,13 +1051,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ContinuousBackupsDescription.new
-        data = {}
-        data['ContinuousBackupsStatus'] = stub[:continuous_backups_status] unless stub[:continuous_backups_status].nil?
-        data['PointInTimeRecoveryDescription'] = Stubs::PointInTimeRecoveryDescription.stub(stub[:point_in_time_recovery_description]) unless stub[:point_in_time_recovery_description].nil?
-        data
-      end
     end
 
     # Structure Stubber for PointInTimeRecoveryDescription
@@ -1733,14 +1065,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::PointInTimeRecoveryDescription.new
-        data = {}
-        data['PointInTimeRecoveryStatus'] = stub[:point_in_time_recovery_status] unless stub[:point_in_time_recovery_status].nil?
-        data['EarliestRestorableDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:earliest_restorable_date_time]) unless stub[:earliest_restorable_date_time].nil?
-        data['LatestRestorableDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:latest_restorable_date_time]) unless stub[:latest_restorable_date_time].nil?
-        data
-      end
     end
 
     # Operation Stubber for DescribeContributorInsights
@@ -1756,16 +1080,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['ContributorInsightsRuleList'] = Stubs::ContributorInsightsRuleList.stub(stub[:contributor_insights_rule_list]) unless stub[:contributor_insights_rule_list].nil?
-        data['ContributorInsightsStatus'] = stub[:contributor_insights_status] unless stub[:contributor_insights_status].nil?
-        data['LastUpdateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_date_time]) unless stub[:last_update_date_time].nil?
-        data['FailureException'] = Stubs::FailureException.stub(stub[:failure_exception]) unless stub[:failure_exception].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Structure Stubber for FailureException
@@ -1779,13 +1093,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::FailureException.new
-        data = {}
-        data['ExceptionName'] = stub[:exception_name] unless stub[:exception_name].nil?
-        data['ExceptionDescription'] = stub[:exception_description] unless stub[:exception_description].nil?
-        data
-      end
     end
 
     # List Stubber for ContributorInsightsRuleList
@@ -1798,14 +1105,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << element unless element.nil?
-        end
-        data
-      end
     end
 
     # Operation Stubber for DescribeEndpoints
@@ -1816,11 +1115,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['Endpoints'] = Stubs::Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # List Stubber for Endpoints
@@ -1833,14 +1127,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::Endpoint.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for Endpoint
@@ -1854,13 +1140,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::Endpoint.new
-        data = {}
-        data['Address'] = stub[:address] unless stub[:address].nil?
-        data['CachePeriodInMinutes'] = stub[:cache_period_in_minutes] unless stub[:cache_period_in_minutes].nil?
-        data
-      end
     end
 
     # Operation Stubber for DescribeExport
@@ -1871,11 +1150,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['ExportDescription'] = Stubs::ExportDescription.stub(stub[:export_description]) unless stub[:export_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Structure Stubber for ExportDescription
@@ -1906,30 +1180,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ExportDescription.new
-        data = {}
-        data['ExportArn'] = stub[:export_arn] unless stub[:export_arn].nil?
-        data['ExportStatus'] = stub[:export_status] unless stub[:export_status].nil?
-        data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]) unless stub[:start_time].nil?
-        data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]) unless stub[:end_time].nil?
-        data['ExportManifest'] = stub[:export_manifest] unless stub[:export_manifest].nil?
-        data['TableArn'] = stub[:table_arn] unless stub[:table_arn].nil?
-        data['TableId'] = stub[:table_id] unless stub[:table_id].nil?
-        data['ExportTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:export_time]) unless stub[:export_time].nil?
-        data['ClientToken'] = stub[:client_token] unless stub[:client_token].nil?
-        data['S3Bucket'] = stub[:s3_bucket] unless stub[:s3_bucket].nil?
-        data['S3BucketOwner'] = stub[:s3_bucket_owner] unless stub[:s3_bucket_owner].nil?
-        data['S3Prefix'] = stub[:s3_prefix] unless stub[:s3_prefix].nil?
-        data['S3SseAlgorithm'] = stub[:s3_sse_algorithm] unless stub[:s3_sse_algorithm].nil?
-        data['S3SseKmsKeyId'] = stub[:s3_sse_kms_key_id] unless stub[:s3_sse_kms_key_id].nil?
-        data['FailureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
-        data['FailureMessage'] = stub[:failure_message] unless stub[:failure_message].nil?
-        data['ExportFormat'] = stub[:export_format] unless stub[:export_format].nil?
-        data['BilledSizeBytes'] = stub[:billed_size_bytes] unless stub[:billed_size_bytes].nil?
-        data['ItemCount'] = stub[:item_count] unless stub[:item_count].nil?
-        data
-      end
     end
 
     # Operation Stubber for DescribeGlobalTable
@@ -1940,11 +1190,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['GlobalTableDescription'] = Stubs::GlobalTableDescription.stub(stub[:global_table_description]) unless stub[:global_table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for DescribeGlobalTableSettings
@@ -1956,12 +1201,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['GlobalTableName'] = stub[:global_table_name] unless stub[:global_table_name].nil?
-        data['ReplicaSettings'] = Stubs::ReplicaSettingsDescriptionList.stub(stub[:replica_settings]) unless stub[:replica_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # List Stubber for ReplicaSettingsDescriptionList
@@ -1974,14 +1213,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::ReplicaSettingsDescription.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for ReplicaSettingsDescription
@@ -2002,20 +1233,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ReplicaSettingsDescription.new
-        data = {}
-        data['RegionName'] = stub[:region_name] unless stub[:region_name].nil?
-        data['ReplicaStatus'] = stub[:replica_status] unless stub[:replica_status].nil?
-        data['ReplicaBillingModeSummary'] = Stubs::BillingModeSummary.stub(stub[:replica_billing_mode_summary]) unless stub[:replica_billing_mode_summary].nil?
-        data['ReplicaProvisionedReadCapacityUnits'] = stub[:replica_provisioned_read_capacity_units] unless stub[:replica_provisioned_read_capacity_units].nil?
-        data['ReplicaProvisionedReadCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:replica_provisioned_read_capacity_auto_scaling_settings]) unless stub[:replica_provisioned_read_capacity_auto_scaling_settings].nil?
-        data['ReplicaProvisionedWriteCapacityUnits'] = stub[:replica_provisioned_write_capacity_units] unless stub[:replica_provisioned_write_capacity_units].nil?
-        data['ReplicaProvisionedWriteCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:replica_provisioned_write_capacity_auto_scaling_settings]) unless stub[:replica_provisioned_write_capacity_auto_scaling_settings].nil?
-        data['ReplicaGlobalSecondaryIndexSettings'] = Stubs::ReplicaGlobalSecondaryIndexSettingsDescriptionList.stub(stub[:replica_global_secondary_index_settings]) unless stub[:replica_global_secondary_index_settings].nil?
-        data['ReplicaTableClassSummary'] = Stubs::TableClassSummary.stub(stub[:replica_table_class_summary]) unless stub[:replica_table_class_summary].nil?
-        data
-      end
     end
 
     # List Stubber for ReplicaGlobalSecondaryIndexSettingsDescriptionList
@@ -2028,14 +1245,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::ReplicaGlobalSecondaryIndexSettingsDescription.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for ReplicaGlobalSecondaryIndexSettingsDescription
@@ -2053,17 +1262,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ReplicaGlobalSecondaryIndexSettingsDescription.new
-        data = {}
-        data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['IndexStatus'] = stub[:index_status] unless stub[:index_status].nil?
-        data['ProvisionedReadCapacityUnits'] = stub[:provisioned_read_capacity_units] unless stub[:provisioned_read_capacity_units].nil?
-        data['ProvisionedReadCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:provisioned_read_capacity_auto_scaling_settings]) unless stub[:provisioned_read_capacity_auto_scaling_settings].nil?
-        data['ProvisionedWriteCapacityUnits'] = stub[:provisioned_write_capacity_units] unless stub[:provisioned_write_capacity_units].nil?
-        data['ProvisionedWriteCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:provisioned_write_capacity_auto_scaling_settings]) unless stub[:provisioned_write_capacity_auto_scaling_settings].nil?
-        data
-      end
     end
 
     # Structure Stubber for AutoScalingSettingsDescription
@@ -2080,16 +1278,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::AutoScalingSettingsDescription.new
-        data = {}
-        data['MinimumUnits'] = stub[:minimum_units] unless stub[:minimum_units].nil?
-        data['MaximumUnits'] = stub[:maximum_units] unless stub[:maximum_units].nil?
-        data['AutoScalingDisabled'] = stub[:auto_scaling_disabled] unless stub[:auto_scaling_disabled].nil?
-        data['AutoScalingRoleArn'] = stub[:auto_scaling_role_arn] unless stub[:auto_scaling_role_arn].nil?
-        data['ScalingPolicies'] = Stubs::AutoScalingPolicyDescriptionList.stub(stub[:scaling_policies]) unless stub[:scaling_policies].nil?
-        data
-      end
     end
 
     # List Stubber for AutoScalingPolicyDescriptionList
@@ -2102,14 +1290,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::AutoScalingPolicyDescription.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for AutoScalingPolicyDescription
@@ -2123,13 +1303,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::AutoScalingPolicyDescription.new
-        data = {}
-        data['PolicyName'] = stub[:policy_name] unless stub[:policy_name].nil?
-        data['TargetTrackingScalingPolicyConfiguration'] = Stubs::AutoScalingTargetTrackingScalingPolicyConfigurationDescription.stub(stub[:target_tracking_scaling_policy_configuration]) unless stub[:target_tracking_scaling_policy_configuration].nil?
-        data
-      end
     end
 
     # Structure Stubber for AutoScalingTargetTrackingScalingPolicyConfigurationDescription
@@ -2145,15 +1318,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription.new
-        data = {}
-        data['DisableScaleIn'] = stub[:disable_scale_in] unless stub[:disable_scale_in].nil?
-        data['ScaleInCooldown'] = stub[:scale_in_cooldown] unless stub[:scale_in_cooldown].nil?
-        data['ScaleOutCooldown'] = stub[:scale_out_cooldown] unless stub[:scale_out_cooldown].nil?
-        data['TargetValue'] = Hearth::NumberHelper.serialize(stub[:target_value])
-        data
-      end
     end
 
     # Operation Stubber for DescribeKinesisStreamingDestination
@@ -2165,12 +1329,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['KinesisDataStreamDestinations'] = Stubs::KinesisDataStreamDestinations.stub(stub[:kinesis_data_stream_destinations]) unless stub[:kinesis_data_stream_destinations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # List Stubber for KinesisDataStreamDestinations
@@ -2183,14 +1341,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::KinesisDataStreamDestination.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for KinesisDataStreamDestination
@@ -2205,14 +1355,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::KinesisDataStreamDestination.new
-        data = {}
-        data['StreamArn'] = stub[:stream_arn] unless stub[:stream_arn].nil?
-        data['DestinationStatus'] = stub[:destination_status] unless stub[:destination_status].nil?
-        data['DestinationStatusDescription'] = stub[:destination_status_description] unless stub[:destination_status_description].nil?
-        data
-      end
     end
 
     # Operation Stubber for DescribeLimits
@@ -2226,14 +1368,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['AccountMaxReadCapacityUnits'] = stub[:account_max_read_capacity_units] unless stub[:account_max_read_capacity_units].nil?
-        data['AccountMaxWriteCapacityUnits'] = stub[:account_max_write_capacity_units] unless stub[:account_max_write_capacity_units].nil?
-        data['TableMaxReadCapacityUnits'] = stub[:table_max_read_capacity_units] unless stub[:table_max_read_capacity_units].nil?
-        data['TableMaxWriteCapacityUnits'] = stub[:table_max_write_capacity_units] unless stub[:table_max_write_capacity_units].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for DescribeTable
@@ -2244,11 +1378,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['Table'] = Stubs::TableDescription.stub(stub[:table]) unless stub[:table].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for DescribeTableReplicaAutoScaling
@@ -2259,11 +1388,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TableAutoScalingDescription'] = Stubs::TableAutoScalingDescription.stub(stub[:table_auto_scaling_description]) unless stub[:table_auto_scaling_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Structure Stubber for TableAutoScalingDescription
@@ -2278,14 +1402,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::TableAutoScalingDescription.new
-        data = {}
-        data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['TableStatus'] = stub[:table_status] unless stub[:table_status].nil?
-        data['Replicas'] = Stubs::ReplicaAutoScalingDescriptionList.stub(stub[:replicas]) unless stub[:replicas].nil?
-        data
-      end
     end
 
     # List Stubber for ReplicaAutoScalingDescriptionList
@@ -2298,14 +1414,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::ReplicaAutoScalingDescription.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for ReplicaAutoScalingDescription
@@ -2322,16 +1430,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ReplicaAutoScalingDescription.new
-        data = {}
-        data['RegionName'] = stub[:region_name] unless stub[:region_name].nil?
-        data['GlobalSecondaryIndexes'] = Stubs::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
-        data['ReplicaProvisionedReadCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:replica_provisioned_read_capacity_auto_scaling_settings]) unless stub[:replica_provisioned_read_capacity_auto_scaling_settings].nil?
-        data['ReplicaProvisionedWriteCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:replica_provisioned_write_capacity_auto_scaling_settings]) unless stub[:replica_provisioned_write_capacity_auto_scaling_settings].nil?
-        data['ReplicaStatus'] = stub[:replica_status] unless stub[:replica_status].nil?
-        data
-      end
     end
 
     # List Stubber for ReplicaGlobalSecondaryIndexAutoScalingDescriptionList
@@ -2344,14 +1442,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::ReplicaGlobalSecondaryIndexAutoScalingDescription.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for ReplicaGlobalSecondaryIndexAutoScalingDescription
@@ -2367,15 +1457,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ReplicaGlobalSecondaryIndexAutoScalingDescription.new
-        data = {}
-        data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['IndexStatus'] = stub[:index_status] unless stub[:index_status].nil?
-        data['ProvisionedReadCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:provisioned_read_capacity_auto_scaling_settings]) unless stub[:provisioned_read_capacity_auto_scaling_settings].nil?
-        data['ProvisionedWriteCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:provisioned_write_capacity_auto_scaling_settings]) unless stub[:provisioned_write_capacity_auto_scaling_settings].nil?
-        data
-      end
     end
 
     # Operation Stubber for DescribeTimeToLive
@@ -2386,11 +1467,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TimeToLiveDescription'] = Stubs::TimeToLiveDescription.stub(stub[:time_to_live_description]) unless stub[:time_to_live_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for DisableKinesisStreamingDestination
@@ -2403,13 +1479,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['StreamArn'] = stub[:stream_arn] unless stub[:stream_arn].nil?
-        data['DestinationStatus'] = stub[:destination_status] unless stub[:destination_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for EnableKinesisStreamingDestination
@@ -2422,13 +1491,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['StreamArn'] = stub[:stream_arn] unless stub[:stream_arn].nil?
-        data['DestinationStatus'] = stub[:destination_status] unless stub[:destination_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for ExecuteStatement
@@ -2441,13 +1503,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['Items'] = Stubs::ItemList.stub(stub[:items]) unless stub[:items].nil?
-        data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for ExecuteTransaction
@@ -2459,12 +1514,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['Responses'] = Stubs::ItemResponseList.stub(stub[:responses]) unless stub[:responses].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # List Stubber for ItemResponseList
@@ -2477,14 +1526,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::ItemResponse.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for ItemResponse
@@ -2497,12 +1538,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ItemResponse.new
-        data = {}
-        data['Item'] = Stubs::AttributeMap.stub(stub[:item]) unless stub[:item].nil?
-        data
-      end
     end
 
     # Operation Stubber for ExportTableToPointInTime
@@ -2513,11 +1548,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['ExportDescription'] = Stubs::ExportDescription.stub(stub[:export_description]) unless stub[:export_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for GetItem
@@ -2529,12 +1559,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['Item'] = Stubs::AttributeMap.stub(stub[:item]) unless stub[:item].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for ListBackups
@@ -2546,12 +1570,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['BackupSummaries'] = Stubs::BackupSummaries.stub(stub[:backup_summaries]) unless stub[:backup_summaries].nil?
-        data['LastEvaluatedBackupArn'] = stub[:last_evaluated_backup_arn] unless stub[:last_evaluated_backup_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # List Stubber for BackupSummaries
@@ -2564,14 +1582,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::BackupSummary.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for BackupSummary
@@ -2593,21 +1603,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::BackupSummary.new
-        data = {}
-        data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['TableId'] = stub[:table_id] unless stub[:table_id].nil?
-        data['TableArn'] = stub[:table_arn] unless stub[:table_arn].nil?
-        data['BackupArn'] = stub[:backup_arn] unless stub[:backup_arn].nil?
-        data['BackupName'] = stub[:backup_name] unless stub[:backup_name].nil?
-        data['BackupCreationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:backup_creation_date_time]) unless stub[:backup_creation_date_time].nil?
-        data['BackupExpiryDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:backup_expiry_date_time]) unless stub[:backup_expiry_date_time].nil?
-        data['BackupStatus'] = stub[:backup_status] unless stub[:backup_status].nil?
-        data['BackupType'] = stub[:backup_type] unless stub[:backup_type].nil?
-        data['BackupSizeBytes'] = stub[:backup_size_bytes] unless stub[:backup_size_bytes].nil?
-        data
-      end
     end
 
     # Operation Stubber for ListContributorInsights
@@ -2619,12 +1614,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['ContributorInsightsSummaries'] = Stubs::ContributorInsightsSummaries.stub(stub[:contributor_insights_summaries]) unless stub[:contributor_insights_summaries].nil?
-        data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # List Stubber for ContributorInsightsSummaries
@@ -2637,14 +1626,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::ContributorInsightsSummary.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for ContributorInsightsSummary
@@ -2659,14 +1640,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ContributorInsightsSummary.new
-        data = {}
-        data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['ContributorInsightsStatus'] = stub[:contributor_insights_status] unless stub[:contributor_insights_status].nil?
-        data
-      end
     end
 
     # Operation Stubber for ListExports
@@ -2678,12 +1651,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['ExportSummaries'] = Stubs::ExportSummaries.stub(stub[:export_summaries]) unless stub[:export_summaries].nil?
-        data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # List Stubber for ExportSummaries
@@ -2696,14 +1663,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::ExportSummary.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for ExportSummary
@@ -2717,13 +1676,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::ExportSummary.new
-        data = {}
-        data['ExportArn'] = stub[:export_arn] unless stub[:export_arn].nil?
-        data['ExportStatus'] = stub[:export_status] unless stub[:export_status].nil?
-        data
-      end
     end
 
     # Operation Stubber for ListGlobalTables
@@ -2735,12 +1687,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['GlobalTables'] = Stubs::GlobalTableList.stub(stub[:global_tables]) unless stub[:global_tables].nil?
-        data['LastEvaluatedGlobalTableName'] = stub[:last_evaluated_global_table_name] unless stub[:last_evaluated_global_table_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # List Stubber for GlobalTableList
@@ -2753,14 +1699,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::GlobalTable.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for GlobalTable
@@ -2774,13 +1712,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::GlobalTable.new
-        data = {}
-        data['GlobalTableName'] = stub[:global_table_name] unless stub[:global_table_name].nil?
-        data['ReplicationGroup'] = Stubs::ReplicaList.stub(stub[:replication_group]) unless stub[:replication_group].nil?
-        data
-      end
     end
 
     # List Stubber for ReplicaList
@@ -2793,14 +1724,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::Replica.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for Replica
@@ -2813,12 +1736,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::Replica.new
-        data = {}
-        data['RegionName'] = stub[:region_name] unless stub[:region_name].nil?
-        data
-      end
     end
 
     # Operation Stubber for ListTables
@@ -2830,12 +1747,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TableNames'] = Stubs::TableNameList.stub(stub[:table_names]) unless stub[:table_names].nil?
-        data['LastEvaluatedTableName'] = stub[:last_evaluated_table_name] unless stub[:last_evaluated_table_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # List Stubber for TableNameList
@@ -2848,14 +1759,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << element unless element.nil?
-        end
-        data
-      end
     end
 
     # Operation Stubber for ListTagsOfResource
@@ -2867,12 +1770,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # List Stubber for TagList
@@ -2885,14 +1782,6 @@ module AWS::Dynamodb
         ]
       end
 
-      def self.stub(stub)
-        stub ||= []
-        data = []
-        stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
-        end
-        data
-      end
     end
 
     # Structure Stubber for Tag
@@ -2906,13 +1795,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::Tag.new
-        data = {}
-        data['Key'] = stub[:key] unless stub[:key].nil?
-        data['Value'] = stub[:value] unless stub[:value].nil?
-        data
-      end
     end
 
     # Operation Stubber for PutItem
@@ -2925,13 +1807,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['Attributes'] = Stubs::AttributeMap.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetrics.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for Query
@@ -2946,15 +1821,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['Items'] = Stubs::ItemList.stub(stub[:items]) unless stub[:items].nil?
-        data['Count'] = stub[:count] unless stub[:count].nil?
-        data['ScannedCount'] = stub[:scanned_count] unless stub[:scanned_count].nil?
-        data['LastEvaluatedKey'] = Stubs::Key.stub(stub[:last_evaluated_key]) unless stub[:last_evaluated_key].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for RestoreTableFromBackup
@@ -2965,11 +1831,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for RestoreTableToPointInTime
@@ -2980,11 +1841,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for Scan
@@ -2999,15 +1855,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['Items'] = Stubs::ItemList.stub(stub[:items]) unless stub[:items].nil?
-        data['Count'] = stub[:count] unless stub[:count].nil?
-        data['ScannedCount'] = stub[:scanned_count] unless stub[:scanned_count].nil?
-        data['LastEvaluatedKey'] = Stubs::Key.stub(stub[:last_evaluated_key]) unless stub[:last_evaluated_key].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for TagResource
@@ -3017,10 +1864,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for TransactGetItems
@@ -3032,12 +1875,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        data['Responses'] = Stubs::ItemResponseList.stub(stub[:responses]) unless stub[:responses].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for TransactWriteItems
@@ -3049,12 +1886,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetricsPerTable.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for UntagResource
@@ -3064,10 +1895,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for UpdateContinuousBackups
@@ -3078,11 +1905,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['ContinuousBackupsDescription'] = Stubs::ContinuousBackupsDescription.stub(stub[:continuous_backups_description]) unless stub[:continuous_backups_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for UpdateContributorInsights
@@ -3095,13 +1917,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['ContributorInsightsStatus'] = stub[:contributor_insights_status] unless stub[:contributor_insights_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for UpdateGlobalTable
@@ -3112,11 +1927,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['GlobalTableDescription'] = Stubs::GlobalTableDescription.stub(stub[:global_table_description]) unless stub[:global_table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for UpdateGlobalTableSettings
@@ -3128,12 +1938,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['GlobalTableName'] = stub[:global_table_name] unless stub[:global_table_name].nil?
-        data['ReplicaSettings'] = Stubs::ReplicaSettingsDescriptionList.stub(stub[:replica_settings]) unless stub[:replica_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for UpdateItem
@@ -3146,13 +1950,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['Attributes'] = Stubs::AttributeMap.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetrics.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for UpdateTable
@@ -3163,11 +1960,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for UpdateTableReplicaAutoScaling
@@ -3178,11 +1970,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TableAutoScalingDescription'] = Stubs::TableAutoScalingDescription.stub(stub[:table_auto_scaling_description]) unless stub[:table_auto_scaling_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Operation Stubber for UpdateTimeToLive
@@ -3193,11 +1980,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(http_resp, stub:)
-        data = {}
-        data['TimeToLiveSpecification'] = Stubs::TimeToLiveSpecification.stub(stub[:time_to_live_specification]) unless stub[:time_to_live_specification].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
-      end
     end
 
     # Structure Stubber for TimeToLiveSpecification
@@ -3211,13 +1993,6 @@ module AWS::Dynamodb
         }
       end
 
-      def self.stub(stub)
-        stub ||= Types::TimeToLiveSpecification.new
-        data = {}
-        data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['AttributeName'] = stub[:attribute_name] unless stub[:attribute_name].nil?
-        data
-      end
     end
   end
 end
