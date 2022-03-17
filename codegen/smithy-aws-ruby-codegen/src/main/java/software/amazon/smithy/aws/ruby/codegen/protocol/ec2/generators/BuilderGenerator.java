@@ -16,6 +16,7 @@
 package software.amazon.smithy.aws.ruby.codegen.protocol.ec2.generators;
 
 import software.amazon.smithy.aws.traits.protocols.Ec2QueryNameTrait;
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
@@ -117,13 +118,34 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .closeBlock("end");
     }
 
+
     @Override
     protected void renderUnionBuildMethod(UnionShape shape) {
-        // TODO: There are no test cases for this, but it should likely be the case statement
+        Symbol symbol = symbolProvider.toSymbol(shape);
         writer
                 .openBlock("def self.build(input, params, context: nil)")
-                .call(() -> renderMemberBuilders(shape))
+                .write("case input");
+
+        shape.members().forEach((member) -> {
+            writer
+                    .write("when Types::$L::$L", shape.getId().getName(), symbolProvider.toMemberName(member))
+                    .indent();
+            renderUnionMemberBuilder(member);
+            writer.dedent();
+        });
+        writer.openBlock("else")
+                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of Types::$L\"",
+                        symbol.getName())
+                .closeBlock("end")
                 .closeBlock("end");
+    }
+
+    private void renderUnionMemberBuilder(MemberShape member) {
+
+        Shape target = model.expectShape(member.getTarget());
+
+        String dataName = writer.format("'$L'", getQueryParamName(member));
+        target.accept(new MemberSerializer(member, dataName, "input.__getobj__", false));
     }
 
     @Override

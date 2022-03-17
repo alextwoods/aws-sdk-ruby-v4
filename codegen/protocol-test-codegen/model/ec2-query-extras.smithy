@@ -63,7 +63,7 @@ apply QueryUnions @httpRequestTests([
         requireHeaders: [
             "Content-Length"
         ],
-        body: "Action=QueryUnions&Version=2020-01-08&stringValue=foo",
+        body: "Action=QueryUnions&Version=2020-01-08&Contents.StringValue=foo",
         bodyMediaType: "application/x-www-form-urlencoded",
         params: {
             contents: {
