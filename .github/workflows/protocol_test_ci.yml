@@ -30,7 +30,7 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: ${{ env.java_version }}
-    - name: Build and publish smithy-ruby
+    - name: Build and publish maven local smithy-ruby
       run: |
         git clone --depth 1 https://github.com/awslabs/smithy-ruby.git
         cd smithy-ruby/codegen
