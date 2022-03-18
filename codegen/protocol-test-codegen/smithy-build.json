@@ -189,6 +189,27 @@
           }
         }
       }
+    },
+    "aws-protocoltests-query-extras": {
+      "transforms": [
+        {
+          "name": "includeServices",
+          "args": {
+            "services": ["aws.protocoltests.query#AwsQueryExtras"]
+          }
+        }
+      ],
+      "plugins": {
+        "ruby-codegen": {
+          "service": "aws.protocoltests.query#AwsQueryExtras",
+          "module": "AwsQueryExtras",
+          "gemspec": {
+            "gemName": "query_extras",
+            "gemVersion": "0.0.1",
+            "gemSummary": "Query Protocol Extras Test Service"
+          }
+        }
+      }
     }
   }
 }
