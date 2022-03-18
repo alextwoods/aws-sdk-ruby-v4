@@ -190,5 +190,27 @@ apply QueryUnions @httpRequestTests([
                 listValue: ["foo", "bar"]
             }
         }
+    },
+    {
+        id: "Ec2SerializeStructureUnionValue",
+        documentation: "Serializes a structure union value",
+        protocol: ec2Query,
+        method: "POST",
+        "uri": "/",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        requireHeaders: [
+            "Content-Length"
+        ],
+        body: "Action=QueryUnions&Version=2020-01-08&Contents.StructureValue.Hi=hello",
+        bodyMediaType: "application/x-www-form-urlencoded",
+        params: {
+            contents: {
+                "structureValue": {
+                    "hi": "hello"
+                }
+            }
+        }
     }
 ])
