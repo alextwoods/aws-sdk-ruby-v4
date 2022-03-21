@@ -14,7 +14,7 @@ module AWS::Dynamodb
 
     # Operation Builder for BatchExecuteStatement
     class BatchExecuteStatement
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -150,7 +150,7 @@ module AWS::Dynamodb
 
     # Operation Builder for BatchGetItem
     class BatchGetItem
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -232,7 +232,7 @@ module AWS::Dynamodb
 
     # Operation Builder for BatchWriteItem
     class BatchWriteItem
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -308,7 +308,7 @@ module AWS::Dynamodb
 
     # Operation Builder for CreateBackup
     class CreateBackup
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -322,7 +322,7 @@ module AWS::Dynamodb
 
     # Operation Builder for CreateGlobalTable
     class CreateGlobalTable
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -356,7 +356,7 @@ module AWS::Dynamodb
 
     # Operation Builder for CreateTable
     class CreateTable
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -539,7 +539,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DeleteBackup
     class DeleteBackup
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -552,7 +552,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DeleteItem
     class DeleteItem
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -619,7 +619,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DeleteTable
     class DeleteTable
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -632,7 +632,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DescribeBackup
     class DescribeBackup
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -645,7 +645,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DescribeContinuousBackups
     class DescribeContinuousBackups
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -658,7 +658,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DescribeContributorInsights
     class DescribeContributorInsights
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -672,7 +672,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DescribeEndpoints
     class DescribeEndpoints
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -684,7 +684,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DescribeExport
     class DescribeExport
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -697,7 +697,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DescribeGlobalTable
     class DescribeGlobalTable
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -710,7 +710,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DescribeGlobalTableSettings
     class DescribeGlobalTableSettings
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -723,7 +723,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DescribeKinesisStreamingDestination
     class DescribeKinesisStreamingDestination
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -736,7 +736,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DescribeLimits
     class DescribeLimits
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -748,7 +748,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DescribeTable
     class DescribeTable
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -761,7 +761,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DescribeTableReplicaAutoScaling
     class DescribeTableReplicaAutoScaling
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -774,7 +774,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DescribeTimeToLive
     class DescribeTimeToLive
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -787,7 +787,7 @@ module AWS::Dynamodb
 
     # Operation Builder for DisableKinesisStreamingDestination
     class DisableKinesisStreamingDestination
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -801,7 +801,7 @@ module AWS::Dynamodb
 
     # Operation Builder for EnableKinesisStreamingDestination
     class EnableKinesisStreamingDestination
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -815,7 +815,7 @@ module AWS::Dynamodb
 
     # Operation Builder for ExecuteStatement
     class ExecuteStatement
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -832,7 +832,7 @@ module AWS::Dynamodb
 
     # Operation Builder for ExecuteTransaction
     class ExecuteTransaction
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -868,7 +868,7 @@ module AWS::Dynamodb
 
     # Operation Builder for ExportTableToPointInTime
     class ExportTableToPointInTime
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -889,7 +889,7 @@ module AWS::Dynamodb
 
     # Operation Builder for GetItem
     class GetItem
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -908,7 +908,7 @@ module AWS::Dynamodb
 
     # Operation Builder for ListBackups
     class ListBackups
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -926,7 +926,7 @@ module AWS::Dynamodb
 
     # Operation Builder for ListContributorInsights
     class ListContributorInsights
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -941,7 +941,7 @@ module AWS::Dynamodb
 
     # Operation Builder for ListExports
     class ListExports
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -956,7 +956,7 @@ module AWS::Dynamodb
 
     # Operation Builder for ListGlobalTables
     class ListGlobalTables
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -971,7 +971,7 @@ module AWS::Dynamodb
 
     # Operation Builder for ListTables
     class ListTables
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -985,7 +985,7 @@ module AWS::Dynamodb
 
     # Operation Builder for ListTagsOfResource
     class ListTagsOfResource
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -999,7 +999,7 @@ module AWS::Dynamodb
 
     # Operation Builder for PutItem
     class PutItem
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1021,7 +1021,7 @@ module AWS::Dynamodb
 
     # Operation Builder for Query
     class Query
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1082,7 +1082,7 @@ module AWS::Dynamodb
 
     # Operation Builder for RestoreTableFromBackup
     class RestoreTableFromBackup
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1101,7 +1101,7 @@ module AWS::Dynamodb
 
     # Operation Builder for RestoreTableToPointInTime
     class RestoreTableToPointInTime
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1123,7 +1123,7 @@ module AWS::Dynamodb
 
     # Operation Builder for Scan
     class Scan
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1151,7 +1151,7 @@ module AWS::Dynamodb
 
     # Operation Builder for TagResource
     class TagResource
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1165,7 +1165,7 @@ module AWS::Dynamodb
 
     # Operation Builder for TransactGetItems
     class TransactGetItems
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1211,7 +1211,7 @@ module AWS::Dynamodb
 
     # Operation Builder for TransactWriteItems
     class TransactWriteItems
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1307,7 +1307,7 @@ module AWS::Dynamodb
 
     # Operation Builder for UntagResource
     class UntagResource
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1332,7 +1332,7 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateContinuousBackups
     class UpdateContinuousBackups
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1355,7 +1355,7 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateContributorInsights
     class UpdateContributorInsights
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1370,7 +1370,7 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateGlobalTable
     class UpdateGlobalTable
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1423,7 +1423,7 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateGlobalTableSettings
     class UpdateGlobalTableSettings
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1544,7 +1544,7 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateItem
     class UpdateItem
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1589,7 +1589,7 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateTable
     class UpdateTable
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1750,7 +1750,7 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateTableReplicaAutoScaling
     class UpdateTableReplicaAutoScaling
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
@@ -1830,7 +1830,7 @@ module AWS::Dynamodb
 
     # Operation Builder for UpdateTimeToLive
     class UpdateTimeToLive
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/')
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
