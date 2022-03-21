@@ -48,6 +48,9 @@ module AWS::Ec2
 
     # @overload initialize(options)
     # @param [Hash] options
+    # @option options [Boolean] :disable_host_prefix (false)
+    #   When `true`, does not perform host prefix injection using @endpoint's hostPrefix property.
+    #
     # @option options [string] :endpoint
     #   Endpoint of the service
     #
@@ -70,6 +73,7 @@ module AWS::Ec2
     #   When `true`, request parameters are validated using the modeled shapes.
     #
     def initialize(options = {})
+      @disable_host_prefix = options.fetch(:disable_host_prefix, false)
       @endpoint = options[:endpoint]
       @http_wire_trace = options.fetch(:http_wire_trace, false)
       @log_level = options.fetch(:log_level, :info)
@@ -129,7 +133,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AcceptReservedInstancesExchangeQuote
+        builder: Builders::AcceptReservedInstancesExchangeQuote,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -213,7 +218,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AcceptTransitGatewayMulticastDomainAssociations
+        builder: Builders::AcceptTransitGatewayMulticastDomainAssociations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -294,7 +300,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AcceptTransitGatewayPeeringAttachment
+        builder: Builders::AcceptTransitGatewayPeeringAttachment,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -378,7 +385,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AcceptTransitGatewayVpcAttachment
+        builder: Builders::AcceptTransitGatewayVpcAttachment,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -455,7 +463,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AcceptVpcEndpointConnections
+        builder: Builders::AcceptVpcEndpointConnections,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -551,7 +560,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AcceptVpcPeeringConnection
+        builder: Builders::AcceptVpcPeeringConnection,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -631,7 +641,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AdvertiseByoipCidr
+        builder: Builders::AdvertiseByoipCidr,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -756,7 +767,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AllocateAddress
+        builder: Builders::AllocateAddress,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -882,7 +894,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AllocateHosts
+        builder: Builders::AllocateHosts,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -999,7 +1012,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AllocateIpamPoolCidr
+        builder: Builders::AllocateIpamPoolCidr,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1075,7 +1089,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ApplySecurityGroupsToClientVpnTargetNetwork
+        builder: Builders::ApplySecurityGroupsToClientVpnTargetNetwork,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1174,7 +1189,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssignIpv6Addresses
+        builder: Builders::AssignIpv6Addresses,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1279,7 +1295,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssignPrivateIpAddresses
+        builder: Builders::AssignPrivateIpAddresses,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1393,7 +1410,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssociateAddress
+        builder: Builders::AssociateAddress,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1468,7 +1486,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssociateClientVpnTargetNetwork
+        builder: Builders::AssociateClientVpnTargetNetwork,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1540,7 +1559,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssociateDhcpOptions
+        builder: Builders::AssociateDhcpOptions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1624,7 +1644,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssociateEnclaveCertificateIamRole
+        builder: Builders::AssociateEnclaveCertificateIamRole,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1698,7 +1719,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssociateIamInstanceProfile
+        builder: Builders::AssociateIamInstanceProfile,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1803,7 +1825,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssociateInstanceEventWindow
+        builder: Builders::AssociateInstanceEventWindow,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1885,7 +1908,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssociateRouteTable
+        builder: Builders::AssociateRouteTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1956,7 +1980,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssociateSubnetCidrBlock
+        builder: Builders::AssociateSubnetCidrBlock,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2042,7 +2067,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssociateTransitGatewayMulticastDomain
+        builder: Builders::AssociateTransitGatewayMulticastDomain,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2117,7 +2143,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssociateTransitGatewayRouteTable
+        builder: Builders::AssociateTransitGatewayRouteTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2218,7 +2245,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssociateTrunkInterface
+        builder: Builders::AssociateTrunkInterface,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2338,7 +2366,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssociateVpcCidrBlock
+        builder: Builders::AssociateVpcCidrBlock,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2419,7 +2448,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AttachClassicLinkVpc
+        builder: Builders::AttachClassicLinkVpc,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2488,7 +2518,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AttachInternetGateway
+        builder: Builders::AttachInternetGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2568,7 +2599,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AttachNetworkInterface
+        builder: Builders::AttachNetworkInterface,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2671,7 +2703,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AttachVolume
+        builder: Builders::AttachVolume,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2746,7 +2779,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AttachVpnGateway
+        builder: Builders::AttachVpnGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2835,7 +2869,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AuthorizeClientVpnIngress
+        builder: Builders::AuthorizeClientVpnIngress,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3012,7 +3047,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AuthorizeSecurityGroupEgress
+        builder: Builders::AuthorizeSecurityGroupEgress,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3215,7 +3251,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AuthorizeSecurityGroupIngress
+        builder: Builders::AuthorizeSecurityGroupIngress,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3315,7 +3352,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::BundleInstance
+        builder: Builders::BundleInstance,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3396,7 +3434,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CancelBundleTask
+        builder: Builders::CancelBundleTask,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3464,7 +3503,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CancelCapacityReservation
+        builder: Builders::CancelCapacityReservation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3553,7 +3593,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CancelCapacityReservationFleets
+        builder: Builders::CancelCapacityReservationFleets,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3625,7 +3666,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CancelConversionTask
+        builder: Builders::CancelConversionTask,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3685,7 +3727,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CancelExportTask
+        builder: Builders::CancelExportTask,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3756,7 +3799,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CancelImportTask
+        builder: Builders::CancelImportTask,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3840,7 +3884,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CancelReservedInstancesListing
+        builder: Builders::CancelReservedInstancesListing,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3929,7 +3974,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CancelSpotFleetRequests
+        builder: Builders::CancelSpotFleetRequests,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4004,7 +4050,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CancelSpotInstanceRequests
+        builder: Builders::CancelSpotInstanceRequests,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4076,7 +4123,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ConfirmProductInstance
+        builder: Builders::ConfirmProductInstance,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4158,7 +4206,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CopyFpgaImage
+        builder: Builders::CopyFpgaImage,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4306,7 +4355,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CopyImage
+        builder: Builders::CopyImage,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4488,7 +4538,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CopySnapshot
+        builder: Builders::CopySnapshot,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4717,7 +4768,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateCapacityReservation
+        builder: Builders::CreateCapacityReservation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4890,7 +4942,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateCapacityReservationFleet
+        builder: Builders::CreateCapacityReservationFleet,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4983,7 +5036,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateCarrierGateway
+        builder: Builders::CreateCarrierGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5172,7 +5226,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateClientVpnEndpoint
+        builder: Builders::CreateClientVpnEndpoint,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5271,7 +5326,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateClientVpnRoute
+        builder: Builders::CreateClientVpnRoute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5417,7 +5473,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateCustomerGateway
+        builder: Builders::CreateCustomerGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5523,7 +5580,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateDefaultSubnet
+        builder: Builders::CreateDefaultSubnet,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5620,7 +5678,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateDefaultVpc
+        builder: Builders::CreateDefaultVpc,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5770,7 +5829,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateDhcpOptions
+        builder: Builders::CreateDhcpOptions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5868,7 +5928,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateEgressOnlyInternetGateway
+        builder: Builders::CreateEgressOnlyInternetGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6222,7 +6283,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateFleet
+        builder: Builders::CreateFleet,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6405,7 +6467,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateFlowLogs
+        builder: Builders::CreateFlowLogs,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6509,7 +6572,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateFpgaImage
+        builder: Builders::CreateFpgaImage,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6653,7 +6717,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateImage
+        builder: Builders::CreateImage,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6821,7 +6886,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateInstanceEventWindow
+        builder: Builders::CreateInstanceEventWindow,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6930,7 +6996,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateInstanceExportTask
+        builder: Builders::CreateInstanceExportTask,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7017,7 +7084,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateInternetGateway
+        builder: Builders::CreateInternetGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7130,7 +7198,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateIpam
+        builder: Builders::CreateIpam,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7304,7 +7373,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateIpamPool
+        builder: Builders::CreateIpamPool,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7407,7 +7477,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateIpamScope
+        builder: Builders::CreateIpamScope,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7509,7 +7580,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateKeyPair
+        builder: Builders::CreateKeyPair,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7836,7 +7908,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateLaunchTemplate
+        builder: Builders::CreateLaunchTemplate,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8334,7 +8407,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateLaunchTemplateVersion
+        builder: Builders::CreateLaunchTemplateVersion,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8415,7 +8489,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateLocalGatewayRoute
+        builder: Builders::CreateLocalGatewayRoute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8509,7 +8584,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateLocalGatewayRouteTableVpcAssociation
+        builder: Builders::CreateLocalGatewayRouteTableVpcAssociation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8629,7 +8705,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateManagedPrefixList
+        builder: Builders::CreateManagedPrefixList,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8761,7 +8838,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateNatGateway
+        builder: Builders::CreateNatGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8869,7 +8947,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateNetworkAcl
+        builder: Builders::CreateNetworkAcl,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8988,7 +9067,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateNetworkAclEntry
+        builder: Builders::CreateNetworkAclEntry,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -9128,7 +9208,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateNetworkInsightsAccessScope
+        builder: Builders::CreateNetworkInsightsAccessScope,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -9248,7 +9329,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateNetworkInsightsPath
+        builder: Builders::CreateNetworkInsightsPath,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -9476,7 +9558,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateNetworkInterface
+        builder: Builders::CreateNetworkInterface,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -9563,7 +9646,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateNetworkInterfacePermission
+        builder: Builders::CreateNetworkInterfacePermission,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -9672,7 +9756,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreatePlacementGroup
+        builder: Builders::CreatePlacementGroup,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -9748,7 +9833,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreatePublicIpv4Pool
+        builder: Builders::CreatePublicIpv4Pool,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -9851,7 +9937,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateReplaceRootVolumeTask
+        builder: Builders::CreateReplaceRootVolumeTask,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -9967,7 +10054,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateReservedInstancesListing
+        builder: Builders::CreateReservedInstancesListing,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -10072,7 +10160,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateRestoreImageTask
+        builder: Builders::CreateRestoreImageTask,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -10215,7 +10304,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateRoute
+        builder: Builders::CreateRoute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -10334,7 +10424,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateRouteTable
+        builder: Builders::CreateRouteTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -10446,7 +10537,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateSecurityGroup
+        builder: Builders::CreateSecurityGroup,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -10597,7 +10689,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateSnapshot
+        builder: Builders::CreateSnapshot,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -10735,7 +10828,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateSnapshots
+        builder: Builders::CreateSnapshots,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -10817,7 +10911,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateSpotDatafeedSubscription
+        builder: Builders::CreateSpotDatafeedSubscription,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -10901,7 +10996,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateStoreImageTask
+        builder: Builders::CreateStoreImageTask,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -11067,7 +11163,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateSubnet
+        builder: Builders::CreateSubnet,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -11189,7 +11286,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateSubnetCidrReservation
+        builder: Builders::CreateSubnetCidrReservation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -11275,7 +11373,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTags
+        builder: Builders::CreateTags,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -11386,7 +11485,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTrafficMirrorFilter
+        builder: Builders::CreateTrafficMirrorFilter,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -11511,7 +11611,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTrafficMirrorFilterRule
+        builder: Builders::CreateTrafficMirrorFilterRule,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -11647,7 +11748,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTrafficMirrorSession
+        builder: Builders::CreateTrafficMirrorSession,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -11754,7 +11856,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTrafficMirrorTarget
+        builder: Builders::CreateTrafficMirrorTarget,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -11882,7 +11985,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTransitGateway
+        builder: Builders::CreateTransitGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -11979,7 +12083,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTransitGatewayConnect
+        builder: Builders::CreateTransitGatewayConnect,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -12108,7 +12213,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTransitGatewayConnectPeer
+        builder: Builders::CreateTransitGatewayConnectPeer,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -12210,7 +12316,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTransitGatewayMulticastDomain
+        builder: Builders::CreateTransitGatewayMulticastDomain,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -12321,7 +12428,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTransitGatewayPeeringAttachment
+        builder: Builders::CreateTransitGatewayPeeringAttachment,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -12407,7 +12515,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTransitGatewayPrefixListReference
+        builder: Builders::CreateTransitGatewayPrefixListReference,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -12494,7 +12603,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTransitGatewayRoute
+        builder: Builders::CreateTransitGatewayRoute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -12583,7 +12693,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTransitGatewayRouteTable
+        builder: Builders::CreateTransitGatewayRouteTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -12701,7 +12812,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTransitGatewayVpcAttachment
+        builder: Builders::CreateTransitGatewayVpcAttachment,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -12960,7 +13072,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateVolume
+        builder: Builders::CreateVolume,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -13126,7 +13239,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateVpc
+        builder: Builders::CreateVpc,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -13308,7 +13422,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateVpcEndpoint
+        builder: Builders::CreateVpcEndpoint,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -13408,7 +13523,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateVpcEndpointConnectionNotification
+        builder: Builders::CreateVpcEndpointConnectionNotification,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -13552,7 +13668,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateVpcEndpointServiceConfiguration
+        builder: Builders::CreateVpcEndpointServiceConfiguration,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -13685,7 +13802,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateVpcPeeringConnection
+        builder: Builders::CreateVpcPeeringConnection,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -13928,7 +14046,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateVpnConnection
+        builder: Builders::CreateVpnConnection,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -13994,7 +14113,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateVpnConnectionRoute
+        builder: Builders::CreateVpnConnectionRoute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -14102,7 +14222,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateVpnGateway
+        builder: Builders::CreateVpnGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -14180,7 +14301,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteCarrierGateway
+        builder: Builders::DeleteCarrierGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -14246,7 +14368,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteClientVpnEndpoint
+        builder: Builders::DeleteClientVpnEndpoint,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -14322,7 +14445,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteClientVpnRoute
+        builder: Builders::DeleteClientVpnRoute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -14388,7 +14512,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteCustomerGateway
+        builder: Builders::DeleteCustomerGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -14452,7 +14577,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteDhcpOptions
+        builder: Builders::DeleteDhcpOptions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -14517,7 +14643,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteEgressOnlyInternetGateway
+        builder: Builders::DeleteEgressOnlyInternetGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -14630,7 +14757,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteFleets
+        builder: Builders::DeleteFleets,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -14703,7 +14831,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteFlowLogs
+        builder: Builders::DeleteFlowLogs,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -14768,7 +14897,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteFpgaImage
+        builder: Builders::DeleteFpgaImage,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -14842,7 +14972,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteInstanceEventWindow
+        builder: Builders::DeleteInstanceEventWindow,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -14907,7 +15038,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteInternetGateway
+        builder: Builders::DeleteInternetGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -14995,7 +15127,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteIpam
+        builder: Builders::DeleteIpam,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -15095,7 +15228,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteIpamPool
+        builder: Builders::DeleteIpamPool,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -15176,7 +15310,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteIpamScope
+        builder: Builders::DeleteIpamScope,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -15244,7 +15379,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteKeyPair
+        builder: Builders::DeleteKeyPair,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -15326,7 +15462,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteLaunchTemplate
+        builder: Builders::DeleteLaunchTemplate,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -15419,7 +15556,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteLaunchTemplateVersions
+        builder: Builders::DeleteLaunchTemplateVersions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -15495,7 +15633,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteLocalGatewayRoute
+        builder: Builders::DeleteLocalGatewayRoute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -15571,7 +15710,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteLocalGatewayRouteTableVpcAssociation
+        builder: Builders::DeleteLocalGatewayRouteTableVpcAssociation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -15649,7 +15789,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteManagedPrefixList
+        builder: Builders::DeleteManagedPrefixList,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -15716,7 +15857,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteNatGateway
+        builder: Builders::DeleteNatGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -15780,7 +15922,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteNetworkAcl
+        builder: Builders::DeleteNetworkAcl,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -15852,7 +15995,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteNetworkAclEntry
+        builder: Builders::DeleteNetworkAclEntry,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -15917,7 +16061,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteNetworkInsightsAccessScope
+        builder: Builders::DeleteNetworkInsightsAccessScope,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -15982,7 +16127,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteNetworkInsightsAccessScopeAnalysis
+        builder: Builders::DeleteNetworkInsightsAccessScopeAnalysis,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -16047,7 +16193,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteNetworkInsightsAnalysis
+        builder: Builders::DeleteNetworkInsightsAnalysis,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -16112,7 +16259,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteNetworkInsightsPath
+        builder: Builders::DeleteNetworkInsightsPath,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -16176,7 +16324,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteNetworkInterface
+        builder: Builders::DeleteNetworkInterface,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -16249,7 +16398,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteNetworkInterfacePermission
+        builder: Builders::DeleteNetworkInterfacePermission,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -16315,7 +16465,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeletePlacementGroup
+        builder: Builders::DeletePlacementGroup,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -16380,7 +16531,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeletePublicIpv4Pool
+        builder: Builders::DeletePublicIpv4Pool,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -16455,7 +16607,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteQueuedReservedInstances
+        builder: Builders::DeleteQueuedReservedInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -16531,7 +16684,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteRoute
+        builder: Builders::DeleteRoute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -16595,7 +16749,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteRouteTable
+        builder: Builders::DeleteRouteTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -16667,7 +16822,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteSecurityGroup
+        builder: Builders::DeleteSecurityGroup,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -16740,7 +16896,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteSnapshot
+        builder: Builders::DeleteSnapshot,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -16801,7 +16958,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteSpotDatafeedSubscription
+        builder: Builders::DeleteSpotDatafeedSubscription,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -16865,7 +17023,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteSubnet
+        builder: Builders::DeleteSubnet,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -16940,7 +17099,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteSubnetCidrReservation
+        builder: Builders::DeleteSubnetCidrReservation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -17026,7 +17186,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTags
+        builder: Builders::DeleteTags,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -17092,7 +17253,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTrafficMirrorFilter
+        builder: Builders::DeleteTrafficMirrorFilter,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -17157,7 +17319,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTrafficMirrorFilterRule
+        builder: Builders::DeleteTrafficMirrorFilterRule,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -17222,7 +17385,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTrafficMirrorSession
+        builder: Builders::DeleteTrafficMirrorSession,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -17288,7 +17452,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTrafficMirrorTarget
+        builder: Builders::DeleteTrafficMirrorTarget,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -17375,7 +17540,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTransitGateway
+        builder: Builders::DeleteTransitGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -17452,7 +17618,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTransitGatewayConnect
+        builder: Builders::DeleteTransitGatewayConnect,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -17538,7 +17705,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTransitGatewayConnectPeer
+        builder: Builders::DeleteTransitGatewayConnectPeer,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -17617,7 +17785,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTransitGatewayMulticastDomain
+        builder: Builders::DeleteTransitGatewayMulticastDomain,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -17697,7 +17866,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTransitGatewayPeeringAttachment
+        builder: Builders::DeleteTransitGatewayPeeringAttachment,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -17775,7 +17945,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTransitGatewayPrefixListReference
+        builder: Builders::DeleteTransitGatewayPrefixListReference,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -17853,7 +18024,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTransitGatewayRoute
+        builder: Builders::DeleteTransitGatewayRoute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -17929,7 +18101,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTransitGatewayRouteTable
+        builder: Builders::DeleteTransitGatewayRouteTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -18010,7 +18183,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTransitGatewayVpcAttachment
+        builder: Builders::DeleteTransitGatewayVpcAttachment,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -18078,7 +18252,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteVolume
+        builder: Builders::DeleteVolume,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -18142,7 +18317,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteVpc
+        builder: Builders::DeleteVpc,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -18214,7 +18390,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteVpcEndpointConnectionNotifications
+        builder: Builders::DeleteVpcEndpointConnectionNotifications,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -18289,7 +18466,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteVpcEndpointServiceConfigurations
+        builder: Builders::DeleteVpcEndpointServiceConfigurations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -18385,7 +18563,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteVpcEndpoints
+        builder: Builders::DeleteVpcEndpoints,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -18454,7 +18633,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteVpcPeeringConnection
+        builder: Builders::DeleteVpcPeeringConnection,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -18529,7 +18709,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteVpnConnection
+        builder: Builders::DeleteVpnConnection,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -18594,7 +18775,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteVpnConnectionRoute
+        builder: Builders::DeleteVpnConnectionRoute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -18662,7 +18844,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteVpnGateway
+        builder: Builders::DeleteVpnGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -18735,7 +18918,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeprovisionByoipCidr
+        builder: Builders::DeprovisionByoipCidr,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -18809,7 +18993,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeprovisionIpamPoolCidr
+        builder: Builders::DeprovisionIpamPoolCidr,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -18880,7 +19065,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeprovisionPublicIpv4PoolCidr
+        builder: Builders::DeprovisionPublicIpv4PoolCidr,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -18951,7 +19137,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeregisterImage
+        builder: Builders::DeregisterImage,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -19026,7 +19213,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeregisterInstanceEventNotificationAttributes
+        builder: Builders::DeregisterInstanceEventNotificationAttributes,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -19105,7 +19293,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeregisterTransitGatewayMulticastGroupMembers
+        builder: Builders::DeregisterTransitGatewayMulticastGroupMembers,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -19184,7 +19373,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeregisterTransitGatewayMulticastGroupSources
+        builder: Builders::DeregisterTransitGatewayMulticastGroupSources,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -19290,7 +19480,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeAccountAttributes
+        builder: Builders::DescribeAccountAttributes,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -19444,7 +19635,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeAddresses
+        builder: Builders::DescribeAddresses,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -19532,7 +19724,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeAddressesAttribute
+        builder: Builders::DescribeAddressesAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -19615,7 +19808,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeAggregateIdFormat
+        builder: Builders::DescribeAggregateIdFormat,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -19783,7 +19977,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeAvailabilityZones
+        builder: Builders::DescribeAvailabilityZones,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -19925,7 +20120,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeBundleTasks
+        builder: Builders::DescribeBundleTasks,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -20003,7 +20199,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeByoipCidrs
+        builder: Builders::DescribeByoipCidrs,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -20136,7 +20333,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeCapacityReservationFleets
+        builder: Builders::DescribeCapacityReservationFleets,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -20356,7 +20554,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeCapacityReservations
+        builder: Builders::DescribeCapacityReservations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -20481,7 +20680,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeCarrierGateways
+        builder: Builders::DescribeCarrierGateways,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -20612,7 +20812,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeClassicLinkInstances
+        builder: Builders::DescribeClassicLinkInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -20719,7 +20920,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeClientVpnAuthorizationRules
+        builder: Builders::DescribeClientVpnAuthorizationRules,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -20832,7 +21034,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeClientVpnConnections
+        builder: Builders::DescribeClientVpnConnections,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -20977,7 +21180,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeClientVpnEndpoints
+        builder: Builders::DescribeClientVpnEndpoints,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -21084,7 +21288,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeClientVpnRoutes
+        builder: Builders::DescribeClientVpnRoutes,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -21194,7 +21399,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeClientVpnTargetNetworks
+        builder: Builders::DescribeClientVpnTargetNetworks,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -21306,7 +21512,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeCoipPools
+        builder: Builders::DescribeCoipPools,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -21409,7 +21616,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeConversionTasks
+        builder: Builders::DescribeConversionTasks,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -21539,7 +21747,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeCustomerGateways
+        builder: Builders::DescribeCustomerGateways,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -21670,7 +21879,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeDhcpOptions
+        builder: Builders::DescribeDhcpOptions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -21779,7 +21989,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeEgressOnlyInternetGateways
+        builder: Builders::DescribeEgressOnlyInternetGateways,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -21909,7 +22120,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeElasticGpus
+        builder: Builders::DescribeElasticGpus,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -22011,7 +22223,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeExportImageTasks
+        builder: Builders::DescribeExportImageTasks,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -22100,7 +22313,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeExportTasks
+        builder: Builders::DescribeExportTasks,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -22217,7 +22431,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeFastSnapshotRestores
+        builder: Builders::DescribeFastSnapshotRestores,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -22317,7 +22532,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeFleetHistory
+        builder: Builders::DescribeFleetHistory,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -22417,7 +22633,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeFleetInstances
+        builder: Builders::DescribeFleetInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -22660,7 +22877,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeFleets
+        builder: Builders::DescribeFleets,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -22812,7 +23030,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeFlowLogs
+        builder: Builders::DescribeFlowLogs,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -22892,7 +23111,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeFpgaImageAttribute
+        builder: Builders::DescribeFpgaImageAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -23064,7 +23284,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeFpgaImages
+        builder: Builders::DescribeFpgaImages,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -23183,7 +23404,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeHostReservationOfferings
+        builder: Builders::DescribeHostReservationOfferings,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -23311,7 +23533,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeHostReservations
+        builder: Builders::DescribeHostReservations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -23471,7 +23694,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeHosts
+        builder: Builders::DescribeHosts,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -23572,7 +23796,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeIamInstanceProfileAssociations
+        builder: Builders::DescribeIamInstanceProfileAssociations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -23667,7 +23892,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeIdFormat
+        builder: Builders::DescribeIdFormat,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -23765,7 +23991,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeIdentityIdFormat
+        builder: Builders::DescribeIdentityIdFormat,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -23869,7 +24096,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeImageAttribute
+        builder: Builders::DescribeImageAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -24193,7 +24421,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeImages
+        builder: Builders::DescribeImages,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -24317,7 +24546,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeImportImageTasks
+        builder: Builders::DescribeImportImageTasks,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -24426,7 +24656,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeImportSnapshotTasks
+        builder: Builders::DescribeImportSnapshotTasks,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -24534,7 +24765,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeInstanceAttribute
+        builder: Builders::DescribeInstanceAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -24654,7 +24886,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeInstanceCreditSpecifications
+        builder: Builders::DescribeInstanceCreditSpecifications,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -24719,7 +24952,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeInstanceEventNotificationAttributes
+        builder: Builders::DescribeInstanceEventNotificationAttributes,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -24890,7 +25124,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeInstanceEventWindows
+        builder: Builders::DescribeInstanceEventWindows,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -25115,7 +25350,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeInstanceStatus
+        builder: Builders::DescribeInstanceStatus,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -25218,7 +25454,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeInstanceTypeOfferings
+        builder: Builders::DescribeInstanceTypeOfferings,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -25623,7 +25860,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeInstanceTypes
+        builder: Builders::DescribeInstanceTypes,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -26349,7 +26587,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeInstances
+        builder: Builders::DescribeInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -26477,7 +26716,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeInternetGateways
+        builder: Builders::DescribeInternetGateways,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -26590,7 +26830,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeIpamPools
+        builder: Builders::DescribeIpamPools,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -26689,7 +26930,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeIpamScopes
+        builder: Builders::DescribeIpamScopes,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -26792,7 +27034,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeIpams
+        builder: Builders::DescribeIpams,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -26901,7 +27144,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeIpv6Pools
+        builder: Builders::DescribeIpv6Pools,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -27020,7 +27264,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeKeyPairs
+        builder: Builders::DescribeKeyPairs,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -27383,7 +27628,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeLaunchTemplateVersions
+        builder: Builders::DescribeLaunchTemplateVersions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -27509,7 +27755,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeLaunchTemplates
+        builder: Builders::DescribeLaunchTemplates,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -27631,7 +27878,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations
+        builder: Builders::DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -27753,7 +28001,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeLocalGatewayRouteTableVpcAssociations
+        builder: Builders::DescribeLocalGatewayRouteTableVpcAssociations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -27871,7 +28120,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeLocalGatewayRouteTables
+        builder: Builders::DescribeLocalGatewayRouteTables,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -27983,7 +28233,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeLocalGatewayVirtualInterfaceGroups
+        builder: Builders::DescribeLocalGatewayVirtualInterfaceGroups,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -28084,7 +28335,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeLocalGatewayVirtualInterfaces
+        builder: Builders::DescribeLocalGatewayVirtualInterfaces,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -28208,7 +28460,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeLocalGateways
+        builder: Builders::DescribeLocalGateways,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -28322,7 +28575,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeManagedPrefixLists
+        builder: Builders::DescribeManagedPrefixLists,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -28420,7 +28674,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeMovingAddresses
+        builder: Builders::DescribeMovingAddresses,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -28562,7 +28817,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeNatGateways
+        builder: Builders::DescribeNatGateways,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -28757,7 +29013,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeNetworkAcls
+        builder: Builders::DescribeNetworkAcls,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -28872,7 +29129,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeNetworkInsightsAccessScopeAnalyses
+        builder: Builders::DescribeNetworkInsightsAccessScopeAnalyses,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -28969,7 +29227,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeNetworkInsightsAccessScopes
+        builder: Builders::DescribeNetworkInsightsAccessScopes,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -29199,7 +29458,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeNetworkInsightsAnalyses
+        builder: Builders::DescribeNetworkInsightsAnalyses,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -29318,7 +29578,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeNetworkInsightsPaths
+        builder: Builders::DescribeNetworkInsightsPaths,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -29404,7 +29665,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeNetworkInterfaceAttribute
+        builder: Builders::DescribeNetworkInterfaceAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -29521,7 +29783,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeNetworkInterfacePermissions
+        builder: Builders::DescribeNetworkInterfacePermissions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -29824,7 +30087,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeNetworkInterfaces
+        builder: Builders::DescribeNetworkInterfaces,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -29954,7 +30218,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribePlacementGroups
+        builder: Builders::DescribePlacementGroups,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -30059,7 +30324,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribePrefixLists
+        builder: Builders::DescribePrefixLists,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -30173,7 +30439,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribePrincipalIdFormat
+        builder: Builders::DescribePrincipalIdFormat,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -30282,7 +30549,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribePublicIpv4Pools
+        builder: Builders::DescribePublicIpv4Pools,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -30386,7 +30654,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeRegions
+        builder: Builders::DescribeRegions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -30491,7 +30760,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeReplaceRootVolumeTasks
+        builder: Builders::DescribeReplaceRootVolumeTasks,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -30673,7 +30943,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeReservedInstances
+        builder: Builders::DescribeReservedInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -30793,7 +31064,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeReservedInstancesListings
+        builder: Builders::DescribeReservedInstancesListings,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -30946,7 +31218,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeReservedInstancesModifications
+        builder: Builders::DescribeReservedInstancesModifications,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -31172,7 +31445,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeReservedInstancesOfferings
+        builder: Builders::DescribeReservedInstancesOfferings,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -31404,7 +31678,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeRouteTables
+        builder: Builders::DescribeRouteTables,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -31557,7 +31832,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeScheduledInstanceAvailability
+        builder: Builders::DescribeScheduledInstanceAvailability,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -31694,7 +31970,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeScheduledInstances
+        builder: Builders::DescribeScheduledInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -31765,7 +32042,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeSecurityGroupReferences
+        builder: Builders::DescribeSecurityGroupReferences,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -31892,7 +32170,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeSecurityGroupRules
+        builder: Builders::DescribeSecurityGroupRules,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -32157,7 +32436,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeSecurityGroups
+        builder: Builders::DescribeSecurityGroups,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -32236,7 +32516,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeSnapshotAttribute
+        builder: Builders::DescribeSnapshotAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -32350,7 +32631,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeSnapshotTierStatus
+        builder: Builders::DescribeSnapshotTierStatus,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -32593,7 +32875,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeSnapshots
+        builder: Builders::DescribeSnapshots,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -32663,7 +32946,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeSpotDatafeedSubscription
+        builder: Builders::DescribeSpotDatafeedSubscription,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -32746,7 +33030,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeSpotFleetInstances
+        builder: Builders::DescribeSpotFleetInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -32848,7 +33133,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeSpotFleetRequestHistory
+        builder: Builders::DescribeSpotFleetRequestHistory,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -33113,7 +33399,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeSpotFleetRequests
+        builder: Builders::DescribeSpotFleetRequests,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -33508,7 +33795,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeSpotInstanceRequests
+        builder: Builders::DescribeSpotInstanceRequests,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -33664,7 +33952,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeSpotPriceHistory
+        builder: Builders::DescribeSpotPriceHistory,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -33765,7 +34054,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeStaleSecurityGroups
+        builder: Builders::DescribeStaleSecurityGroups,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -33886,7 +34176,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeStoreImageTasks
+        builder: Builders::DescribeStoreImageTasks,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -34093,7 +34384,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeSubnets
+        builder: Builders::DescribeSubnets,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -34207,7 +34499,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTags
+        builder: Builders::DescribeTags,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -34330,7 +34623,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTrafficMirrorFilters
+        builder: Builders::DescribeTrafficMirrorFilters,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -34470,7 +34764,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTrafficMirrorSessions
+        builder: Builders::DescribeTrafficMirrorSessions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -34591,7 +34886,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTrafficMirrorTargets
+        builder: Builders::DescribeTrafficMirrorTargets,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -34737,7 +35033,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTransitGatewayAttachments
+        builder: Builders::DescribeTransitGatewayAttachments,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -34863,7 +35160,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTransitGatewayConnectPeers
+        builder: Builders::DescribeTransitGatewayConnectPeers,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -34991,7 +35289,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTransitGatewayConnects
+        builder: Builders::DescribeTransitGatewayConnects,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -35108,7 +35407,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTransitGatewayMulticastDomains
+        builder: Builders::DescribeTransitGatewayMulticastDomains,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -35243,7 +35543,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTransitGatewayPeeringAttachments
+        builder: Builders::DescribeTransitGatewayPeeringAttachments,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -35367,7 +35668,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTransitGatewayRouteTables
+        builder: Builders::DescribeTransitGatewayRouteTables,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -35491,7 +35793,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTransitGatewayVpcAttachments
+        builder: Builders::DescribeTransitGatewayVpcAttachments,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -35651,7 +35954,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTransitGateways
+        builder: Builders::DescribeTransitGateways,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -35764,7 +36068,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTrunkInterfaceAssociations
+        builder: Builders::DescribeTrunkInterfaceAssociations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -35841,7 +36146,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVolumeAttribute
+        builder: Builders::DescribeVolumeAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -36061,7 +36367,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVolumeStatus
+        builder: Builders::DescribeVolumeStatus,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -36278,7 +36585,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVolumes
+        builder: Builders::DescribeVolumes,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -36438,7 +36746,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVolumesModifications
+        builder: Builders::DescribeVolumesModifications,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -36510,7 +36819,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVpcAttribute
+        builder: Builders::DescribeVpcAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -36611,7 +36921,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVpcClassicLink
+        builder: Builders::DescribeVpcClassicLink,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -36689,7 +37000,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVpcClassicLinkDnsSupport
+        builder: Builders::DescribeVpcClassicLinkDnsSupport,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -36815,7 +37127,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVpcEndpointConnectionNotifications
+        builder: Builders::DescribeVpcEndpointConnectionNotifications,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -36936,7 +37249,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVpcEndpointConnections
+        builder: Builders::DescribeVpcEndpointConnections,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -37076,7 +37390,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVpcEndpointServiceConfigurations
+        builder: Builders::DescribeVpcEndpointServiceConfigurations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -37181,7 +37496,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVpcEndpointServicePermissions
+        builder: Builders::DescribeVpcEndpointServicePermissions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -37316,7 +37632,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVpcEndpointServices
+        builder: Builders::DescribeVpcEndpointServices,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -37467,7 +37784,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVpcEndpoints
+        builder: Builders::DescribeVpcEndpoints,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -37643,7 +37961,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVpcPeeringConnections
+        builder: Builders::DescribeVpcPeeringConnections,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -37830,7 +38149,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVpcs
+        builder: Builders::DescribeVpcs,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -38046,7 +38366,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVpnConnections
+        builder: Builders::DescribeVpnConnections,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -38188,7 +38509,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeVpnGateways
+        builder: Builders::DescribeVpnGateways,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -38257,7 +38579,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DetachClassicLinkVpc
+        builder: Builders::DetachClassicLinkVpc,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -38327,7 +38650,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DetachInternetGateway
+        builder: Builders::DetachInternetGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -38412,7 +38736,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DetachNetworkInterface
+        builder: Builders::DetachNetworkInterface,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -38509,7 +38834,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DetachVolume
+        builder: Builders::DetachVolume,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -38583,7 +38909,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DetachVpnGateway
+        builder: Builders::DetachVpnGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -38650,7 +38977,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisableEbsEncryptionByDefault
+        builder: Builders::DisableEbsEncryptionByDefault,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -38744,7 +39072,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisableFastSnapshotRestores
+        builder: Builders::DisableFastSnapshotRestores,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -38811,7 +39140,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisableImageDeprecation
+        builder: Builders::DisableImageDeprecation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -38877,7 +39207,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisableIpamOrganizationAdminAccount
+        builder: Builders::DisableIpamOrganizationAdminAccount,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -38939,7 +39270,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisableSerialConsoleAccess
+        builder: Builders::DisableSerialConsoleAccess,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -39014,7 +39346,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisableTransitGatewayRouteTablePropagation
+        builder: Builders::DisableTransitGatewayRouteTablePropagation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -39084,7 +39417,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisableVgwRoutePropagation
+        builder: Builders::DisableVgwRoutePropagation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -39149,7 +39483,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisableVpcClassicLink
+        builder: Builders::DisableVpcClassicLink,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -39212,7 +39547,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisableVpcClassicLinkDnsSupport
+        builder: Builders::DisableVpcClassicLinkDnsSupport,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -39284,7 +39620,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisassociateAddress
+        builder: Builders::DisassociateAddress,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -39370,7 +39707,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisassociateClientVpnTargetNetwork
+        builder: Builders::DisassociateClientVpnTargetNetwork,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -39441,7 +39779,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisassociateEnclaveCertificateIamRole
+        builder: Builders::DisassociateEnclaveCertificateIamRole,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -39509,7 +39848,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisassociateIamInstanceProfile
+        builder: Builders::DisassociateIamInstanceProfile,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -39613,7 +39953,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisassociateInstanceEventWindow
+        builder: Builders::DisassociateInstanceEventWindow,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -39681,7 +40022,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisassociateRouteTable
+        builder: Builders::DisassociateRouteTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -39746,7 +40088,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisassociateSubnetCidrBlock
+        builder: Builders::DisassociateSubnetCidrBlock,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -39830,7 +40173,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisassociateTransitGatewayMulticastDomain
+        builder: Builders::DisassociateTransitGatewayMulticastDomain,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -39904,7 +40248,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisassociateTransitGatewayRouteTable
+        builder: Builders::DisassociateTransitGatewayRouteTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -39980,7 +40325,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisassociateTrunkInterface
+        builder: Builders::DisassociateTrunkInterface,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -40056,7 +40402,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisassociateVpcCidrBlock
+        builder: Builders::DisassociateVpcCidrBlock,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -40128,7 +40475,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableEbsEncryptionByDefault
+        builder: Builders::EnableEbsEncryptionByDefault,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -40228,7 +40576,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableFastSnapshotRestores
+        builder: Builders::EnableFastSnapshotRestores,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -40303,7 +40652,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableImageDeprecation
+        builder: Builders::EnableImageDeprecation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -40369,7 +40719,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableIpamOrganizationAdminAccount
+        builder: Builders::EnableIpamOrganizationAdminAccount,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -40430,7 +40781,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableSerialConsoleAccess
+        builder: Builders::EnableSerialConsoleAccess,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -40505,7 +40857,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableTransitGatewayRouteTablePropagation
+        builder: Builders::EnableTransitGatewayRouteTablePropagation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -40578,7 +40931,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableVgwRoutePropagation
+        builder: Builders::EnableVgwRoutePropagation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -40643,7 +40997,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableVolumeIO
+        builder: Builders::EnableVolumeIO,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -40714,7 +41069,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableVpcClassicLink
+        builder: Builders::EnableVpcClassicLink,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -40779,7 +41135,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableVpcClassicLinkDnsSupport
+        builder: Builders::EnableVpcClassicLinkDnsSupport,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -40845,7 +41202,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ExportClientVpnClientCertificateRevocationList
+        builder: Builders::ExportClientVpnClientCertificateRevocationList,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -40910,7 +41268,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ExportClientVpnClientConfiguration
+        builder: Builders::ExportClientVpnClientConfiguration,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -41030,7 +41389,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ExportImage
+        builder: Builders::ExportImage,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -41153,7 +41513,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ExportTransitGatewayRoutes
+        builder: Builders::ExportTransitGatewayRoutes,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -41225,7 +41586,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetAssociatedEnclaveCertificateIamRoles
+        builder: Builders::GetAssociatedEnclaveCertificateIamRoles,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -41303,7 +41665,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetAssociatedIpv6PoolCidrs
+        builder: Builders::GetAssociatedIpv6PoolCidrs,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -41386,7 +41749,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetCapacityReservationUsage
+        builder: Builders::GetCapacityReservationUsage,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -41506,7 +41870,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetCoipPoolUsage
+        builder: Builders::GetCoipPoolUsage,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -41590,7 +41955,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetConsoleOutput
+        builder: Builders::GetConsoleOutput,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -41663,7 +42029,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetConsoleScreenshot
+        builder: Builders::GetConsoleScreenshot,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -41732,7 +42099,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetDefaultCreditSpecification
+        builder: Builders::GetDefaultCreditSpecification,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -41797,7 +42165,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetEbsDefaultKmsKeyId
+        builder: Builders::GetEbsDefaultKmsKeyId,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -41861,7 +42230,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetEbsEncryptionByDefault
+        builder: Builders::GetEbsEncryptionByDefault,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -41960,7 +42330,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFlowLogsIntegrationTemplate
+        builder: Builders::GetFlowLogsIntegrationTemplate,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -42035,7 +42406,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetGroupsForCapacityReservation
+        builder: Builders::GetGroupsForCapacityReservation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -42117,7 +42489,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetHostReservationPurchasePreview
+        builder: Builders::GetHostReservationPurchasePreview,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -42276,7 +42649,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetInstanceTypesFromInstanceRequirements
+        builder: Builders::GetInstanceTypesFromInstanceRequirements,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -42379,7 +42753,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetIpamAddressHistory
+        builder: Builders::GetIpamAddressHistory,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -42476,7 +42851,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetIpamPoolAllocations
+        builder: Builders::GetIpamPoolAllocations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -42567,7 +42943,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetIpamPoolCidrs
+        builder: Builders::GetIpamPoolCidrs,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -42694,7 +43071,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetIpamResourceCidrs
+        builder: Builders::GetIpamResourceCidrs,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -42930,7 +43308,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetLaunchTemplateData
+        builder: Builders::GetLaunchTemplateData,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -43008,7 +43387,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetManagedPrefixListAssociations
+        builder: Builders::GetManagedPrefixListAssociations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -43090,7 +43470,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetManagedPrefixListEntries
+        builder: Builders::GetManagedPrefixListEntries,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -43218,7 +43599,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetNetworkInsightsAccessScopeAnalysisFindings
+        builder: Builders::GetNetworkInsightsAccessScopeAnalysisFindings,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -43305,7 +43687,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetNetworkInsightsAccessScopeContent
+        builder: Builders::GetNetworkInsightsAccessScopeContent,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -43384,7 +43767,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetPasswordData
+        builder: Builders::GetPasswordData,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -43482,7 +43866,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetReservedInstancesExchangeQuote
+        builder: Builders::GetReservedInstancesExchangeQuote,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -43544,7 +43929,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetSerialConsoleAccessStatus
+        builder: Builders::GetSerialConsoleAccessStatus,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -43736,7 +44122,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetSpotPlacementScores
+        builder: Builders::GetSpotPlacementScores,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -43854,7 +44241,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetSubnetCidrReservations
+        builder: Builders::GetSubnetCidrReservations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -43949,7 +44337,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetTransitGatewayAttachmentPropagations
+        builder: Builders::GetTransitGatewayAttachmentPropagations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -44069,7 +44458,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetTransitGatewayMulticastDomainAssociations
+        builder: Builders::GetTransitGatewayMulticastDomainAssociations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -44197,7 +44587,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetTransitGatewayPrefixListReferences
+        builder: Builders::GetTransitGatewayPrefixListReferences,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -44304,7 +44695,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetTransitGatewayRouteTableAssociations
+        builder: Builders::GetTransitGatewayRouteTableAssociations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -44411,7 +44803,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetTransitGatewayRouteTablePropagations
+        builder: Builders::GetTransitGatewayRouteTablePropagations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -44489,7 +44882,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetVpnConnectionDeviceSampleConfiguration
+        builder: Builders::GetVpnConnectionDeviceSampleConfiguration,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -44579,7 +44973,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetVpnConnectionDeviceTypes
+        builder: Builders::GetVpnConnectionDeviceTypes,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -44648,7 +45043,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ImportClientVpnClientCertificateRevocationList
+        builder: Builders::ImportClientVpnClientCertificateRevocationList,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -44871,7 +45267,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ImportImage
+        builder: Builders::ImportImage,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -45026,7 +45423,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ImportInstance
+        builder: Builders::ImportInstance,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -45120,7 +45518,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ImportKeyPair
+        builder: Builders::ImportKeyPair,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -45281,7 +45680,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ImportSnapshot
+        builder: Builders::ImportSnapshot,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -45403,7 +45803,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ImportVolume
+        builder: Builders::ImportVolume,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -45487,7 +45888,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListSnapshotsInRecycleBin
+        builder: Builders::ListSnapshotsInRecycleBin,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -45563,7 +45965,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyAddressAttribute
+        builder: Builders::ModifyAddressAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -45637,7 +46040,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyAvailabilityZoneGroup
+        builder: Builders::ModifyAvailabilityZoneGroup,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -45747,7 +46151,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyCapacityReservation
+        builder: Builders::ModifyCapacityReservation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -45841,7 +46246,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyCapacityReservationFleet
+        builder: Builders::ModifyCapacityReservationFleet,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -45982,7 +46388,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyClientVpnEndpoint
+        builder: Builders::ModifyClientVpnEndpoint,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -46067,7 +46474,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyDefaultCreditSpecification
+        builder: Builders::ModifyDefaultCreditSpecification,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -46159,7 +46567,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyEbsDefaultKmsKeyId
+        builder: Builders::ModifyEbsDefaultKmsKeyId,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -46357,7 +46766,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyFleet
+        builder: Builders::ModifyFleet,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -46479,7 +46889,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyFpgaImageAttribute
+        builder: Builders::ModifyFpgaImageAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -46585,7 +46996,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyHosts
+        builder: Builders::ModifyHosts,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -46681,7 +47093,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyIdFormat
+        builder: Builders::ModifyIdFormat,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -46781,7 +47194,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyIdentityIdFormat
+        builder: Builders::ModifyIdentityIdFormat,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -46917,7 +47331,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyImageAttribute
+        builder: Builders::ModifyImageAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -47092,7 +47507,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyInstanceAttribute
+        builder: Builders::ModifyInstanceAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -47167,7 +47583,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyInstanceCapacityReservationAttributes
+        builder: Builders::ModifyInstanceCapacityReservationAttributes,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -47255,7 +47672,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyInstanceCreditSpecification
+        builder: Builders::ModifyInstanceCreditSpecification,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -47334,7 +47752,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyInstanceEventStartTime
+        builder: Builders::ModifyInstanceEventStartTime,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -47473,7 +47892,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyInstanceEventWindow
+        builder: Builders::ModifyInstanceEventWindow,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -47592,7 +48012,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyInstanceMetadataOptions
+        builder: Builders::ModifyInstanceMetadataOptions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -47713,7 +48134,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyInstancePlacement
+        builder: Builders::ModifyInstancePlacement,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -47817,7 +48239,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyIpam
+        builder: Builders::ModifyIpam,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -47959,7 +48382,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyIpamPool
+        builder: Builders::ModifyIpamPool,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -48063,7 +48487,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyIpamResourceCidr
+        builder: Builders::ModifyIpamResourceCidr,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -48146,7 +48571,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyIpamScope
+        builder: Builders::ModifyIpamScope,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -48241,7 +48667,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyLaunchTemplate
+        builder: Builders::ModifyLaunchTemplate,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -48356,7 +48783,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyManagedPrefixList
+        builder: Builders::ModifyManagedPrefixList,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -48452,7 +48880,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyNetworkInterfaceAttribute
+        builder: Builders::ModifyNetworkInterfaceAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -48532,7 +48961,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyPrivateDnsNameOptions
+        builder: Builders::ModifyPrivateDnsNameOptions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -48615,7 +49045,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyReservedInstances
+        builder: Builders::ModifyReservedInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -48698,7 +49129,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifySecurityGroupRules
+        builder: Builders::ModifySecurityGroupRules,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -48800,7 +49232,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifySnapshotAttribute
+        builder: Builders::ModifySnapshotAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -48874,7 +49307,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifySnapshotTier
+        builder: Builders::ModifySnapshotTier,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -49060,7 +49494,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifySpotFleetRequest
+        builder: Builders::ModifySpotFleetRequest,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -49206,7 +49641,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifySubnetAttribute
+        builder: Builders::ModifySubnetAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -49307,7 +49743,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyTrafficMirrorFilterNetworkServices
+        builder: Builders::ModifyTrafficMirrorFilterNetworkServices,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -49434,7 +49871,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyTrafficMirrorFilterRule
+        builder: Builders::ModifyTrafficMirrorFilterRule,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -49544,7 +49982,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyTrafficMirrorSession
+        builder: Builders::ModifyTrafficMirrorSession,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -49650,7 +50089,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyTransitGateway
+        builder: Builders::ModifyTransitGateway,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -49736,7 +50176,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyTransitGatewayPrefixListReference
+        builder: Builders::ModifyTransitGatewayPrefixListReference,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -49834,7 +50275,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyTransitGatewayVpcAttachment
+        builder: Builders::ModifyTransitGatewayVpcAttachment,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -49998,7 +50440,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyVolume
+        builder: Builders::ModifyVolume,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -50074,7 +50517,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyVolumeAttribute
+        builder: Builders::ModifyVolumeAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -50147,7 +50591,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyVpcAttribute
+        builder: Builders::ModifyVpcAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -50257,7 +50702,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyVpcEndpoint
+        builder: Builders::ModifyVpcEndpoint,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -50334,7 +50780,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyVpcEndpointConnectionNotification
+        builder: Builders::ModifyVpcEndpointConnectionNotification,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -50437,7 +50884,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyVpcEndpointServiceConfiguration
+        builder: Builders::ModifyVpcEndpointServiceConfiguration,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -50508,7 +50956,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyVpcEndpointServicePayerResponsibility
+        builder: Builders::ModifyVpcEndpointServicePayerResponsibility,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -50589,7 +51038,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyVpcEndpointServicePermissions
+        builder: Builders::ModifyVpcEndpointServicePermissions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -50690,7 +51140,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyVpcPeeringConnectionOptions
+        builder: Builders::ModifyVpcPeeringConnectionOptions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -50766,7 +51217,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyVpcTenancy
+        builder: Builders::ModifyVpcTenancy,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -50953,7 +51405,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyVpnConnection
+        builder: Builders::ModifyVpnConnection,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -51115,7 +51568,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyVpnConnectionOptions
+        builder: Builders::ModifyVpnConnectionOptions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -51256,7 +51710,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyVpnTunnelCertificate
+        builder: Builders::ModifyVpnTunnelCertificate,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -51451,7 +51906,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ModifyVpnTunnelOptions
+        builder: Builders::ModifyVpnTunnelOptions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -51525,7 +51981,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::MonitorInstances
+        builder: Builders::MonitorInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -51596,7 +52053,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::MoveAddressToVpc
+        builder: Builders::MoveAddressToVpc,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -51673,7 +52131,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::MoveByoipCidrToIpam
+        builder: Builders::MoveByoipCidrToIpam,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -51791,7 +52250,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ProvisionByoipCidr
+        builder: Builders::ProvisionByoipCidr,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -51874,7 +52334,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ProvisionIpamPoolCidr
+        builder: Builders::ProvisionIpamPoolCidr,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -51954,7 +52415,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ProvisionPublicIpv4PoolCidr
+        builder: Builders::ProvisionPublicIpv4PoolCidr,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -52069,7 +52531,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::PurchaseHostReservation
+        builder: Builders::PurchaseHostReservation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -52158,7 +52621,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::PurchaseReservedInstancesOffering
+        builder: Builders::PurchaseReservedInstancesOffering,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -52260,7 +52724,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::PurchaseScheduledInstances
+        builder: Builders::PurchaseScheduledInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -52333,7 +52798,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RebootInstances
+        builder: Builders::RebootInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -52532,7 +52998,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RegisterImage
+        builder: Builders::RegisterImage,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -52607,7 +53074,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RegisterInstanceEventNotificationAttributes
+        builder: Builders::RegisterInstanceEventNotificationAttributes,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -52691,7 +53159,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RegisterTransitGatewayMulticastGroupMembers
+        builder: Builders::RegisterTransitGatewayMulticastGroupMembers,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -52775,7 +53244,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RegisterTransitGatewayMulticastGroupSources
+        builder: Builders::RegisterTransitGatewayMulticastGroupSources,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -52859,7 +53329,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RejectTransitGatewayMulticastDomainAssociations
+        builder: Builders::RejectTransitGatewayMulticastDomainAssociations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -52939,7 +53410,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RejectTransitGatewayPeeringAttachment
+        builder: Builders::RejectTransitGatewayPeeringAttachment,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -53023,7 +53495,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RejectTransitGatewayVpcAttachment
+        builder: Builders::RejectTransitGatewayVpcAttachment,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -53100,7 +53573,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RejectVpcEndpointConnections
+        builder: Builders::RejectVpcEndpointConnections,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -53168,7 +53642,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RejectVpcPeeringConnection
+        builder: Builders::RejectVpcPeeringConnection,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -53255,7 +53730,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ReleaseAddress
+        builder: Builders::ReleaseAddress,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -53331,7 +53807,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ReleaseHosts
+        builder: Builders::ReleaseHosts,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -53405,7 +53882,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ReleaseIpamPoolAllocation
+        builder: Builders::ReleaseIpamPoolAllocation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -53482,7 +53960,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ReplaceIamInstanceProfileAssociation
+        builder: Builders::ReplaceIamInstanceProfileAssociation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -53555,7 +54034,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ReplaceNetworkAclAssociation
+        builder: Builders::ReplaceNetworkAclAssociation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -53668,7 +54148,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ReplaceNetworkAclEntry
+        builder: Builders::ReplaceNetworkAclEntry,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -53799,7 +54280,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ReplaceRoute
+        builder: Builders::ReplaceRoute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -53875,7 +54357,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ReplaceRouteTableAssociation
+        builder: Builders::ReplaceRouteTableAssociation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -53961,7 +54444,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ReplaceTransitGatewayRoute
+        builder: Builders::ReplaceTransitGatewayRoute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -54097,7 +54581,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ReportInstanceStatus
+        builder: Builders::ReportInstanceStatus,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -54415,7 +54900,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RequestSpotFleet
+        builder: Builders::RequestSpotFleet,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -54765,7 +55251,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RequestSpotInstances
+        builder: Builders::RequestSpotInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -54841,7 +55328,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ResetAddressAttribute
+        builder: Builders::ResetAddressAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -54907,7 +55395,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ResetEbsDefaultKmsKeyId
+        builder: Builders::ResetEbsDefaultKmsKeyId,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -54977,7 +55466,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ResetFpgaImageAttribute
+        builder: Builders::ResetFpgaImageAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -55045,7 +55535,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ResetImageAttribute
+        builder: Builders::ResetImageAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -55126,7 +55617,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ResetInstanceAttribute
+        builder: Builders::ResetInstanceAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -55194,7 +55686,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ResetNetworkInterfaceAttribute
+        builder: Builders::ResetNetworkInterfaceAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -55265,7 +55758,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ResetSnapshotAttribute
+        builder: Builders::ResetSnapshotAttribute,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -55331,7 +55825,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RestoreAddressToClassic
+        builder: Builders::RestoreAddressToClassic,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -55417,7 +55912,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RestoreManagedPrefixListVersion
+        builder: Builders::RestoreManagedPrefixListVersion,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -55492,7 +55988,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RestoreSnapshotFromRecycleBin
+        builder: Builders::RestoreSnapshotFromRecycleBin,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -55580,7 +56077,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RestoreSnapshotTier
+        builder: Builders::RestoreSnapshotTier,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -55657,7 +56155,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RevokeClientVpnIngress
+        builder: Builders::RevokeClientVpnIngress,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -55835,7 +56334,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RevokeSecurityGroupEgress
+        builder: Builders::RevokeSecurityGroupEgress,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -56019,7 +56519,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RevokeSecurityGroupIngress
+        builder: Builders::RevokeSecurityGroupIngress,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -56695,7 +57196,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RunInstances
+        builder: Builders::RunInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -56843,7 +57345,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RunScheduledInstances
+        builder: Builders::RunScheduledInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -56937,7 +57440,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::SearchLocalGatewayRoutes
+        builder: Builders::SearchLocalGatewayRoutes,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -57073,7 +57577,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::SearchTransitGatewayMulticastGroups
+        builder: Builders::SearchTransitGatewayMulticastGroups,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -57209,7 +57714,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::SearchTransitGatewayRoutes
+        builder: Builders::SearchTransitGatewayRoutes,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -57288,7 +57794,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::SendDiagnosticInterrupt
+        builder: Builders::SendDiagnosticInterrupt,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -57384,7 +57891,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::StartInstances
+        builder: Builders::StartInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -57482,7 +57990,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::StartNetworkInsightsAccessScopeAnalysis
+        builder: Builders::StartNetworkInsightsAccessScopeAnalysis,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -57694,7 +58203,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::StartNetworkInsightsAnalysis
+        builder: Builders::StartNetworkInsightsAnalysis,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -57762,7 +58272,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::StartVpcEndpointServicePrivateDnsVerification
+        builder: Builders::StartVpcEndpointServicePrivateDnsVerification,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -57881,7 +58392,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::StopInstances
+        builder: Builders::StopInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -57961,7 +58473,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::TerminateClientVpnConnections
+        builder: Builders::TerminateClientVpnConnections,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -58097,7 +58610,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::TerminateInstances
+        builder: Builders::TerminateInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -58172,7 +58686,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UnassignIpv6Addresses
+        builder: Builders::UnassignIpv6Addresses,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -58242,7 +58757,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UnassignPrivateIpAddresses
+        builder: Builders::UnassignPrivateIpAddresses,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -58314,7 +58830,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UnmonitorInstances
+        builder: Builders::UnmonitorInstances,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -58439,7 +58956,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateSecurityGroupRuleDescriptionsEgress
+        builder: Builders::UpdateSecurityGroupRuleDescriptionsEgress,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -58564,7 +59082,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateSecurityGroupRuleDescriptionsIngress
+        builder: Builders::UpdateSecurityGroupRuleDescriptionsIngress,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -58637,7 +59156,8 @@ module AWS::Ec2
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::WithdrawByoipCidr
+        builder: Builders::WithdrawByoipCidr,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,

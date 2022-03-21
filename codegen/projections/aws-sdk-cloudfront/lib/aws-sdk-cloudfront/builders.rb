@@ -14,7 +14,7 @@ module AWS::Cloudfront
 
     # Operation Builder for AssociateAlias
     class AssociateAlias
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<TargetDistributionId>s/associate-alias',
@@ -29,7 +29,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateCachePolicy
     class CreateCachePolicy
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/cache-policy')
         params = Hearth::Query::ParamList.new
@@ -162,7 +162,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateCloudFrontOriginAccessIdentity
     class CreateCloudFrontOriginAccessIdentity
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/origin-access-identity/cloudfront')
         params = Hearth::Query::ParamList.new
@@ -185,7 +185,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateDistribution
     class CreateDistribution
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/distribution')
         params = Hearth::Query::ParamList.new
@@ -806,7 +806,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateDistributionWithTags
     class CreateDistributionWithTags
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         CGI.parse('WithTags').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
@@ -862,7 +862,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateFieldLevelEncryptionConfig
     class CreateFieldLevelEncryptionConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/field-level-encryption')
         params = Hearth::Query::ParamList.new
@@ -970,7 +970,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateFieldLevelEncryptionProfile
     class CreateFieldLevelEncryptionProfile
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/field-level-encryption-profile')
         params = Hearth::Query::ParamList.new
@@ -1048,7 +1048,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateFunction
     class CreateFunction
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/function')
         params = Hearth::Query::ParamList.new
@@ -1076,7 +1076,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateInvalidation
     class CreateInvalidation
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<DistributionId>s/invalidation',
@@ -1124,7 +1124,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateKeyGroup
     class CreateKeyGroup
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/key-group')
         params = Hearth::Query::ParamList.new
@@ -1159,7 +1159,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateMonitoringSubscription
     class CreateMonitoringSubscription
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2020-05-31/distributions/%<DistributionId>s/monitoring-subscription',
@@ -1194,7 +1194,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateOriginRequestPolicy
     class CreateOriginRequestPolicy
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/origin-request-policy')
         params = Hearth::Query::ParamList.new
@@ -1250,7 +1250,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreatePublicKey
     class CreatePublicKey
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/public-key')
         params = Hearth::Query::ParamList.new
@@ -1275,7 +1275,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateRealtimeLogConfig
     class CreateRealtimeLogConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/realtime-log-config')
         params = Hearth::Query::ParamList.new
@@ -1336,7 +1336,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateResponseHeadersPolicy
     class CreateResponseHeadersPolicy
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/response-headers-policy')
         params = Hearth::Query::ParamList.new
@@ -1570,7 +1570,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateStreamingDistribution
     class CreateStreamingDistribution
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/streaming-distribution')
         params = Hearth::Query::ParamList.new
@@ -1620,7 +1620,7 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateStreamingDistributionWithTags
     class CreateStreamingDistributionWithTags
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         CGI.parse('WithTags').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
@@ -1646,7 +1646,7 @@ module AWS::Cloudfront
 
     # Operation Builder for DeleteCachePolicy
     class DeleteCachePolicy
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/cache-policy/%<Id>s',
@@ -1661,7 +1661,7 @@ module AWS::Cloudfront
 
     # Operation Builder for DeleteCloudFrontOriginAccessIdentity
     class DeleteCloudFrontOriginAccessIdentity
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/origin-access-identity/cloudfront/%<Id>s',
@@ -1676,7 +1676,7 @@ module AWS::Cloudfront
 
     # Operation Builder for DeleteDistribution
     class DeleteDistribution
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<Id>s',
@@ -1691,7 +1691,7 @@ module AWS::Cloudfront
 
     # Operation Builder for DeleteFieldLevelEncryptionConfig
     class DeleteFieldLevelEncryptionConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption/%<Id>s',
@@ -1706,7 +1706,7 @@ module AWS::Cloudfront
 
     # Operation Builder for DeleteFieldLevelEncryptionProfile
     class DeleteFieldLevelEncryptionProfile
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption-profile/%<Id>s',
@@ -1721,7 +1721,7 @@ module AWS::Cloudfront
 
     # Operation Builder for DeleteFunction
     class DeleteFunction
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s',
@@ -1736,7 +1736,7 @@ module AWS::Cloudfront
 
     # Operation Builder for DeleteKeyGroup
     class DeleteKeyGroup
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/key-group/%<Id>s',
@@ -1751,7 +1751,7 @@ module AWS::Cloudfront
 
     # Operation Builder for DeleteMonitoringSubscription
     class DeleteMonitoringSubscription
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/distributions/%<DistributionId>s/monitoring-subscription',
@@ -1765,7 +1765,7 @@ module AWS::Cloudfront
 
     # Operation Builder for DeleteOriginRequestPolicy
     class DeleteOriginRequestPolicy
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/origin-request-policy/%<Id>s',
@@ -1780,7 +1780,7 @@ module AWS::Cloudfront
 
     # Operation Builder for DeletePublicKey
     class DeletePublicKey
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/public-key/%<Id>s',
@@ -1795,7 +1795,7 @@ module AWS::Cloudfront
 
     # Operation Builder for DeleteRealtimeLogConfig
     class DeleteRealtimeLogConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/delete-realtime-log-config')
         params = Hearth::Query::ParamList.new
@@ -1812,7 +1812,7 @@ module AWS::Cloudfront
 
     # Operation Builder for DeleteResponseHeadersPolicy
     class DeleteResponseHeadersPolicy
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/response-headers-policy/%<Id>s',
@@ -1827,7 +1827,7 @@ module AWS::Cloudfront
 
     # Operation Builder for DeleteStreamingDistribution
     class DeleteStreamingDistribution
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/streaming-distribution/%<Id>s',
@@ -1842,7 +1842,7 @@ module AWS::Cloudfront
 
     # Operation Builder for DescribeFunction
     class DescribeFunction
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s/describe',
@@ -1857,7 +1857,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetCachePolicy
     class GetCachePolicy
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/cache-policy/%<Id>s',
@@ -1871,7 +1871,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetCachePolicyConfig
     class GetCachePolicyConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/cache-policy/%<Id>s/config',
@@ -1885,7 +1885,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetCloudFrontOriginAccessIdentity
     class GetCloudFrontOriginAccessIdentity
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/origin-access-identity/cloudfront/%<Id>s',
@@ -1899,7 +1899,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetCloudFrontOriginAccessIdentityConfig
     class GetCloudFrontOriginAccessIdentityConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/origin-access-identity/cloudfront/%<Id>s/config',
@@ -1913,7 +1913,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetDistribution
     class GetDistribution
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<Id>s',
@@ -1927,7 +1927,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetDistributionConfig
     class GetDistributionConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<Id>s/config',
@@ -1941,7 +1941,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetFieldLevelEncryption
     class GetFieldLevelEncryption
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption/%<Id>s',
@@ -1955,7 +1955,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetFieldLevelEncryptionConfig
     class GetFieldLevelEncryptionConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption/%<Id>s/config',
@@ -1969,7 +1969,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetFieldLevelEncryptionProfile
     class GetFieldLevelEncryptionProfile
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption-profile/%<Id>s',
@@ -1983,7 +1983,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetFieldLevelEncryptionProfileConfig
     class GetFieldLevelEncryptionProfileConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption-profile/%<Id>s/config',
@@ -1997,7 +1997,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetFunction
     class GetFunction
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s',
@@ -2012,7 +2012,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetInvalidation
     class GetInvalidation
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<DistributionId>s/invalidation/%<Id>s',
@@ -2027,7 +2027,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetKeyGroup
     class GetKeyGroup
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/key-group/%<Id>s',
@@ -2041,7 +2041,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetKeyGroupConfig
     class GetKeyGroupConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/key-group/%<Id>s/config',
@@ -2055,7 +2055,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetMonitoringSubscription
     class GetMonitoringSubscription
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distributions/%<DistributionId>s/monitoring-subscription',
@@ -2069,7 +2069,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetOriginRequestPolicy
     class GetOriginRequestPolicy
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/origin-request-policy/%<Id>s',
@@ -2083,7 +2083,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetOriginRequestPolicyConfig
     class GetOriginRequestPolicyConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/origin-request-policy/%<Id>s/config',
@@ -2097,7 +2097,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetPublicKey
     class GetPublicKey
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/public-key/%<Id>s',
@@ -2111,7 +2111,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetPublicKeyConfig
     class GetPublicKeyConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/public-key/%<Id>s/config',
@@ -2125,7 +2125,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetRealtimeLogConfig
     class GetRealtimeLogConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/get-realtime-log-config')
         params = Hearth::Query::ParamList.new
@@ -2142,7 +2142,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetResponseHeadersPolicy
     class GetResponseHeadersPolicy
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/response-headers-policy/%<Id>s',
@@ -2156,7 +2156,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetResponseHeadersPolicyConfig
     class GetResponseHeadersPolicyConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/response-headers-policy/%<Id>s/config',
@@ -2170,7 +2170,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetStreamingDistribution
     class GetStreamingDistribution
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/streaming-distribution/%<Id>s',
@@ -2184,7 +2184,7 @@ module AWS::Cloudfront
 
     # Operation Builder for GetStreamingDistributionConfig
     class GetStreamingDistributionConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/streaming-distribution/%<Id>s/config',
@@ -2198,7 +2198,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListCachePolicies
     class ListCachePolicies
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/cache-policy')
         params = Hearth::Query::ParamList.new
@@ -2211,7 +2211,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListCloudFrontOriginAccessIdentities
     class ListCloudFrontOriginAccessIdentities
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/origin-access-identity/cloudfront')
         params = Hearth::Query::ParamList.new
@@ -2223,7 +2223,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListConflictingAliases
     class ListConflictingAliases
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/conflicting-alias')
         params = Hearth::Query::ParamList.new
@@ -2237,7 +2237,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListDistributions
     class ListDistributions
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/distribution')
         params = Hearth::Query::ParamList.new
@@ -2249,7 +2249,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListDistributionsByCachePolicyId
     class ListDistributionsByCachePolicyId
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distributionsByCachePolicyId/%<CachePolicyId>s',
@@ -2265,7 +2265,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListDistributionsByKeyGroup
     class ListDistributionsByKeyGroup
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distributionsByKeyGroupId/%<KeyGroupId>s',
@@ -2281,7 +2281,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListDistributionsByOriginRequestPolicyId
     class ListDistributionsByOriginRequestPolicyId
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distributionsByOriginRequestPolicyId/%<OriginRequestPolicyId>s',
@@ -2297,7 +2297,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListDistributionsByRealtimeLogConfig
     class ListDistributionsByRealtimeLogConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/distributionsByRealtimeLogConfig')
         params = Hearth::Query::ParamList.new
@@ -2316,7 +2316,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListDistributionsByResponseHeadersPolicyId
     class ListDistributionsByResponseHeadersPolicyId
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distributionsByResponseHeadersPolicyId/%<ResponseHeadersPolicyId>s',
@@ -2332,7 +2332,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListDistributionsByWebACLId
     class ListDistributionsByWebACLId
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distributionsByWebACLId/%<WebACLId>s',
@@ -2348,7 +2348,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListFieldLevelEncryptionConfigs
     class ListFieldLevelEncryptionConfigs
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/field-level-encryption')
         params = Hearth::Query::ParamList.new
@@ -2360,7 +2360,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListFieldLevelEncryptionProfiles
     class ListFieldLevelEncryptionProfiles
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/field-level-encryption-profile')
         params = Hearth::Query::ParamList.new
@@ -2372,7 +2372,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListFunctions
     class ListFunctions
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/function')
         params = Hearth::Query::ParamList.new
@@ -2385,7 +2385,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListInvalidations
     class ListInvalidations
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<DistributionId>s/invalidation',
@@ -2401,7 +2401,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListKeyGroups
     class ListKeyGroups
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/key-group')
         params = Hearth::Query::ParamList.new
@@ -2413,7 +2413,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListOriginRequestPolicies
     class ListOriginRequestPolicies
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/origin-request-policy')
         params = Hearth::Query::ParamList.new
@@ -2426,7 +2426,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListPublicKeys
     class ListPublicKeys
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/public-key')
         params = Hearth::Query::ParamList.new
@@ -2438,7 +2438,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListRealtimeLogConfigs
     class ListRealtimeLogConfigs
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/realtime-log-config')
         params = Hearth::Query::ParamList.new
@@ -2450,7 +2450,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListResponseHeadersPolicies
     class ListResponseHeadersPolicies
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/response-headers-policy')
         params = Hearth::Query::ParamList.new
@@ -2463,7 +2463,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListStreamingDistributions
     class ListStreamingDistributions
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/streaming-distribution')
         params = Hearth::Query::ParamList.new
@@ -2475,7 +2475,7 @@ module AWS::Cloudfront
 
     # Operation Builder for ListTagsForResource
     class ListTagsForResource
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/tagging')
         params = Hearth::Query::ParamList.new
@@ -2486,7 +2486,7 @@ module AWS::Cloudfront
 
     # Operation Builder for PublishFunction
     class PublishFunction
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s/publish',
@@ -2501,7 +2501,7 @@ module AWS::Cloudfront
 
     # Operation Builder for TagResource
     class TagResource
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         CGI.parse('Operation=Tag').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
@@ -2518,7 +2518,7 @@ module AWS::Cloudfront
 
     # Operation Builder for TestFunction
     class TestFunction
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s/test',
@@ -2540,7 +2540,7 @@ module AWS::Cloudfront
 
     # Operation Builder for UntagResource
     class UntagResource
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'POST'
         CGI.parse('Operation=Untag').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
@@ -2577,7 +2577,7 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateCachePolicy
     class UpdateCachePolicy
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/cache-policy/%<Id>s',
@@ -2595,7 +2595,7 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateCloudFrontOriginAccessIdentity
     class UpdateCloudFrontOriginAccessIdentity
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/origin-access-identity/cloudfront/%<Id>s/config',
@@ -2613,7 +2613,7 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateDistribution
     class UpdateDistribution
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<Id>s/config',
@@ -2631,7 +2631,7 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateFieldLevelEncryptionConfig
     class UpdateFieldLevelEncryptionConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption/%<Id>s/config',
@@ -2649,7 +2649,7 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateFieldLevelEncryptionProfile
     class UpdateFieldLevelEncryptionProfile
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption-profile/%<Id>s/config',
@@ -2667,7 +2667,7 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateFunction
     class UpdateFunction
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s',
@@ -2689,7 +2689,7 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateKeyGroup
     class UpdateKeyGroup
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/key-group/%<Id>s',
@@ -2707,7 +2707,7 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateOriginRequestPolicy
     class UpdateOriginRequestPolicy
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/origin-request-policy/%<Id>s',
@@ -2725,7 +2725,7 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdatePublicKey
     class UpdatePublicKey
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/public-key/%<Id>s/config',
@@ -2743,7 +2743,7 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateRealtimeLogConfig
     class UpdateRealtimeLogConfig
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'PUT'
         http_req.append_path('/2020-05-31/realtime-log-config')
         params = Hearth::Query::ParamList.new
@@ -2763,7 +2763,7 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateResponseHeadersPolicy
     class UpdateResponseHeadersPolicy
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/response-headers-policy/%<Id>s',
@@ -2781,7 +2781,7 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateStreamingDistribution
     class UpdateStreamingDistribution
-      def self.build(http_req, input:)
+      def self.build(http_req, input:, disable_host_prefix:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/streaming-distribution/%<Id>s/config',
