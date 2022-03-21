@@ -14,26 +14,22 @@ module AWS::Cloudfront
 
     # Operation Builder for AssociateAlias
     class AssociateAlias
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<TargetDistributionId>s/associate-alias',
             TargetDistributionId: Hearth::HTTP.uri_escape(input[:target_distribution_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Alias'] = input[:alias].to_s unless input[:alias].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Alias', input[:alias].to_s) unless input[:alias].nil?
       end
     end
 
     # Operation Builder for CreateCachePolicy
     class CreateCachePolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/cache-policy')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CachePolicyConfig.build('CachePolicyConfig', input[:cache_policy_config]) unless input[:cache_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -162,11 +158,9 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateCloudFrontOriginAccessIdentity
     class CreateCloudFrontOriginAccessIdentity
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/origin-access-identity/cloudfront')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CloudFrontOriginAccessIdentityConfig.build('CloudFrontOriginAccessIdentityConfig', input[:cloud_front_origin_access_identity_config]) unless input[:cloud_front_origin_access_identity_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -185,11 +179,9 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateDistribution
     class CreateDistribution
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/distribution')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionConfig.build('DistributionConfig', input[:distribution_config]) unless input[:distribution_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -806,14 +798,12 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateDistributionWithTags
     class CreateDistributionWithTags
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         CGI.parse('WithTags').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2020-05-31/distribution')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionConfigWithTags.build('DistributionConfigWithTags', input[:distribution_config_with_tags]) unless input[:distribution_config_with_tags].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -862,11 +852,9 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateFieldLevelEncryptionConfig
     class CreateFieldLevelEncryptionConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/field-level-encryption')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionConfig.build('FieldLevelEncryptionConfig', input[:field_level_encryption_config]) unless input[:field_level_encryption_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -970,11 +958,9 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateFieldLevelEncryptionProfile
     class CreateFieldLevelEncryptionProfile
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/field-level-encryption-profile')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionProfileConfig.build('FieldLevelEncryptionProfileConfig', input[:field_level_encryption_profile_config]) unless input[:field_level_encryption_profile_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1048,11 +1034,9 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateFunction
     class CreateFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/function')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateFunctionRequest')
@@ -1076,15 +1060,13 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateInvalidation
     class CreateInvalidation
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<DistributionId>s/invalidation',
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::InvalidationBatch.build('InvalidationBatch', input[:invalidation_batch]) unless input[:invalidation_batch].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1124,11 +1106,9 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateKeyGroup
     class CreateKeyGroup
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/key-group')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::KeyGroupConfig.build('KeyGroupConfig', input[:key_group_config]) unless input[:key_group_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1159,15 +1139,13 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateMonitoringSubscription
     class CreateMonitoringSubscription
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2020-05-31/distributions/%<DistributionId>s/monitoring-subscription',
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::MonitoringSubscription.build('MonitoringSubscription', input[:monitoring_subscription]) unless input[:monitoring_subscription].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1194,11 +1172,9 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateOriginRequestPolicy
     class CreateOriginRequestPolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/origin-request-policy')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::OriginRequestPolicyConfig.build('OriginRequestPolicyConfig', input[:origin_request_policy_config]) unless input[:origin_request_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1250,11 +1226,9 @@ module AWS::Cloudfront
 
     # Operation Builder for CreatePublicKey
     class CreatePublicKey
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/public-key')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicKeyConfig.build('PublicKeyConfig', input[:public_key_config]) unless input[:public_key_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1275,11 +1249,9 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateRealtimeLogConfig
     class CreateRealtimeLogConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/realtime-log-config')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateRealtimeLogConfigRequest')
@@ -1336,11 +1308,9 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateResponseHeadersPolicy
     class CreateResponseHeadersPolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/response-headers-policy')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ResponseHeadersPolicyConfig.build('ResponseHeadersPolicyConfig', input[:response_headers_policy_config]) unless input[:response_headers_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1570,11 +1540,9 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateStreamingDistribution
     class CreateStreamingDistribution
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/streaming-distribution')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1620,14 +1588,12 @@ module AWS::Cloudfront
 
     # Operation Builder for CreateStreamingDistributionWithTags
     class CreateStreamingDistributionWithTags
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         CGI.parse('WithTags').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2020-05-31/streaming-distribution')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistributionConfigWithTags.build('StreamingDistributionConfigWithTags', input[:streaming_distribution_config_with_tags]) unless input[:streaming_distribution_config_with_tags].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1646,160 +1612,138 @@ module AWS::Cloudfront
 
     # Operation Builder for DeleteCachePolicy
     class DeleteCachePolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/cache-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
 
     # Operation Builder for DeleteCloudFrontOriginAccessIdentity
     class DeleteCloudFrontOriginAccessIdentity
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/origin-access-identity/cloudfront/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
 
     # Operation Builder for DeleteDistribution
     class DeleteDistribution
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
 
     # Operation Builder for DeleteFieldLevelEncryptionConfig
     class DeleteFieldLevelEncryptionConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
 
     # Operation Builder for DeleteFieldLevelEncryptionProfile
     class DeleteFieldLevelEncryptionProfile
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption-profile/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
 
     # Operation Builder for DeleteFunction
     class DeleteFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s',
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
 
     # Operation Builder for DeleteKeyGroup
     class DeleteKeyGroup
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/key-group/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
 
     # Operation Builder for DeleteMonitoringSubscription
     class DeleteMonitoringSubscription
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/distributions/%<DistributionId>s/monitoring-subscription',
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for DeleteOriginRequestPolicy
     class DeleteOriginRequestPolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/origin-request-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
 
     # Operation Builder for DeletePublicKey
     class DeletePublicKey
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/public-key/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
 
     # Operation Builder for DeleteRealtimeLogConfig
     class DeleteRealtimeLogConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/delete-realtime-log-config')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteRealtimeLogConfigRequest')
@@ -1812,207 +1756,179 @@ module AWS::Cloudfront
 
     # Operation Builder for DeleteResponseHeadersPolicy
     class DeleteResponseHeadersPolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/response-headers-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
 
     # Operation Builder for DeleteStreamingDistribution
     class DeleteStreamingDistribution
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/streaming-distribution/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
 
     # Operation Builder for DescribeFunction
     class DescribeFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s/describe',
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Stage'] = input[:stage].to_s unless input[:stage].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Stage', input[:stage].to_s) unless input[:stage].nil?
       end
     end
 
     # Operation Builder for GetCachePolicy
     class GetCachePolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/cache-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetCachePolicyConfig
     class GetCachePolicyConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/cache-policy/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetCloudFrontOriginAccessIdentity
     class GetCloudFrontOriginAccessIdentity
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/origin-access-identity/cloudfront/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetCloudFrontOriginAccessIdentityConfig
     class GetCloudFrontOriginAccessIdentityConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/origin-access-identity/cloudfront/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetDistribution
     class GetDistribution
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetDistributionConfig
     class GetDistributionConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetFieldLevelEncryption
     class GetFieldLevelEncryption
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetFieldLevelEncryptionConfig
     class GetFieldLevelEncryptionConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetFieldLevelEncryptionProfile
     class GetFieldLevelEncryptionProfile
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption-profile/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetFieldLevelEncryptionProfileConfig
     class GetFieldLevelEncryptionProfileConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption-profile/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetFunction
     class GetFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s',
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Stage'] = input[:stage].to_s unless input[:stage].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Stage', input[:stage].to_s) unless input[:stage].nil?
       end
     end
 
     # Operation Builder for GetInvalidation
     class GetInvalidation
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<DistributionId>s/invalidation/%<Id>s',
@@ -2020,116 +1936,98 @@ module AWS::Cloudfront
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetKeyGroup
     class GetKeyGroup
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/key-group/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetKeyGroupConfig
     class GetKeyGroupConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/key-group/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetMonitoringSubscription
     class GetMonitoringSubscription
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distributions/%<DistributionId>s/monitoring-subscription',
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetOriginRequestPolicy
     class GetOriginRequestPolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/origin-request-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetOriginRequestPolicyConfig
     class GetOriginRequestPolicyConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/origin-request-policy/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetPublicKey
     class GetPublicKey
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/public-key/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetPublicKeyConfig
     class GetPublicKeyConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/public-key/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetRealtimeLogConfig
     class GetRealtimeLogConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/get-realtime-log-config')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetRealtimeLogConfigRequest')
@@ -2142,166 +2040,142 @@ module AWS::Cloudfront
 
     # Operation Builder for GetResponseHeadersPolicy
     class GetResponseHeadersPolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/response-headers-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetResponseHeadersPolicyConfig
     class GetResponseHeadersPolicyConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/response-headers-policy/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetStreamingDistribution
     class GetStreamingDistribution
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/streaming-distribution/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetStreamingDistributionConfig
     class GetStreamingDistributionConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/streaming-distribution/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for ListCachePolicies
     class ListCachePolicies
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/cache-policy')
-        params = Hearth::Query::ParamList.new
-        params['Type'] = input[:type].to_s unless input[:type].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Type', input[:type].to_s) unless input[:type].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListCloudFrontOriginAccessIdentities
     class ListCloudFrontOriginAccessIdentities
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/origin-access-identity/cloudfront')
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListConflictingAliases
     class ListConflictingAliases
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/conflicting-alias')
-        params = Hearth::Query::ParamList.new
-        params['DistributionId'] = input[:distribution_id].to_s unless input[:distribution_id].nil?
-        params['Alias'] = input[:alias].to_s unless input[:alias].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('DistributionId', input[:distribution_id].to_s) unless input[:distribution_id].nil?
+        http_req.append_query_param('Alias', input[:alias].to_s) unless input[:alias].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListDistributions
     class ListDistributions
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/distribution')
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListDistributionsByCachePolicyId
     class ListDistributionsByCachePolicyId
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distributionsByCachePolicyId/%<CachePolicyId>s',
             CachePolicyId: Hearth::HTTP.uri_escape(input[:cache_policy_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListDistributionsByKeyGroup
     class ListDistributionsByKeyGroup
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distributionsByKeyGroupId/%<KeyGroupId>s',
             KeyGroupId: Hearth::HTTP.uri_escape(input[:key_group_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListDistributionsByOriginRequestPolicyId
     class ListDistributionsByOriginRequestPolicyId
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distributionsByOriginRequestPolicyId/%<OriginRequestPolicyId>s',
             OriginRequestPolicyId: Hearth::HTTP.uri_escape(input[:origin_request_policy_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListDistributionsByRealtimeLogConfig
     class ListDistributionsByRealtimeLogConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-05-31/distributionsByRealtimeLogConfig')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ListDistributionsByRealtimeLogConfigRequest')
@@ -2316,200 +2190,170 @@ module AWS::Cloudfront
 
     # Operation Builder for ListDistributionsByResponseHeadersPolicyId
     class ListDistributionsByResponseHeadersPolicyId
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distributionsByResponseHeadersPolicyId/%<ResponseHeadersPolicyId>s',
             ResponseHeadersPolicyId: Hearth::HTTP.uri_escape(input[:response_headers_policy_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListDistributionsByWebACLId
     class ListDistributionsByWebACLId
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distributionsByWebACLId/%<WebACLId>s',
             WebACLId: Hearth::HTTP.uri_escape(input[:web_acl_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListFieldLevelEncryptionConfigs
     class ListFieldLevelEncryptionConfigs
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/field-level-encryption')
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListFieldLevelEncryptionProfiles
     class ListFieldLevelEncryptionProfiles
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/field-level-encryption-profile')
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListFunctions
     class ListFunctions
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/function')
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        params['Stage'] = input[:stage].to_s unless input[:stage].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        http_req.append_query_param('Stage', input[:stage].to_s) unless input[:stage].nil?
       end
     end
 
     # Operation Builder for ListInvalidations
     class ListInvalidations
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<DistributionId>s/invalidation',
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListKeyGroups
     class ListKeyGroups
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/key-group')
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListOriginRequestPolicies
     class ListOriginRequestPolicies
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/origin-request-policy')
-        params = Hearth::Query::ParamList.new
-        params['Type'] = input[:type].to_s unless input[:type].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Type', input[:type].to_s) unless input[:type].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListPublicKeys
     class ListPublicKeys
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/public-key')
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListRealtimeLogConfigs
     class ListRealtimeLogConfigs
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/realtime-log-config')
-        params = Hearth::Query::ParamList.new
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
       end
     end
 
     # Operation Builder for ListResponseHeadersPolicies
     class ListResponseHeadersPolicies
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/response-headers-policy')
-        params = Hearth::Query::ParamList.new
-        params['Type'] = input[:type].to_s unless input[:type].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Type', input[:type].to_s) unless input[:type].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListStreamingDistributions
     class ListStreamingDistributions
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/streaming-distribution')
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListTagsForResource
     class ListTagsForResource
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-05-31/tagging')
-        params = Hearth::Query::ParamList.new
-        params['Resource'] = input[:resource].to_s unless input[:resource].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Resource', input[:resource].to_s) unless input[:resource].nil?
       end
     end
 
     # Operation Builder for PublishFunction
     class PublishFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s/publish',
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
 
     # Operation Builder for TagResource
     class TagResource
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         CGI.parse('Operation=Tag').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2020-05-31/tagging')
-        params = Hearth::Query::ParamList.new
-        params['Resource'] = input[:resource].to_s unless input[:resource].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Resource', input[:resource].to_s) unless input[:resource].nil?
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::Tags.build('Tags', input[:tags]) unless input[:tags].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2518,15 +2362,13 @@ module AWS::Cloudfront
 
     # Operation Builder for TestFunction
     class TestFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s/test',
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('TestFunctionRequest')
@@ -2540,15 +2382,13 @@ module AWS::Cloudfront
 
     # Operation Builder for UntagResource
     class UntagResource
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         CGI.parse('Operation=Untag').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2020-05-31/tagging')
-        params = Hearth::Query::ParamList.new
-        params['Resource'] = input[:resource].to_s unless input[:resource].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Resource', input[:resource].to_s) unless input[:resource].nil?
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::TagKeys.build('TagKeys', input[:tag_keys]) unless input[:tag_keys].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2577,15 +2417,13 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateCachePolicy
     class UpdateCachePolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/cache-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CachePolicyConfig.build('CachePolicyConfig', input[:cache_policy_config]) unless input[:cache_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2595,15 +2433,13 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateCloudFrontOriginAccessIdentity
     class UpdateCloudFrontOriginAccessIdentity
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/origin-access-identity/cloudfront/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CloudFrontOriginAccessIdentityConfig.build('CloudFrontOriginAccessIdentityConfig', input[:cloud_front_origin_access_identity_config]) unless input[:cloud_front_origin_access_identity_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2613,15 +2449,13 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateDistribution
     class UpdateDistribution
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/distribution/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionConfig.build('DistributionConfig', input[:distribution_config]) unless input[:distribution_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2631,15 +2465,13 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateFieldLevelEncryptionConfig
     class UpdateFieldLevelEncryptionConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionConfig.build('FieldLevelEncryptionConfig', input[:field_level_encryption_config]) unless input[:field_level_encryption_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2649,15 +2481,13 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateFieldLevelEncryptionProfile
     class UpdateFieldLevelEncryptionProfile
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/field-level-encryption-profile/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionProfileConfig.build('FieldLevelEncryptionProfileConfig', input[:field_level_encryption_profile_config]) unless input[:field_level_encryption_profile_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2667,15 +2497,13 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateFunction
     class UpdateFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s',
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('UpdateFunctionRequest')
@@ -2689,15 +2517,13 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateKeyGroup
     class UpdateKeyGroup
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/key-group/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::KeyGroupConfig.build('KeyGroupConfig', input[:key_group_config]) unless input[:key_group_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2707,15 +2533,13 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateOriginRequestPolicy
     class UpdateOriginRequestPolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/origin-request-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::OriginRequestPolicyConfig.build('OriginRequestPolicyConfig', input[:origin_request_policy_config]) unless input[:origin_request_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2725,15 +2549,13 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdatePublicKey
     class UpdatePublicKey
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/public-key/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicKeyConfig.build('PublicKeyConfig', input[:public_key_config]) unless input[:public_key_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2743,11 +2565,9 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateRealtimeLogConfig
     class UpdateRealtimeLogConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path('/2020-05-31/realtime-log-config')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('UpdateRealtimeLogConfigRequest')
@@ -2763,15 +2583,13 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateResponseHeadersPolicy
     class UpdateResponseHeadersPolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/response-headers-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ResponseHeadersPolicyConfig.build('ResponseHeadersPolicyConfig', input[:response_headers_policy_config]) unless input[:response_headers_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -2781,15 +2599,13 @@ module AWS::Cloudfront
 
     # Operation Builder for UpdateStreamingDistribution
     class UpdateStreamingDistribution
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/streaming-distribution/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
         http_req.body = StringIO.new(xml.to_str)

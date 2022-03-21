@@ -14,7 +14,7 @@ module AWS::Lambda
 
     # Operation Builder for AddLayerVersionPermission
     class AddLayerVersionPermission
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s/policy',
@@ -22,9 +22,7 @@ module AWS::Lambda
             VersionNumber: Hearth::HTTP.uri_escape(input[:version_number].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['RevisionId'] = input[:revision_id].to_s unless input[:revision_id].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('RevisionId', input[:revision_id].to_s) unless input[:revision_id].nil?
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -38,16 +36,14 @@ module AWS::Lambda
 
     # Operation Builder for AddPermission
     class AddPermission
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/policy',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -64,15 +60,13 @@ module AWS::Lambda
 
     # Operation Builder for CreateAlias
     class CreateAlias
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -106,11 +100,9 @@ module AWS::Lambda
 
     # Operation Builder for CreateCodeSigningConfig
     class CreateCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-04-22/code-signing-configs')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -152,11 +144,9 @@ module AWS::Lambda
 
     # Operation Builder for CreateEventSourceMapping
     class CreateEventSourceMapping
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2015-03-31/event-source-mappings')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -297,11 +287,9 @@ module AWS::Lambda
 
     # Operation Builder for CreateFunction
     class CreateFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2015-03-31/functions')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -479,7 +467,7 @@ module AWS::Lambda
 
     # Operation Builder for DeleteAlias
     class DeleteAlias
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
@@ -487,100 +475,86 @@ module AWS::Lambda
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for DeleteCodeSigningConfig
     class DeleteCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s',
             CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for DeleteEventSourceMapping
     class DeleteEventSourceMapping
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2015-03-31/event-source-mappings/%<UUID>s',
             UUID: Hearth::HTTP.uri_escape(input[:uuid].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for DeleteFunction
     class DeleteFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
     # Operation Builder for DeleteFunctionCodeSigningConfig
     class DeleteFunctionCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-06-30/functions/%<FunctionName>s/code-signing-config',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for DeleteFunctionConcurrency
     class DeleteFunctionConcurrency
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2017-10-31/functions/%<FunctionName>s/concurrency',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for DeleteFunctionEventInvokeConfig
     class DeleteFunctionEventInvokeConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
     # Operation Builder for DeleteLayerVersion
     class DeleteLayerVersion
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s',
@@ -588,39 +562,33 @@ module AWS::Lambda
             VersionNumber: Hearth::HTTP.uri_escape(input[:version_number].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for DeleteProvisionedConcurrencyConfig
     class DeleteProvisionedConcurrencyConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
     # Operation Builder for GetAccountSettings
     class GetAccountSettings
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2016-08-19/account-settings')
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetAlias
     class GetAlias
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
@@ -628,115 +596,99 @@ module AWS::Lambda
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetCodeSigningConfig
     class GetCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s',
             CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetEventSourceMapping
     class GetEventSourceMapping
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2015-03-31/event-source-mappings/%<UUID>s',
             UUID: Hearth::HTTP.uri_escape(input[:uuid].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetFunction
     class GetFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
     # Operation Builder for GetFunctionCodeSigningConfig
     class GetFunctionCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-06-30/functions/%<FunctionName>s/code-signing-config',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetFunctionConcurrency
     class GetFunctionConcurrency
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/concurrency',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetFunctionConfiguration
     class GetFunctionConfiguration
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/configuration',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
     # Operation Builder for GetFunctionEventInvokeConfig
     class GetFunctionEventInvokeConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
     # Operation Builder for GetLayerVersion
     class GetLayerVersion
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s',
@@ -744,28 +696,24 @@ module AWS::Lambda
             VersionNumber: Hearth::HTTP.uri_escape(input[:version_number].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetLayerVersionByArn
     class GetLayerVersionByArn
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('find=LayerVersion').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2018-10-31/layers')
-        params = Hearth::Query::ParamList.new
-        params['Arn'] = input[:arn].to_s unless input[:arn].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Arn', input[:arn].to_s) unless input[:arn].nil?
       end
     end
 
     # Operation Builder for GetLayerVersionPolicy
     class GetLayerVersionPolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s/policy',
@@ -773,53 +721,45 @@ module AWS::Lambda
             VersionNumber: Hearth::HTTP.uri_escape(input[:version_number].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for GetPolicy
     class GetPolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/policy',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
     # Operation Builder for GetProvisionedConcurrencyConfig
     class GetProvisionedConcurrencyConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
       end
     end
 
     # Operation Builder for Invoke
     class Invoke
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/invocations',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
         http_req.headers['Content-Type'] = 'application/octet-stream'
         http_req.body = StringIO.new(input[:payload] || '')
         http_req.headers['X-Amz-Invocation-Type'] = input[:invocation_type] unless input[:invocation_type].nil? || input[:invocation_type].empty?
@@ -830,15 +770,13 @@ module AWS::Lambda
 
     # Operation Builder for InvokeAsync
     class InvokeAsync
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2014-11-13/functions/%<FunctionName>s/invoke-async',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
         http_req.body = StringIO.new(input[:invoke_args] || '')
       end
@@ -846,126 +784,110 @@ module AWS::Lambda
 
     # Operation Builder for ListAliases
     class ListAliases
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['FunctionVersion'] = input[:function_version].to_s unless input[:function_version].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('FunctionVersion', input[:function_version].to_s) unless input[:function_version].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListCodeSigningConfigs
     class ListCodeSigningConfigs
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-04-22/code-signing-configs')
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListEventSourceMappings
     class ListEventSourceMappings
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2015-03-31/event-source-mappings')
-        params = Hearth::Query::ParamList.new
-        params['EventSourceArn'] = input[:event_source_arn].to_s unless input[:event_source_arn].nil?
-        params['FunctionName'] = input[:function_name].to_s unless input[:function_name].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('EventSourceArn', input[:event_source_arn].to_s) unless input[:event_source_arn].nil?
+        http_req.append_query_param('FunctionName', input[:function_name].to_s) unless input[:function_name].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListFunctionEventInvokeConfigs
     class ListFunctionEventInvokeConfigs
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config/list',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListFunctions
     class ListFunctions
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2015-03-31/functions')
-        params = Hearth::Query::ParamList.new
-        params['MasterRegion'] = input[:master_region].to_s unless input[:master_region].nil?
-        params['FunctionVersion'] = input[:function_version].to_s unless input[:function_version].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('MasterRegion', input[:master_region].to_s) unless input[:master_region].nil?
+        http_req.append_query_param('FunctionVersion', input[:function_version].to_s) unless input[:function_version].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListFunctionsByCodeSigningConfig
     class ListFunctionsByCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s/functions',
             CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListLayerVersions
     class ListLayerVersions
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions',
             LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['CompatibleRuntime'] = input[:compatible_runtime].to_s unless input[:compatible_runtime].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('CompatibleRuntime', input[:compatible_runtime].to_s) unless input[:compatible_runtime].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListLayers
     class ListLayers
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2018-10-31/layers')
-        params = Hearth::Query::ParamList.new
-        params['CompatibleRuntime'] = input[:compatible_runtime].to_s unless input[:compatible_runtime].nil?
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('CompatibleRuntime', input[:compatible_runtime].to_s) unless input[:compatible_runtime].nil?
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListProvisionedConcurrencyConfigs
     class ListProvisionedConcurrencyConfigs
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('List=ALL').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
@@ -975,54 +897,46 @@ module AWS::Lambda
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for ListTags
     class ListTags
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2017-03-31/tags/%<Resource>s',
             Resource: Hearth::HTTP.uri_escape(input[:resource].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
       end
     end
 
     # Operation Builder for ListVersionsByFunction
     class ListVersionsByFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/versions',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
-        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Marker', input[:marker].to_s) unless input[:marker].nil?
+        http_req.append_query_param('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
       end
     end
 
     # Operation Builder for PublishLayerVersion
     class PublishLayerVersion
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions',
             LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1059,15 +973,13 @@ module AWS::Lambda
 
     # Operation Builder for PublishVersion
     class PublishVersion
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/versions',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1080,15 +992,13 @@ module AWS::Lambda
 
     # Operation Builder for PutFunctionCodeSigningConfig
     class PutFunctionCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-06-30/functions/%<FunctionName>s/code-signing-config',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1099,15 +1009,13 @@ module AWS::Lambda
 
     # Operation Builder for PutFunctionConcurrency
     class PutFunctionConcurrency
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2017-10-31/functions/%<FunctionName>s/concurrency',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1118,16 +1026,14 @@ module AWS::Lambda
 
     # Operation Builder for PutFunctionEventInvokeConfig
     class PutFunctionEventInvokeConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1140,16 +1046,14 @@ module AWS::Lambda
 
     # Operation Builder for PutProvisionedConcurrencyConfig
     class PutProvisionedConcurrencyConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1160,7 +1064,7 @@ module AWS::Lambda
 
     # Operation Builder for RemoveLayerVersionPermission
     class RemoveLayerVersionPermission
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s/policy/%<StatementId>s',
@@ -1169,15 +1073,13 @@ module AWS::Lambda
             StatementId: Hearth::HTTP.uri_escape(input[:statement_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['RevisionId'] = input[:revision_id].to_s unless input[:revision_id].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('RevisionId', input[:revision_id].to_s) unless input[:revision_id].nil?
       end
     end
 
     # Operation Builder for RemovePermission
     class RemovePermission
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/policy/%<StatementId>s',
@@ -1185,24 +1087,20 @@ module AWS::Lambda
             StatementId: Hearth::HTTP.uri_escape(input[:statement_id].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        params['RevisionId'] = input[:revision_id].to_s unless input[:revision_id].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
+        http_req.append_query_param('RevisionId', input[:revision_id].to_s) unless input[:revision_id].nil?
       end
     end
 
     # Operation Builder for TagResource
     class TagResource
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2017-03-31/tags/%<Resource>s',
             Resource: Hearth::HTTP.uri_escape(input[:resource].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1213,20 +1111,18 @@ module AWS::Lambda
 
     # Operation Builder for UntagResource
     class UntagResource
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2017-03-31/tags/%<Resource>s',
             Resource: Hearth::HTTP.uri_escape(input[:resource].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
         unless input[:tag_keys].nil? || input[:tag_keys].empty?
-          params['tagKeys'] = input[:tag_keys].map do |value|
-            value.to_s unless value.nil?
+          input[:tag_keys].each do |value|
+            http_req.append_query_param('tagKeys', value.to_s) unless value.nil?
           end
         end
-        http_req.append_query_params(params)
       end
     end
 
@@ -1243,7 +1139,7 @@ module AWS::Lambda
 
     # Operation Builder for UpdateAlias
     class UpdateAlias
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
@@ -1251,8 +1147,6 @@ module AWS::Lambda
             Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1266,15 +1160,13 @@ module AWS::Lambda
 
     # Operation Builder for UpdateCodeSigningConfig
     class UpdateCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s',
             CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1287,15 +1179,13 @@ module AWS::Lambda
 
     # Operation Builder for UpdateEventSourceMapping
     class UpdateEventSourceMapping
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2015-03-31/event-source-mappings/%<UUID>s',
             UUID: Hearth::HTTP.uri_escape(input[:uuid].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1317,15 +1207,13 @@ module AWS::Lambda
 
     # Operation Builder for UpdateFunctionCode
     class UpdateFunctionCode
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/code',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1343,15 +1231,13 @@ module AWS::Lambda
 
     # Operation Builder for UpdateFunctionConfiguration
     class UpdateFunctionConfiguration
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/configuration',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
@@ -1376,16 +1262,14 @@ module AWS::Lambda
 
     # Operation Builder for UpdateFunctionEventInvokeConfig
     class UpdateFunctionEventInvokeConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
-        params = Hearth::Query::ParamList.new
-        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
-        http_req.append_query_params(params)
+        http_req.append_query_param('Qualifier', input[:qualifier].to_s) unless input[:qualifier].nil?
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}

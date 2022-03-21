@@ -46,8 +46,7 @@ module AWS::Sts
         }
       end
 
-      def self.stub(node_name, stub)
-        stub ||= Types::AssumedRoleUser.new
+      def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('AssumedRoleId', stub[:assumed_role_id].to_s) unless stub[:assumed_role_id].nil?
         xml << Hearth::XML::Node.new('Arn', stub[:arn].to_s) unless stub[:arn].nil?
@@ -68,8 +67,7 @@ module AWS::Sts
         }
       end
 
-      def self.stub(node_name, stub)
-        stub ||= Types::Credentials.new
+      def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('AccessKeyId', stub[:access_key_id].to_s) unless stub[:access_key_id].nil?
         xml << Hearth::XML::Node.new('SecretAccessKey', stub[:secret_access_key].to_s) unless stub[:secret_access_key].nil?
@@ -240,8 +238,7 @@ module AWS::Sts
         }
       end
 
-      def self.stub(node_name, stub)
-        stub ||= Types::FederatedUser.new
+      def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('FederatedUserId', stub[:federated_user_id].to_s) unless stub[:federated_user_id].nil?
         xml << Hearth::XML::Node.new('Arn', stub[:arn].to_s) unless stub[:arn].nil?

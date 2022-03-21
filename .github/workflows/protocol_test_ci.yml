@@ -70,6 +70,26 @@ jobs:
       with:
         name: rest_json
         path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-restjson/ruby-codegen/rest_json
+    - name: Upload Rest JSON Extras Protocol Test SDK
+      uses: actions/upload-artifact@v2
+      with:
+        name: rest_json_extras
+        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-restjson-extras/ruby-codegen/rest_json_extras
+    - name: Upload Rest XML Extras Protocol Test SDK
+      uses: actions/upload-artifact@v2
+      with:
+        name: rest_xml_extras
+        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-restxml-extras/ruby-codegen/rest_xml_extras
+    - name: Upload EC2 Query Extras Protocol Test SDK
+      uses: actions/upload-artifact@v2
+      with:
+        name: aws_ec2_extras
+        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-ec2-extras/ruby-codegen/aws_ec2_extras
+    - name: Upload Query Extras Protocol Test SDK
+      uses: actions/upload-artifact@v2
+      with:
+        name: query_extras
+        path: codegen/protocol-test-codegen/build/smithyprojections/protocol-test-codegen/aws-protocoltests-query-extras/ruby-codegen/query_extras
 
   aws-query-protocol-specs:
     needs: [generate-test-sdks]
@@ -286,3 +306,147 @@ jobs:
       - name: Tests
         run: bundle exec rspec
         working-directory: ./rest_json
+
+  rest-json-extras-protocol-specs:
+    needs: [generate-test-sdks]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [2.5, 2.6, 2.7, '3.0', 3.1]
+
+    steps:
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - uses: actions/checkout@v2
+
+      - name: Download generated test sdk
+        uses: actions/download-artifact@v2
+        with:
+          name: rest_json_extras
+          path: rest_json_extras
+
+      - name: Copy Gemfile
+        run: |
+          cp codegen/Gemfile rest_json_extras/
+
+      - name: Install gems
+        run: |
+          bundle config set --local without 'docs repl'
+          bundle install
+        working-directory: ./rest_json_extras
+
+      - name: Tests
+        run: bundle exec rspec
+        working-directory: ./rest_json_extras
+
+  rest-xml-extras-protocol-specs:
+    needs: [generate-test-sdks]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [2.5, 2.6, 2.7, '3.0', 3.1]
+
+    steps:
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - uses: actions/checkout@v2
+
+      - name: Download generated test sdk
+        uses: actions/download-artifact@v2
+        with:
+          name: rest_xml_extras
+          path: rest_xml_extras
+
+      - name: Copy Gemfile
+        run: |
+          cp codegen/Gemfile rest_xml_extras/
+
+      - name: Install gems
+        run: |
+          bundle config set --local without 'docs repl'
+          bundle install
+        working-directory: ./rest_xml_extras
+
+      - name: Tests
+        run: bundle exec rspec
+        working-directory: ./rest_xml_extras
+
+  ec2-query-extras-protocol-specs:
+    needs: [generate-test-sdks]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [2.5, 2.6, 2.7, '3.0', 3.1]
+
+    steps:
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - uses: actions/checkout@v2
+
+      - name: Download generated test sdk
+        uses: actions/download-artifact@v2
+        with:
+          name: aws_ec2_extras
+          path: aws_ec2_extras
+
+      - name: Copy Gemfile
+        run: |
+          cp codegen/Gemfile aws_ec2_extras/
+
+      - name: Install gems
+        run: |
+          bundle config set --local without 'docs repl'
+          bundle install
+        working-directory: ./aws_ec2_extras
+
+      - name: Tests
+        run: bundle exec rspec
+        working-directory: ./aws_ec2_extras
+
+  query-extras-protocol-specs:
+    needs: [generate-test-sdks]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby: [2.5, 2.6, 2.7, '3.0', 3.1]
+
+    steps:
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby }}
+
+      - uses: actions/checkout@v2
+
+      - name: Download generated test sdk
+        uses: actions/download-artifact@v2
+        with:
+          name: query_extras
+          path: query_extras
+
+      - name: Copy Gemfile
+        run: |
+          cp codegen/Gemfile query_extras/
+
+      - name: Install gems
+        run: |
+          bundle config set --local without 'docs repl'
+          bundle install
+        working-directory: ./query_extras
+
+      - name: Tests
+        run: bundle exec rspec
+        working-directory: ./query_extras

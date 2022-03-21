@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.query.generators;
 
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
@@ -104,13 +105,33 @@ public class BuilderGenerator extends BuilderGeneratorBase {
                 .closeBlock("end")
                 .closeBlock("end");
     }
-
     @Override
     protected void renderUnionBuildMethod(UnionShape shape) {
+        Symbol symbol = symbolProvider.toSymbol(shape);
         writer
                 .openBlock("def self.build(input, params, context: nil)")
-                .call(() -> renderMemberBuilders(shape))
+                .write("case input");
+
+        shape.members().forEach((member) -> {
+            writer
+                    .write("when Types::$L::$L", shape.getId().getName(), symbolProvider.toMemberName(member))
+                    .indent();
+            renderUnionMemberBuilder(member);
+            writer.dedent();
+        });
+        writer.openBlock("else")
+                .write("raise ArgumentError,\n\"Expected input to be one of the subclasses of Types::$L\"",
+                        symbol.getName())
+                .closeBlock("end")
                 .closeBlock("end");
+    }
+
+    private void renderUnionMemberBuilder(MemberShape member) {
+
+        Shape target = model.expectShape(member.getTarget());
+
+        String dataName = writer.format("'$L'", member.getMemberName());
+        target.accept(new MemberSerializer(member, dataName, "input.__getobj__", false));
     }
 
     @Override
