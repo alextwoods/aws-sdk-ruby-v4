@@ -31,7 +31,6 @@ import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.TimestampShape;
 import software.amazon.smithy.model.shapes.UnionShape;
-import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
@@ -45,7 +44,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     }
 
     private void renderMemberBuilders(Shape s) {
-        //remove members w/ http traits or marked NoSerialize
+        //remove members marked NoSerialize
         Stream<MemberShape> serializeMembers = s.members().stream()
                 .filter(NoSerializeTrait.excludeNoSerializeMembers());
 
@@ -65,8 +64,9 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     protected void renderOperationBuildMethod(OperationShape operation, Shape inputShape) {
         String target = context.service().getId().getName() + "." + operation.getId().getName();
         writer
-                .openBlock("def self.build(http_req, input:)")
+                .openBlock("def self.build(http_req, input:, disable_host_prefix:)")
                 .write("http_req.http_method = 'POST'")
+                .call(() -> prefixHost(operation))
                 .write("http_req.append_path('/')")
                 .write("http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'")
                 .write("http_req.headers['X-Amz-Target'] = '$L'", target)

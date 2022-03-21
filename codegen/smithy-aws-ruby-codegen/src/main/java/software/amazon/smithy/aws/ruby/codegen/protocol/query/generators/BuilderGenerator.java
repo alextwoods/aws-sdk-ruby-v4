@@ -36,8 +36,9 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     @Override
     protected void renderOperationBuildMethod(OperationShape operation, Shape inputShape) {
         writer
-                .openBlock("def self.build(http_req, input:)")
+                .openBlock("def self.build(http_req, input:, disable_host_prefix:)")
                 .write("http_req.http_method = 'POST'")
+                .call(() -> prefixHost(operation))
                 .write("http_req.append_path('/')")
                 .write("http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'")
                 .write("context = ''")
@@ -50,7 +51,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     }
 
     private void renderMemberBuilders(Shape s) {
-        //remove members w/ http traits or marked NoSerialize
+        //remove members marked NoSerialize
         Stream<MemberShape> serializeMembers = s.members().stream()
                 .filter(NoSerializeTrait.excludeNoSerializeMembers());
 

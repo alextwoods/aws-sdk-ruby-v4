@@ -20,7 +20,6 @@ import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.model.shapes.*;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
-import software.amazon.smithy.model.traits.XmlFlattenedTrait;
 import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
@@ -49,8 +48,9 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     @Override
     protected void renderOperationBuildMethod(OperationShape operation, Shape inputShape) {
         writer
-                .openBlock("def self.build(http_req, input:)")
+                .openBlock("def self.build(http_req, input:, disable_host_prefix:)")
                 .write("http_req.http_method = 'POST'")
+                .call(() -> prefixHost(operation))
                 .write("http_req.append_path('/')")
                 .write("http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'")
                 .write("context = ''")
@@ -63,7 +63,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     }
 
     private void renderMemberBuilders(Shape s) {
-        //remove members w/ http traits or marked NoSerialize
+        //remove members marked NoSerialize
         Stream<MemberShape> serializeMembers = s.members().stream()
                 .filter(NoSerializeTrait.excludeNoSerializeMembers());
 
