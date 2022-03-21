@@ -18,6 +18,7 @@ package software.amazon.smithy.aws.ruby.codegen.protocol.json.generators;
 import java.util.Optional;
 import java.util.stream.Stream;
 import software.amazon.smithy.codegen.core.Symbol;
+import software.amazon.smithy.model.pattern.SmithyPattern;
 import software.amazon.smithy.model.shapes.BlobShape;
 import software.amazon.smithy.model.shapes.DoubleShape;
 import software.amazon.smithy.model.shapes.FloatShape;
@@ -31,10 +32,14 @@ import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.TimestampShape;
 import software.amazon.smithy.model.shapes.UnionShape;
-import software.amazon.smithy.model.traits.JsonNameTrait;
+import software.amazon.smithy.model.traits.EndpointTrait;
+import software.amazon.smithy.model.traits.HostLabelTrait;
+import software.amazon.smithy.model.traits.HttpLabelTrait;
+import software.amazon.smithy.model.traits.HttpQueryTrait;
 import software.amazon.smithy.model.traits.SparseTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
+import software.amazon.smithy.ruby.codegen.RubyFormatter;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
 
@@ -45,8 +50,9 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     }
 
     private void renderMemberBuilders(Shape s) {
-        //remove members w/ http traits or marked NoSerialize
+        //remove members marked w/ NoSerialize or host Label
         Stream<MemberShape> serializeMembers = s.members().stream()
+                .filter((m) -> !m.hasTrait(HostLabelTrait.class))
                 .filter(NoSerializeTrait.excludeNoSerializeMembers());
 
         serializeMembers.forEach((member) -> {
@@ -67,6 +73,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         writer
                 .openBlock("def self.build(http_req, input:)")
                 .write("http_req.http_method = 'POST'")
+                .call(() -> prefixHost(operation))
                 .write("http_req.append_path('/')")
                 .write("http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'")
                 .write("http_req.headers['X-Amz-Target'] = '$L'", target)

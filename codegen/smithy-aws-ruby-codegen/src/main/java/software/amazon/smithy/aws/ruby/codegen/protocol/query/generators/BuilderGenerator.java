@@ -37,6 +37,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
         writer
                 .openBlock("def self.build(http_req, input:)")
                 .write("http_req.http_method = 'POST'")
+                .call(() -> prefixHost(operation))
                 .write("http_req.append_path('/')")
                 .write("http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'")
                 .write("context = ''")

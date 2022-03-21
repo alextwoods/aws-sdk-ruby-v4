@@ -10,6 +10,23 @@
 module AWS::Ec2
   module Errors
 
+    CODES = {
+
+    }
+
+    def self.error_code(http_resp)
+      if !(200..299).cover?(http_resp.status)
+        body = http_resp.body.read
+        http_resp.body.rewind
+        xml = Hearth::XML.parse(body) unless body.empty?
+        return unless xml && xml.name == 'Response'
+        xml = xml.at('Errors')&.at('Error')
+        if xml
+          CODES[xml.text_at('Code')]
+        end
+      end
+    end
+
     # Base class for all errors returned by this service
     class ApiError < Hearth::HTTP::ApiError; end
 
