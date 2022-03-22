@@ -41,6 +41,7 @@ import software.amazon.smithy.model.traits.XmlNamespaceTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.generators.StubsGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
+import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
 
 public class StubsGenerator extends StubsGeneratorBase {
 
@@ -279,32 +280,12 @@ public class StubsGenerator extends StubsGeneratorBase {
 
         @Override
         public Void timestampShape(TimestampShape shape) {
-            // the default protocol format is date_time
-            Optional<TimestampFormatTrait> format = memberShape.getTrait(TimestampFormatTrait.class);
-            if (format.isPresent()) {
-                switch (format.get().getFormat()) {
-                    case EPOCH_SECONDS:
-                        writer.write(
-                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_epoch_seconds($L).to_i.to_s$L)$L",
-                                nodeName, inputGetter, xmlnsAttribute(), checkRequired());
-                        break;
-                    case HTTP_DATE:
-                        writer.write(
-                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_http_date($L)$L)$L",
-                                nodeName, inputGetter, xmlnsAttribute(), checkRequired());
-                        break;
-                    case DATE_TIME:
-                    default:
-                        writer.write(
-                                "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_date_time($L)$L)$L",
-                                nodeName, inputGetter, xmlnsAttribute(), checkRequired());
-                        break;
-                }
-            } else {
-                writer.write(
-                        "xml << Hearth::XML::Node.new($L, Hearth::TimeHelper.to_date_time($L)$L)$L",
-                        nodeName, inputGetter, xmlnsAttribute(), checkRequired());
-            }
+            writer.write("xml << Hearth::XML::Node.new($L, $L$L)$L",
+                    nodeName,
+                    TimestampFormat.serializeTimestamp(
+                            shape, memberShape, inputGetter, TimestampFormatTrait.Format.DATE_TIME, true),
+                    xmlnsAttribute(),
+                    checkRequired());
             return null;
         }
 
@@ -434,32 +415,12 @@ public class StubsGenerator extends StubsGeneratorBase {
 
         @Override
         public Void timestampShape(TimestampShape shape) {
-            // the default protocol format is date_time
-            Optional<TimestampFormatTrait> format = memberShape.getTrait(TimestampFormatTrait.class);
-            if (format.isPresent()) {
-                switch (format.get().getFormat()) {
-                    case EPOCH_SECONDS:
-                        writer.write(
-                                "xml.attributes['$L'] = Hearth::TimeHelper.to_epoch_seconds($L).to_i.to_s$L",
-                                attributeName, inputGetter, checkRequired());
-                        break;
-                    case HTTP_DATE:
-                        writer.write(
-                                "xml.attributes['$L'] = Hearth::TimeHelper.to_http_date($L)$L",
-                                attributeName, inputGetter, checkRequired());
-                        break;
-                    case DATE_TIME:
-                    default:
-                        writer.write(
-                                "xml.attributes['$L'] = Hearth::TimeHelper.to_date_time($L)$L",
-                                attributeName, inputGetter, checkRequired());
-                        break;
-                }
-            } else {
-                writer.write(
-                        "xml.attributes['$L'] = Hearth::TimeHelper.to_date_time($L)$L",
-                        attributeName, inputGetter, checkRequired());
-            }
+            writer.write("xml.attributes['$L'] = $L$L",
+                    attributeName,
+                    TimestampFormat.serializeTimestamp(
+                            shape, memberShape, inputGetter, TimestampFormatTrait.Format.DATE_TIME, true),
+                    checkRequired());
+
             return null;
         }
 
