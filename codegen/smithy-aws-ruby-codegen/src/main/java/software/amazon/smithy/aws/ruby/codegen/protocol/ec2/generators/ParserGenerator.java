@@ -20,6 +20,7 @@ import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.generators.ParserGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
+import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
 
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -249,22 +250,11 @@ public class ParserGenerator extends ParserGeneratorBase {
 
         @Override
         public Void timestampShape(TimestampShape shape) {
-            // the default protocol format is date_time, which is parsed by Time.parse
-            Optional<TimestampFormatTrait> format = memberShape.getTrait(TimestampFormatTrait.class);
-            if (format.isPresent()) {
-                switch (format.get().getFormat()) {
-                    case HTTP_DATE:
-                    case DATE_TIME:
-                        writer.write("$1LTime.parse($2L) if $2L", dataSetter, valueGetter);
-                        break;
-                    case EPOCH_SECONDS:
-                    default:
-                        writer.write("$1LTime.at($2L.to_i) if $2L", dataSetter, valueGetter);
-                        break;
-                }
-            } else {
-                writer.write("$1LTime.at($2L.to_i) if $2L", dataSetter, valueGetter);
-            }
+            writer.write("$L$L if $L",
+                    dataSetter,
+                    TimestampFormat.parseTimestamp(
+                            shape, memberShape, valueGetter, TimestampFormatTrait.Format.DATE_TIME),
+                    valueGetter);
             return null;
         }
 
@@ -351,22 +341,10 @@ public class ParserGenerator extends ParserGeneratorBase {
 
         @Override
         public Void timestampShape(TimestampShape shape) {
-            // the default protocol format is date_time, which is parsed by Time.parse
-            Optional<TimestampFormatTrait> format = memberShape.getTrait(TimestampFormatTrait.class);
-            if (format.isPresent()) {
-                switch (format.get().getFormat()) {
-                    case HTTP_DATE:
-                    case DATE_TIME:
-                        writer.write("$1LTime.parse(node.text) if node.text", dataSetter);
-                        break;
-                    case EPOCH_SECONDS:
-                    default:
-                        writer.write("$1LTime.at(node.text.to_i) if node.text", dataSetter);
-                        break;
-                }
-            } else {
-                writer.write("$1LTime.parse(node.text) if node.text", dataSetter);
-            }
+            writer.write("$L$L if node.text", dataSetter,
+                    TimestampFormat.parseTimestamp(
+                            shape, memberShape, "node.text", TimestampFormatTrait.Format.DATE_TIME)
+            );
             return null;
         }
 

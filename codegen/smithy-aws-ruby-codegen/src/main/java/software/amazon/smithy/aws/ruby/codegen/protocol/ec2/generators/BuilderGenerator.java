@@ -24,6 +24,7 @@ import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.generators.BuilderGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
+import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
 import software.amazon.smithy.utils.StringUtils;
 
 import java.util.stream.Stream;
@@ -207,34 +208,11 @@ public class BuilderGenerator extends BuilderGeneratorBase {
 
         @Override
         public Void timestampShape(TimestampShape shape) {
-            TimestampFormatTrait.Format format = null;
-            if (memberShape.hasTrait(TimestampFormatTrait.class)) {
-                format = memberShape.getTrait(TimestampFormatTrait.class).get().getFormat();
-            } else if (shape.hasTrait(TimestampFormatTrait.class)) {
-                format = shape.getTrait(TimestampFormatTrait.class).get().getFormat();
-            }
-
-            if (format != null) {
-                switch (format) {
-                    case EPOCH_SECONDS:
-                        writer.write("params[context + $L] = Hearth::TimeHelper.to_epoch_seconds($L).to_s$L",
-                                dataName, inputGetter, checkRequired());
-                        break;
-                    case HTTP_DATE:
-                        writer.write("params[context + $L] = Hearth::TimeHelper.to_http_date($L)$L",
-                                dataName, inputGetter, checkRequired());
-                        break;
-                    case DATE_TIME:
-                    default:
-                        writer.write("params[context + $L] = Hearth::TimeHelper.to_date_time($L)$L",
-                                dataName, inputGetter, checkRequired());
-                        break;
-                }
-            } else {
-                // the default protocol format is date_time
-                writer.write("params[context + $L] = Hearth::TimeHelper.to_date_time($L)$L",
-                        dataName, inputGetter, checkRequired());
-            }
+            writer.write("params[context + $L] = $L$L",
+                    dataName,
+                    TimestampFormat.serializeTimestamp(
+                            shape, memberShape, inputGetter, TimestampFormatTrait.Format.DATE_TIME, false),
+                    checkRequired());
 
             return null;
         }

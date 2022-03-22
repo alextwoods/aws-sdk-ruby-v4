@@ -20,6 +20,7 @@ import software.amazon.smithy.model.traits.*;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.generators.RestParserGeneratorBase;
 import software.amazon.smithy.ruby.codegen.trait.NoSerializeTrait;
+import software.amazon.smithy.ruby.codegen.util.TimestampFormat;
 
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -224,22 +225,10 @@ public class ParserGenerator extends RestParserGeneratorBase {
 
         @Override
         public Void timestampShape(TimestampShape shape) {
-            // the default protocol format is date_time, which is parsed by Time.parse
-            Optional<TimestampFormatTrait> format = memberShape.getTrait(TimestampFormatTrait.class);
-            if (format.isPresent()) {
-                switch (format.get().getFormat()) {
-                    case HTTP_DATE:
-                    case DATE_TIME:
-                        writer.write("$1LTime.parse($2L) if $2L", dataSetter, jsonGetter);
-                        break;
-                    case EPOCH_SECONDS:
-                    default:
-                        writer.write("$1LTime.at($2L.to_i) if $2L", dataSetter, jsonGetter);
-                        break;
-                }
-            } else {
-                writer.write("$1LTime.at($2L.to_i) if $2L", dataSetter, jsonGetter);
-            }
+            writer.write("$L$L if $L", dataSetter,
+                    TimestampFormat.parseTimestamp(
+                            shape, memberShape, jsonGetter, TimestampFormatTrait.Format.EPOCH_SECONDS),
+                    jsonGetter);
             return null;
         }
 
