@@ -15,7 +15,6 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.restxml.generators;
 
-import software.amazon.smithy.aws.ruby.codegen.protocol.restxml.RestXml;
 import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
 import software.amazon.smithy.ruby.codegen.generators.ErrorsGeneratorBase;

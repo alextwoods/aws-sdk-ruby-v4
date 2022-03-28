@@ -1155,7 +1155,6 @@ module AWS::Lambda
         builder: Builders::DeleteAlias,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteAlias
@@ -1216,7 +1215,6 @@ module AWS::Lambda
         builder: Builders::DeleteCodeSigningConfig,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteCodeSigningConfig
@@ -1313,7 +1311,6 @@ module AWS::Lambda
         builder: Builders::DeleteEventSourceMapping,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ResourceInUseException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::DeleteEventSourceMapping
@@ -1401,7 +1398,6 @@ module AWS::Lambda
         builder: Builders::DeleteFunction,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteFunction
@@ -1480,7 +1476,6 @@ module AWS::Lambda
         builder: Builders::DeleteFunctionCodeSigningConfig,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteFunctionCodeSigningConfig
@@ -1559,7 +1554,6 @@ module AWS::Lambda
         builder: Builders::DeleteFunctionConcurrency,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteFunctionConcurrency
@@ -1643,7 +1637,6 @@ module AWS::Lambda
         builder: Builders::DeleteFunctionEventInvokeConfig,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::DeleteFunctionEventInvokeConfig
@@ -1709,7 +1702,6 @@ module AWS::Lambda
         builder: Builders::DeleteLayerVersion,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::TooManyRequestsException, Errors::ServiceException]),
         data_parser: Parsers::DeleteLayerVersion
@@ -1792,7 +1784,6 @@ module AWS::Lambda
         builder: Builders::DeleteProvisionedConcurrencyConfig,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteProvisionedConcurrencyConfig
@@ -1856,7 +1847,6 @@ module AWS::Lambda
         builder: Builders::GetAccountSettings,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException]),
         data_parser: Parsers::GetAccountSettings
@@ -1947,7 +1937,6 @@ module AWS::Lambda
         builder: Builders::GetAlias,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetAlias
@@ -2017,7 +2006,6 @@ module AWS::Lambda
         builder: Builders::GetCodeSigningConfig,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetCodeSigningConfig
@@ -2112,7 +2100,6 @@ module AWS::Lambda
         builder: Builders::GetEventSourceMapping,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetEventSourceMapping
@@ -2266,7 +2253,6 @@ module AWS::Lambda
         builder: Builders::GetFunction,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetFunction
@@ -2347,7 +2333,6 @@ module AWS::Lambda
         builder: Builders::GetFunctionCodeSigningConfig,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetFunctionCodeSigningConfig
@@ -2428,7 +2413,6 @@ module AWS::Lambda
         builder: Builders::GetFunctionConcurrency,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetFunctionConcurrency
@@ -2572,7 +2556,6 @@ module AWS::Lambda
         builder: Builders::GetFunctionConfiguration,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetFunctionConfiguration
@@ -2665,7 +2648,6 @@ module AWS::Lambda
         builder: Builders::GetFunctionEventInvokeConfig,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetFunctionEventInvokeConfig
@@ -2745,7 +2727,6 @@ module AWS::Lambda
         builder: Builders::GetLayerVersion,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetLayerVersion
@@ -2821,7 +2802,6 @@ module AWS::Lambda
         builder: Builders::GetLayerVersionByArn,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetLayerVersionByArn
@@ -2888,7 +2868,6 @@ module AWS::Lambda
         builder: Builders::GetLayerVersionPolicy,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetLayerVersionPolicy
@@ -2973,7 +2952,6 @@ module AWS::Lambda
         builder: Builders::GetPolicy,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetPolicy
@@ -3062,7 +3040,6 @@ module AWS::Lambda
         builder: Builders::GetProvisionedConcurrencyConfig,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ProvisionedConcurrencyConfigNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetProvisionedConcurrencyConfig
@@ -3403,7 +3380,6 @@ module AWS::Lambda
         builder: Builders::ListAliases,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListAliases
@@ -3481,7 +3457,6 @@ module AWS::Lambda
         builder: Builders::ListCodeSigningConfigs,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListCodeSigningConfigs
@@ -3633,7 +3608,6 @@ module AWS::Lambda
         builder: Builders::ListEventSourceMappings,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListEventSourceMappings
@@ -3733,7 +3707,6 @@ module AWS::Lambda
         builder: Builders::ListFunctionEventInvokeConfigs,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListFunctionEventInvokeConfigs
@@ -3878,7 +3851,6 @@ module AWS::Lambda
         builder: Builders::ListFunctions,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListFunctions
@@ -3950,7 +3922,6 @@ module AWS::Lambda
         builder: Builders::ListFunctionsByCodeSigningConfig,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListFunctionsByCodeSigningConfig
@@ -4034,7 +4005,6 @@ module AWS::Lambda
         builder: Builders::ListLayerVersions,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListLayerVersions
@@ -4117,7 +4087,6 @@ module AWS::Lambda
         builder: Builders::ListLayers,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListLayers
@@ -4214,7 +4183,6 @@ module AWS::Lambda
         builder: Builders::ListProvisionedConcurrencyConfigs,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListProvisionedConcurrencyConfigs
@@ -4277,7 +4245,6 @@ module AWS::Lambda
         builder: Builders::ListTags,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListTags
@@ -4427,7 +4394,6 @@ module AWS::Lambda
         builder: Builders::ListVersionsByFunction,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListVersionsByFunction
@@ -5190,7 +5156,6 @@ module AWS::Lambda
         builder: Builders::RemoveLayerVersionPermission,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::RemoveLayerVersionPermission
@@ -5283,7 +5248,6 @@ module AWS::Lambda
         builder: Builders::RemovePermission,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::RemovePermission
@@ -5415,7 +5379,6 @@ module AWS::Lambda
         builder: Builders::UntagResource,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::UntagResource

@@ -123,7 +123,6 @@ module AWS::Sso
         builder: Builders::GetRoleCredentials,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetRoleCredentials
@@ -201,7 +200,6 @@ module AWS::Sso
         builder: Builders::ListAccountRoles,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListAccountRoles
@@ -278,7 +276,6 @@ module AWS::Sso
         builder: Builders::ListAccounts,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListAccounts
@@ -339,7 +336,6 @@ module AWS::Sso
         builder: Builders::Logout,
         disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::Logout
