@@ -10,7 +10,7 @@
 module AWS::Sts
   module Errors
     def self.error_code(resp)
-      error_codes = {
+      custom_errors = {
         "ExpiredTokenException" => "ExpiredTokenException",
         "IDPCommunicationError" => "IDPCommunicationErrorException",
         "IDPRejectedClaim" => "IDPRejectedClaimException",
@@ -26,10 +26,8 @@ module AWS::Sts
         resp.body.rewind
         xml = Hearth::XML.parse(body) unless body.empty?
         return unless xml && xml.name == 'ErrorResponse'
-        xml = xml.at('Error')
-        if xml
-          error_codes[xml.text_at('Code')]
-        end
+        code = xml.at('Error')&.text_at('Code')
+        custom_errors[code] || code
       end
     end
 

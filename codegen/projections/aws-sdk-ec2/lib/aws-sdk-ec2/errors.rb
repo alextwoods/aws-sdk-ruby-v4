@@ -10,19 +10,12 @@
 module AWS::Ec2
   module Errors
     def self.error_code(resp)
-      error_codes = {
-
-      }
-
       if !(200..299).cover?(resp.status)
         body = resp.body.read
         resp.body.rewind
         xml = Hearth::XML.parse(body) unless body.empty?
         return unless xml && xml.name == 'Response'
-        xml = xml.at('Errors')&.at('Error')
-        if xml
-          error_codes[xml.text_at('Code')]
-        end
+        xml.at('Errors')&.at('Error')&.text_at('Code')
       end
     end
 

@@ -15,6 +15,8 @@
 
 package software.amazon.smithy.aws.ruby.codegen.protocol.query.generators;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import software.amazon.smithy.aws.traits.protocols.AwsQueryErrorTrait;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.ruby.codegen.GenerationContext;
@@ -38,26 +40,28 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
                 .write("resp.body.rewind")
                 .write("xml = Hearth::XML.parse(body) unless body.empty?")
                 .write("return unless xml && xml.name == 'ErrorResponse'")
-                .write("xml = xml.at('Error')")
-                .openBlock("if xml")
-                .write("error_codes[xml.text_at('Code')]")
-                .closeBlock("end")
+                .write("code = xml.at('Error')&.text_at('Code')")
+                .write("custom_errors[code] || code")
                 .closeBlock("end");
     }
 
     private void renderErrorCodesMap() {
-        writer.openBlock("error_codes = {");
-        List<Shape> shapes = getErrorShapes();
-        shapes.forEach(shape -> {
-            String shapeName = symbolProvider.toSymbol(shape).getName();
-            String code = shapeName;
-            if (shape.hasTrait(AwsQueryErrorTrait.class)) {
-                code = shape.getTrait(AwsQueryErrorTrait.class).get().getCode();
-            }
-            writer.write("$S => $S,", code, shapeName);
-        });
-        writer
-                .unwrite(",\n").write("")
-                .closeBlock("}");
+        List<Shape> customErrorshapes =
+                getErrorShapes().stream().filter((s) -> s.hasTrait(AwsQueryErrorTrait.class))
+                .collect(Collectors.toList());
+
+        if (customErrorshapes.isEmpty()) {
+            writer.write("custom_errors = {}");
+        } else {
+            writer.openBlock("custom_errors = {");
+            customErrorshapes.forEach(shape -> {
+                String shapeName = symbolProvider.toSymbol(shape).getName();
+                String code = shape.getTrait(AwsQueryErrorTrait.class).get().getCode();
+                writer.write("$S => $S,", code, shapeName);
+            });
+            writer
+                    .unwrite(",\n").write("")
+                    .closeBlock("}");
+        }
     }
 }
