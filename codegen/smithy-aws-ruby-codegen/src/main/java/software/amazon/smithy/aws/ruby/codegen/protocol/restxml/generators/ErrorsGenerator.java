@@ -27,14 +27,12 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
     }
 
     @Override
-    public void renderErrorCode() {
-        // TODO: This might need to check the noErrorWrapping on the protocol trait instead
-
+    public void renderErrorCodeBody() {
         writer
-                .openBlock("def self.error_code(http_resp)")
-                .openBlock("if !(200..299).cover?(http_resp.status)")
-                .write("body = http_resp.body.read")
-                .write("http_resp.body.rewind")
+                .openBlock("def self.error_code(resp)")
+                .openBlock("if !(200..299).cover?(resp.status)")
+                .write("body = resp.body.read")
+                .write("resp.body.rewind")
                 .write("xml = Hearth::XML.parse(body) unless body.empty?")
                 .write("return unless xml")
                 .call( () -> {

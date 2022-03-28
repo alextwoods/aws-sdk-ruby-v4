@@ -24,16 +24,15 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
         super(context);
     }
 
-    public void renderErrorCode() {
-
+    public void renderErrorCodeBody() {
         writer
-                .openBlock("def self.error_code(http_resp)")
-                .openBlock("if !(200..299).cover?(http_resp.status)")
-                .write("json = Hearth::JSON.load(http_resp.body)")
-                .write("http_resp.body.rewind")
+                .openBlock("def self.error_code(resp)")
+                .openBlock("if !(200..299).cover?(resp.status)")
+                .write("json = Hearth::JSON.load(resp.body)")
+                .write("resp.body.rewind")
                 .write("code = json['__type'] || json['code'] if json")
                 .closeBlock("end")
-                .write("code ||= http_resp.headers['x-amzn-errortype']")
+                .write("code ||= resp.headers['x-amzn-errortype']")
                 .openBlock("if code")
                 .write("code.split('#').last.split(':').first")
                 .closeBlock("end")
