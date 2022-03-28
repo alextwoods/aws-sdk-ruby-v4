@@ -9,11 +9,10 @@
 
 module AWS::Cloudfront
   module Errors
-
-    def self.error_code(http_resp)
-      if !(200..299).cover?(http_resp.status)
-        body = http_resp.body.read
-        http_resp.body.rewind
+    def self.error_code(resp)
+      if !(200..299).cover?(resp.status)
+        body = resp.body.read
+        resp.body.rewind
         xml = Hearth::XML.parse(body) unless body.empty?
         return unless xml
         return unless xml.name == 'ErrorResponse'

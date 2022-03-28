@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require_relative 'middleware/request_id'
+
 module AWS::Cloudfront
   # An API client for Cloudfront2020_05_31
   # See {#initialize} for a full list of supported configuration options
@@ -26,6 +28,9 @@ module AWS::Cloudfront
 
     # @overload initialize(options)
     # @param [Hash] options
+    # @option options [Boolean] :disable_host_prefix (false)
+    #   When `true`, does not perform host prefix injection using @endpoint's hostPrefix property.
+    #
     # @option options [string] :endpoint
     #   Endpoint of the service
     #
@@ -48,6 +53,7 @@ module AWS::Cloudfront
     #   When `true`, request parameters are validated using the modeled shapes.
     #
     def initialize(options = {})
+      @disable_host_prefix = options.fetch(:disable_host_prefix, false)
       @endpoint = options[:endpoint]
       @http_wire_trace = options.fetch(:http_wire_trace, false)
       @log_level = options.fetch(:log_level, :info)
@@ -91,7 +97,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::AssociateAliasOutput
+    #   resp.data #=> Types::AssociateAliasOutput
     #
     def associate_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -101,13 +107,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssociateAlias
+        builder: Builders::AssociateAlias,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::IllegalUpdate, Errors::NoSuchDistribution, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::IllegalUpdate, Errors::NoSuchDistribution, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs]),
         data_parser: Parsers::AssociateAlias
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -128,7 +136,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Creates a cache policy.</p>
@@ -206,39 +214,39 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateCachePolicyOutput
-    #   resp.cache_policy #=> Types::CachePolicy
-    #   resp.cache_policy.id #=> String
-    #   resp.cache_policy.last_modified_time #=> Time
-    #   resp.cache_policy.cache_policy_config #=> Types::CachePolicyConfig
-    #   resp.cache_policy.cache_policy_config.comment #=> String
-    #   resp.cache_policy.cache_policy_config.member_name #=> String
-    #   resp.cache_policy.cache_policy_config.default_ttl #=> Integer
-    #   resp.cache_policy.cache_policy_config.max_ttl #=> Integer
-    #   resp.cache_policy.cache_policy_config.min_ttl #=> Integer
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin #=> Types::ParametersInCacheKeyAndForwardedToOrigin
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items[0] #=> String
-    #   resp.location #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::CreateCachePolicyOutput
+    #   resp.data.cache_policy #=> Types::CachePolicy
+    #   resp.data.cache_policy.id #=> String
+    #   resp.data.cache_policy.last_modified_time #=> Time
+    #   resp.data.cache_policy.cache_policy_config #=> Types::CachePolicyConfig
+    #   resp.data.cache_policy.cache_policy_config.comment #=> String
+    #   resp.data.cache_policy.cache_policy_config.member_name #=> String
+    #   resp.data.cache_policy.cache_policy_config.default_ttl #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.max_ttl #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.min_ttl #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin #=> Types::ParametersInCacheKeyAndForwardedToOrigin
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items[0] #=> String
+    #   resp.data.location #=> String
+    #   resp.data.e_tag #=> String
     #
     def create_cache_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -248,13 +256,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateCachePolicy
+        builder: Builders::CreateCachePolicy,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyCookiesInCachePolicy, Errors::TooManyHeadersInCachePolicy, Errors::InconsistentQuantities, Errors::TooManyCachePolicies, Errors::TooManyQueryStringsInCachePolicy, Errors::CachePolicyAlreadyExists, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyCookiesInCachePolicy, Errors::TooManyHeadersInCachePolicy, Errors::InconsistentQuantities, Errors::TooManyCachePolicies, Errors::TooManyQueryStringsInCachePolicy, Errors::CachePolicyAlreadyExists, Errors::InvalidArgument]),
         data_parser: Parsers::CreateCachePolicy
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -275,7 +285,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Creates a new origin access identity. If you're using Amazon S3 for your origin, you can
@@ -302,15 +312,15 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateCloudFrontOriginAccessIdentityOutput
-    #   resp.cloud_front_origin_access_identity #=> Types::CloudFrontOriginAccessIdentity
-    #   resp.cloud_front_origin_access_identity.id #=> String
-    #   resp.cloud_front_origin_access_identity.s3_canonical_user_id #=> String
-    #   resp.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config #=> Types::CloudFrontOriginAccessIdentityConfig
-    #   resp.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config.caller_reference #=> String
-    #   resp.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config.comment #=> String
-    #   resp.location #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::CreateCloudFrontOriginAccessIdentityOutput
+    #   resp.data.cloud_front_origin_access_identity #=> Types::CloudFrontOriginAccessIdentity
+    #   resp.data.cloud_front_origin_access_identity.id #=> String
+    #   resp.data.cloud_front_origin_access_identity.s3_canonical_user_id #=> String
+    #   resp.data.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config #=> Types::CloudFrontOriginAccessIdentityConfig
+    #   resp.data.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config.caller_reference #=> String
+    #   resp.data.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config.comment #=> String
+    #   resp.data.location #=> String
+    #   resp.data.e_tag #=> String
     #
     def create_cloud_front_origin_access_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -320,13 +330,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateCloudFrontOriginAccessIdentity
+        builder: Builders::CreateCloudFrontOriginAccessIdentity,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::MissingBody, Errors::CloudFrontOriginAccessIdentityAlreadyExists, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::TooManyCloudFrontOriginAccessIdentities]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::MissingBody, Errors::CloudFrontOriginAccessIdentityAlreadyExists, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::TooManyCloudFrontOriginAccessIdentities]),
         data_parser: Parsers::CreateCloudFrontOriginAccessIdentity
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -347,7 +359,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Creates a new web distribution. You create a CloudFront distribution to tell CloudFront where you
@@ -595,204 +607,204 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateDistributionOutput
-    #   resp.distribution #=> Types::Distribution
-    #   resp.distribution.id #=> String
-    #   resp.distribution.arn #=> String
-    #   resp.distribution.status #=> String
-    #   resp.distribution.last_modified_time #=> Time
-    #   resp.distribution.in_progress_invalidation_batches #=> Integer
-    #   resp.distribution.domain_name #=> String
-    #   resp.distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
-    #   resp.distribution.active_trusted_signers.enabled #=> Boolean
-    #   resp.distribution.active_trusted_signers.quantity #=> Integer
-    #   resp.distribution.active_trusted_signers.items #=> Array<Signer>
-    #   resp.distribution.active_trusted_signers.items[0] #=> Types::Signer
-    #   resp.distribution.active_trusted_signers.items[0].aws_account_number #=> String
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
-    #   resp.distribution.active_trusted_key_groups #=> Types::ActiveTrustedKeyGroups
-    #   resp.distribution.active_trusted_key_groups.enabled #=> Boolean
-    #   resp.distribution.active_trusted_key_groups.quantity #=> Integer
-    #   resp.distribution.active_trusted_key_groups.items #=> Array<KGKeyPairIds>
-    #   resp.distribution.active_trusted_key_groups.items[0] #=> Types::KGKeyPairIds
-    #   resp.distribution.active_trusted_key_groups.items[0].key_group_id #=> String
-    #   resp.distribution.active_trusted_key_groups.items[0].key_pair_ids #=> Types::KeyPairIds
-    #   resp.distribution.distribution_config #=> Types::DistributionConfig
-    #   resp.distribution.distribution_config.caller_reference #=> String
-    #   resp.distribution.distribution_config.aliases #=> Types::Aliases
-    #   resp.distribution.distribution_config.aliases.quantity #=> Integer
-    #   resp.distribution.distribution_config.aliases.items #=> Array<String>
-    #   resp.distribution.distribution_config.aliases.items[0] #=> String
-    #   resp.distribution.distribution_config.default_root_object #=> String
-    #   resp.distribution.distribution_config.origins #=> Types::Origins
-    #   resp.distribution.distribution_config.origins.quantity #=> Integer
-    #   resp.distribution.distribution_config.origins.items #=> Array<Origin>
-    #   resp.distribution.distribution_config.origins.items[0] #=> Types::Origin
-    #   resp.distribution.distribution_config.origins.items[0].id #=> String
-    #   resp.distribution.distribution_config.origins.items[0].domain_name #=> String
-    #   resp.distribution.distribution_config.origins.items[0].origin_path #=> String
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers #=> Types::CustomHeaders
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.quantity #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_name #=> String
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_value #=> String
-    #   resp.distribution.distribution_config.origins.items[0].s3_origin_config #=> Types::S3OriginConfig
-    #   resp.distribution.distribution_config.origins.items[0].s3_origin_config.origin_access_identity #=> String
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].connection_attempts #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].connection_timeout #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].origin_shield #=> Types::OriginShield
-    #   resp.distribution.distribution_config.origins.items[0].origin_shield.enabled #=> Boolean
-    #   resp.distribution.distribution_config.origins.items[0].origin_shield.origin_shield_region #=> String
-    #   resp.distribution.distribution_config.origin_groups #=> Types::OriginGroups
-    #   resp.distribution.distribution_config.origin_groups.quantity #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items #=> Array<OriginGroup>
-    #   resp.distribution.distribution_config.origin_groups.items[0] #=> Types::OriginGroup
-    #   resp.distribution.distribution_config.origin_groups.items[0].id #=> String
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items[0].members #=> Types::OriginGroupMembers
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.quantity #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.items #=> Array<OriginGroupMember>
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.items[0].origin_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior #=> Types::DefaultCacheBehavior
-    #   resp.distribution.distribution_config.default_cache_behavior.target_origin_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.enabled #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.enabled #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.smooth_streaming #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.compress #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.cache_policy_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.origin_request_policy_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.response_headers_policy_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers #=> Types::Headers
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.min_ttl #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.default_ttl #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.max_ttl #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors #=> Types::CacheBehaviors
-    #   resp.distribution.distribution_config.cache_behaviors.quantity #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors.items #=> Array<CacheBehavior>
-    #   resp.distribution.distribution_config.cache_behaviors.items[0] #=> Types::CacheBehavior
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].path_pattern #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].compress #=> Boolean
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].field_level_encryption_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].realtime_log_config_arn #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].cache_policy_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].origin_request_policy_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].response_headers_policy_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].min_ttl #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].default_ttl #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].max_ttl #=> Integer
-    #   resp.distribution.distribution_config.custom_error_responses #=> Types::CustomErrorResponses
-    #   resp.distribution.distribution_config.custom_error_responses.quantity #=> Integer
-    #   resp.distribution.distribution_config.custom_error_responses.items #=> Array<CustomErrorResponse>
-    #   resp.distribution.distribution_config.custom_error_responses.items[0] #=> Types::CustomErrorResponse
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].error_code #=> Integer
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].response_page_path #=> String
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].response_code #=> String
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].error_caching_min_ttl #=> Integer
-    #   resp.distribution.distribution_config.comment #=> String
-    #   resp.distribution.distribution_config.logging #=> Types::LoggingConfig
-    #   resp.distribution.distribution_config.logging.enabled #=> Boolean
-    #   resp.distribution.distribution_config.logging.include_cookies #=> Boolean
-    #   resp.distribution.distribution_config.logging.bucket #=> String
-    #   resp.distribution.distribution_config.logging.prefix #=> String
-    #   resp.distribution.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
-    #   resp.distribution.distribution_config.enabled #=> Boolean
-    #   resp.distribution.distribution_config.viewer_certificate #=> Types::ViewerCertificate
-    #   resp.distribution.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
-    #   resp.distribution.distribution_config.viewer_certificate.iam_certificate_id #=> String
-    #   resp.distribution.distribution_config.viewer_certificate.acm_certificate_arn #=> String
-    #   resp.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
-    #   resp.distribution.distribution_config.viewer_certificate.certificate #=> String
-    #   resp.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
-    #   resp.distribution.distribution_config.restrictions #=> Types::Restrictions
-    #   resp.distribution.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.quantity #=> Integer
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.items #=> Array<String>
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.items[0] #=> String
-    #   resp.distribution.distribution_config.web_acl_id #=> String
-    #   resp.distribution.distribution_config.http_version #=> String, one of http1.1, http2
-    #   resp.distribution.distribution_config.is_ipv6_enabled #=> Boolean
-    #   resp.distribution.alias_icp_recordals #=> Array<AliasICPRecordal>
-    #   resp.distribution.alias_icp_recordals[0] #=> Types::AliasICPRecordal
-    #   resp.distribution.alias_icp_recordals[0].cname #=> String
-    #   resp.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
-    #   resp.location #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::CreateDistributionOutput
+    #   resp.data.distribution #=> Types::Distribution
+    #   resp.data.distribution.id #=> String
+    #   resp.data.distribution.arn #=> String
+    #   resp.data.distribution.status #=> String
+    #   resp.data.distribution.last_modified_time #=> Time
+    #   resp.data.distribution.in_progress_invalidation_batches #=> Integer
+    #   resp.data.distribution.domain_name #=> String
+    #   resp.data.distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
+    #   resp.data.distribution.active_trusted_signers.enabled #=> Boolean
+    #   resp.data.distribution.active_trusted_signers.quantity #=> Integer
+    #   resp.data.distribution.active_trusted_signers.items #=> Array<Signer>
+    #   resp.data.distribution.active_trusted_signers.items[0] #=> Types::Signer
+    #   resp.data.distribution.active_trusted_signers.items[0].aws_account_number #=> String
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
+    #   resp.data.distribution.active_trusted_key_groups #=> Types::ActiveTrustedKeyGroups
+    #   resp.data.distribution.active_trusted_key_groups.enabled #=> Boolean
+    #   resp.data.distribution.active_trusted_key_groups.quantity #=> Integer
+    #   resp.data.distribution.active_trusted_key_groups.items #=> Array<KGKeyPairIds>
+    #   resp.data.distribution.active_trusted_key_groups.items[0] #=> Types::KGKeyPairIds
+    #   resp.data.distribution.active_trusted_key_groups.items[0].key_group_id #=> String
+    #   resp.data.distribution.active_trusted_key_groups.items[0].key_pair_ids #=> Types::KeyPairIds
+    #   resp.data.distribution.distribution_config #=> Types::DistributionConfig
+    #   resp.data.distribution.distribution_config.caller_reference #=> String
+    #   resp.data.distribution.distribution_config.aliases #=> Types::Aliases
+    #   resp.data.distribution.distribution_config.aliases.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.aliases.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.aliases.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_root_object #=> String
+    #   resp.data.distribution.distribution_config.origins #=> Types::Origins
+    #   resp.data.distribution.distribution_config.origins.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items #=> Array<Origin>
+    #   resp.data.distribution.distribution_config.origins.items[0] #=> Types::Origin
+    #   resp.data.distribution.distribution_config.origins.items[0].id #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].domain_name #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_path #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers #=> Types::CustomHeaders
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_name #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_value #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].s3_origin_config #=> Types::S3OriginConfig
+    #   resp.data.distribution.distribution_config.origins.items[0].s3_origin_config.origin_access_identity #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].connection_attempts #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].connection_timeout #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_shield #=> Types::OriginShield
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_shield.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_shield.origin_shield_region #=> String
+    #   resp.data.distribution.distribution_config.origin_groups #=> Types::OriginGroups
+    #   resp.data.distribution.distribution_config.origin_groups.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items #=> Array<OriginGroup>
+    #   resp.data.distribution.distribution_config.origin_groups.items[0] #=> Types::OriginGroup
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].id #=> String
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members #=> Types::OriginGroupMembers
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.items #=> Array<OriginGroupMember>
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.items[0].origin_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior #=> Types::DefaultCacheBehavior
+    #   resp.data.distribution.distribution_config.default_cache_behavior.target_origin_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.smooth_streaming #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.compress #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.cache_policy_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.origin_request_policy_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.response_headers_policy_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers #=> Types::Headers
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.min_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.default_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.max_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors #=> Types::CacheBehaviors
+    #   resp.data.distribution.distribution_config.cache_behaviors.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors.items #=> Array<CacheBehavior>
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0] #=> Types::CacheBehavior
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].path_pattern #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].compress #=> Boolean
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].field_level_encryption_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].realtime_log_config_arn #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].cache_policy_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].origin_request_policy_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].response_headers_policy_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].min_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].default_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].max_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.custom_error_responses #=> Types::CustomErrorResponses
+    #   resp.data.distribution.distribution_config.custom_error_responses.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.custom_error_responses.items #=> Array<CustomErrorResponse>
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0] #=> Types::CustomErrorResponse
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].error_code #=> Integer
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].response_page_path #=> String
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].response_code #=> String
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].error_caching_min_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.comment #=> String
+    #   resp.data.distribution.distribution_config.logging #=> Types::LoggingConfig
+    #   resp.data.distribution.distribution_config.logging.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.logging.include_cookies #=> Boolean
+    #   resp.data.distribution.distribution_config.logging.bucket #=> String
+    #   resp.data.distribution.distribution_config.logging.prefix #=> String
+    #   resp.data.distribution.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution.distribution_config.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.viewer_certificate #=> Types::ViewerCertificate
+    #   resp.data.distribution.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
+    #   resp.data.distribution.distribution_config.viewer_certificate.iam_certificate_id #=> String
+    #   resp.data.distribution.distribution_config.viewer_certificate.acm_certificate_arn #=> String
+    #   resp.data.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
+    #   resp.data.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution.distribution_config.viewer_certificate.certificate #=> String
+    #   resp.data.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution.distribution_config.restrictions #=> Types::Restrictions
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items[0] #=> String
+    #   resp.data.distribution.distribution_config.web_acl_id #=> String
+    #   resp.data.distribution.distribution_config.http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution.distribution_config.is_ipv6_enabled #=> Boolean
+    #   resp.data.distribution.alias_icp_recordals #=> Array<AliasICPRecordal>
+    #   resp.data.distribution.alias_icp_recordals[0] #=> Types::AliasICPRecordal
+    #   resp.data.distribution.alias_icp_recordals[0].cname #=> String
+    #   resp.data.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
+    #   resp.data.location #=> String
+    #   resp.data.e_tag #=> String
     #
     def create_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -802,13 +814,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateDistribution
+        builder: Builders::CreateDistribution,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributions, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::InvalidOriginAccessIdentity, Errors::DistributionAlreadyExists, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidProtocolSettings, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::InvalidOrigin, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributions, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::InvalidOriginAccessIdentity, Errors::DistributionAlreadyExists, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidProtocolSettings, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::InvalidOrigin, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
         data_parser: Parsers::CreateDistribution
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -829,7 +843,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Create a new distribution with tags.</p>
@@ -1075,204 +1089,204 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateDistributionWithTagsOutput
-    #   resp.distribution #=> Types::Distribution
-    #   resp.distribution.id #=> String
-    #   resp.distribution.arn #=> String
-    #   resp.distribution.status #=> String
-    #   resp.distribution.last_modified_time #=> Time
-    #   resp.distribution.in_progress_invalidation_batches #=> Integer
-    #   resp.distribution.domain_name #=> String
-    #   resp.distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
-    #   resp.distribution.active_trusted_signers.enabled #=> Boolean
-    #   resp.distribution.active_trusted_signers.quantity #=> Integer
-    #   resp.distribution.active_trusted_signers.items #=> Array<Signer>
-    #   resp.distribution.active_trusted_signers.items[0] #=> Types::Signer
-    #   resp.distribution.active_trusted_signers.items[0].aws_account_number #=> String
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
-    #   resp.distribution.active_trusted_key_groups #=> Types::ActiveTrustedKeyGroups
-    #   resp.distribution.active_trusted_key_groups.enabled #=> Boolean
-    #   resp.distribution.active_trusted_key_groups.quantity #=> Integer
-    #   resp.distribution.active_trusted_key_groups.items #=> Array<KGKeyPairIds>
-    #   resp.distribution.active_trusted_key_groups.items[0] #=> Types::KGKeyPairIds
-    #   resp.distribution.active_trusted_key_groups.items[0].key_group_id #=> String
-    #   resp.distribution.active_trusted_key_groups.items[0].key_pair_ids #=> Types::KeyPairIds
-    #   resp.distribution.distribution_config #=> Types::DistributionConfig
-    #   resp.distribution.distribution_config.caller_reference #=> String
-    #   resp.distribution.distribution_config.aliases #=> Types::Aliases
-    #   resp.distribution.distribution_config.aliases.quantity #=> Integer
-    #   resp.distribution.distribution_config.aliases.items #=> Array<String>
-    #   resp.distribution.distribution_config.aliases.items[0] #=> String
-    #   resp.distribution.distribution_config.default_root_object #=> String
-    #   resp.distribution.distribution_config.origins #=> Types::Origins
-    #   resp.distribution.distribution_config.origins.quantity #=> Integer
-    #   resp.distribution.distribution_config.origins.items #=> Array<Origin>
-    #   resp.distribution.distribution_config.origins.items[0] #=> Types::Origin
-    #   resp.distribution.distribution_config.origins.items[0].id #=> String
-    #   resp.distribution.distribution_config.origins.items[0].domain_name #=> String
-    #   resp.distribution.distribution_config.origins.items[0].origin_path #=> String
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers #=> Types::CustomHeaders
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.quantity #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_name #=> String
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_value #=> String
-    #   resp.distribution.distribution_config.origins.items[0].s3_origin_config #=> Types::S3OriginConfig
-    #   resp.distribution.distribution_config.origins.items[0].s3_origin_config.origin_access_identity #=> String
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].connection_attempts #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].connection_timeout #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].origin_shield #=> Types::OriginShield
-    #   resp.distribution.distribution_config.origins.items[0].origin_shield.enabled #=> Boolean
-    #   resp.distribution.distribution_config.origins.items[0].origin_shield.origin_shield_region #=> String
-    #   resp.distribution.distribution_config.origin_groups #=> Types::OriginGroups
-    #   resp.distribution.distribution_config.origin_groups.quantity #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items #=> Array<OriginGroup>
-    #   resp.distribution.distribution_config.origin_groups.items[0] #=> Types::OriginGroup
-    #   resp.distribution.distribution_config.origin_groups.items[0].id #=> String
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items[0].members #=> Types::OriginGroupMembers
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.quantity #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.items #=> Array<OriginGroupMember>
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.items[0].origin_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior #=> Types::DefaultCacheBehavior
-    #   resp.distribution.distribution_config.default_cache_behavior.target_origin_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.enabled #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.enabled #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.smooth_streaming #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.compress #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.cache_policy_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.origin_request_policy_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.response_headers_policy_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers #=> Types::Headers
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.min_ttl #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.default_ttl #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.max_ttl #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors #=> Types::CacheBehaviors
-    #   resp.distribution.distribution_config.cache_behaviors.quantity #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors.items #=> Array<CacheBehavior>
-    #   resp.distribution.distribution_config.cache_behaviors.items[0] #=> Types::CacheBehavior
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].path_pattern #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].compress #=> Boolean
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].field_level_encryption_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].realtime_log_config_arn #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].cache_policy_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].origin_request_policy_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].response_headers_policy_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].min_ttl #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].default_ttl #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].max_ttl #=> Integer
-    #   resp.distribution.distribution_config.custom_error_responses #=> Types::CustomErrorResponses
-    #   resp.distribution.distribution_config.custom_error_responses.quantity #=> Integer
-    #   resp.distribution.distribution_config.custom_error_responses.items #=> Array<CustomErrorResponse>
-    #   resp.distribution.distribution_config.custom_error_responses.items[0] #=> Types::CustomErrorResponse
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].error_code #=> Integer
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].response_page_path #=> String
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].response_code #=> String
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].error_caching_min_ttl #=> Integer
-    #   resp.distribution.distribution_config.comment #=> String
-    #   resp.distribution.distribution_config.logging #=> Types::LoggingConfig
-    #   resp.distribution.distribution_config.logging.enabled #=> Boolean
-    #   resp.distribution.distribution_config.logging.include_cookies #=> Boolean
-    #   resp.distribution.distribution_config.logging.bucket #=> String
-    #   resp.distribution.distribution_config.logging.prefix #=> String
-    #   resp.distribution.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
-    #   resp.distribution.distribution_config.enabled #=> Boolean
-    #   resp.distribution.distribution_config.viewer_certificate #=> Types::ViewerCertificate
-    #   resp.distribution.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
-    #   resp.distribution.distribution_config.viewer_certificate.iam_certificate_id #=> String
-    #   resp.distribution.distribution_config.viewer_certificate.acm_certificate_arn #=> String
-    #   resp.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
-    #   resp.distribution.distribution_config.viewer_certificate.certificate #=> String
-    #   resp.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
-    #   resp.distribution.distribution_config.restrictions #=> Types::Restrictions
-    #   resp.distribution.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.quantity #=> Integer
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.items #=> Array<String>
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.items[0] #=> String
-    #   resp.distribution.distribution_config.web_acl_id #=> String
-    #   resp.distribution.distribution_config.http_version #=> String, one of http1.1, http2
-    #   resp.distribution.distribution_config.is_ipv6_enabled #=> Boolean
-    #   resp.distribution.alias_icp_recordals #=> Array<AliasICPRecordal>
-    #   resp.distribution.alias_icp_recordals[0] #=> Types::AliasICPRecordal
-    #   resp.distribution.alias_icp_recordals[0].cname #=> String
-    #   resp.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
-    #   resp.location #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::CreateDistributionWithTagsOutput
+    #   resp.data.distribution #=> Types::Distribution
+    #   resp.data.distribution.id #=> String
+    #   resp.data.distribution.arn #=> String
+    #   resp.data.distribution.status #=> String
+    #   resp.data.distribution.last_modified_time #=> Time
+    #   resp.data.distribution.in_progress_invalidation_batches #=> Integer
+    #   resp.data.distribution.domain_name #=> String
+    #   resp.data.distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
+    #   resp.data.distribution.active_trusted_signers.enabled #=> Boolean
+    #   resp.data.distribution.active_trusted_signers.quantity #=> Integer
+    #   resp.data.distribution.active_trusted_signers.items #=> Array<Signer>
+    #   resp.data.distribution.active_trusted_signers.items[0] #=> Types::Signer
+    #   resp.data.distribution.active_trusted_signers.items[0].aws_account_number #=> String
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
+    #   resp.data.distribution.active_trusted_key_groups #=> Types::ActiveTrustedKeyGroups
+    #   resp.data.distribution.active_trusted_key_groups.enabled #=> Boolean
+    #   resp.data.distribution.active_trusted_key_groups.quantity #=> Integer
+    #   resp.data.distribution.active_trusted_key_groups.items #=> Array<KGKeyPairIds>
+    #   resp.data.distribution.active_trusted_key_groups.items[0] #=> Types::KGKeyPairIds
+    #   resp.data.distribution.active_trusted_key_groups.items[0].key_group_id #=> String
+    #   resp.data.distribution.active_trusted_key_groups.items[0].key_pair_ids #=> Types::KeyPairIds
+    #   resp.data.distribution.distribution_config #=> Types::DistributionConfig
+    #   resp.data.distribution.distribution_config.caller_reference #=> String
+    #   resp.data.distribution.distribution_config.aliases #=> Types::Aliases
+    #   resp.data.distribution.distribution_config.aliases.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.aliases.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.aliases.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_root_object #=> String
+    #   resp.data.distribution.distribution_config.origins #=> Types::Origins
+    #   resp.data.distribution.distribution_config.origins.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items #=> Array<Origin>
+    #   resp.data.distribution.distribution_config.origins.items[0] #=> Types::Origin
+    #   resp.data.distribution.distribution_config.origins.items[0].id #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].domain_name #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_path #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers #=> Types::CustomHeaders
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_name #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_value #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].s3_origin_config #=> Types::S3OriginConfig
+    #   resp.data.distribution.distribution_config.origins.items[0].s3_origin_config.origin_access_identity #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].connection_attempts #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].connection_timeout #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_shield #=> Types::OriginShield
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_shield.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_shield.origin_shield_region #=> String
+    #   resp.data.distribution.distribution_config.origin_groups #=> Types::OriginGroups
+    #   resp.data.distribution.distribution_config.origin_groups.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items #=> Array<OriginGroup>
+    #   resp.data.distribution.distribution_config.origin_groups.items[0] #=> Types::OriginGroup
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].id #=> String
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members #=> Types::OriginGroupMembers
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.items #=> Array<OriginGroupMember>
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.items[0].origin_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior #=> Types::DefaultCacheBehavior
+    #   resp.data.distribution.distribution_config.default_cache_behavior.target_origin_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.smooth_streaming #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.compress #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.cache_policy_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.origin_request_policy_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.response_headers_policy_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers #=> Types::Headers
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.min_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.default_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.max_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors #=> Types::CacheBehaviors
+    #   resp.data.distribution.distribution_config.cache_behaviors.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors.items #=> Array<CacheBehavior>
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0] #=> Types::CacheBehavior
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].path_pattern #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].compress #=> Boolean
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].field_level_encryption_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].realtime_log_config_arn #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].cache_policy_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].origin_request_policy_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].response_headers_policy_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].min_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].default_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].max_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.custom_error_responses #=> Types::CustomErrorResponses
+    #   resp.data.distribution.distribution_config.custom_error_responses.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.custom_error_responses.items #=> Array<CustomErrorResponse>
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0] #=> Types::CustomErrorResponse
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].error_code #=> Integer
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].response_page_path #=> String
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].response_code #=> String
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].error_caching_min_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.comment #=> String
+    #   resp.data.distribution.distribution_config.logging #=> Types::LoggingConfig
+    #   resp.data.distribution.distribution_config.logging.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.logging.include_cookies #=> Boolean
+    #   resp.data.distribution.distribution_config.logging.bucket #=> String
+    #   resp.data.distribution.distribution_config.logging.prefix #=> String
+    #   resp.data.distribution.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution.distribution_config.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.viewer_certificate #=> Types::ViewerCertificate
+    #   resp.data.distribution.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
+    #   resp.data.distribution.distribution_config.viewer_certificate.iam_certificate_id #=> String
+    #   resp.data.distribution.distribution_config.viewer_certificate.acm_certificate_arn #=> String
+    #   resp.data.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
+    #   resp.data.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution.distribution_config.viewer_certificate.certificate #=> String
+    #   resp.data.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution.distribution_config.restrictions #=> Types::Restrictions
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items[0] #=> String
+    #   resp.data.distribution.distribution_config.web_acl_id #=> String
+    #   resp.data.distribution.distribution_config.http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution.distribution_config.is_ipv6_enabled #=> Boolean
+    #   resp.data.distribution.alias_icp_recordals #=> Array<AliasICPRecordal>
+    #   resp.data.distribution.alias_icp_recordals[0] #=> Types::AliasICPRecordal
+    #   resp.data.distribution.alias_icp_recordals[0].cname #=> String
+    #   resp.data.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
+    #   resp.data.location #=> String
+    #   resp.data.e_tag #=> String
     #
     def create_distribution_with_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1282,13 +1296,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateDistributionWithTags
+        builder: Builders::CreateDistributionWithTags,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidTagging, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributions, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::InvalidOriginAccessIdentity, Errors::DistributionAlreadyExists, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidProtocolSettings, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::InvalidOrigin, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidTagging, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributions, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::InvalidOriginAccessIdentity, Errors::DistributionAlreadyExists, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidProtocolSettings, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::InvalidOrigin, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
         data_parser: Parsers::CreateDistributionWithTags
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1309,7 +1325,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Create a new field-level encryption configuration.</p>
@@ -1358,32 +1374,32 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateFieldLevelEncryptionConfigOutput
-    #   resp.field_level_encryption #=> Types::FieldLevelEncryption
-    #   resp.field_level_encryption.id #=> String
-    #   resp.field_level_encryption.last_modified_time #=> Time
-    #   resp.field_level_encryption.field_level_encryption_config #=> Types::FieldLevelEncryptionConfig
-    #   resp.field_level_encryption.field_level_encryption_config.caller_reference #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.comment #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config #=> Types::QueryArgProfileConfig
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.forward_when_query_arg_profile_is_unknown #=> Boolean
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles #=> Types::QueryArgProfiles
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.quantity #=> Integer
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items #=> Array<QueryArgProfile>
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0] #=> Types::QueryArgProfile
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].query_arg #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].profile_id #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config #=> Types::ContentTypeProfileConfig
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.forward_when_content_type_is_unknown #=> Boolean
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles #=> Types::ContentTypeProfiles
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.quantity #=> Integer
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].content_type #=> String
-    #   resp.location #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::CreateFieldLevelEncryptionConfigOutput
+    #   resp.data.field_level_encryption #=> Types::FieldLevelEncryption
+    #   resp.data.field_level_encryption.id #=> String
+    #   resp.data.field_level_encryption.last_modified_time #=> Time
+    #   resp.data.field_level_encryption.field_level_encryption_config #=> Types::FieldLevelEncryptionConfig
+    #   resp.data.field_level_encryption.field_level_encryption_config.caller_reference #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.comment #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config #=> Types::QueryArgProfileConfig
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.forward_when_query_arg_profile_is_unknown #=> Boolean
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles #=> Types::QueryArgProfiles
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.quantity #=> Integer
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items #=> Array<QueryArgProfile>
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0] #=> Types::QueryArgProfile
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].query_arg #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].profile_id #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config #=> Types::ContentTypeProfileConfig
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.forward_when_content_type_is_unknown #=> Boolean
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles #=> Types::ContentTypeProfiles
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.quantity #=> Integer
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].content_type #=> String
+    #   resp.data.location #=> String
+    #   resp.data.e_tag #=> String
     #
     def create_field_level_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1393,13 +1409,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateFieldLevelEncryptionConfig
+        builder: Builders::CreateFieldLevelEncryptionConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::QueryArgProfileEmpty, Errors::FieldLevelEncryptionConfigAlreadyExists, Errors::TooManyFieldLevelEncryptionContentTypeProfiles, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::TooManyFieldLevelEncryptionConfigs, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionQueryArgProfiles]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::QueryArgProfileEmpty, Errors::FieldLevelEncryptionConfigAlreadyExists, Errors::TooManyFieldLevelEncryptionContentTypeProfiles, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::TooManyFieldLevelEncryptionConfigs, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionQueryArgProfiles]),
         data_parser: Parsers::CreateFieldLevelEncryptionConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1420,7 +1438,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Create a field-level encryption profile.</p>
@@ -1460,26 +1478,26 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateFieldLevelEncryptionProfileOutput
-    #   resp.field_level_encryption_profile #=> Types::FieldLevelEncryptionProfile
-    #   resp.field_level_encryption_profile.id #=> String
-    #   resp.field_level_encryption_profile.last_modified_time #=> Time
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config #=> Types::FieldLevelEncryptionProfileConfig
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.member_name #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.caller_reference #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.comment #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities #=> Types::EncryptionEntities
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.quantity #=> Integer
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items #=> Array<EncryptionEntity>
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0] #=> Types::EncryptionEntity
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].public_key_id #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].provider_id #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns #=> Types::FieldPatterns
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.quantity #=> Integer
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items #=> Array<String>
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items[0] #=> String
-    #   resp.location #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::CreateFieldLevelEncryptionProfileOutput
+    #   resp.data.field_level_encryption_profile #=> Types::FieldLevelEncryptionProfile
+    #   resp.data.field_level_encryption_profile.id #=> String
+    #   resp.data.field_level_encryption_profile.last_modified_time #=> Time
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config #=> Types::FieldLevelEncryptionProfileConfig
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.member_name #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.caller_reference #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.comment #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities #=> Types::EncryptionEntities
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.quantity #=> Integer
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items #=> Array<EncryptionEntity>
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0] #=> Types::EncryptionEntity
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].public_key_id #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].provider_id #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns #=> Types::FieldPatterns
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.quantity #=> Integer
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items #=> Array<String>
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items[0] #=> String
+    #   resp.data.location #=> String
+    #   resp.data.e_tag #=> String
     #
     def create_field_level_encryption_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1489,13 +1507,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateFieldLevelEncryptionProfile
+        builder: Builders::CreateFieldLevelEncryptionProfile,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::FieldLevelEncryptionProfileAlreadyExists, Errors::TooManyFieldLevelEncryptionFieldPatterns, Errors::NoSuchPublicKey, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionEncryptionEntities, Errors::TooManyFieldLevelEncryptionProfiles, Errors::FieldLevelEncryptionProfileSizeExceeded]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::FieldLevelEncryptionProfileAlreadyExists, Errors::TooManyFieldLevelEncryptionFieldPatterns, Errors::NoSuchPublicKey, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionEncryptionEntities, Errors::TooManyFieldLevelEncryptionProfiles, Errors::FieldLevelEncryptionProfileSizeExceeded]),
         data_parser: Parsers::CreateFieldLevelEncryptionProfile
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1516,7 +1536,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Creates a CloudFront function.</p>
@@ -1560,20 +1580,20 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateFunctionOutput
-    #   resp.function_summary #=> Types::FunctionSummary
-    #   resp.function_summary.member_name #=> String
-    #   resp.function_summary.status #=> String
-    #   resp.function_summary.function_config #=> Types::FunctionConfig
-    #   resp.function_summary.function_config.comment #=> String
-    #   resp.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
-    #   resp.function_summary.function_metadata #=> Types::FunctionMetadata
-    #   resp.function_summary.function_metadata.function_arn #=> String
-    #   resp.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
-    #   resp.function_summary.function_metadata.created_time #=> Time
-    #   resp.function_summary.function_metadata.last_modified_time #=> Time
-    #   resp.location #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::CreateFunctionOutput
+    #   resp.data.function_summary #=> Types::FunctionSummary
+    #   resp.data.function_summary.member_name #=> String
+    #   resp.data.function_summary.status #=> String
+    #   resp.data.function_summary.function_config #=> Types::FunctionConfig
+    #   resp.data.function_summary.function_config.comment #=> String
+    #   resp.data.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
+    #   resp.data.function_summary.function_metadata #=> Types::FunctionMetadata
+    #   resp.data.function_summary.function_metadata.function_arn #=> String
+    #   resp.data.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
+    #   resp.data.function_summary.function_metadata.created_time #=> Time
+    #   resp.data.function_summary.function_metadata.last_modified_time #=> Time
+    #   resp.data.location #=> String
+    #   resp.data.e_tag #=> String
     #
     def create_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1583,13 +1603,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateFunction
+        builder: Builders::CreateFunction,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::UnsupportedOperation, Errors::TooManyFunctions, Errors::FunctionAlreadyExists, Errors::InvalidArgument, Errors::FunctionSizeLimitExceeded]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::UnsupportedOperation, Errors::TooManyFunctions, Errors::FunctionAlreadyExists, Errors::InvalidArgument, Errors::FunctionSizeLimitExceeded]),
         data_parser: Parsers::CreateFunction
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1610,7 +1632,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Create a new invalidation. </p>
@@ -1643,18 +1665,18 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateInvalidationOutput
-    #   resp.location #=> String
-    #   resp.invalidation #=> Types::Invalidation
-    #   resp.invalidation.id #=> String
-    #   resp.invalidation.status #=> String
-    #   resp.invalidation.create_time #=> Time
-    #   resp.invalidation.invalidation_batch #=> Types::InvalidationBatch
-    #   resp.invalidation.invalidation_batch.paths #=> Types::Paths
-    #   resp.invalidation.invalidation_batch.paths.quantity #=> Integer
-    #   resp.invalidation.invalidation_batch.paths.items #=> Array<String>
-    #   resp.invalidation.invalidation_batch.paths.items[0] #=> String
-    #   resp.invalidation.invalidation_batch.caller_reference #=> String
+    #   resp.data #=> Types::CreateInvalidationOutput
+    #   resp.data.location #=> String
+    #   resp.data.invalidation #=> Types::Invalidation
+    #   resp.data.invalidation.id #=> String
+    #   resp.data.invalidation.status #=> String
+    #   resp.data.invalidation.create_time #=> Time
+    #   resp.data.invalidation.invalidation_batch #=> Types::InvalidationBatch
+    #   resp.data.invalidation.invalidation_batch.paths #=> Types::Paths
+    #   resp.data.invalidation.invalidation_batch.paths.quantity #=> Integer
+    #   resp.data.invalidation.invalidation_batch.paths.items #=> Array<String>
+    #   resp.data.invalidation.invalidation_batch.paths.items[0] #=> String
+    #   resp.data.invalidation.invalidation_batch.caller_reference #=> String
     #
     def create_invalidation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1664,13 +1686,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateInvalidation
+        builder: Builders::CreateInvalidation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::MissingBody, Errors::TooManyInvalidationsInProgress, Errors::InconsistentQuantities, Errors::NoSuchDistribution, Errors::InvalidArgument, Errors::BatchTooLarge]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::AccessDenied, Errors::MissingBody, Errors::TooManyInvalidationsInProgress, Errors::InconsistentQuantities, Errors::NoSuchDistribution, Errors::InvalidArgument, Errors::BatchTooLarge]),
         data_parser: Parsers::CreateInvalidation
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1691,7 +1715,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Creates a key group that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
@@ -1725,17 +1749,17 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateKeyGroupOutput
-    #   resp.key_group #=> Types::KeyGroup
-    #   resp.key_group.id #=> String
-    #   resp.key_group.last_modified_time #=> Time
-    #   resp.key_group.key_group_config #=> Types::KeyGroupConfig
-    #   resp.key_group.key_group_config.member_name #=> String
-    #   resp.key_group.key_group_config.items #=> Array<String>
-    #   resp.key_group.key_group_config.items[0] #=> String
-    #   resp.key_group.key_group_config.comment #=> String
-    #   resp.location #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::CreateKeyGroupOutput
+    #   resp.data.key_group #=> Types::KeyGroup
+    #   resp.data.key_group.id #=> String
+    #   resp.data.key_group.last_modified_time #=> Time
+    #   resp.data.key_group.key_group_config #=> Types::KeyGroupConfig
+    #   resp.data.key_group.key_group_config.member_name #=> String
+    #   resp.data.key_group.key_group_config.items #=> Array<String>
+    #   resp.data.key_group.key_group_config.items[0] #=> String
+    #   resp.data.key_group.key_group_config.comment #=> String
+    #   resp.data.location #=> String
+    #   resp.data.e_tag #=> String
     #
     def create_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1745,13 +1769,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateKeyGroup
+        builder: Builders::CreateKeyGroup,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::KeyGroupAlreadyExists, Errors::TooManyKeyGroups, Errors::TooManyPublicKeysInKeyGroup, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::KeyGroupAlreadyExists, Errors::TooManyKeyGroups, Errors::TooManyPublicKeysInKeyGroup, Errors::InvalidArgument]),
         data_parser: Parsers::CreateKeyGroup
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1772,7 +1798,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Enables additional CloudWatch metrics for the specified CloudFront distribution. The
@@ -1805,10 +1831,10 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateMonitoringSubscriptionOutput
-    #   resp.monitoring_subscription #=> Types::MonitoringSubscription
-    #   resp.monitoring_subscription.realtime_metrics_subscription_config #=> Types::RealtimeMetricsSubscriptionConfig
-    #   resp.monitoring_subscription.realtime_metrics_subscription_config.realtime_metrics_subscription_status #=> String, one of Enabled, Disabled
+    #   resp.data #=> Types::CreateMonitoringSubscriptionOutput
+    #   resp.data.monitoring_subscription #=> Types::MonitoringSubscription
+    #   resp.data.monitoring_subscription.realtime_metrics_subscription_config #=> Types::RealtimeMetricsSubscriptionConfig
+    #   resp.data.monitoring_subscription.realtime_metrics_subscription_config.realtime_metrics_subscription_status #=> String, one of Enabled, Disabled
     #
     def create_monitoring_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1818,13 +1844,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateMonitoringSubscription
+        builder: Builders::CreateMonitoringSubscription,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
         data_parser: Parsers::CreateMonitoringSubscription
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1845,7 +1873,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Creates an origin request policy.</p>
@@ -1920,33 +1948,33 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateOriginRequestPolicyOutput
-    #   resp.origin_request_policy #=> Types::OriginRequestPolicy
-    #   resp.origin_request_policy.id #=> String
-    #   resp.origin_request_policy.last_modified_time #=> Time
-    #   resp.origin_request_policy.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
-    #   resp.origin_request_policy.origin_request_policy_config.comment #=> String
-    #   resp.origin_request_policy.origin_request_policy_config.member_name #=> String
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.headers.quantity #=> Integer
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.headers.items #=> Array<String>
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.headers.items[0] #=> String
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items[0] #=> String
-    #   resp.location #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::CreateOriginRequestPolicyOutput
+    #   resp.data.origin_request_policy #=> Types::OriginRequestPolicy
+    #   resp.data.origin_request_policy.id #=> String
+    #   resp.data.origin_request_policy.last_modified_time #=> Time
+    #   resp.data.origin_request_policy.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
+    #   resp.data.origin_request_policy.origin_request_policy_config.comment #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.member_name #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.quantity #=> Integer
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.items #=> Array<String>
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.items[0] #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items[0] #=> String
+    #   resp.data.location #=> String
+    #   resp.data.e_tag #=> String
     #
     def create_origin_request_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1956,13 +1984,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateOriginRequestPolicy
+        builder: Builders::CreateOriginRequestPolicy,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyHeadersInOriginRequestPolicy, Errors::TooManyOriginRequestPolicies, Errors::TooManyQueryStringsInOriginRequestPolicy, Errors::InconsistentQuantities, Errors::OriginRequestPolicyAlreadyExists, Errors::InvalidArgument, Errors::TooManyCookiesInOriginRequestPolicy]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyHeadersInOriginRequestPolicy, Errors::TooManyOriginRequestPolicies, Errors::TooManyQueryStringsInOriginRequestPolicy, Errors::InconsistentQuantities, Errors::OriginRequestPolicyAlreadyExists, Errors::InvalidArgument, Errors::TooManyCookiesInOriginRequestPolicy]),
         data_parser: Parsers::CreateOriginRequestPolicy
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1983,7 +2013,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Uploads a public key to CloudFront that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
@@ -2009,17 +2039,17 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreatePublicKeyOutput
-    #   resp.public_key #=> Types::PublicKey
-    #   resp.public_key.id #=> String
-    #   resp.public_key.created_time #=> Time
-    #   resp.public_key.public_key_config #=> Types::PublicKeyConfig
-    #   resp.public_key.public_key_config.caller_reference #=> String
-    #   resp.public_key.public_key_config.member_name #=> String
-    #   resp.public_key.public_key_config.encoded_key #=> String
-    #   resp.public_key.public_key_config.comment #=> String
-    #   resp.location #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::CreatePublicKeyOutput
+    #   resp.data.public_key #=> Types::PublicKey
+    #   resp.data.public_key.id #=> String
+    #   resp.data.public_key.created_time #=> Time
+    #   resp.data.public_key.public_key_config #=> Types::PublicKeyConfig
+    #   resp.data.public_key.public_key_config.caller_reference #=> String
+    #   resp.data.public_key.public_key_config.member_name #=> String
+    #   resp.data.public_key.public_key_config.encoded_key #=> String
+    #   resp.data.public_key.public_key_config.comment #=> String
+    #   resp.data.location #=> String
+    #   resp.data.e_tag #=> String
     #
     def create_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2029,13 +2059,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreatePublicKey
+        builder: Builders::CreatePublicKey,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::InvalidArgument, Errors::TooManyPublicKeys, Errors::PublicKeyAlreadyExists]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidArgument, Errors::TooManyPublicKeys, Errors::PublicKeyAlreadyExists]),
         data_parser: Parsers::CreatePublicKey
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2056,7 +2088,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Creates a real-time log configuration.</p>
@@ -2107,19 +2139,19 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateRealtimeLogConfigOutput
-    #   resp.realtime_log_config #=> Types::RealtimeLogConfig
-    #   resp.realtime_log_config.arn #=> String
-    #   resp.realtime_log_config.member_name #=> String
-    #   resp.realtime_log_config.sampling_rate #=> Integer
-    #   resp.realtime_log_config.end_points #=> Array<EndPoint>
-    #   resp.realtime_log_config.end_points[0] #=> Types::EndPoint
-    #   resp.realtime_log_config.end_points[0].stream_type #=> String
-    #   resp.realtime_log_config.end_points[0].kinesis_stream_config #=> Types::KinesisStreamConfig
-    #   resp.realtime_log_config.end_points[0].kinesis_stream_config.role_arn #=> String
-    #   resp.realtime_log_config.end_points[0].kinesis_stream_config.stream_arn #=> String
-    #   resp.realtime_log_config.fields #=> Array<String>
-    #   resp.realtime_log_config.fields[0] #=> String
+    #   resp.data #=> Types::CreateRealtimeLogConfigOutput
+    #   resp.data.realtime_log_config #=> Types::RealtimeLogConfig
+    #   resp.data.realtime_log_config.arn #=> String
+    #   resp.data.realtime_log_config.member_name #=> String
+    #   resp.data.realtime_log_config.sampling_rate #=> Integer
+    #   resp.data.realtime_log_config.end_points #=> Array<EndPoint>
+    #   resp.data.realtime_log_config.end_points[0] #=> Types::EndPoint
+    #   resp.data.realtime_log_config.end_points[0].stream_type #=> String
+    #   resp.data.realtime_log_config.end_points[0].kinesis_stream_config #=> Types::KinesisStreamConfig
+    #   resp.data.realtime_log_config.end_points[0].kinesis_stream_config.role_arn #=> String
+    #   resp.data.realtime_log_config.end_points[0].kinesis_stream_config.stream_arn #=> String
+    #   resp.data.realtime_log_config.fields #=> Array<String>
+    #   resp.data.realtime_log_config.fields[0] #=> String
     #
     def create_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2129,13 +2161,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateRealtimeLogConfig
+        builder: Builders::CreateRealtimeLogConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::TooManyRealtimeLogConfigs, Errors::RealtimeLogConfigAlreadyExists]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::TooManyRealtimeLogConfigs, Errors::RealtimeLogConfigAlreadyExists]),
         data_parser: Parsers::CreateRealtimeLogConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2156,7 +2190,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Creates a response headers policy.</p>
@@ -2256,64 +2290,64 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateResponseHeadersPolicyOutput
-    #   resp.response_headers_policy #=> Types::ResponseHeadersPolicy
-    #   resp.response_headers_policy.id #=> String
-    #   resp.response_headers_policy.last_modified_time #=> Time
-    #   resp.response_headers_policy.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
-    #   resp.response_headers_policy.response_headers_policy_config.comment #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.member_name #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items #=> Array<String>
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items[0] #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers #=> Types::ResponseHeadersPolicyAccessControlAllowHeaders
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items #=> Array<String>
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items[0] #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items #=> Array<String>
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items[0] #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_max_age_sec #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.origin_override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config #=> Types::ResponseHeadersPolicySecurityHeadersConfig
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection #=> Types::ResponseHeadersPolicyXSSProtection
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.protection #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.mode_block #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options #=> Types::ResponseHeadersPolicyContentTypeOptions
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security #=> Types::ResponseHeadersPolicyStrictTransportSecurity
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.include_subdomains #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.preload #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.access_control_max_age_sec #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config #=> Types::ResponseHeadersPolicyCustomHeadersConfig
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items #=> Array<ResponseHeadersPolicyCustomHeader>
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0] #=> Types::ResponseHeadersPolicyCustomHeader
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].header #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].value #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
-    #   resp.location #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::CreateResponseHeadersPolicyOutput
+    #   resp.data.response_headers_policy #=> Types::ResponseHeadersPolicy
+    #   resp.data.response_headers_policy.id #=> String
+    #   resp.data.response_headers_policy.last_modified_time #=> Time
+    #   resp.data.response_headers_policy.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.comment #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.member_name #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items #=> Array<String>
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items[0] #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers #=> Types::ResponseHeadersPolicyAccessControlAllowHeaders
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items #=> Array<String>
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items[0] #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items #=> Array<String>
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items[0] #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_max_age_sec #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.origin_override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config #=> Types::ResponseHeadersPolicySecurityHeadersConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection #=> Types::ResponseHeadersPolicyXSSProtection
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.protection #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.mode_block #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options #=> Types::ResponseHeadersPolicyContentTypeOptions
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security #=> Types::ResponseHeadersPolicyStrictTransportSecurity
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.include_subdomains #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.preload #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.access_control_max_age_sec #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config #=> Types::ResponseHeadersPolicyCustomHeadersConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items #=> Array<ResponseHeadersPolicyCustomHeader>
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0] #=> Types::ResponseHeadersPolicyCustomHeader
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].header #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].value #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
+    #   resp.data.location #=> String
+    #   resp.data.e_tag #=> String
     #
     def create_response_headers_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2323,13 +2357,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateResponseHeadersPolicy
+        builder: Builders::CreateResponseHeadersPolicy,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyCustomHeadersInResponseHeadersPolicy, Errors::InconsistentQuantities, Errors::TooManyResponseHeadersPolicies, Errors::InvalidArgument, Errors::ResponseHeadersPolicyAlreadyExists]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyCustomHeadersInResponseHeadersPolicy, Errors::InconsistentQuantities, Errors::TooManyResponseHeadersPolicies, Errors::InvalidArgument, Errors::ResponseHeadersPolicyAlreadyExists]),
         data_parser: Parsers::CreateResponseHeadersPolicy
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2350,7 +2386,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>This API is deprecated.
@@ -2400,46 +2436,46 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateStreamingDistributionOutput
-    #   resp.streaming_distribution #=> Types::StreamingDistribution
-    #   resp.streaming_distribution.id #=> String
-    #   resp.streaming_distribution.arn #=> String
-    #   resp.streaming_distribution.status #=> String
-    #   resp.streaming_distribution.last_modified_time #=> Time
-    #   resp.streaming_distribution.domain_name #=> String
-    #   resp.streaming_distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
-    #   resp.streaming_distribution.active_trusted_signers.enabled #=> Boolean
-    #   resp.streaming_distribution.active_trusted_signers.quantity #=> Integer
-    #   resp.streaming_distribution.active_trusted_signers.items #=> Array<Signer>
-    #   resp.streaming_distribution.active_trusted_signers.items[0] #=> Types::Signer
-    #   resp.streaming_distribution.active_trusted_signers.items[0].aws_account_number #=> String
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
-    #   resp.streaming_distribution.streaming_distribution_config #=> Types::StreamingDistributionConfig
-    #   resp.streaming_distribution.streaming_distribution_config.caller_reference #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.s3_origin #=> Types::S3Origin
-    #   resp.streaming_distribution.streaming_distribution_config.s3_origin.domain_name #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.s3_origin.origin_access_identity #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.aliases #=> Types::Aliases
-    #   resp.streaming_distribution.streaming_distribution_config.aliases.quantity #=> Integer
-    #   resp.streaming_distribution.streaming_distribution_config.aliases.items #=> Array<String>
-    #   resp.streaming_distribution.streaming_distribution_config.aliases.items[0] #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.comment #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.logging #=> Types::StreamingLoggingConfig
-    #   resp.streaming_distribution.streaming_distribution_config.logging.enabled #=> Boolean
-    #   resp.streaming_distribution.streaming_distribution_config.logging.bucket #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.logging.prefix #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers #=> Types::TrustedSigners
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.enabled #=> Boolean
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.quantity #=> Integer
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.items #=> Array<String>
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.items[0] #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
-    #   resp.streaming_distribution.streaming_distribution_config.enabled #=> Boolean
-    #   resp.location #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::CreateStreamingDistributionOutput
+    #   resp.data.streaming_distribution #=> Types::StreamingDistribution
+    #   resp.data.streaming_distribution.id #=> String
+    #   resp.data.streaming_distribution.arn #=> String
+    #   resp.data.streaming_distribution.status #=> String
+    #   resp.data.streaming_distribution.last_modified_time #=> Time
+    #   resp.data.streaming_distribution.domain_name #=> String
+    #   resp.data.streaming_distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
+    #   resp.data.streaming_distribution.active_trusted_signers.enabled #=> Boolean
+    #   resp.data.streaming_distribution.active_trusted_signers.quantity #=> Integer
+    #   resp.data.streaming_distribution.active_trusted_signers.items #=> Array<Signer>
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0] #=> Types::Signer
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].aws_account_number #=> String
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config #=> Types::StreamingDistributionConfig
+    #   resp.data.streaming_distribution.streaming_distribution_config.caller_reference #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.s3_origin #=> Types::S3Origin
+    #   resp.data.streaming_distribution.streaming_distribution_config.s3_origin.domain_name #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.s3_origin.origin_access_identity #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases #=> Types::Aliases
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases.quantity #=> Integer
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases.items #=> Array<String>
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases.items[0] #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.comment #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging #=> Types::StreamingLoggingConfig
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging.enabled #=> Boolean
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging.bucket #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging.prefix #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers #=> Types::TrustedSigners
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.enabled #=> Boolean
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.quantity #=> Integer
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items #=> Array<String>
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items[0] #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.streaming_distribution.streaming_distribution_config.enabled #=> Boolean
+    #   resp.data.location #=> String
+    #   resp.data.e_tag #=> String
     #
     def create_streaming_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2449,13 +2485,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateStreamingDistribution
+        builder: Builders::CreateStreamingDistribution,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::MissingBody, Errors::TooManyStreamingDistributions, Errors::InconsistentQuantities, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::AccessDenied, Errors::TooManyTrustedSigners, Errors::StreamingDistributionAlreadyExists, Errors::InvalidOriginAccessIdentity, Errors::InvalidOrigin, Errors::TooManyStreamingDistributionCNAMEs]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::MissingBody, Errors::TooManyStreamingDistributions, Errors::InconsistentQuantities, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::AccessDenied, Errors::TooManyTrustedSigners, Errors::StreamingDistributionAlreadyExists, Errors::InvalidOriginAccessIdentity, Errors::InvalidOrigin, Errors::TooManyStreamingDistributionCNAMEs]),
         data_parser: Parsers::CreateStreamingDistribution
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2476,7 +2514,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>This API is deprecated.
@@ -2536,46 +2574,46 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateStreamingDistributionWithTagsOutput
-    #   resp.streaming_distribution #=> Types::StreamingDistribution
-    #   resp.streaming_distribution.id #=> String
-    #   resp.streaming_distribution.arn #=> String
-    #   resp.streaming_distribution.status #=> String
-    #   resp.streaming_distribution.last_modified_time #=> Time
-    #   resp.streaming_distribution.domain_name #=> String
-    #   resp.streaming_distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
-    #   resp.streaming_distribution.active_trusted_signers.enabled #=> Boolean
-    #   resp.streaming_distribution.active_trusted_signers.quantity #=> Integer
-    #   resp.streaming_distribution.active_trusted_signers.items #=> Array<Signer>
-    #   resp.streaming_distribution.active_trusted_signers.items[0] #=> Types::Signer
-    #   resp.streaming_distribution.active_trusted_signers.items[0].aws_account_number #=> String
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
-    #   resp.streaming_distribution.streaming_distribution_config #=> Types::StreamingDistributionConfig
-    #   resp.streaming_distribution.streaming_distribution_config.caller_reference #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.s3_origin #=> Types::S3Origin
-    #   resp.streaming_distribution.streaming_distribution_config.s3_origin.domain_name #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.s3_origin.origin_access_identity #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.aliases #=> Types::Aliases
-    #   resp.streaming_distribution.streaming_distribution_config.aliases.quantity #=> Integer
-    #   resp.streaming_distribution.streaming_distribution_config.aliases.items #=> Array<String>
-    #   resp.streaming_distribution.streaming_distribution_config.aliases.items[0] #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.comment #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.logging #=> Types::StreamingLoggingConfig
-    #   resp.streaming_distribution.streaming_distribution_config.logging.enabled #=> Boolean
-    #   resp.streaming_distribution.streaming_distribution_config.logging.bucket #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.logging.prefix #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers #=> Types::TrustedSigners
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.enabled #=> Boolean
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.quantity #=> Integer
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.items #=> Array<String>
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.items[0] #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
-    #   resp.streaming_distribution.streaming_distribution_config.enabled #=> Boolean
-    #   resp.location #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::CreateStreamingDistributionWithTagsOutput
+    #   resp.data.streaming_distribution #=> Types::StreamingDistribution
+    #   resp.data.streaming_distribution.id #=> String
+    #   resp.data.streaming_distribution.arn #=> String
+    #   resp.data.streaming_distribution.status #=> String
+    #   resp.data.streaming_distribution.last_modified_time #=> Time
+    #   resp.data.streaming_distribution.domain_name #=> String
+    #   resp.data.streaming_distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
+    #   resp.data.streaming_distribution.active_trusted_signers.enabled #=> Boolean
+    #   resp.data.streaming_distribution.active_trusted_signers.quantity #=> Integer
+    #   resp.data.streaming_distribution.active_trusted_signers.items #=> Array<Signer>
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0] #=> Types::Signer
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].aws_account_number #=> String
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config #=> Types::StreamingDistributionConfig
+    #   resp.data.streaming_distribution.streaming_distribution_config.caller_reference #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.s3_origin #=> Types::S3Origin
+    #   resp.data.streaming_distribution.streaming_distribution_config.s3_origin.domain_name #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.s3_origin.origin_access_identity #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases #=> Types::Aliases
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases.quantity #=> Integer
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases.items #=> Array<String>
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases.items[0] #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.comment #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging #=> Types::StreamingLoggingConfig
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging.enabled #=> Boolean
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging.bucket #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging.prefix #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers #=> Types::TrustedSigners
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.enabled #=> Boolean
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.quantity #=> Integer
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items #=> Array<String>
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items[0] #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.streaming_distribution.streaming_distribution_config.enabled #=> Boolean
+    #   resp.data.location #=> String
+    #   resp.data.e_tag #=> String
     #
     def create_streaming_distribution_with_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2585,13 +2623,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateStreamingDistributionWithTags
+        builder: Builders::CreateStreamingDistributionWithTags,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 201, errors: [Errors::MissingBody, Errors::TooManyStreamingDistributions, Errors::InconsistentQuantities, Errors::InvalidTagging, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::AccessDenied, Errors::TooManyTrustedSigners, Errors::StreamingDistributionAlreadyExists, Errors::InvalidOriginAccessIdentity, Errors::InvalidOrigin, Errors::TooManyStreamingDistributionCNAMEs]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::MissingBody, Errors::TooManyStreamingDistributions, Errors::InconsistentQuantities, Errors::InvalidTagging, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::AccessDenied, Errors::TooManyTrustedSigners, Errors::StreamingDistributionAlreadyExists, Errors::InvalidOriginAccessIdentity, Errors::InvalidOrigin, Errors::TooManyStreamingDistributionCNAMEs]),
         data_parser: Parsers::CreateStreamingDistributionWithTags
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2612,7 +2652,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Deletes a cache policy.</p>
@@ -2647,7 +2687,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteCachePolicyOutput
+    #   resp.data #=> Types::DeleteCachePolicyOutput
     #
     def delete_cache_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2657,13 +2697,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteCachePolicy
+        builder: Builders::DeleteCachePolicy,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalDelete, Errors::NoSuchCachePolicy, Errors::CachePolicyInUse]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalDelete, Errors::NoSuchCachePolicy, Errors::CachePolicyInUse]),
         data_parser: Parsers::DeleteCachePolicy
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2684,7 +2726,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Delete an origin access identity. </p>
@@ -2710,7 +2752,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteCloudFrontOriginAccessIdentityOutput
+    #   resp.data #=> Types::DeleteCloudFrontOriginAccessIdentityOutput
     #
     def delete_cloud_front_origin_access_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2720,13 +2762,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteCloudFrontOriginAccessIdentity
+        builder: Builders::DeleteCloudFrontOriginAccessIdentity,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::CloudFrontOriginAccessIdentityInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchCloudFrontOriginAccessIdentity]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::CloudFrontOriginAccessIdentityInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchCloudFrontOriginAccessIdentity]),
         data_parser: Parsers::DeleteCloudFrontOriginAccessIdentity
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2747,7 +2791,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Delete a distribution. </p>
@@ -2773,7 +2817,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteDistributionOutput
+    #   resp.data #=> Types::DeleteDistributionOutput
     #
     def delete_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2783,13 +2827,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteDistribution
+        builder: Builders::DeleteDistribution,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchDistribution, Errors::DistributionNotDisabled]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchDistribution, Errors::DistributionNotDisabled]),
         data_parser: Parsers::DeleteDistribution
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2810,7 +2856,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Remove a field-level encryption configuration.</p>
@@ -2836,7 +2882,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteFieldLevelEncryptionConfigOutput
+    #   resp.data #=> Types::DeleteFieldLevelEncryptionConfigOutput
     #
     def delete_field_level_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2846,13 +2892,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteFieldLevelEncryptionConfig
+        builder: Builders::DeleteFieldLevelEncryptionConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::FieldLevelEncryptionConfigInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchFieldLevelEncryptionConfig]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::FieldLevelEncryptionConfigInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchFieldLevelEncryptionConfig]),
         data_parser: Parsers::DeleteFieldLevelEncryptionConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2873,7 +2921,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Remove a field-level encryption profile.</p>
@@ -2899,7 +2947,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteFieldLevelEncryptionProfileOutput
+    #   resp.data #=> Types::DeleteFieldLevelEncryptionProfileOutput
     #
     def delete_field_level_encryption_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2909,13 +2957,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteFieldLevelEncryptionProfile
+        builder: Builders::DeleteFieldLevelEncryptionProfile,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::FieldLevelEncryptionProfileInUse, Errors::NoSuchFieldLevelEncryptionProfile]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::FieldLevelEncryptionProfileInUse, Errors::NoSuchFieldLevelEncryptionProfile]),
         data_parser: Parsers::DeleteFieldLevelEncryptionProfile
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2936,7 +2986,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Deletes a CloudFront function.</p>
@@ -2968,7 +3018,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteFunctionOutput
+    #   resp.data #=> Types::DeleteFunctionOutput
     #
     def delete_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2978,13 +3028,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteFunction
+        builder: Builders::DeleteFunction,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::FunctionInUse]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::FunctionInUse]),
         data_parser: Parsers::DeleteFunction
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3005,7 +3057,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Deletes a key group.</p>
@@ -3039,7 +3091,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteKeyGroupOutput
+    #   resp.data #=> Types::DeleteKeyGroupOutput
     #
     def delete_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3049,13 +3101,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteKeyGroup
+        builder: Builders::DeleteKeyGroup,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchResource, Errors::ResourceInUse]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchResource, Errors::ResourceInUse]),
         data_parser: Parsers::DeleteKeyGroup
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3076,7 +3130,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Disables additional CloudWatch metrics for the specified CloudFront distribution.</p>
@@ -3097,7 +3151,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteMonitoringSubscriptionOutput
+    #   resp.data #=> Types::DeleteMonitoringSubscriptionOutput
     #
     def delete_monitoring_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3107,13 +3161,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteMonitoringSubscription
+        builder: Builders::DeleteMonitoringSubscription,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
         data_parser: Parsers::DeleteMonitoringSubscription
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3134,7 +3190,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Deletes an origin request policy.</p>
@@ -3169,7 +3225,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteOriginRequestPolicyOutput
+    #   resp.data #=> Types::DeleteOriginRequestPolicyOutput
     #
     def delete_origin_request_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3179,13 +3235,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteOriginRequestPolicy
+        builder: Builders::DeleteOriginRequestPolicy,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::OriginRequestPolicyInUse, Errors::IllegalDelete, Errors::NoSuchOriginRequestPolicy]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::OriginRequestPolicyInUse, Errors::IllegalDelete, Errors::NoSuchOriginRequestPolicy]),
         data_parser: Parsers::DeleteOriginRequestPolicy
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3206,7 +3264,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Remove a public key you previously added to CloudFront.</p>
@@ -3232,7 +3290,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeletePublicKeyOutput
+    #   resp.data #=> Types::DeletePublicKeyOutput
     #
     def delete_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3242,13 +3300,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeletePublicKey
+        builder: Builders::DeletePublicKey,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey, Errors::PublicKeyInUse]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey, Errors::PublicKeyInUse]),
         data_parser: Parsers::DeletePublicKey
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3269,7 +3329,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Deletes a real-time log configuration.</p>
@@ -3300,7 +3360,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteRealtimeLogConfigOutput
+    #   resp.data #=> Types::DeleteRealtimeLogConfigOutput
     #
     def delete_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3310,13 +3370,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteRealtimeLogConfig
+        builder: Builders::DeleteRealtimeLogConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::RealtimeLogConfigInUse, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::RealtimeLogConfigInUse, Errors::InvalidArgument]),
         data_parser: Parsers::DeleteRealtimeLogConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3337,7 +3399,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Deletes a response headers policy.</p>
@@ -3373,7 +3435,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteResponseHeadersPolicyOutput
+    #   resp.data #=> Types::DeleteResponseHeadersPolicyOutput
     #
     def delete_response_headers_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3383,13 +3445,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteResponseHeadersPolicy
+        builder: Builders::DeleteResponseHeadersPolicy,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::ResponseHeadersPolicyInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalDelete, Errors::NoSuchResponseHeadersPolicy]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::ResponseHeadersPolicyInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalDelete, Errors::NoSuchResponseHeadersPolicy]),
         data_parser: Parsers::DeleteResponseHeadersPolicy
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3410,7 +3474,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Delete a streaming distribution. To delete an RTMP distribution using the CloudFront API,
@@ -3483,7 +3547,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteStreamingDistributionOutput
+    #   resp.data #=> Types::DeleteStreamingDistributionOutput
     #
     def delete_streaming_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3493,13 +3557,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteStreamingDistribution
+        builder: Builders::DeleteStreamingDistribution,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::StreamingDistributionNotDisabled, Errors::NoSuchStreamingDistribution]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::StreamingDistributionNotDisabled, Errors::NoSuchStreamingDistribution]),
         data_parser: Parsers::DeleteStreamingDistribution
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3520,7 +3586,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets configuration information and metadata about a CloudFront function, but not the function’s
@@ -3549,19 +3615,19 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::DescribeFunctionOutput
-    #   resp.function_summary #=> Types::FunctionSummary
-    #   resp.function_summary.member_name #=> String
-    #   resp.function_summary.status #=> String
-    #   resp.function_summary.function_config #=> Types::FunctionConfig
-    #   resp.function_summary.function_config.comment #=> String
-    #   resp.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
-    #   resp.function_summary.function_metadata #=> Types::FunctionMetadata
-    #   resp.function_summary.function_metadata.function_arn #=> String
-    #   resp.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
-    #   resp.function_summary.function_metadata.created_time #=> Time
-    #   resp.function_summary.function_metadata.last_modified_time #=> Time
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::DescribeFunctionOutput
+    #   resp.data.function_summary #=> Types::FunctionSummary
+    #   resp.data.function_summary.member_name #=> String
+    #   resp.data.function_summary.status #=> String
+    #   resp.data.function_summary.function_config #=> Types::FunctionConfig
+    #   resp.data.function_summary.function_config.comment #=> String
+    #   resp.data.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
+    #   resp.data.function_summary.function_metadata #=> Types::FunctionMetadata
+    #   resp.data.function_summary.function_metadata.function_arn #=> String
+    #   resp.data.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
+    #   resp.data.function_summary.function_metadata.created_time #=> Time
+    #   resp.data.function_summary.function_metadata.last_modified_time #=> Time
+    #   resp.data.e_tag #=> String
     #
     def describe_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3571,13 +3637,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeFunction
+        builder: Builders::DescribeFunction,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::UnsupportedOperation, Errors::NoSuchFunctionExists]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperation, Errors::NoSuchFunctionExists]),
         data_parser: Parsers::DescribeFunction
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3598,7 +3666,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a cache policy, including the following metadata:</p>
@@ -3636,38 +3704,38 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetCachePolicyOutput
-    #   resp.cache_policy #=> Types::CachePolicy
-    #   resp.cache_policy.id #=> String
-    #   resp.cache_policy.last_modified_time #=> Time
-    #   resp.cache_policy.cache_policy_config #=> Types::CachePolicyConfig
-    #   resp.cache_policy.cache_policy_config.comment #=> String
-    #   resp.cache_policy.cache_policy_config.member_name #=> String
-    #   resp.cache_policy.cache_policy_config.default_ttl #=> Integer
-    #   resp.cache_policy.cache_policy_config.max_ttl #=> Integer
-    #   resp.cache_policy.cache_policy_config.min_ttl #=> Integer
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin #=> Types::ParametersInCacheKeyAndForwardedToOrigin
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items[0] #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetCachePolicyOutput
+    #   resp.data.cache_policy #=> Types::CachePolicy
+    #   resp.data.cache_policy.id #=> String
+    #   resp.data.cache_policy.last_modified_time #=> Time
+    #   resp.data.cache_policy.cache_policy_config #=> Types::CachePolicyConfig
+    #   resp.data.cache_policy.cache_policy_config.comment #=> String
+    #   resp.data.cache_policy.cache_policy_config.member_name #=> String
+    #   resp.data.cache_policy.cache_policy_config.default_ttl #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.max_ttl #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.min_ttl #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin #=> Types::ParametersInCacheKeyAndForwardedToOrigin
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items[0] #=> String
+    #   resp.data.e_tag #=> String
     #
     def get_cache_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3677,13 +3745,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetCachePolicy
+        builder: Builders::GetCachePolicy,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy]),
         data_parser: Parsers::GetCachePolicy
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3704,7 +3774,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a cache policy configuration.</p>
@@ -3734,35 +3804,35 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetCachePolicyConfigOutput
-    #   resp.cache_policy_config #=> Types::CachePolicyConfig
-    #   resp.cache_policy_config.comment #=> String
-    #   resp.cache_policy_config.member_name #=> String
-    #   resp.cache_policy_config.default_ttl #=> Integer
-    #   resp.cache_policy_config.max_ttl #=> Integer
-    #   resp.cache_policy_config.min_ttl #=> Integer
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin #=> Types::ParametersInCacheKeyAndForwardedToOrigin
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
-    #   resp.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items[0] #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetCachePolicyConfigOutput
+    #   resp.data.cache_policy_config #=> Types::CachePolicyConfig
+    #   resp.data.cache_policy_config.comment #=> String
+    #   resp.data.cache_policy_config.member_name #=> String
+    #   resp.data.cache_policy_config.default_ttl #=> Integer
+    #   resp.data.cache_policy_config.max_ttl #=> Integer
+    #   resp.data.cache_policy_config.min_ttl #=> Integer
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin #=> Types::ParametersInCacheKeyAndForwardedToOrigin
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items[0] #=> String
+    #   resp.data.e_tag #=> String
     #
     def get_cache_policy_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3772,13 +3842,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetCachePolicyConfig
+        builder: Builders::GetCachePolicyConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy]),
         data_parser: Parsers::GetCachePolicyConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3799,7 +3871,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Get the information about an origin access identity. </p>
@@ -3820,14 +3892,14 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetCloudFrontOriginAccessIdentityOutput
-    #   resp.cloud_front_origin_access_identity #=> Types::CloudFrontOriginAccessIdentity
-    #   resp.cloud_front_origin_access_identity.id #=> String
-    #   resp.cloud_front_origin_access_identity.s3_canonical_user_id #=> String
-    #   resp.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config #=> Types::CloudFrontOriginAccessIdentityConfig
-    #   resp.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config.caller_reference #=> String
-    #   resp.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config.comment #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetCloudFrontOriginAccessIdentityOutput
+    #   resp.data.cloud_front_origin_access_identity #=> Types::CloudFrontOriginAccessIdentity
+    #   resp.data.cloud_front_origin_access_identity.id #=> String
+    #   resp.data.cloud_front_origin_access_identity.s3_canonical_user_id #=> String
+    #   resp.data.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config #=> Types::CloudFrontOriginAccessIdentityConfig
+    #   resp.data.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config.caller_reference #=> String
+    #   resp.data.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config.comment #=> String
+    #   resp.data.e_tag #=> String
     #
     def get_cloud_front_origin_access_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3837,13 +3909,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetCloudFrontOriginAccessIdentity
+        builder: Builders::GetCloudFrontOriginAccessIdentity,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCloudFrontOriginAccessIdentity]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCloudFrontOriginAccessIdentity]),
         data_parser: Parsers::GetCloudFrontOriginAccessIdentity
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3864,7 +3938,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Get the configuration information about an origin access identity. </p>
@@ -3885,11 +3959,11 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetCloudFrontOriginAccessIdentityConfigOutput
-    #   resp.cloud_front_origin_access_identity_config #=> Types::CloudFrontOriginAccessIdentityConfig
-    #   resp.cloud_front_origin_access_identity_config.caller_reference #=> String
-    #   resp.cloud_front_origin_access_identity_config.comment #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetCloudFrontOriginAccessIdentityConfigOutput
+    #   resp.data.cloud_front_origin_access_identity_config #=> Types::CloudFrontOriginAccessIdentityConfig
+    #   resp.data.cloud_front_origin_access_identity_config.caller_reference #=> String
+    #   resp.data.cloud_front_origin_access_identity_config.comment #=> String
+    #   resp.data.e_tag #=> String
     #
     def get_cloud_front_origin_access_identity_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3899,13 +3973,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetCloudFrontOriginAccessIdentityConfig
+        builder: Builders::GetCloudFrontOriginAccessIdentityConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCloudFrontOriginAccessIdentity]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCloudFrontOriginAccessIdentity]),
         data_parser: Parsers::GetCloudFrontOriginAccessIdentityConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3926,7 +4002,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Get the information about a distribution.</p>
@@ -3947,203 +4023,203 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetDistributionOutput
-    #   resp.distribution #=> Types::Distribution
-    #   resp.distribution.id #=> String
-    #   resp.distribution.arn #=> String
-    #   resp.distribution.status #=> String
-    #   resp.distribution.last_modified_time #=> Time
-    #   resp.distribution.in_progress_invalidation_batches #=> Integer
-    #   resp.distribution.domain_name #=> String
-    #   resp.distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
-    #   resp.distribution.active_trusted_signers.enabled #=> Boolean
-    #   resp.distribution.active_trusted_signers.quantity #=> Integer
-    #   resp.distribution.active_trusted_signers.items #=> Array<Signer>
-    #   resp.distribution.active_trusted_signers.items[0] #=> Types::Signer
-    #   resp.distribution.active_trusted_signers.items[0].aws_account_number #=> String
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
-    #   resp.distribution.active_trusted_key_groups #=> Types::ActiveTrustedKeyGroups
-    #   resp.distribution.active_trusted_key_groups.enabled #=> Boolean
-    #   resp.distribution.active_trusted_key_groups.quantity #=> Integer
-    #   resp.distribution.active_trusted_key_groups.items #=> Array<KGKeyPairIds>
-    #   resp.distribution.active_trusted_key_groups.items[0] #=> Types::KGKeyPairIds
-    #   resp.distribution.active_trusted_key_groups.items[0].key_group_id #=> String
-    #   resp.distribution.active_trusted_key_groups.items[0].key_pair_ids #=> Types::KeyPairIds
-    #   resp.distribution.distribution_config #=> Types::DistributionConfig
-    #   resp.distribution.distribution_config.caller_reference #=> String
-    #   resp.distribution.distribution_config.aliases #=> Types::Aliases
-    #   resp.distribution.distribution_config.aliases.quantity #=> Integer
-    #   resp.distribution.distribution_config.aliases.items #=> Array<String>
-    #   resp.distribution.distribution_config.aliases.items[0] #=> String
-    #   resp.distribution.distribution_config.default_root_object #=> String
-    #   resp.distribution.distribution_config.origins #=> Types::Origins
-    #   resp.distribution.distribution_config.origins.quantity #=> Integer
-    #   resp.distribution.distribution_config.origins.items #=> Array<Origin>
-    #   resp.distribution.distribution_config.origins.items[0] #=> Types::Origin
-    #   resp.distribution.distribution_config.origins.items[0].id #=> String
-    #   resp.distribution.distribution_config.origins.items[0].domain_name #=> String
-    #   resp.distribution.distribution_config.origins.items[0].origin_path #=> String
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers #=> Types::CustomHeaders
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.quantity #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_name #=> String
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_value #=> String
-    #   resp.distribution.distribution_config.origins.items[0].s3_origin_config #=> Types::S3OriginConfig
-    #   resp.distribution.distribution_config.origins.items[0].s3_origin_config.origin_access_identity #=> String
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].connection_attempts #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].connection_timeout #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].origin_shield #=> Types::OriginShield
-    #   resp.distribution.distribution_config.origins.items[0].origin_shield.enabled #=> Boolean
-    #   resp.distribution.distribution_config.origins.items[0].origin_shield.origin_shield_region #=> String
-    #   resp.distribution.distribution_config.origin_groups #=> Types::OriginGroups
-    #   resp.distribution.distribution_config.origin_groups.quantity #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items #=> Array<OriginGroup>
-    #   resp.distribution.distribution_config.origin_groups.items[0] #=> Types::OriginGroup
-    #   resp.distribution.distribution_config.origin_groups.items[0].id #=> String
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items[0].members #=> Types::OriginGroupMembers
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.quantity #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.items #=> Array<OriginGroupMember>
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.items[0].origin_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior #=> Types::DefaultCacheBehavior
-    #   resp.distribution.distribution_config.default_cache_behavior.target_origin_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.enabled #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.enabled #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.smooth_streaming #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.compress #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.cache_policy_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.origin_request_policy_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.response_headers_policy_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers #=> Types::Headers
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.min_ttl #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.default_ttl #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.max_ttl #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors #=> Types::CacheBehaviors
-    #   resp.distribution.distribution_config.cache_behaviors.quantity #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors.items #=> Array<CacheBehavior>
-    #   resp.distribution.distribution_config.cache_behaviors.items[0] #=> Types::CacheBehavior
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].path_pattern #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].compress #=> Boolean
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].field_level_encryption_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].realtime_log_config_arn #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].cache_policy_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].origin_request_policy_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].response_headers_policy_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].min_ttl #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].default_ttl #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].max_ttl #=> Integer
-    #   resp.distribution.distribution_config.custom_error_responses #=> Types::CustomErrorResponses
-    #   resp.distribution.distribution_config.custom_error_responses.quantity #=> Integer
-    #   resp.distribution.distribution_config.custom_error_responses.items #=> Array<CustomErrorResponse>
-    #   resp.distribution.distribution_config.custom_error_responses.items[0] #=> Types::CustomErrorResponse
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].error_code #=> Integer
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].response_page_path #=> String
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].response_code #=> String
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].error_caching_min_ttl #=> Integer
-    #   resp.distribution.distribution_config.comment #=> String
-    #   resp.distribution.distribution_config.logging #=> Types::LoggingConfig
-    #   resp.distribution.distribution_config.logging.enabled #=> Boolean
-    #   resp.distribution.distribution_config.logging.include_cookies #=> Boolean
-    #   resp.distribution.distribution_config.logging.bucket #=> String
-    #   resp.distribution.distribution_config.logging.prefix #=> String
-    #   resp.distribution.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
-    #   resp.distribution.distribution_config.enabled #=> Boolean
-    #   resp.distribution.distribution_config.viewer_certificate #=> Types::ViewerCertificate
-    #   resp.distribution.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
-    #   resp.distribution.distribution_config.viewer_certificate.iam_certificate_id #=> String
-    #   resp.distribution.distribution_config.viewer_certificate.acm_certificate_arn #=> String
-    #   resp.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
-    #   resp.distribution.distribution_config.viewer_certificate.certificate #=> String
-    #   resp.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
-    #   resp.distribution.distribution_config.restrictions #=> Types::Restrictions
-    #   resp.distribution.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.quantity #=> Integer
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.items #=> Array<String>
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.items[0] #=> String
-    #   resp.distribution.distribution_config.web_acl_id #=> String
-    #   resp.distribution.distribution_config.http_version #=> String, one of http1.1, http2
-    #   resp.distribution.distribution_config.is_ipv6_enabled #=> Boolean
-    #   resp.distribution.alias_icp_recordals #=> Array<AliasICPRecordal>
-    #   resp.distribution.alias_icp_recordals[0] #=> Types::AliasICPRecordal
-    #   resp.distribution.alias_icp_recordals[0].cname #=> String
-    #   resp.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetDistributionOutput
+    #   resp.data.distribution #=> Types::Distribution
+    #   resp.data.distribution.id #=> String
+    #   resp.data.distribution.arn #=> String
+    #   resp.data.distribution.status #=> String
+    #   resp.data.distribution.last_modified_time #=> Time
+    #   resp.data.distribution.in_progress_invalidation_batches #=> Integer
+    #   resp.data.distribution.domain_name #=> String
+    #   resp.data.distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
+    #   resp.data.distribution.active_trusted_signers.enabled #=> Boolean
+    #   resp.data.distribution.active_trusted_signers.quantity #=> Integer
+    #   resp.data.distribution.active_trusted_signers.items #=> Array<Signer>
+    #   resp.data.distribution.active_trusted_signers.items[0] #=> Types::Signer
+    #   resp.data.distribution.active_trusted_signers.items[0].aws_account_number #=> String
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
+    #   resp.data.distribution.active_trusted_key_groups #=> Types::ActiveTrustedKeyGroups
+    #   resp.data.distribution.active_trusted_key_groups.enabled #=> Boolean
+    #   resp.data.distribution.active_trusted_key_groups.quantity #=> Integer
+    #   resp.data.distribution.active_trusted_key_groups.items #=> Array<KGKeyPairIds>
+    #   resp.data.distribution.active_trusted_key_groups.items[0] #=> Types::KGKeyPairIds
+    #   resp.data.distribution.active_trusted_key_groups.items[0].key_group_id #=> String
+    #   resp.data.distribution.active_trusted_key_groups.items[0].key_pair_ids #=> Types::KeyPairIds
+    #   resp.data.distribution.distribution_config #=> Types::DistributionConfig
+    #   resp.data.distribution.distribution_config.caller_reference #=> String
+    #   resp.data.distribution.distribution_config.aliases #=> Types::Aliases
+    #   resp.data.distribution.distribution_config.aliases.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.aliases.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.aliases.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_root_object #=> String
+    #   resp.data.distribution.distribution_config.origins #=> Types::Origins
+    #   resp.data.distribution.distribution_config.origins.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items #=> Array<Origin>
+    #   resp.data.distribution.distribution_config.origins.items[0] #=> Types::Origin
+    #   resp.data.distribution.distribution_config.origins.items[0].id #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].domain_name #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_path #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers #=> Types::CustomHeaders
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_name #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_value #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].s3_origin_config #=> Types::S3OriginConfig
+    #   resp.data.distribution.distribution_config.origins.items[0].s3_origin_config.origin_access_identity #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].connection_attempts #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].connection_timeout #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_shield #=> Types::OriginShield
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_shield.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_shield.origin_shield_region #=> String
+    #   resp.data.distribution.distribution_config.origin_groups #=> Types::OriginGroups
+    #   resp.data.distribution.distribution_config.origin_groups.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items #=> Array<OriginGroup>
+    #   resp.data.distribution.distribution_config.origin_groups.items[0] #=> Types::OriginGroup
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].id #=> String
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members #=> Types::OriginGroupMembers
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.items #=> Array<OriginGroupMember>
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.items[0].origin_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior #=> Types::DefaultCacheBehavior
+    #   resp.data.distribution.distribution_config.default_cache_behavior.target_origin_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.smooth_streaming #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.compress #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.cache_policy_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.origin_request_policy_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.response_headers_policy_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers #=> Types::Headers
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.min_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.default_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.max_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors #=> Types::CacheBehaviors
+    #   resp.data.distribution.distribution_config.cache_behaviors.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors.items #=> Array<CacheBehavior>
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0] #=> Types::CacheBehavior
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].path_pattern #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].compress #=> Boolean
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].field_level_encryption_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].realtime_log_config_arn #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].cache_policy_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].origin_request_policy_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].response_headers_policy_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].min_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].default_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].max_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.custom_error_responses #=> Types::CustomErrorResponses
+    #   resp.data.distribution.distribution_config.custom_error_responses.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.custom_error_responses.items #=> Array<CustomErrorResponse>
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0] #=> Types::CustomErrorResponse
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].error_code #=> Integer
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].response_page_path #=> String
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].response_code #=> String
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].error_caching_min_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.comment #=> String
+    #   resp.data.distribution.distribution_config.logging #=> Types::LoggingConfig
+    #   resp.data.distribution.distribution_config.logging.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.logging.include_cookies #=> Boolean
+    #   resp.data.distribution.distribution_config.logging.bucket #=> String
+    #   resp.data.distribution.distribution_config.logging.prefix #=> String
+    #   resp.data.distribution.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution.distribution_config.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.viewer_certificate #=> Types::ViewerCertificate
+    #   resp.data.distribution.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
+    #   resp.data.distribution.distribution_config.viewer_certificate.iam_certificate_id #=> String
+    #   resp.data.distribution.distribution_config.viewer_certificate.acm_certificate_arn #=> String
+    #   resp.data.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
+    #   resp.data.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution.distribution_config.viewer_certificate.certificate #=> String
+    #   resp.data.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution.distribution_config.restrictions #=> Types::Restrictions
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items[0] #=> String
+    #   resp.data.distribution.distribution_config.web_acl_id #=> String
+    #   resp.data.distribution.distribution_config.http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution.distribution_config.is_ipv6_enabled #=> Boolean
+    #   resp.data.distribution.alias_icp_recordals #=> Array<AliasICPRecordal>
+    #   resp.data.distribution.alias_icp_recordals[0] #=> Types::AliasICPRecordal
+    #   resp.data.distribution.alias_icp_recordals[0].cname #=> String
+    #   resp.data.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
+    #   resp.data.e_tag #=> String
     #
     def get_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4153,13 +4229,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetDistribution
+        builder: Builders::GetDistribution,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution]),
         data_parser: Parsers::GetDistribution
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4180,7 +4258,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Get the configuration information about a distribution. </p>
@@ -4201,175 +4279,175 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetDistributionConfigOutput
-    #   resp.distribution_config #=> Types::DistributionConfig
-    #   resp.distribution_config.caller_reference #=> String
-    #   resp.distribution_config.aliases #=> Types::Aliases
-    #   resp.distribution_config.aliases.quantity #=> Integer
-    #   resp.distribution_config.aliases.items #=> Array<String>
-    #   resp.distribution_config.aliases.items[0] #=> String
-    #   resp.distribution_config.default_root_object #=> String
-    #   resp.distribution_config.origins #=> Types::Origins
-    #   resp.distribution_config.origins.quantity #=> Integer
-    #   resp.distribution_config.origins.items #=> Array<Origin>
-    #   resp.distribution_config.origins.items[0] #=> Types::Origin
-    #   resp.distribution_config.origins.items[0].id #=> String
-    #   resp.distribution_config.origins.items[0].domain_name #=> String
-    #   resp.distribution_config.origins.items[0].origin_path #=> String
-    #   resp.distribution_config.origins.items[0].custom_headers #=> Types::CustomHeaders
-    #   resp.distribution_config.origins.items[0].custom_headers.quantity #=> Integer
-    #   resp.distribution_config.origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
-    #   resp.distribution_config.origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
-    #   resp.distribution_config.origins.items[0].custom_headers.items[0].header_name #=> String
-    #   resp.distribution_config.origins.items[0].custom_headers.items[0].header_value #=> String
-    #   resp.distribution_config.origins.items[0].s3_origin_config #=> Types::S3OriginConfig
-    #   resp.distribution_config.origins.items[0].s3_origin_config.origin_access_identity #=> String
-    #   resp.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
-    #   resp.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
-    #   resp.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
-    #   resp.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
-    #   resp.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
-    #   resp.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
-    #   resp.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
-    #   resp.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
-    #   resp.distribution_config.origins.items[0].connection_attempts #=> Integer
-    #   resp.distribution_config.origins.items[0].connection_timeout #=> Integer
-    #   resp.distribution_config.origins.items[0].origin_shield #=> Types::OriginShield
-    #   resp.distribution_config.origins.items[0].origin_shield.enabled #=> Boolean
-    #   resp.distribution_config.origins.items[0].origin_shield.origin_shield_region #=> String
-    #   resp.distribution_config.origin_groups #=> Types::OriginGroups
-    #   resp.distribution_config.origin_groups.quantity #=> Integer
-    #   resp.distribution_config.origin_groups.items #=> Array<OriginGroup>
-    #   resp.distribution_config.origin_groups.items[0] #=> Types::OriginGroup
-    #   resp.distribution_config.origin_groups.items[0].id #=> String
-    #   resp.distribution_config.origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
-    #   resp.distribution_config.origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
-    #   resp.distribution_config.origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
-    #   resp.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
-    #   resp.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
-    #   resp.distribution_config.origin_groups.items[0].members #=> Types::OriginGroupMembers
-    #   resp.distribution_config.origin_groups.items[0].members.quantity #=> Integer
-    #   resp.distribution_config.origin_groups.items[0].members.items #=> Array<OriginGroupMember>
-    #   resp.distribution_config.origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
-    #   resp.distribution_config.origin_groups.items[0].members.items[0].origin_id #=> String
-    #   resp.distribution_config.default_cache_behavior #=> Types::DefaultCacheBehavior
-    #   resp.distribution_config.default_cache_behavior.target_origin_id #=> String
-    #   resp.distribution_config.default_cache_behavior.trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution_config.default_cache_behavior.trusted_signers.enabled #=> Boolean
-    #   resp.distribution_config.default_cache_behavior.trusted_signers.quantity #=> Integer
-    #   resp.distribution_config.default_cache_behavior.trusted_signers.items #=> Array<String>
-    #   resp.distribution_config.default_cache_behavior.trusted_signers.items[0] #=> String
-    #   resp.distribution_config.default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution_config.default_cache_behavior.trusted_key_groups.enabled #=> Boolean
-    #   resp.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
-    #   resp.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
-    #   resp.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
-    #   resp.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
-    #   resp.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
-    #   resp.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
-    #   resp.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
-    #   resp.distribution_config.default_cache_behavior.smooth_streaming #=> Boolean
-    #   resp.distribution_config.default_cache_behavior.compress #=> Boolean
-    #   resp.distribution_config.default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution_config.default_cache_behavior.lambda_function_associations.quantity #=> Integer
-    #   resp.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
-    #   resp.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
-    #   resp.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
-    #   resp.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
-    #   resp.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
-    #   resp.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
-    #   resp.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
-    #   resp.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
-    #   resp.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
-    #   resp.distribution_config.default_cache_behavior.cache_policy_id #=> String
-    #   resp.distribution_config.default_cache_behavior.origin_request_policy_id #=> String
-    #   resp.distribution_config.default_cache_behavior.response_headers_policy_id #=> String
-    #   resp.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.headers #=> Types::Headers
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.headers.quantity #=> Integer
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.headers.items #=> Array<String>
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.headers.items[0] #=> String
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
-    #   resp.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
-    #   resp.distribution_config.default_cache_behavior.min_ttl #=> Integer
-    #   resp.distribution_config.default_cache_behavior.default_ttl #=> Integer
-    #   resp.distribution_config.default_cache_behavior.max_ttl #=> Integer
-    #   resp.distribution_config.cache_behaviors #=> Types::CacheBehaviors
-    #   resp.distribution_config.cache_behaviors.quantity #=> Integer
-    #   resp.distribution_config.cache_behaviors.items #=> Array<CacheBehavior>
-    #   resp.distribution_config.cache_behaviors.items[0] #=> Types::CacheBehavior
-    #   resp.distribution_config.cache_behaviors.items[0].path_pattern #=> String
-    #   resp.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
-    #   resp.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
-    #   resp.distribution_config.cache_behaviors.items[0].compress #=> Boolean
-    #   resp.distribution_config.cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution_config.cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
-    #   resp.distribution_config.cache_behaviors.items[0].field_level_encryption_id #=> String
-    #   resp.distribution_config.cache_behaviors.items[0].realtime_log_config_arn #=> String
-    #   resp.distribution_config.cache_behaviors.items[0].cache_policy_id #=> String
-    #   resp.distribution_config.cache_behaviors.items[0].origin_request_policy_id #=> String
-    #   resp.distribution_config.cache_behaviors.items[0].response_headers_policy_id #=> String
-    #   resp.distribution_config.cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution_config.cache_behaviors.items[0].min_ttl #=> Integer
-    #   resp.distribution_config.cache_behaviors.items[0].default_ttl #=> Integer
-    #   resp.distribution_config.cache_behaviors.items[0].max_ttl #=> Integer
-    #   resp.distribution_config.custom_error_responses #=> Types::CustomErrorResponses
-    #   resp.distribution_config.custom_error_responses.quantity #=> Integer
-    #   resp.distribution_config.custom_error_responses.items #=> Array<CustomErrorResponse>
-    #   resp.distribution_config.custom_error_responses.items[0] #=> Types::CustomErrorResponse
-    #   resp.distribution_config.custom_error_responses.items[0].error_code #=> Integer
-    #   resp.distribution_config.custom_error_responses.items[0].response_page_path #=> String
-    #   resp.distribution_config.custom_error_responses.items[0].response_code #=> String
-    #   resp.distribution_config.custom_error_responses.items[0].error_caching_min_ttl #=> Integer
-    #   resp.distribution_config.comment #=> String
-    #   resp.distribution_config.logging #=> Types::LoggingConfig
-    #   resp.distribution_config.logging.enabled #=> Boolean
-    #   resp.distribution_config.logging.include_cookies #=> Boolean
-    #   resp.distribution_config.logging.bucket #=> String
-    #   resp.distribution_config.logging.prefix #=> String
-    #   resp.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
-    #   resp.distribution_config.enabled #=> Boolean
-    #   resp.distribution_config.viewer_certificate #=> Types::ViewerCertificate
-    #   resp.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
-    #   resp.distribution_config.viewer_certificate.iam_certificate_id #=> String
-    #   resp.distribution_config.viewer_certificate.acm_certificate_arn #=> String
-    #   resp.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
-    #   resp.distribution_config.viewer_certificate.certificate #=> String
-    #   resp.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
-    #   resp.distribution_config.restrictions #=> Types::Restrictions
-    #   resp.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
-    #   resp.distribution_config.restrictions.geo_restriction.quantity #=> Integer
-    #   resp.distribution_config.restrictions.geo_restriction.items #=> Array<String>
-    #   resp.distribution_config.restrictions.geo_restriction.items[0] #=> String
-    #   resp.distribution_config.web_acl_id #=> String
-    #   resp.distribution_config.http_version #=> String, one of http1.1, http2
-    #   resp.distribution_config.is_ipv6_enabled #=> Boolean
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetDistributionConfigOutput
+    #   resp.data.distribution_config #=> Types::DistributionConfig
+    #   resp.data.distribution_config.caller_reference #=> String
+    #   resp.data.distribution_config.aliases #=> Types::Aliases
+    #   resp.data.distribution_config.aliases.quantity #=> Integer
+    #   resp.data.distribution_config.aliases.items #=> Array<String>
+    #   resp.data.distribution_config.aliases.items[0] #=> String
+    #   resp.data.distribution_config.default_root_object #=> String
+    #   resp.data.distribution_config.origins #=> Types::Origins
+    #   resp.data.distribution_config.origins.quantity #=> Integer
+    #   resp.data.distribution_config.origins.items #=> Array<Origin>
+    #   resp.data.distribution_config.origins.items[0] #=> Types::Origin
+    #   resp.data.distribution_config.origins.items[0].id #=> String
+    #   resp.data.distribution_config.origins.items[0].domain_name #=> String
+    #   resp.data.distribution_config.origins.items[0].origin_path #=> String
+    #   resp.data.distribution_config.origins.items[0].custom_headers #=> Types::CustomHeaders
+    #   resp.data.distribution_config.origins.items[0].custom_headers.quantity #=> Integer
+    #   resp.data.distribution_config.origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
+    #   resp.data.distribution_config.origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
+    #   resp.data.distribution_config.origins.items[0].custom_headers.items[0].header_name #=> String
+    #   resp.data.distribution_config.origins.items[0].custom_headers.items[0].header_value #=> String
+    #   resp.data.distribution_config.origins.items[0].s3_origin_config #=> Types::S3OriginConfig
+    #   resp.data.distribution_config.origins.items[0].s3_origin_config.origin_access_identity #=> String
+    #   resp.data.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
+    #   resp.data.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
+    #   resp.data.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
+    #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
+    #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
+    #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
+    #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
+    #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
+    #   resp.data.distribution_config.origins.items[0].connection_attempts #=> Integer
+    #   resp.data.distribution_config.origins.items[0].connection_timeout #=> Integer
+    #   resp.data.distribution_config.origins.items[0].origin_shield #=> Types::OriginShield
+    #   resp.data.distribution_config.origins.items[0].origin_shield.enabled #=> Boolean
+    #   resp.data.distribution_config.origins.items[0].origin_shield.origin_shield_region #=> String
+    #   resp.data.distribution_config.origin_groups #=> Types::OriginGroups
+    #   resp.data.distribution_config.origin_groups.quantity #=> Integer
+    #   resp.data.distribution_config.origin_groups.items #=> Array<OriginGroup>
+    #   resp.data.distribution_config.origin_groups.items[0] #=> Types::OriginGroup
+    #   resp.data.distribution_config.origin_groups.items[0].id #=> String
+    #   resp.data.distribution_config.origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
+    #   resp.data.distribution_config.origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
+    #   resp.data.distribution_config.origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
+    #   resp.data.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
+    #   resp.data.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
+    #   resp.data.distribution_config.origin_groups.items[0].members #=> Types::OriginGroupMembers
+    #   resp.data.distribution_config.origin_groups.items[0].members.quantity #=> Integer
+    #   resp.data.distribution_config.origin_groups.items[0].members.items #=> Array<OriginGroupMember>
+    #   resp.data.distribution_config.origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
+    #   resp.data.distribution_config.origin_groups.items[0].members.items[0].origin_id #=> String
+    #   resp.data.distribution_config.default_cache_behavior #=> Types::DefaultCacheBehavior
+    #   resp.data.distribution_config.default_cache_behavior.target_origin_id #=> String
+    #   resp.data.distribution_config.default_cache_behavior.trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution_config.default_cache_behavior.trusted_signers.enabled #=> Boolean
+    #   resp.data.distribution_config.default_cache_behavior.trusted_signers.quantity #=> Integer
+    #   resp.data.distribution_config.default_cache_behavior.trusted_signers.items #=> Array<String>
+    #   resp.data.distribution_config.default_cache_behavior.trusted_signers.items[0] #=> String
+    #   resp.data.distribution_config.default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution_config.default_cache_behavior.trusted_key_groups.enabled #=> Boolean
+    #   resp.data.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
+    #   resp.data.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
+    #   resp.data.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
+    #   resp.data.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
+    #   resp.data.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
+    #   resp.data.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
+    #   resp.data.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
+    #   resp.data.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
+    #   resp.data.distribution_config.default_cache_behavior.smooth_streaming #=> Boolean
+    #   resp.data.distribution_config.default_cache_behavior.compress #=> Boolean
+    #   resp.data.distribution_config.default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution_config.default_cache_behavior.lambda_function_associations.quantity #=> Integer
+    #   resp.data.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
+    #   resp.data.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
+    #   resp.data.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
+    #   resp.data.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
+    #   resp.data.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
+    #   resp.data.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
+    #   resp.data.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
+    #   resp.data.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
+    #   resp.data.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
+    #   resp.data.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
+    #   resp.data.distribution_config.default_cache_behavior.cache_policy_id #=> String
+    #   resp.data.distribution_config.default_cache_behavior.origin_request_policy_id #=> String
+    #   resp.data.distribution_config.default_cache_behavior.response_headers_policy_id #=> String
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.headers #=> Types::Headers
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.headers.quantity #=> Integer
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.headers.items #=> Array<String>
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.headers.items[0] #=> String
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
+    #   resp.data.distribution_config.default_cache_behavior.min_ttl #=> Integer
+    #   resp.data.distribution_config.default_cache_behavior.default_ttl #=> Integer
+    #   resp.data.distribution_config.default_cache_behavior.max_ttl #=> Integer
+    #   resp.data.distribution_config.cache_behaviors #=> Types::CacheBehaviors
+    #   resp.data.distribution_config.cache_behaviors.quantity #=> Integer
+    #   resp.data.distribution_config.cache_behaviors.items #=> Array<CacheBehavior>
+    #   resp.data.distribution_config.cache_behaviors.items[0] #=> Types::CacheBehavior
+    #   resp.data.distribution_config.cache_behaviors.items[0].path_pattern #=> String
+    #   resp.data.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
+    #   resp.data.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
+    #   resp.data.distribution_config.cache_behaviors.items[0].compress #=> Boolean
+    #   resp.data.distribution_config.cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution_config.cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution_config.cache_behaviors.items[0].field_level_encryption_id #=> String
+    #   resp.data.distribution_config.cache_behaviors.items[0].realtime_log_config_arn #=> String
+    #   resp.data.distribution_config.cache_behaviors.items[0].cache_policy_id #=> String
+    #   resp.data.distribution_config.cache_behaviors.items[0].origin_request_policy_id #=> String
+    #   resp.data.distribution_config.cache_behaviors.items[0].response_headers_policy_id #=> String
+    #   resp.data.distribution_config.cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution_config.cache_behaviors.items[0].min_ttl #=> Integer
+    #   resp.data.distribution_config.cache_behaviors.items[0].default_ttl #=> Integer
+    #   resp.data.distribution_config.cache_behaviors.items[0].max_ttl #=> Integer
+    #   resp.data.distribution_config.custom_error_responses #=> Types::CustomErrorResponses
+    #   resp.data.distribution_config.custom_error_responses.quantity #=> Integer
+    #   resp.data.distribution_config.custom_error_responses.items #=> Array<CustomErrorResponse>
+    #   resp.data.distribution_config.custom_error_responses.items[0] #=> Types::CustomErrorResponse
+    #   resp.data.distribution_config.custom_error_responses.items[0].error_code #=> Integer
+    #   resp.data.distribution_config.custom_error_responses.items[0].response_page_path #=> String
+    #   resp.data.distribution_config.custom_error_responses.items[0].response_code #=> String
+    #   resp.data.distribution_config.custom_error_responses.items[0].error_caching_min_ttl #=> Integer
+    #   resp.data.distribution_config.comment #=> String
+    #   resp.data.distribution_config.logging #=> Types::LoggingConfig
+    #   resp.data.distribution_config.logging.enabled #=> Boolean
+    #   resp.data.distribution_config.logging.include_cookies #=> Boolean
+    #   resp.data.distribution_config.logging.bucket #=> String
+    #   resp.data.distribution_config.logging.prefix #=> String
+    #   resp.data.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution_config.enabled #=> Boolean
+    #   resp.data.distribution_config.viewer_certificate #=> Types::ViewerCertificate
+    #   resp.data.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
+    #   resp.data.distribution_config.viewer_certificate.iam_certificate_id #=> String
+    #   resp.data.distribution_config.viewer_certificate.acm_certificate_arn #=> String
+    #   resp.data.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
+    #   resp.data.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution_config.viewer_certificate.certificate #=> String
+    #   resp.data.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution_config.restrictions #=> Types::Restrictions
+    #   resp.data.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
+    #   resp.data.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution_config.restrictions.geo_restriction.quantity #=> Integer
+    #   resp.data.distribution_config.restrictions.geo_restriction.items #=> Array<String>
+    #   resp.data.distribution_config.restrictions.geo_restriction.items[0] #=> String
+    #   resp.data.distribution_config.web_acl_id #=> String
+    #   resp.data.distribution_config.http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution_config.is_ipv6_enabled #=> Boolean
+    #   resp.data.e_tag #=> String
     #
     def get_distribution_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4379,13 +4457,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetDistributionConfig
+        builder: Builders::GetDistributionConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution]),
         data_parser: Parsers::GetDistributionConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4406,7 +4486,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Get the field-level encryption configuration information.</p>
@@ -4427,31 +4507,31 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetFieldLevelEncryptionOutput
-    #   resp.field_level_encryption #=> Types::FieldLevelEncryption
-    #   resp.field_level_encryption.id #=> String
-    #   resp.field_level_encryption.last_modified_time #=> Time
-    #   resp.field_level_encryption.field_level_encryption_config #=> Types::FieldLevelEncryptionConfig
-    #   resp.field_level_encryption.field_level_encryption_config.caller_reference #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.comment #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config #=> Types::QueryArgProfileConfig
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.forward_when_query_arg_profile_is_unknown #=> Boolean
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles #=> Types::QueryArgProfiles
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.quantity #=> Integer
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items #=> Array<QueryArgProfile>
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0] #=> Types::QueryArgProfile
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].query_arg #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].profile_id #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config #=> Types::ContentTypeProfileConfig
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.forward_when_content_type_is_unknown #=> Boolean
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles #=> Types::ContentTypeProfiles
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.quantity #=> Integer
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].content_type #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetFieldLevelEncryptionOutput
+    #   resp.data.field_level_encryption #=> Types::FieldLevelEncryption
+    #   resp.data.field_level_encryption.id #=> String
+    #   resp.data.field_level_encryption.last_modified_time #=> Time
+    #   resp.data.field_level_encryption.field_level_encryption_config #=> Types::FieldLevelEncryptionConfig
+    #   resp.data.field_level_encryption.field_level_encryption_config.caller_reference #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.comment #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config #=> Types::QueryArgProfileConfig
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.forward_when_query_arg_profile_is_unknown #=> Boolean
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles #=> Types::QueryArgProfiles
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.quantity #=> Integer
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items #=> Array<QueryArgProfile>
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0] #=> Types::QueryArgProfile
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].query_arg #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].profile_id #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config #=> Types::ContentTypeProfileConfig
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.forward_when_content_type_is_unknown #=> Boolean
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles #=> Types::ContentTypeProfiles
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.quantity #=> Integer
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].content_type #=> String
+    #   resp.data.e_tag #=> String
     #
     def get_field_level_encryption(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4461,13 +4541,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFieldLevelEncryption
+        builder: Builders::GetFieldLevelEncryption,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionConfig]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionConfig]),
         data_parser: Parsers::GetFieldLevelEncryption
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4488,7 +4570,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Get the field-level encryption configuration information.</p>
@@ -4509,28 +4591,28 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetFieldLevelEncryptionConfigOutput
-    #   resp.field_level_encryption_config #=> Types::FieldLevelEncryptionConfig
-    #   resp.field_level_encryption_config.caller_reference #=> String
-    #   resp.field_level_encryption_config.comment #=> String
-    #   resp.field_level_encryption_config.query_arg_profile_config #=> Types::QueryArgProfileConfig
-    #   resp.field_level_encryption_config.query_arg_profile_config.forward_when_query_arg_profile_is_unknown #=> Boolean
-    #   resp.field_level_encryption_config.query_arg_profile_config.query_arg_profiles #=> Types::QueryArgProfiles
-    #   resp.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.quantity #=> Integer
-    #   resp.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items #=> Array<QueryArgProfile>
-    #   resp.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0] #=> Types::QueryArgProfile
-    #   resp.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].query_arg #=> String
-    #   resp.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].profile_id #=> String
-    #   resp.field_level_encryption_config.content_type_profile_config #=> Types::ContentTypeProfileConfig
-    #   resp.field_level_encryption_config.content_type_profile_config.forward_when_content_type_is_unknown #=> Boolean
-    #   resp.field_level_encryption_config.content_type_profile_config.content_type_profiles #=> Types::ContentTypeProfiles
-    #   resp.field_level_encryption_config.content_type_profile_config.content_type_profiles.quantity #=> Integer
-    #   resp.field_level_encryption_config.content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
-    #   resp.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
-    #   resp.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
-    #   resp.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
-    #   resp.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].content_type #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetFieldLevelEncryptionConfigOutput
+    #   resp.data.field_level_encryption_config #=> Types::FieldLevelEncryptionConfig
+    #   resp.data.field_level_encryption_config.caller_reference #=> String
+    #   resp.data.field_level_encryption_config.comment #=> String
+    #   resp.data.field_level_encryption_config.query_arg_profile_config #=> Types::QueryArgProfileConfig
+    #   resp.data.field_level_encryption_config.query_arg_profile_config.forward_when_query_arg_profile_is_unknown #=> Boolean
+    #   resp.data.field_level_encryption_config.query_arg_profile_config.query_arg_profiles #=> Types::QueryArgProfiles
+    #   resp.data.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.quantity #=> Integer
+    #   resp.data.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items #=> Array<QueryArgProfile>
+    #   resp.data.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0] #=> Types::QueryArgProfile
+    #   resp.data.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].query_arg #=> String
+    #   resp.data.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].profile_id #=> String
+    #   resp.data.field_level_encryption_config.content_type_profile_config #=> Types::ContentTypeProfileConfig
+    #   resp.data.field_level_encryption_config.content_type_profile_config.forward_when_content_type_is_unknown #=> Boolean
+    #   resp.data.field_level_encryption_config.content_type_profile_config.content_type_profiles #=> Types::ContentTypeProfiles
+    #   resp.data.field_level_encryption_config.content_type_profile_config.content_type_profiles.quantity #=> Integer
+    #   resp.data.field_level_encryption_config.content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
+    #   resp.data.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
+    #   resp.data.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
+    #   resp.data.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
+    #   resp.data.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].content_type #=> String
+    #   resp.data.e_tag #=> String
     #
     def get_field_level_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4540,13 +4622,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFieldLevelEncryptionConfig
+        builder: Builders::GetFieldLevelEncryptionConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionConfig]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionConfig]),
         data_parser: Parsers::GetFieldLevelEncryptionConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4567,7 +4651,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Get the field-level encryption profile information.</p>
@@ -4588,25 +4672,25 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetFieldLevelEncryptionProfileOutput
-    #   resp.field_level_encryption_profile #=> Types::FieldLevelEncryptionProfile
-    #   resp.field_level_encryption_profile.id #=> String
-    #   resp.field_level_encryption_profile.last_modified_time #=> Time
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config #=> Types::FieldLevelEncryptionProfileConfig
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.member_name #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.caller_reference #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.comment #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities #=> Types::EncryptionEntities
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.quantity #=> Integer
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items #=> Array<EncryptionEntity>
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0] #=> Types::EncryptionEntity
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].public_key_id #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].provider_id #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns #=> Types::FieldPatterns
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.quantity #=> Integer
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items #=> Array<String>
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items[0] #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetFieldLevelEncryptionProfileOutput
+    #   resp.data.field_level_encryption_profile #=> Types::FieldLevelEncryptionProfile
+    #   resp.data.field_level_encryption_profile.id #=> String
+    #   resp.data.field_level_encryption_profile.last_modified_time #=> Time
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config #=> Types::FieldLevelEncryptionProfileConfig
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.member_name #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.caller_reference #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.comment #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities #=> Types::EncryptionEntities
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.quantity #=> Integer
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items #=> Array<EncryptionEntity>
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0] #=> Types::EncryptionEntity
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].public_key_id #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].provider_id #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns #=> Types::FieldPatterns
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.quantity #=> Integer
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items #=> Array<String>
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items[0] #=> String
+    #   resp.data.e_tag #=> String
     #
     def get_field_level_encryption_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4616,13 +4700,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFieldLevelEncryptionProfile
+        builder: Builders::GetFieldLevelEncryptionProfile,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionProfile]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionProfile]),
         data_parser: Parsers::GetFieldLevelEncryptionProfile
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4643,7 +4729,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Get the field-level encryption profile configuration information.</p>
@@ -4664,22 +4750,22 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetFieldLevelEncryptionProfileConfigOutput
-    #   resp.field_level_encryption_profile_config #=> Types::FieldLevelEncryptionProfileConfig
-    #   resp.field_level_encryption_profile_config.member_name #=> String
-    #   resp.field_level_encryption_profile_config.caller_reference #=> String
-    #   resp.field_level_encryption_profile_config.comment #=> String
-    #   resp.field_level_encryption_profile_config.encryption_entities #=> Types::EncryptionEntities
-    #   resp.field_level_encryption_profile_config.encryption_entities.quantity #=> Integer
-    #   resp.field_level_encryption_profile_config.encryption_entities.items #=> Array<EncryptionEntity>
-    #   resp.field_level_encryption_profile_config.encryption_entities.items[0] #=> Types::EncryptionEntity
-    #   resp.field_level_encryption_profile_config.encryption_entities.items[0].public_key_id #=> String
-    #   resp.field_level_encryption_profile_config.encryption_entities.items[0].provider_id #=> String
-    #   resp.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns #=> Types::FieldPatterns
-    #   resp.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.quantity #=> Integer
-    #   resp.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items #=> Array<String>
-    #   resp.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items[0] #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetFieldLevelEncryptionProfileConfigOutput
+    #   resp.data.field_level_encryption_profile_config #=> Types::FieldLevelEncryptionProfileConfig
+    #   resp.data.field_level_encryption_profile_config.member_name #=> String
+    #   resp.data.field_level_encryption_profile_config.caller_reference #=> String
+    #   resp.data.field_level_encryption_profile_config.comment #=> String
+    #   resp.data.field_level_encryption_profile_config.encryption_entities #=> Types::EncryptionEntities
+    #   resp.data.field_level_encryption_profile_config.encryption_entities.quantity #=> Integer
+    #   resp.data.field_level_encryption_profile_config.encryption_entities.items #=> Array<EncryptionEntity>
+    #   resp.data.field_level_encryption_profile_config.encryption_entities.items[0] #=> Types::EncryptionEntity
+    #   resp.data.field_level_encryption_profile_config.encryption_entities.items[0].public_key_id #=> String
+    #   resp.data.field_level_encryption_profile_config.encryption_entities.items[0].provider_id #=> String
+    #   resp.data.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns #=> Types::FieldPatterns
+    #   resp.data.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.quantity #=> Integer
+    #   resp.data.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items #=> Array<String>
+    #   resp.data.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items[0] #=> String
+    #   resp.data.e_tag #=> String
     #
     def get_field_level_encryption_profile_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4689,13 +4775,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFieldLevelEncryptionProfileConfig
+        builder: Builders::GetFieldLevelEncryptionProfileConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionProfile]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionProfile]),
         data_parser: Parsers::GetFieldLevelEncryptionProfileConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4716,7 +4804,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets the code of a CloudFront function. To get configuration information and metadata about
@@ -4744,10 +4832,10 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetFunctionOutput
-    #   resp.function_code #=> String
-    #   resp.e_tag #=> String
-    #   resp.content_type #=> String
+    #   resp.data #=> Types::GetFunctionOutput
+    #   resp.data.function_code #=> String
+    #   resp.data.e_tag #=> String
+    #   resp.data.content_type #=> String
     #
     def get_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4757,13 +4845,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFunction
+        builder: Builders::GetFunction,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::UnsupportedOperation, Errors::NoSuchFunctionExists]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperation, Errors::NoSuchFunctionExists]),
         data_parser: Parsers::GetFunction
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4784,7 +4874,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Get the information about an invalidation. </p>
@@ -4810,17 +4900,17 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetInvalidationOutput
-    #   resp.invalidation #=> Types::Invalidation
-    #   resp.invalidation.id #=> String
-    #   resp.invalidation.status #=> String
-    #   resp.invalidation.create_time #=> Time
-    #   resp.invalidation.invalidation_batch #=> Types::InvalidationBatch
-    #   resp.invalidation.invalidation_batch.paths #=> Types::Paths
-    #   resp.invalidation.invalidation_batch.paths.quantity #=> Integer
-    #   resp.invalidation.invalidation_batch.paths.items #=> Array<String>
-    #   resp.invalidation.invalidation_batch.paths.items[0] #=> String
-    #   resp.invalidation.invalidation_batch.caller_reference #=> String
+    #   resp.data #=> Types::GetInvalidationOutput
+    #   resp.data.invalidation #=> Types::Invalidation
+    #   resp.data.invalidation.id #=> String
+    #   resp.data.invalidation.status #=> String
+    #   resp.data.invalidation.create_time #=> Time
+    #   resp.data.invalidation.invalidation_batch #=> Types::InvalidationBatch
+    #   resp.data.invalidation.invalidation_batch.paths #=> Types::Paths
+    #   resp.data.invalidation.invalidation_batch.paths.quantity #=> Integer
+    #   resp.data.invalidation.invalidation_batch.paths.items #=> Array<String>
+    #   resp.data.invalidation.invalidation_batch.paths.items[0] #=> String
+    #   resp.data.invalidation.invalidation_batch.caller_reference #=> String
     #
     def get_invalidation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4830,13 +4920,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetInvalidation
+        builder: Builders::GetInvalidation,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchInvalidation, Errors::NoSuchDistribution]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchInvalidation, Errors::NoSuchDistribution]),
         data_parser: Parsers::GetInvalidation
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4857,7 +4949,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a key group, including the date and time when the key group was last modified.</p>
@@ -4884,16 +4976,16 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetKeyGroupOutput
-    #   resp.key_group #=> Types::KeyGroup
-    #   resp.key_group.id #=> String
-    #   resp.key_group.last_modified_time #=> Time
-    #   resp.key_group.key_group_config #=> Types::KeyGroupConfig
-    #   resp.key_group.key_group_config.member_name #=> String
-    #   resp.key_group.key_group_config.items #=> Array<String>
-    #   resp.key_group.key_group_config.items[0] #=> String
-    #   resp.key_group.key_group_config.comment #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetKeyGroupOutput
+    #   resp.data.key_group #=> Types::KeyGroup
+    #   resp.data.key_group.id #=> String
+    #   resp.data.key_group.last_modified_time #=> Time
+    #   resp.data.key_group.key_group_config #=> Types::KeyGroupConfig
+    #   resp.data.key_group.key_group_config.member_name #=> String
+    #   resp.data.key_group.key_group_config.items #=> Array<String>
+    #   resp.data.key_group.key_group_config.items[0] #=> String
+    #   resp.data.key_group.key_group_config.comment #=> String
+    #   resp.data.e_tag #=> String
     #
     def get_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4903,13 +4995,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetKeyGroup
+        builder: Builders::GetKeyGroup,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::NoSuchResource]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchResource]),
         data_parser: Parsers::GetKeyGroup
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4930,7 +5024,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a key group configuration.</p>
@@ -4957,13 +5051,13 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetKeyGroupConfigOutput
-    #   resp.key_group_config #=> Types::KeyGroupConfig
-    #   resp.key_group_config.member_name #=> String
-    #   resp.key_group_config.items #=> Array<String>
-    #   resp.key_group_config.items[0] #=> String
-    #   resp.key_group_config.comment #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetKeyGroupConfigOutput
+    #   resp.data.key_group_config #=> Types::KeyGroupConfig
+    #   resp.data.key_group_config.member_name #=> String
+    #   resp.data.key_group_config.items #=> Array<String>
+    #   resp.data.key_group_config.items[0] #=> String
+    #   resp.data.key_group_config.comment #=> String
+    #   resp.data.e_tag #=> String
     #
     def get_key_group_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4973,13 +5067,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetKeyGroupConfig
+        builder: Builders::GetKeyGroupConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::NoSuchResource]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchResource]),
         data_parser: Parsers::GetKeyGroupConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -5000,7 +5096,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets information about whether additional CloudWatch metrics are enabled for the specified
@@ -5022,10 +5118,10 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetMonitoringSubscriptionOutput
-    #   resp.monitoring_subscription #=> Types::MonitoringSubscription
-    #   resp.monitoring_subscription.realtime_metrics_subscription_config #=> Types::RealtimeMetricsSubscriptionConfig
-    #   resp.monitoring_subscription.realtime_metrics_subscription_config.realtime_metrics_subscription_status #=> String, one of Enabled, Disabled
+    #   resp.data #=> Types::GetMonitoringSubscriptionOutput
+    #   resp.data.monitoring_subscription #=> Types::MonitoringSubscription
+    #   resp.data.monitoring_subscription.realtime_metrics_subscription_config #=> Types::RealtimeMetricsSubscriptionConfig
+    #   resp.data.monitoring_subscription.realtime_metrics_subscription_config.realtime_metrics_subscription_status #=> String, one of Enabled, Disabled
     #
     def get_monitoring_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5035,13 +5131,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetMonitoringSubscription
+        builder: Builders::GetMonitoringSubscription,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
         data_parser: Parsers::GetMonitoringSubscription
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -5062,7 +5160,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets an origin request policy, including the following metadata:</p>
@@ -5100,32 +5198,32 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetOriginRequestPolicyOutput
-    #   resp.origin_request_policy #=> Types::OriginRequestPolicy
-    #   resp.origin_request_policy.id #=> String
-    #   resp.origin_request_policy.last_modified_time #=> Time
-    #   resp.origin_request_policy.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
-    #   resp.origin_request_policy.origin_request_policy_config.comment #=> String
-    #   resp.origin_request_policy.origin_request_policy_config.member_name #=> String
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.headers.quantity #=> Integer
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.headers.items #=> Array<String>
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.headers.items[0] #=> String
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items[0] #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetOriginRequestPolicyOutput
+    #   resp.data.origin_request_policy #=> Types::OriginRequestPolicy
+    #   resp.data.origin_request_policy.id #=> String
+    #   resp.data.origin_request_policy.last_modified_time #=> Time
+    #   resp.data.origin_request_policy.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
+    #   resp.data.origin_request_policy.origin_request_policy_config.comment #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.member_name #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.quantity #=> Integer
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.items #=> Array<String>
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.items[0] #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items[0] #=> String
+    #   resp.data.e_tag #=> String
     #
     def get_origin_request_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5135,13 +5233,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetOriginRequestPolicy
+        builder: Builders::GetOriginRequestPolicy,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchOriginRequestPolicy]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchOriginRequestPolicy]),
         data_parser: Parsers::GetOriginRequestPolicy
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -5162,7 +5262,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets an origin request policy configuration.</p>
@@ -5193,29 +5293,29 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetOriginRequestPolicyConfigOutput
-    #   resp.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
-    #   resp.origin_request_policy_config.comment #=> String
-    #   resp.origin_request_policy_config.member_name #=> String
-    #   resp.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
-    #   resp.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
-    #   resp.origin_request_policy_config.headers_config.headers #=> Types::Headers
-    #   resp.origin_request_policy_config.headers_config.headers.quantity #=> Integer
-    #   resp.origin_request_policy_config.headers_config.headers.items #=> Array<String>
-    #   resp.origin_request_policy_config.headers_config.headers.items[0] #=> String
-    #   resp.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
-    #   resp.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
-    #   resp.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
-    #   resp.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
-    #   resp.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
-    #   resp.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
-    #   resp.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
-    #   resp.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
-    #   resp.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
-    #   resp.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
-    #   resp.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
-    #   resp.origin_request_policy_config.query_strings_config.query_strings.items[0] #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetOriginRequestPolicyConfigOutput
+    #   resp.data.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
+    #   resp.data.origin_request_policy_config.comment #=> String
+    #   resp.data.origin_request_policy_config.member_name #=> String
+    #   resp.data.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
+    #   resp.data.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
+    #   resp.data.origin_request_policy_config.headers_config.headers #=> Types::Headers
+    #   resp.data.origin_request_policy_config.headers_config.headers.quantity #=> Integer
+    #   resp.data.origin_request_policy_config.headers_config.headers.items #=> Array<String>
+    #   resp.data.origin_request_policy_config.headers_config.headers.items[0] #=> String
+    #   resp.data.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
+    #   resp.data.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
+    #   resp.data.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
+    #   resp.data.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
+    #   resp.data.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
+    #   resp.data.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
+    #   resp.data.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
+    #   resp.data.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
+    #   resp.data.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
+    #   resp.data.origin_request_policy_config.query_strings_config.query_strings.items[0] #=> String
+    #   resp.data.e_tag #=> String
     #
     def get_origin_request_policy_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5225,13 +5325,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetOriginRequestPolicyConfig
+        builder: Builders::GetOriginRequestPolicyConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchOriginRequestPolicy]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchOriginRequestPolicy]),
         data_parser: Parsers::GetOriginRequestPolicyConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -5252,7 +5354,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a public key.</p>
@@ -5273,16 +5375,16 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetPublicKeyOutput
-    #   resp.public_key #=> Types::PublicKey
-    #   resp.public_key.id #=> String
-    #   resp.public_key.created_time #=> Time
-    #   resp.public_key.public_key_config #=> Types::PublicKeyConfig
-    #   resp.public_key.public_key_config.caller_reference #=> String
-    #   resp.public_key.public_key_config.member_name #=> String
-    #   resp.public_key.public_key_config.encoded_key #=> String
-    #   resp.public_key.public_key_config.comment #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetPublicKeyOutput
+    #   resp.data.public_key #=> Types::PublicKey
+    #   resp.data.public_key.id #=> String
+    #   resp.data.public_key.created_time #=> Time
+    #   resp.data.public_key.public_key_config #=> Types::PublicKeyConfig
+    #   resp.data.public_key.public_key_config.caller_reference #=> String
+    #   resp.data.public_key.public_key_config.member_name #=> String
+    #   resp.data.public_key.public_key_config.encoded_key #=> String
+    #   resp.data.public_key.public_key_config.comment #=> String
+    #   resp.data.e_tag #=> String
     #
     def get_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5292,13 +5394,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetPublicKey
+        builder: Builders::GetPublicKey,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchPublicKey]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchPublicKey]),
         data_parser: Parsers::GetPublicKey
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -5319,7 +5423,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a public key configuration.</p>
@@ -5340,13 +5444,13 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetPublicKeyConfigOutput
-    #   resp.public_key_config #=> Types::PublicKeyConfig
-    #   resp.public_key_config.caller_reference #=> String
-    #   resp.public_key_config.member_name #=> String
-    #   resp.public_key_config.encoded_key #=> String
-    #   resp.public_key_config.comment #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetPublicKeyConfigOutput
+    #   resp.data.public_key_config #=> Types::PublicKeyConfig
+    #   resp.data.public_key_config.caller_reference #=> String
+    #   resp.data.public_key_config.member_name #=> String
+    #   resp.data.public_key_config.encoded_key #=> String
+    #   resp.data.public_key_config.comment #=> String
+    #   resp.data.e_tag #=> String
     #
     def get_public_key_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5356,13 +5460,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetPublicKeyConfig
+        builder: Builders::GetPublicKeyConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchPublicKey]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchPublicKey]),
         data_parser: Parsers::GetPublicKeyConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -5383,7 +5489,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a real-time log configuration.</p>
@@ -5411,19 +5517,19 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetRealtimeLogConfigOutput
-    #   resp.realtime_log_config #=> Types::RealtimeLogConfig
-    #   resp.realtime_log_config.arn #=> String
-    #   resp.realtime_log_config.member_name #=> String
-    #   resp.realtime_log_config.sampling_rate #=> Integer
-    #   resp.realtime_log_config.end_points #=> Array<EndPoint>
-    #   resp.realtime_log_config.end_points[0] #=> Types::EndPoint
-    #   resp.realtime_log_config.end_points[0].stream_type #=> String
-    #   resp.realtime_log_config.end_points[0].kinesis_stream_config #=> Types::KinesisStreamConfig
-    #   resp.realtime_log_config.end_points[0].kinesis_stream_config.role_arn #=> String
-    #   resp.realtime_log_config.end_points[0].kinesis_stream_config.stream_arn #=> String
-    #   resp.realtime_log_config.fields #=> Array<String>
-    #   resp.realtime_log_config.fields[0] #=> String
+    #   resp.data #=> Types::GetRealtimeLogConfigOutput
+    #   resp.data.realtime_log_config #=> Types::RealtimeLogConfig
+    #   resp.data.realtime_log_config.arn #=> String
+    #   resp.data.realtime_log_config.member_name #=> String
+    #   resp.data.realtime_log_config.sampling_rate #=> Integer
+    #   resp.data.realtime_log_config.end_points #=> Array<EndPoint>
+    #   resp.data.realtime_log_config.end_points[0] #=> Types::EndPoint
+    #   resp.data.realtime_log_config.end_points[0].stream_type #=> String
+    #   resp.data.realtime_log_config.end_points[0].kinesis_stream_config #=> Types::KinesisStreamConfig
+    #   resp.data.realtime_log_config.end_points[0].kinesis_stream_config.role_arn #=> String
+    #   resp.data.realtime_log_config.end_points[0].kinesis_stream_config.stream_arn #=> String
+    #   resp.data.realtime_log_config.fields #=> Array<String>
+    #   resp.data.realtime_log_config.fields[0] #=> String
     #
     def get_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5433,13 +5539,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetRealtimeLogConfig
+        builder: Builders::GetRealtimeLogConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
         data_parser: Parsers::GetRealtimeLogConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -5460,7 +5568,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a response headers policy, including metadata (the policy’s identifier and the date and
@@ -5493,63 +5601,63 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetResponseHeadersPolicyOutput
-    #   resp.response_headers_policy #=> Types::ResponseHeadersPolicy
-    #   resp.response_headers_policy.id #=> String
-    #   resp.response_headers_policy.last_modified_time #=> Time
-    #   resp.response_headers_policy.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
-    #   resp.response_headers_policy.response_headers_policy_config.comment #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.member_name #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items #=> Array<String>
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items[0] #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers #=> Types::ResponseHeadersPolicyAccessControlAllowHeaders
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items #=> Array<String>
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items[0] #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items #=> Array<String>
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items[0] #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_max_age_sec #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.origin_override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config #=> Types::ResponseHeadersPolicySecurityHeadersConfig
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection #=> Types::ResponseHeadersPolicyXSSProtection
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.protection #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.mode_block #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options #=> Types::ResponseHeadersPolicyContentTypeOptions
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security #=> Types::ResponseHeadersPolicyStrictTransportSecurity
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.include_subdomains #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.preload #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.access_control_max_age_sec #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config #=> Types::ResponseHeadersPolicyCustomHeadersConfig
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items #=> Array<ResponseHeadersPolicyCustomHeader>
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0] #=> Types::ResponseHeadersPolicyCustomHeader
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].header #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].value #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetResponseHeadersPolicyOutput
+    #   resp.data.response_headers_policy #=> Types::ResponseHeadersPolicy
+    #   resp.data.response_headers_policy.id #=> String
+    #   resp.data.response_headers_policy.last_modified_time #=> Time
+    #   resp.data.response_headers_policy.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.comment #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.member_name #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items #=> Array<String>
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items[0] #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers #=> Types::ResponseHeadersPolicyAccessControlAllowHeaders
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items #=> Array<String>
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items[0] #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items #=> Array<String>
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items[0] #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_max_age_sec #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.origin_override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config #=> Types::ResponseHeadersPolicySecurityHeadersConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection #=> Types::ResponseHeadersPolicyXSSProtection
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.protection #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.mode_block #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options #=> Types::ResponseHeadersPolicyContentTypeOptions
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security #=> Types::ResponseHeadersPolicyStrictTransportSecurity
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.include_subdomains #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.preload #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.access_control_max_age_sec #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config #=> Types::ResponseHeadersPolicyCustomHeadersConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items #=> Array<ResponseHeadersPolicyCustomHeader>
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0] #=> Types::ResponseHeadersPolicyCustomHeader
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].header #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].value #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
+    #   resp.data.e_tag #=> String
     #
     def get_response_headers_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5559,13 +5667,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetResponseHeadersPolicy
+        builder: Builders::GetResponseHeadersPolicy,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy]),
         data_parser: Parsers::GetResponseHeadersPolicy
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -5586,7 +5696,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a response headers policy configuration.</p>
@@ -5618,60 +5728,60 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetResponseHeadersPolicyConfigOutput
-    #   resp.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
-    #   resp.response_headers_policy_config.comment #=> String
-    #   resp.response_headers_policy_config.member_name #=> String
-    #   resp.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
-    #   resp.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
-    #   resp.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer
-    #   resp.response_headers_policy_config.cors_config.access_control_allow_origins.items #=> Array<String>
-    #   resp.response_headers_policy_config.cors_config.access_control_allow_origins.items[0] #=> String
-    #   resp.response_headers_policy_config.cors_config.access_control_allow_headers #=> Types::ResponseHeadersPolicyAccessControlAllowHeaders
-    #   resp.response_headers_policy_config.cors_config.access_control_allow_headers.quantity #=> Integer
-    #   resp.response_headers_policy_config.cors_config.access_control_allow_headers.items #=> Array<String>
-    #   resp.response_headers_policy_config.cors_config.access_control_allow_headers.items[0] #=> String
-    #   resp.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
-    #   resp.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
-    #   resp.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
-    #   resp.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
-    #   resp.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
-    #   resp.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
-    #   resp.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
-    #   resp.response_headers_policy_config.cors_config.access_control_expose_headers.items #=> Array<String>
-    #   resp.response_headers_policy_config.cors_config.access_control_expose_headers.items[0] #=> String
-    #   resp.response_headers_policy_config.cors_config.access_control_max_age_sec #=> Integer
-    #   resp.response_headers_policy_config.cors_config.origin_override #=> Boolean
-    #   resp.response_headers_policy_config.security_headers_config #=> Types::ResponseHeadersPolicySecurityHeadersConfig
-    #   resp.response_headers_policy_config.security_headers_config.xss_protection #=> Types::ResponseHeadersPolicyXSSProtection
-    #   resp.response_headers_policy_config.security_headers_config.xss_protection.override #=> Boolean
-    #   resp.response_headers_policy_config.security_headers_config.xss_protection.protection #=> Boolean
-    #   resp.response_headers_policy_config.security_headers_config.xss_protection.mode_block #=> Boolean
-    #   resp.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
-    #   resp.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
-    #   resp.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
-    #   resp.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
-    #   resp.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
-    #   resp.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
-    #   resp.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    #   resp.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
-    #   resp.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
-    #   resp.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
-    #   resp.response_headers_policy_config.security_headers_config.content_type_options #=> Types::ResponseHeadersPolicyContentTypeOptions
-    #   resp.response_headers_policy_config.security_headers_config.content_type_options.override #=> Boolean
-    #   resp.response_headers_policy_config.security_headers_config.strict_transport_security #=> Types::ResponseHeadersPolicyStrictTransportSecurity
-    #   resp.response_headers_policy_config.security_headers_config.strict_transport_security.override #=> Boolean
-    #   resp.response_headers_policy_config.security_headers_config.strict_transport_security.include_subdomains #=> Boolean
-    #   resp.response_headers_policy_config.security_headers_config.strict_transport_security.preload #=> Boolean
-    #   resp.response_headers_policy_config.security_headers_config.strict_transport_security.access_control_max_age_sec #=> Integer
-    #   resp.response_headers_policy_config.custom_headers_config #=> Types::ResponseHeadersPolicyCustomHeadersConfig
-    #   resp.response_headers_policy_config.custom_headers_config.quantity #=> Integer
-    #   resp.response_headers_policy_config.custom_headers_config.items #=> Array<ResponseHeadersPolicyCustomHeader>
-    #   resp.response_headers_policy_config.custom_headers_config.items[0] #=> Types::ResponseHeadersPolicyCustomHeader
-    #   resp.response_headers_policy_config.custom_headers_config.items[0].header #=> String
-    #   resp.response_headers_policy_config.custom_headers_config.items[0].value #=> String
-    #   resp.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetResponseHeadersPolicyConfigOutput
+    #   resp.data.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
+    #   resp.data.response_headers_policy_config.comment #=> String
+    #   resp.data.response_headers_policy_config.member_name #=> String
+    #   resp.data.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
+    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
+    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer
+    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_origins.items #=> Array<String>
+    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_origins.items[0] #=> String
+    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_headers #=> Types::ResponseHeadersPolicyAccessControlAllowHeaders
+    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_headers.quantity #=> Integer
+    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_headers.items #=> Array<String>
+    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_headers.items[0] #=> String
+    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
+    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
+    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
+    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
+    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
+    #   resp.data.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
+    #   resp.data.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
+    #   resp.data.response_headers_policy_config.cors_config.access_control_expose_headers.items #=> Array<String>
+    #   resp.data.response_headers_policy_config.cors_config.access_control_expose_headers.items[0] #=> String
+    #   resp.data.response_headers_policy_config.cors_config.access_control_max_age_sec #=> Integer
+    #   resp.data.response_headers_policy_config.cors_config.origin_override #=> Boolean
+    #   resp.data.response_headers_policy_config.security_headers_config #=> Types::ResponseHeadersPolicySecurityHeadersConfig
+    #   resp.data.response_headers_policy_config.security_headers_config.xss_protection #=> Types::ResponseHeadersPolicyXSSProtection
+    #   resp.data.response_headers_policy_config.security_headers_config.xss_protection.override #=> Boolean
+    #   resp.data.response_headers_policy_config.security_headers_config.xss_protection.protection #=> Boolean
+    #   resp.data.response_headers_policy_config.security_headers_config.xss_protection.mode_block #=> Boolean
+    #   resp.data.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
+    #   resp.data.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
+    #   resp.data.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
+    #   resp.data.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
+    #   resp.data.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
+    #   resp.data.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
+    #   resp.data.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    #   resp.data.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
+    #   resp.data.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
+    #   resp.data.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
+    #   resp.data.response_headers_policy_config.security_headers_config.content_type_options #=> Types::ResponseHeadersPolicyContentTypeOptions
+    #   resp.data.response_headers_policy_config.security_headers_config.content_type_options.override #=> Boolean
+    #   resp.data.response_headers_policy_config.security_headers_config.strict_transport_security #=> Types::ResponseHeadersPolicyStrictTransportSecurity
+    #   resp.data.response_headers_policy_config.security_headers_config.strict_transport_security.override #=> Boolean
+    #   resp.data.response_headers_policy_config.security_headers_config.strict_transport_security.include_subdomains #=> Boolean
+    #   resp.data.response_headers_policy_config.security_headers_config.strict_transport_security.preload #=> Boolean
+    #   resp.data.response_headers_policy_config.security_headers_config.strict_transport_security.access_control_max_age_sec #=> Integer
+    #   resp.data.response_headers_policy_config.custom_headers_config #=> Types::ResponseHeadersPolicyCustomHeadersConfig
+    #   resp.data.response_headers_policy_config.custom_headers_config.quantity #=> Integer
+    #   resp.data.response_headers_policy_config.custom_headers_config.items #=> Array<ResponseHeadersPolicyCustomHeader>
+    #   resp.data.response_headers_policy_config.custom_headers_config.items[0] #=> Types::ResponseHeadersPolicyCustomHeader
+    #   resp.data.response_headers_policy_config.custom_headers_config.items[0].header #=> String
+    #   resp.data.response_headers_policy_config.custom_headers_config.items[0].value #=> String
+    #   resp.data.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
+    #   resp.data.e_tag #=> String
     #
     def get_response_headers_policy_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5681,13 +5791,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetResponseHeadersPolicyConfig
+        builder: Builders::GetResponseHeadersPolicyConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy]),
         data_parser: Parsers::GetResponseHeadersPolicyConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -5708,7 +5820,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets information about a specified RTMP distribution, including the distribution configuration.</p>
@@ -5729,45 +5841,45 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetStreamingDistributionOutput
-    #   resp.streaming_distribution #=> Types::StreamingDistribution
-    #   resp.streaming_distribution.id #=> String
-    #   resp.streaming_distribution.arn #=> String
-    #   resp.streaming_distribution.status #=> String
-    #   resp.streaming_distribution.last_modified_time #=> Time
-    #   resp.streaming_distribution.domain_name #=> String
-    #   resp.streaming_distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
-    #   resp.streaming_distribution.active_trusted_signers.enabled #=> Boolean
-    #   resp.streaming_distribution.active_trusted_signers.quantity #=> Integer
-    #   resp.streaming_distribution.active_trusted_signers.items #=> Array<Signer>
-    #   resp.streaming_distribution.active_trusted_signers.items[0] #=> Types::Signer
-    #   resp.streaming_distribution.active_trusted_signers.items[0].aws_account_number #=> String
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
-    #   resp.streaming_distribution.streaming_distribution_config #=> Types::StreamingDistributionConfig
-    #   resp.streaming_distribution.streaming_distribution_config.caller_reference #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.s3_origin #=> Types::S3Origin
-    #   resp.streaming_distribution.streaming_distribution_config.s3_origin.domain_name #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.s3_origin.origin_access_identity #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.aliases #=> Types::Aliases
-    #   resp.streaming_distribution.streaming_distribution_config.aliases.quantity #=> Integer
-    #   resp.streaming_distribution.streaming_distribution_config.aliases.items #=> Array<String>
-    #   resp.streaming_distribution.streaming_distribution_config.aliases.items[0] #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.comment #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.logging #=> Types::StreamingLoggingConfig
-    #   resp.streaming_distribution.streaming_distribution_config.logging.enabled #=> Boolean
-    #   resp.streaming_distribution.streaming_distribution_config.logging.bucket #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.logging.prefix #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers #=> Types::TrustedSigners
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.enabled #=> Boolean
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.quantity #=> Integer
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.items #=> Array<String>
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.items[0] #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
-    #   resp.streaming_distribution.streaming_distribution_config.enabled #=> Boolean
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetStreamingDistributionOutput
+    #   resp.data.streaming_distribution #=> Types::StreamingDistribution
+    #   resp.data.streaming_distribution.id #=> String
+    #   resp.data.streaming_distribution.arn #=> String
+    #   resp.data.streaming_distribution.status #=> String
+    #   resp.data.streaming_distribution.last_modified_time #=> Time
+    #   resp.data.streaming_distribution.domain_name #=> String
+    #   resp.data.streaming_distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
+    #   resp.data.streaming_distribution.active_trusted_signers.enabled #=> Boolean
+    #   resp.data.streaming_distribution.active_trusted_signers.quantity #=> Integer
+    #   resp.data.streaming_distribution.active_trusted_signers.items #=> Array<Signer>
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0] #=> Types::Signer
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].aws_account_number #=> String
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config #=> Types::StreamingDistributionConfig
+    #   resp.data.streaming_distribution.streaming_distribution_config.caller_reference #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.s3_origin #=> Types::S3Origin
+    #   resp.data.streaming_distribution.streaming_distribution_config.s3_origin.domain_name #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.s3_origin.origin_access_identity #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases #=> Types::Aliases
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases.quantity #=> Integer
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases.items #=> Array<String>
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases.items[0] #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.comment #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging #=> Types::StreamingLoggingConfig
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging.enabled #=> Boolean
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging.bucket #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging.prefix #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers #=> Types::TrustedSigners
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.enabled #=> Boolean
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.quantity #=> Integer
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items #=> Array<String>
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items[0] #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.streaming_distribution.streaming_distribution_config.enabled #=> Boolean
+    #   resp.data.e_tag #=> String
     #
     def get_streaming_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5777,13 +5889,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetStreamingDistribution
+        builder: Builders::GetStreamingDistribution,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchStreamingDistribution]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchStreamingDistribution]),
         data_parser: Parsers::GetStreamingDistribution
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -5804,7 +5918,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Get the configuration information about a streaming distribution. </p>
@@ -5825,29 +5939,29 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetStreamingDistributionConfigOutput
-    #   resp.streaming_distribution_config #=> Types::StreamingDistributionConfig
-    #   resp.streaming_distribution_config.caller_reference #=> String
-    #   resp.streaming_distribution_config.s3_origin #=> Types::S3Origin
-    #   resp.streaming_distribution_config.s3_origin.domain_name #=> String
-    #   resp.streaming_distribution_config.s3_origin.origin_access_identity #=> String
-    #   resp.streaming_distribution_config.aliases #=> Types::Aliases
-    #   resp.streaming_distribution_config.aliases.quantity #=> Integer
-    #   resp.streaming_distribution_config.aliases.items #=> Array<String>
-    #   resp.streaming_distribution_config.aliases.items[0] #=> String
-    #   resp.streaming_distribution_config.comment #=> String
-    #   resp.streaming_distribution_config.logging #=> Types::StreamingLoggingConfig
-    #   resp.streaming_distribution_config.logging.enabled #=> Boolean
-    #   resp.streaming_distribution_config.logging.bucket #=> String
-    #   resp.streaming_distribution_config.logging.prefix #=> String
-    #   resp.streaming_distribution_config.trusted_signers #=> Types::TrustedSigners
-    #   resp.streaming_distribution_config.trusted_signers.enabled #=> Boolean
-    #   resp.streaming_distribution_config.trusted_signers.quantity #=> Integer
-    #   resp.streaming_distribution_config.trusted_signers.items #=> Array<String>
-    #   resp.streaming_distribution_config.trusted_signers.items[0] #=> String
-    #   resp.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
-    #   resp.streaming_distribution_config.enabled #=> Boolean
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::GetStreamingDistributionConfigOutput
+    #   resp.data.streaming_distribution_config #=> Types::StreamingDistributionConfig
+    #   resp.data.streaming_distribution_config.caller_reference #=> String
+    #   resp.data.streaming_distribution_config.s3_origin #=> Types::S3Origin
+    #   resp.data.streaming_distribution_config.s3_origin.domain_name #=> String
+    #   resp.data.streaming_distribution_config.s3_origin.origin_access_identity #=> String
+    #   resp.data.streaming_distribution_config.aliases #=> Types::Aliases
+    #   resp.data.streaming_distribution_config.aliases.quantity #=> Integer
+    #   resp.data.streaming_distribution_config.aliases.items #=> Array<String>
+    #   resp.data.streaming_distribution_config.aliases.items[0] #=> String
+    #   resp.data.streaming_distribution_config.comment #=> String
+    #   resp.data.streaming_distribution_config.logging #=> Types::StreamingLoggingConfig
+    #   resp.data.streaming_distribution_config.logging.enabled #=> Boolean
+    #   resp.data.streaming_distribution_config.logging.bucket #=> String
+    #   resp.data.streaming_distribution_config.logging.prefix #=> String
+    #   resp.data.streaming_distribution_config.trusted_signers #=> Types::TrustedSigners
+    #   resp.data.streaming_distribution_config.trusted_signers.enabled #=> Boolean
+    #   resp.data.streaming_distribution_config.trusted_signers.quantity #=> Integer
+    #   resp.data.streaming_distribution_config.trusted_signers.items #=> Array<String>
+    #   resp.data.streaming_distribution_config.trusted_signers.items[0] #=> String
+    #   resp.data.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.streaming_distribution_config.enabled #=> Boolean
+    #   resp.data.e_tag #=> String
     #
     def get_streaming_distribution_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5857,13 +5971,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetStreamingDistributionConfig
+        builder: Builders::GetStreamingDistributionConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchStreamingDistribution]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchStreamingDistribution]),
         data_parser: Parsers::GetStreamingDistributionConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -5884,7 +6000,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a list of cache policies.</p>
@@ -5934,44 +6050,44 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListCachePoliciesOutput
-    #   resp.cache_policy_list #=> Types::CachePolicyList
-    #   resp.cache_policy_list.next_marker #=> String
-    #   resp.cache_policy_list.max_items #=> Integer
-    #   resp.cache_policy_list.quantity #=> Integer
-    #   resp.cache_policy_list.items #=> Array<CachePolicySummary>
-    #   resp.cache_policy_list.items[0] #=> Types::CachePolicySummary
-    #   resp.cache_policy_list.items[0].type #=> String, one of managed, custom
-    #   resp.cache_policy_list.items[0].cache_policy #=> Types::CachePolicy
-    #   resp.cache_policy_list.items[0].cache_policy.id #=> String
-    #   resp.cache_policy_list.items[0].cache_policy.last_modified_time #=> Time
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config #=> Types::CachePolicyConfig
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.comment #=> String
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.member_name #=> String
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.default_ttl #=> Integer
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.max_ttl #=> Integer
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.min_ttl #=> Integer
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin #=> Types::ParametersInCacheKeyAndForwardedToOrigin
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
-    #   resp.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items[0] #=> String
+    #   resp.data #=> Types::ListCachePoliciesOutput
+    #   resp.data.cache_policy_list #=> Types::CachePolicyList
+    #   resp.data.cache_policy_list.next_marker #=> String
+    #   resp.data.cache_policy_list.max_items #=> Integer
+    #   resp.data.cache_policy_list.quantity #=> Integer
+    #   resp.data.cache_policy_list.items #=> Array<CachePolicySummary>
+    #   resp.data.cache_policy_list.items[0] #=> Types::CachePolicySummary
+    #   resp.data.cache_policy_list.items[0].type #=> String, one of managed, custom
+    #   resp.data.cache_policy_list.items[0].cache_policy #=> Types::CachePolicy
+    #   resp.data.cache_policy_list.items[0].cache_policy.id #=> String
+    #   resp.data.cache_policy_list.items[0].cache_policy.last_modified_time #=> Time
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config #=> Types::CachePolicyConfig
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.comment #=> String
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.member_name #=> String
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.default_ttl #=> Integer
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.max_ttl #=> Integer
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.min_ttl #=> Integer
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin #=> Types::ParametersInCacheKeyAndForwardedToOrigin
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items[0] #=> String
     #
     def list_cache_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5981,13 +6097,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListCachePolicies
+        builder: Builders::ListCachePolicies,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy, Errors::InvalidArgument]),
         data_parser: Parsers::ListCachePolicies
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6008,7 +6126,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Lists origin access identities.</p>
@@ -6038,18 +6156,18 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListCloudFrontOriginAccessIdentitiesOutput
-    #   resp.cloud_front_origin_access_identity_list #=> Types::CloudFrontOriginAccessIdentityList
-    #   resp.cloud_front_origin_access_identity_list.marker #=> String
-    #   resp.cloud_front_origin_access_identity_list.next_marker #=> String
-    #   resp.cloud_front_origin_access_identity_list.max_items #=> Integer
-    #   resp.cloud_front_origin_access_identity_list.is_truncated #=> Boolean
-    #   resp.cloud_front_origin_access_identity_list.quantity #=> Integer
-    #   resp.cloud_front_origin_access_identity_list.items #=> Array<CloudFrontOriginAccessIdentitySummary>
-    #   resp.cloud_front_origin_access_identity_list.items[0] #=> Types::CloudFrontOriginAccessIdentitySummary
-    #   resp.cloud_front_origin_access_identity_list.items[0].id #=> String
-    #   resp.cloud_front_origin_access_identity_list.items[0].s3_canonical_user_id #=> String
-    #   resp.cloud_front_origin_access_identity_list.items[0].comment #=> String
+    #   resp.data #=> Types::ListCloudFrontOriginAccessIdentitiesOutput
+    #   resp.data.cloud_front_origin_access_identity_list #=> Types::CloudFrontOriginAccessIdentityList
+    #   resp.data.cloud_front_origin_access_identity_list.marker #=> String
+    #   resp.data.cloud_front_origin_access_identity_list.next_marker #=> String
+    #   resp.data.cloud_front_origin_access_identity_list.max_items #=> Integer
+    #   resp.data.cloud_front_origin_access_identity_list.is_truncated #=> Boolean
+    #   resp.data.cloud_front_origin_access_identity_list.quantity #=> Integer
+    #   resp.data.cloud_front_origin_access_identity_list.items #=> Array<CloudFrontOriginAccessIdentitySummary>
+    #   resp.data.cloud_front_origin_access_identity_list.items[0] #=> Types::CloudFrontOriginAccessIdentitySummary
+    #   resp.data.cloud_front_origin_access_identity_list.items[0].id #=> String
+    #   resp.data.cloud_front_origin_access_identity_list.items[0].s3_canonical_user_id #=> String
+    #   resp.data.cloud_front_origin_access_identity_list.items[0].comment #=> String
     #
     def list_cloud_front_origin_access_identities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6059,13 +6177,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListCloudFrontOriginAccessIdentities
+        builder: Builders::ListCloudFrontOriginAccessIdentities,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListCloudFrontOriginAccessIdentities
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6086,7 +6206,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a list of aliases (also called CNAMEs or alternate domain names) that conflict or
@@ -6145,16 +6265,16 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListConflictingAliasesOutput
-    #   resp.conflicting_aliases_list #=> Types::ConflictingAliasesList
-    #   resp.conflicting_aliases_list.next_marker #=> String
-    #   resp.conflicting_aliases_list.max_items #=> Integer
-    #   resp.conflicting_aliases_list.quantity #=> Integer
-    #   resp.conflicting_aliases_list.items #=> Array<ConflictingAlias>
-    #   resp.conflicting_aliases_list.items[0] #=> Types::ConflictingAlias
-    #   resp.conflicting_aliases_list.items[0].alias #=> String
-    #   resp.conflicting_aliases_list.items[0].distribution_id #=> String
-    #   resp.conflicting_aliases_list.items[0].account_id #=> String
+    #   resp.data #=> Types::ListConflictingAliasesOutput
+    #   resp.data.conflicting_aliases_list #=> Types::ConflictingAliasesList
+    #   resp.data.conflicting_aliases_list.next_marker #=> String
+    #   resp.data.conflicting_aliases_list.max_items #=> Integer
+    #   resp.data.conflicting_aliases_list.quantity #=> Integer
+    #   resp.data.conflicting_aliases_list.items #=> Array<ConflictingAlias>
+    #   resp.data.conflicting_aliases_list.items[0] #=> Types::ConflictingAlias
+    #   resp.data.conflicting_aliases_list.items[0].alias #=> String
+    #   resp.data.conflicting_aliases_list.items[0].distribution_id #=> String
+    #   resp.data.conflicting_aliases_list.items[0].account_id #=> String
     #
     def list_conflicting_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6164,13 +6284,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListConflictingAliases
+        builder: Builders::ListConflictingAliases,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::NoSuchDistribution, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchDistribution, Errors::InvalidArgument]),
         data_parser: Parsers::ListConflictingAliases
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6191,7 +6313,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>List CloudFront distributions.</p>
@@ -6220,183 +6342,183 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListDistributionsOutput
-    #   resp.distribution_list #=> Types::DistributionList
-    #   resp.distribution_list.marker #=> String
-    #   resp.distribution_list.next_marker #=> String
-    #   resp.distribution_list.max_items #=> Integer
-    #   resp.distribution_list.is_truncated #=> Boolean
-    #   resp.distribution_list.quantity #=> Integer
-    #   resp.distribution_list.items #=> Array<DistributionSummary>
-    #   resp.distribution_list.items[0] #=> Types::DistributionSummary
-    #   resp.distribution_list.items[0].id #=> String
-    #   resp.distribution_list.items[0].arn #=> String
-    #   resp.distribution_list.items[0].status #=> String
-    #   resp.distribution_list.items[0].last_modified_time #=> Time
-    #   resp.distribution_list.items[0].domain_name #=> String
-    #   resp.distribution_list.items[0].aliases #=> Types::Aliases
-    #   resp.distribution_list.items[0].aliases.quantity #=> Integer
-    #   resp.distribution_list.items[0].aliases.items #=> Array<String>
-    #   resp.distribution_list.items[0].aliases.items[0] #=> String
-    #   resp.distribution_list.items[0].origins #=> Types::Origins
-    #   resp.distribution_list.items[0].origins.quantity #=> Integer
-    #   resp.distribution_list.items[0].origins.items #=> Array<Origin>
-    #   resp.distribution_list.items[0].origins.items[0] #=> Types::Origin
-    #   resp.distribution_list.items[0].origins.items[0].id #=> String
-    #   resp.distribution_list.items[0].origins.items[0].domain_name #=> String
-    #   resp.distribution_list.items[0].origins.items[0].origin_path #=> String
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers #=> Types::CustomHeaders
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.quantity #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.items[0].header_name #=> String
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.items[0].header_value #=> String
-    #   resp.distribution_list.items[0].origins.items[0].s3_origin_config #=> Types::S3OriginConfig
-    #   resp.distribution_list.items[0].origins.items[0].s3_origin_config.origin_access_identity #=> String
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.http_port #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].connection_attempts #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].connection_timeout #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].origin_shield #=> Types::OriginShield
-    #   resp.distribution_list.items[0].origins.items[0].origin_shield.enabled #=> Boolean
-    #   resp.distribution_list.items[0].origins.items[0].origin_shield.origin_shield_region #=> String
-    #   resp.distribution_list.items[0].origin_groups #=> Types::OriginGroups
-    #   resp.distribution_list.items[0].origin_groups.quantity #=> Integer
-    #   resp.distribution_list.items[0].origin_groups.items #=> Array<OriginGroup>
-    #   resp.distribution_list.items[0].origin_groups.items[0] #=> Types::OriginGroup
-    #   resp.distribution_list.items[0].origin_groups.items[0].id #=> String
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
-    #   resp.distribution_list.items[0].origin_groups.items[0].members #=> Types::OriginGroupMembers
-    #   resp.distribution_list.items[0].origin_groups.items[0].members.quantity #=> Integer
-    #   resp.distribution_list.items[0].origin_groups.items[0].members.items #=> Array<OriginGroupMember>
-    #   resp.distribution_list.items[0].origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
-    #   resp.distribution_list.items[0].origin_groups.items[0].members.items[0].origin_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior #=> Types::DefaultCacheBehavior
-    #   resp.distribution_list.items[0].default_cache_behavior.target_origin_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers.enabled #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups.enabled #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.smooth_streaming #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.compress #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations #=> Types::FunctionAssociations
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution_list.items[0].default_cache_behavior.field_level_encryption_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.realtime_log_config_arn #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.cache_policy_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.origin_request_policy_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.response_headers_policy_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.headers #=> Types::Headers
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.min_ttl #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.default_ttl #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.max_ttl #=> Integer
-    #   resp.distribution_list.items[0].cache_behaviors #=> Types::CacheBehaviors
-    #   resp.distribution_list.items[0].cache_behaviors.quantity #=> Integer
-    #   resp.distribution_list.items[0].cache_behaviors.items #=> Array<CacheBehavior>
-    #   resp.distribution_list.items[0].cache_behaviors.items[0] #=> Types::CacheBehavior
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].path_pattern #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].target_origin_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].smooth_streaming #=> Boolean
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].compress #=> Boolean
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].field_level_encryption_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].realtime_log_config_arn #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].cache_policy_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].origin_request_policy_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].response_headers_policy_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].min_ttl #=> Integer
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].default_ttl #=> Integer
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].max_ttl #=> Integer
-    #   resp.distribution_list.items[0].custom_error_responses #=> Types::CustomErrorResponses
-    #   resp.distribution_list.items[0].custom_error_responses.quantity #=> Integer
-    #   resp.distribution_list.items[0].custom_error_responses.items #=> Array<CustomErrorResponse>
-    #   resp.distribution_list.items[0].custom_error_responses.items[0] #=> Types::CustomErrorResponse
-    #   resp.distribution_list.items[0].custom_error_responses.items[0].error_code #=> Integer
-    #   resp.distribution_list.items[0].custom_error_responses.items[0].response_page_path #=> String
-    #   resp.distribution_list.items[0].custom_error_responses.items[0].response_code #=> String
-    #   resp.distribution_list.items[0].custom_error_responses.items[0].error_caching_min_ttl #=> Integer
-    #   resp.distribution_list.items[0].comment #=> String
-    #   resp.distribution_list.items[0].price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
-    #   resp.distribution_list.items[0].enabled #=> Boolean
-    #   resp.distribution_list.items[0].viewer_certificate #=> Types::ViewerCertificate
-    #   resp.distribution_list.items[0].viewer_certificate.cloud_front_default_certificate #=> Boolean
-    #   resp.distribution_list.items[0].viewer_certificate.iam_certificate_id #=> String
-    #   resp.distribution_list.items[0].viewer_certificate.acm_certificate_arn #=> String
-    #   resp.distribution_list.items[0].viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.distribution_list.items[0].viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
-    #   resp.distribution_list.items[0].viewer_certificate.certificate #=> String
-    #   resp.distribution_list.items[0].viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
-    #   resp.distribution_list.items[0].restrictions #=> Types::Restrictions
-    #   resp.distribution_list.items[0].restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.distribution_list.items[0].restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
-    #   resp.distribution_list.items[0].restrictions.geo_restriction.quantity #=> Integer
-    #   resp.distribution_list.items[0].restrictions.geo_restriction.items #=> Array<String>
-    #   resp.distribution_list.items[0].restrictions.geo_restriction.items[0] #=> String
-    #   resp.distribution_list.items[0].web_acl_id #=> String
-    #   resp.distribution_list.items[0].http_version #=> String, one of http1.1, http2
-    #   resp.distribution_list.items[0].is_ipv6_enabled #=> Boolean
-    #   resp.distribution_list.items[0].alias_icp_recordals #=> Array<AliasICPRecordal>
-    #   resp.distribution_list.items[0].alias_icp_recordals[0] #=> Types::AliasICPRecordal
-    #   resp.distribution_list.items[0].alias_icp_recordals[0].cname #=> String
-    #   resp.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
+    #   resp.data #=> Types::ListDistributionsOutput
+    #   resp.data.distribution_list #=> Types::DistributionList
+    #   resp.data.distribution_list.marker #=> String
+    #   resp.data.distribution_list.next_marker #=> String
+    #   resp.data.distribution_list.max_items #=> Integer
+    #   resp.data.distribution_list.is_truncated #=> Boolean
+    #   resp.data.distribution_list.quantity #=> Integer
+    #   resp.data.distribution_list.items #=> Array<DistributionSummary>
+    #   resp.data.distribution_list.items[0] #=> Types::DistributionSummary
+    #   resp.data.distribution_list.items[0].id #=> String
+    #   resp.data.distribution_list.items[0].arn #=> String
+    #   resp.data.distribution_list.items[0].status #=> String
+    #   resp.data.distribution_list.items[0].last_modified_time #=> Time
+    #   resp.data.distribution_list.items[0].domain_name #=> String
+    #   resp.data.distribution_list.items[0].aliases #=> Types::Aliases
+    #   resp.data.distribution_list.items[0].aliases.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].aliases.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].aliases.items[0] #=> String
+    #   resp.data.distribution_list.items[0].origins #=> Types::Origins
+    #   resp.data.distribution_list.items[0].origins.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items #=> Array<Origin>
+    #   resp.data.distribution_list.items[0].origins.items[0] #=> Types::Origin
+    #   resp.data.distribution_list.items[0].origins.items[0].id #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].domain_name #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].origin_path #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers #=> Types::CustomHeaders
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.items[0].header_name #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.items[0].header_value #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].s3_origin_config #=> Types::S3OriginConfig
+    #   resp.data.distribution_list.items[0].origins.items[0].s3_origin_config.origin_access_identity #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.http_port #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.https_port #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].connection_attempts #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].connection_timeout #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].origin_shield #=> Types::OriginShield
+    #   resp.data.distribution_list.items[0].origins.items[0].origin_shield.enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].origins.items[0].origin_shield.origin_shield_region #=> String
+    #   resp.data.distribution_list.items[0].origin_groups #=> Types::OriginGroups
+    #   resp.data.distribution_list.items[0].origin_groups.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origin_groups.items #=> Array<OriginGroup>
+    #   resp.data.distribution_list.items[0].origin_groups.items[0] #=> Types::OriginGroup
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].id #=> String
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members #=> Types::OriginGroupMembers
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members.items #=> Array<OriginGroupMember>
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members.items[0].origin_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior #=> Types::DefaultCacheBehavior
+    #   resp.data.distribution_list.items[0].default_cache_behavior.target_origin_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers.enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.smooth_streaming #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.compress #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].function_arn #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_list.items[0].default_cache_behavior.field_level_encryption_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.realtime_log_config_arn #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.cache_policy_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.origin_request_policy_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.response_headers_policy_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.headers #=> Types::Headers
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.min_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.default_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.max_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].cache_behaviors #=> Types::CacheBehaviors
+    #   resp.data.distribution_list.items[0].cache_behaviors.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].cache_behaviors.items #=> Array<CacheBehavior>
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0] #=> Types::CacheBehavior
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].path_pattern #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].target_origin_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].smooth_streaming #=> Boolean
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].compress #=> Boolean
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].field_level_encryption_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].realtime_log_config_arn #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].cache_policy_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].origin_request_policy_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].response_headers_policy_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].min_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].default_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].max_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].custom_error_responses #=> Types::CustomErrorResponses
+    #   resp.data.distribution_list.items[0].custom_error_responses.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].custom_error_responses.items #=> Array<CustomErrorResponse>
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0] #=> Types::CustomErrorResponse
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0].error_code #=> Integer
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0].response_page_path #=> String
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0].response_code #=> String
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0].error_caching_min_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].comment #=> String
+    #   resp.data.distribution_list.items[0].price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution_list.items[0].enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].viewer_certificate #=> Types::ViewerCertificate
+    #   resp.data.distribution_list.items[0].viewer_certificate.cloud_front_default_certificate #=> Boolean
+    #   resp.data.distribution_list.items[0].viewer_certificate.iam_certificate_id #=> String
+    #   resp.data.distribution_list.items[0].viewer_certificate.acm_certificate_arn #=> String
+    #   resp.data.distribution_list.items[0].viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
+    #   resp.data.distribution_list.items[0].viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution_list.items[0].viewer_certificate.certificate #=> String
+    #   resp.data.distribution_list.items[0].viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution_list.items[0].restrictions #=> Types::Restrictions
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction #=> Types::GeoRestriction
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.items[0] #=> String
+    #   resp.data.distribution_list.items[0].web_acl_id #=> String
+    #   resp.data.distribution_list.items[0].http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution_list.items[0].is_ipv6_enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].alias_icp_recordals #=> Array<AliasICPRecordal>
+    #   resp.data.distribution_list.items[0].alias_icp_recordals[0] #=> Types::AliasICPRecordal
+    #   resp.data.distribution_list.items[0].alias_icp_recordals[0].cname #=> String
+    #   resp.data.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
     #
     def list_distributions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6406,13 +6528,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDistributions
+        builder: Builders::ListDistributions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributions
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6433,7 +6557,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a list of distribution IDs for distributions that have a cache behavior that’s
@@ -6471,15 +6595,15 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListDistributionsByCachePolicyIdOutput
-    #   resp.distribution_id_list #=> Types::DistributionIdList
-    #   resp.distribution_id_list.marker #=> String
-    #   resp.distribution_id_list.next_marker #=> String
-    #   resp.distribution_id_list.max_items #=> Integer
-    #   resp.distribution_id_list.is_truncated #=> Boolean
-    #   resp.distribution_id_list.quantity #=> Integer
-    #   resp.distribution_id_list.items #=> Array<String>
-    #   resp.distribution_id_list.items[0] #=> String
+    #   resp.data #=> Types::ListDistributionsByCachePolicyIdOutput
+    #   resp.data.distribution_id_list #=> Types::DistributionIdList
+    #   resp.data.distribution_id_list.marker #=> String
+    #   resp.data.distribution_id_list.next_marker #=> String
+    #   resp.data.distribution_id_list.max_items #=> Integer
+    #   resp.data.distribution_id_list.is_truncated #=> Boolean
+    #   resp.data.distribution_id_list.quantity #=> Integer
+    #   resp.data.distribution_id_list.items #=> Array<String>
+    #   resp.data.distribution_id_list.items[0] #=> String
     #
     def list_distributions_by_cache_policy_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6489,13 +6613,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDistributionsByCachePolicyId
+        builder: Builders::ListDistributionsByCachePolicyId,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy, Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributionsByCachePolicyId
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6516,7 +6642,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a list of distribution IDs for distributions that have a cache behavior that references
@@ -6554,15 +6680,15 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListDistributionsByKeyGroupOutput
-    #   resp.distribution_id_list #=> Types::DistributionIdList
-    #   resp.distribution_id_list.marker #=> String
-    #   resp.distribution_id_list.next_marker #=> String
-    #   resp.distribution_id_list.max_items #=> Integer
-    #   resp.distribution_id_list.is_truncated #=> Boolean
-    #   resp.distribution_id_list.quantity #=> Integer
-    #   resp.distribution_id_list.items #=> Array<String>
-    #   resp.distribution_id_list.items[0] #=> String
+    #   resp.data #=> Types::ListDistributionsByKeyGroupOutput
+    #   resp.data.distribution_id_list #=> Types::DistributionIdList
+    #   resp.data.distribution_id_list.marker #=> String
+    #   resp.data.distribution_id_list.next_marker #=> String
+    #   resp.data.distribution_id_list.max_items #=> Integer
+    #   resp.data.distribution_id_list.is_truncated #=> Boolean
+    #   resp.data.distribution_id_list.quantity #=> Integer
+    #   resp.data.distribution_id_list.items #=> Array<String>
+    #   resp.data.distribution_id_list.items[0] #=> String
     #
     def list_distributions_by_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6572,13 +6698,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDistributionsByKeyGroup
+        builder: Builders::ListDistributionsByKeyGroup,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::NoSuchResource, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchResource, Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributionsByKeyGroup
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6599,7 +6727,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a list of distribution IDs for distributions that have a cache behavior that’s
@@ -6638,15 +6766,15 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListDistributionsByOriginRequestPolicyIdOutput
-    #   resp.distribution_id_list #=> Types::DistributionIdList
-    #   resp.distribution_id_list.marker #=> String
-    #   resp.distribution_id_list.next_marker #=> String
-    #   resp.distribution_id_list.max_items #=> Integer
-    #   resp.distribution_id_list.is_truncated #=> Boolean
-    #   resp.distribution_id_list.quantity #=> Integer
-    #   resp.distribution_id_list.items #=> Array<String>
-    #   resp.distribution_id_list.items[0] #=> String
+    #   resp.data #=> Types::ListDistributionsByOriginRequestPolicyIdOutput
+    #   resp.data.distribution_id_list #=> Types::DistributionIdList
+    #   resp.data.distribution_id_list.marker #=> String
+    #   resp.data.distribution_id_list.next_marker #=> String
+    #   resp.data.distribution_id_list.max_items #=> Integer
+    #   resp.data.distribution_id_list.is_truncated #=> Boolean
+    #   resp.data.distribution_id_list.quantity #=> Integer
+    #   resp.data.distribution_id_list.items #=> Array<String>
+    #   resp.data.distribution_id_list.items[0] #=> String
     #
     def list_distributions_by_origin_request_policy_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6656,13 +6784,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDistributionsByOriginRequestPolicyId
+        builder: Builders::ListDistributionsByOriginRequestPolicyId,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy]),
         data_parser: Parsers::ListDistributionsByOriginRequestPolicyId
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6683,7 +6813,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a list of distributions that have a cache behavior that’s associated with the specified
@@ -6730,183 +6860,183 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListDistributionsByRealtimeLogConfigOutput
-    #   resp.distribution_list #=> Types::DistributionList
-    #   resp.distribution_list.marker #=> String
-    #   resp.distribution_list.next_marker #=> String
-    #   resp.distribution_list.max_items #=> Integer
-    #   resp.distribution_list.is_truncated #=> Boolean
-    #   resp.distribution_list.quantity #=> Integer
-    #   resp.distribution_list.items #=> Array<DistributionSummary>
-    #   resp.distribution_list.items[0] #=> Types::DistributionSummary
-    #   resp.distribution_list.items[0].id #=> String
-    #   resp.distribution_list.items[0].arn #=> String
-    #   resp.distribution_list.items[0].status #=> String
-    #   resp.distribution_list.items[0].last_modified_time #=> Time
-    #   resp.distribution_list.items[0].domain_name #=> String
-    #   resp.distribution_list.items[0].aliases #=> Types::Aliases
-    #   resp.distribution_list.items[0].aliases.quantity #=> Integer
-    #   resp.distribution_list.items[0].aliases.items #=> Array<String>
-    #   resp.distribution_list.items[0].aliases.items[0] #=> String
-    #   resp.distribution_list.items[0].origins #=> Types::Origins
-    #   resp.distribution_list.items[0].origins.quantity #=> Integer
-    #   resp.distribution_list.items[0].origins.items #=> Array<Origin>
-    #   resp.distribution_list.items[0].origins.items[0] #=> Types::Origin
-    #   resp.distribution_list.items[0].origins.items[0].id #=> String
-    #   resp.distribution_list.items[0].origins.items[0].domain_name #=> String
-    #   resp.distribution_list.items[0].origins.items[0].origin_path #=> String
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers #=> Types::CustomHeaders
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.quantity #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.items[0].header_name #=> String
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.items[0].header_value #=> String
-    #   resp.distribution_list.items[0].origins.items[0].s3_origin_config #=> Types::S3OriginConfig
-    #   resp.distribution_list.items[0].origins.items[0].s3_origin_config.origin_access_identity #=> String
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.http_port #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].connection_attempts #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].connection_timeout #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].origin_shield #=> Types::OriginShield
-    #   resp.distribution_list.items[0].origins.items[0].origin_shield.enabled #=> Boolean
-    #   resp.distribution_list.items[0].origins.items[0].origin_shield.origin_shield_region #=> String
-    #   resp.distribution_list.items[0].origin_groups #=> Types::OriginGroups
-    #   resp.distribution_list.items[0].origin_groups.quantity #=> Integer
-    #   resp.distribution_list.items[0].origin_groups.items #=> Array<OriginGroup>
-    #   resp.distribution_list.items[0].origin_groups.items[0] #=> Types::OriginGroup
-    #   resp.distribution_list.items[0].origin_groups.items[0].id #=> String
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
-    #   resp.distribution_list.items[0].origin_groups.items[0].members #=> Types::OriginGroupMembers
-    #   resp.distribution_list.items[0].origin_groups.items[0].members.quantity #=> Integer
-    #   resp.distribution_list.items[0].origin_groups.items[0].members.items #=> Array<OriginGroupMember>
-    #   resp.distribution_list.items[0].origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
-    #   resp.distribution_list.items[0].origin_groups.items[0].members.items[0].origin_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior #=> Types::DefaultCacheBehavior
-    #   resp.distribution_list.items[0].default_cache_behavior.target_origin_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers.enabled #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups.enabled #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.smooth_streaming #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.compress #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations #=> Types::FunctionAssociations
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution_list.items[0].default_cache_behavior.field_level_encryption_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.realtime_log_config_arn #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.cache_policy_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.origin_request_policy_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.response_headers_policy_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.headers #=> Types::Headers
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.min_ttl #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.default_ttl #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.max_ttl #=> Integer
-    #   resp.distribution_list.items[0].cache_behaviors #=> Types::CacheBehaviors
-    #   resp.distribution_list.items[0].cache_behaviors.quantity #=> Integer
-    #   resp.distribution_list.items[0].cache_behaviors.items #=> Array<CacheBehavior>
-    #   resp.distribution_list.items[0].cache_behaviors.items[0] #=> Types::CacheBehavior
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].path_pattern #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].target_origin_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].smooth_streaming #=> Boolean
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].compress #=> Boolean
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].field_level_encryption_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].realtime_log_config_arn #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].cache_policy_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].origin_request_policy_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].response_headers_policy_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].min_ttl #=> Integer
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].default_ttl #=> Integer
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].max_ttl #=> Integer
-    #   resp.distribution_list.items[0].custom_error_responses #=> Types::CustomErrorResponses
-    #   resp.distribution_list.items[0].custom_error_responses.quantity #=> Integer
-    #   resp.distribution_list.items[0].custom_error_responses.items #=> Array<CustomErrorResponse>
-    #   resp.distribution_list.items[0].custom_error_responses.items[0] #=> Types::CustomErrorResponse
-    #   resp.distribution_list.items[0].custom_error_responses.items[0].error_code #=> Integer
-    #   resp.distribution_list.items[0].custom_error_responses.items[0].response_page_path #=> String
-    #   resp.distribution_list.items[0].custom_error_responses.items[0].response_code #=> String
-    #   resp.distribution_list.items[0].custom_error_responses.items[0].error_caching_min_ttl #=> Integer
-    #   resp.distribution_list.items[0].comment #=> String
-    #   resp.distribution_list.items[0].price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
-    #   resp.distribution_list.items[0].enabled #=> Boolean
-    #   resp.distribution_list.items[0].viewer_certificate #=> Types::ViewerCertificate
-    #   resp.distribution_list.items[0].viewer_certificate.cloud_front_default_certificate #=> Boolean
-    #   resp.distribution_list.items[0].viewer_certificate.iam_certificate_id #=> String
-    #   resp.distribution_list.items[0].viewer_certificate.acm_certificate_arn #=> String
-    #   resp.distribution_list.items[0].viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.distribution_list.items[0].viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
-    #   resp.distribution_list.items[0].viewer_certificate.certificate #=> String
-    #   resp.distribution_list.items[0].viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
-    #   resp.distribution_list.items[0].restrictions #=> Types::Restrictions
-    #   resp.distribution_list.items[0].restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.distribution_list.items[0].restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
-    #   resp.distribution_list.items[0].restrictions.geo_restriction.quantity #=> Integer
-    #   resp.distribution_list.items[0].restrictions.geo_restriction.items #=> Array<String>
-    #   resp.distribution_list.items[0].restrictions.geo_restriction.items[0] #=> String
-    #   resp.distribution_list.items[0].web_acl_id #=> String
-    #   resp.distribution_list.items[0].http_version #=> String, one of http1.1, http2
-    #   resp.distribution_list.items[0].is_ipv6_enabled #=> Boolean
-    #   resp.distribution_list.items[0].alias_icp_recordals #=> Array<AliasICPRecordal>
-    #   resp.distribution_list.items[0].alias_icp_recordals[0] #=> Types::AliasICPRecordal
-    #   resp.distribution_list.items[0].alias_icp_recordals[0].cname #=> String
-    #   resp.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
+    #   resp.data #=> Types::ListDistributionsByRealtimeLogConfigOutput
+    #   resp.data.distribution_list #=> Types::DistributionList
+    #   resp.data.distribution_list.marker #=> String
+    #   resp.data.distribution_list.next_marker #=> String
+    #   resp.data.distribution_list.max_items #=> Integer
+    #   resp.data.distribution_list.is_truncated #=> Boolean
+    #   resp.data.distribution_list.quantity #=> Integer
+    #   resp.data.distribution_list.items #=> Array<DistributionSummary>
+    #   resp.data.distribution_list.items[0] #=> Types::DistributionSummary
+    #   resp.data.distribution_list.items[0].id #=> String
+    #   resp.data.distribution_list.items[0].arn #=> String
+    #   resp.data.distribution_list.items[0].status #=> String
+    #   resp.data.distribution_list.items[0].last_modified_time #=> Time
+    #   resp.data.distribution_list.items[0].domain_name #=> String
+    #   resp.data.distribution_list.items[0].aliases #=> Types::Aliases
+    #   resp.data.distribution_list.items[0].aliases.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].aliases.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].aliases.items[0] #=> String
+    #   resp.data.distribution_list.items[0].origins #=> Types::Origins
+    #   resp.data.distribution_list.items[0].origins.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items #=> Array<Origin>
+    #   resp.data.distribution_list.items[0].origins.items[0] #=> Types::Origin
+    #   resp.data.distribution_list.items[0].origins.items[0].id #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].domain_name #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].origin_path #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers #=> Types::CustomHeaders
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.items[0].header_name #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.items[0].header_value #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].s3_origin_config #=> Types::S3OriginConfig
+    #   resp.data.distribution_list.items[0].origins.items[0].s3_origin_config.origin_access_identity #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.http_port #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.https_port #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].connection_attempts #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].connection_timeout #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].origin_shield #=> Types::OriginShield
+    #   resp.data.distribution_list.items[0].origins.items[0].origin_shield.enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].origins.items[0].origin_shield.origin_shield_region #=> String
+    #   resp.data.distribution_list.items[0].origin_groups #=> Types::OriginGroups
+    #   resp.data.distribution_list.items[0].origin_groups.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origin_groups.items #=> Array<OriginGroup>
+    #   resp.data.distribution_list.items[0].origin_groups.items[0] #=> Types::OriginGroup
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].id #=> String
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members #=> Types::OriginGroupMembers
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members.items #=> Array<OriginGroupMember>
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members.items[0].origin_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior #=> Types::DefaultCacheBehavior
+    #   resp.data.distribution_list.items[0].default_cache_behavior.target_origin_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers.enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.smooth_streaming #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.compress #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].function_arn #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_list.items[0].default_cache_behavior.field_level_encryption_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.realtime_log_config_arn #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.cache_policy_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.origin_request_policy_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.response_headers_policy_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.headers #=> Types::Headers
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.min_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.default_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.max_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].cache_behaviors #=> Types::CacheBehaviors
+    #   resp.data.distribution_list.items[0].cache_behaviors.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].cache_behaviors.items #=> Array<CacheBehavior>
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0] #=> Types::CacheBehavior
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].path_pattern #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].target_origin_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].smooth_streaming #=> Boolean
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].compress #=> Boolean
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].field_level_encryption_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].realtime_log_config_arn #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].cache_policy_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].origin_request_policy_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].response_headers_policy_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].min_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].default_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].max_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].custom_error_responses #=> Types::CustomErrorResponses
+    #   resp.data.distribution_list.items[0].custom_error_responses.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].custom_error_responses.items #=> Array<CustomErrorResponse>
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0] #=> Types::CustomErrorResponse
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0].error_code #=> Integer
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0].response_page_path #=> String
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0].response_code #=> String
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0].error_caching_min_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].comment #=> String
+    #   resp.data.distribution_list.items[0].price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution_list.items[0].enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].viewer_certificate #=> Types::ViewerCertificate
+    #   resp.data.distribution_list.items[0].viewer_certificate.cloud_front_default_certificate #=> Boolean
+    #   resp.data.distribution_list.items[0].viewer_certificate.iam_certificate_id #=> String
+    #   resp.data.distribution_list.items[0].viewer_certificate.acm_certificate_arn #=> String
+    #   resp.data.distribution_list.items[0].viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
+    #   resp.data.distribution_list.items[0].viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution_list.items[0].viewer_certificate.certificate #=> String
+    #   resp.data.distribution_list.items[0].viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution_list.items[0].restrictions #=> Types::Restrictions
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction #=> Types::GeoRestriction
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.items[0] #=> String
+    #   resp.data.distribution_list.items[0].web_acl_id #=> String
+    #   resp.data.distribution_list.items[0].http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution_list.items[0].is_ipv6_enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].alias_icp_recordals #=> Array<AliasICPRecordal>
+    #   resp.data.distribution_list.items[0].alias_icp_recordals[0] #=> Types::AliasICPRecordal
+    #   resp.data.distribution_list.items[0].alias_icp_recordals[0].cname #=> String
+    #   resp.data.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
     #
     def list_distributions_by_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6916,13 +7046,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDistributionsByRealtimeLogConfig
+        builder: Builders::ListDistributionsByRealtimeLogConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributionsByRealtimeLogConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6943,7 +7075,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a list of distribution IDs for distributions that have a cache behavior that’s
@@ -6982,15 +7114,15 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListDistributionsByResponseHeadersPolicyIdOutput
-    #   resp.distribution_id_list #=> Types::DistributionIdList
-    #   resp.distribution_id_list.marker #=> String
-    #   resp.distribution_id_list.next_marker #=> String
-    #   resp.distribution_id_list.max_items #=> Integer
-    #   resp.distribution_id_list.is_truncated #=> Boolean
-    #   resp.distribution_id_list.quantity #=> Integer
-    #   resp.distribution_id_list.items #=> Array<String>
-    #   resp.distribution_id_list.items[0] #=> String
+    #   resp.data #=> Types::ListDistributionsByResponseHeadersPolicyIdOutput
+    #   resp.data.distribution_id_list #=> Types::DistributionIdList
+    #   resp.data.distribution_id_list.marker #=> String
+    #   resp.data.distribution_id_list.next_marker #=> String
+    #   resp.data.distribution_id_list.max_items #=> Integer
+    #   resp.data.distribution_id_list.is_truncated #=> Boolean
+    #   resp.data.distribution_id_list.quantity #=> Integer
+    #   resp.data.distribution_id_list.items #=> Array<String>
+    #   resp.data.distribution_id_list.items[0] #=> String
     #
     def list_distributions_by_response_headers_policy_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7000,13 +7132,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDistributionsByResponseHeadersPolicyId
+        builder: Builders::ListDistributionsByResponseHeadersPolicyId,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributionsByResponseHeadersPolicyId
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -7027,7 +7161,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>List the distributions that are associated with a specified WAF web ACL.</p>
@@ -7063,183 +7197,183 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListDistributionsByWebACLIdOutput
-    #   resp.distribution_list #=> Types::DistributionList
-    #   resp.distribution_list.marker #=> String
-    #   resp.distribution_list.next_marker #=> String
-    #   resp.distribution_list.max_items #=> Integer
-    #   resp.distribution_list.is_truncated #=> Boolean
-    #   resp.distribution_list.quantity #=> Integer
-    #   resp.distribution_list.items #=> Array<DistributionSummary>
-    #   resp.distribution_list.items[0] #=> Types::DistributionSummary
-    #   resp.distribution_list.items[0].id #=> String
-    #   resp.distribution_list.items[0].arn #=> String
-    #   resp.distribution_list.items[0].status #=> String
-    #   resp.distribution_list.items[0].last_modified_time #=> Time
-    #   resp.distribution_list.items[0].domain_name #=> String
-    #   resp.distribution_list.items[0].aliases #=> Types::Aliases
-    #   resp.distribution_list.items[0].aliases.quantity #=> Integer
-    #   resp.distribution_list.items[0].aliases.items #=> Array<String>
-    #   resp.distribution_list.items[0].aliases.items[0] #=> String
-    #   resp.distribution_list.items[0].origins #=> Types::Origins
-    #   resp.distribution_list.items[0].origins.quantity #=> Integer
-    #   resp.distribution_list.items[0].origins.items #=> Array<Origin>
-    #   resp.distribution_list.items[0].origins.items[0] #=> Types::Origin
-    #   resp.distribution_list.items[0].origins.items[0].id #=> String
-    #   resp.distribution_list.items[0].origins.items[0].domain_name #=> String
-    #   resp.distribution_list.items[0].origins.items[0].origin_path #=> String
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers #=> Types::CustomHeaders
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.quantity #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.items[0].header_name #=> String
-    #   resp.distribution_list.items[0].origins.items[0].custom_headers.items[0].header_value #=> String
-    #   resp.distribution_list.items[0].origins.items[0].s3_origin_config #=> Types::S3OriginConfig
-    #   resp.distribution_list.items[0].origins.items[0].s3_origin_config.origin_access_identity #=> String
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.http_port #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].connection_attempts #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].connection_timeout #=> Integer
-    #   resp.distribution_list.items[0].origins.items[0].origin_shield #=> Types::OriginShield
-    #   resp.distribution_list.items[0].origins.items[0].origin_shield.enabled #=> Boolean
-    #   resp.distribution_list.items[0].origins.items[0].origin_shield.origin_shield_region #=> String
-    #   resp.distribution_list.items[0].origin_groups #=> Types::OriginGroups
-    #   resp.distribution_list.items[0].origin_groups.quantity #=> Integer
-    #   resp.distribution_list.items[0].origin_groups.items #=> Array<OriginGroup>
-    #   resp.distribution_list.items[0].origin_groups.items[0] #=> Types::OriginGroup
-    #   resp.distribution_list.items[0].origin_groups.items[0].id #=> String
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
-    #   resp.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
-    #   resp.distribution_list.items[0].origin_groups.items[0].members #=> Types::OriginGroupMembers
-    #   resp.distribution_list.items[0].origin_groups.items[0].members.quantity #=> Integer
-    #   resp.distribution_list.items[0].origin_groups.items[0].members.items #=> Array<OriginGroupMember>
-    #   resp.distribution_list.items[0].origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
-    #   resp.distribution_list.items[0].origin_groups.items[0].members.items[0].origin_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior #=> Types::DefaultCacheBehavior
-    #   resp.distribution_list.items[0].default_cache_behavior.target_origin_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers.enabled #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_signers.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups.enabled #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.smooth_streaming #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.compress #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations #=> Types::FunctionAssociations
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution_list.items[0].default_cache_behavior.field_level_encryption_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.realtime_log_config_arn #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.cache_policy_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.origin_request_policy_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.response_headers_policy_id #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string #=> Boolean
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.headers #=> Types::Headers
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
-    #   resp.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
-    #   resp.distribution_list.items[0].default_cache_behavior.min_ttl #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.default_ttl #=> Integer
-    #   resp.distribution_list.items[0].default_cache_behavior.max_ttl #=> Integer
-    #   resp.distribution_list.items[0].cache_behaviors #=> Types::CacheBehaviors
-    #   resp.distribution_list.items[0].cache_behaviors.quantity #=> Integer
-    #   resp.distribution_list.items[0].cache_behaviors.items #=> Array<CacheBehavior>
-    #   resp.distribution_list.items[0].cache_behaviors.items[0] #=> Types::CacheBehavior
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].path_pattern #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].target_origin_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].smooth_streaming #=> Boolean
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].compress #=> Boolean
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].field_level_encryption_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].realtime_log_config_arn #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].cache_policy_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].origin_request_policy_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].response_headers_policy_id #=> String
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].min_ttl #=> Integer
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].default_ttl #=> Integer
-    #   resp.distribution_list.items[0].cache_behaviors.items[0].max_ttl #=> Integer
-    #   resp.distribution_list.items[0].custom_error_responses #=> Types::CustomErrorResponses
-    #   resp.distribution_list.items[0].custom_error_responses.quantity #=> Integer
-    #   resp.distribution_list.items[0].custom_error_responses.items #=> Array<CustomErrorResponse>
-    #   resp.distribution_list.items[0].custom_error_responses.items[0] #=> Types::CustomErrorResponse
-    #   resp.distribution_list.items[0].custom_error_responses.items[0].error_code #=> Integer
-    #   resp.distribution_list.items[0].custom_error_responses.items[0].response_page_path #=> String
-    #   resp.distribution_list.items[0].custom_error_responses.items[0].response_code #=> String
-    #   resp.distribution_list.items[0].custom_error_responses.items[0].error_caching_min_ttl #=> Integer
-    #   resp.distribution_list.items[0].comment #=> String
-    #   resp.distribution_list.items[0].price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
-    #   resp.distribution_list.items[0].enabled #=> Boolean
-    #   resp.distribution_list.items[0].viewer_certificate #=> Types::ViewerCertificate
-    #   resp.distribution_list.items[0].viewer_certificate.cloud_front_default_certificate #=> Boolean
-    #   resp.distribution_list.items[0].viewer_certificate.iam_certificate_id #=> String
-    #   resp.distribution_list.items[0].viewer_certificate.acm_certificate_arn #=> String
-    #   resp.distribution_list.items[0].viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.distribution_list.items[0].viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
-    #   resp.distribution_list.items[0].viewer_certificate.certificate #=> String
-    #   resp.distribution_list.items[0].viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
-    #   resp.distribution_list.items[0].restrictions #=> Types::Restrictions
-    #   resp.distribution_list.items[0].restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.distribution_list.items[0].restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
-    #   resp.distribution_list.items[0].restrictions.geo_restriction.quantity #=> Integer
-    #   resp.distribution_list.items[0].restrictions.geo_restriction.items #=> Array<String>
-    #   resp.distribution_list.items[0].restrictions.geo_restriction.items[0] #=> String
-    #   resp.distribution_list.items[0].web_acl_id #=> String
-    #   resp.distribution_list.items[0].http_version #=> String, one of http1.1, http2
-    #   resp.distribution_list.items[0].is_ipv6_enabled #=> Boolean
-    #   resp.distribution_list.items[0].alias_icp_recordals #=> Array<AliasICPRecordal>
-    #   resp.distribution_list.items[0].alias_icp_recordals[0] #=> Types::AliasICPRecordal
-    #   resp.distribution_list.items[0].alias_icp_recordals[0].cname #=> String
-    #   resp.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
+    #   resp.data #=> Types::ListDistributionsByWebACLIdOutput
+    #   resp.data.distribution_list #=> Types::DistributionList
+    #   resp.data.distribution_list.marker #=> String
+    #   resp.data.distribution_list.next_marker #=> String
+    #   resp.data.distribution_list.max_items #=> Integer
+    #   resp.data.distribution_list.is_truncated #=> Boolean
+    #   resp.data.distribution_list.quantity #=> Integer
+    #   resp.data.distribution_list.items #=> Array<DistributionSummary>
+    #   resp.data.distribution_list.items[0] #=> Types::DistributionSummary
+    #   resp.data.distribution_list.items[0].id #=> String
+    #   resp.data.distribution_list.items[0].arn #=> String
+    #   resp.data.distribution_list.items[0].status #=> String
+    #   resp.data.distribution_list.items[0].last_modified_time #=> Time
+    #   resp.data.distribution_list.items[0].domain_name #=> String
+    #   resp.data.distribution_list.items[0].aliases #=> Types::Aliases
+    #   resp.data.distribution_list.items[0].aliases.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].aliases.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].aliases.items[0] #=> String
+    #   resp.data.distribution_list.items[0].origins #=> Types::Origins
+    #   resp.data.distribution_list.items[0].origins.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items #=> Array<Origin>
+    #   resp.data.distribution_list.items[0].origins.items[0] #=> Types::Origin
+    #   resp.data.distribution_list.items[0].origins.items[0].id #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].domain_name #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].origin_path #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers #=> Types::CustomHeaders
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.items[0].header_name #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_headers.items[0].header_value #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].s3_origin_config #=> Types::S3OriginConfig
+    #   resp.data.distribution_list.items[0].origins.items[0].s3_origin_config.origin_access_identity #=> String
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.http_port #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.https_port #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].connection_attempts #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].connection_timeout #=> Integer
+    #   resp.data.distribution_list.items[0].origins.items[0].origin_shield #=> Types::OriginShield
+    #   resp.data.distribution_list.items[0].origins.items[0].origin_shield.enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].origins.items[0].origin_shield.origin_shield_region #=> String
+    #   resp.data.distribution_list.items[0].origin_groups #=> Types::OriginGroups
+    #   resp.data.distribution_list.items[0].origin_groups.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origin_groups.items #=> Array<OriginGroup>
+    #   resp.data.distribution_list.items[0].origin_groups.items[0] #=> Types::OriginGroup
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].id #=> String
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members #=> Types::OriginGroupMembers
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members.items #=> Array<OriginGroupMember>
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
+    #   resp.data.distribution_list.items[0].origin_groups.items[0].members.items[0].origin_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior #=> Types::DefaultCacheBehavior
+    #   resp.data.distribution_list.items[0].default_cache_behavior.target_origin_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers.enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_signers.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.smooth_streaming #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.compress #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].function_arn #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_list.items[0].default_cache_behavior.field_level_encryption_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.realtime_log_config_arn #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.cache_policy_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.origin_request_policy_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.response_headers_policy_id #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string #=> Boolean
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.headers #=> Types::Headers
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.headers.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
+    #   resp.data.distribution_list.items[0].default_cache_behavior.min_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.default_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].default_cache_behavior.max_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].cache_behaviors #=> Types::CacheBehaviors
+    #   resp.data.distribution_list.items[0].cache_behaviors.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].cache_behaviors.items #=> Array<CacheBehavior>
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0] #=> Types::CacheBehavior
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].path_pattern #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].target_origin_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].smooth_streaming #=> Boolean
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].compress #=> Boolean
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].field_level_encryption_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].realtime_log_config_arn #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].cache_policy_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].origin_request_policy_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].response_headers_policy_id #=> String
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].min_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].default_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].max_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].custom_error_responses #=> Types::CustomErrorResponses
+    #   resp.data.distribution_list.items[0].custom_error_responses.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].custom_error_responses.items #=> Array<CustomErrorResponse>
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0] #=> Types::CustomErrorResponse
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0].error_code #=> Integer
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0].response_page_path #=> String
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0].response_code #=> String
+    #   resp.data.distribution_list.items[0].custom_error_responses.items[0].error_caching_min_ttl #=> Integer
+    #   resp.data.distribution_list.items[0].comment #=> String
+    #   resp.data.distribution_list.items[0].price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution_list.items[0].enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].viewer_certificate #=> Types::ViewerCertificate
+    #   resp.data.distribution_list.items[0].viewer_certificate.cloud_front_default_certificate #=> Boolean
+    #   resp.data.distribution_list.items[0].viewer_certificate.iam_certificate_id #=> String
+    #   resp.data.distribution_list.items[0].viewer_certificate.acm_certificate_arn #=> String
+    #   resp.data.distribution_list.items[0].viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
+    #   resp.data.distribution_list.items[0].viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution_list.items[0].viewer_certificate.certificate #=> String
+    #   resp.data.distribution_list.items[0].viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution_list.items[0].restrictions #=> Types::Restrictions
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction #=> Types::GeoRestriction
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.quantity #=> Integer
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.items #=> Array<String>
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.items[0] #=> String
+    #   resp.data.distribution_list.items[0].web_acl_id #=> String
+    #   resp.data.distribution_list.items[0].http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution_list.items[0].is_ipv6_enabled #=> Boolean
+    #   resp.data.distribution_list.items[0].alias_icp_recordals #=> Array<AliasICPRecordal>
+    #   resp.data.distribution_list.items[0].alias_icp_recordals[0] #=> Types::AliasICPRecordal
+    #   resp.data.distribution_list.items[0].alias_icp_recordals[0].cname #=> String
+    #   resp.data.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
     #
     def list_distributions_by_web_acl_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7249,13 +7383,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDistributionsByWebACLId
+        builder: Builders::ListDistributionsByWebACLId,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidWebACLId, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidWebACLId, Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributionsByWebACLId
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -7276,7 +7412,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>List all field-level encryption configurations that have been created in CloudFront for this account.</p>
@@ -7303,33 +7439,33 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListFieldLevelEncryptionConfigsOutput
-    #   resp.field_level_encryption_list #=> Types::FieldLevelEncryptionList
-    #   resp.field_level_encryption_list.next_marker #=> String
-    #   resp.field_level_encryption_list.max_items #=> Integer
-    #   resp.field_level_encryption_list.quantity #=> Integer
-    #   resp.field_level_encryption_list.items #=> Array<FieldLevelEncryptionSummary>
-    #   resp.field_level_encryption_list.items[0] #=> Types::FieldLevelEncryptionSummary
-    #   resp.field_level_encryption_list.items[0].id #=> String
-    #   resp.field_level_encryption_list.items[0].last_modified_time #=> Time
-    #   resp.field_level_encryption_list.items[0].comment #=> String
-    #   resp.field_level_encryption_list.items[0].query_arg_profile_config #=> Types::QueryArgProfileConfig
-    #   resp.field_level_encryption_list.items[0].query_arg_profile_config.forward_when_query_arg_profile_is_unknown #=> Boolean
-    #   resp.field_level_encryption_list.items[0].query_arg_profile_config.query_arg_profiles #=> Types::QueryArgProfiles
-    #   resp.field_level_encryption_list.items[0].query_arg_profile_config.query_arg_profiles.quantity #=> Integer
-    #   resp.field_level_encryption_list.items[0].query_arg_profile_config.query_arg_profiles.items #=> Array<QueryArgProfile>
-    #   resp.field_level_encryption_list.items[0].query_arg_profile_config.query_arg_profiles.items[0] #=> Types::QueryArgProfile
-    #   resp.field_level_encryption_list.items[0].query_arg_profile_config.query_arg_profiles.items[0].query_arg #=> String
-    #   resp.field_level_encryption_list.items[0].query_arg_profile_config.query_arg_profiles.items[0].profile_id #=> String
-    #   resp.field_level_encryption_list.items[0].content_type_profile_config #=> Types::ContentTypeProfileConfig
-    #   resp.field_level_encryption_list.items[0].content_type_profile_config.forward_when_content_type_is_unknown #=> Boolean
-    #   resp.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles #=> Types::ContentTypeProfiles
-    #   resp.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.quantity #=> Integer
-    #   resp.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
-    #   resp.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
-    #   resp.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
-    #   resp.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
-    #   resp.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items[0].content_type #=> String
+    #   resp.data #=> Types::ListFieldLevelEncryptionConfigsOutput
+    #   resp.data.field_level_encryption_list #=> Types::FieldLevelEncryptionList
+    #   resp.data.field_level_encryption_list.next_marker #=> String
+    #   resp.data.field_level_encryption_list.max_items #=> Integer
+    #   resp.data.field_level_encryption_list.quantity #=> Integer
+    #   resp.data.field_level_encryption_list.items #=> Array<FieldLevelEncryptionSummary>
+    #   resp.data.field_level_encryption_list.items[0] #=> Types::FieldLevelEncryptionSummary
+    #   resp.data.field_level_encryption_list.items[0].id #=> String
+    #   resp.data.field_level_encryption_list.items[0].last_modified_time #=> Time
+    #   resp.data.field_level_encryption_list.items[0].comment #=> String
+    #   resp.data.field_level_encryption_list.items[0].query_arg_profile_config #=> Types::QueryArgProfileConfig
+    #   resp.data.field_level_encryption_list.items[0].query_arg_profile_config.forward_when_query_arg_profile_is_unknown #=> Boolean
+    #   resp.data.field_level_encryption_list.items[0].query_arg_profile_config.query_arg_profiles #=> Types::QueryArgProfiles
+    #   resp.data.field_level_encryption_list.items[0].query_arg_profile_config.query_arg_profiles.quantity #=> Integer
+    #   resp.data.field_level_encryption_list.items[0].query_arg_profile_config.query_arg_profiles.items #=> Array<QueryArgProfile>
+    #   resp.data.field_level_encryption_list.items[0].query_arg_profile_config.query_arg_profiles.items[0] #=> Types::QueryArgProfile
+    #   resp.data.field_level_encryption_list.items[0].query_arg_profile_config.query_arg_profiles.items[0].query_arg #=> String
+    #   resp.data.field_level_encryption_list.items[0].query_arg_profile_config.query_arg_profiles.items[0].profile_id #=> String
+    #   resp.data.field_level_encryption_list.items[0].content_type_profile_config #=> Types::ContentTypeProfileConfig
+    #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.forward_when_content_type_is_unknown #=> Boolean
+    #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles #=> Types::ContentTypeProfiles
+    #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.quantity #=> Integer
+    #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
+    #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
+    #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
+    #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
+    #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items[0].content_type #=> String
     #
     def list_field_level_encryption_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7339,13 +7475,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListFieldLevelEncryptionConfigs
+        builder: Builders::ListFieldLevelEncryptionConfigs,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListFieldLevelEncryptionConfigs
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -7366,7 +7504,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Request a list of field-level encryption profiles that have been created in CloudFront for this account.</p>
@@ -7393,27 +7531,27 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListFieldLevelEncryptionProfilesOutput
-    #   resp.field_level_encryption_profile_list #=> Types::FieldLevelEncryptionProfileList
-    #   resp.field_level_encryption_profile_list.next_marker #=> String
-    #   resp.field_level_encryption_profile_list.max_items #=> Integer
-    #   resp.field_level_encryption_profile_list.quantity #=> Integer
-    #   resp.field_level_encryption_profile_list.items #=> Array<FieldLevelEncryptionProfileSummary>
-    #   resp.field_level_encryption_profile_list.items[0] #=> Types::FieldLevelEncryptionProfileSummary
-    #   resp.field_level_encryption_profile_list.items[0].id #=> String
-    #   resp.field_level_encryption_profile_list.items[0].last_modified_time #=> Time
-    #   resp.field_level_encryption_profile_list.items[0].member_name #=> String
-    #   resp.field_level_encryption_profile_list.items[0].encryption_entities #=> Types::EncryptionEntities
-    #   resp.field_level_encryption_profile_list.items[0].encryption_entities.quantity #=> Integer
-    #   resp.field_level_encryption_profile_list.items[0].encryption_entities.items #=> Array<EncryptionEntity>
-    #   resp.field_level_encryption_profile_list.items[0].encryption_entities.items[0] #=> Types::EncryptionEntity
-    #   resp.field_level_encryption_profile_list.items[0].encryption_entities.items[0].public_key_id #=> String
-    #   resp.field_level_encryption_profile_list.items[0].encryption_entities.items[0].provider_id #=> String
-    #   resp.field_level_encryption_profile_list.items[0].encryption_entities.items[0].field_patterns #=> Types::FieldPatterns
-    #   resp.field_level_encryption_profile_list.items[0].encryption_entities.items[0].field_patterns.quantity #=> Integer
-    #   resp.field_level_encryption_profile_list.items[0].encryption_entities.items[0].field_patterns.items #=> Array<String>
-    #   resp.field_level_encryption_profile_list.items[0].encryption_entities.items[0].field_patterns.items[0] #=> String
-    #   resp.field_level_encryption_profile_list.items[0].comment #=> String
+    #   resp.data #=> Types::ListFieldLevelEncryptionProfilesOutput
+    #   resp.data.field_level_encryption_profile_list #=> Types::FieldLevelEncryptionProfileList
+    #   resp.data.field_level_encryption_profile_list.next_marker #=> String
+    #   resp.data.field_level_encryption_profile_list.max_items #=> Integer
+    #   resp.data.field_level_encryption_profile_list.quantity #=> Integer
+    #   resp.data.field_level_encryption_profile_list.items #=> Array<FieldLevelEncryptionProfileSummary>
+    #   resp.data.field_level_encryption_profile_list.items[0] #=> Types::FieldLevelEncryptionProfileSummary
+    #   resp.data.field_level_encryption_profile_list.items[0].id #=> String
+    #   resp.data.field_level_encryption_profile_list.items[0].last_modified_time #=> Time
+    #   resp.data.field_level_encryption_profile_list.items[0].member_name #=> String
+    #   resp.data.field_level_encryption_profile_list.items[0].encryption_entities #=> Types::EncryptionEntities
+    #   resp.data.field_level_encryption_profile_list.items[0].encryption_entities.quantity #=> Integer
+    #   resp.data.field_level_encryption_profile_list.items[0].encryption_entities.items #=> Array<EncryptionEntity>
+    #   resp.data.field_level_encryption_profile_list.items[0].encryption_entities.items[0] #=> Types::EncryptionEntity
+    #   resp.data.field_level_encryption_profile_list.items[0].encryption_entities.items[0].public_key_id #=> String
+    #   resp.data.field_level_encryption_profile_list.items[0].encryption_entities.items[0].provider_id #=> String
+    #   resp.data.field_level_encryption_profile_list.items[0].encryption_entities.items[0].field_patterns #=> Types::FieldPatterns
+    #   resp.data.field_level_encryption_profile_list.items[0].encryption_entities.items[0].field_patterns.quantity #=> Integer
+    #   resp.data.field_level_encryption_profile_list.items[0].encryption_entities.items[0].field_patterns.items #=> Array<String>
+    #   resp.data.field_level_encryption_profile_list.items[0].encryption_entities.items[0].field_patterns.items[0] #=> String
+    #   resp.data.field_level_encryption_profile_list.items[0].comment #=> String
     #
     def list_field_level_encryption_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7423,13 +7561,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListFieldLevelEncryptionProfiles
+        builder: Builders::ListFieldLevelEncryptionProfiles,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListFieldLevelEncryptionProfiles
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -7450,7 +7590,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a list of all CloudFront functions in your Amazon Web Services account.</p>
@@ -7490,23 +7630,23 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListFunctionsOutput
-    #   resp.function_list #=> Types::FunctionList
-    #   resp.function_list.next_marker #=> String
-    #   resp.function_list.max_items #=> Integer
-    #   resp.function_list.quantity #=> Integer
-    #   resp.function_list.items #=> Array<FunctionSummary>
-    #   resp.function_list.items[0] #=> Types::FunctionSummary
-    #   resp.function_list.items[0].member_name #=> String
-    #   resp.function_list.items[0].status #=> String
-    #   resp.function_list.items[0].function_config #=> Types::FunctionConfig
-    #   resp.function_list.items[0].function_config.comment #=> String
-    #   resp.function_list.items[0].function_config.runtime #=> String, one of cloudfront-js-1.0
-    #   resp.function_list.items[0].function_metadata #=> Types::FunctionMetadata
-    #   resp.function_list.items[0].function_metadata.function_arn #=> String
-    #   resp.function_list.items[0].function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
-    #   resp.function_list.items[0].function_metadata.created_time #=> Time
-    #   resp.function_list.items[0].function_metadata.last_modified_time #=> Time
+    #   resp.data #=> Types::ListFunctionsOutput
+    #   resp.data.function_list #=> Types::FunctionList
+    #   resp.data.function_list.next_marker #=> String
+    #   resp.data.function_list.max_items #=> Integer
+    #   resp.data.function_list.quantity #=> Integer
+    #   resp.data.function_list.items #=> Array<FunctionSummary>
+    #   resp.data.function_list.items[0] #=> Types::FunctionSummary
+    #   resp.data.function_list.items[0].member_name #=> String
+    #   resp.data.function_list.items[0].status #=> String
+    #   resp.data.function_list.items[0].function_config #=> Types::FunctionConfig
+    #   resp.data.function_list.items[0].function_config.comment #=> String
+    #   resp.data.function_list.items[0].function_config.runtime #=> String, one of cloudfront-js-1.0
+    #   resp.data.function_list.items[0].function_metadata #=> Types::FunctionMetadata
+    #   resp.data.function_list.items[0].function_metadata.function_arn #=> String
+    #   resp.data.function_list.items[0].function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
+    #   resp.data.function_list.items[0].function_metadata.created_time #=> Time
+    #   resp.data.function_list.items[0].function_metadata.last_modified_time #=> Time
     #
     def list_functions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7516,13 +7656,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListFunctions
+        builder: Builders::ListFunctions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::UnsupportedOperation, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperation, Errors::InvalidArgument]),
         data_parser: Parsers::ListFunctions
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -7543,7 +7685,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Lists invalidation batches. </p>
@@ -7578,18 +7720,18 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListInvalidationsOutput
-    #   resp.invalidation_list #=> Types::InvalidationList
-    #   resp.invalidation_list.marker #=> String
-    #   resp.invalidation_list.next_marker #=> String
-    #   resp.invalidation_list.max_items #=> Integer
-    #   resp.invalidation_list.is_truncated #=> Boolean
-    #   resp.invalidation_list.quantity #=> Integer
-    #   resp.invalidation_list.items #=> Array<InvalidationSummary>
-    #   resp.invalidation_list.items[0] #=> Types::InvalidationSummary
-    #   resp.invalidation_list.items[0].id #=> String
-    #   resp.invalidation_list.items[0].create_time #=> Time
-    #   resp.invalidation_list.items[0].status #=> String
+    #   resp.data #=> Types::ListInvalidationsOutput
+    #   resp.data.invalidation_list #=> Types::InvalidationList
+    #   resp.data.invalidation_list.marker #=> String
+    #   resp.data.invalidation_list.next_marker #=> String
+    #   resp.data.invalidation_list.max_items #=> Integer
+    #   resp.data.invalidation_list.is_truncated #=> Boolean
+    #   resp.data.invalidation_list.quantity #=> Integer
+    #   resp.data.invalidation_list.items #=> Array<InvalidationSummary>
+    #   resp.data.invalidation_list.items[0] #=> Types::InvalidationSummary
+    #   resp.data.invalidation_list.items[0].id #=> String
+    #   resp.data.invalidation_list.items[0].create_time #=> Time
+    #   resp.data.invalidation_list.items[0].status #=> String
     #
     def list_invalidations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7599,13 +7741,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListInvalidations
+        builder: Builders::ListInvalidations,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution, Errors::InvalidArgument]),
         data_parser: Parsers::ListInvalidations
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -7626,7 +7770,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a list of key groups.</p>
@@ -7659,21 +7803,21 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListKeyGroupsOutput
-    #   resp.key_group_list #=> Types::KeyGroupList
-    #   resp.key_group_list.next_marker #=> String
-    #   resp.key_group_list.max_items #=> Integer
-    #   resp.key_group_list.quantity #=> Integer
-    #   resp.key_group_list.items #=> Array<KeyGroupSummary>
-    #   resp.key_group_list.items[0] #=> Types::KeyGroupSummary
-    #   resp.key_group_list.items[0].key_group #=> Types::KeyGroup
-    #   resp.key_group_list.items[0].key_group.id #=> String
-    #   resp.key_group_list.items[0].key_group.last_modified_time #=> Time
-    #   resp.key_group_list.items[0].key_group.key_group_config #=> Types::KeyGroupConfig
-    #   resp.key_group_list.items[0].key_group.key_group_config.member_name #=> String
-    #   resp.key_group_list.items[0].key_group.key_group_config.items #=> Array<String>
-    #   resp.key_group_list.items[0].key_group.key_group_config.items[0] #=> String
-    #   resp.key_group_list.items[0].key_group.key_group_config.comment #=> String
+    #   resp.data #=> Types::ListKeyGroupsOutput
+    #   resp.data.key_group_list #=> Types::KeyGroupList
+    #   resp.data.key_group_list.next_marker #=> String
+    #   resp.data.key_group_list.max_items #=> Integer
+    #   resp.data.key_group_list.quantity #=> Integer
+    #   resp.data.key_group_list.items #=> Array<KeyGroupSummary>
+    #   resp.data.key_group_list.items[0] #=> Types::KeyGroupSummary
+    #   resp.data.key_group_list.items[0].key_group #=> Types::KeyGroup
+    #   resp.data.key_group_list.items[0].key_group.id #=> String
+    #   resp.data.key_group_list.items[0].key_group.last_modified_time #=> Time
+    #   resp.data.key_group_list.items[0].key_group.key_group_config #=> Types::KeyGroupConfig
+    #   resp.data.key_group_list.items[0].key_group.key_group_config.member_name #=> String
+    #   resp.data.key_group_list.items[0].key_group.key_group_config.items #=> Array<String>
+    #   resp.data.key_group_list.items[0].key_group.key_group_config.items[0] #=> String
+    #   resp.data.key_group_list.items[0].key_group.key_group_config.comment #=> String
     #
     def list_key_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7683,13 +7827,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListKeyGroups
+        builder: Builders::ListKeyGroups,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListKeyGroups
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -7710,7 +7856,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a list of origin request policies.</p>
@@ -7760,38 +7906,38 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListOriginRequestPoliciesOutput
-    #   resp.origin_request_policy_list #=> Types::OriginRequestPolicyList
-    #   resp.origin_request_policy_list.next_marker #=> String
-    #   resp.origin_request_policy_list.max_items #=> Integer
-    #   resp.origin_request_policy_list.quantity #=> Integer
-    #   resp.origin_request_policy_list.items #=> Array<OriginRequestPolicySummary>
-    #   resp.origin_request_policy_list.items[0] #=> Types::OriginRequestPolicySummary
-    #   resp.origin_request_policy_list.items[0].type #=> String, one of managed, custom
-    #   resp.origin_request_policy_list.items[0].origin_request_policy #=> Types::OriginRequestPolicy
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.id #=> String
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.last_modified_time #=> Time
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.comment #=> String
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.member_name #=> String
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.headers.quantity #=> Integer
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.headers.items #=> Array<String>
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.headers.items[0] #=> String
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
-    #   resp.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items[0] #=> String
+    #   resp.data #=> Types::ListOriginRequestPoliciesOutput
+    #   resp.data.origin_request_policy_list #=> Types::OriginRequestPolicyList
+    #   resp.data.origin_request_policy_list.next_marker #=> String
+    #   resp.data.origin_request_policy_list.max_items #=> Integer
+    #   resp.data.origin_request_policy_list.quantity #=> Integer
+    #   resp.data.origin_request_policy_list.items #=> Array<OriginRequestPolicySummary>
+    #   resp.data.origin_request_policy_list.items[0] #=> Types::OriginRequestPolicySummary
+    #   resp.data.origin_request_policy_list.items[0].type #=> String, one of managed, custom
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy #=> Types::OriginRequestPolicy
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.id #=> String
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.last_modified_time #=> Time
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.comment #=> String
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.member_name #=> String
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.headers.quantity #=> Integer
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.headers.items #=> Array<String>
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.headers.items[0] #=> String
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items[0] #=> String
     #
     def list_origin_request_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7801,13 +7947,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListOriginRequestPolicies
+        builder: Builders::ListOriginRequestPolicies,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy]),
         data_parser: Parsers::ListOriginRequestPolicies
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -7828,7 +7976,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>List all public keys that have been added to CloudFront for this account.</p>
@@ -7855,18 +8003,18 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListPublicKeysOutput
-    #   resp.public_key_list #=> Types::PublicKeyList
-    #   resp.public_key_list.next_marker #=> String
-    #   resp.public_key_list.max_items #=> Integer
-    #   resp.public_key_list.quantity #=> Integer
-    #   resp.public_key_list.items #=> Array<PublicKeySummary>
-    #   resp.public_key_list.items[0] #=> Types::PublicKeySummary
-    #   resp.public_key_list.items[0].id #=> String
-    #   resp.public_key_list.items[0].member_name #=> String
-    #   resp.public_key_list.items[0].created_time #=> Time
-    #   resp.public_key_list.items[0].encoded_key #=> String
-    #   resp.public_key_list.items[0].comment #=> String
+    #   resp.data #=> Types::ListPublicKeysOutput
+    #   resp.data.public_key_list #=> Types::PublicKeyList
+    #   resp.data.public_key_list.next_marker #=> String
+    #   resp.data.public_key_list.max_items #=> Integer
+    #   resp.data.public_key_list.quantity #=> Integer
+    #   resp.data.public_key_list.items #=> Array<PublicKeySummary>
+    #   resp.data.public_key_list.items[0] #=> Types::PublicKeySummary
+    #   resp.data.public_key_list.items[0].id #=> String
+    #   resp.data.public_key_list.items[0].member_name #=> String
+    #   resp.data.public_key_list.items[0].created_time #=> Time
+    #   resp.data.public_key_list.items[0].encoded_key #=> String
+    #   resp.data.public_key_list.items[0].comment #=> String
     #
     def list_public_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7876,13 +8024,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListPublicKeys
+        builder: Builders::ListPublicKeys,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListPublicKeys
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -7903,7 +8053,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a list of real-time log configurations.</p>
@@ -7936,25 +8086,25 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListRealtimeLogConfigsOutput
-    #   resp.realtime_log_configs #=> Types::RealtimeLogConfigs
-    #   resp.realtime_log_configs.max_items #=> Integer
-    #   resp.realtime_log_configs.items #=> Array<RealtimeLogConfig>
-    #   resp.realtime_log_configs.items[0] #=> Types::RealtimeLogConfig
-    #   resp.realtime_log_configs.items[0].arn #=> String
-    #   resp.realtime_log_configs.items[0].member_name #=> String
-    #   resp.realtime_log_configs.items[0].sampling_rate #=> Integer
-    #   resp.realtime_log_configs.items[0].end_points #=> Array<EndPoint>
-    #   resp.realtime_log_configs.items[0].end_points[0] #=> Types::EndPoint
-    #   resp.realtime_log_configs.items[0].end_points[0].stream_type #=> String
-    #   resp.realtime_log_configs.items[0].end_points[0].kinesis_stream_config #=> Types::KinesisStreamConfig
-    #   resp.realtime_log_configs.items[0].end_points[0].kinesis_stream_config.role_arn #=> String
-    #   resp.realtime_log_configs.items[0].end_points[0].kinesis_stream_config.stream_arn #=> String
-    #   resp.realtime_log_configs.items[0].fields #=> Array<String>
-    #   resp.realtime_log_configs.items[0].fields[0] #=> String
-    #   resp.realtime_log_configs.is_truncated #=> Boolean
-    #   resp.realtime_log_configs.marker #=> String
-    #   resp.realtime_log_configs.next_marker #=> String
+    #   resp.data #=> Types::ListRealtimeLogConfigsOutput
+    #   resp.data.realtime_log_configs #=> Types::RealtimeLogConfigs
+    #   resp.data.realtime_log_configs.max_items #=> Integer
+    #   resp.data.realtime_log_configs.items #=> Array<RealtimeLogConfig>
+    #   resp.data.realtime_log_configs.items[0] #=> Types::RealtimeLogConfig
+    #   resp.data.realtime_log_configs.items[0].arn #=> String
+    #   resp.data.realtime_log_configs.items[0].member_name #=> String
+    #   resp.data.realtime_log_configs.items[0].sampling_rate #=> Integer
+    #   resp.data.realtime_log_configs.items[0].end_points #=> Array<EndPoint>
+    #   resp.data.realtime_log_configs.items[0].end_points[0] #=> Types::EndPoint
+    #   resp.data.realtime_log_configs.items[0].end_points[0].stream_type #=> String
+    #   resp.data.realtime_log_configs.items[0].end_points[0].kinesis_stream_config #=> Types::KinesisStreamConfig
+    #   resp.data.realtime_log_configs.items[0].end_points[0].kinesis_stream_config.role_arn #=> String
+    #   resp.data.realtime_log_configs.items[0].end_points[0].kinesis_stream_config.stream_arn #=> String
+    #   resp.data.realtime_log_configs.items[0].fields #=> Array<String>
+    #   resp.data.realtime_log_configs.items[0].fields[0] #=> String
+    #   resp.data.realtime_log_configs.is_truncated #=> Boolean
+    #   resp.data.realtime_log_configs.marker #=> String
+    #   resp.data.realtime_log_configs.next_marker #=> String
     #
     def list_realtime_log_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7964,13 +8114,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListRealtimeLogConfigs
+        builder: Builders::ListRealtimeLogConfigs,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
         data_parser: Parsers::ListRealtimeLogConfigs
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -7991,7 +8143,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gets a list of response headers policies.</p>
@@ -8042,69 +8194,69 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListResponseHeadersPoliciesOutput
-    #   resp.response_headers_policy_list #=> Types::ResponseHeadersPolicyList
-    #   resp.response_headers_policy_list.next_marker #=> String
-    #   resp.response_headers_policy_list.max_items #=> Integer
-    #   resp.response_headers_policy_list.quantity #=> Integer
-    #   resp.response_headers_policy_list.items #=> Array<ResponseHeadersPolicySummary>
-    #   resp.response_headers_policy_list.items[0] #=> Types::ResponseHeadersPolicySummary
-    #   resp.response_headers_policy_list.items[0].type #=> String, one of managed, custom
-    #   resp.response_headers_policy_list.items[0].response_headers_policy #=> Types::ResponseHeadersPolicy
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.id #=> String
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.last_modified_time #=> Time
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.comment #=> String
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.member_name #=> String
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items #=> Array<String>
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items[0] #=> String
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers #=> Types::ResponseHeadersPolicyAccessControlAllowHeaders
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.quantity #=> Integer
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items #=> Array<String>
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items[0] #=> String
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items #=> Array<String>
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items[0] #=> String
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_max_age_sec #=> Integer
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.origin_override #=> Boolean
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config #=> Types::ResponseHeadersPolicySecurityHeadersConfig
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection #=> Types::ResponseHeadersPolicyXSSProtection
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.override #=> Boolean
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.protection #=> Boolean
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.mode_block #=> Boolean
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options #=> Types::ResponseHeadersPolicyContentTypeOptions
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options.override #=> Boolean
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security #=> Types::ResponseHeadersPolicyStrictTransportSecurity
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.override #=> Boolean
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.include_subdomains #=> Boolean
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.preload #=> Boolean
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.access_control_max_age_sec #=> Integer
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config #=> Types::ResponseHeadersPolicyCustomHeadersConfig
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.quantity #=> Integer
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.items #=> Array<ResponseHeadersPolicyCustomHeader>
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.items[0] #=> Types::ResponseHeadersPolicyCustomHeader
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].header #=> String
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].value #=> String
-    #   resp.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
+    #   resp.data #=> Types::ListResponseHeadersPoliciesOutput
+    #   resp.data.response_headers_policy_list #=> Types::ResponseHeadersPolicyList
+    #   resp.data.response_headers_policy_list.next_marker #=> String
+    #   resp.data.response_headers_policy_list.max_items #=> Integer
+    #   resp.data.response_headers_policy_list.quantity #=> Integer
+    #   resp.data.response_headers_policy_list.items #=> Array<ResponseHeadersPolicySummary>
+    #   resp.data.response_headers_policy_list.items[0] #=> Types::ResponseHeadersPolicySummary
+    #   resp.data.response_headers_policy_list.items[0].type #=> String, one of managed, custom
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy #=> Types::ResponseHeadersPolicy
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.id #=> String
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.last_modified_time #=> Time
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.comment #=> String
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.member_name #=> String
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items #=> Array<String>
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items[0] #=> String
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers #=> Types::ResponseHeadersPolicyAccessControlAllowHeaders
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.quantity #=> Integer
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items #=> Array<String>
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items[0] #=> String
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items #=> Array<String>
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items[0] #=> String
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_max_age_sec #=> Integer
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.origin_override #=> Boolean
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config #=> Types::ResponseHeadersPolicySecurityHeadersConfig
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection #=> Types::ResponseHeadersPolicyXSSProtection
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.override #=> Boolean
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.protection #=> Boolean
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.mode_block #=> Boolean
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options #=> Types::ResponseHeadersPolicyContentTypeOptions
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options.override #=> Boolean
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security #=> Types::ResponseHeadersPolicyStrictTransportSecurity
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.override #=> Boolean
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.include_subdomains #=> Boolean
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.preload #=> Boolean
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.access_control_max_age_sec #=> Integer
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config #=> Types::ResponseHeadersPolicyCustomHeadersConfig
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.quantity #=> Integer
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.items #=> Array<ResponseHeadersPolicyCustomHeader>
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.items[0] #=> Types::ResponseHeadersPolicyCustomHeader
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].header #=> String
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].value #=> String
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
     #
     def list_response_headers_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -8114,13 +8266,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListResponseHeadersPolicies
+        builder: Builders::ListResponseHeadersPolicies,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidArgument]),
         data_parser: Parsers::ListResponseHeadersPolicies
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -8141,7 +8295,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>List streaming distributions. </p>
@@ -8166,35 +8320,35 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListStreamingDistributionsOutput
-    #   resp.streaming_distribution_list #=> Types::StreamingDistributionList
-    #   resp.streaming_distribution_list.marker #=> String
-    #   resp.streaming_distribution_list.next_marker #=> String
-    #   resp.streaming_distribution_list.max_items #=> Integer
-    #   resp.streaming_distribution_list.is_truncated #=> Boolean
-    #   resp.streaming_distribution_list.quantity #=> Integer
-    #   resp.streaming_distribution_list.items #=> Array<StreamingDistributionSummary>
-    #   resp.streaming_distribution_list.items[0] #=> Types::StreamingDistributionSummary
-    #   resp.streaming_distribution_list.items[0].id #=> String
-    #   resp.streaming_distribution_list.items[0].arn #=> String
-    #   resp.streaming_distribution_list.items[0].status #=> String
-    #   resp.streaming_distribution_list.items[0].last_modified_time #=> Time
-    #   resp.streaming_distribution_list.items[0].domain_name #=> String
-    #   resp.streaming_distribution_list.items[0].s3_origin #=> Types::S3Origin
-    #   resp.streaming_distribution_list.items[0].s3_origin.domain_name #=> String
-    #   resp.streaming_distribution_list.items[0].s3_origin.origin_access_identity #=> String
-    #   resp.streaming_distribution_list.items[0].aliases #=> Types::Aliases
-    #   resp.streaming_distribution_list.items[0].aliases.quantity #=> Integer
-    #   resp.streaming_distribution_list.items[0].aliases.items #=> Array<String>
-    #   resp.streaming_distribution_list.items[0].aliases.items[0] #=> String
-    #   resp.streaming_distribution_list.items[0].trusted_signers #=> Types::TrustedSigners
-    #   resp.streaming_distribution_list.items[0].trusted_signers.enabled #=> Boolean
-    #   resp.streaming_distribution_list.items[0].trusted_signers.quantity #=> Integer
-    #   resp.streaming_distribution_list.items[0].trusted_signers.items #=> Array<String>
-    #   resp.streaming_distribution_list.items[0].trusted_signers.items[0] #=> String
-    #   resp.streaming_distribution_list.items[0].comment #=> String
-    #   resp.streaming_distribution_list.items[0].price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
-    #   resp.streaming_distribution_list.items[0].enabled #=> Boolean
+    #   resp.data #=> Types::ListStreamingDistributionsOutput
+    #   resp.data.streaming_distribution_list #=> Types::StreamingDistributionList
+    #   resp.data.streaming_distribution_list.marker #=> String
+    #   resp.data.streaming_distribution_list.next_marker #=> String
+    #   resp.data.streaming_distribution_list.max_items #=> Integer
+    #   resp.data.streaming_distribution_list.is_truncated #=> Boolean
+    #   resp.data.streaming_distribution_list.quantity #=> Integer
+    #   resp.data.streaming_distribution_list.items #=> Array<StreamingDistributionSummary>
+    #   resp.data.streaming_distribution_list.items[0] #=> Types::StreamingDistributionSummary
+    #   resp.data.streaming_distribution_list.items[0].id #=> String
+    #   resp.data.streaming_distribution_list.items[0].arn #=> String
+    #   resp.data.streaming_distribution_list.items[0].status #=> String
+    #   resp.data.streaming_distribution_list.items[0].last_modified_time #=> Time
+    #   resp.data.streaming_distribution_list.items[0].domain_name #=> String
+    #   resp.data.streaming_distribution_list.items[0].s3_origin #=> Types::S3Origin
+    #   resp.data.streaming_distribution_list.items[0].s3_origin.domain_name #=> String
+    #   resp.data.streaming_distribution_list.items[0].s3_origin.origin_access_identity #=> String
+    #   resp.data.streaming_distribution_list.items[0].aliases #=> Types::Aliases
+    #   resp.data.streaming_distribution_list.items[0].aliases.quantity #=> Integer
+    #   resp.data.streaming_distribution_list.items[0].aliases.items #=> Array<String>
+    #   resp.data.streaming_distribution_list.items[0].aliases.items[0] #=> String
+    #   resp.data.streaming_distribution_list.items[0].trusted_signers #=> Types::TrustedSigners
+    #   resp.data.streaming_distribution_list.items[0].trusted_signers.enabled #=> Boolean
+    #   resp.data.streaming_distribution_list.items[0].trusted_signers.quantity #=> Integer
+    #   resp.data.streaming_distribution_list.items[0].trusted_signers.items #=> Array<String>
+    #   resp.data.streaming_distribution_list.items[0].trusted_signers.items[0] #=> String
+    #   resp.data.streaming_distribution_list.items[0].comment #=> String
+    #   resp.data.streaming_distribution_list.items[0].price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.streaming_distribution_list.items[0].enabled #=> Boolean
     #
     def list_streaming_distributions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -8204,13 +8358,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListStreamingDistributions
+        builder: Builders::ListStreamingDistributions,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListStreamingDistributions
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -8231,7 +8387,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>List tags for a CloudFront resource.</p>
@@ -8252,12 +8408,12 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListTagsForResourceOutput
-    #   resp.tags #=> Types::Tags
-    #   resp.tags.items #=> Array<Tag>
-    #   resp.tags.items[0] #=> Types::Tag
-    #   resp.tags.items[0].key #=> String
-    #   resp.tags.items[0].value #=> String
+    #   resp.data #=> Types::ListTagsForResourceOutput
+    #   resp.data.tags #=> Types::Tags
+    #   resp.data.tags.items #=> Array<Tag>
+    #   resp.data.tags.items[0] #=> Types::Tag
+    #   resp.data.tags.items[0].key #=> String
+    #   resp.data.tags.items[0].value #=> String
     #
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -8267,13 +8423,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListTagsForResource
+        builder: Builders::ListTagsForResource,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
         data_parser: Parsers::ListTagsForResource
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -8294,7 +8452,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Publishes a CloudFront function by copying the function code from the <code>DEVELOPMENT</code>
@@ -8328,18 +8486,18 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::PublishFunctionOutput
-    #   resp.function_summary #=> Types::FunctionSummary
-    #   resp.function_summary.member_name #=> String
-    #   resp.function_summary.status #=> String
-    #   resp.function_summary.function_config #=> Types::FunctionConfig
-    #   resp.function_summary.function_config.comment #=> String
-    #   resp.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
-    #   resp.function_summary.function_metadata #=> Types::FunctionMetadata
-    #   resp.function_summary.function_metadata.function_arn #=> String
-    #   resp.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
-    #   resp.function_summary.function_metadata.created_time #=> Time
-    #   resp.function_summary.function_metadata.last_modified_time #=> Time
+    #   resp.data #=> Types::PublishFunctionOutput
+    #   resp.data.function_summary #=> Types::FunctionSummary
+    #   resp.data.function_summary.member_name #=> String
+    #   resp.data.function_summary.status #=> String
+    #   resp.data.function_summary.function_config #=> Types::FunctionConfig
+    #   resp.data.function_summary.function_config.comment #=> String
+    #   resp.data.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
+    #   resp.data.function_summary.function_metadata #=> Types::FunctionMetadata
+    #   resp.data.function_summary.function_metadata.function_arn #=> String
+    #   resp.data.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
+    #   resp.data.function_summary.function_metadata.created_time #=> Time
+    #   resp.data.function_summary.function_metadata.last_modified_time #=> Time
     #
     def publish_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -8349,13 +8507,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::PublishFunction
+        builder: Builders::PublishFunction,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument]),
         data_parser: Parsers::PublishFunction
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -8376,7 +8536,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Add tags to a CloudFront resource.</p>
@@ -8408,7 +8568,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::TagResourceOutput
+    #   resp.data #=> Types::TagResourceOutput
     #
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -8418,13 +8578,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::TagResource
+        builder: Builders::TagResource,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
         data_parser: Parsers::TagResource
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -8445,7 +8607,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Tests a CloudFront function.</p>
@@ -8490,24 +8652,24 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::TestFunctionOutput
-    #   resp.test_result #=> Types::TestResult
-    #   resp.test_result.function_summary #=> Types::FunctionSummary
-    #   resp.test_result.function_summary.member_name #=> String
-    #   resp.test_result.function_summary.status #=> String
-    #   resp.test_result.function_summary.function_config #=> Types::FunctionConfig
-    #   resp.test_result.function_summary.function_config.comment #=> String
-    #   resp.test_result.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
-    #   resp.test_result.function_summary.function_metadata #=> Types::FunctionMetadata
-    #   resp.test_result.function_summary.function_metadata.function_arn #=> String
-    #   resp.test_result.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
-    #   resp.test_result.function_summary.function_metadata.created_time #=> Time
-    #   resp.test_result.function_summary.function_metadata.last_modified_time #=> Time
-    #   resp.test_result.compute_utilization #=> String
-    #   resp.test_result.function_execution_logs #=> Array<String>
-    #   resp.test_result.function_execution_logs[0] #=> String
-    #   resp.test_result.function_error_message #=> String
-    #   resp.test_result.function_output #=> String
+    #   resp.data #=> Types::TestFunctionOutput
+    #   resp.data.test_result #=> Types::TestResult
+    #   resp.data.test_result.function_summary #=> Types::FunctionSummary
+    #   resp.data.test_result.function_summary.member_name #=> String
+    #   resp.data.test_result.function_summary.status #=> String
+    #   resp.data.test_result.function_summary.function_config #=> Types::FunctionConfig
+    #   resp.data.test_result.function_summary.function_config.comment #=> String
+    #   resp.data.test_result.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
+    #   resp.data.test_result.function_summary.function_metadata #=> Types::FunctionMetadata
+    #   resp.data.test_result.function_summary.function_metadata.function_arn #=> String
+    #   resp.data.test_result.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
+    #   resp.data.test_result.function_summary.function_metadata.created_time #=> Time
+    #   resp.data.test_result.function_summary.function_metadata.last_modified_time #=> Time
+    #   resp.data.test_result.compute_utilization #=> String
+    #   resp.data.test_result.function_execution_logs #=> Array<String>
+    #   resp.data.test_result.function_execution_logs[0] #=> String
+    #   resp.data.test_result.function_error_message #=> String
+    #   resp.data.test_result.function_output #=> String
     #
     def test_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -8517,13 +8679,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::TestFunction
+        builder: Builders::TestFunction,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::TestFunctionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TestFunctionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument]),
         data_parser: Parsers::TestFunction
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -8544,7 +8708,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Remove tags from a CloudFront resource.</p>
@@ -8573,7 +8737,7 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::UntagResourceOutput
+    #   resp.data #=> Types::UntagResourceOutput
     #
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -8583,13 +8747,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UntagResource
+        builder: Builders::UntagResource,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 204, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
         data_parser: Parsers::UntagResource
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -8610,7 +8776,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Updates a cache policy configuration.</p>
@@ -8697,38 +8863,38 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateCachePolicyOutput
-    #   resp.cache_policy #=> Types::CachePolicy
-    #   resp.cache_policy.id #=> String
-    #   resp.cache_policy.last_modified_time #=> Time
-    #   resp.cache_policy.cache_policy_config #=> Types::CachePolicyConfig
-    #   resp.cache_policy.cache_policy_config.comment #=> String
-    #   resp.cache_policy.cache_policy_config.member_name #=> String
-    #   resp.cache_policy.cache_policy_config.default_ttl #=> Integer
-    #   resp.cache_policy.cache_policy_config.max_ttl #=> Integer
-    #   resp.cache_policy.cache_policy_config.min_ttl #=> Integer
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin #=> Types::ParametersInCacheKeyAndForwardedToOrigin
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
-    #   resp.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items[0] #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::UpdateCachePolicyOutput
+    #   resp.data.cache_policy #=> Types::CachePolicy
+    #   resp.data.cache_policy.id #=> String
+    #   resp.data.cache_policy.last_modified_time #=> Time
+    #   resp.data.cache_policy.cache_policy_config #=> Types::CachePolicyConfig
+    #   resp.data.cache_policy.cache_policy_config.comment #=> String
+    #   resp.data.cache_policy.cache_policy_config.member_name #=> String
+    #   resp.data.cache_policy.cache_policy_config.default_ttl #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.max_ttl #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.min_ttl #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin #=> Types::ParametersInCacheKeyAndForwardedToOrigin
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items[0] #=> String
+    #   resp.data.e_tag #=> String
     #
     def update_cache_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -8738,13 +8904,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateCachePolicy
+        builder: Builders::UpdateCachePolicy,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::TooManyCookiesInCachePolicy, Errors::IllegalUpdate, Errors::TooManyHeadersInCachePolicy, Errors::InconsistentQuantities, Errors::NoSuchCachePolicy, Errors::TooManyQueryStringsInCachePolicy, Errors::CachePolicyAlreadyExists, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::TooManyCookiesInCachePolicy, Errors::IllegalUpdate, Errors::TooManyHeadersInCachePolicy, Errors::InconsistentQuantities, Errors::NoSuchCachePolicy, Errors::TooManyQueryStringsInCachePolicy, Errors::CachePolicyAlreadyExists, Errors::InvalidArgument]),
         data_parser: Parsers::UpdateCachePolicy
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -8765,7 +8933,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Update an origin access identity. </p>
@@ -8798,14 +8966,14 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateCloudFrontOriginAccessIdentityOutput
-    #   resp.cloud_front_origin_access_identity #=> Types::CloudFrontOriginAccessIdentity
-    #   resp.cloud_front_origin_access_identity.id #=> String
-    #   resp.cloud_front_origin_access_identity.s3_canonical_user_id #=> String
-    #   resp.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config #=> Types::CloudFrontOriginAccessIdentityConfig
-    #   resp.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config.caller_reference #=> String
-    #   resp.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config.comment #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::UpdateCloudFrontOriginAccessIdentityOutput
+    #   resp.data.cloud_front_origin_access_identity #=> Types::CloudFrontOriginAccessIdentity
+    #   resp.data.cloud_front_origin_access_identity.id #=> String
+    #   resp.data.cloud_front_origin_access_identity.s3_canonical_user_id #=> String
+    #   resp.data.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config #=> Types::CloudFrontOriginAccessIdentityConfig
+    #   resp.data.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config.caller_reference #=> String
+    #   resp.data.cloud_front_origin_access_identity.cloud_front_origin_access_identity_config.comment #=> String
+    #   resp.data.e_tag #=> String
     #
     def update_cloud_front_origin_access_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -8815,13 +8983,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateCloudFrontOriginAccessIdentity
+        builder: Builders::UpdateCloudFrontOriginAccessIdentity,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::MissingBody, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::NoSuchCloudFrontOriginAccessIdentity, Errors::InconsistentQuantities, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::MissingBody, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::NoSuchCloudFrontOriginAccessIdentity, Errors::InconsistentQuantities, Errors::InvalidArgument]),
         data_parser: Parsers::UpdateCloudFrontOriginAccessIdentity
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -8842,7 +9012,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Updates the configuration for a web distribution. </p>
@@ -9165,203 +9335,203 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateDistributionOutput
-    #   resp.distribution #=> Types::Distribution
-    #   resp.distribution.id #=> String
-    #   resp.distribution.arn #=> String
-    #   resp.distribution.status #=> String
-    #   resp.distribution.last_modified_time #=> Time
-    #   resp.distribution.in_progress_invalidation_batches #=> Integer
-    #   resp.distribution.domain_name #=> String
-    #   resp.distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
-    #   resp.distribution.active_trusted_signers.enabled #=> Boolean
-    #   resp.distribution.active_trusted_signers.quantity #=> Integer
-    #   resp.distribution.active_trusted_signers.items #=> Array<Signer>
-    #   resp.distribution.active_trusted_signers.items[0] #=> Types::Signer
-    #   resp.distribution.active_trusted_signers.items[0].aws_account_number #=> String
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
-    #   resp.distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
-    #   resp.distribution.active_trusted_key_groups #=> Types::ActiveTrustedKeyGroups
-    #   resp.distribution.active_trusted_key_groups.enabled #=> Boolean
-    #   resp.distribution.active_trusted_key_groups.quantity #=> Integer
-    #   resp.distribution.active_trusted_key_groups.items #=> Array<KGKeyPairIds>
-    #   resp.distribution.active_trusted_key_groups.items[0] #=> Types::KGKeyPairIds
-    #   resp.distribution.active_trusted_key_groups.items[0].key_group_id #=> String
-    #   resp.distribution.active_trusted_key_groups.items[0].key_pair_ids #=> Types::KeyPairIds
-    #   resp.distribution.distribution_config #=> Types::DistributionConfig
-    #   resp.distribution.distribution_config.caller_reference #=> String
-    #   resp.distribution.distribution_config.aliases #=> Types::Aliases
-    #   resp.distribution.distribution_config.aliases.quantity #=> Integer
-    #   resp.distribution.distribution_config.aliases.items #=> Array<String>
-    #   resp.distribution.distribution_config.aliases.items[0] #=> String
-    #   resp.distribution.distribution_config.default_root_object #=> String
-    #   resp.distribution.distribution_config.origins #=> Types::Origins
-    #   resp.distribution.distribution_config.origins.quantity #=> Integer
-    #   resp.distribution.distribution_config.origins.items #=> Array<Origin>
-    #   resp.distribution.distribution_config.origins.items[0] #=> Types::Origin
-    #   resp.distribution.distribution_config.origins.items[0].id #=> String
-    #   resp.distribution.distribution_config.origins.items[0].domain_name #=> String
-    #   resp.distribution.distribution_config.origins.items[0].origin_path #=> String
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers #=> Types::CustomHeaders
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.quantity #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_name #=> String
-    #   resp.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_value #=> String
-    #   resp.distribution.distribution_config.origins.items[0].s3_origin_config #=> Types::S3OriginConfig
-    #   resp.distribution.distribution_config.origins.items[0].s3_origin_config.origin_access_identity #=> String
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].connection_attempts #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].connection_timeout #=> Integer
-    #   resp.distribution.distribution_config.origins.items[0].origin_shield #=> Types::OriginShield
-    #   resp.distribution.distribution_config.origins.items[0].origin_shield.enabled #=> Boolean
-    #   resp.distribution.distribution_config.origins.items[0].origin_shield.origin_shield_region #=> String
-    #   resp.distribution.distribution_config.origin_groups #=> Types::OriginGroups
-    #   resp.distribution.distribution_config.origin_groups.quantity #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items #=> Array<OriginGroup>
-    #   resp.distribution.distribution_config.origin_groups.items[0] #=> Types::OriginGroup
-    #   resp.distribution.distribution_config.origin_groups.items[0].id #=> String
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
-    #   resp.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items[0].members #=> Types::OriginGroupMembers
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.quantity #=> Integer
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.items #=> Array<OriginGroupMember>
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
-    #   resp.distribution.distribution_config.origin_groups.items[0].members.items[0].origin_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior #=> Types::DefaultCacheBehavior
-    #   resp.distribution.distribution_config.default_cache_behavior.target_origin_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.enabled #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_signers.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.enabled #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.smooth_streaming #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.compress #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
-    #   resp.distribution.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.cache_policy_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.origin_request_policy_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.response_headers_policy_id #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers #=> Types::Headers
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
-    #   resp.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
-    #   resp.distribution.distribution_config.default_cache_behavior.min_ttl #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.default_ttl #=> Integer
-    #   resp.distribution.distribution_config.default_cache_behavior.max_ttl #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors #=> Types::CacheBehaviors
-    #   resp.distribution.distribution_config.cache_behaviors.quantity #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors.items #=> Array<CacheBehavior>
-    #   resp.distribution.distribution_config.cache_behaviors.items[0] #=> Types::CacheBehavior
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].path_pattern #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].compress #=> Boolean
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].field_level_encryption_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].realtime_log_config_arn #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].cache_policy_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].origin_request_policy_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].response_headers_policy_id #=> String
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].min_ttl #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].default_ttl #=> Integer
-    #   resp.distribution.distribution_config.cache_behaviors.items[0].max_ttl #=> Integer
-    #   resp.distribution.distribution_config.custom_error_responses #=> Types::CustomErrorResponses
-    #   resp.distribution.distribution_config.custom_error_responses.quantity #=> Integer
-    #   resp.distribution.distribution_config.custom_error_responses.items #=> Array<CustomErrorResponse>
-    #   resp.distribution.distribution_config.custom_error_responses.items[0] #=> Types::CustomErrorResponse
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].error_code #=> Integer
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].response_page_path #=> String
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].response_code #=> String
-    #   resp.distribution.distribution_config.custom_error_responses.items[0].error_caching_min_ttl #=> Integer
-    #   resp.distribution.distribution_config.comment #=> String
-    #   resp.distribution.distribution_config.logging #=> Types::LoggingConfig
-    #   resp.distribution.distribution_config.logging.enabled #=> Boolean
-    #   resp.distribution.distribution_config.logging.include_cookies #=> Boolean
-    #   resp.distribution.distribution_config.logging.bucket #=> String
-    #   resp.distribution.distribution_config.logging.prefix #=> String
-    #   resp.distribution.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
-    #   resp.distribution.distribution_config.enabled #=> Boolean
-    #   resp.distribution.distribution_config.viewer_certificate #=> Types::ViewerCertificate
-    #   resp.distribution.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
-    #   resp.distribution.distribution_config.viewer_certificate.iam_certificate_id #=> String
-    #   resp.distribution.distribution_config.viewer_certificate.acm_certificate_arn #=> String
-    #   resp.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
-    #   resp.distribution.distribution_config.viewer_certificate.certificate #=> String
-    #   resp.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
-    #   resp.distribution.distribution_config.restrictions #=> Types::Restrictions
-    #   resp.distribution.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.quantity #=> Integer
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.items #=> Array<String>
-    #   resp.distribution.distribution_config.restrictions.geo_restriction.items[0] #=> String
-    #   resp.distribution.distribution_config.web_acl_id #=> String
-    #   resp.distribution.distribution_config.http_version #=> String, one of http1.1, http2
-    #   resp.distribution.distribution_config.is_ipv6_enabled #=> Boolean
-    #   resp.distribution.alias_icp_recordals #=> Array<AliasICPRecordal>
-    #   resp.distribution.alias_icp_recordals[0] #=> Types::AliasICPRecordal
-    #   resp.distribution.alias_icp_recordals[0].cname #=> String
-    #   resp.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::UpdateDistributionOutput
+    #   resp.data.distribution #=> Types::Distribution
+    #   resp.data.distribution.id #=> String
+    #   resp.data.distribution.arn #=> String
+    #   resp.data.distribution.status #=> String
+    #   resp.data.distribution.last_modified_time #=> Time
+    #   resp.data.distribution.in_progress_invalidation_batches #=> Integer
+    #   resp.data.distribution.domain_name #=> String
+    #   resp.data.distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
+    #   resp.data.distribution.active_trusted_signers.enabled #=> Boolean
+    #   resp.data.distribution.active_trusted_signers.quantity #=> Integer
+    #   resp.data.distribution.active_trusted_signers.items #=> Array<Signer>
+    #   resp.data.distribution.active_trusted_signers.items[0] #=> Types::Signer
+    #   resp.data.distribution.active_trusted_signers.items[0].aws_account_number #=> String
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
+    #   resp.data.distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
+    #   resp.data.distribution.active_trusted_key_groups #=> Types::ActiveTrustedKeyGroups
+    #   resp.data.distribution.active_trusted_key_groups.enabled #=> Boolean
+    #   resp.data.distribution.active_trusted_key_groups.quantity #=> Integer
+    #   resp.data.distribution.active_trusted_key_groups.items #=> Array<KGKeyPairIds>
+    #   resp.data.distribution.active_trusted_key_groups.items[0] #=> Types::KGKeyPairIds
+    #   resp.data.distribution.active_trusted_key_groups.items[0].key_group_id #=> String
+    #   resp.data.distribution.active_trusted_key_groups.items[0].key_pair_ids #=> Types::KeyPairIds
+    #   resp.data.distribution.distribution_config #=> Types::DistributionConfig
+    #   resp.data.distribution.distribution_config.caller_reference #=> String
+    #   resp.data.distribution.distribution_config.aliases #=> Types::Aliases
+    #   resp.data.distribution.distribution_config.aliases.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.aliases.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.aliases.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_root_object #=> String
+    #   resp.data.distribution.distribution_config.origins #=> Types::Origins
+    #   resp.data.distribution.distribution_config.origins.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items #=> Array<Origin>
+    #   resp.data.distribution.distribution_config.origins.items[0] #=> Types::Origin
+    #   resp.data.distribution.distribution_config.origins.items[0].id #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].domain_name #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_path #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers #=> Types::CustomHeaders
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items #=> Array<OriginCustomHeader>
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items[0] #=> Types::OriginCustomHeader
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_name #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_headers.items[0].header_value #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].s3_origin_config #=> Types::S3OriginConfig
+    #   resp.data.distribution.distribution_config.origins.items[0].s3_origin_config.origin_access_identity #=> String
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].connection_attempts #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].connection_timeout #=> Integer
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_shield #=> Types::OriginShield
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_shield.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.origins.items[0].origin_shield.origin_shield_region #=> String
+    #   resp.data.distribution.distribution_config.origin_groups #=> Types::OriginGroups
+    #   resp.data.distribution.distribution_config.origin_groups.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items #=> Array<OriginGroup>
+    #   resp.data.distribution.distribution_config.origin_groups.items[0] #=> Types::OriginGroup
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].id #=> String
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria #=> Types::OriginGroupFailoverCriteria
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes #=> Types::StatusCodes
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items #=> Array<Integer>
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].failover_criteria.status_codes.items[0] #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members #=> Types::OriginGroupMembers
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.items #=> Array<OriginGroupMember>
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.items[0] #=> Types::OriginGroupMember
+    #   resp.data.distribution.distribution_config.origin_groups.items[0].members.items[0].origin_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior #=> Types::DefaultCacheBehavior
+    #   resp.data.distribution.distribution_config.default_cache_behavior.target_origin_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_signers.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.smooth_streaming #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.compress #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.cache_policy_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.origin_request_policy_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.response_headers_policy_id #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers #=> Types::Headers
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.headers.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys #=> Types::QueryStringCacheKeys
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string_cache_keys.items[0] #=> String
+    #   resp.data.distribution.distribution_config.default_cache_behavior.min_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.default_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.default_cache_behavior.max_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors #=> Types::CacheBehaviors
+    #   resp.data.distribution.distribution_config.cache_behaviors.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors.items #=> Array<CacheBehavior>
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0] #=> Types::CacheBehavior
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].path_pattern #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].compress #=> Boolean
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].lambda_function_associations #=> Types::LambdaFunctionAssociations
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].function_associations #=> Types::FunctionAssociations
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].field_level_encryption_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].realtime_log_config_arn #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].cache_policy_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].origin_request_policy_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].response_headers_policy_id #=> String
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].forwarded_values #=> Types::ForwardedValues
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].min_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].default_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].max_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.custom_error_responses #=> Types::CustomErrorResponses
+    #   resp.data.distribution.distribution_config.custom_error_responses.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.custom_error_responses.items #=> Array<CustomErrorResponse>
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0] #=> Types::CustomErrorResponse
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].error_code #=> Integer
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].response_page_path #=> String
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].response_code #=> String
+    #   resp.data.distribution.distribution_config.custom_error_responses.items[0].error_caching_min_ttl #=> Integer
+    #   resp.data.distribution.distribution_config.comment #=> String
+    #   resp.data.distribution.distribution_config.logging #=> Types::LoggingConfig
+    #   resp.data.distribution.distribution_config.logging.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.logging.include_cookies #=> Boolean
+    #   resp.data.distribution.distribution_config.logging.bucket #=> String
+    #   resp.data.distribution.distribution_config.logging.prefix #=> String
+    #   resp.data.distribution.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution.distribution_config.enabled #=> Boolean
+    #   resp.data.distribution.distribution_config.viewer_certificate #=> Types::ViewerCertificate
+    #   resp.data.distribution.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
+    #   resp.data.distribution.distribution_config.viewer_certificate.iam_certificate_id #=> String
+    #   resp.data.distribution.distribution_config.viewer_certificate.acm_certificate_arn #=> String
+    #   resp.data.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
+    #   resp.data.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution.distribution_config.viewer_certificate.certificate #=> String
+    #   resp.data.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution.distribution_config.restrictions #=> Types::Restrictions
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.quantity #=> Integer
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items #=> Array<String>
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items[0] #=> String
+    #   resp.data.distribution.distribution_config.web_acl_id #=> String
+    #   resp.data.distribution.distribution_config.http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution.distribution_config.is_ipv6_enabled #=> Boolean
+    #   resp.data.distribution.alias_icp_recordals #=> Array<AliasICPRecordal>
+    #   resp.data.distribution.alias_icp_recordals[0] #=> Types::AliasICPRecordal
+    #   resp.data.distribution.alias_icp_recordals[0].cname #=> String
+    #   resp.data.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
+    #   resp.data.e_tag #=> String
     #
     def update_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -9371,13 +9541,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateDistribution
+        builder: Builders::UpdateDistribution,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::InvalidIfMatchVersion, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::NoSuchDistribution, Errors::InvalidOriginAccessIdentity, Errors::PreconditionFailed, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::IllegalUpdate, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::InvalidIfMatchVersion, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::NoSuchDistribution, Errors::InvalidOriginAccessIdentity, Errors::PreconditionFailed, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::IllegalUpdate, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
         data_parser: Parsers::UpdateDistribution
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -9398,7 +9570,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Update a field-level encryption configuration. </p>
@@ -9456,31 +9628,31 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateFieldLevelEncryptionConfigOutput
-    #   resp.field_level_encryption #=> Types::FieldLevelEncryption
-    #   resp.field_level_encryption.id #=> String
-    #   resp.field_level_encryption.last_modified_time #=> Time
-    #   resp.field_level_encryption.field_level_encryption_config #=> Types::FieldLevelEncryptionConfig
-    #   resp.field_level_encryption.field_level_encryption_config.caller_reference #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.comment #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config #=> Types::QueryArgProfileConfig
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.forward_when_query_arg_profile_is_unknown #=> Boolean
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles #=> Types::QueryArgProfiles
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.quantity #=> Integer
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items #=> Array<QueryArgProfile>
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0] #=> Types::QueryArgProfile
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].query_arg #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].profile_id #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config #=> Types::ContentTypeProfileConfig
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.forward_when_content_type_is_unknown #=> Boolean
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles #=> Types::ContentTypeProfiles
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.quantity #=> Integer
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
-    #   resp.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].content_type #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::UpdateFieldLevelEncryptionConfigOutput
+    #   resp.data.field_level_encryption #=> Types::FieldLevelEncryption
+    #   resp.data.field_level_encryption.id #=> String
+    #   resp.data.field_level_encryption.last_modified_time #=> Time
+    #   resp.data.field_level_encryption.field_level_encryption_config #=> Types::FieldLevelEncryptionConfig
+    #   resp.data.field_level_encryption.field_level_encryption_config.caller_reference #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.comment #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config #=> Types::QueryArgProfileConfig
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.forward_when_query_arg_profile_is_unknown #=> Boolean
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles #=> Types::QueryArgProfiles
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.quantity #=> Integer
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items #=> Array<QueryArgProfile>
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0] #=> Types::QueryArgProfile
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].query_arg #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.query_arg_profile_config.query_arg_profiles.items[0].profile_id #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config #=> Types::ContentTypeProfileConfig
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.forward_when_content_type_is_unknown #=> Boolean
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles #=> Types::ContentTypeProfiles
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.quantity #=> Integer
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].content_type #=> String
+    #   resp.data.e_tag #=> String
     #
     def update_field_level_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -9490,13 +9662,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateFieldLevelEncryptionConfig
+        builder: Builders::UpdateFieldLevelEncryptionConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::QueryArgProfileEmpty, Errors::IllegalUpdate, Errors::TooManyFieldLevelEncryptionContentTypeProfiles, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionQueryArgProfiles, Errors::NoSuchFieldLevelEncryptionConfig]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::QueryArgProfileEmpty, Errors::IllegalUpdate, Errors::TooManyFieldLevelEncryptionContentTypeProfiles, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionQueryArgProfiles, Errors::NoSuchFieldLevelEncryptionConfig]),
         data_parser: Parsers::UpdateFieldLevelEncryptionConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -9517,7 +9691,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Update a field-level encryption profile. </p>
@@ -9566,25 +9740,25 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateFieldLevelEncryptionProfileOutput
-    #   resp.field_level_encryption_profile #=> Types::FieldLevelEncryptionProfile
-    #   resp.field_level_encryption_profile.id #=> String
-    #   resp.field_level_encryption_profile.last_modified_time #=> Time
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config #=> Types::FieldLevelEncryptionProfileConfig
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.member_name #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.caller_reference #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.comment #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities #=> Types::EncryptionEntities
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.quantity #=> Integer
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items #=> Array<EncryptionEntity>
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0] #=> Types::EncryptionEntity
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].public_key_id #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].provider_id #=> String
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns #=> Types::FieldPatterns
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.quantity #=> Integer
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items #=> Array<String>
-    #   resp.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items[0] #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::UpdateFieldLevelEncryptionProfileOutput
+    #   resp.data.field_level_encryption_profile #=> Types::FieldLevelEncryptionProfile
+    #   resp.data.field_level_encryption_profile.id #=> String
+    #   resp.data.field_level_encryption_profile.last_modified_time #=> Time
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config #=> Types::FieldLevelEncryptionProfileConfig
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.member_name #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.caller_reference #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.comment #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities #=> Types::EncryptionEntities
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.quantity #=> Integer
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items #=> Array<EncryptionEntity>
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0] #=> Types::EncryptionEntity
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].public_key_id #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].provider_id #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns #=> Types::FieldPatterns
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.quantity #=> Integer
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items #=> Array<String>
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities.items[0].field_patterns.items[0] #=> String
+    #   resp.data.e_tag #=> String
     #
     def update_field_level_encryption_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -9594,13 +9768,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateFieldLevelEncryptionProfile
+        builder: Builders::UpdateFieldLevelEncryptionProfile,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::PreconditionFailed, Errors::IllegalUpdate, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionEncryptionEntities, Errors::FieldLevelEncryptionProfileSizeExceeded, Errors::AccessDenied, Errors::FieldLevelEncryptionProfileAlreadyExists, Errors::TooManyFieldLevelEncryptionFieldPatterns, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PreconditionFailed, Errors::IllegalUpdate, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionEncryptionEntities, Errors::FieldLevelEncryptionProfileSizeExceeded, Errors::AccessDenied, Errors::FieldLevelEncryptionProfileAlreadyExists, Errors::TooManyFieldLevelEncryptionFieldPatterns, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey]),
         data_parser: Parsers::UpdateFieldLevelEncryptionProfile
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -9621,7 +9797,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Updates a CloudFront function.</p>
@@ -9664,19 +9840,19 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateFunctionOutput
-    #   resp.function_summary #=> Types::FunctionSummary
-    #   resp.function_summary.member_name #=> String
-    #   resp.function_summary.status #=> String
-    #   resp.function_summary.function_config #=> Types::FunctionConfig
-    #   resp.function_summary.function_config.comment #=> String
-    #   resp.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
-    #   resp.function_summary.function_metadata #=> Types::FunctionMetadata
-    #   resp.function_summary.function_metadata.function_arn #=> String
-    #   resp.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
-    #   resp.function_summary.function_metadata.created_time #=> Time
-    #   resp.function_summary.function_metadata.last_modified_time #=> Time
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::UpdateFunctionOutput
+    #   resp.data.function_summary #=> Types::FunctionSummary
+    #   resp.data.function_summary.member_name #=> String
+    #   resp.data.function_summary.status #=> String
+    #   resp.data.function_summary.function_config #=> Types::FunctionConfig
+    #   resp.data.function_summary.function_config.comment #=> String
+    #   resp.data.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
+    #   resp.data.function_summary.function_metadata #=> Types::FunctionMetadata
+    #   resp.data.function_summary.function_metadata.function_arn #=> String
+    #   resp.data.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
+    #   resp.data.function_summary.function_metadata.created_time #=> Time
+    #   resp.data.function_summary.function_metadata.last_modified_time #=> Time
+    #   resp.data.e_tag #=> String
     #
     def update_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -9686,13 +9862,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateFunction
+        builder: Builders::UpdateFunction,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument, Errors::FunctionSizeLimitExceeded]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument, Errors::FunctionSizeLimitExceeded]),
         data_parser: Parsers::UpdateFunction
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -9713,7 +9891,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Updates a key group.</p>
@@ -9766,16 +9944,16 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateKeyGroupOutput
-    #   resp.key_group #=> Types::KeyGroup
-    #   resp.key_group.id #=> String
-    #   resp.key_group.last_modified_time #=> Time
-    #   resp.key_group.key_group_config #=> Types::KeyGroupConfig
-    #   resp.key_group.key_group_config.member_name #=> String
-    #   resp.key_group.key_group_config.items #=> Array<String>
-    #   resp.key_group.key_group_config.items[0] #=> String
-    #   resp.key_group.key_group_config.comment #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::UpdateKeyGroupOutput
+    #   resp.data.key_group #=> Types::KeyGroup
+    #   resp.data.key_group.id #=> String
+    #   resp.data.key_group.last_modified_time #=> Time
+    #   resp.data.key_group.key_group_config #=> Types::KeyGroupConfig
+    #   resp.data.key_group.key_group_config.member_name #=> String
+    #   resp.data.key_group.key_group_config.items #=> Array<String>
+    #   resp.data.key_group.key_group_config.items[0] #=> String
+    #   resp.data.key_group.key_group_config.comment #=> String
+    #   resp.data.e_tag #=> String
     #
     def update_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -9785,13 +9963,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateKeyGroup
+        builder: Builders::UpdateKeyGroup,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::KeyGroupAlreadyExists, Errors::NoSuchResource, Errors::TooManyPublicKeysInKeyGroup, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::KeyGroupAlreadyExists, Errors::NoSuchResource, Errors::TooManyPublicKeysInKeyGroup, Errors::InvalidArgument]),
         data_parser: Parsers::UpdateKeyGroup
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -9812,7 +9992,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Updates an origin request policy configuration.</p>
@@ -9892,32 +10072,32 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateOriginRequestPolicyOutput
-    #   resp.origin_request_policy #=> Types::OriginRequestPolicy
-    #   resp.origin_request_policy.id #=> String
-    #   resp.origin_request_policy.last_modified_time #=> Time
-    #   resp.origin_request_policy.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
-    #   resp.origin_request_policy.origin_request_policy_config.comment #=> String
-    #   resp.origin_request_policy.origin_request_policy_config.member_name #=> String
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.headers.quantity #=> Integer
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.headers.items #=> Array<String>
-    #   resp.origin_request_policy.origin_request_policy_config.headers_config.headers.items[0] #=> String
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
-    #   resp.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
-    #   resp.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items[0] #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::UpdateOriginRequestPolicyOutput
+    #   resp.data.origin_request_policy #=> Types::OriginRequestPolicy
+    #   resp.data.origin_request_policy.id #=> String
+    #   resp.data.origin_request_policy.last_modified_time #=> Time
+    #   resp.data.origin_request_policy.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
+    #   resp.data.origin_request_policy.origin_request_policy_config.comment #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.member_name #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.quantity #=> Integer
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.items #=> Array<String>
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.items[0] #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items[0] #=> String
+    #   resp.data.e_tag #=> String
     #
     def update_origin_request_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -9927,13 +10107,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateOriginRequestPolicy
+        builder: Builders::UpdateOriginRequestPolicy,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::TooManyHeadersInOriginRequestPolicy, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::TooManyQueryStringsInOriginRequestPolicy, Errors::InconsistentQuantities, Errors::OriginRequestPolicyAlreadyExists, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy, Errors::TooManyCookiesInOriginRequestPolicy]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::TooManyHeadersInOriginRequestPolicy, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::TooManyQueryStringsInOriginRequestPolicy, Errors::InconsistentQuantities, Errors::OriginRequestPolicyAlreadyExists, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy, Errors::TooManyCookiesInOriginRequestPolicy]),
         data_parser: Parsers::UpdateOriginRequestPolicy
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -9954,7 +10136,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Update public key information. Note that the only value you can change is the comment.</p>
@@ -9989,16 +10171,16 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdatePublicKeyOutput
-    #   resp.public_key #=> Types::PublicKey
-    #   resp.public_key.id #=> String
-    #   resp.public_key.created_time #=> Time
-    #   resp.public_key.public_key_config #=> Types::PublicKeyConfig
-    #   resp.public_key.public_key_config.caller_reference #=> String
-    #   resp.public_key.public_key_config.member_name #=> String
-    #   resp.public_key.public_key_config.encoded_key #=> String
-    #   resp.public_key.public_key_config.comment #=> String
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::UpdatePublicKeyOutput
+    #   resp.data.public_key #=> Types::PublicKey
+    #   resp.data.public_key.id #=> String
+    #   resp.data.public_key.created_time #=> Time
+    #   resp.data.public_key.public_key_config #=> Types::PublicKeyConfig
+    #   resp.data.public_key.public_key_config.caller_reference #=> String
+    #   resp.data.public_key.public_key_config.member_name #=> String
+    #   resp.data.public_key.public_key_config.encoded_key #=> String
+    #   resp.data.public_key.public_key_config.comment #=> String
+    #   resp.data.e_tag #=> String
     #
     def update_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -10008,13 +10190,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdatePublicKey
+        builder: Builders::UpdatePublicKey,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey, Errors::IllegalUpdate, Errors::CannotChangeImmutablePublicKeyFields, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey, Errors::IllegalUpdate, Errors::CannotChangeImmutablePublicKeyFields, Errors::InvalidArgument]),
         data_parser: Parsers::UpdatePublicKey
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -10035,7 +10219,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Updates a real-time log configuration.</p>
@@ -10107,19 +10291,19 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateRealtimeLogConfigOutput
-    #   resp.realtime_log_config #=> Types::RealtimeLogConfig
-    #   resp.realtime_log_config.arn #=> String
-    #   resp.realtime_log_config.member_name #=> String
-    #   resp.realtime_log_config.sampling_rate #=> Integer
-    #   resp.realtime_log_config.end_points #=> Array<EndPoint>
-    #   resp.realtime_log_config.end_points[0] #=> Types::EndPoint
-    #   resp.realtime_log_config.end_points[0].stream_type #=> String
-    #   resp.realtime_log_config.end_points[0].kinesis_stream_config #=> Types::KinesisStreamConfig
-    #   resp.realtime_log_config.end_points[0].kinesis_stream_config.role_arn #=> String
-    #   resp.realtime_log_config.end_points[0].kinesis_stream_config.stream_arn #=> String
-    #   resp.realtime_log_config.fields #=> Array<String>
-    #   resp.realtime_log_config.fields[0] #=> String
+    #   resp.data #=> Types::UpdateRealtimeLogConfigOutput
+    #   resp.data.realtime_log_config #=> Types::RealtimeLogConfig
+    #   resp.data.realtime_log_config.arn #=> String
+    #   resp.data.realtime_log_config.member_name #=> String
+    #   resp.data.realtime_log_config.sampling_rate #=> Integer
+    #   resp.data.realtime_log_config.end_points #=> Array<EndPoint>
+    #   resp.data.realtime_log_config.end_points[0] #=> Types::EndPoint
+    #   resp.data.realtime_log_config.end_points[0].stream_type #=> String
+    #   resp.data.realtime_log_config.end_points[0].kinesis_stream_config #=> Types::KinesisStreamConfig
+    #   resp.data.realtime_log_config.end_points[0].kinesis_stream_config.role_arn #=> String
+    #   resp.data.realtime_log_config.end_points[0].kinesis_stream_config.stream_arn #=> String
+    #   resp.data.realtime_log_config.fields #=> Array<String>
+    #   resp.data.realtime_log_config.fields[0] #=> String
     #
     def update_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -10129,13 +10313,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateRealtimeLogConfig
+        builder: Builders::UpdateRealtimeLogConfig,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
         data_parser: Parsers::UpdateRealtimeLogConfig
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -10156,7 +10342,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Updates a response headers policy.</p>
@@ -10276,63 +10462,63 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateResponseHeadersPolicyOutput
-    #   resp.response_headers_policy #=> Types::ResponseHeadersPolicy
-    #   resp.response_headers_policy.id #=> String
-    #   resp.response_headers_policy.last_modified_time #=> Time
-    #   resp.response_headers_policy.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
-    #   resp.response_headers_policy.response_headers_policy_config.comment #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.member_name #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items #=> Array<String>
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items[0] #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers #=> Types::ResponseHeadersPolicyAccessControlAllowHeaders
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items #=> Array<String>
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items[0] #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items #=> Array<String>
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items[0] #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.access_control_max_age_sec #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.cors_config.origin_override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config #=> Types::ResponseHeadersPolicySecurityHeadersConfig
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection #=> Types::ResponseHeadersPolicyXSSProtection
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.protection #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.mode_block #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options #=> Types::ResponseHeadersPolicyContentTypeOptions
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security #=> Types::ResponseHeadersPolicyStrictTransportSecurity
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.override #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.include_subdomains #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.preload #=> Boolean
-    #   resp.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.access_control_max_age_sec #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config #=> Types::ResponseHeadersPolicyCustomHeadersConfig
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.quantity #=> Integer
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items #=> Array<ResponseHeadersPolicyCustomHeader>
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0] #=> Types::ResponseHeadersPolicyCustomHeader
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].header #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].value #=> String
-    #   resp.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::UpdateResponseHeadersPolicyOutput
+    #   resp.data.response_headers_policy #=> Types::ResponseHeadersPolicy
+    #   resp.data.response_headers_policy.id #=> String
+    #   resp.data.response_headers_policy.last_modified_time #=> Time
+    #   resp.data.response_headers_policy.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.comment #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.member_name #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items #=> Array<String>
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.items[0] #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers #=> Types::ResponseHeadersPolicyAccessControlAllowHeaders
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items #=> Array<String>
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_headers.items[0] #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items #=> Array<String>
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.items[0] #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_max_age_sec #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.origin_override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config #=> Types::ResponseHeadersPolicySecurityHeadersConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection #=> Types::ResponseHeadersPolicyXSSProtection
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.protection #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.mode_block #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options #=> Types::ResponseHeadersPolicyContentTypeOptions
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_type_options.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security #=> Types::ResponseHeadersPolicyStrictTransportSecurity
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.include_subdomains #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.preload #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.strict_transport_security.access_control_max_age_sec #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config #=> Types::ResponseHeadersPolicyCustomHeadersConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.quantity #=> Integer
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items #=> Array<ResponseHeadersPolicyCustomHeader>
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0] #=> Types::ResponseHeadersPolicyCustomHeader
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].header #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].value #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
+    #   resp.data.e_tag #=> String
     #
     def update_response_headers_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -10342,13 +10528,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateResponseHeadersPolicy
+        builder: Builders::UpdateResponseHeadersPolicy,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::TooManyCustomHeadersInResponseHeadersPolicy, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::NoSuchResponseHeadersPolicy, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::ResponseHeadersPolicyAlreadyExists]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::TooManyCustomHeadersInResponseHeadersPolicy, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::NoSuchResponseHeadersPolicy, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::ResponseHeadersPolicyAlreadyExists]),
         data_parser: Parsers::UpdateResponseHeadersPolicy
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -10369,7 +10557,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Update a streaming distribution. </p>
@@ -10426,45 +10614,45 @@ module AWS::Cloudfront
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateStreamingDistributionOutput
-    #   resp.streaming_distribution #=> Types::StreamingDistribution
-    #   resp.streaming_distribution.id #=> String
-    #   resp.streaming_distribution.arn #=> String
-    #   resp.streaming_distribution.status #=> String
-    #   resp.streaming_distribution.last_modified_time #=> Time
-    #   resp.streaming_distribution.domain_name #=> String
-    #   resp.streaming_distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
-    #   resp.streaming_distribution.active_trusted_signers.enabled #=> Boolean
-    #   resp.streaming_distribution.active_trusted_signers.quantity #=> Integer
-    #   resp.streaming_distribution.active_trusted_signers.items #=> Array<Signer>
-    #   resp.streaming_distribution.active_trusted_signers.items[0] #=> Types::Signer
-    #   resp.streaming_distribution.active_trusted_signers.items[0].aws_account_number #=> String
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
-    #   resp.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
-    #   resp.streaming_distribution.streaming_distribution_config #=> Types::StreamingDistributionConfig
-    #   resp.streaming_distribution.streaming_distribution_config.caller_reference #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.s3_origin #=> Types::S3Origin
-    #   resp.streaming_distribution.streaming_distribution_config.s3_origin.domain_name #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.s3_origin.origin_access_identity #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.aliases #=> Types::Aliases
-    #   resp.streaming_distribution.streaming_distribution_config.aliases.quantity #=> Integer
-    #   resp.streaming_distribution.streaming_distribution_config.aliases.items #=> Array<String>
-    #   resp.streaming_distribution.streaming_distribution_config.aliases.items[0] #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.comment #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.logging #=> Types::StreamingLoggingConfig
-    #   resp.streaming_distribution.streaming_distribution_config.logging.enabled #=> Boolean
-    #   resp.streaming_distribution.streaming_distribution_config.logging.bucket #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.logging.prefix #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers #=> Types::TrustedSigners
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.enabled #=> Boolean
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.quantity #=> Integer
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.items #=> Array<String>
-    #   resp.streaming_distribution.streaming_distribution_config.trusted_signers.items[0] #=> String
-    #   resp.streaming_distribution.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
-    #   resp.streaming_distribution.streaming_distribution_config.enabled #=> Boolean
-    #   resp.e_tag #=> String
+    #   resp.data #=> Types::UpdateStreamingDistributionOutput
+    #   resp.data.streaming_distribution #=> Types::StreamingDistribution
+    #   resp.data.streaming_distribution.id #=> String
+    #   resp.data.streaming_distribution.arn #=> String
+    #   resp.data.streaming_distribution.status #=> String
+    #   resp.data.streaming_distribution.last_modified_time #=> Time
+    #   resp.data.streaming_distribution.domain_name #=> String
+    #   resp.data.streaming_distribution.active_trusted_signers #=> Types::ActiveTrustedSigners
+    #   resp.data.streaming_distribution.active_trusted_signers.enabled #=> Boolean
+    #   resp.data.streaming_distribution.active_trusted_signers.quantity #=> Integer
+    #   resp.data.streaming_distribution.active_trusted_signers.items #=> Array<Signer>
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0] #=> Types::Signer
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].aws_account_number #=> String
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids #=> Types::KeyPairIds
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.quantity #=> Integer
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items #=> Array<String>
+    #   resp.data.streaming_distribution.active_trusted_signers.items[0].key_pair_ids.items[0] #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config #=> Types::StreamingDistributionConfig
+    #   resp.data.streaming_distribution.streaming_distribution_config.caller_reference #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.s3_origin #=> Types::S3Origin
+    #   resp.data.streaming_distribution.streaming_distribution_config.s3_origin.domain_name #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.s3_origin.origin_access_identity #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases #=> Types::Aliases
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases.quantity #=> Integer
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases.items #=> Array<String>
+    #   resp.data.streaming_distribution.streaming_distribution_config.aliases.items[0] #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.comment #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging #=> Types::StreamingLoggingConfig
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging.enabled #=> Boolean
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging.bucket #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.logging.prefix #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers #=> Types::TrustedSigners
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.enabled #=> Boolean
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.quantity #=> Integer
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items #=> Array<String>
+    #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items[0] #=> String
+    #   resp.data.streaming_distribution.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.streaming_distribution.streaming_distribution_config.enabled #=> Boolean
+    #   resp.data.e_tag #=> String
     #
     def update_streaming_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -10474,13 +10662,15 @@ module AWS::Cloudfront
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateStreamingDistribution
+        builder: Builders::UpdateStreamingDistribution,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::MissingBody, Errors::PreconditionFailed, Errors::IllegalUpdate, Errors::InconsistentQuantities, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::NoSuchStreamingDistribution, Errors::AccessDenied, Errors::InvalidIfMatchVersion, Errors::TooManyTrustedSigners, Errors::InvalidOriginAccessIdentity, Errors::TooManyStreamingDistributionCNAMEs]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MissingBody, Errors::PreconditionFailed, Errors::IllegalUpdate, Errors::InconsistentQuantities, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::NoSuchStreamingDistribution, Errors::AccessDenied, Errors::InvalidIfMatchVersion, Errors::TooManyTrustedSigners, Errors::InvalidOriginAccessIdentity, Errors::TooManyStreamingDistributionCNAMEs]),
         data_parser: Parsers::UpdateStreamingDistribution
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -10501,7 +10691,7 @@ module AWS::Cloudfront
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     private

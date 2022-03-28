@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require_relative 'middleware/request_id'
+
 module AWS::Sso
   # An API client for SWBPortalService
   # See {#initialize} for a full list of supported configuration options
@@ -38,6 +40,9 @@ module AWS::Sso
 
     # @overload initialize(options)
     # @param [Hash] options
+    # @option options [Boolean] :disable_host_prefix (false)
+    #   When `true`, does not perform host prefix injection using @endpoint's hostPrefix property.
+    #
     # @option options [string] :endpoint
     #   Endpoint of the service
     #
@@ -60,6 +65,7 @@ module AWS::Sso
     #   When `true`, request parameters are validated using the modeled shapes.
     #
     def initialize(options = {})
+      @disable_host_prefix = options.fetch(:disable_host_prefix, false)
       @endpoint = options[:endpoint]
       @http_wire_trace = options.fetch(:http_wire_trace, false)
       @log_level = options.fetch(:log_level, :info)
@@ -99,12 +105,12 @@ module AWS::Sso
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetRoleCredentialsOutput
-    #   resp.role_credentials #=> Types::RoleCredentials
-    #   resp.role_credentials.access_key_id #=> String
-    #   resp.role_credentials.secret_access_key #=> String
-    #   resp.role_credentials.session_token #=> String
-    #   resp.role_credentials.expiration #=> Integer
+    #   resp.data #=> Types::GetRoleCredentialsOutput
+    #   resp.data.role_credentials #=> Types::RoleCredentials
+    #   resp.data.role_credentials.access_key_id #=> String
+    #   resp.data.role_credentials.secret_access_key #=> String
+    #   resp.data.role_credentials.session_token #=> String
+    #   resp.data.role_credentials.expiration #=> Integer
     #
     def get_role_credentials(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -114,13 +120,14 @@ module AWS::Sso
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetRoleCredentials
+        builder: Builders::GetRoleCredentials,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetRoleCredentials
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -141,7 +148,7 @@ module AWS::Sso
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Lists all roles that are assigned to the user for a given AWS account.</p>
@@ -175,12 +182,12 @@ module AWS::Sso
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListAccountRolesOutput
-    #   resp.next_token #=> String
-    #   resp.role_list #=> Array<RoleInfo>
-    #   resp.role_list[0] #=> Types::RoleInfo
-    #   resp.role_list[0].role_name #=> String
-    #   resp.role_list[0].account_id #=> String
+    #   resp.data #=> Types::ListAccountRolesOutput
+    #   resp.data.next_token #=> String
+    #   resp.data.role_list #=> Array<RoleInfo>
+    #   resp.data.role_list[0] #=> Types::RoleInfo
+    #   resp.data.role_list[0].role_name #=> String
+    #   resp.data.role_list[0].account_id #=> String
     #
     def list_account_roles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -190,13 +197,14 @@ module AWS::Sso
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListAccountRoles
+        builder: Builders::ListAccountRoles,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListAccountRoles
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -217,7 +225,7 @@ module AWS::Sso
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Lists all AWS accounts assigned to the user. These AWS accounts are assigned by the
@@ -249,13 +257,13 @@ module AWS::Sso
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListAccountsOutput
-    #   resp.next_token #=> String
-    #   resp.account_list #=> Array<AccountInfo>
-    #   resp.account_list[0] #=> Types::AccountInfo
-    #   resp.account_list[0].account_id #=> String
-    #   resp.account_list[0].account_name #=> String
-    #   resp.account_list[0].email_address #=> String
+    #   resp.data #=> Types::ListAccountsOutput
+    #   resp.data.next_token #=> String
+    #   resp.data.account_list #=> Array<AccountInfo>
+    #   resp.data.account_list[0] #=> Types::AccountInfo
+    #   resp.data.account_list[0].account_id #=> String
+    #   resp.data.account_list[0].account_name #=> String
+    #   resp.data.account_list[0].email_address #=> String
     #
     def list_accounts(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -265,13 +273,14 @@ module AWS::Sso
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListAccounts
+        builder: Builders::ListAccounts,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListAccounts
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -292,7 +301,7 @@ module AWS::Sso
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Removes the client- and server-side session that is associated with the user.</p>
@@ -314,7 +323,7 @@ module AWS::Sso
     #
     # @example Response structure
     #
-    #   resp #=> Types::LogoutOutput
+    #   resp.data #=> Types::LogoutOutput
     #
     def logout(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -324,13 +333,14 @@ module AWS::Sso
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::Logout
+        builder: Builders::Logout,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
-      stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::Logout
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -351,7 +361,7 @@ module AWS::Sso
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     private

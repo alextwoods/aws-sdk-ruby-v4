@@ -12,7 +12,7 @@ import software.amazon.smithy.utils.ListUtils;
 
 import java.util.List;
 
-public class AddProtocols implements RubyIntegration {
+public class AWSProtocols implements RubyIntegration {
     @Override
     public List<ProtocolGenerator> getProtocolGenerators() {
         return ListUtils.of(

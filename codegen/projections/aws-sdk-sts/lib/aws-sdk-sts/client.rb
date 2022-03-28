@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require_relative 'middleware/request_id'
+
 module AWS::Sts
   # An API client for AWSSecurityTokenServiceV20110615
   # See {#initialize} for a full list of supported configuration options
@@ -27,6 +29,9 @@ module AWS::Sts
 
     # @overload initialize(options)
     # @param [Hash] options
+    # @option options [Boolean] :disable_host_prefix (false)
+    #   When `true`, does not perform host prefix injection using @endpoint's hostPrefix property.
+    #
     # @option options [string] :endpoint
     #   Endpoint of the service
     #
@@ -49,6 +54,7 @@ module AWS::Sts
     #   When `true`, request parameters are validated using the modeled shapes.
     #
     def initialize(options = {})
+      @disable_host_prefix = options.fetch(:disable_host_prefix, false)
       @endpoint = options[:endpoint]
       @http_wire_trace = options.fetch(:http_wire_trace, false)
       @log_level = options.fetch(:log_level, :info)
@@ -370,17 +376,17 @@ module AWS::Sts
     #
     # @example Response structure
     #
-    #   resp #=> Types::AssumeRoleOutput
-    #   resp.credentials #=> Types::Credentials
-    #   resp.credentials.access_key_id #=> String
-    #   resp.credentials.secret_access_key #=> String
-    #   resp.credentials.session_token #=> String
-    #   resp.credentials.expiration #=> Time
-    #   resp.assumed_role_user #=> Types::AssumedRoleUser
-    #   resp.assumed_role_user.assumed_role_id #=> String
-    #   resp.assumed_role_user.arn #=> String
-    #   resp.packed_policy_size #=> Integer
-    #   resp.source_identity #=> String
+    #   resp.data #=> Types::AssumeRoleOutput
+    #   resp.data.credentials #=> Types::Credentials
+    #   resp.data.credentials.access_key_id #=> String
+    #   resp.data.credentials.secret_access_key #=> String
+    #   resp.data.credentials.session_token #=> String
+    #   resp.data.credentials.expiration #=> Time
+    #   resp.data.assumed_role_user #=> Types::AssumedRoleUser
+    #   resp.data.assumed_role_user.assumed_role_id #=> String
+    #   resp.data.assumed_role_user.arn #=> String
+    #   resp.data.packed_policy_size #=> Integer
+    #   resp.data.source_identity #=> String
     #
     def assume_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -390,13 +396,15 @@ module AWS::Sts
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssumeRole
+        builder: Builders::AssumeRole,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
         data_parser: Parsers::AssumeRole
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -417,7 +425,7 @@ module AWS::Sts
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Returns a set of temporary security credentials for users who have been authenticated
@@ -661,22 +669,22 @@ module AWS::Sts
     #
     # @example Response structure
     #
-    #   resp #=> Types::AssumeRoleWithSAMLOutput
-    #   resp.credentials #=> Types::Credentials
-    #   resp.credentials.access_key_id #=> String
-    #   resp.credentials.secret_access_key #=> String
-    #   resp.credentials.session_token #=> String
-    #   resp.credentials.expiration #=> Time
-    #   resp.assumed_role_user #=> Types::AssumedRoleUser
-    #   resp.assumed_role_user.assumed_role_id #=> String
-    #   resp.assumed_role_user.arn #=> String
-    #   resp.packed_policy_size #=> Integer
-    #   resp.subject #=> String
-    #   resp.subject_type #=> String
-    #   resp.issuer #=> String
-    #   resp.audience #=> String
-    #   resp.name_qualifier #=> String
-    #   resp.source_identity #=> String
+    #   resp.data #=> Types::AssumeRoleWithSAMLOutput
+    #   resp.data.credentials #=> Types::Credentials
+    #   resp.data.credentials.access_key_id #=> String
+    #   resp.data.credentials.secret_access_key #=> String
+    #   resp.data.credentials.session_token #=> String
+    #   resp.data.credentials.expiration #=> Time
+    #   resp.data.assumed_role_user #=> Types::AssumedRoleUser
+    #   resp.data.assumed_role_user.assumed_role_id #=> String
+    #   resp.data.assumed_role_user.arn #=> String
+    #   resp.data.packed_policy_size #=> Integer
+    #   resp.data.subject #=> String
+    #   resp.data.subject_type #=> String
+    #   resp.data.issuer #=> String
+    #   resp.data.audience #=> String
+    #   resp.data.name_qualifier #=> String
+    #   resp.data.source_identity #=> String
     #
     def assume_role_with_saml(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -686,13 +694,15 @@ module AWS::Sts
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssumeRoleWithSAML
+        builder: Builders::AssumeRoleWithSAML,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::IDPRejectedClaimException, Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::InvalidIdentityTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IDPRejectedClaimException, Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::InvalidIdentityTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
         data_parser: Parsers::AssumeRoleWithSAML
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -713,7 +723,7 @@ module AWS::Sts
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Returns a set of temporary security credentials for users who have been authenticated in
@@ -974,20 +984,20 @@ module AWS::Sts
     #
     # @example Response structure
     #
-    #   resp #=> Types::AssumeRoleWithWebIdentityOutput
-    #   resp.credentials #=> Types::Credentials
-    #   resp.credentials.access_key_id #=> String
-    #   resp.credentials.secret_access_key #=> String
-    #   resp.credentials.session_token #=> String
-    #   resp.credentials.expiration #=> Time
-    #   resp.subject_from_web_identity_token #=> String
-    #   resp.assumed_role_user #=> Types::AssumedRoleUser
-    #   resp.assumed_role_user.assumed_role_id #=> String
-    #   resp.assumed_role_user.arn #=> String
-    #   resp.packed_policy_size #=> Integer
-    #   resp.provider #=> String
-    #   resp.audience #=> String
-    #   resp.source_identity #=> String
+    #   resp.data #=> Types::AssumeRoleWithWebIdentityOutput
+    #   resp.data.credentials #=> Types::Credentials
+    #   resp.data.credentials.access_key_id #=> String
+    #   resp.data.credentials.secret_access_key #=> String
+    #   resp.data.credentials.session_token #=> String
+    #   resp.data.credentials.expiration #=> Time
+    #   resp.data.subject_from_web_identity_token #=> String
+    #   resp.data.assumed_role_user #=> Types::AssumedRoleUser
+    #   resp.data.assumed_role_user.assumed_role_id #=> String
+    #   resp.data.assumed_role_user.arn #=> String
+    #   resp.data.packed_policy_size #=> Integer
+    #   resp.data.provider #=> String
+    #   resp.data.audience #=> String
+    #   resp.data.source_identity #=> String
     #
     def assume_role_with_web_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -997,13 +1007,15 @@ module AWS::Sts
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssumeRoleWithWebIdentity
+        builder: Builders::AssumeRoleWithWebIdentity,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::IDPRejectedClaimException, Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::InvalidIdentityTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException, Errors::IDPCommunicationErrorException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IDPRejectedClaimException, Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::InvalidIdentityTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException, Errors::IDPCommunicationErrorException]),
         data_parser: Parsers::AssumeRoleWithWebIdentity
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1024,7 +1036,7 @@ module AWS::Sts
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Decodes additional information about the authorization status of a request from an
@@ -1080,8 +1092,8 @@ module AWS::Sts
     #
     # @example Response structure
     #
-    #   resp #=> Types::DecodeAuthorizationMessageOutput
-    #   resp.decoded_message #=> String
+    #   resp.data #=> Types::DecodeAuthorizationMessageOutput
+    #   resp.data.decoded_message #=> String
     #
     def decode_authorization_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1091,13 +1103,15 @@ module AWS::Sts
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DecodeAuthorizationMessage
+        builder: Builders::DecodeAuthorizationMessage,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InvalidAuthorizationMessageException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidAuthorizationMessageException]),
         data_parser: Parsers::DecodeAuthorizationMessage
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1118,7 +1132,7 @@ module AWS::Sts
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Returns the account identifier for the specified access key ID.</p>
@@ -1158,8 +1172,8 @@ module AWS::Sts
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetAccessKeyInfoOutput
-    #   resp.account #=> String
+    #   resp.data #=> Types::GetAccessKeyInfoOutput
+    #   resp.data.account #=> String
     #
     def get_access_key_info(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1169,13 +1183,15 @@ module AWS::Sts
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetAccessKeyInfo
+        builder: Builders::GetAccessKeyInfo,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: []),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetAccessKeyInfo
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1196,7 +1212,7 @@ module AWS::Sts
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Returns details about the IAM user or role whose credentials are used to call the
@@ -1221,10 +1237,10 @@ module AWS::Sts
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetCallerIdentityOutput
-    #   resp.user_id #=> String
-    #   resp.account #=> String
-    #   resp.arn #=> String
+    #   resp.data #=> Types::GetCallerIdentityOutput
+    #   resp.data.user_id #=> String
+    #   resp.data.account #=> String
+    #   resp.data.arn #=> String
     #
     def get_caller_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1234,13 +1250,15 @@ module AWS::Sts
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetCallerIdentity
+        builder: Builders::GetCallerIdentity,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: []),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetCallerIdentity
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1261,7 +1279,7 @@ module AWS::Sts
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Returns a set of temporary security credentials (consisting of an access key ID, a
@@ -1489,16 +1507,16 @@ module AWS::Sts
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetFederationTokenOutput
-    #   resp.credentials #=> Types::Credentials
-    #   resp.credentials.access_key_id #=> String
-    #   resp.credentials.secret_access_key #=> String
-    #   resp.credentials.session_token #=> String
-    #   resp.credentials.expiration #=> Time
-    #   resp.federated_user #=> Types::FederatedUser
-    #   resp.federated_user.federated_user_id #=> String
-    #   resp.federated_user.arn #=> String
-    #   resp.packed_policy_size #=> Integer
+    #   resp.data #=> Types::GetFederationTokenOutput
+    #   resp.data.credentials #=> Types::Credentials
+    #   resp.data.credentials.access_key_id #=> String
+    #   resp.data.credentials.secret_access_key #=> String
+    #   resp.data.credentials.session_token #=> String
+    #   resp.data.credentials.expiration #=> Time
+    #   resp.data.federated_user #=> Types::FederatedUser
+    #   resp.data.federated_user.federated_user_id #=> String
+    #   resp.data.federated_user.arn #=> String
+    #   resp.data.packed_policy_size #=> Integer
     #
     def get_federation_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1508,13 +1526,15 @@ module AWS::Sts
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFederationToken
+        builder: Builders::GetFederationToken,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::MalformedPolicyDocumentException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MalformedPolicyDocumentException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
         data_parser: Parsers::GetFederationToken
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1535,7 +1555,7 @@ module AWS::Sts
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Returns a set of temporary credentials for an Amazon Web Services account or IAM user. The
@@ -1634,12 +1654,12 @@ module AWS::Sts
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetSessionTokenOutput
-    #   resp.credentials #=> Types::Credentials
-    #   resp.credentials.access_key_id #=> String
-    #   resp.credentials.secret_access_key #=> String
-    #   resp.credentials.session_token #=> String
-    #   resp.credentials.expiration #=> Time
+    #   resp.data #=> Types::GetSessionTokenOutput
+    #   resp.data.credentials #=> Types::Credentials
+    #   resp.data.credentials.access_key_id #=> String
+    #   resp.data.credentials.secret_access_key #=> String
+    #   resp.data.credentials.session_token #=> String
+    #   resp.data.credentials.expiration #=> Time
     #
     def get_session_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1649,13 +1669,15 @@ module AWS::Sts
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetSessionToken
+        builder: Builders::GetSessionToken,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::RegionDisabledException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RegionDisabledException]),
         data_parser: Parsers::GetSessionToken
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1676,7 +1698,7 @@ module AWS::Sts
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     private
