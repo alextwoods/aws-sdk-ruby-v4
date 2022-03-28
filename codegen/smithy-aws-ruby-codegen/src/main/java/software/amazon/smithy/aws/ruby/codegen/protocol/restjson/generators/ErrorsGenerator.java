@@ -26,7 +26,6 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
 
     public void renderErrorCodeBody() {
         writer
-                .openBlock("def self.error_code(resp)")
                 .openBlock("if !(200..299).cover?(resp.status)")
                 .write("json = Hearth::JSON.load(resp.body)")
                 .write("resp.body.rewind")
@@ -35,7 +34,6 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
                 .write("code ||= resp.headers['x-amzn-errortype']")
                 .openBlock("if code")
                 .write("code.split('#').last.split(':').first")
-                .closeBlock("end")
                 .closeBlock("end");
     }
 

@@ -29,7 +29,6 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
     @Override
     public void renderErrorCodeBody() {
         writer
-                .openBlock("def self.error_code(resp)")
                 .openBlock("if !(200..299).cover?(resp.status)")
                 .write("body = resp.body.read")
                 .write("resp.body.rewind")
@@ -48,7 +47,6 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
                 })
                 .openBlock("if xml")
                 .write("xml.text_at('Code')")
-                .closeBlock("end")
                 .closeBlock("end")
                 .closeBlock("end");
     }

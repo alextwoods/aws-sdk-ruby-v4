@@ -33,7 +33,6 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
         writer
                 .call(() -> renderErrorCodesMap())
                 .write("")
-                .openBlock("def self.error_code(resp)")
                 .openBlock("if !(200..299).cover?(resp.status)")
                 .write("body = resp.body.read")
                 .write("resp.body.rewind")
@@ -41,14 +40,13 @@ public class ErrorsGenerator extends ErrorsGeneratorBase {
                 .write("return unless xml && xml.name == 'ErrorResponse'")
                 .write("xml = xml.at('Error')")
                 .openBlock("if xml")
-                .write("CODES[xml.text_at('Code')]")
-                .closeBlock("end")
+                .write("error_codes[xml.text_at('Code')]")
                 .closeBlock("end")
                 .closeBlock("end");
     }
 
     private void renderErrorCodesMap() {
-        writer.openBlock("CODES = {");
+        writer.openBlock("error_codes = {");
         List<Shape> shapes = getErrorShapes();
         shapes.forEach(shape -> {
             String shapeName = symbolProvider.toSymbol(shape).getName();
