@@ -76,19 +76,16 @@ public class RestJson1 implements ProtocolGenerator {
         middlewareBuilder.remove(MiddlewareStackStep.BUILD, "Hearth::HTTP::Middleware::ContentLength");
 
         Middleware contentLength = (new Middleware.Builder())
-                .operationPredicate(new OperationPredicate() {
-                    @Override
-                    public boolean test(Model model, ServiceShape serviceShape, OperationShape operationShape) {
-                        Shape inputShape = model.expectShape(operationShape.getInputShape());
+                .operationPredicate((model, serviceShape, operationShape) -> {
+                    Shape inputShape = model.expectShape(operationShape.getInputShape());
 
-                        Stream<MemberShape> serializeMembers = inputShape.members().stream()
-                                .filter((m) -> !m.hasTrait(HttpLabelTrait.class) && !m.hasTrait(HttpQueryTrait.class)
-                                        && !m.hasTrait(HttpHeaderTrait.class) && !m.hasTrait(HttpPrefixHeadersTrait.class)
-                                        && !m.hasTrait(HttpQueryParamsTrait.class));
-                        serializeMembers = serializeMembers.filter(NoSerializeTrait.excludeNoSerializeMembers());
+                    Stream<MemberShape> serializeMembers = inputShape.members().stream()
+                            .filter((m) -> !m.hasTrait(HttpLabelTrait.class) && !m.hasTrait(HttpQueryTrait.class)
+                                    && !m.hasTrait(HttpHeaderTrait.class) && !m.hasTrait(HttpPrefixHeadersTrait.class)
+                                    && !m.hasTrait(HttpQueryParamsTrait.class));
+                    serializeMembers = serializeMembers.filter(NoSerializeTrait.excludeNoSerializeMembers());
 
-                        return !serializeMembers.collect(Collectors.toList()).isEmpty();
-                    }
+                    return !serializeMembers.collect(Collectors.toList()).isEmpty();
                 })
                 .klass("Hearth::HTTP::Middleware::ContentLength")
                 .step(MiddlewareStackStep.BUILD)
