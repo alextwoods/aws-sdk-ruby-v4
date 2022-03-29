@@ -9,28 +9,25 @@
 
 module AWS::Sts
   module Errors
+    def self.error_code(resp)
+      custom_errors = {
+        "ExpiredTokenException" => "ExpiredTokenException",
+        "IDPCommunicationError" => "IDPCommunicationErrorException",
+        "IDPRejectedClaim" => "IDPRejectedClaimException",
+        "InvalidAuthorizationMessageException" => "InvalidAuthorizationMessageException",
+        "InvalidIdentityToken" => "InvalidIdentityTokenException",
+        "MalformedPolicyDocument" => "MalformedPolicyDocumentException",
+        "PackedPolicyTooLarge" => "PackedPolicyTooLargeException",
+        "RegionDisabledException" => "RegionDisabledException"
+      }
 
-    CODES = {
-      "ExpiredTokenException" => "ExpiredTokenException",
-      "IDPCommunicationError" => "IDPCommunicationErrorException",
-      "IDPRejectedClaim" => "IDPRejectedClaimException",
-      "InvalidAuthorizationMessageException" => "InvalidAuthorizationMessageException",
-      "InvalidIdentityToken" => "InvalidIdentityTokenException",
-      "MalformedPolicyDocument" => "MalformedPolicyDocumentException",
-      "PackedPolicyTooLarge" => "PackedPolicyTooLargeException",
-      "RegionDisabledException" => "RegionDisabledException"
-    }
-
-    def self.error_code(http_resp)
-      if !(200..299).cover?(http_resp.status)
-        body = http_resp.body.read
-        http_resp.body.rewind
+      if !(200..299).cover?(resp.status)
+        body = resp.body.read
+        resp.body.rewind
         xml = Hearth::XML.parse(body) unless body.empty?
         return unless xml && xml.name == 'ErrorResponse'
-        xml = xml.at('Error')
-        if xml
-          CODES[xml.text_at('Code')]
-        end
+        code = xml.at('Error')&.text_at('Code')
+        custom_errors[code] || code
       end
     end
 

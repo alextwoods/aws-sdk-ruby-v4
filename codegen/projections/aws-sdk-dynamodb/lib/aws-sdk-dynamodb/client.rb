@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require_relative 'middleware/request_id'
+
 module AWS::Dynamodb
   # An API client for DynamoDB_20120810
   # See {#initialize} for a full list of supported configuration options
@@ -42,6 +44,9 @@ module AWS::Dynamodb
 
     # @overload initialize(options)
     # @param [Hash] options
+    # @option options [Boolean] :disable_host_prefix (false)
+    #   When `true`, does not perform host prefix injection using @endpoint's hostPrefix property.
+    #
     # @option options [string] :endpoint
     #   Endpoint of the service
     #
@@ -64,6 +69,7 @@ module AWS::Dynamodb
     #   When `true`, request parameters are validated using the modeled shapes.
     #
     def initialize(options = {})
+      @disable_host_prefix = options.fetch(:disable_host_prefix, false)
       @endpoint = options[:endpoint]
       @http_wire_trace = options.fetch(:http_wire_trace, false)
       @log_level = options.fetch(:log_level, :info)
@@ -150,27 +156,27 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::BatchExecuteStatementOutput
-    #   resp.responses #=> Array<BatchStatementResponse>
-    #   resp.responses[0] #=> Types::BatchStatementResponse
-    #   resp.responses[0].error #=> Types::BatchStatementError
-    #   resp.responses[0].error.code #=> String, one of ConditionalCheckFailed, ItemCollectionSizeLimitExceeded, RequestLimitExceeded, ValidationError, ProvisionedThroughputExceeded, TransactionConflict, ThrottlingError, InternalServerError, ResourceNotFound, AccessDenied, DuplicateItem
-    #   resp.responses[0].error.message #=> String
-    #   resp.responses[0].table_name #=> String
-    #   resp.responses[0].item #=> Hash<String, AttributeValue>
-    #   resp.responses[0].item['key'] #=> AttributeValue
-    #   resp.consumed_capacity #=> Array<ConsumedCapacity>
-    #   resp.consumed_capacity[0] #=> Types::ConsumedCapacity
-    #   resp.consumed_capacity[0].table_name #=> String
-    #   resp.consumed_capacity[0].capacity_units #=> Float
-    #   resp.consumed_capacity[0].read_capacity_units #=> Float
-    #   resp.consumed_capacity[0].write_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table #=> Types::Capacity
-    #   resp.consumed_capacity[0].table.read_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table.write_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table.capacity_units #=> Float
-    #   resp.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data #=> Types::BatchExecuteStatementOutput
+    #   resp.data.responses #=> Array<BatchStatementResponse>
+    #   resp.data.responses[0] #=> Types::BatchStatementResponse
+    #   resp.data.responses[0].error #=> Types::BatchStatementError
+    #   resp.data.responses[0].error.code #=> String, one of ConditionalCheckFailed, ItemCollectionSizeLimitExceeded, RequestLimitExceeded, ValidationError, ProvisionedThroughputExceeded, TransactionConflict, ThrottlingError, InternalServerError, ResourceNotFound, AccessDenied, DuplicateItem
+    #   resp.data.responses[0].error.message #=> String
+    #   resp.data.responses[0].table_name #=> String
+    #   resp.data.responses[0].item #=> Hash<String, AttributeValue>
+    #   resp.data.responses[0].item['key'] #=> AttributeValue
+    #   resp.data.consumed_capacity #=> Array<ConsumedCapacity>
+    #   resp.data.consumed_capacity[0] #=> Types::ConsumedCapacity
+    #   resp.data.consumed_capacity[0].table_name #=> String
+    #   resp.data.consumed_capacity[0].capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].read_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].write_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table #=> Types::Capacity
+    #   resp.data.consumed_capacity[0].table.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table.capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
     #
     def batch_execute_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -180,13 +186,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::BatchExecuteStatement
+        builder: Builders::BatchExecuteStatement,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::RequestLimitExceeded]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::RequestLimitExceeded]),
         data_parser: Parsers::BatchExecuteStatement
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -207,7 +215,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>The <code>BatchGetItem</code> operation returns the attributes of one or more items
@@ -433,33 +441,33 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::BatchGetItemOutput
-    #   resp.responses #=> Hash<String, Array<Hash<String, AttributeValue>>>
-    #   resp.responses['key'] #=> Array<Hash<String, AttributeValue>>
-    #   resp.responses['key'][0] #=> Hash<String, AttributeValue>
-    #   resp.responses['key'][0]['key'] #=> AttributeValue
-    #   resp.unprocessed_keys #=> Hash<String, KeysAndAttributes>
-    #   resp.unprocessed_keys['key'] #=> Types::KeysAndAttributes
-    #   resp.unprocessed_keys['key'].keys #=> Array<Hash<String, AttributeValue>>
-    #   resp.unprocessed_keys['key'].keys[0] #=> Hash<String, AttributeValue>
-    #   resp.unprocessed_keys['key'].attributes_to_get #=> Array<String>
-    #   resp.unprocessed_keys['key'].attributes_to_get[0] #=> String
-    #   resp.unprocessed_keys['key'].consistent_read #=> Boolean
-    #   resp.unprocessed_keys['key'].projection_expression #=> String
-    #   resp.unprocessed_keys['key'].expression_attribute_names #=> Hash<String, String>
-    #   resp.unprocessed_keys['key'].expression_attribute_names['key'] #=> String
-    #   resp.consumed_capacity #=> Array<ConsumedCapacity>
-    #   resp.consumed_capacity[0] #=> Types::ConsumedCapacity
-    #   resp.consumed_capacity[0].table_name #=> String
-    #   resp.consumed_capacity[0].capacity_units #=> Float
-    #   resp.consumed_capacity[0].read_capacity_units #=> Float
-    #   resp.consumed_capacity[0].write_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table #=> Types::Capacity
-    #   resp.consumed_capacity[0].table.read_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table.write_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table.capacity_units #=> Float
-    #   resp.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data #=> Types::BatchGetItemOutput
+    #   resp.data.responses #=> Hash<String, Array<Hash<String, AttributeValue>>>
+    #   resp.data.responses['key'] #=> Array<Hash<String, AttributeValue>>
+    #   resp.data.responses['key'][0] #=> Hash<String, AttributeValue>
+    #   resp.data.responses['key'][0]['key'] #=> AttributeValue
+    #   resp.data.unprocessed_keys #=> Hash<String, KeysAndAttributes>
+    #   resp.data.unprocessed_keys['key'] #=> Types::KeysAndAttributes
+    #   resp.data.unprocessed_keys['key'].keys #=> Array<Hash<String, AttributeValue>>
+    #   resp.data.unprocessed_keys['key'].keys[0] #=> Hash<String, AttributeValue>
+    #   resp.data.unprocessed_keys['key'].attributes_to_get #=> Array<String>
+    #   resp.data.unprocessed_keys['key'].attributes_to_get[0] #=> String
+    #   resp.data.unprocessed_keys['key'].consistent_read #=> Boolean
+    #   resp.data.unprocessed_keys['key'].projection_expression #=> String
+    #   resp.data.unprocessed_keys['key'].expression_attribute_names #=> Hash<String, String>
+    #   resp.data.unprocessed_keys['key'].expression_attribute_names['key'] #=> String
+    #   resp.data.consumed_capacity #=> Array<ConsumedCapacity>
+    #   resp.data.consumed_capacity[0] #=> Types::ConsumedCapacity
+    #   resp.data.consumed_capacity[0].table_name #=> String
+    #   resp.data.consumed_capacity[0].capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].read_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].write_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table #=> Types::Capacity
+    #   resp.data.consumed_capacity[0].table.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table.capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
     #
     def batch_get_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -469,13 +477,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::BatchGetItem
+        builder: Builders::BatchGetItem,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::BatchGetItem
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -496,7 +506,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or
@@ -700,33 +710,33 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::BatchWriteItemOutput
-    #   resp.unprocessed_items #=> Hash<String, Array<WriteRequest>>
-    #   resp.unprocessed_items['key'] #=> Array<WriteRequest>
-    #   resp.unprocessed_items['key'][0] #=> Types::WriteRequest
-    #   resp.unprocessed_items['key'][0].put_request #=> Types::PutRequest
-    #   resp.unprocessed_items['key'][0].put_request.item #=> Hash<String, AttributeValue>
-    #   resp.unprocessed_items['key'][0].put_request.item['key'] #=> AttributeValue
-    #   resp.unprocessed_items['key'][0].delete_request #=> Types::DeleteRequest
-    #   resp.unprocessed_items['key'][0].delete_request.key #=> Hash<String, AttributeValue>
-    #   resp.item_collection_metrics #=> Hash<String, Array<ItemCollectionMetrics>>
-    #   resp.item_collection_metrics['key'] #=> Array<ItemCollectionMetrics>
-    #   resp.item_collection_metrics['key'][0] #=> Types::ItemCollectionMetrics
-    #   resp.item_collection_metrics['key'][0].item_collection_key #=> Hash<String, AttributeValue>
-    #   resp.item_collection_metrics['key'][0].size_estimate_range_gb #=> Array<Float>
-    #   resp.item_collection_metrics['key'][0].size_estimate_range_gb[0] #=> Float
-    #   resp.consumed_capacity #=> Array<ConsumedCapacity>
-    #   resp.consumed_capacity[0] #=> Types::ConsumedCapacity
-    #   resp.consumed_capacity[0].table_name #=> String
-    #   resp.consumed_capacity[0].capacity_units #=> Float
-    #   resp.consumed_capacity[0].read_capacity_units #=> Float
-    #   resp.consumed_capacity[0].write_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table #=> Types::Capacity
-    #   resp.consumed_capacity[0].table.read_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table.write_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table.capacity_units #=> Float
-    #   resp.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data #=> Types::BatchWriteItemOutput
+    #   resp.data.unprocessed_items #=> Hash<String, Array<WriteRequest>>
+    #   resp.data.unprocessed_items['key'] #=> Array<WriteRequest>
+    #   resp.data.unprocessed_items['key'][0] #=> Types::WriteRequest
+    #   resp.data.unprocessed_items['key'][0].put_request #=> Types::PutRequest
+    #   resp.data.unprocessed_items['key'][0].put_request.item #=> Hash<String, AttributeValue>
+    #   resp.data.unprocessed_items['key'][0].put_request.item['key'] #=> AttributeValue
+    #   resp.data.unprocessed_items['key'][0].delete_request #=> Types::DeleteRequest
+    #   resp.data.unprocessed_items['key'][0].delete_request.key #=> Hash<String, AttributeValue>
+    #   resp.data.item_collection_metrics #=> Hash<String, Array<ItemCollectionMetrics>>
+    #   resp.data.item_collection_metrics['key'] #=> Array<ItemCollectionMetrics>
+    #   resp.data.item_collection_metrics['key'][0] #=> Types::ItemCollectionMetrics
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key #=> Hash<String, AttributeValue>
+    #   resp.data.item_collection_metrics['key'][0].size_estimate_range_gb #=> Array<Float>
+    #   resp.data.item_collection_metrics['key'][0].size_estimate_range_gb[0] #=> Float
+    #   resp.data.consumed_capacity #=> Array<ConsumedCapacity>
+    #   resp.data.consumed_capacity[0] #=> Types::ConsumedCapacity
+    #   resp.data.consumed_capacity[0].table_name #=> String
+    #   resp.data.consumed_capacity[0].capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].read_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].write_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table #=> Types::Capacity
+    #   resp.data.consumed_capacity[0].table.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table.capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
     #
     def batch_write_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -736,13 +746,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::BatchWriteItem
+        builder: Builders::BatchWriteItem,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::BatchWriteItem
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -763,7 +775,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Creates a backup for an existing table.</p>
@@ -817,15 +829,15 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateBackupOutput
-    #   resp.backup_details #=> Types::BackupDetails
-    #   resp.backup_details.backup_arn #=> String
-    #   resp.backup_details.backup_name #=> String
-    #   resp.backup_details.backup_size_bytes #=> Integer
-    #   resp.backup_details.backup_status #=> String, one of CREATING, DELETED, AVAILABLE
-    #   resp.backup_details.backup_type #=> String, one of USER, SYSTEM, AWS_BACKUP
-    #   resp.backup_details.backup_creation_date_time #=> Time
-    #   resp.backup_details.backup_expiry_date_time #=> Time
+    #   resp.data #=> Types::CreateBackupOutput
+    #   resp.data.backup_details #=> Types::BackupDetails
+    #   resp.data.backup_details.backup_arn #=> String
+    #   resp.data.backup_details.backup_name #=> String
+    #   resp.data.backup_details.backup_size_bytes #=> Integer
+    #   resp.data.backup_details.backup_status #=> String, one of CREATING, DELETED, AVAILABLE
+    #   resp.data.backup_details.backup_type #=> String, one of USER, SYSTEM, AWS_BACKUP
+    #   resp.data.backup_details.backup_creation_date_time #=> Time
+    #   resp.data.backup_details.backup_expiry_date_time #=> Time
     #
     def create_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -835,13 +847,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateBackup
+        builder: Builders::CreateBackup,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]),
         data_parser: Parsers::CreateBackup
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -862,7 +876,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Creates a global table from an existing table. A global table creates a replication
@@ -947,29 +961,29 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateGlobalTableOutput
-    #   resp.global_table_description #=> Types::GlobalTableDescription
-    #   resp.global_table_description.replication_group #=> Array<ReplicaDescription>
-    #   resp.global_table_description.replication_group[0] #=> Types::ReplicaDescription
-    #   resp.global_table_description.replication_group[0].region_name #=> String
-    #   resp.global_table_description.replication_group[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
-    #   resp.global_table_description.replication_group[0].replica_status_description #=> String
-    #   resp.global_table_description.replication_group[0].replica_status_percent_progress #=> String
-    #   resp.global_table_description.replication_group[0].kms_master_key_id #=> String
-    #   resp.global_table_description.replication_group[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.global_table_description.replication_group[0].provisioned_throughput_override.read_capacity_units #=> Integer
-    #   resp.global_table_description.replication_group[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
-    #   resp.global_table_description.replication_group[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
-    #   resp.global_table_description.replication_group[0].global_secondary_indexes[0].index_name #=> String
-    #   resp.global_table_description.replication_group[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.global_table_description.replication_group[0].replica_inaccessible_date_time #=> Time
-    #   resp.global_table_description.replication_group[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.global_table_description.replication_group[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
-    #   resp.global_table_description.replication_group[0].replica_table_class_summary.last_update_date_time #=> Time
-    #   resp.global_table_description.global_table_arn #=> String
-    #   resp.global_table_description.creation_date_time #=> Time
-    #   resp.global_table_description.global_table_status #=> String, one of CREATING, ACTIVE, DELETING, UPDATING
-    #   resp.global_table_description.global_table_name #=> String
+    #   resp.data #=> Types::CreateGlobalTableOutput
+    #   resp.data.global_table_description #=> Types::GlobalTableDescription
+    #   resp.data.global_table_description.replication_group #=> Array<ReplicaDescription>
+    #   resp.data.global_table_description.replication_group[0] #=> Types::ReplicaDescription
+    #   resp.data.global_table_description.replication_group[0].region_name #=> String
+    #   resp.data.global_table_description.replication_group[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.global_table_description.replication_group[0].replica_status_description #=> String
+    #   resp.data.global_table_description.replication_group[0].replica_status_percent_progress #=> String
+    #   resp.data.global_table_description.replication_group[0].kms_master_key_id #=> String
+    #   resp.data.global_table_description.replication_group[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.global_table_description.replication_group[0].provisioned_throughput_override.read_capacity_units #=> Integer
+    #   resp.data.global_table_description.replication_group[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
+    #   resp.data.global_table_description.replication_group[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
+    #   resp.data.global_table_description.replication_group[0].global_secondary_indexes[0].index_name #=> String
+    #   resp.data.global_table_description.replication_group[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.global_table_description.replication_group[0].replica_inaccessible_date_time #=> Time
+    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary #=> Types::TableClassSummary
+    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.last_update_date_time #=> Time
+    #   resp.data.global_table_description.global_table_arn #=> String
+    #   resp.data.global_table_description.creation_date_time #=> Time
+    #   resp.data.global_table_description.global_table_status #=> String, one of CREATING, ACTIVE, DELETING, UPDATING
+    #   resp.data.global_table_description.global_table_name #=> String
     #
     def create_global_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -979,13 +993,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateGlobalTable
+        builder: Builders::CreateGlobalTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableNotFoundException, Errors::GlobalTableAlreadyExistsException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableNotFoundException, Errors::GlobalTableAlreadyExistsException]),
         data_parser: Parsers::CreateGlobalTable
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1006,7 +1022,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>The <code>CreateTable</code> operation adds a new table to your account. In an Amazon Web Services account, table names must be unique within each Region. That is, you can
@@ -1335,92 +1351,92 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::CreateTableOutput
-    #   resp.table_description #=> Types::TableDescription
-    #   resp.table_description.attribute_definitions #=> Array<AttributeDefinition>
-    #   resp.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
-    #   resp.table_description.attribute_definitions[0].attribute_name #=> String
-    #   resp.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
-    #   resp.table_description.table_name #=> String
-    #   resp.table_description.key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.key_schema[0] #=> Types::KeySchemaElement
-    #   resp.table_description.key_schema[0].attribute_name #=> String
-    #   resp.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
-    #   resp.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
-    #   resp.table_description.creation_date_time #=> Time
-    #   resp.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
-    #   resp.table_description.provisioned_throughput.last_increase_date_time #=> Time
-    #   resp.table_description.provisioned_throughput.last_decrease_date_time #=> Time
-    #   resp.table_description.provisioned_throughput.number_of_decreases_today #=> Integer
-    #   resp.table_description.provisioned_throughput.read_capacity_units #=> Integer
-    #   resp.table_description.provisioned_throughput.write_capacity_units #=> Integer
-    #   resp.table_description.table_size_bytes #=> Integer
-    #   resp.table_description.item_count #=> Integer
-    #   resp.table_description.table_arn #=> String
-    #   resp.table_description.table_id #=> String
-    #   resp.table_description.billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
-    #   resp.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
-    #   resp.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
-    #   resp.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
-    #   resp.table_description.local_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
-    #   resp.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
-    #   resp.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
-    #   resp.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
-    #   resp.table_description.local_secondary_indexes[0].item_count #=> Integer
-    #   resp.table_description.local_secondary_indexes[0].index_arn #=> String
-    #   resp.table_description.global_secondary_indexes #=> Array<GlobalSecondaryIndexDescription>
-    #   resp.table_description.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexDescription
-    #   resp.table_description.global_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.global_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
-    #   resp.table_description.global_secondary_indexes[0].backfilling #=> Boolean
-    #   resp.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
-    #   resp.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
-    #   resp.table_description.global_secondary_indexes[0].item_count #=> Integer
-    #   resp.table_description.global_secondary_indexes[0].index_arn #=> String
-    #   resp.table_description.stream_specification #=> Types::StreamSpecification
-    #   resp.table_description.stream_specification.stream_enabled #=> Boolean
-    #   resp.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
-    #   resp.table_description.latest_stream_label #=> String
-    #   resp.table_description.latest_stream_arn #=> String
-    #   resp.table_description.global_table_version #=> String
-    #   resp.table_description.replicas #=> Array<ReplicaDescription>
-    #   resp.table_description.replicas[0] #=> Types::ReplicaDescription
-    #   resp.table_description.replicas[0].region_name #=> String
-    #   resp.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
-    #   resp.table_description.replicas[0].replica_status_description #=> String
-    #   resp.table_description.replicas[0].replica_status_percent_progress #=> String
-    #   resp.table_description.replicas[0].kms_master_key_id #=> String
-    #   resp.table_description.replicas[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.table_description.replicas[0].provisioned_throughput_override.read_capacity_units #=> Integer
-    #   resp.table_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
-    #   resp.table_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
-    #   resp.table_description.replicas[0].global_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.table_description.replicas[0].replica_inaccessible_date_time #=> Time
-    #   resp.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
-    #   resp.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
-    #   resp.table_description.restore_summary #=> Types::RestoreSummary
-    #   resp.table_description.restore_summary.source_backup_arn #=> String
-    #   resp.table_description.restore_summary.source_table_arn #=> String
-    #   resp.table_description.restore_summary.restore_date_time #=> Time
-    #   resp.table_description.restore_summary.restore_in_progress #=> Boolean
-    #   resp.table_description.sse_description #=> Types::SSEDescription
-    #   resp.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.table_description.sse_description.sse_type #=> String, one of AES256, KMS
-    #   resp.table_description.sse_description.kms_master_key_arn #=> String
-    #   resp.table_description.sse_description.inaccessible_encryption_date_time #=> Time
-    #   resp.table_description.archival_summary #=> Types::ArchivalSummary
-    #   resp.table_description.archival_summary.archival_date_time #=> Time
-    #   resp.table_description.archival_summary.archival_reason #=> String
-    #   resp.table_description.archival_summary.archival_backup_arn #=> String
-    #   resp.table_description.table_class_summary #=> Types::TableClassSummary
+    #   resp.data #=> Types::CreateTableOutput
+    #   resp.data.table_description #=> Types::TableDescription
+    #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
+    #   resp.data.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
+    #   resp.data.table_description.attribute_definitions[0].attribute_name #=> String
+    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
+    #   resp.data.table_description.table_name #=> String
+    #   resp.data.table_description.key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.key_schema[0] #=> Types::KeySchemaElement
+    #   resp.data.table_description.key_schema[0].attribute_name #=> String
+    #   resp.data.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
+    #   resp.data.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table_description.creation_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
+    #   resp.data.table_description.provisioned_throughput.last_increase_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput.last_decrease_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput.number_of_decreases_today #=> Integer
+    #   resp.data.table_description.provisioned_throughput.read_capacity_units #=> Integer
+    #   resp.data.table_description.provisioned_throughput.write_capacity_units #=> Integer
+    #   resp.data.table_description.table_size_bytes #=> Integer
+    #   resp.data.table_description.item_count #=> Integer
+    #   resp.data.table_description.table_arn #=> String
+    #   resp.data.table_description.table_id #=> String
+    #   resp.data.table_description.billing_mode_summary #=> Types::BillingModeSummary
+    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
+    #   resp.data.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
+    #   resp.data.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
+    #   resp.data.table_description.local_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.local_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
+    #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
+    #   resp.data.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
+    #   resp.data.table_description.local_secondary_indexes[0].item_count #=> Integer
+    #   resp.data.table_description.local_secondary_indexes[0].index_arn #=> String
+    #   resp.data.table_description.global_secondary_indexes #=> Array<GlobalSecondaryIndexDescription>
+    #   resp.data.table_description.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexDescription
+    #   resp.data.table_description.global_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.global_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table_description.global_secondary_indexes[0].backfilling #=> Boolean
+    #   resp.data.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
+    #   resp.data.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
+    #   resp.data.table_description.global_secondary_indexes[0].item_count #=> Integer
+    #   resp.data.table_description.global_secondary_indexes[0].index_arn #=> String
+    #   resp.data.table_description.stream_specification #=> Types::StreamSpecification
+    #   resp.data.table_description.stream_specification.stream_enabled #=> Boolean
+    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.table_description.latest_stream_label #=> String
+    #   resp.data.table_description.latest_stream_arn #=> String
+    #   resp.data.table_description.global_table_version #=> String
+    #   resp.data.table_description.replicas #=> Array<ReplicaDescription>
+    #   resp.data.table_description.replicas[0] #=> Types::ReplicaDescription
+    #   resp.data.table_description.replicas[0].region_name #=> String
+    #   resp.data.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.table_description.replicas[0].replica_status_description #=> String
+    #   resp.data.table_description.replicas[0].replica_status_percent_progress #=> String
+    #   resp.data.table_description.replicas[0].kms_master_key_id #=> String
+    #   resp.data.table_description.replicas[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.table_description.replicas[0].provisioned_throughput_override.read_capacity_units #=> Integer
+    #   resp.data.table_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.table_description.replicas[0].replica_inaccessible_date_time #=> Time
+    #   resp.data.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
+    #   resp.data.table_description.restore_summary #=> Types::RestoreSummary
+    #   resp.data.table_description.restore_summary.source_backup_arn #=> String
+    #   resp.data.table_description.restore_summary.source_table_arn #=> String
+    #   resp.data.table_description.restore_summary.restore_date_time #=> Time
+    #   resp.data.table_description.restore_summary.restore_in_progress #=> Boolean
+    #   resp.data.table_description.sse_description #=> Types::SSEDescription
+    #   resp.data.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
+    #   resp.data.table_description.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.table_description.sse_description.kms_master_key_arn #=> String
+    #   resp.data.table_description.sse_description.inaccessible_encryption_date_time #=> Time
+    #   resp.data.table_description.archival_summary #=> Types::ArchivalSummary
+    #   resp.data.table_description.archival_summary.archival_date_time #=> Time
+    #   resp.data.table_description.archival_summary.archival_reason #=> String
+    #   resp.data.table_description.archival_summary.archival_backup_arn #=> String
+    #   resp.data.table_description.table_class_summary #=> Types::TableClassSummary
     #
     def create_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1430,13 +1446,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTable
+        builder: Builders::CreateTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::CreateTable
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1457,7 +1475,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Deletes an existing backup of a table.</p>
@@ -1480,57 +1498,57 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteBackupOutput
-    #   resp.backup_description #=> Types::BackupDescription
-    #   resp.backup_description.backup_details #=> Types::BackupDetails
-    #   resp.backup_description.backup_details.backup_arn #=> String
-    #   resp.backup_description.backup_details.backup_name #=> String
-    #   resp.backup_description.backup_details.backup_size_bytes #=> Integer
-    #   resp.backup_description.backup_details.backup_status #=> String, one of CREATING, DELETED, AVAILABLE
-    #   resp.backup_description.backup_details.backup_type #=> String, one of USER, SYSTEM, AWS_BACKUP
-    #   resp.backup_description.backup_details.backup_creation_date_time #=> Time
-    #   resp.backup_description.backup_details.backup_expiry_date_time #=> Time
-    #   resp.backup_description.source_table_details #=> Types::SourceTableDetails
-    #   resp.backup_description.source_table_details.table_name #=> String
-    #   resp.backup_description.source_table_details.table_id #=> String
-    #   resp.backup_description.source_table_details.table_arn #=> String
-    #   resp.backup_description.source_table_details.table_size_bytes #=> Integer
-    #   resp.backup_description.source_table_details.key_schema #=> Array<KeySchemaElement>
-    #   resp.backup_description.source_table_details.key_schema[0] #=> Types::KeySchemaElement
-    #   resp.backup_description.source_table_details.key_schema[0].attribute_name #=> String
-    #   resp.backup_description.source_table_details.key_schema[0].key_type #=> String, one of HASH, RANGE
-    #   resp.backup_description.source_table_details.table_creation_date_time #=> Time
-    #   resp.backup_description.source_table_details.provisioned_throughput #=> Types::ProvisionedThroughput
-    #   resp.backup_description.source_table_details.provisioned_throughput.read_capacity_units #=> Integer
-    #   resp.backup_description.source_table_details.provisioned_throughput.write_capacity_units #=> Integer
-    #   resp.backup_description.source_table_details.item_count #=> Integer
-    #   resp.backup_description.source_table_details.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
-    #   resp.backup_description.source_table_feature_details #=> Types::SourceTableFeatureDetails
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes #=> Array<LocalSecondaryIndexInfo>
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexInfo
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes[0].index_name #=> String
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
-    #   resp.backup_description.source_table_feature_details.global_secondary_indexes #=> Array<GlobalSecondaryIndexInfo>
-    #   resp.backup_description.source_table_feature_details.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexInfo
-    #   resp.backup_description.source_table_feature_details.global_secondary_indexes[0].index_name #=> String
-    #   resp.backup_description.source_table_feature_details.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.backup_description.source_table_feature_details.global_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.backup_description.source_table_feature_details.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughput
-    #   resp.backup_description.source_table_feature_details.stream_description #=> Types::StreamSpecification
-    #   resp.backup_description.source_table_feature_details.stream_description.stream_enabled #=> Boolean
-    #   resp.backup_description.source_table_feature_details.stream_description.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
-    #   resp.backup_description.source_table_feature_details.time_to_live_description #=> Types::TimeToLiveDescription
-    #   resp.backup_description.source_table_feature_details.time_to_live_description.time_to_live_status #=> String, one of ENABLING, DISABLING, ENABLED, DISABLED
-    #   resp.backup_description.source_table_feature_details.time_to_live_description.attribute_name #=> String
-    #   resp.backup_description.source_table_feature_details.sse_description #=> Types::SSEDescription
-    #   resp.backup_description.source_table_feature_details.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.backup_description.source_table_feature_details.sse_description.sse_type #=> String, one of AES256, KMS
-    #   resp.backup_description.source_table_feature_details.sse_description.kms_master_key_arn #=> String
-    #   resp.backup_description.source_table_feature_details.sse_description.inaccessible_encryption_date_time #=> Time
+    #   resp.data #=> Types::DeleteBackupOutput
+    #   resp.data.backup_description #=> Types::BackupDescription
+    #   resp.data.backup_description.backup_details #=> Types::BackupDetails
+    #   resp.data.backup_description.backup_details.backup_arn #=> String
+    #   resp.data.backup_description.backup_details.backup_name #=> String
+    #   resp.data.backup_description.backup_details.backup_size_bytes #=> Integer
+    #   resp.data.backup_description.backup_details.backup_status #=> String, one of CREATING, DELETED, AVAILABLE
+    #   resp.data.backup_description.backup_details.backup_type #=> String, one of USER, SYSTEM, AWS_BACKUP
+    #   resp.data.backup_description.backup_details.backup_creation_date_time #=> Time
+    #   resp.data.backup_description.backup_details.backup_expiry_date_time #=> Time
+    #   resp.data.backup_description.source_table_details #=> Types::SourceTableDetails
+    #   resp.data.backup_description.source_table_details.table_name #=> String
+    #   resp.data.backup_description.source_table_details.table_id #=> String
+    #   resp.data.backup_description.source_table_details.table_arn #=> String
+    #   resp.data.backup_description.source_table_details.table_size_bytes #=> Integer
+    #   resp.data.backup_description.source_table_details.key_schema #=> Array<KeySchemaElement>
+    #   resp.data.backup_description.source_table_details.key_schema[0] #=> Types::KeySchemaElement
+    #   resp.data.backup_description.source_table_details.key_schema[0].attribute_name #=> String
+    #   resp.data.backup_description.source_table_details.key_schema[0].key_type #=> String, one of HASH, RANGE
+    #   resp.data.backup_description.source_table_details.table_creation_date_time #=> Time
+    #   resp.data.backup_description.source_table_details.provisioned_throughput #=> Types::ProvisionedThroughput
+    #   resp.data.backup_description.source_table_details.provisioned_throughput.read_capacity_units #=> Integer
+    #   resp.data.backup_description.source_table_details.provisioned_throughput.write_capacity_units #=> Integer
+    #   resp.data.backup_description.source_table_details.item_count #=> Integer
+    #   resp.data.backup_description.source_table_details.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.backup_description.source_table_feature_details #=> Types::SourceTableFeatureDetails
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes #=> Array<LocalSecondaryIndexInfo>
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexInfo
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].index_name #=> String
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
+    #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes #=> Array<GlobalSecondaryIndexInfo>
+    #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexInfo
+    #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes[0].index_name #=> String
+    #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughput
+    #   resp.data.backup_description.source_table_feature_details.stream_description #=> Types::StreamSpecification
+    #   resp.data.backup_description.source_table_feature_details.stream_description.stream_enabled #=> Boolean
+    #   resp.data.backup_description.source_table_feature_details.stream_description.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.backup_description.source_table_feature_details.time_to_live_description #=> Types::TimeToLiveDescription
+    #   resp.data.backup_description.source_table_feature_details.time_to_live_description.time_to_live_status #=> String, one of ENABLING, DISABLING, ENABLED, DISABLED
+    #   resp.data.backup_description.source_table_feature_details.time_to_live_description.attribute_name #=> String
+    #   resp.data.backup_description.source_table_feature_details.sse_description #=> Types::SSEDescription
+    #   resp.data.backup_description.source_table_feature_details.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
+    #   resp.data.backup_description.source_table_feature_details.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.backup_description.source_table_feature_details.sse_description.kms_master_key_arn #=> String
+    #   resp.data.backup_description.source_table_feature_details.sse_description.inaccessible_encryption_date_time #=> Time
     #
     def delete_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1540,13 +1558,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBackup
+        builder: Builders::DeleteBackup,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::BackupInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::BackupInUseException]),
         data_parser: Parsers::DeleteBackup
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1567,7 +1587,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Deletes a single item in a table by primary key. You can perform a conditional delete
@@ -1802,24 +1822,24 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteItemOutput
-    #   resp.attributes #=> Hash<String, AttributeValue>
-    #   resp.attributes['key'] #=> AttributeValue
-    #   resp.consumed_capacity #=> Types::ConsumedCapacity
-    #   resp.consumed_capacity.table_name #=> String
-    #   resp.consumed_capacity.capacity_units #=> Float
-    #   resp.consumed_capacity.read_capacity_units #=> Float
-    #   resp.consumed_capacity.write_capacity_units #=> Float
-    #   resp.consumed_capacity.table #=> Types::Capacity
-    #   resp.consumed_capacity.table.read_capacity_units #=> Float
-    #   resp.consumed_capacity.table.write_capacity_units #=> Float
-    #   resp.consumed_capacity.table.capacity_units #=> Float
-    #   resp.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.item_collection_metrics #=> Types::ItemCollectionMetrics
-    #   resp.item_collection_metrics.item_collection_key #=> Hash<String, AttributeValue>
-    #   resp.item_collection_metrics.size_estimate_range_gb #=> Array<Float>
-    #   resp.item_collection_metrics.size_estimate_range_gb[0] #=> Float
+    #   resp.data #=> Types::DeleteItemOutput
+    #   resp.data.attributes #=> Hash<String, AttributeValue>
+    #   resp.data.attributes['key'] #=> AttributeValue
+    #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
+    #   resp.data.consumed_capacity.table_name #=> String
+    #   resp.data.consumed_capacity.capacity_units #=> Float
+    #   resp.data.consumed_capacity.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table #=> Types::Capacity
+    #   resp.data.consumed_capacity.table.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table.capacity_units #=> Float
+    #   resp.data.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.item_collection_metrics #=> Types::ItemCollectionMetrics
+    #   resp.data.item_collection_metrics.item_collection_key #=> Hash<String, AttributeValue>
+    #   resp.data.item_collection_metrics.size_estimate_range_gb #=> Array<Float>
+    #   resp.data.item_collection_metrics.size_estimate_range_gb[0] #=> Float
     #
     def delete_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1829,13 +1849,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteItem
+        builder: Builders::DeleteItem,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::DeleteItem
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -1856,7 +1878,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>The <code>DeleteTable</code> operation deletes a table and all of its items. After a
@@ -1895,92 +1917,92 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DeleteTableOutput
-    #   resp.table_description #=> Types::TableDescription
-    #   resp.table_description.attribute_definitions #=> Array<AttributeDefinition>
-    #   resp.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
-    #   resp.table_description.attribute_definitions[0].attribute_name #=> String
-    #   resp.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
-    #   resp.table_description.table_name #=> String
-    #   resp.table_description.key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.key_schema[0] #=> Types::KeySchemaElement
-    #   resp.table_description.key_schema[0].attribute_name #=> String
-    #   resp.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
-    #   resp.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
-    #   resp.table_description.creation_date_time #=> Time
-    #   resp.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
-    #   resp.table_description.provisioned_throughput.last_increase_date_time #=> Time
-    #   resp.table_description.provisioned_throughput.last_decrease_date_time #=> Time
-    #   resp.table_description.provisioned_throughput.number_of_decreases_today #=> Integer
-    #   resp.table_description.provisioned_throughput.read_capacity_units #=> Integer
-    #   resp.table_description.provisioned_throughput.write_capacity_units #=> Integer
-    #   resp.table_description.table_size_bytes #=> Integer
-    #   resp.table_description.item_count #=> Integer
-    #   resp.table_description.table_arn #=> String
-    #   resp.table_description.table_id #=> String
-    #   resp.table_description.billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
-    #   resp.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
-    #   resp.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
-    #   resp.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
-    #   resp.table_description.local_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
-    #   resp.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
-    #   resp.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
-    #   resp.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
-    #   resp.table_description.local_secondary_indexes[0].item_count #=> Integer
-    #   resp.table_description.local_secondary_indexes[0].index_arn #=> String
-    #   resp.table_description.global_secondary_indexes #=> Array<GlobalSecondaryIndexDescription>
-    #   resp.table_description.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexDescription
-    #   resp.table_description.global_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.global_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
-    #   resp.table_description.global_secondary_indexes[0].backfilling #=> Boolean
-    #   resp.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
-    #   resp.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
-    #   resp.table_description.global_secondary_indexes[0].item_count #=> Integer
-    #   resp.table_description.global_secondary_indexes[0].index_arn #=> String
-    #   resp.table_description.stream_specification #=> Types::StreamSpecification
-    #   resp.table_description.stream_specification.stream_enabled #=> Boolean
-    #   resp.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
-    #   resp.table_description.latest_stream_label #=> String
-    #   resp.table_description.latest_stream_arn #=> String
-    #   resp.table_description.global_table_version #=> String
-    #   resp.table_description.replicas #=> Array<ReplicaDescription>
-    #   resp.table_description.replicas[0] #=> Types::ReplicaDescription
-    #   resp.table_description.replicas[0].region_name #=> String
-    #   resp.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
-    #   resp.table_description.replicas[0].replica_status_description #=> String
-    #   resp.table_description.replicas[0].replica_status_percent_progress #=> String
-    #   resp.table_description.replicas[0].kms_master_key_id #=> String
-    #   resp.table_description.replicas[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.table_description.replicas[0].provisioned_throughput_override.read_capacity_units #=> Integer
-    #   resp.table_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
-    #   resp.table_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
-    #   resp.table_description.replicas[0].global_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.table_description.replicas[0].replica_inaccessible_date_time #=> Time
-    #   resp.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
-    #   resp.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
-    #   resp.table_description.restore_summary #=> Types::RestoreSummary
-    #   resp.table_description.restore_summary.source_backup_arn #=> String
-    #   resp.table_description.restore_summary.source_table_arn #=> String
-    #   resp.table_description.restore_summary.restore_date_time #=> Time
-    #   resp.table_description.restore_summary.restore_in_progress #=> Boolean
-    #   resp.table_description.sse_description #=> Types::SSEDescription
-    #   resp.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.table_description.sse_description.sse_type #=> String, one of AES256, KMS
-    #   resp.table_description.sse_description.kms_master_key_arn #=> String
-    #   resp.table_description.sse_description.inaccessible_encryption_date_time #=> Time
-    #   resp.table_description.archival_summary #=> Types::ArchivalSummary
-    #   resp.table_description.archival_summary.archival_date_time #=> Time
-    #   resp.table_description.archival_summary.archival_reason #=> String
-    #   resp.table_description.archival_summary.archival_backup_arn #=> String
-    #   resp.table_description.table_class_summary #=> Types::TableClassSummary
+    #   resp.data #=> Types::DeleteTableOutput
+    #   resp.data.table_description #=> Types::TableDescription
+    #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
+    #   resp.data.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
+    #   resp.data.table_description.attribute_definitions[0].attribute_name #=> String
+    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
+    #   resp.data.table_description.table_name #=> String
+    #   resp.data.table_description.key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.key_schema[0] #=> Types::KeySchemaElement
+    #   resp.data.table_description.key_schema[0].attribute_name #=> String
+    #   resp.data.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
+    #   resp.data.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table_description.creation_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
+    #   resp.data.table_description.provisioned_throughput.last_increase_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput.last_decrease_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput.number_of_decreases_today #=> Integer
+    #   resp.data.table_description.provisioned_throughput.read_capacity_units #=> Integer
+    #   resp.data.table_description.provisioned_throughput.write_capacity_units #=> Integer
+    #   resp.data.table_description.table_size_bytes #=> Integer
+    #   resp.data.table_description.item_count #=> Integer
+    #   resp.data.table_description.table_arn #=> String
+    #   resp.data.table_description.table_id #=> String
+    #   resp.data.table_description.billing_mode_summary #=> Types::BillingModeSummary
+    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
+    #   resp.data.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
+    #   resp.data.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
+    #   resp.data.table_description.local_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.local_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
+    #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
+    #   resp.data.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
+    #   resp.data.table_description.local_secondary_indexes[0].item_count #=> Integer
+    #   resp.data.table_description.local_secondary_indexes[0].index_arn #=> String
+    #   resp.data.table_description.global_secondary_indexes #=> Array<GlobalSecondaryIndexDescription>
+    #   resp.data.table_description.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexDescription
+    #   resp.data.table_description.global_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.global_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table_description.global_secondary_indexes[0].backfilling #=> Boolean
+    #   resp.data.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
+    #   resp.data.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
+    #   resp.data.table_description.global_secondary_indexes[0].item_count #=> Integer
+    #   resp.data.table_description.global_secondary_indexes[0].index_arn #=> String
+    #   resp.data.table_description.stream_specification #=> Types::StreamSpecification
+    #   resp.data.table_description.stream_specification.stream_enabled #=> Boolean
+    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.table_description.latest_stream_label #=> String
+    #   resp.data.table_description.latest_stream_arn #=> String
+    #   resp.data.table_description.global_table_version #=> String
+    #   resp.data.table_description.replicas #=> Array<ReplicaDescription>
+    #   resp.data.table_description.replicas[0] #=> Types::ReplicaDescription
+    #   resp.data.table_description.replicas[0].region_name #=> String
+    #   resp.data.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.table_description.replicas[0].replica_status_description #=> String
+    #   resp.data.table_description.replicas[0].replica_status_percent_progress #=> String
+    #   resp.data.table_description.replicas[0].kms_master_key_id #=> String
+    #   resp.data.table_description.replicas[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.table_description.replicas[0].provisioned_throughput_override.read_capacity_units #=> Integer
+    #   resp.data.table_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.table_description.replicas[0].replica_inaccessible_date_time #=> Time
+    #   resp.data.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
+    #   resp.data.table_description.restore_summary #=> Types::RestoreSummary
+    #   resp.data.table_description.restore_summary.source_backup_arn #=> String
+    #   resp.data.table_description.restore_summary.source_table_arn #=> String
+    #   resp.data.table_description.restore_summary.restore_date_time #=> Time
+    #   resp.data.table_description.restore_summary.restore_in_progress #=> Boolean
+    #   resp.data.table_description.sse_description #=> Types::SSEDescription
+    #   resp.data.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
+    #   resp.data.table_description.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.table_description.sse_description.kms_master_key_arn #=> String
+    #   resp.data.table_description.sse_description.inaccessible_encryption_date_time #=> Time
+    #   resp.data.table_description.archival_summary #=> Types::ArchivalSummary
+    #   resp.data.table_description.archival_summary.archival_date_time #=> Time
+    #   resp.data.table_description.archival_summary.archival_reason #=> String
+    #   resp.data.table_description.archival_summary.archival_backup_arn #=> String
+    #   resp.data.table_description.table_class_summary #=> Types::TableClassSummary
     #
     def delete_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1990,13 +2012,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTable
+        builder: Builders::DeleteTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::DeleteTable
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2017,7 +2041,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Describes an existing backup of a table.</p>
@@ -2040,57 +2064,57 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DescribeBackupOutput
-    #   resp.backup_description #=> Types::BackupDescription
-    #   resp.backup_description.backup_details #=> Types::BackupDetails
-    #   resp.backup_description.backup_details.backup_arn #=> String
-    #   resp.backup_description.backup_details.backup_name #=> String
-    #   resp.backup_description.backup_details.backup_size_bytes #=> Integer
-    #   resp.backup_description.backup_details.backup_status #=> String, one of CREATING, DELETED, AVAILABLE
-    #   resp.backup_description.backup_details.backup_type #=> String, one of USER, SYSTEM, AWS_BACKUP
-    #   resp.backup_description.backup_details.backup_creation_date_time #=> Time
-    #   resp.backup_description.backup_details.backup_expiry_date_time #=> Time
-    #   resp.backup_description.source_table_details #=> Types::SourceTableDetails
-    #   resp.backup_description.source_table_details.table_name #=> String
-    #   resp.backup_description.source_table_details.table_id #=> String
-    #   resp.backup_description.source_table_details.table_arn #=> String
-    #   resp.backup_description.source_table_details.table_size_bytes #=> Integer
-    #   resp.backup_description.source_table_details.key_schema #=> Array<KeySchemaElement>
-    #   resp.backup_description.source_table_details.key_schema[0] #=> Types::KeySchemaElement
-    #   resp.backup_description.source_table_details.key_schema[0].attribute_name #=> String
-    #   resp.backup_description.source_table_details.key_schema[0].key_type #=> String, one of HASH, RANGE
-    #   resp.backup_description.source_table_details.table_creation_date_time #=> Time
-    #   resp.backup_description.source_table_details.provisioned_throughput #=> Types::ProvisionedThroughput
-    #   resp.backup_description.source_table_details.provisioned_throughput.read_capacity_units #=> Integer
-    #   resp.backup_description.source_table_details.provisioned_throughput.write_capacity_units #=> Integer
-    #   resp.backup_description.source_table_details.item_count #=> Integer
-    #   resp.backup_description.source_table_details.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
-    #   resp.backup_description.source_table_feature_details #=> Types::SourceTableFeatureDetails
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes #=> Array<LocalSecondaryIndexInfo>
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexInfo
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes[0].index_name #=> String
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
-    #   resp.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
-    #   resp.backup_description.source_table_feature_details.global_secondary_indexes #=> Array<GlobalSecondaryIndexInfo>
-    #   resp.backup_description.source_table_feature_details.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexInfo
-    #   resp.backup_description.source_table_feature_details.global_secondary_indexes[0].index_name #=> String
-    #   resp.backup_description.source_table_feature_details.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.backup_description.source_table_feature_details.global_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.backup_description.source_table_feature_details.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughput
-    #   resp.backup_description.source_table_feature_details.stream_description #=> Types::StreamSpecification
-    #   resp.backup_description.source_table_feature_details.stream_description.stream_enabled #=> Boolean
-    #   resp.backup_description.source_table_feature_details.stream_description.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
-    #   resp.backup_description.source_table_feature_details.time_to_live_description #=> Types::TimeToLiveDescription
-    #   resp.backup_description.source_table_feature_details.time_to_live_description.time_to_live_status #=> String, one of ENABLING, DISABLING, ENABLED, DISABLED
-    #   resp.backup_description.source_table_feature_details.time_to_live_description.attribute_name #=> String
-    #   resp.backup_description.source_table_feature_details.sse_description #=> Types::SSEDescription
-    #   resp.backup_description.source_table_feature_details.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.backup_description.source_table_feature_details.sse_description.sse_type #=> String, one of AES256, KMS
-    #   resp.backup_description.source_table_feature_details.sse_description.kms_master_key_arn #=> String
-    #   resp.backup_description.source_table_feature_details.sse_description.inaccessible_encryption_date_time #=> Time
+    #   resp.data #=> Types::DescribeBackupOutput
+    #   resp.data.backup_description #=> Types::BackupDescription
+    #   resp.data.backup_description.backup_details #=> Types::BackupDetails
+    #   resp.data.backup_description.backup_details.backup_arn #=> String
+    #   resp.data.backup_description.backup_details.backup_name #=> String
+    #   resp.data.backup_description.backup_details.backup_size_bytes #=> Integer
+    #   resp.data.backup_description.backup_details.backup_status #=> String, one of CREATING, DELETED, AVAILABLE
+    #   resp.data.backup_description.backup_details.backup_type #=> String, one of USER, SYSTEM, AWS_BACKUP
+    #   resp.data.backup_description.backup_details.backup_creation_date_time #=> Time
+    #   resp.data.backup_description.backup_details.backup_expiry_date_time #=> Time
+    #   resp.data.backup_description.source_table_details #=> Types::SourceTableDetails
+    #   resp.data.backup_description.source_table_details.table_name #=> String
+    #   resp.data.backup_description.source_table_details.table_id #=> String
+    #   resp.data.backup_description.source_table_details.table_arn #=> String
+    #   resp.data.backup_description.source_table_details.table_size_bytes #=> Integer
+    #   resp.data.backup_description.source_table_details.key_schema #=> Array<KeySchemaElement>
+    #   resp.data.backup_description.source_table_details.key_schema[0] #=> Types::KeySchemaElement
+    #   resp.data.backup_description.source_table_details.key_schema[0].attribute_name #=> String
+    #   resp.data.backup_description.source_table_details.key_schema[0].key_type #=> String, one of HASH, RANGE
+    #   resp.data.backup_description.source_table_details.table_creation_date_time #=> Time
+    #   resp.data.backup_description.source_table_details.provisioned_throughput #=> Types::ProvisionedThroughput
+    #   resp.data.backup_description.source_table_details.provisioned_throughput.read_capacity_units #=> Integer
+    #   resp.data.backup_description.source_table_details.provisioned_throughput.write_capacity_units #=> Integer
+    #   resp.data.backup_description.source_table_details.item_count #=> Integer
+    #   resp.data.backup_description.source_table_details.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.backup_description.source_table_feature_details #=> Types::SourceTableFeatureDetails
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes #=> Array<LocalSecondaryIndexInfo>
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexInfo
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].index_name #=> String
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
+    #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes #=> Array<GlobalSecondaryIndexInfo>
+    #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexInfo
+    #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes[0].index_name #=> String
+    #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughput
+    #   resp.data.backup_description.source_table_feature_details.stream_description #=> Types::StreamSpecification
+    #   resp.data.backup_description.source_table_feature_details.stream_description.stream_enabled #=> Boolean
+    #   resp.data.backup_description.source_table_feature_details.stream_description.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.backup_description.source_table_feature_details.time_to_live_description #=> Types::TimeToLiveDescription
+    #   resp.data.backup_description.source_table_feature_details.time_to_live_description.time_to_live_status #=> String, one of ENABLING, DISABLING, ENABLED, DISABLED
+    #   resp.data.backup_description.source_table_feature_details.time_to_live_description.attribute_name #=> String
+    #   resp.data.backup_description.source_table_feature_details.sse_description #=> Types::SSEDescription
+    #   resp.data.backup_description.source_table_feature_details.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
+    #   resp.data.backup_description.source_table_feature_details.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.backup_description.source_table_feature_details.sse_description.kms_master_key_arn #=> String
+    #   resp.data.backup_description.source_table_feature_details.sse_description.inaccessible_encryption_date_time #=> Time
     #
     def describe_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2100,13 +2124,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeBackup
+        builder: Builders::DescribeBackup,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException]),
         data_parser: Parsers::DescribeBackup
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2127,7 +2153,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Checks the status of continuous backups and point in time recovery on the specified
@@ -2160,13 +2186,13 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DescribeContinuousBackupsOutput
-    #   resp.continuous_backups_description #=> Types::ContinuousBackupsDescription
-    #   resp.continuous_backups_description.continuous_backups_status #=> String, one of ENABLED, DISABLED
-    #   resp.continuous_backups_description.point_in_time_recovery_description #=> Types::PointInTimeRecoveryDescription
-    #   resp.continuous_backups_description.point_in_time_recovery_description.point_in_time_recovery_status #=> String, one of ENABLED, DISABLED
-    #   resp.continuous_backups_description.point_in_time_recovery_description.earliest_restorable_date_time #=> Time
-    #   resp.continuous_backups_description.point_in_time_recovery_description.latest_restorable_date_time #=> Time
+    #   resp.data #=> Types::DescribeContinuousBackupsOutput
+    #   resp.data.continuous_backups_description #=> Types::ContinuousBackupsDescription
+    #   resp.data.continuous_backups_description.continuous_backups_status #=> String, one of ENABLED, DISABLED
+    #   resp.data.continuous_backups_description.point_in_time_recovery_description #=> Types::PointInTimeRecoveryDescription
+    #   resp.data.continuous_backups_description.point_in_time_recovery_description.point_in_time_recovery_status #=> String, one of ENABLED, DISABLED
+    #   resp.data.continuous_backups_description.point_in_time_recovery_description.earliest_restorable_date_time #=> Time
+    #   resp.data.continuous_backups_description.point_in_time_recovery_description.latest_restorable_date_time #=> Time
     #
     def describe_continuous_backups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2176,13 +2202,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeContinuousBackups
+        builder: Builders::DescribeContinuousBackups,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException]),
         data_parser: Parsers::DescribeContinuousBackups
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2203,7 +2231,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Returns information about contributor insights, for a given table or global secondary
@@ -2229,16 +2257,16 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DescribeContributorInsightsOutput
-    #   resp.table_name #=> String
-    #   resp.index_name #=> String
-    #   resp.contributor_insights_rule_list #=> Array<String>
-    #   resp.contributor_insights_rule_list[0] #=> String
-    #   resp.contributor_insights_status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, FAILED
-    #   resp.last_update_date_time #=> Time
-    #   resp.failure_exception #=> Types::FailureException
-    #   resp.failure_exception.exception_name #=> String
-    #   resp.failure_exception.exception_description #=> String
+    #   resp.data #=> Types::DescribeContributorInsightsOutput
+    #   resp.data.table_name #=> String
+    #   resp.data.index_name #=> String
+    #   resp.data.contributor_insights_rule_list #=> Array<String>
+    #   resp.data.contributor_insights_rule_list[0] #=> String
+    #   resp.data.contributor_insights_status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, FAILED
+    #   resp.data.last_update_date_time #=> Time
+    #   resp.data.failure_exception #=> Types::FailureException
+    #   resp.data.failure_exception.exception_name #=> String
+    #   resp.data.failure_exception.exception_description #=> String
     #
     def describe_contributor_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2248,13 +2276,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeContributorInsights
+        builder: Builders::DescribeContributorInsights,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeContributorInsights
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2275,7 +2305,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Returns the regional endpoint information.</p>
@@ -2291,11 +2321,11 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DescribeEndpointsOutput
-    #   resp.endpoints #=> Array<Endpoint>
-    #   resp.endpoints[0] #=> Types::Endpoint
-    #   resp.endpoints[0].address #=> String
-    #   resp.endpoints[0].cache_period_in_minutes #=> Integer
+    #   resp.data #=> Types::DescribeEndpointsOutput
+    #   resp.data.endpoints #=> Array<Endpoint>
+    #   resp.data.endpoints[0] #=> Types::Endpoint
+    #   resp.data.endpoints[0].address #=> String
+    #   resp.data.endpoints[0].cache_period_in_minutes #=> Integer
     #
     def describe_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2305,13 +2335,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeEndpoints
+        builder: Builders::DescribeEndpoints,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: []),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeEndpoints
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2332,7 +2364,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Describes an existing table export.</p>
@@ -2353,27 +2385,27 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DescribeExportOutput
-    #   resp.export_description #=> Types::ExportDescription
-    #   resp.export_description.export_arn #=> String
-    #   resp.export_description.export_status #=> String, one of IN_PROGRESS, COMPLETED, FAILED
-    #   resp.export_description.start_time #=> Time
-    #   resp.export_description.end_time #=> Time
-    #   resp.export_description.export_manifest #=> String
-    #   resp.export_description.table_arn #=> String
-    #   resp.export_description.table_id #=> String
-    #   resp.export_description.export_time #=> Time
-    #   resp.export_description.client_token #=> String
-    #   resp.export_description.s3_bucket #=> String
-    #   resp.export_description.s3_bucket_owner #=> String
-    #   resp.export_description.s3_prefix #=> String
-    #   resp.export_description.s3_sse_algorithm #=> String, one of AES256, KMS
-    #   resp.export_description.s3_sse_kms_key_id #=> String
-    #   resp.export_description.failure_code #=> String
-    #   resp.export_description.failure_message #=> String
-    #   resp.export_description.export_format #=> String, one of DYNAMODB_JSON, ION
-    #   resp.export_description.billed_size_bytes #=> Integer
-    #   resp.export_description.item_count #=> Integer
+    #   resp.data #=> Types::DescribeExportOutput
+    #   resp.data.export_description #=> Types::ExportDescription
+    #   resp.data.export_description.export_arn #=> String
+    #   resp.data.export_description.export_status #=> String, one of IN_PROGRESS, COMPLETED, FAILED
+    #   resp.data.export_description.start_time #=> Time
+    #   resp.data.export_description.end_time #=> Time
+    #   resp.data.export_description.export_manifest #=> String
+    #   resp.data.export_description.table_arn #=> String
+    #   resp.data.export_description.table_id #=> String
+    #   resp.data.export_description.export_time #=> Time
+    #   resp.data.export_description.client_token #=> String
+    #   resp.data.export_description.s3_bucket #=> String
+    #   resp.data.export_description.s3_bucket_owner #=> String
+    #   resp.data.export_description.s3_prefix #=> String
+    #   resp.data.export_description.s3_sse_algorithm #=> String, one of AES256, KMS
+    #   resp.data.export_description.s3_sse_kms_key_id #=> String
+    #   resp.data.export_description.failure_code #=> String
+    #   resp.data.export_description.failure_message #=> String
+    #   resp.data.export_description.export_format #=> String, one of DYNAMODB_JSON, ION
+    #   resp.data.export_description.billed_size_bytes #=> Integer
+    #   resp.data.export_description.item_count #=> Integer
     #
     def describe_export(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2383,13 +2415,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeExport
+        builder: Builders::DescribeExport,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::LimitExceededException, Errors::ExportNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::LimitExceededException, Errors::ExportNotFoundException]),
         data_parser: Parsers::DescribeExport
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2410,7 +2444,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Returns information about the specified global table.</p>
@@ -2436,29 +2470,29 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DescribeGlobalTableOutput
-    #   resp.global_table_description #=> Types::GlobalTableDescription
-    #   resp.global_table_description.replication_group #=> Array<ReplicaDescription>
-    #   resp.global_table_description.replication_group[0] #=> Types::ReplicaDescription
-    #   resp.global_table_description.replication_group[0].region_name #=> String
-    #   resp.global_table_description.replication_group[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
-    #   resp.global_table_description.replication_group[0].replica_status_description #=> String
-    #   resp.global_table_description.replication_group[0].replica_status_percent_progress #=> String
-    #   resp.global_table_description.replication_group[0].kms_master_key_id #=> String
-    #   resp.global_table_description.replication_group[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.global_table_description.replication_group[0].provisioned_throughput_override.read_capacity_units #=> Integer
-    #   resp.global_table_description.replication_group[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
-    #   resp.global_table_description.replication_group[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
-    #   resp.global_table_description.replication_group[0].global_secondary_indexes[0].index_name #=> String
-    #   resp.global_table_description.replication_group[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.global_table_description.replication_group[0].replica_inaccessible_date_time #=> Time
-    #   resp.global_table_description.replication_group[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.global_table_description.replication_group[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
-    #   resp.global_table_description.replication_group[0].replica_table_class_summary.last_update_date_time #=> Time
-    #   resp.global_table_description.global_table_arn #=> String
-    #   resp.global_table_description.creation_date_time #=> Time
-    #   resp.global_table_description.global_table_status #=> String, one of CREATING, ACTIVE, DELETING, UPDATING
-    #   resp.global_table_description.global_table_name #=> String
+    #   resp.data #=> Types::DescribeGlobalTableOutput
+    #   resp.data.global_table_description #=> Types::GlobalTableDescription
+    #   resp.data.global_table_description.replication_group #=> Array<ReplicaDescription>
+    #   resp.data.global_table_description.replication_group[0] #=> Types::ReplicaDescription
+    #   resp.data.global_table_description.replication_group[0].region_name #=> String
+    #   resp.data.global_table_description.replication_group[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.global_table_description.replication_group[0].replica_status_description #=> String
+    #   resp.data.global_table_description.replication_group[0].replica_status_percent_progress #=> String
+    #   resp.data.global_table_description.replication_group[0].kms_master_key_id #=> String
+    #   resp.data.global_table_description.replication_group[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.global_table_description.replication_group[0].provisioned_throughput_override.read_capacity_units #=> Integer
+    #   resp.data.global_table_description.replication_group[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
+    #   resp.data.global_table_description.replication_group[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
+    #   resp.data.global_table_description.replication_group[0].global_secondary_indexes[0].index_name #=> String
+    #   resp.data.global_table_description.replication_group[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.global_table_description.replication_group[0].replica_inaccessible_date_time #=> Time
+    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary #=> Types::TableClassSummary
+    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.last_update_date_time #=> Time
+    #   resp.data.global_table_description.global_table_arn #=> String
+    #   resp.data.global_table_description.creation_date_time #=> Time
+    #   resp.data.global_table_description.global_table_status #=> String, one of CREATING, ACTIVE, DELETING, UPDATING
+    #   resp.data.global_table_description.global_table_name #=> String
     #
     def describe_global_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2468,13 +2502,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeGlobalTable
+        builder: Builders::DescribeGlobalTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]),
         data_parser: Parsers::DescribeGlobalTable
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2495,7 +2531,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Describes Region-specific settings for a global table.</p>
@@ -2520,42 +2556,42 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DescribeGlobalTableSettingsOutput
-    #   resp.global_table_name #=> String
-    #   resp.replica_settings #=> Array<ReplicaSettingsDescription>
-    #   resp.replica_settings[0] #=> Types::ReplicaSettingsDescription
-    #   resp.replica_settings[0].region_name #=> String
-    #   resp.replica_settings[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
-    #   resp.replica_settings[0].replica_billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.replica_settings[0].replica_billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
-    #   resp.replica_settings[0].replica_billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_units #=> Integer
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.minimum_units #=> Integer
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.maximum_units #=> Integer
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.auto_scaling_disabled #=> Boolean
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.auto_scaling_role_arn #=> String
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies #=> Array<AutoScalingPolicyDescription>
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0] #=> Types::AutoScalingPolicyDescription
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].policy_name #=> String
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration #=> Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.disable_scale_in #=> Boolean
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_in_cooldown #=> Integer
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_out_cooldown #=> Integer
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.target_value #=> Float
-    #   resp.replica_settings[0].replica_provisioned_write_capacity_units #=> Integer
-    #   resp.replica_settings[0].replica_provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.replica_settings[0].replica_global_secondary_index_settings #=> Array<ReplicaGlobalSecondaryIndexSettingsDescription>
-    #   resp.replica_settings[0].replica_global_secondary_index_settings[0] #=> Types::ReplicaGlobalSecondaryIndexSettingsDescription
-    #   resp.replica_settings[0].replica_global_secondary_index_settings[0].index_name #=> String
-    #   resp.replica_settings[0].replica_global_secondary_index_settings[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
-    #   resp.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_read_capacity_units #=> Integer
-    #   resp.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_write_capacity_units #=> Integer
-    #   resp.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.replica_settings[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.replica_settings[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
-    #   resp.replica_settings[0].replica_table_class_summary.last_update_date_time #=> Time
+    #   resp.data #=> Types::DescribeGlobalTableSettingsOutput
+    #   resp.data.global_table_name #=> String
+    #   resp.data.replica_settings #=> Array<ReplicaSettingsDescription>
+    #   resp.data.replica_settings[0] #=> Types::ReplicaSettingsDescription
+    #   resp.data.replica_settings[0].region_name #=> String
+    #   resp.data.replica_settings[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.replica_settings[0].replica_billing_mode_summary #=> Types::BillingModeSummary
+    #   resp.data.replica_settings[0].replica_billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.replica_settings[0].replica_billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_units #=> Integer
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.minimum_units #=> Integer
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.maximum_units #=> Integer
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.auto_scaling_disabled #=> Boolean
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.auto_scaling_role_arn #=> String
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies #=> Array<AutoScalingPolicyDescription>
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0] #=> Types::AutoScalingPolicyDescription
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].policy_name #=> String
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration #=> Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.disable_scale_in #=> Boolean
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_in_cooldown #=> Integer
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_out_cooldown #=> Integer
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.target_value #=> Float
+    #   resp.data.replica_settings[0].replica_provisioned_write_capacity_units #=> Integer
+    #   resp.data.replica_settings[0].replica_provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings #=> Array<ReplicaGlobalSecondaryIndexSettingsDescription>
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0] #=> Types::ReplicaGlobalSecondaryIndexSettingsDescription
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].index_name #=> String
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_read_capacity_units #=> Integer
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_write_capacity_units #=> Integer
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.replica_settings[0].replica_table_class_summary #=> Types::TableClassSummary
+    #   resp.data.replica_settings[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.replica_settings[0].replica_table_class_summary.last_update_date_time #=> Time
     #
     def describe_global_table_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2565,13 +2601,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeGlobalTableSettings
+        builder: Builders::DescribeGlobalTableSettings,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]),
         data_parser: Parsers::DescribeGlobalTableSettings
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2592,7 +2630,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Returns information about the status of Kinesis streaming.</p>
@@ -2613,13 +2651,13 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DescribeKinesisStreamingDestinationOutput
-    #   resp.table_name #=> String
-    #   resp.kinesis_data_stream_destinations #=> Array<KinesisDataStreamDestination>
-    #   resp.kinesis_data_stream_destinations[0] #=> Types::KinesisDataStreamDestination
-    #   resp.kinesis_data_stream_destinations[0].stream_arn #=> String
-    #   resp.kinesis_data_stream_destinations[0].destination_status #=> String, one of ENABLING, ACTIVE, DISABLING, DISABLED, ENABLE_FAILED
-    #   resp.kinesis_data_stream_destinations[0].destination_status_description #=> String
+    #   resp.data #=> Types::DescribeKinesisStreamingDestinationOutput
+    #   resp.data.table_name #=> String
+    #   resp.data.kinesis_data_stream_destinations #=> Array<KinesisDataStreamDestination>
+    #   resp.data.kinesis_data_stream_destinations[0] #=> Types::KinesisDataStreamDestination
+    #   resp.data.kinesis_data_stream_destinations[0].stream_arn #=> String
+    #   resp.data.kinesis_data_stream_destinations[0].destination_status #=> String, one of ENABLING, ACTIVE, DISABLING, DISABLED, ENABLE_FAILED
+    #   resp.data.kinesis_data_stream_destinations[0].destination_status_description #=> String
     #
     def describe_kinesis_streaming_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2629,13 +2667,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeKinesisStreamingDestination
+        builder: Builders::DescribeKinesisStreamingDestination,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeKinesisStreamingDestination
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2656,7 +2696,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Returns the current provisioned-capacity quotas for your Amazon Web Services account in
@@ -2745,11 +2785,11 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DescribeLimitsOutput
-    #   resp.account_max_read_capacity_units #=> Integer
-    #   resp.account_max_write_capacity_units #=> Integer
-    #   resp.table_max_read_capacity_units #=> Integer
-    #   resp.table_max_write_capacity_units #=> Integer
+    #   resp.data #=> Types::DescribeLimitsOutput
+    #   resp.data.account_max_read_capacity_units #=> Integer
+    #   resp.data.account_max_write_capacity_units #=> Integer
+    #   resp.data.table_max_read_capacity_units #=> Integer
+    #   resp.data.table_max_write_capacity_units #=> Integer
     #
     def describe_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2759,13 +2799,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeLimits
+        builder: Builders::DescribeLimits,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
         data_parser: Parsers::DescribeLimits
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2786,7 +2828,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Returns information about the table, including the current status of the table, when
@@ -2816,92 +2858,92 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DescribeTableOutput
-    #   resp.table #=> Types::TableDescription
-    #   resp.table.attribute_definitions #=> Array<AttributeDefinition>
-    #   resp.table.attribute_definitions[0] #=> Types::AttributeDefinition
-    #   resp.table.attribute_definitions[0].attribute_name #=> String
-    #   resp.table.attribute_definitions[0].attribute_type #=> String, one of S, N, B
-    #   resp.table.table_name #=> String
-    #   resp.table.key_schema #=> Array<KeySchemaElement>
-    #   resp.table.key_schema[0] #=> Types::KeySchemaElement
-    #   resp.table.key_schema[0].attribute_name #=> String
-    #   resp.table.key_schema[0].key_type #=> String, one of HASH, RANGE
-    #   resp.table.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
-    #   resp.table.creation_date_time #=> Time
-    #   resp.table.provisioned_throughput #=> Types::ProvisionedThroughputDescription
-    #   resp.table.provisioned_throughput.last_increase_date_time #=> Time
-    #   resp.table.provisioned_throughput.last_decrease_date_time #=> Time
-    #   resp.table.provisioned_throughput.number_of_decreases_today #=> Integer
-    #   resp.table.provisioned_throughput.read_capacity_units #=> Integer
-    #   resp.table.provisioned_throughput.write_capacity_units #=> Integer
-    #   resp.table.table_size_bytes #=> Integer
-    #   resp.table.item_count #=> Integer
-    #   resp.table.table_arn #=> String
-    #   resp.table.table_id #=> String
-    #   resp.table.billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.table.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
-    #   resp.table.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
-    #   resp.table.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
-    #   resp.table.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
-    #   resp.table.local_secondary_indexes[0].index_name #=> String
-    #   resp.table.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.table.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.table.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
-    #   resp.table.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
-    #   resp.table.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
-    #   resp.table.local_secondary_indexes[0].index_size_bytes #=> Integer
-    #   resp.table.local_secondary_indexes[0].item_count #=> Integer
-    #   resp.table.local_secondary_indexes[0].index_arn #=> String
-    #   resp.table.global_secondary_indexes #=> Array<GlobalSecondaryIndexDescription>
-    #   resp.table.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexDescription
-    #   resp.table.global_secondary_indexes[0].index_name #=> String
-    #   resp.table.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.table.global_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.table.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
-    #   resp.table.global_secondary_indexes[0].backfilling #=> Boolean
-    #   resp.table.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
-    #   resp.table.global_secondary_indexes[0].index_size_bytes #=> Integer
-    #   resp.table.global_secondary_indexes[0].item_count #=> Integer
-    #   resp.table.global_secondary_indexes[0].index_arn #=> String
-    #   resp.table.stream_specification #=> Types::StreamSpecification
-    #   resp.table.stream_specification.stream_enabled #=> Boolean
-    #   resp.table.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
-    #   resp.table.latest_stream_label #=> String
-    #   resp.table.latest_stream_arn #=> String
-    #   resp.table.global_table_version #=> String
-    #   resp.table.replicas #=> Array<ReplicaDescription>
-    #   resp.table.replicas[0] #=> Types::ReplicaDescription
-    #   resp.table.replicas[0].region_name #=> String
-    #   resp.table.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
-    #   resp.table.replicas[0].replica_status_description #=> String
-    #   resp.table.replicas[0].replica_status_percent_progress #=> String
-    #   resp.table.replicas[0].kms_master_key_id #=> String
-    #   resp.table.replicas[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.table.replicas[0].provisioned_throughput_override.read_capacity_units #=> Integer
-    #   resp.table.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
-    #   resp.table.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
-    #   resp.table.replicas[0].global_secondary_indexes[0].index_name #=> String
-    #   resp.table.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.table.replicas[0].replica_inaccessible_date_time #=> Time
-    #   resp.table.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.table.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
-    #   resp.table.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
-    #   resp.table.restore_summary #=> Types::RestoreSummary
-    #   resp.table.restore_summary.source_backup_arn #=> String
-    #   resp.table.restore_summary.source_table_arn #=> String
-    #   resp.table.restore_summary.restore_date_time #=> Time
-    #   resp.table.restore_summary.restore_in_progress #=> Boolean
-    #   resp.table.sse_description #=> Types::SSEDescription
-    #   resp.table.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.table.sse_description.sse_type #=> String, one of AES256, KMS
-    #   resp.table.sse_description.kms_master_key_arn #=> String
-    #   resp.table.sse_description.inaccessible_encryption_date_time #=> Time
-    #   resp.table.archival_summary #=> Types::ArchivalSummary
-    #   resp.table.archival_summary.archival_date_time #=> Time
-    #   resp.table.archival_summary.archival_reason #=> String
-    #   resp.table.archival_summary.archival_backup_arn #=> String
-    #   resp.table.table_class_summary #=> Types::TableClassSummary
+    #   resp.data #=> Types::DescribeTableOutput
+    #   resp.data.table #=> Types::TableDescription
+    #   resp.data.table.attribute_definitions #=> Array<AttributeDefinition>
+    #   resp.data.table.attribute_definitions[0] #=> Types::AttributeDefinition
+    #   resp.data.table.attribute_definitions[0].attribute_name #=> String
+    #   resp.data.table.attribute_definitions[0].attribute_type #=> String, one of S, N, B
+    #   resp.data.table.table_name #=> String
+    #   resp.data.table.key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table.key_schema[0] #=> Types::KeySchemaElement
+    #   resp.data.table.key_schema[0].attribute_name #=> String
+    #   resp.data.table.key_schema[0].key_type #=> String, one of HASH, RANGE
+    #   resp.data.table.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table.creation_date_time #=> Time
+    #   resp.data.table.provisioned_throughput #=> Types::ProvisionedThroughputDescription
+    #   resp.data.table.provisioned_throughput.last_increase_date_time #=> Time
+    #   resp.data.table.provisioned_throughput.last_decrease_date_time #=> Time
+    #   resp.data.table.provisioned_throughput.number_of_decreases_today #=> Integer
+    #   resp.data.table.provisioned_throughput.read_capacity_units #=> Integer
+    #   resp.data.table.provisioned_throughput.write_capacity_units #=> Integer
+    #   resp.data.table.table_size_bytes #=> Integer
+    #   resp.data.table.item_count #=> Integer
+    #   resp.data.table.table_arn #=> String
+    #   resp.data.table.table_id #=> String
+    #   resp.data.table.billing_mode_summary #=> Types::BillingModeSummary
+    #   resp.data.table.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.table.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
+    #   resp.data.table.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
+    #   resp.data.table.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
+    #   resp.data.table.local_secondary_indexes[0].index_name #=> String
+    #   resp.data.table.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table.local_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.table.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.table.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
+    #   resp.data.table.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
+    #   resp.data.table.local_secondary_indexes[0].index_size_bytes #=> Integer
+    #   resp.data.table.local_secondary_indexes[0].item_count #=> Integer
+    #   resp.data.table.local_secondary_indexes[0].index_arn #=> String
+    #   resp.data.table.global_secondary_indexes #=> Array<GlobalSecondaryIndexDescription>
+    #   resp.data.table.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexDescription
+    #   resp.data.table.global_secondary_indexes[0].index_name #=> String
+    #   resp.data.table.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table.global_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.table.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table.global_secondary_indexes[0].backfilling #=> Boolean
+    #   resp.data.table.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
+    #   resp.data.table.global_secondary_indexes[0].index_size_bytes #=> Integer
+    #   resp.data.table.global_secondary_indexes[0].item_count #=> Integer
+    #   resp.data.table.global_secondary_indexes[0].index_arn #=> String
+    #   resp.data.table.stream_specification #=> Types::StreamSpecification
+    #   resp.data.table.stream_specification.stream_enabled #=> Boolean
+    #   resp.data.table.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.table.latest_stream_label #=> String
+    #   resp.data.table.latest_stream_arn #=> String
+    #   resp.data.table.global_table_version #=> String
+    #   resp.data.table.replicas #=> Array<ReplicaDescription>
+    #   resp.data.table.replicas[0] #=> Types::ReplicaDescription
+    #   resp.data.table.replicas[0].region_name #=> String
+    #   resp.data.table.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.table.replicas[0].replica_status_description #=> String
+    #   resp.data.table.replicas[0].replica_status_percent_progress #=> String
+    #   resp.data.table.replicas[0].kms_master_key_id #=> String
+    #   resp.data.table.replicas[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.table.replicas[0].provisioned_throughput_override.read_capacity_units #=> Integer
+    #   resp.data.table.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
+    #   resp.data.table.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
+    #   resp.data.table.replicas[0].global_secondary_indexes[0].index_name #=> String
+    #   resp.data.table.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.table.replicas[0].replica_inaccessible_date_time #=> Time
+    #   resp.data.table.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
+    #   resp.data.table.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.table.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
+    #   resp.data.table.restore_summary #=> Types::RestoreSummary
+    #   resp.data.table.restore_summary.source_backup_arn #=> String
+    #   resp.data.table.restore_summary.source_table_arn #=> String
+    #   resp.data.table.restore_summary.restore_date_time #=> Time
+    #   resp.data.table.restore_summary.restore_in_progress #=> Boolean
+    #   resp.data.table.sse_description #=> Types::SSEDescription
+    #   resp.data.table.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
+    #   resp.data.table.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.table.sse_description.kms_master_key_arn #=> String
+    #   resp.data.table.sse_description.inaccessible_encryption_date_time #=> Time
+    #   resp.data.table.archival_summary #=> Types::ArchivalSummary
+    #   resp.data.table.archival_summary.archival_date_time #=> Time
+    #   resp.data.table.archival_summary.archival_reason #=> String
+    #   resp.data.table.archival_summary.archival_backup_arn #=> String
+    #   resp.data.table.table_class_summary #=> Types::TableClassSummary
     #
     def describe_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2911,13 +2953,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTable
+        builder: Builders::DescribeTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeTable
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -2938,7 +2982,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Describes auto scaling settings across replicas of the global table at once.</p>
@@ -2963,34 +3007,34 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DescribeTableReplicaAutoScalingOutput
-    #   resp.table_auto_scaling_description #=> Types::TableAutoScalingDescription
-    #   resp.table_auto_scaling_description.table_name #=> String
-    #   resp.table_auto_scaling_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
-    #   resp.table_auto_scaling_description.replicas #=> Array<ReplicaAutoScalingDescription>
-    #   resp.table_auto_scaling_description.replicas[0] #=> Types::ReplicaAutoScalingDescription
-    #   resp.table_auto_scaling_description.replicas[0].region_name #=> String
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexAutoScalingDescription>
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexAutoScalingDescription
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].index_name #=> String
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.minimum_units #=> Integer
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.maximum_units #=> Integer
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.auto_scaling_disabled #=> Boolean
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.auto_scaling_role_arn #=> String
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies #=> Array<AutoScalingPolicyDescription>
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0] #=> Types::AutoScalingPolicyDescription
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].policy_name #=> String
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration #=> Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.disable_scale_in #=> Boolean
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_in_cooldown #=> Integer
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_out_cooldown #=> Integer
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.target_value #=> Float
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.table_auto_scaling_description.replicas[0].replica_provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.table_auto_scaling_description.replicas[0].replica_provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.table_auto_scaling_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data #=> Types::DescribeTableReplicaAutoScalingOutput
+    #   resp.data.table_auto_scaling_description #=> Types::TableAutoScalingDescription
+    #   resp.data.table_auto_scaling_description.table_name #=> String
+    #   resp.data.table_auto_scaling_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table_auto_scaling_description.replicas #=> Array<ReplicaAutoScalingDescription>
+    #   resp.data.table_auto_scaling_description.replicas[0] #=> Types::ReplicaAutoScalingDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].region_name #=> String
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexAutoScalingDescription>
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexAutoScalingDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.minimum_units #=> Integer
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.maximum_units #=> Integer
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.auto_scaling_disabled #=> Boolean
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.auto_scaling_role_arn #=> String
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies #=> Array<AutoScalingPolicyDescription>
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0] #=> Types::AutoScalingPolicyDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].policy_name #=> String
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration #=> Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.disable_scale_in #=> Boolean
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_in_cooldown #=> Integer
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_out_cooldown #=> Integer
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.target_value #=> Float
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].replica_provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].replica_provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
     #
     def describe_table_replica_auto_scaling(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3000,13 +3044,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTableReplicaAutoScaling
+        builder: Builders::DescribeTableReplicaAutoScaling,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeTableReplicaAutoScaling
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3027,7 +3073,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Gives a description of the Time to Live (TTL) status on the specified table. </p>
@@ -3048,10 +3094,10 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DescribeTimeToLiveOutput
-    #   resp.time_to_live_description #=> Types::TimeToLiveDescription
-    #   resp.time_to_live_description.time_to_live_status #=> String, one of ENABLING, DISABLING, ENABLED, DISABLED
-    #   resp.time_to_live_description.attribute_name #=> String
+    #   resp.data #=> Types::DescribeTimeToLiveOutput
+    #   resp.data.time_to_live_description #=> Types::TimeToLiveDescription
+    #   resp.data.time_to_live_description.time_to_live_status #=> String, one of ENABLING, DISABLING, ENABLED, DISABLED
+    #   resp.data.time_to_live_description.attribute_name #=> String
     #
     def describe_time_to_live(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3061,13 +3107,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTimeToLive
+        builder: Builders::DescribeTimeToLive,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeTimeToLive
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3088,7 +3136,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Stops replication from the DynamoDB table to the Kinesis data stream. This is done
@@ -3114,10 +3162,10 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::DisableKinesisStreamingDestinationOutput
-    #   resp.table_name #=> String
-    #   resp.stream_arn #=> String
-    #   resp.destination_status #=> String, one of ENABLING, ACTIVE, DISABLING, DISABLED, ENABLE_FAILED
+    #   resp.data #=> Types::DisableKinesisStreamingDestinationOutput
+    #   resp.data.table_name #=> String
+    #   resp.data.stream_arn #=> String
+    #   resp.data.destination_status #=> String, one of ENABLING, ACTIVE, DISABLING, DISABLED, ENABLE_FAILED
     #
     def disable_kinesis_streaming_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3127,13 +3175,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisableKinesisStreamingDestination
+        builder: Builders::DisableKinesisStreamingDestination,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::DisableKinesisStreamingDestination
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3154,7 +3204,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Starts table data replication to the specified Kinesis data stream at a timestamp
@@ -3182,10 +3232,10 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::EnableKinesisStreamingDestinationOutput
-    #   resp.table_name #=> String
-    #   resp.stream_arn #=> String
-    #   resp.destination_status #=> String, one of ENABLING, ACTIVE, DISABLING, DISABLED, ENABLE_FAILED
+    #   resp.data #=> Types::EnableKinesisStreamingDestinationOutput
+    #   resp.data.table_name #=> String
+    #   resp.data.stream_arn #=> String
+    #   resp.data.destination_status #=> String, one of ENABLING, ACTIVE, DISABLING, DISABLED, ENABLE_FAILED
     #
     def enable_kinesis_streaming_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3195,13 +3245,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableKinesisStreamingDestination
+        builder: Builders::EnableKinesisStreamingDestination,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::EnableKinesisStreamingDestination
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3222,7 +3274,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>This operation allows you to perform reads and singleton writes on data stored in
@@ -3304,22 +3356,22 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::ExecuteStatementOutput
-    #   resp.items #=> Array<Hash<String, AttributeValue>>
-    #   resp.items[0] #=> Hash<String, AttributeValue>
-    #   resp.items[0]['key'] #=> AttributeValue
-    #   resp.next_token #=> String
-    #   resp.consumed_capacity #=> Types::ConsumedCapacity
-    #   resp.consumed_capacity.table_name #=> String
-    #   resp.consumed_capacity.capacity_units #=> Float
-    #   resp.consumed_capacity.read_capacity_units #=> Float
-    #   resp.consumed_capacity.write_capacity_units #=> Float
-    #   resp.consumed_capacity.table #=> Types::Capacity
-    #   resp.consumed_capacity.table.read_capacity_units #=> Float
-    #   resp.consumed_capacity.table.write_capacity_units #=> Float
-    #   resp.consumed_capacity.table.capacity_units #=> Float
-    #   resp.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data #=> Types::ExecuteStatementOutput
+    #   resp.data.items #=> Array<Hash<String, AttributeValue>>
+    #   resp.data.items[0] #=> Hash<String, AttributeValue>
+    #   resp.data.items[0]['key'] #=> AttributeValue
+    #   resp.data.next_token #=> String
+    #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
+    #   resp.data.consumed_capacity.table_name #=> String
+    #   resp.data.consumed_capacity.capacity_units #=> Float
+    #   resp.data.consumed_capacity.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table #=> Types::Capacity
+    #   resp.data.consumed_capacity.table.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table.capacity_units #=> Float
+    #   resp.data.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
     #
     def execute_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3329,13 +3381,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ExecuteStatement
+        builder: Builders::ExecuteStatement,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::DuplicateItemException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::DuplicateItemException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::ExecuteStatement
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3356,7 +3410,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>This operation allows you to perform transactional reads or writes on data stored in
@@ -3417,23 +3471,23 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::ExecuteTransactionOutput
-    #   resp.responses #=> Array<ItemResponse>
-    #   resp.responses[0] #=> Types::ItemResponse
-    #   resp.responses[0].item #=> Hash<String, AttributeValue>
-    #   resp.responses[0].item['key'] #=> AttributeValue
-    #   resp.consumed_capacity #=> Array<ConsumedCapacity>
-    #   resp.consumed_capacity[0] #=> Types::ConsumedCapacity
-    #   resp.consumed_capacity[0].table_name #=> String
-    #   resp.consumed_capacity[0].capacity_units #=> Float
-    #   resp.consumed_capacity[0].read_capacity_units #=> Float
-    #   resp.consumed_capacity[0].write_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table #=> Types::Capacity
-    #   resp.consumed_capacity[0].table.read_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table.write_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table.capacity_units #=> Float
-    #   resp.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data #=> Types::ExecuteTransactionOutput
+    #   resp.data.responses #=> Array<ItemResponse>
+    #   resp.data.responses[0] #=> Types::ItemResponse
+    #   resp.data.responses[0].item #=> Hash<String, AttributeValue>
+    #   resp.data.responses[0].item['key'] #=> AttributeValue
+    #   resp.data.consumed_capacity #=> Array<ConsumedCapacity>
+    #   resp.data.consumed_capacity[0] #=> Types::ConsumedCapacity
+    #   resp.data.consumed_capacity[0].table_name #=> String
+    #   resp.data.consumed_capacity[0].capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].read_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].write_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table #=> Types::Capacity
+    #   resp.data.consumed_capacity[0].table.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table.capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
     #
     def execute_transaction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3443,13 +3497,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ExecuteTransaction
+        builder: Builders::ExecuteTransaction,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]),
         data_parser: Parsers::ExecuteTransaction
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3470,7 +3526,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Exports table data to an S3 bucket. The table must have point in time recovery
@@ -3552,27 +3608,27 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::ExportTableToPointInTimeOutput
-    #   resp.export_description #=> Types::ExportDescription
-    #   resp.export_description.export_arn #=> String
-    #   resp.export_description.export_status #=> String, one of IN_PROGRESS, COMPLETED, FAILED
-    #   resp.export_description.start_time #=> Time
-    #   resp.export_description.end_time #=> Time
-    #   resp.export_description.export_manifest #=> String
-    #   resp.export_description.table_arn #=> String
-    #   resp.export_description.table_id #=> String
-    #   resp.export_description.export_time #=> Time
-    #   resp.export_description.client_token #=> String
-    #   resp.export_description.s3_bucket #=> String
-    #   resp.export_description.s3_bucket_owner #=> String
-    #   resp.export_description.s3_prefix #=> String
-    #   resp.export_description.s3_sse_algorithm #=> String, one of AES256, KMS
-    #   resp.export_description.s3_sse_kms_key_id #=> String
-    #   resp.export_description.failure_code #=> String
-    #   resp.export_description.failure_message #=> String
-    #   resp.export_description.export_format #=> String, one of DYNAMODB_JSON, ION
-    #   resp.export_description.billed_size_bytes #=> Integer
-    #   resp.export_description.item_count #=> Integer
+    #   resp.data #=> Types::ExportTableToPointInTimeOutput
+    #   resp.data.export_description #=> Types::ExportDescription
+    #   resp.data.export_description.export_arn #=> String
+    #   resp.data.export_description.export_status #=> String, one of IN_PROGRESS, COMPLETED, FAILED
+    #   resp.data.export_description.start_time #=> Time
+    #   resp.data.export_description.end_time #=> Time
+    #   resp.data.export_description.export_manifest #=> String
+    #   resp.data.export_description.table_arn #=> String
+    #   resp.data.export_description.table_id #=> String
+    #   resp.data.export_description.export_time #=> Time
+    #   resp.data.export_description.client_token #=> String
+    #   resp.data.export_description.s3_bucket #=> String
+    #   resp.data.export_description.s3_bucket_owner #=> String
+    #   resp.data.export_description.s3_prefix #=> String
+    #   resp.data.export_description.s3_sse_algorithm #=> String, one of AES256, KMS
+    #   resp.data.export_description.s3_sse_kms_key_id #=> String
+    #   resp.data.export_description.failure_code #=> String
+    #   resp.data.export_description.failure_message #=> String
+    #   resp.data.export_description.export_format #=> String, one of DYNAMODB_JSON, ION
+    #   resp.data.export_description.billed_size_bytes #=> Integer
+    #   resp.data.export_description.item_count #=> Integer
     #
     def export_table_to_point_in_time(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3582,13 +3638,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ExportTableToPointInTime
+        builder: Builders::ExportTableToPointInTime,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidExportTimeException, Errors::LimitExceededException, Errors::PointInTimeRecoveryUnavailableException, Errors::ExportConflictException, Errors::TableNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidExportTimeException, Errors::LimitExceededException, Errors::PointInTimeRecoveryUnavailableException, Errors::ExportConflictException, Errors::TableNotFoundException]),
         data_parser: Parsers::ExportTableToPointInTime
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3609,7 +3667,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>The <code>GetItem</code> operation returns a set of attributes for the item with the
@@ -3772,20 +3830,20 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::GetItemOutput
-    #   resp.item #=> Hash<String, AttributeValue>
-    #   resp.item['key'] #=> AttributeValue
-    #   resp.consumed_capacity #=> Types::ConsumedCapacity
-    #   resp.consumed_capacity.table_name #=> String
-    #   resp.consumed_capacity.capacity_units #=> Float
-    #   resp.consumed_capacity.read_capacity_units #=> Float
-    #   resp.consumed_capacity.write_capacity_units #=> Float
-    #   resp.consumed_capacity.table #=> Types::Capacity
-    #   resp.consumed_capacity.table.read_capacity_units #=> Float
-    #   resp.consumed_capacity.table.write_capacity_units #=> Float
-    #   resp.consumed_capacity.table.capacity_units #=> Float
-    #   resp.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data #=> Types::GetItemOutput
+    #   resp.data.item #=> Hash<String, AttributeValue>
+    #   resp.data.item['key'] #=> AttributeValue
+    #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
+    #   resp.data.consumed_capacity.table_name #=> String
+    #   resp.data.consumed_capacity.capacity_units #=> Float
+    #   resp.data.consumed_capacity.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table #=> Types::Capacity
+    #   resp.data.consumed_capacity.table.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table.capacity_units #=> Float
+    #   resp.data.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
     #
     def get_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3795,13 +3853,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetItem
+        builder: Builders::GetItem,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::GetItem
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3822,7 +3882,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>List backups associated with an Amazon Web Services account. To list backups for a
@@ -3891,20 +3951,20 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListBackupsOutput
-    #   resp.backup_summaries #=> Array<BackupSummary>
-    #   resp.backup_summaries[0] #=> Types::BackupSummary
-    #   resp.backup_summaries[0].table_name #=> String
-    #   resp.backup_summaries[0].table_id #=> String
-    #   resp.backup_summaries[0].table_arn #=> String
-    #   resp.backup_summaries[0].backup_arn #=> String
-    #   resp.backup_summaries[0].backup_name #=> String
-    #   resp.backup_summaries[0].backup_creation_date_time #=> Time
-    #   resp.backup_summaries[0].backup_expiry_date_time #=> Time
-    #   resp.backup_summaries[0].backup_status #=> String, one of CREATING, DELETED, AVAILABLE
-    #   resp.backup_summaries[0].backup_type #=> String, one of USER, SYSTEM, AWS_BACKUP
-    #   resp.backup_summaries[0].backup_size_bytes #=> Integer
-    #   resp.last_evaluated_backup_arn #=> String
+    #   resp.data #=> Types::ListBackupsOutput
+    #   resp.data.backup_summaries #=> Array<BackupSummary>
+    #   resp.data.backup_summaries[0] #=> Types::BackupSummary
+    #   resp.data.backup_summaries[0].table_name #=> String
+    #   resp.data.backup_summaries[0].table_id #=> String
+    #   resp.data.backup_summaries[0].table_arn #=> String
+    #   resp.data.backup_summaries[0].backup_arn #=> String
+    #   resp.data.backup_summaries[0].backup_name #=> String
+    #   resp.data.backup_summaries[0].backup_creation_date_time #=> Time
+    #   resp.data.backup_summaries[0].backup_expiry_date_time #=> Time
+    #   resp.data.backup_summaries[0].backup_status #=> String, one of CREATING, DELETED, AVAILABLE
+    #   resp.data.backup_summaries[0].backup_type #=> String, one of USER, SYSTEM, AWS_BACKUP
+    #   resp.data.backup_summaries[0].backup_size_bytes #=> Integer
+    #   resp.data.last_evaluated_backup_arn #=> String
     #
     def list_backups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3914,13 +3974,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListBackups
+        builder: Builders::ListBackups,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
         data_parser: Parsers::ListBackups
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -3941,7 +4003,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Returns a list of ContributorInsightsSummary for a table and all its global secondary
@@ -3971,13 +4033,13 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListContributorInsightsOutput
-    #   resp.contributor_insights_summaries #=> Array<ContributorInsightsSummary>
-    #   resp.contributor_insights_summaries[0] #=> Types::ContributorInsightsSummary
-    #   resp.contributor_insights_summaries[0].table_name #=> String
-    #   resp.contributor_insights_summaries[0].index_name #=> String
-    #   resp.contributor_insights_summaries[0].contributor_insights_status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, FAILED
-    #   resp.next_token #=> String
+    #   resp.data #=> Types::ListContributorInsightsOutput
+    #   resp.data.contributor_insights_summaries #=> Array<ContributorInsightsSummary>
+    #   resp.data.contributor_insights_summaries[0] #=> Types::ContributorInsightsSummary
+    #   resp.data.contributor_insights_summaries[0].table_name #=> String
+    #   resp.data.contributor_insights_summaries[0].index_name #=> String
+    #   resp.data.contributor_insights_summaries[0].contributor_insights_status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, FAILED
+    #   resp.data.next_token #=> String
     #
     def list_contributor_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3987,13 +4049,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListContributorInsights
+        builder: Builders::ListContributorInsights,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListContributorInsights
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4014,7 +4078,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Lists completed exports within the past 90 days.</p>
@@ -4045,12 +4109,12 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListExportsOutput
-    #   resp.export_summaries #=> Array<ExportSummary>
-    #   resp.export_summaries[0] #=> Types::ExportSummary
-    #   resp.export_summaries[0].export_arn #=> String
-    #   resp.export_summaries[0].export_status #=> String, one of IN_PROGRESS, COMPLETED, FAILED
-    #   resp.next_token #=> String
+    #   resp.data #=> Types::ListExportsOutput
+    #   resp.data.export_summaries #=> Array<ExportSummary>
+    #   resp.data.export_summaries[0] #=> Types::ExportSummary
+    #   resp.data.export_summaries[0].export_arn #=> String
+    #   resp.data.export_summaries[0].export_status #=> String, one of IN_PROGRESS, COMPLETED, FAILED
+    #   resp.data.next_token #=> String
     #
     def list_exports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4060,13 +4124,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListExports
+        builder: Builders::ListExports,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::LimitExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::LimitExceededException]),
         data_parser: Parsers::ListExports
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4087,7 +4153,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Lists all global tables that have a replica in the specified Region.</p>
@@ -4125,14 +4191,14 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListGlobalTablesOutput
-    #   resp.global_tables #=> Array<GlobalTable>
-    #   resp.global_tables[0] #=> Types::GlobalTable
-    #   resp.global_tables[0].global_table_name #=> String
-    #   resp.global_tables[0].replication_group #=> Array<Replica>
-    #   resp.global_tables[0].replication_group[0] #=> Types::Replica
-    #   resp.global_tables[0].replication_group[0].region_name #=> String
-    #   resp.last_evaluated_global_table_name #=> String
+    #   resp.data #=> Types::ListGlobalTablesOutput
+    #   resp.data.global_tables #=> Array<GlobalTable>
+    #   resp.data.global_tables[0] #=> Types::GlobalTable
+    #   resp.data.global_tables[0].global_table_name #=> String
+    #   resp.data.global_tables[0].replication_group #=> Array<Replica>
+    #   resp.data.global_tables[0].replication_group[0] #=> Types::Replica
+    #   resp.data.global_tables[0].replication_group[0].region_name #=> String
+    #   resp.data.last_evaluated_global_table_name #=> String
     #
     def list_global_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4142,13 +4208,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListGlobalTables
+        builder: Builders::ListGlobalTables,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
         data_parser: Parsers::ListGlobalTables
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4169,7 +4237,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Returns an array of table names associated with the current account and endpoint. The
@@ -4199,10 +4267,10 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListTablesOutput
-    #   resp.table_names #=> Array<String>
-    #   resp.table_names[0] #=> String
-    #   resp.last_evaluated_table_name #=> String
+    #   resp.data #=> Types::ListTablesOutput
+    #   resp.data.table_names #=> Array<String>
+    #   resp.data.table_names[0] #=> String
+    #   resp.data.last_evaluated_table_name #=> String
     #
     def list_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4212,13 +4280,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListTables
+        builder: Builders::ListTables,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
         data_parser: Parsers::ListTables
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4239,7 +4309,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>List all tags on an Amazon DynamoDB resource. You can call ListTagsOfResource up to 10
@@ -4270,12 +4340,12 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::ListTagsOfResourceOutput
-    #   resp.tags #=> Array<Tag>
-    #   resp.tags[0] #=> Types::Tag
-    #   resp.tags[0].key #=> String
-    #   resp.tags[0].value #=> String
-    #   resp.next_token #=> String
+    #   resp.data #=> Types::ListTagsOfResourceOutput
+    #   resp.data.tags #=> Array<Tag>
+    #   resp.data.tags[0] #=> Types::Tag
+    #   resp.data.tags[0].key #=> String
+    #   resp.data.tags[0].value #=> String
+    #   resp.data.next_token #=> String
     #
     def list_tags_of_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4285,13 +4355,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListTagsOfResource
+        builder: Builders::ListTagsOfResource,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListTagsOfResource
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4312,7 +4384,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Creates a new item, or replaces an old item with a new item. If an item that has the
@@ -4626,24 +4698,24 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::PutItemOutput
-    #   resp.attributes #=> Hash<String, AttributeValue>
-    #   resp.attributes['key'] #=> AttributeValue
-    #   resp.consumed_capacity #=> Types::ConsumedCapacity
-    #   resp.consumed_capacity.table_name #=> String
-    #   resp.consumed_capacity.capacity_units #=> Float
-    #   resp.consumed_capacity.read_capacity_units #=> Float
-    #   resp.consumed_capacity.write_capacity_units #=> Float
-    #   resp.consumed_capacity.table #=> Types::Capacity
-    #   resp.consumed_capacity.table.read_capacity_units #=> Float
-    #   resp.consumed_capacity.table.write_capacity_units #=> Float
-    #   resp.consumed_capacity.table.capacity_units #=> Float
-    #   resp.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.item_collection_metrics #=> Types::ItemCollectionMetrics
-    #   resp.item_collection_metrics.item_collection_key #=> Hash<String, AttributeValue>
-    #   resp.item_collection_metrics.size_estimate_range_gb #=> Array<Float>
-    #   resp.item_collection_metrics.size_estimate_range_gb[0] #=> Float
+    #   resp.data #=> Types::PutItemOutput
+    #   resp.data.attributes #=> Hash<String, AttributeValue>
+    #   resp.data.attributes['key'] #=> AttributeValue
+    #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
+    #   resp.data.consumed_capacity.table_name #=> String
+    #   resp.data.consumed_capacity.capacity_units #=> Float
+    #   resp.data.consumed_capacity.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table #=> Types::Capacity
+    #   resp.data.consumed_capacity.table.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table.capacity_units #=> Float
+    #   resp.data.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.item_collection_metrics #=> Types::ItemCollectionMetrics
+    #   resp.data.item_collection_metrics.item_collection_key #=> Hash<String, AttributeValue>
+    #   resp.data.item_collection_metrics.size_estimate_range_gb #=> Array<Float>
+    #   resp.data.item_collection_metrics.size_estimate_range_gb[0] #=> Float
     #
     def put_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4653,13 +4725,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutItem
+        builder: Builders::PutItem,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::PutItem
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -4680,7 +4754,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>You must provide the name of the partition key attribute and a single value for that
@@ -5159,24 +5233,24 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::QueryOutput
-    #   resp.items #=> Array<Hash<String, AttributeValue>>
-    #   resp.items[0] #=> Hash<String, AttributeValue>
-    #   resp.items[0]['key'] #=> AttributeValue
-    #   resp.count #=> Integer
-    #   resp.scanned_count #=> Integer
-    #   resp.last_evaluated_key #=> Hash<String, AttributeValue>
-    #   resp.consumed_capacity #=> Types::ConsumedCapacity
-    #   resp.consumed_capacity.table_name #=> String
-    #   resp.consumed_capacity.capacity_units #=> Float
-    #   resp.consumed_capacity.read_capacity_units #=> Float
-    #   resp.consumed_capacity.write_capacity_units #=> Float
-    #   resp.consumed_capacity.table #=> Types::Capacity
-    #   resp.consumed_capacity.table.read_capacity_units #=> Float
-    #   resp.consumed_capacity.table.write_capacity_units #=> Float
-    #   resp.consumed_capacity.table.capacity_units #=> Float
-    #   resp.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data #=> Types::QueryOutput
+    #   resp.data.items #=> Array<Hash<String, AttributeValue>>
+    #   resp.data.items[0] #=> Hash<String, AttributeValue>
+    #   resp.data.items[0]['key'] #=> AttributeValue
+    #   resp.data.count #=> Integer
+    #   resp.data.scanned_count #=> Integer
+    #   resp.data.last_evaluated_key #=> Hash<String, AttributeValue>
+    #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
+    #   resp.data.consumed_capacity.table_name #=> String
+    #   resp.data.consumed_capacity.capacity_units #=> Float
+    #   resp.data.consumed_capacity.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table #=> Types::Capacity
+    #   resp.data.consumed_capacity.table.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table.capacity_units #=> Float
+    #   resp.data.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
     #
     def query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5186,13 +5260,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::Query
+        builder: Builders::Query,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::Query
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -5213,7 +5289,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Creates a new table from an existing backup. Any number of users can execute up to 4
@@ -5313,92 +5389,92 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::RestoreTableFromBackupOutput
-    #   resp.table_description #=> Types::TableDescription
-    #   resp.table_description.attribute_definitions #=> Array<AttributeDefinition>
-    #   resp.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
-    #   resp.table_description.attribute_definitions[0].attribute_name #=> String
-    #   resp.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
-    #   resp.table_description.table_name #=> String
-    #   resp.table_description.key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.key_schema[0] #=> Types::KeySchemaElement
-    #   resp.table_description.key_schema[0].attribute_name #=> String
-    #   resp.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
-    #   resp.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
-    #   resp.table_description.creation_date_time #=> Time
-    #   resp.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
-    #   resp.table_description.provisioned_throughput.last_increase_date_time #=> Time
-    #   resp.table_description.provisioned_throughput.last_decrease_date_time #=> Time
-    #   resp.table_description.provisioned_throughput.number_of_decreases_today #=> Integer
-    #   resp.table_description.provisioned_throughput.read_capacity_units #=> Integer
-    #   resp.table_description.provisioned_throughput.write_capacity_units #=> Integer
-    #   resp.table_description.table_size_bytes #=> Integer
-    #   resp.table_description.item_count #=> Integer
-    #   resp.table_description.table_arn #=> String
-    #   resp.table_description.table_id #=> String
-    #   resp.table_description.billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
-    #   resp.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
-    #   resp.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
-    #   resp.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
-    #   resp.table_description.local_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
-    #   resp.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
-    #   resp.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
-    #   resp.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
-    #   resp.table_description.local_secondary_indexes[0].item_count #=> Integer
-    #   resp.table_description.local_secondary_indexes[0].index_arn #=> String
-    #   resp.table_description.global_secondary_indexes #=> Array<GlobalSecondaryIndexDescription>
-    #   resp.table_description.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexDescription
-    #   resp.table_description.global_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.global_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
-    #   resp.table_description.global_secondary_indexes[0].backfilling #=> Boolean
-    #   resp.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
-    #   resp.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
-    #   resp.table_description.global_secondary_indexes[0].item_count #=> Integer
-    #   resp.table_description.global_secondary_indexes[0].index_arn #=> String
-    #   resp.table_description.stream_specification #=> Types::StreamSpecification
-    #   resp.table_description.stream_specification.stream_enabled #=> Boolean
-    #   resp.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
-    #   resp.table_description.latest_stream_label #=> String
-    #   resp.table_description.latest_stream_arn #=> String
-    #   resp.table_description.global_table_version #=> String
-    #   resp.table_description.replicas #=> Array<ReplicaDescription>
-    #   resp.table_description.replicas[0] #=> Types::ReplicaDescription
-    #   resp.table_description.replicas[0].region_name #=> String
-    #   resp.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
-    #   resp.table_description.replicas[0].replica_status_description #=> String
-    #   resp.table_description.replicas[0].replica_status_percent_progress #=> String
-    #   resp.table_description.replicas[0].kms_master_key_id #=> String
-    #   resp.table_description.replicas[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.table_description.replicas[0].provisioned_throughput_override.read_capacity_units #=> Integer
-    #   resp.table_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
-    #   resp.table_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
-    #   resp.table_description.replicas[0].global_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.table_description.replicas[0].replica_inaccessible_date_time #=> Time
-    #   resp.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
-    #   resp.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
-    #   resp.table_description.restore_summary #=> Types::RestoreSummary
-    #   resp.table_description.restore_summary.source_backup_arn #=> String
-    #   resp.table_description.restore_summary.source_table_arn #=> String
-    #   resp.table_description.restore_summary.restore_date_time #=> Time
-    #   resp.table_description.restore_summary.restore_in_progress #=> Boolean
-    #   resp.table_description.sse_description #=> Types::SSEDescription
-    #   resp.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.table_description.sse_description.sse_type #=> String, one of AES256, KMS
-    #   resp.table_description.sse_description.kms_master_key_arn #=> String
-    #   resp.table_description.sse_description.inaccessible_encryption_date_time #=> Time
-    #   resp.table_description.archival_summary #=> Types::ArchivalSummary
-    #   resp.table_description.archival_summary.archival_date_time #=> Time
-    #   resp.table_description.archival_summary.archival_reason #=> String
-    #   resp.table_description.archival_summary.archival_backup_arn #=> String
-    #   resp.table_description.table_class_summary #=> Types::TableClassSummary
+    #   resp.data #=> Types::RestoreTableFromBackupOutput
+    #   resp.data.table_description #=> Types::TableDescription
+    #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
+    #   resp.data.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
+    #   resp.data.table_description.attribute_definitions[0].attribute_name #=> String
+    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
+    #   resp.data.table_description.table_name #=> String
+    #   resp.data.table_description.key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.key_schema[0] #=> Types::KeySchemaElement
+    #   resp.data.table_description.key_schema[0].attribute_name #=> String
+    #   resp.data.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
+    #   resp.data.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table_description.creation_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
+    #   resp.data.table_description.provisioned_throughput.last_increase_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput.last_decrease_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput.number_of_decreases_today #=> Integer
+    #   resp.data.table_description.provisioned_throughput.read_capacity_units #=> Integer
+    #   resp.data.table_description.provisioned_throughput.write_capacity_units #=> Integer
+    #   resp.data.table_description.table_size_bytes #=> Integer
+    #   resp.data.table_description.item_count #=> Integer
+    #   resp.data.table_description.table_arn #=> String
+    #   resp.data.table_description.table_id #=> String
+    #   resp.data.table_description.billing_mode_summary #=> Types::BillingModeSummary
+    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
+    #   resp.data.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
+    #   resp.data.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
+    #   resp.data.table_description.local_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.local_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
+    #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
+    #   resp.data.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
+    #   resp.data.table_description.local_secondary_indexes[0].item_count #=> Integer
+    #   resp.data.table_description.local_secondary_indexes[0].index_arn #=> String
+    #   resp.data.table_description.global_secondary_indexes #=> Array<GlobalSecondaryIndexDescription>
+    #   resp.data.table_description.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexDescription
+    #   resp.data.table_description.global_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.global_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table_description.global_secondary_indexes[0].backfilling #=> Boolean
+    #   resp.data.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
+    #   resp.data.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
+    #   resp.data.table_description.global_secondary_indexes[0].item_count #=> Integer
+    #   resp.data.table_description.global_secondary_indexes[0].index_arn #=> String
+    #   resp.data.table_description.stream_specification #=> Types::StreamSpecification
+    #   resp.data.table_description.stream_specification.stream_enabled #=> Boolean
+    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.table_description.latest_stream_label #=> String
+    #   resp.data.table_description.latest_stream_arn #=> String
+    #   resp.data.table_description.global_table_version #=> String
+    #   resp.data.table_description.replicas #=> Array<ReplicaDescription>
+    #   resp.data.table_description.replicas[0] #=> Types::ReplicaDescription
+    #   resp.data.table_description.replicas[0].region_name #=> String
+    #   resp.data.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.table_description.replicas[0].replica_status_description #=> String
+    #   resp.data.table_description.replicas[0].replica_status_percent_progress #=> String
+    #   resp.data.table_description.replicas[0].kms_master_key_id #=> String
+    #   resp.data.table_description.replicas[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.table_description.replicas[0].provisioned_throughput_override.read_capacity_units #=> Integer
+    #   resp.data.table_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.table_description.replicas[0].replica_inaccessible_date_time #=> Time
+    #   resp.data.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
+    #   resp.data.table_description.restore_summary #=> Types::RestoreSummary
+    #   resp.data.table_description.restore_summary.source_backup_arn #=> String
+    #   resp.data.table_description.restore_summary.source_table_arn #=> String
+    #   resp.data.table_description.restore_summary.restore_date_time #=> Time
+    #   resp.data.table_description.restore_summary.restore_in_progress #=> Boolean
+    #   resp.data.table_description.sse_description #=> Types::SSEDescription
+    #   resp.data.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
+    #   resp.data.table_description.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.table_description.sse_description.kms_master_key_arn #=> String
+    #   resp.data.table_description.sse_description.inaccessible_encryption_date_time #=> Time
+    #   resp.data.table_description.archival_summary #=> Types::ArchivalSummary
+    #   resp.data.table_description.archival_summary.archival_date_time #=> Time
+    #   resp.data.table_description.archival_summary.archival_reason #=> String
+    #   resp.data.table_description.archival_summary.archival_backup_arn #=> String
+    #   resp.data.table_description.table_class_summary #=> Types::TableClassSummary
     #
     def restore_table_from_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5408,13 +5484,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RestoreTableFromBackup
+        builder: Builders::RestoreTableFromBackup,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableAlreadyExistsException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableAlreadyExistsException]),
         data_parser: Parsers::RestoreTableFromBackup
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -5435,7 +5513,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Restores the specified table to the specified point in time within
@@ -5575,92 +5653,92 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::RestoreTableToPointInTimeOutput
-    #   resp.table_description #=> Types::TableDescription
-    #   resp.table_description.attribute_definitions #=> Array<AttributeDefinition>
-    #   resp.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
-    #   resp.table_description.attribute_definitions[0].attribute_name #=> String
-    #   resp.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
-    #   resp.table_description.table_name #=> String
-    #   resp.table_description.key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.key_schema[0] #=> Types::KeySchemaElement
-    #   resp.table_description.key_schema[0].attribute_name #=> String
-    #   resp.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
-    #   resp.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
-    #   resp.table_description.creation_date_time #=> Time
-    #   resp.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
-    #   resp.table_description.provisioned_throughput.last_increase_date_time #=> Time
-    #   resp.table_description.provisioned_throughput.last_decrease_date_time #=> Time
-    #   resp.table_description.provisioned_throughput.number_of_decreases_today #=> Integer
-    #   resp.table_description.provisioned_throughput.read_capacity_units #=> Integer
-    #   resp.table_description.provisioned_throughput.write_capacity_units #=> Integer
-    #   resp.table_description.table_size_bytes #=> Integer
-    #   resp.table_description.item_count #=> Integer
-    #   resp.table_description.table_arn #=> String
-    #   resp.table_description.table_id #=> String
-    #   resp.table_description.billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
-    #   resp.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
-    #   resp.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
-    #   resp.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
-    #   resp.table_description.local_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
-    #   resp.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
-    #   resp.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
-    #   resp.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
-    #   resp.table_description.local_secondary_indexes[0].item_count #=> Integer
-    #   resp.table_description.local_secondary_indexes[0].index_arn #=> String
-    #   resp.table_description.global_secondary_indexes #=> Array<GlobalSecondaryIndexDescription>
-    #   resp.table_description.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexDescription
-    #   resp.table_description.global_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.global_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
-    #   resp.table_description.global_secondary_indexes[0].backfilling #=> Boolean
-    #   resp.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
-    #   resp.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
-    #   resp.table_description.global_secondary_indexes[0].item_count #=> Integer
-    #   resp.table_description.global_secondary_indexes[0].index_arn #=> String
-    #   resp.table_description.stream_specification #=> Types::StreamSpecification
-    #   resp.table_description.stream_specification.stream_enabled #=> Boolean
-    #   resp.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
-    #   resp.table_description.latest_stream_label #=> String
-    #   resp.table_description.latest_stream_arn #=> String
-    #   resp.table_description.global_table_version #=> String
-    #   resp.table_description.replicas #=> Array<ReplicaDescription>
-    #   resp.table_description.replicas[0] #=> Types::ReplicaDescription
-    #   resp.table_description.replicas[0].region_name #=> String
-    #   resp.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
-    #   resp.table_description.replicas[0].replica_status_description #=> String
-    #   resp.table_description.replicas[0].replica_status_percent_progress #=> String
-    #   resp.table_description.replicas[0].kms_master_key_id #=> String
-    #   resp.table_description.replicas[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.table_description.replicas[0].provisioned_throughput_override.read_capacity_units #=> Integer
-    #   resp.table_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
-    #   resp.table_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
-    #   resp.table_description.replicas[0].global_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.table_description.replicas[0].replica_inaccessible_date_time #=> Time
-    #   resp.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
-    #   resp.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
-    #   resp.table_description.restore_summary #=> Types::RestoreSummary
-    #   resp.table_description.restore_summary.source_backup_arn #=> String
-    #   resp.table_description.restore_summary.source_table_arn #=> String
-    #   resp.table_description.restore_summary.restore_date_time #=> Time
-    #   resp.table_description.restore_summary.restore_in_progress #=> Boolean
-    #   resp.table_description.sse_description #=> Types::SSEDescription
-    #   resp.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.table_description.sse_description.sse_type #=> String, one of AES256, KMS
-    #   resp.table_description.sse_description.kms_master_key_arn #=> String
-    #   resp.table_description.sse_description.inaccessible_encryption_date_time #=> Time
-    #   resp.table_description.archival_summary #=> Types::ArchivalSummary
-    #   resp.table_description.archival_summary.archival_date_time #=> Time
-    #   resp.table_description.archival_summary.archival_reason #=> String
-    #   resp.table_description.archival_summary.archival_backup_arn #=> String
-    #   resp.table_description.table_class_summary #=> Types::TableClassSummary
+    #   resp.data #=> Types::RestoreTableToPointInTimeOutput
+    #   resp.data.table_description #=> Types::TableDescription
+    #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
+    #   resp.data.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
+    #   resp.data.table_description.attribute_definitions[0].attribute_name #=> String
+    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
+    #   resp.data.table_description.table_name #=> String
+    #   resp.data.table_description.key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.key_schema[0] #=> Types::KeySchemaElement
+    #   resp.data.table_description.key_schema[0].attribute_name #=> String
+    #   resp.data.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
+    #   resp.data.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table_description.creation_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
+    #   resp.data.table_description.provisioned_throughput.last_increase_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput.last_decrease_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput.number_of_decreases_today #=> Integer
+    #   resp.data.table_description.provisioned_throughput.read_capacity_units #=> Integer
+    #   resp.data.table_description.provisioned_throughput.write_capacity_units #=> Integer
+    #   resp.data.table_description.table_size_bytes #=> Integer
+    #   resp.data.table_description.item_count #=> Integer
+    #   resp.data.table_description.table_arn #=> String
+    #   resp.data.table_description.table_id #=> String
+    #   resp.data.table_description.billing_mode_summary #=> Types::BillingModeSummary
+    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
+    #   resp.data.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
+    #   resp.data.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
+    #   resp.data.table_description.local_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.local_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
+    #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
+    #   resp.data.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
+    #   resp.data.table_description.local_secondary_indexes[0].item_count #=> Integer
+    #   resp.data.table_description.local_secondary_indexes[0].index_arn #=> String
+    #   resp.data.table_description.global_secondary_indexes #=> Array<GlobalSecondaryIndexDescription>
+    #   resp.data.table_description.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexDescription
+    #   resp.data.table_description.global_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.global_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table_description.global_secondary_indexes[0].backfilling #=> Boolean
+    #   resp.data.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
+    #   resp.data.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
+    #   resp.data.table_description.global_secondary_indexes[0].item_count #=> Integer
+    #   resp.data.table_description.global_secondary_indexes[0].index_arn #=> String
+    #   resp.data.table_description.stream_specification #=> Types::StreamSpecification
+    #   resp.data.table_description.stream_specification.stream_enabled #=> Boolean
+    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.table_description.latest_stream_label #=> String
+    #   resp.data.table_description.latest_stream_arn #=> String
+    #   resp.data.table_description.global_table_version #=> String
+    #   resp.data.table_description.replicas #=> Array<ReplicaDescription>
+    #   resp.data.table_description.replicas[0] #=> Types::ReplicaDescription
+    #   resp.data.table_description.replicas[0].region_name #=> String
+    #   resp.data.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.table_description.replicas[0].replica_status_description #=> String
+    #   resp.data.table_description.replicas[0].replica_status_percent_progress #=> String
+    #   resp.data.table_description.replicas[0].kms_master_key_id #=> String
+    #   resp.data.table_description.replicas[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.table_description.replicas[0].provisioned_throughput_override.read_capacity_units #=> Integer
+    #   resp.data.table_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.table_description.replicas[0].replica_inaccessible_date_time #=> Time
+    #   resp.data.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
+    #   resp.data.table_description.restore_summary #=> Types::RestoreSummary
+    #   resp.data.table_description.restore_summary.source_backup_arn #=> String
+    #   resp.data.table_description.restore_summary.source_table_arn #=> String
+    #   resp.data.table_description.restore_summary.restore_date_time #=> Time
+    #   resp.data.table_description.restore_summary.restore_in_progress #=> Boolean
+    #   resp.data.table_description.sse_description #=> Types::SSEDescription
+    #   resp.data.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
+    #   resp.data.table_description.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.table_description.sse_description.kms_master_key_arn #=> String
+    #   resp.data.table_description.sse_description.inaccessible_encryption_date_time #=> Time
+    #   resp.data.table_description.archival_summary #=> Types::ArchivalSummary
+    #   resp.data.table_description.archival_summary.archival_date_time #=> Time
+    #   resp.data.table_description.archival_summary.archival_reason #=> String
+    #   resp.data.table_description.archival_summary.archival_backup_arn #=> String
+    #   resp.data.table_description.table_class_summary #=> Types::TableClassSummary
     #
     def restore_table_to_point_in_time(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5670,13 +5748,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RestoreTableToPointInTime
+        builder: Builders::RestoreTableToPointInTime,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::PointInTimeRecoveryUnavailableException, Errors::InvalidRestoreTimeException, Errors::TableAlreadyExistsException, Errors::TableNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::PointInTimeRecoveryUnavailableException, Errors::InvalidRestoreTimeException, Errors::TableAlreadyExistsException, Errors::TableNotFoundException]),
         data_parser: Parsers::RestoreTableToPointInTime
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -5697,7 +5777,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>The <code>Scan</code> operation returns one or more items and item attributes by
@@ -6050,24 +6130,24 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::ScanOutput
-    #   resp.items #=> Array<Hash<String, AttributeValue>>
-    #   resp.items[0] #=> Hash<String, AttributeValue>
-    #   resp.items[0]['key'] #=> AttributeValue
-    #   resp.count #=> Integer
-    #   resp.scanned_count #=> Integer
-    #   resp.last_evaluated_key #=> Hash<String, AttributeValue>
-    #   resp.consumed_capacity #=> Types::ConsumedCapacity
-    #   resp.consumed_capacity.table_name #=> String
-    #   resp.consumed_capacity.capacity_units #=> Float
-    #   resp.consumed_capacity.read_capacity_units #=> Float
-    #   resp.consumed_capacity.write_capacity_units #=> Float
-    #   resp.consumed_capacity.table #=> Types::Capacity
-    #   resp.consumed_capacity.table.read_capacity_units #=> Float
-    #   resp.consumed_capacity.table.write_capacity_units #=> Float
-    #   resp.consumed_capacity.table.capacity_units #=> Float
-    #   resp.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data #=> Types::ScanOutput
+    #   resp.data.items #=> Array<Hash<String, AttributeValue>>
+    #   resp.data.items[0] #=> Hash<String, AttributeValue>
+    #   resp.data.items[0]['key'] #=> AttributeValue
+    #   resp.data.count #=> Integer
+    #   resp.data.scanned_count #=> Integer
+    #   resp.data.last_evaluated_key #=> Hash<String, AttributeValue>
+    #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
+    #   resp.data.consumed_capacity.table_name #=> String
+    #   resp.data.consumed_capacity.capacity_units #=> Float
+    #   resp.data.consumed_capacity.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table #=> Types::Capacity
+    #   resp.data.consumed_capacity.table.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table.capacity_units #=> Float
+    #   resp.data.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
     #
     def scan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6077,13 +6157,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::Scan
+        builder: Builders::Scan,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::Scan
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6104,7 +6186,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Associate a set of tags with an Amazon DynamoDB resource. You can then activate these
@@ -6140,7 +6222,7 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::TagResourceOutput
+    #   resp.data #=> Types::TagResourceOutput
     #
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6150,13 +6232,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::TagResource
+        builder: Builders::TagResource,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::TagResource
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6177,7 +6261,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>
@@ -6260,23 +6344,23 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::TransactGetItemsOutput
-    #   resp.consumed_capacity #=> Array<ConsumedCapacity>
-    #   resp.consumed_capacity[0] #=> Types::ConsumedCapacity
-    #   resp.consumed_capacity[0].table_name #=> String
-    #   resp.consumed_capacity[0].capacity_units #=> Float
-    #   resp.consumed_capacity[0].read_capacity_units #=> Float
-    #   resp.consumed_capacity[0].write_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table #=> Types::Capacity
-    #   resp.consumed_capacity[0].table.read_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table.write_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table.capacity_units #=> Float
-    #   resp.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.responses #=> Array<ItemResponse>
-    #   resp.responses[0] #=> Types::ItemResponse
-    #   resp.responses[0].item #=> Hash<String, AttributeValue>
-    #   resp.responses[0].item['key'] #=> AttributeValue
+    #   resp.data #=> Types::TransactGetItemsOutput
+    #   resp.data.consumed_capacity #=> Array<ConsumedCapacity>
+    #   resp.data.consumed_capacity[0] #=> Types::ConsumedCapacity
+    #   resp.data.consumed_capacity[0].table_name #=> String
+    #   resp.data.consumed_capacity[0].capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].read_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].write_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table #=> Types::Capacity
+    #   resp.data.consumed_capacity[0].table.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table.capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.responses #=> Array<ItemResponse>
+    #   resp.data.responses[0] #=> Types::ItemResponse
+    #   resp.data.responses[0].item #=> Hash<String, AttributeValue>
+    #   resp.data.responses[0].item['key'] #=> AttributeValue
     #
     def transact_get_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6286,13 +6370,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::TransactGetItems
+        builder: Builders::TransactGetItems,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::TransactGetItems
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6313,7 +6399,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>
@@ -6514,26 +6600,26 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::TransactWriteItemsOutput
-    #   resp.consumed_capacity #=> Array<ConsumedCapacity>
-    #   resp.consumed_capacity[0] #=> Types::ConsumedCapacity
-    #   resp.consumed_capacity[0].table_name #=> String
-    #   resp.consumed_capacity[0].capacity_units #=> Float
-    #   resp.consumed_capacity[0].read_capacity_units #=> Float
-    #   resp.consumed_capacity[0].write_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table #=> Types::Capacity
-    #   resp.consumed_capacity[0].table.read_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table.write_capacity_units #=> Float
-    #   resp.consumed_capacity[0].table.capacity_units #=> Float
-    #   resp.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.item_collection_metrics #=> Hash<String, Array<ItemCollectionMetrics>>
-    #   resp.item_collection_metrics['key'] #=> Array<ItemCollectionMetrics>
-    #   resp.item_collection_metrics['key'][0] #=> Types::ItemCollectionMetrics
-    #   resp.item_collection_metrics['key'][0].item_collection_key #=> Hash<String, AttributeValue>
-    #   resp.item_collection_metrics['key'][0].item_collection_key['key'] #=> AttributeValue
-    #   resp.item_collection_metrics['key'][0].size_estimate_range_gb #=> Array<Float>
-    #   resp.item_collection_metrics['key'][0].size_estimate_range_gb[0] #=> Float
+    #   resp.data #=> Types::TransactWriteItemsOutput
+    #   resp.data.consumed_capacity #=> Array<ConsumedCapacity>
+    #   resp.data.consumed_capacity[0] #=> Types::ConsumedCapacity
+    #   resp.data.consumed_capacity[0].table_name #=> String
+    #   resp.data.consumed_capacity[0].capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].read_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].write_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table #=> Types::Capacity
+    #   resp.data.consumed_capacity[0].table.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].table.capacity_units #=> Float
+    #   resp.data.consumed_capacity[0].local_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.consumed_capacity[0].global_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.item_collection_metrics #=> Hash<String, Array<ItemCollectionMetrics>>
+    #   resp.data.item_collection_metrics['key'] #=> Array<ItemCollectionMetrics>
+    #   resp.data.item_collection_metrics['key'][0] #=> Types::ItemCollectionMetrics
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key #=> Hash<String, AttributeValue>
+    #   resp.data.item_collection_metrics['key'][0].item_collection_key['key'] #=> AttributeValue
+    #   resp.data.item_collection_metrics['key'][0].size_estimate_range_gb #=> Array<Float>
+    #   resp.data.item_collection_metrics['key'][0].size_estimate_range_gb[0] #=> Float
     #
     def transact_write_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6543,13 +6629,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::TransactWriteItems
+        builder: Builders::TransactWriteItems,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]),
         data_parser: Parsers::TransactWriteItems
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6570,7 +6658,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Removes the association of tags from an Amazon DynamoDB resource. You can call
@@ -6602,7 +6690,7 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::UntagResourceOutput
+    #   resp.data #=> Types::UntagResourceOutput
     #
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6612,13 +6700,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UntagResource
+        builder: Builders::UntagResource,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::UntagResource
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6639,7 +6729,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>
@@ -6677,13 +6767,13 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateContinuousBackupsOutput
-    #   resp.continuous_backups_description #=> Types::ContinuousBackupsDescription
-    #   resp.continuous_backups_description.continuous_backups_status #=> String, one of ENABLED, DISABLED
-    #   resp.continuous_backups_description.point_in_time_recovery_description #=> Types::PointInTimeRecoveryDescription
-    #   resp.continuous_backups_description.point_in_time_recovery_description.point_in_time_recovery_status #=> String, one of ENABLED, DISABLED
-    #   resp.continuous_backups_description.point_in_time_recovery_description.earliest_restorable_date_time #=> Time
-    #   resp.continuous_backups_description.point_in_time_recovery_description.latest_restorable_date_time #=> Time
+    #   resp.data #=> Types::UpdateContinuousBackupsOutput
+    #   resp.data.continuous_backups_description #=> Types::ContinuousBackupsDescription
+    #   resp.data.continuous_backups_description.continuous_backups_status #=> String, one of ENABLED, DISABLED
+    #   resp.data.continuous_backups_description.point_in_time_recovery_description #=> Types::PointInTimeRecoveryDescription
+    #   resp.data.continuous_backups_description.point_in_time_recovery_description.point_in_time_recovery_status #=> String, one of ENABLED, DISABLED
+    #   resp.data.continuous_backups_description.point_in_time_recovery_description.earliest_restorable_date_time #=> Time
+    #   resp.data.continuous_backups_description.point_in_time_recovery_description.latest_restorable_date_time #=> Time
     #
     def update_continuous_backups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6693,13 +6783,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateContinuousBackups
+        builder: Builders::UpdateContinuousBackups,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]),
         data_parser: Parsers::UpdateContinuousBackups
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6720,7 +6812,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Updates the status for contributor insights for a specific table or index. CloudWatch
@@ -6754,10 +6846,10 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateContributorInsightsOutput
-    #   resp.table_name #=> String
-    #   resp.index_name #=> String
-    #   resp.contributor_insights_status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, FAILED
+    #   resp.data #=> Types::UpdateContributorInsightsOutput
+    #   resp.data.table_name #=> String
+    #   resp.data.index_name #=> String
+    #   resp.data.contributor_insights_status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, FAILED
     #
     def update_contributor_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6767,13 +6859,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateContributorInsights
+        builder: Builders::UpdateContributorInsights,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::UpdateContributorInsights
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6794,7 +6888,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Adds or removes replicas in the specified global table. The global table must already
@@ -6851,29 +6945,29 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateGlobalTableOutput
-    #   resp.global_table_description #=> Types::GlobalTableDescription
-    #   resp.global_table_description.replication_group #=> Array<ReplicaDescription>
-    #   resp.global_table_description.replication_group[0] #=> Types::ReplicaDescription
-    #   resp.global_table_description.replication_group[0].region_name #=> String
-    #   resp.global_table_description.replication_group[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
-    #   resp.global_table_description.replication_group[0].replica_status_description #=> String
-    #   resp.global_table_description.replication_group[0].replica_status_percent_progress #=> String
-    #   resp.global_table_description.replication_group[0].kms_master_key_id #=> String
-    #   resp.global_table_description.replication_group[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.global_table_description.replication_group[0].provisioned_throughput_override.read_capacity_units #=> Integer
-    #   resp.global_table_description.replication_group[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
-    #   resp.global_table_description.replication_group[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
-    #   resp.global_table_description.replication_group[0].global_secondary_indexes[0].index_name #=> String
-    #   resp.global_table_description.replication_group[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.global_table_description.replication_group[0].replica_inaccessible_date_time #=> Time
-    #   resp.global_table_description.replication_group[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.global_table_description.replication_group[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
-    #   resp.global_table_description.replication_group[0].replica_table_class_summary.last_update_date_time #=> Time
-    #   resp.global_table_description.global_table_arn #=> String
-    #   resp.global_table_description.creation_date_time #=> Time
-    #   resp.global_table_description.global_table_status #=> String, one of CREATING, ACTIVE, DELETING, UPDATING
-    #   resp.global_table_description.global_table_name #=> String
+    #   resp.data #=> Types::UpdateGlobalTableOutput
+    #   resp.data.global_table_description #=> Types::GlobalTableDescription
+    #   resp.data.global_table_description.replication_group #=> Array<ReplicaDescription>
+    #   resp.data.global_table_description.replication_group[0] #=> Types::ReplicaDescription
+    #   resp.data.global_table_description.replication_group[0].region_name #=> String
+    #   resp.data.global_table_description.replication_group[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.global_table_description.replication_group[0].replica_status_description #=> String
+    #   resp.data.global_table_description.replication_group[0].replica_status_percent_progress #=> String
+    #   resp.data.global_table_description.replication_group[0].kms_master_key_id #=> String
+    #   resp.data.global_table_description.replication_group[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.global_table_description.replication_group[0].provisioned_throughput_override.read_capacity_units #=> Integer
+    #   resp.data.global_table_description.replication_group[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
+    #   resp.data.global_table_description.replication_group[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
+    #   resp.data.global_table_description.replication_group[0].global_secondary_indexes[0].index_name #=> String
+    #   resp.data.global_table_description.replication_group[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.global_table_description.replication_group[0].replica_inaccessible_date_time #=> Time
+    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary #=> Types::TableClassSummary
+    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.last_update_date_time #=> Time
+    #   resp.data.global_table_description.global_table_arn #=> String
+    #   resp.data.global_table_description.creation_date_time #=> Time
+    #   resp.data.global_table_description.global_table_status #=> String, one of CREATING, ACTIVE, DELETING, UPDATING
+    #   resp.data.global_table_description.global_table_name #=> String
     #
     def update_global_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6883,13 +6977,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateGlobalTable
+        builder: Builders::UpdateGlobalTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException, Errors::ReplicaNotFoundException, Errors::TableNotFoundException, Errors::ReplicaAlreadyExistsException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException, Errors::ReplicaNotFoundException, Errors::TableNotFoundException, Errors::ReplicaAlreadyExistsException]),
         data_parser: Parsers::UpdateGlobalTable
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -6910,7 +7006,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Updates settings for a global table.</p>
@@ -7001,42 +7097,42 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateGlobalTableSettingsOutput
-    #   resp.global_table_name #=> String
-    #   resp.replica_settings #=> Array<ReplicaSettingsDescription>
-    #   resp.replica_settings[0] #=> Types::ReplicaSettingsDescription
-    #   resp.replica_settings[0].region_name #=> String
-    #   resp.replica_settings[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
-    #   resp.replica_settings[0].replica_billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.replica_settings[0].replica_billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
-    #   resp.replica_settings[0].replica_billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_units #=> Integer
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.minimum_units #=> Integer
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.maximum_units #=> Integer
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.auto_scaling_disabled #=> Boolean
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.auto_scaling_role_arn #=> String
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies #=> Array<AutoScalingPolicyDescription>
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0] #=> Types::AutoScalingPolicyDescription
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].policy_name #=> String
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration #=> Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.disable_scale_in #=> Boolean
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_in_cooldown #=> Integer
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_out_cooldown #=> Integer
-    #   resp.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.target_value #=> Float
-    #   resp.replica_settings[0].replica_provisioned_write_capacity_units #=> Integer
-    #   resp.replica_settings[0].replica_provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.replica_settings[0].replica_global_secondary_index_settings #=> Array<ReplicaGlobalSecondaryIndexSettingsDescription>
-    #   resp.replica_settings[0].replica_global_secondary_index_settings[0] #=> Types::ReplicaGlobalSecondaryIndexSettingsDescription
-    #   resp.replica_settings[0].replica_global_secondary_index_settings[0].index_name #=> String
-    #   resp.replica_settings[0].replica_global_secondary_index_settings[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
-    #   resp.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_read_capacity_units #=> Integer
-    #   resp.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_write_capacity_units #=> Integer
-    #   resp.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.replica_settings[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.replica_settings[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
-    #   resp.replica_settings[0].replica_table_class_summary.last_update_date_time #=> Time
+    #   resp.data #=> Types::UpdateGlobalTableSettingsOutput
+    #   resp.data.global_table_name #=> String
+    #   resp.data.replica_settings #=> Array<ReplicaSettingsDescription>
+    #   resp.data.replica_settings[0] #=> Types::ReplicaSettingsDescription
+    #   resp.data.replica_settings[0].region_name #=> String
+    #   resp.data.replica_settings[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.replica_settings[0].replica_billing_mode_summary #=> Types::BillingModeSummary
+    #   resp.data.replica_settings[0].replica_billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.replica_settings[0].replica_billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_units #=> Integer
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.minimum_units #=> Integer
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.maximum_units #=> Integer
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.auto_scaling_disabled #=> Boolean
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.auto_scaling_role_arn #=> String
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies #=> Array<AutoScalingPolicyDescription>
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0] #=> Types::AutoScalingPolicyDescription
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].policy_name #=> String
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration #=> Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.disable_scale_in #=> Boolean
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_in_cooldown #=> Integer
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_out_cooldown #=> Integer
+    #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.target_value #=> Float
+    #   resp.data.replica_settings[0].replica_provisioned_write_capacity_units #=> Integer
+    #   resp.data.replica_settings[0].replica_provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings #=> Array<ReplicaGlobalSecondaryIndexSettingsDescription>
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0] #=> Types::ReplicaGlobalSecondaryIndexSettingsDescription
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].index_name #=> String
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_read_capacity_units #=> Integer
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_write_capacity_units #=> Integer
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.replica_settings[0].replica_table_class_summary #=> Types::TableClassSummary
+    #   resp.data.replica_settings[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.replica_settings[0].replica_table_class_summary.last_update_date_time #=> Time
     #
     def update_global_table_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7046,13 +7142,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateGlobalTableSettings
+        builder: Builders::UpdateGlobalTableSettings,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::GlobalTableNotFoundException, Errors::IndexNotFoundException, Errors::ReplicaNotFoundException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::GlobalTableNotFoundException, Errors::IndexNotFoundException, Errors::ReplicaNotFoundException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateGlobalTableSettings
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -7073,7 +7171,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Edits an existing item's attributes, or adds a new item to the table if it does not
@@ -7436,24 +7534,24 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateItemOutput
-    #   resp.attributes #=> Hash<String, AttributeValue>
-    #   resp.attributes['key'] #=> AttributeValue
-    #   resp.consumed_capacity #=> Types::ConsumedCapacity
-    #   resp.consumed_capacity.table_name #=> String
-    #   resp.consumed_capacity.capacity_units #=> Float
-    #   resp.consumed_capacity.read_capacity_units #=> Float
-    #   resp.consumed_capacity.write_capacity_units #=> Float
-    #   resp.consumed_capacity.table #=> Types::Capacity
-    #   resp.consumed_capacity.table.read_capacity_units #=> Float
-    #   resp.consumed_capacity.table.write_capacity_units #=> Float
-    #   resp.consumed_capacity.table.capacity_units #=> Float
-    #   resp.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
-    #   resp.item_collection_metrics #=> Types::ItemCollectionMetrics
-    #   resp.item_collection_metrics.item_collection_key #=> Hash<String, AttributeValue>
-    #   resp.item_collection_metrics.size_estimate_range_gb #=> Array<Float>
-    #   resp.item_collection_metrics.size_estimate_range_gb[0] #=> Float
+    #   resp.data #=> Types::UpdateItemOutput
+    #   resp.data.attributes #=> Hash<String, AttributeValue>
+    #   resp.data.attributes['key'] #=> AttributeValue
+    #   resp.data.consumed_capacity #=> Types::ConsumedCapacity
+    #   resp.data.consumed_capacity.table_name #=> String
+    #   resp.data.consumed_capacity.capacity_units #=> Float
+    #   resp.data.consumed_capacity.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table #=> Types::Capacity
+    #   resp.data.consumed_capacity.table.read_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table.write_capacity_units #=> Float
+    #   resp.data.consumed_capacity.table.capacity_units #=> Float
+    #   resp.data.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.item_collection_metrics #=> Types::ItemCollectionMetrics
+    #   resp.data.item_collection_metrics.item_collection_key #=> Hash<String, AttributeValue>
+    #   resp.data.item_collection_metrics.size_estimate_range_gb #=> Array<Float>
+    #   resp.data.item_collection_metrics.size_estimate_range_gb[0] #=> Float
     #
     def update_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7463,13 +7561,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateItem
+        builder: Builders::UpdateItem,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::UpdateItem
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -7490,7 +7590,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
@@ -7680,92 +7780,92 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateTableOutput
-    #   resp.table_description #=> Types::TableDescription
-    #   resp.table_description.attribute_definitions #=> Array<AttributeDefinition>
-    #   resp.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
-    #   resp.table_description.attribute_definitions[0].attribute_name #=> String
-    #   resp.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
-    #   resp.table_description.table_name #=> String
-    #   resp.table_description.key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.key_schema[0] #=> Types::KeySchemaElement
-    #   resp.table_description.key_schema[0].attribute_name #=> String
-    #   resp.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
-    #   resp.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
-    #   resp.table_description.creation_date_time #=> Time
-    #   resp.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
-    #   resp.table_description.provisioned_throughput.last_increase_date_time #=> Time
-    #   resp.table_description.provisioned_throughput.last_decrease_date_time #=> Time
-    #   resp.table_description.provisioned_throughput.number_of_decreases_today #=> Integer
-    #   resp.table_description.provisioned_throughput.read_capacity_units #=> Integer
-    #   resp.table_description.provisioned_throughput.write_capacity_units #=> Integer
-    #   resp.table_description.table_size_bytes #=> Integer
-    #   resp.table_description.item_count #=> Integer
-    #   resp.table_description.table_arn #=> String
-    #   resp.table_description.table_id #=> String
-    #   resp.table_description.billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
-    #   resp.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
-    #   resp.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
-    #   resp.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
-    #   resp.table_description.local_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
-    #   resp.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
-    #   resp.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
-    #   resp.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
-    #   resp.table_description.local_secondary_indexes[0].item_count #=> Integer
-    #   resp.table_description.local_secondary_indexes[0].index_arn #=> String
-    #   resp.table_description.global_secondary_indexes #=> Array<GlobalSecondaryIndexDescription>
-    #   resp.table_description.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexDescription
-    #   resp.table_description.global_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
-    #   resp.table_description.global_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
-    #   resp.table_description.global_secondary_indexes[0].backfilling #=> Boolean
-    #   resp.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
-    #   resp.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
-    #   resp.table_description.global_secondary_indexes[0].item_count #=> Integer
-    #   resp.table_description.global_secondary_indexes[0].index_arn #=> String
-    #   resp.table_description.stream_specification #=> Types::StreamSpecification
-    #   resp.table_description.stream_specification.stream_enabled #=> Boolean
-    #   resp.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
-    #   resp.table_description.latest_stream_label #=> String
-    #   resp.table_description.latest_stream_arn #=> String
-    #   resp.table_description.global_table_version #=> String
-    #   resp.table_description.replicas #=> Array<ReplicaDescription>
-    #   resp.table_description.replicas[0] #=> Types::ReplicaDescription
-    #   resp.table_description.replicas[0].region_name #=> String
-    #   resp.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
-    #   resp.table_description.replicas[0].replica_status_description #=> String
-    #   resp.table_description.replicas[0].replica_status_percent_progress #=> String
-    #   resp.table_description.replicas[0].kms_master_key_id #=> String
-    #   resp.table_description.replicas[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.table_description.replicas[0].provisioned_throughput_override.read_capacity_units #=> Integer
-    #   resp.table_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
-    #   resp.table_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
-    #   resp.table_description.replicas[0].global_secondary_indexes[0].index_name #=> String
-    #   resp.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
-    #   resp.table_description.replicas[0].replica_inaccessible_date_time #=> Time
-    #   resp.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
-    #   resp.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
-    #   resp.table_description.restore_summary #=> Types::RestoreSummary
-    #   resp.table_description.restore_summary.source_backup_arn #=> String
-    #   resp.table_description.restore_summary.source_table_arn #=> String
-    #   resp.table_description.restore_summary.restore_date_time #=> Time
-    #   resp.table_description.restore_summary.restore_in_progress #=> Boolean
-    #   resp.table_description.sse_description #=> Types::SSEDescription
-    #   resp.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.table_description.sse_description.sse_type #=> String, one of AES256, KMS
-    #   resp.table_description.sse_description.kms_master_key_arn #=> String
-    #   resp.table_description.sse_description.inaccessible_encryption_date_time #=> Time
-    #   resp.table_description.archival_summary #=> Types::ArchivalSummary
-    #   resp.table_description.archival_summary.archival_date_time #=> Time
-    #   resp.table_description.archival_summary.archival_reason #=> String
-    #   resp.table_description.archival_summary.archival_backup_arn #=> String
-    #   resp.table_description.table_class_summary #=> Types::TableClassSummary
+    #   resp.data #=> Types::UpdateTableOutput
+    #   resp.data.table_description #=> Types::TableDescription
+    #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
+    #   resp.data.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
+    #   resp.data.table_description.attribute_definitions[0].attribute_name #=> String
+    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
+    #   resp.data.table_description.table_name #=> String
+    #   resp.data.table_description.key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.key_schema[0] #=> Types::KeySchemaElement
+    #   resp.data.table_description.key_schema[0].attribute_name #=> String
+    #   resp.data.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
+    #   resp.data.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table_description.creation_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
+    #   resp.data.table_description.provisioned_throughput.last_increase_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput.last_decrease_date_time #=> Time
+    #   resp.data.table_description.provisioned_throughput.number_of_decreases_today #=> Integer
+    #   resp.data.table_description.provisioned_throughput.read_capacity_units #=> Integer
+    #   resp.data.table_description.provisioned_throughput.write_capacity_units #=> Integer
+    #   resp.data.table_description.table_size_bytes #=> Integer
+    #   resp.data.table_description.item_count #=> Integer
+    #   resp.data.table_description.table_arn #=> String
+    #   resp.data.table_description.table_id #=> String
+    #   resp.data.table_description.billing_mode_summary #=> Types::BillingModeSummary
+    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
+    #   resp.data.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
+    #   resp.data.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
+    #   resp.data.table_description.local_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.local_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
+    #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
+    #   resp.data.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
+    #   resp.data.table_description.local_secondary_indexes[0].item_count #=> Integer
+    #   resp.data.table_description.local_secondary_indexes[0].index_arn #=> String
+    #   resp.data.table_description.global_secondary_indexes #=> Array<GlobalSecondaryIndexDescription>
+    #   resp.data.table_description.global_secondary_indexes[0] #=> Types::GlobalSecondaryIndexDescription
+    #   resp.data.table_description.global_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
+    #   resp.data.table_description.global_secondary_indexes[0].projection #=> Types::Projection
+    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table_description.global_secondary_indexes[0].backfilling #=> Boolean
+    #   resp.data.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
+    #   resp.data.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
+    #   resp.data.table_description.global_secondary_indexes[0].item_count #=> Integer
+    #   resp.data.table_description.global_secondary_indexes[0].index_arn #=> String
+    #   resp.data.table_description.stream_specification #=> Types::StreamSpecification
+    #   resp.data.table_description.stream_specification.stream_enabled #=> Boolean
+    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.table_description.latest_stream_label #=> String
+    #   resp.data.table_description.latest_stream_arn #=> String
+    #   resp.data.table_description.global_table_version #=> String
+    #   resp.data.table_description.replicas #=> Array<ReplicaDescription>
+    #   resp.data.table_description.replicas[0] #=> Types::ReplicaDescription
+    #   resp.data.table_description.replicas[0].region_name #=> String
+    #   resp.data.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.table_description.replicas[0].replica_status_description #=> String
+    #   resp.data.table_description.replicas[0].replica_status_percent_progress #=> String
+    #   resp.data.table_description.replicas[0].kms_master_key_id #=> String
+    #   resp.data.table_description.replicas[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.table_description.replicas[0].provisioned_throughput_override.read_capacity_units #=> Integer
+    #   resp.data.table_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexDescription>
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexDescription
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
+    #   resp.data.table_description.replicas[0].replica_inaccessible_date_time #=> Time
+    #   resp.data.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
+    #   resp.data.table_description.restore_summary #=> Types::RestoreSummary
+    #   resp.data.table_description.restore_summary.source_backup_arn #=> String
+    #   resp.data.table_description.restore_summary.source_table_arn #=> String
+    #   resp.data.table_description.restore_summary.restore_date_time #=> Time
+    #   resp.data.table_description.restore_summary.restore_in_progress #=> Boolean
+    #   resp.data.table_description.sse_description #=> Types::SSEDescription
+    #   resp.data.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
+    #   resp.data.table_description.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.table_description.sse_description.kms_master_key_arn #=> String
+    #   resp.data.table_description.sse_description.inaccessible_encryption_date_time #=> Time
+    #   resp.data.table_description.archival_summary #=> Types::ArchivalSummary
+    #   resp.data.table_description.archival_summary.archival_date_time #=> Time
+    #   resp.data.table_description.archival_summary.archival_reason #=> String
+    #   resp.data.table_description.archival_summary.archival_backup_arn #=> String
+    #   resp.data.table_description.table_class_summary #=> Types::TableClassSummary
     #
     def update_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7775,13 +7875,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateTable
+        builder: Builders::UpdateTable,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateTable
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -7802,7 +7904,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>Updates auto scaling settings on your global tables at once.</p>
@@ -7869,34 +7971,34 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateTableReplicaAutoScalingOutput
-    #   resp.table_auto_scaling_description #=> Types::TableAutoScalingDescription
-    #   resp.table_auto_scaling_description.table_name #=> String
-    #   resp.table_auto_scaling_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
-    #   resp.table_auto_scaling_description.replicas #=> Array<ReplicaAutoScalingDescription>
-    #   resp.table_auto_scaling_description.replicas[0] #=> Types::ReplicaAutoScalingDescription
-    #   resp.table_auto_scaling_description.replicas[0].region_name #=> String
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexAutoScalingDescription>
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexAutoScalingDescription
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].index_name #=> String
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.minimum_units #=> Integer
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.maximum_units #=> Integer
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.auto_scaling_disabled #=> Boolean
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.auto_scaling_role_arn #=> String
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies #=> Array<AutoScalingPolicyDescription>
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0] #=> Types::AutoScalingPolicyDescription
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].policy_name #=> String
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration #=> Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.disable_scale_in #=> Boolean
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_in_cooldown #=> Integer
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_out_cooldown #=> Integer
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.target_value #=> Float
-    #   resp.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.table_auto_scaling_description.replicas[0].replica_provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.table_auto_scaling_description.replicas[0].replica_provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.table_auto_scaling_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data #=> Types::UpdateTableReplicaAutoScalingOutput
+    #   resp.data.table_auto_scaling_description #=> Types::TableAutoScalingDescription
+    #   resp.data.table_auto_scaling_description.table_name #=> String
+    #   resp.data.table_auto_scaling_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table_auto_scaling_description.replicas #=> Array<ReplicaAutoScalingDescription>
+    #   resp.data.table_auto_scaling_description.replicas[0] #=> Types::ReplicaAutoScalingDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].region_name #=> String
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexAutoScalingDescription>
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexAutoScalingDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].index_name #=> String
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.minimum_units #=> Integer
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.maximum_units #=> Integer
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.auto_scaling_disabled #=> Boolean
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.auto_scaling_role_arn #=> String
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies #=> Array<AutoScalingPolicyDescription>
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0] #=> Types::AutoScalingPolicyDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].policy_name #=> String
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration #=> Types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.disable_scale_in #=> Boolean
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_in_cooldown #=> Integer
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.scale_out_cooldown #=> Integer
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.scaling_policies[0].target_tracking_scaling_policy_configuration.target_value #=> Float
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].replica_provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].replica_provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
+    #   resp.data.table_auto_scaling_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
     #
     def update_table_replica_auto_scaling(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7906,13 +8008,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateTableReplicaAutoScaling
+        builder: Builders::UpdateTableReplicaAutoScaling,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateTableReplicaAutoScaling
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -7933,7 +8037,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     # <p>The <code>UpdateTimeToLive</code> method enables or disables Time to Live (TTL) for
@@ -7986,10 +8090,10 @@ module AWS::Dynamodb
     #
     # @example Response structure
     #
-    #   resp #=> Types::UpdateTimeToLiveOutput
-    #   resp.time_to_live_specification #=> Types::TimeToLiveSpecification
-    #   resp.time_to_live_specification.enabled #=> Boolean
-    #   resp.time_to_live_specification.attribute_name #=> String
+    #   resp.data #=> Types::UpdateTimeToLiveOutput
+    #   resp.data.time_to_live_specification #=> Types::TimeToLiveSpecification
+    #   resp.data.time_to_live_specification.enabled #=> Boolean
+    #   resp.data.time_to_live_specification.attribute_name #=> String
     #
     def update_time_to_live(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -7999,13 +8103,15 @@ module AWS::Dynamodb
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateTimeToLive
+        builder: Builders::UpdateTimeToLive,
+        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, error_code_fn: Errors.method(:error_code), success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateTimeToLive
       )
+      stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
         stub_responses: options.fetch(:stub_responses, @stub_responses),
         client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
@@ -8026,7 +8132,7 @@ module AWS::Dynamodb
         )
       )
       raise resp.error if resp.error
-      resp.data
+      resp
     end
 
     private
