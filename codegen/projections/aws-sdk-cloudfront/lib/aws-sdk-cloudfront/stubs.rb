@@ -73,7 +73,7 @@ module AWS::Cloudfront
         visited = visited + ['CachePolicyConfig']
         {
           comment: 'comment',
-          member_name: 'member_name',
+          name: 'name',
           default_ttl: 1,
           max_ttl: 1,
           min_ttl: 1,
@@ -85,7 +85,7 @@ module AWS::Cloudfront
         stub ||= Types::CachePolicyConfig.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', stub[:comment].to_s) unless stub[:comment].nil?
-        xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('DefaultTTL', stub[:default_ttl].to_s) unless stub[:default_ttl].nil?
         xml << Hearth::XML::Node.new('MaxTTL', stub[:max_ttl].to_s) unless stub[:max_ttl].nil?
         xml << Hearth::XML::Node.new('MinTTL', stub[:min_ttl].to_s) unless stub[:min_ttl].nil?
@@ -2107,7 +2107,7 @@ module AWS::Cloudfront
         return nil if visited.include?('FieldLevelEncryptionProfileConfig')
         visited = visited + ['FieldLevelEncryptionProfileConfig']
         {
-          member_name: 'member_name',
+          name: 'name',
           caller_reference: 'caller_reference',
           comment: 'comment',
           encryption_entities: Stubs::EncryptionEntities.default(visited),
@@ -2117,7 +2117,7 @@ module AWS::Cloudfront
       def self.stub(node_name, stub)
         stub ||= Types::FieldLevelEncryptionProfileConfig.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('CallerReference', stub[:caller_reference].to_s) unless stub[:caller_reference].nil?
         xml << Hearth::XML::Node.new('Comment', stub[:comment].to_s) unless stub[:comment].nil?
         xml << Stubs::EncryptionEntities.stub('EncryptionEntities', stub[:encryption_entities]) unless stub[:encryption_entities].nil?
@@ -2254,7 +2254,7 @@ module AWS::Cloudfront
         return nil if visited.include?('FunctionSummary')
         visited = visited + ['FunctionSummary']
         {
-          member_name: 'member_name',
+          name: 'name',
           status: 'status',
           function_config: Stubs::FunctionConfig.default(visited),
           function_metadata: Stubs::FunctionMetadata.default(visited),
@@ -2264,7 +2264,7 @@ module AWS::Cloudfront
       def self.stub(node_name, stub)
         stub ||= Types::FunctionSummary.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Stubs::FunctionConfig.stub('FunctionConfig', stub[:function_config]) unless stub[:function_config].nil?
         xml << Stubs::FunctionMetadata.stub('FunctionMetadata', stub[:function_metadata]) unless stub[:function_metadata].nil?
@@ -2468,7 +2468,7 @@ module AWS::Cloudfront
         return nil if visited.include?('KeyGroupConfig')
         visited = visited + ['KeyGroupConfig']
         {
-          member_name: 'member_name',
+          name: 'name',
           items: Stubs::PublicKeyIdList.default(visited),
           comment: 'comment',
         }
@@ -2477,7 +2477,7 @@ module AWS::Cloudfront
       def self.stub(node_name, stub)
         stub ||= Types::KeyGroupConfig.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('Items', Stubs::PublicKeyIdList.stub('PublicKey', stub[:items])) unless stub[:items].nil?
         xml << Hearth::XML::Node.new('Comment', stub[:comment].to_s) unless stub[:comment].nil?
         xml
@@ -2607,7 +2607,7 @@ module AWS::Cloudfront
         visited = visited + ['OriginRequestPolicyConfig']
         {
           comment: 'comment',
-          member_name: 'member_name',
+          name: 'name',
           headers_config: Stubs::OriginRequestPolicyHeadersConfig.default(visited),
           cookies_config: Stubs::OriginRequestPolicyCookiesConfig.default(visited),
           query_strings_config: Stubs::OriginRequestPolicyQueryStringsConfig.default(visited),
@@ -2618,7 +2618,7 @@ module AWS::Cloudfront
         stub ||= Types::OriginRequestPolicyConfig.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', stub[:comment].to_s) unless stub[:comment].nil?
-        xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
         xml << Stubs::OriginRequestPolicyHeadersConfig.stub('HeadersConfig', stub[:headers_config]) unless stub[:headers_config].nil?
         xml << Stubs::OriginRequestPolicyCookiesConfig.stub('CookiesConfig', stub[:cookies_config]) unless stub[:cookies_config].nil?
         xml << Stubs::OriginRequestPolicyQueryStringsConfig.stub('QueryStringsConfig', stub[:query_strings_config]) unless stub[:query_strings_config].nil?
@@ -2736,7 +2736,7 @@ module AWS::Cloudfront
         visited = visited + ['PublicKeyConfig']
         {
           caller_reference: 'caller_reference',
-          member_name: 'member_name',
+          name: 'name',
           encoded_key: 'encoded_key',
           comment: 'comment',
         }
@@ -2746,7 +2746,7 @@ module AWS::Cloudfront
         stub ||= Types::PublicKeyConfig.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CallerReference', stub[:caller_reference].to_s) unless stub[:caller_reference].nil?
-        xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('EncodedKey', stub[:encoded_key].to_s) unless stub[:encoded_key].nil?
         xml << Hearth::XML::Node.new('Comment', stub[:comment].to_s) unless stub[:comment].nil?
         xml
@@ -2780,7 +2780,7 @@ module AWS::Cloudfront
         visited = visited + ['RealtimeLogConfig']
         {
           arn: 'arn',
-          member_name: 'member_name',
+          name: 'name',
           sampling_rate: 1,
           end_points: Stubs::EndPointList.default(visited),
           fields: Stubs::FieldList.default(visited),
@@ -2791,7 +2791,7 @@ module AWS::Cloudfront
         stub ||= Types::RealtimeLogConfig.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ARN', stub[:arn].to_s) unless stub[:arn].nil?
-        xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('SamplingRate', stub[:sampling_rate].to_s) unless stub[:sampling_rate].nil?
         xml << Hearth::XML::Node.new('EndPoints', Stubs::EndPointList.stub('member', stub[:end_points])) unless stub[:end_points].nil?
         xml << Hearth::XML::Node.new('Fields', Stubs::FieldList.stub('Field', stub[:fields])) unless stub[:fields].nil?
@@ -2929,7 +2929,7 @@ module AWS::Cloudfront
         visited = visited + ['ResponseHeadersPolicyConfig']
         {
           comment: 'comment',
-          member_name: 'member_name',
+          name: 'name',
           cors_config: Stubs::ResponseHeadersPolicyCorsConfig.default(visited),
           security_headers_config: Stubs::ResponseHeadersPolicySecurityHeadersConfig.default(visited),
           custom_headers_config: Stubs::ResponseHeadersPolicyCustomHeadersConfig.default(visited),
@@ -2940,7 +2940,7 @@ module AWS::Cloudfront
         stub ||= Types::ResponseHeadersPolicyConfig.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', stub[:comment].to_s) unless stub[:comment].nil?
-        xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
         xml << Stubs::ResponseHeadersPolicyCorsConfig.stub('CorsConfig', stub[:cors_config]) unless stub[:cors_config].nil?
         xml << Stubs::ResponseHeadersPolicySecurityHeadersConfig.stub('SecurityHeadersConfig', stub[:security_headers_config]) unless stub[:security_headers_config].nil?
         xml << Stubs::ResponseHeadersPolicyCustomHeadersConfig.stub('CustomHeadersConfig', stub[:custom_headers_config]) unless stub[:custom_headers_config].nil?
@@ -4820,7 +4820,7 @@ module AWS::Cloudfront
         {
           id: 'id',
           last_modified_time: Time.now,
-          member_name: 'member_name',
+          name: 'name',
           encryption_entities: Stubs::EncryptionEntities.default(visited),
           comment: 'comment',
         }
@@ -4831,7 +4831,7 @@ module AWS::Cloudfront
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('LastModifiedTime', Hearth::TimeHelper.to_date_time(stub[:last_modified_time])) unless stub[:last_modified_time].nil?
-        xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
         xml << Stubs::EncryptionEntities.stub('EncryptionEntities', stub[:encryption_entities]) unless stub[:encryption_entities].nil?
         xml << Hearth::XML::Node.new('Comment', stub[:comment].to_s) unless stub[:comment].nil?
         xml
@@ -5214,7 +5214,7 @@ module AWS::Cloudfront
         visited = visited + ['PublicKeySummary']
         {
           id: 'id',
-          member_name: 'member_name',
+          name: 'name',
           created_time: Time.now,
           encoded_key: 'encoded_key',
           comment: 'comment',
@@ -5225,7 +5225,7 @@ module AWS::Cloudfront
         stub ||= Types::PublicKeySummary.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
-        xml << Hearth::XML::Node.new('Name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('CreatedTime', Hearth::TimeHelper.to_date_time(stub[:created_time])) unless stub[:created_time].nil?
         xml << Hearth::XML::Node.new('EncodedKey', stub[:encoded_key].to_s) unless stub[:encoded_key].nil?
         xml << Hearth::XML::Node.new('Comment', stub[:comment].to_s) unless stub[:comment].nil?

@@ -102,7 +102,7 @@ module AWS::Lambda
         Hearth::Validator.validate!(params, ::Hash, Types::AliasConfiguration, context: context)
         type = Types::AliasConfiguration.new
         type.alias_arn = params[:alias_arn]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.function_version = params[:function_version]
         type.description = params[:description]
         type.routing_config = AliasRoutingConfiguration.build(params[:routing_config], context: "#{context}[:routing_config]") unless params[:routing_config].nil?
@@ -229,7 +229,7 @@ module AWS::Lambda
         Hearth::Validator.validate!(params, ::Hash, Types::CreateAliasInput, context: context)
         type = Types::CreateAliasInput.new
         type.function_name = params[:function_name]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.function_version = params[:function_version]
         type.description = params[:description]
         type.routing_config = AliasRoutingConfiguration.build(params[:routing_config], context: "#{context}[:routing_config]") unless params[:routing_config].nil?
@@ -242,7 +242,7 @@ module AWS::Lambda
         Hearth::Validator.validate!(params, ::Hash, Types::CreateAliasOutput, context: context)
         type = Types::CreateAliasOutput.new
         type.alias_arn = params[:alias_arn]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.function_version = params[:function_version]
         type.description = params[:description]
         type.routing_config = AliasRoutingConfiguration.build(params[:routing_config], context: "#{context}[:routing_config]") unless params[:routing_config].nil?
@@ -408,7 +408,7 @@ module AWS::Lambda
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteAliasInput, context: context)
         type = Types::DeleteAliasInput.new
         type.function_name = params[:function_name]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type
       end
     end
@@ -942,7 +942,7 @@ module AWS::Lambda
         Hearth::Validator.validate!(params, ::Hash, Types::GetAliasInput, context: context)
         type = Types::GetAliasInput.new
         type.function_name = params[:function_name]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type
       end
     end
@@ -952,7 +952,7 @@ module AWS::Lambda
         Hearth::Validator.validate!(params, ::Hash, Types::GetAliasOutput, context: context)
         type = Types::GetAliasOutput.new
         type.alias_arn = params[:alias_arn]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.function_version = params[:function_version]
         type.description = params[:description]
         type.routing_config = AliasRoutingConfiguration.build(params[:routing_config], context: "#{context}[:routing_config]") unless params[:routing_config].nil?
@@ -2341,7 +2341,7 @@ module AWS::Lambda
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateAliasInput, context: context)
         type = Types::UpdateAliasInput.new
         type.function_name = params[:function_name]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.function_version = params[:function_version]
         type.description = params[:description]
         type.routing_config = AliasRoutingConfiguration.build(params[:routing_config], context: "#{context}[:routing_config]") unless params[:routing_config].nil?
@@ -2355,7 +2355,7 @@ module AWS::Lambda
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateAliasOutput, context: context)
         type = Types::UpdateAliasOutput.new
         type.alias_arn = params[:alias_arn]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.function_version = params[:function_version]
         type.description = params[:description]
         type.routing_config = AliasRoutingConfiguration.build(params[:routing_config], context: "#{context}[:routing_config]") unless params[:routing_config].nil?

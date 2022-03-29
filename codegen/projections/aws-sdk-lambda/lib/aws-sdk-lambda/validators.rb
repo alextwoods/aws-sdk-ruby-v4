@@ -86,7 +86,7 @@ module AWS::Lambda
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AliasConfiguration, context: context)
         Hearth::Validator.validate!(input[:alias_arn], ::String, context: "#{context}[:alias_arn]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:function_version], ::String, context: "#{context}[:function_version]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Validators::AliasRoutingConfiguration.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
@@ -189,7 +189,7 @@ module AWS::Lambda
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAliasInput, context: context)
         Hearth::Validator.validate!(input[:function_name], ::String, context: "#{context}[:function_name]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:function_version], ::String, context: "#{context}[:function_version]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Validators::AliasRoutingConfiguration.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
@@ -200,7 +200,7 @@ module AWS::Lambda
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateAliasOutput, context: context)
         Hearth::Validator.validate!(input[:alias_arn], ::String, context: "#{context}[:alias_arn]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:function_version], ::String, context: "#{context}[:function_version]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Validators::AliasRoutingConfiguration.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
@@ -350,7 +350,7 @@ module AWS::Lambda
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteAliasInput, context: context)
         Hearth::Validator.validate!(input[:function_name], ::String, context: "#{context}[:function_name]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
 
@@ -792,7 +792,7 @@ module AWS::Lambda
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAliasInput, context: context)
         Hearth::Validator.validate!(input[:function_name], ::String, context: "#{context}[:function_name]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
 
@@ -800,7 +800,7 @@ module AWS::Lambda
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetAliasOutput, context: context)
         Hearth::Validator.validate!(input[:alias_arn], ::String, context: "#{context}[:alias_arn]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:function_version], ::String, context: "#{context}[:function_version]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Validators::AliasRoutingConfiguration.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
@@ -1944,7 +1944,7 @@ module AWS::Lambda
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAliasInput, context: context)
         Hearth::Validator.validate!(input[:function_name], ::String, context: "#{context}[:function_name]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:function_version], ::String, context: "#{context}[:function_version]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Validators::AliasRoutingConfiguration.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?
@@ -1956,7 +1956,7 @@ module AWS::Lambda
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateAliasOutput, context: context)
         Hearth::Validator.validate!(input[:alias_arn], ::String, context: "#{context}[:alias_arn]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:function_version], ::String, context: "#{context}[:function_version]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Validators::AliasRoutingConfiguration.validate!(input[:routing_config], context: "#{context}[:routing_config]") unless input[:routing_config].nil?

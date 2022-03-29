@@ -169,7 +169,7 @@ module AWS::Sts
     class GetFederationTokenInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFederationTokenInput, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:policy], ::String, context: "#{context}[:policy]")
         Validators::PolicyDescriptorListType.validate!(input[:policy_arns], context: "#{context}[:policy_arns]") unless input[:policy_arns].nil?
         Hearth::Validator.validate!(input[:duration_seconds], ::Integer, context: "#{context}[:duration_seconds]")

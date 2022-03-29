@@ -863,7 +863,7 @@ module AWS::Ec2
           data.time_ranges = Parsers::InstanceEventWindowTimeRangeList.parse(children)
         end
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('cronExpression') do |node|
           data.cron_expression = (node.text || '')
@@ -4227,7 +4227,7 @@ module AWS::Ec2
           data.arn = (node.text || '')
         end
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         return data
       end
@@ -6872,7 +6872,7 @@ module AWS::Ec2
           data.value = (node.text || '')
         end
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         return data
       end
@@ -10708,7 +10708,7 @@ module AWS::Ec2
           data.fpga_image_id = (node.text || '')
         end
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('description') do |node|
           data.description = (node.text || '')
@@ -10809,7 +10809,7 @@ module AWS::Ec2
           data.fpga_image_global_id = (node.text || '')
         end
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('description') do |node|
           data.description = (node.text || '')
@@ -11485,7 +11485,7 @@ module AWS::Ec2
           data.image_owner_alias = (node.text || '')
         end
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('rootDeviceName') do |node|
           data.root_device_name = (node.text || '')
@@ -12081,7 +12081,7 @@ module AWS::Ec2
           data.impaired_since = Time.parse(node.text) if node.text
         end
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('status') do |node|
           data.status = (node.text || '')
@@ -12097,7 +12097,7 @@ module AWS::Ec2
           data.code = node.text&.to_i
         end
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         return data
       end
@@ -12331,7 +12331,7 @@ module AWS::Ec2
           data.count = node.text&.to_i
         end
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('manufacturer') do |node|
           data.manufacturer = (node.text || '')
@@ -12389,7 +12389,7 @@ module AWS::Ec2
       def self.parse(xml)
         data = Types::FpgaDeviceInfo.new
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('manufacturer') do |node|
           data.manufacturer = (node.text || '')
@@ -12442,7 +12442,7 @@ module AWS::Ec2
       def self.parse(xml)
         data = Types::GpuDeviceInfo.new
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('manufacturer') do |node|
           data.manufacturer = (node.text || '')
@@ -14475,7 +14475,7 @@ module AWS::Ec2
           data.arn = (node.text || '')
         end
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         return data
       end
@@ -16480,7 +16480,7 @@ module AWS::Ec2
       def self.parse(xml)
         data = Types::ClassicLoadBalancer.new
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         return data
       end
@@ -16812,7 +16812,7 @@ module AWS::Ec2
           data.arn = (node.text || '')
         end
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         return data
       end
@@ -17837,7 +17837,7 @@ module AWS::Ec2
       def self.parse(xml)
         data = Types::VolumeStatusDetails.new
         xml.at('name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('status') do |node|
           data.status = (node.text || '')

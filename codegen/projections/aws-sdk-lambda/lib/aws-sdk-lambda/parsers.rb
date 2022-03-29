@@ -118,7 +118,7 @@ module AWS::Lambda
         data = Types::CreateAliasOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.alias_arn = map['AliasArn']
-        data.member_name = map['Name']
+        data.name = map['Name']
         data.function_version = map['FunctionVersion']
         data.description = map['Description']
         data.routing_config = (Parsers::AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
@@ -693,7 +693,7 @@ module AWS::Lambda
         data = Types::GetAliasOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.alias_arn = map['AliasArn']
-        data.member_name = map['Name']
+        data.name = map['Name']
         data.function_version = map['FunctionVersion']
         data.description = map['Description']
         data.routing_config = (Parsers::AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
@@ -1279,7 +1279,7 @@ module AWS::Lambda
       def self.parse(map)
         data = Types::AliasConfiguration.new
         data.alias_arn = map['AliasArn']
-        data.member_name = map['Name']
+        data.name = map['Name']
         data.function_version = map['FunctionVersion']
         data.description = map['Description']
         data.routing_config = (Parsers::AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
@@ -1688,7 +1688,7 @@ module AWS::Lambda
         data = Types::UpdateAliasOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.alias_arn = map['AliasArn']
-        data.member_name = map['Name']
+        data.name = map['Name']
         data.function_version = map['FunctionVersion']
         data.description = map['Description']
         data.routing_config = (Parsers::AliasRoutingConfiguration.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)

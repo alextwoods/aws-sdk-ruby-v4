@@ -45,7 +45,7 @@ module AWS::Cloudfront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('DefaultTTL', input[:default_ttl].to_s) unless input[:default_ttl].nil?
         xml << Hearth::XML::Node.new('MaxTTL', input[:max_ttl].to_s) unless input[:max_ttl].nil?
         xml << Hearth::XML::Node.new('MinTTL', input[:min_ttl].to_s) unless input[:min_ttl].nil?
@@ -985,7 +985,7 @@ module AWS::Cloudfront
     class FieldLevelEncryptionProfileConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
         xml << Builders::EncryptionEntities.build('EncryptionEntities', input[:encryption_entities]) unless input[:encryption_entities].nil?
@@ -1057,7 +1057,7 @@ module AWS::Cloudfront
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateFunctionRequest')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Builders::FunctionConfig.build('FunctionConfig', input[:function_config]) unless input[:function_config].nil?
         xml << Hearth::XML::Node.new('FunctionCode', Base64::encode64(input[:function_code]).strip) unless input[:function_code].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1139,7 +1139,7 @@ module AWS::Cloudfront
     class KeyGroupConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('Items', Builders::PublicKeyIdList.build('PublicKey', input[:items])) unless input[:items].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
         xml
@@ -1210,7 +1210,7 @@ module AWS::Cloudfront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Builders::OriginRequestPolicyHeadersConfig.build('HeadersConfig', input[:headers_config]) unless input[:headers_config].nil?
         xml << Builders::OriginRequestPolicyCookiesConfig.build('CookiesConfig', input[:cookies_config]) unless input[:cookies_config].nil?
         xml << Builders::OriginRequestPolicyQueryStringsConfig.build('QueryStringsConfig', input[:query_strings_config]) unless input[:query_strings_config].nil?
@@ -1266,7 +1266,7 @@ module AWS::Cloudfront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
-        xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('EncodedKey', input[:encoded_key].to_s) unless input[:encoded_key].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
         xml
@@ -1286,7 +1286,7 @@ module AWS::Cloudfront
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('EndPoints', Builders::EndPointList.build('member', input[:end_points])) unless input[:end_points].nil?
         xml << Hearth::XML::Node.new('Fields', Builders::FieldList.build('Field', input[:fields])) unless input[:fields].nil?
-        xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('SamplingRate', input[:sampling_rate].to_s) unless input[:sampling_rate].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
@@ -1352,7 +1352,7 @@ module AWS::Cloudfront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Builders::ResponseHeadersPolicyCorsConfig.build('CorsConfig', input[:cors_config]) unless input[:cors_config].nil?
         xml << Builders::ResponseHeadersPolicySecurityHeadersConfig.build('SecurityHeadersConfig', input[:security_headers_config]) unless input[:security_headers_config].nil?
         xml << Builders::ResponseHeadersPolicyCustomHeadersConfig.build('CustomHeadersConfig', input[:custom_headers_config]) unless input[:custom_headers_config].nil?
@@ -1725,7 +1725,7 @@ module AWS::Cloudfront
         http_req.http_method = 'DELETE'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s',
-            Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
+            Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
         )
         params = Hearth::Query::ParamList.new
@@ -1804,7 +1804,7 @@ module AWS::Cloudfront
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteRealtimeLogConfigRequest')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('ARN', input[:arn].to_s) unless input[:arn].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
@@ -1846,7 +1846,7 @@ module AWS::Cloudfront
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s/describe',
-            Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
+            Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
         )
         params = Hearth::Query::ParamList.new
@@ -2001,7 +2001,7 @@ module AWS::Cloudfront
         http_req.http_method = 'GET'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s',
-            Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
+            Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
         )
         params = Hearth::Query::ParamList.new
@@ -2134,7 +2134,7 @@ module AWS::Cloudfront
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetRealtimeLogConfigRequest')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('ARN', input[:arn].to_s) unless input[:arn].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
@@ -2490,7 +2490,7 @@ module AWS::Cloudfront
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s/publish',
-            Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
+            Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
         )
         params = Hearth::Query::ParamList.new
@@ -2522,7 +2522,7 @@ module AWS::Cloudfront
         http_req.http_method = 'POST'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s/test',
-            Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
+            Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
         )
         params = Hearth::Query::ParamList.new
@@ -2671,7 +2671,7 @@ module AWS::Cloudfront
         http_req.http_method = 'PUT'
         http_req.append_path(format(
             '/2020-05-31/function/%<Name>s',
-            Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
+            Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
         )
         params = Hearth::Query::ParamList.new
@@ -2754,7 +2754,7 @@ module AWS::Cloudfront
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('EndPoints', Builders::EndPointList.build('member', input[:end_points])) unless input[:end_points].nil?
         xml << Hearth::XML::Node.new('Fields', Builders::FieldList.build('Field', input[:fields])) unless input[:fields].nil?
-        xml << Hearth::XML::Node.new('Name', input[:member_name].to_s) unless input[:member_name].nil?
+        xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('ARN', input[:arn].to_s) unless input[:arn].nil?
         xml << Hearth::XML::Node.new('SamplingRate', input[:sampling_rate].to_s) unless input[:sampling_rate].nil?
         http_req.body = StringIO.new(xml.to_str)

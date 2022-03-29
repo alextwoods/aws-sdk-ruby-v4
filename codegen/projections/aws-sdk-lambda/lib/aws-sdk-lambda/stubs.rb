@@ -51,7 +51,7 @@ module AWS::Lambda
       def self.default(visited=[])
         {
           alias_arn: 'alias_arn',
-          member_name: 'member_name',
+          name: 'name',
           function_version: 'function_version',
           description: 'description',
           routing_config: Stubs::AliasRoutingConfiguration.default(visited),
@@ -64,7 +64,7 @@ module AWS::Lambda
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['AliasArn'] = stub[:alias_arn] unless stub[:alias_arn].nil?
-        data['Name'] = stub[:member_name] unless stub[:member_name].nil?
+        data['Name'] = stub[:name] unless stub[:name].nil?
         data['FunctionVersion'] = stub[:function_version] unless stub[:function_version].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['RoutingConfig'] = Stubs::AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?
@@ -1119,7 +1119,7 @@ module AWS::Lambda
       def self.default(visited=[])
         {
           alias_arn: 'alias_arn',
-          member_name: 'member_name',
+          name: 'name',
           function_version: 'function_version',
           description: 'description',
           routing_config: Stubs::AliasRoutingConfiguration.default(visited),
@@ -1132,7 +1132,7 @@ module AWS::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AliasArn'] = stub[:alias_arn] unless stub[:alias_arn].nil?
-        data['Name'] = stub[:member_name] unless stub[:member_name].nil?
+        data['Name'] = stub[:name] unless stub[:name].nil?
         data['FunctionVersion'] = stub[:function_version] unless stub[:function_version].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['RoutingConfig'] = Stubs::AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?
@@ -1776,7 +1776,7 @@ module AWS::Lambda
         visited = visited + ['AliasConfiguration']
         {
           alias_arn: 'alias_arn',
-          member_name: 'member_name',
+          name: 'name',
           function_version: 'function_version',
           description: 'description',
           routing_config: Stubs::AliasRoutingConfiguration.default(visited),
@@ -1788,7 +1788,7 @@ module AWS::Lambda
         stub ||= Types::AliasConfiguration.new
         data = {}
         data['AliasArn'] = stub[:alias_arn] unless stub[:alias_arn].nil?
-        data['Name'] = stub[:member_name] unless stub[:member_name].nil?
+        data['Name'] = stub[:name] unless stub[:name].nil?
         data['FunctionVersion'] = stub[:function_version] unless stub[:function_version].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['RoutingConfig'] = Stubs::AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?
@@ -2564,7 +2564,7 @@ module AWS::Lambda
       def self.default(visited=[])
         {
           alias_arn: 'alias_arn',
-          member_name: 'member_name',
+          name: 'name',
           function_version: 'function_version',
           description: 'description',
           routing_config: Stubs::AliasRoutingConfiguration.default(visited),
@@ -2577,7 +2577,7 @@ module AWS::Lambda
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AliasArn'] = stub[:alias_arn] unless stub[:alias_arn].nil?
-        data['Name'] = stub[:member_name] unless stub[:member_name].nil?
+        data['Name'] = stub[:name] unless stub[:name].nil?
         data['FunctionVersion'] = stub[:function_version] unless stub[:function_version].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['RoutingConfig'] = Stubs::AliasRoutingConfiguration.stub(stub[:routing_config]) unless stub[:routing_config].nil?

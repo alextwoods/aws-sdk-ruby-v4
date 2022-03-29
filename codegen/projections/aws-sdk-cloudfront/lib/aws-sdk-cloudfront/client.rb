@@ -174,7 +174,7 @@ module AWS::Cloudfront
     #   resp = client.create_cache_policy(
     #     cache_policy_config: {
     #       comment: 'Comment',
-    #       member_name: 'Name', # required
+    #       name: 'Name', # required
     #       default_ttl: 1,
     #       max_ttl: 1,
     #       min_ttl: 1, # required
@@ -220,7 +220,7 @@ module AWS::Cloudfront
     #   resp.data.cache_policy.last_modified_time #=> Time
     #   resp.data.cache_policy.cache_policy_config #=> Types::CachePolicyConfig
     #   resp.data.cache_policy.cache_policy_config.comment #=> String
-    #   resp.data.cache_policy.cache_policy_config.member_name #=> String
+    #   resp.data.cache_policy.cache_policy_config.name #=> String
     #   resp.data.cache_policy.cache_policy_config.default_ttl #=> Integer
     #   resp.data.cache_policy.cache_policy_config.max_ttl #=> Integer
     #   resp.data.cache_policy.cache_policy_config.min_ttl #=> Integer
@@ -1455,7 +1455,7 @@ module AWS::Cloudfront
     #
     #   resp = client.create_field_level_encryption_profile(
     #     field_level_encryption_profile_config: {
-    #       member_name: 'Name', # required
+    #       name: 'Name', # required
     #       caller_reference: 'CallerReference', # required
     #       comment: 'Comment',
     #       encryption_entities: {
@@ -1483,7 +1483,7 @@ module AWS::Cloudfront
     #   resp.data.field_level_encryption_profile.id #=> String
     #   resp.data.field_level_encryption_profile.last_modified_time #=> Time
     #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config #=> Types::FieldLevelEncryptionProfileConfig
-    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.member_name #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.name #=> String
     #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.caller_reference #=> String
     #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.comment #=> String
     #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities #=> Types::EncryptionEntities
@@ -1554,7 +1554,7 @@ module AWS::Cloudfront
     # @param [Hash] params
     #   See {Types::CreateFunctionInput}.
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>A name to identify the function.</p>
     #
     # @option params [FunctionConfig] :function_config
@@ -1570,7 +1570,7 @@ module AWS::Cloudfront
     # @example Request syntax with placeholder values
     #
     #   resp = client.create_function(
-    #     member_name: 'Name', # required
+    #     name: 'Name', # required
     #     function_config: {
     #       comment: 'Comment', # required
     #       runtime: 'cloudfront-js-1.0' # required - accepts cloudfront-js-1.0
@@ -1582,7 +1582,7 @@ module AWS::Cloudfront
     #
     #   resp.data #=> Types::CreateFunctionOutput
     #   resp.data.function_summary #=> Types::FunctionSummary
-    #   resp.data.function_summary.member_name #=> String
+    #   resp.data.function_summary.name #=> String
     #   resp.data.function_summary.status #=> String
     #   resp.data.function_summary.function_config #=> Types::FunctionConfig
     #   resp.data.function_summary.function_config.comment #=> String
@@ -1739,7 +1739,7 @@ module AWS::Cloudfront
     #
     #   resp = client.create_key_group(
     #     key_group_config: {
-    #       member_name: 'Name', # required
+    #       name: 'Name', # required
     #       items: [
     #         'member'
     #       ], # required
@@ -1754,7 +1754,7 @@ module AWS::Cloudfront
     #   resp.data.key_group.id #=> String
     #   resp.data.key_group.last_modified_time #=> Time
     #   resp.data.key_group.key_group_config #=> Types::KeyGroupConfig
-    #   resp.data.key_group.key_group_config.member_name #=> String
+    #   resp.data.key_group.key_group_config.name #=> String
     #   resp.data.key_group.key_group_config.items #=> Array<String>
     #   resp.data.key_group.key_group_config.items[0] #=> String
     #   resp.data.key_group.key_group_config.comment #=> String
@@ -1915,7 +1915,7 @@ module AWS::Cloudfront
     #   resp = client.create_origin_request_policy(
     #     origin_request_policy_config: {
     #       comment: 'Comment',
-    #       member_name: 'Name', # required
+    #       name: 'Name', # required
     #       headers_config: {
     #         header_behavior: 'none', # required - accepts none, whitelist, allViewer, allViewerAndWhitelistCloudFront
     #         headers: {
@@ -1954,7 +1954,7 @@ module AWS::Cloudfront
     #   resp.data.origin_request_policy.last_modified_time #=> Time
     #   resp.data.origin_request_policy.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
     #   resp.data.origin_request_policy.origin_request_policy_config.comment #=> String
-    #   resp.data.origin_request_policy.origin_request_policy_config.member_name #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.name #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
@@ -2031,7 +2031,7 @@ module AWS::Cloudfront
     #   resp = client.create_public_key(
     #     public_key_config: {
     #       caller_reference: 'CallerReference', # required
-    #       member_name: 'Name', # required
+    #       name: 'Name', # required
     #       encoded_key: 'EncodedKey', # required
     #       comment: 'Comment'
     #     } # required
@@ -2045,7 +2045,7 @@ module AWS::Cloudfront
     #   resp.data.public_key.created_time #=> Time
     #   resp.data.public_key.public_key_config #=> Types::PublicKeyConfig
     #   resp.data.public_key.public_key_config.caller_reference #=> String
-    #   resp.data.public_key.public_key_config.member_name #=> String
+    #   resp.data.public_key.public_key_config.name #=> String
     #   resp.data.public_key.public_key_config.encoded_key #=> String
     #   resp.data.public_key.public_key_config.comment #=> String
     #   resp.data.location #=> String
@@ -2108,7 +2108,7 @@ module AWS::Cloudfront
     #   		       <p>For more information about fields, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields">Real-time log configuration fields</a> in the
     #   			<i>Amazon CloudFront Developer Guide</i>.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>A unique name to identify this real-time log configuration.</p>
     #
     # @option params [Integer] :sampling_rate
@@ -2133,7 +2133,7 @@ module AWS::Cloudfront
     #     fields: [
     #       'member'
     #     ], # required
-    #     member_name: 'Name', # required
+    #     name: 'Name', # required
     #     sampling_rate: 1 # required
     #   )
     #
@@ -2142,7 +2142,7 @@ module AWS::Cloudfront
     #   resp.data #=> Types::CreateRealtimeLogConfigOutput
     #   resp.data.realtime_log_config #=> Types::RealtimeLogConfig
     #   resp.data.realtime_log_config.arn #=> String
-    #   resp.data.realtime_log_config.member_name #=> String
+    #   resp.data.realtime_log_config.name #=> String
     #   resp.data.realtime_log_config.sampling_rate #=> Integer
     #   resp.data.realtime_log_config.end_points #=> Array<EndPoint>
     #   resp.data.realtime_log_config.end_points[0] #=> Types::EndPoint
@@ -2216,7 +2216,7 @@ module AWS::Cloudfront
     #   resp = client.create_response_headers_policy(
     #     response_headers_policy_config: {
     #       comment: 'Comment',
-    #       member_name: 'Name', # required
+    #       name: 'Name', # required
     #       cors_config: {
     #         access_control_allow_origins: {
     #           quantity: 1, # required
@@ -2296,7 +2296,7 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy.last_modified_time #=> Time
     #   resp.data.response_headers_policy.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
     #   resp.data.response_headers_policy.response_headers_policy_config.comment #=> String
-    #   resp.data.response_headers_policy.response_headers_policy_config.member_name #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.name #=> String
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer
@@ -3000,7 +3000,7 @@ module AWS::Cloudfront
     # @param [Hash] params
     #   See {Types::DeleteFunctionInput}.
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the function that you are deleting.</p>
     #
     # @option params [String] :if_match
@@ -3012,7 +3012,7 @@ module AWS::Cloudfront
     # @example Request syntax with placeholder values
     #
     #   resp = client.delete_function(
-    #     member_name: 'Name', # required
+    #     name: 'Name', # required
     #     if_match: 'IfMatch' # required
     #   )
     #
@@ -3343,7 +3343,7 @@ module AWS::Cloudfront
     # @param [Hash] params
     #   See {Types::DeleteRealtimeLogConfigInput}.
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the real-time log configuration to delete.</p>
     #
     # @option params [String] :arn
@@ -3354,7 +3354,7 @@ module AWS::Cloudfront
     # @example Request syntax with placeholder values
     #
     #   resp = client.delete_realtime_log_config(
-    #     member_name: 'Name',
+    #     name: 'Name',
     #     arn: 'ARN'
     #   )
     #
@@ -3598,7 +3598,7 @@ module AWS::Cloudfront
     # @param [Hash] params
     #   See {Types::DescribeFunctionInput}.
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the function that you are getting information about.</p>
     #
     # @option params [String] :stage
@@ -3609,7 +3609,7 @@ module AWS::Cloudfront
     # @example Request syntax with placeholder values
     #
     #   resp = client.describe_function(
-    #     member_name: 'Name', # required
+    #     name: 'Name', # required
     #     stage: 'DEVELOPMENT' # accepts DEVELOPMENT, LIVE
     #   )
     #
@@ -3617,7 +3617,7 @@ module AWS::Cloudfront
     #
     #   resp.data #=> Types::DescribeFunctionOutput
     #   resp.data.function_summary #=> Types::FunctionSummary
-    #   resp.data.function_summary.member_name #=> String
+    #   resp.data.function_summary.name #=> String
     #   resp.data.function_summary.status #=> String
     #   resp.data.function_summary.function_config #=> Types::FunctionConfig
     #   resp.data.function_summary.function_config.comment #=> String
@@ -3710,7 +3710,7 @@ module AWS::Cloudfront
     #   resp.data.cache_policy.last_modified_time #=> Time
     #   resp.data.cache_policy.cache_policy_config #=> Types::CachePolicyConfig
     #   resp.data.cache_policy.cache_policy_config.comment #=> String
-    #   resp.data.cache_policy.cache_policy_config.member_name #=> String
+    #   resp.data.cache_policy.cache_policy_config.name #=> String
     #   resp.data.cache_policy.cache_policy_config.default_ttl #=> Integer
     #   resp.data.cache_policy.cache_policy_config.max_ttl #=> Integer
     #   resp.data.cache_policy.cache_policy_config.min_ttl #=> Integer
@@ -3807,7 +3807,7 @@ module AWS::Cloudfront
     #   resp.data #=> Types::GetCachePolicyConfigOutput
     #   resp.data.cache_policy_config #=> Types::CachePolicyConfig
     #   resp.data.cache_policy_config.comment #=> String
-    #   resp.data.cache_policy_config.member_name #=> String
+    #   resp.data.cache_policy_config.name #=> String
     #   resp.data.cache_policy_config.default_ttl #=> Integer
     #   resp.data.cache_policy_config.max_ttl #=> Integer
     #   resp.data.cache_policy_config.min_ttl #=> Integer
@@ -4677,7 +4677,7 @@ module AWS::Cloudfront
     #   resp.data.field_level_encryption_profile.id #=> String
     #   resp.data.field_level_encryption_profile.last_modified_time #=> Time
     #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config #=> Types::FieldLevelEncryptionProfileConfig
-    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.member_name #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.name #=> String
     #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.caller_reference #=> String
     #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.comment #=> String
     #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities #=> Types::EncryptionEntities
@@ -4752,7 +4752,7 @@ module AWS::Cloudfront
     #
     #   resp.data #=> Types::GetFieldLevelEncryptionProfileConfigOutput
     #   resp.data.field_level_encryption_profile_config #=> Types::FieldLevelEncryptionProfileConfig
-    #   resp.data.field_level_encryption_profile_config.member_name #=> String
+    #   resp.data.field_level_encryption_profile_config.name #=> String
     #   resp.data.field_level_encryption_profile_config.caller_reference #=> String
     #   resp.data.field_level_encryption_profile_config.comment #=> String
     #   resp.data.field_level_encryption_profile_config.encryption_entities #=> Types::EncryptionEntities
@@ -4815,7 +4815,7 @@ module AWS::Cloudfront
     # @param [Hash] params
     #   See {Types::GetFunctionInput}.
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the function whose code you are getting.</p>
     #
     # @option params [String] :stage
@@ -4826,7 +4826,7 @@ module AWS::Cloudfront
     # @example Request syntax with placeholder values
     #
     #   resp = client.get_function(
-    #     member_name: 'Name', # required
+    #     name: 'Name', # required
     #     stage: 'DEVELOPMENT' # accepts DEVELOPMENT, LIVE
     #   )
     #
@@ -4981,7 +4981,7 @@ module AWS::Cloudfront
     #   resp.data.key_group.id #=> String
     #   resp.data.key_group.last_modified_time #=> Time
     #   resp.data.key_group.key_group_config #=> Types::KeyGroupConfig
-    #   resp.data.key_group.key_group_config.member_name #=> String
+    #   resp.data.key_group.key_group_config.name #=> String
     #   resp.data.key_group.key_group_config.items #=> Array<String>
     #   resp.data.key_group.key_group_config.items[0] #=> String
     #   resp.data.key_group.key_group_config.comment #=> String
@@ -5053,7 +5053,7 @@ module AWS::Cloudfront
     #
     #   resp.data #=> Types::GetKeyGroupConfigOutput
     #   resp.data.key_group_config #=> Types::KeyGroupConfig
-    #   resp.data.key_group_config.member_name #=> String
+    #   resp.data.key_group_config.name #=> String
     #   resp.data.key_group_config.items #=> Array<String>
     #   resp.data.key_group_config.items[0] #=> String
     #   resp.data.key_group_config.comment #=> String
@@ -5204,7 +5204,7 @@ module AWS::Cloudfront
     #   resp.data.origin_request_policy.last_modified_time #=> Time
     #   resp.data.origin_request_policy.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
     #   resp.data.origin_request_policy.origin_request_policy_config.comment #=> String
-    #   resp.data.origin_request_policy.origin_request_policy_config.member_name #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.name #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
@@ -5296,7 +5296,7 @@ module AWS::Cloudfront
     #   resp.data #=> Types::GetOriginRequestPolicyConfigOutput
     #   resp.data.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
     #   resp.data.origin_request_policy_config.comment #=> String
-    #   resp.data.origin_request_policy_config.member_name #=> String
+    #   resp.data.origin_request_policy_config.name #=> String
     #   resp.data.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
     #   resp.data.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
     #   resp.data.origin_request_policy_config.headers_config.headers #=> Types::Headers
@@ -5381,7 +5381,7 @@ module AWS::Cloudfront
     #   resp.data.public_key.created_time #=> Time
     #   resp.data.public_key.public_key_config #=> Types::PublicKeyConfig
     #   resp.data.public_key.public_key_config.caller_reference #=> String
-    #   resp.data.public_key.public_key_config.member_name #=> String
+    #   resp.data.public_key.public_key_config.name #=> String
     #   resp.data.public_key.public_key_config.encoded_key #=> String
     #   resp.data.public_key.public_key_config.comment #=> String
     #   resp.data.e_tag #=> String
@@ -5447,7 +5447,7 @@ module AWS::Cloudfront
     #   resp.data #=> Types::GetPublicKeyConfigOutput
     #   resp.data.public_key_config #=> Types::PublicKeyConfig
     #   resp.data.public_key_config.caller_reference #=> String
-    #   resp.data.public_key_config.member_name #=> String
+    #   resp.data.public_key_config.name #=> String
     #   resp.data.public_key_config.encoded_key #=> String
     #   resp.data.public_key_config.comment #=> String
     #   resp.data.e_tag #=> String
@@ -5500,7 +5500,7 @@ module AWS::Cloudfront
     # @param [Hash] params
     #   See {Types::GetRealtimeLogConfigInput}.
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the real-time log configuration to get.</p>
     #
     # @option params [String] :arn
@@ -5511,7 +5511,7 @@ module AWS::Cloudfront
     # @example Request syntax with placeholder values
     #
     #   resp = client.get_realtime_log_config(
-    #     member_name: 'Name',
+    #     name: 'Name',
     #     arn: 'ARN'
     #   )
     #
@@ -5520,7 +5520,7 @@ module AWS::Cloudfront
     #   resp.data #=> Types::GetRealtimeLogConfigOutput
     #   resp.data.realtime_log_config #=> Types::RealtimeLogConfig
     #   resp.data.realtime_log_config.arn #=> String
-    #   resp.data.realtime_log_config.member_name #=> String
+    #   resp.data.realtime_log_config.name #=> String
     #   resp.data.realtime_log_config.sampling_rate #=> Integer
     #   resp.data.realtime_log_config.end_points #=> Array<EndPoint>
     #   resp.data.realtime_log_config.end_points[0] #=> Types::EndPoint
@@ -5607,7 +5607,7 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy.last_modified_time #=> Time
     #   resp.data.response_headers_policy.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
     #   resp.data.response_headers_policy.response_headers_policy_config.comment #=> String
-    #   resp.data.response_headers_policy.response_headers_policy_config.member_name #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.name #=> String
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer
@@ -5731,7 +5731,7 @@ module AWS::Cloudfront
     #   resp.data #=> Types::GetResponseHeadersPolicyConfigOutput
     #   resp.data.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
     #   resp.data.response_headers_policy_config.comment #=> String
-    #   resp.data.response_headers_policy_config.member_name #=> String
+    #   resp.data.response_headers_policy_config.name #=> String
     #   resp.data.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
     #   resp.data.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
     #   resp.data.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer
@@ -6063,7 +6063,7 @@ module AWS::Cloudfront
     #   resp.data.cache_policy_list.items[0].cache_policy.last_modified_time #=> Time
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config #=> Types::CachePolicyConfig
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.comment #=> String
-    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.member_name #=> String
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.name #=> String
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.default_ttl #=> Integer
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.max_ttl #=> Integer
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.min_ttl #=> Integer
@@ -7540,7 +7540,7 @@ module AWS::Cloudfront
     #   resp.data.field_level_encryption_profile_list.items[0] #=> Types::FieldLevelEncryptionProfileSummary
     #   resp.data.field_level_encryption_profile_list.items[0].id #=> String
     #   resp.data.field_level_encryption_profile_list.items[0].last_modified_time #=> Time
-    #   resp.data.field_level_encryption_profile_list.items[0].member_name #=> String
+    #   resp.data.field_level_encryption_profile_list.items[0].name #=> String
     #   resp.data.field_level_encryption_profile_list.items[0].encryption_entities #=> Types::EncryptionEntities
     #   resp.data.field_level_encryption_profile_list.items[0].encryption_entities.quantity #=> Integer
     #   resp.data.field_level_encryption_profile_list.items[0].encryption_entities.items #=> Array<EncryptionEntity>
@@ -7637,7 +7637,7 @@ module AWS::Cloudfront
     #   resp.data.function_list.quantity #=> Integer
     #   resp.data.function_list.items #=> Array<FunctionSummary>
     #   resp.data.function_list.items[0] #=> Types::FunctionSummary
-    #   resp.data.function_list.items[0].member_name #=> String
+    #   resp.data.function_list.items[0].name #=> String
     #   resp.data.function_list.items[0].status #=> String
     #   resp.data.function_list.items[0].function_config #=> Types::FunctionConfig
     #   resp.data.function_list.items[0].function_config.comment #=> String
@@ -7814,7 +7814,7 @@ module AWS::Cloudfront
     #   resp.data.key_group_list.items[0].key_group.id #=> String
     #   resp.data.key_group_list.items[0].key_group.last_modified_time #=> Time
     #   resp.data.key_group_list.items[0].key_group.key_group_config #=> Types::KeyGroupConfig
-    #   resp.data.key_group_list.items[0].key_group.key_group_config.member_name #=> String
+    #   resp.data.key_group_list.items[0].key_group.key_group_config.name #=> String
     #   resp.data.key_group_list.items[0].key_group.key_group_config.items #=> Array<String>
     #   resp.data.key_group_list.items[0].key_group.key_group_config.items[0] #=> String
     #   resp.data.key_group_list.items[0].key_group.key_group_config.comment #=> String
@@ -7919,7 +7919,7 @@ module AWS::Cloudfront
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.last_modified_time #=> Time
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.comment #=> String
-    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.member_name #=> String
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.name #=> String
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
@@ -8011,7 +8011,7 @@ module AWS::Cloudfront
     #   resp.data.public_key_list.items #=> Array<PublicKeySummary>
     #   resp.data.public_key_list.items[0] #=> Types::PublicKeySummary
     #   resp.data.public_key_list.items[0].id #=> String
-    #   resp.data.public_key_list.items[0].member_name #=> String
+    #   resp.data.public_key_list.items[0].name #=> String
     #   resp.data.public_key_list.items[0].created_time #=> Time
     #   resp.data.public_key_list.items[0].encoded_key #=> String
     #   resp.data.public_key_list.items[0].comment #=> String
@@ -8092,7 +8092,7 @@ module AWS::Cloudfront
     #   resp.data.realtime_log_configs.items #=> Array<RealtimeLogConfig>
     #   resp.data.realtime_log_configs.items[0] #=> Types::RealtimeLogConfig
     #   resp.data.realtime_log_configs.items[0].arn #=> String
-    #   resp.data.realtime_log_configs.items[0].member_name #=> String
+    #   resp.data.realtime_log_configs.items[0].name #=> String
     #   resp.data.realtime_log_configs.items[0].sampling_rate #=> Integer
     #   resp.data.realtime_log_configs.items[0].end_points #=> Array<EndPoint>
     #   resp.data.realtime_log_configs.items[0].end_points[0] #=> Types::EndPoint
@@ -8207,7 +8207,7 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.last_modified_time #=> Time
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.comment #=> String
-    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.member_name #=> String
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.name #=> String
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer
@@ -8468,7 +8468,7 @@ module AWS::Cloudfront
     # @param [Hash] params
     #   See {Types::PublishFunctionInput}.
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the function that you are publishing.</p>
     #
     # @option params [String] :if_match
@@ -8480,7 +8480,7 @@ module AWS::Cloudfront
     # @example Request syntax with placeholder values
     #
     #   resp = client.publish_function(
-    #     member_name: 'Name', # required
+    #     name: 'Name', # required
     #     if_match: 'IfMatch' # required
     #   )
     #
@@ -8488,7 +8488,7 @@ module AWS::Cloudfront
     #
     #   resp.data #=> Types::PublishFunctionOutput
     #   resp.data.function_summary #=> Types::FunctionSummary
-    #   resp.data.function_summary.member_name #=> String
+    #   resp.data.function_summary.name #=> String
     #   resp.data.function_summary.status #=> String
     #   resp.data.function_summary.function_config #=> Types::FunctionConfig
     #   resp.data.function_summary.function_config.comment #=> String
@@ -8624,7 +8624,7 @@ module AWS::Cloudfront
     # @param [Hash] params
     #   See {Types::TestFunctionInput}.
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the function that you are testing.</p>
     #
     # @option params [String] :if_match
@@ -8644,7 +8644,7 @@ module AWS::Cloudfront
     # @example Request syntax with placeholder values
     #
     #   resp = client.test_function(
-    #     member_name: 'Name', # required
+    #     name: 'Name', # required
     #     if_match: 'IfMatch', # required
     #     stage: 'DEVELOPMENT', # accepts DEVELOPMENT, LIVE
     #     event_object: 'EventObject' # required
@@ -8655,7 +8655,7 @@ module AWS::Cloudfront
     #   resp.data #=> Types::TestFunctionOutput
     #   resp.data.test_result #=> Types::TestResult
     #   resp.data.test_result.function_summary #=> Types::FunctionSummary
-    #   resp.data.test_result.function_summary.member_name #=> String
+    #   resp.data.test_result.function_summary.name #=> String
     #   resp.data.test_result.function_summary.status #=> String
     #   resp.data.test_result.function_summary.function_config #=> Types::FunctionConfig
     #   resp.data.test_result.function_summary.function_config.comment #=> String
@@ -8821,7 +8821,7 @@ module AWS::Cloudfront
     #   resp = client.update_cache_policy(
     #     cache_policy_config: {
     #       comment: 'Comment',
-    #       member_name: 'Name', # required
+    #       name: 'Name', # required
     #       default_ttl: 1,
     #       max_ttl: 1,
     #       min_ttl: 1, # required
@@ -8869,7 +8869,7 @@ module AWS::Cloudfront
     #   resp.data.cache_policy.last_modified_time #=> Time
     #   resp.data.cache_policy.cache_policy_config #=> Types::CachePolicyConfig
     #   resp.data.cache_policy.cache_policy_config.comment #=> String
-    #   resp.data.cache_policy.cache_policy_config.member_name #=> String
+    #   resp.data.cache_policy.cache_policy_config.name #=> String
     #   resp.data.cache_policy.cache_policy_config.default_ttl #=> Integer
     #   resp.data.cache_policy.cache_policy_config.max_ttl #=> Integer
     #   resp.data.cache_policy.cache_policy_config.min_ttl #=> Integer
@@ -9715,7 +9715,7 @@ module AWS::Cloudfront
     #
     #   resp = client.update_field_level_encryption_profile(
     #     field_level_encryption_profile_config: {
-    #       member_name: 'Name', # required
+    #       name: 'Name', # required
     #       caller_reference: 'CallerReference', # required
     #       comment: 'Comment',
     #       encryption_entities: {
@@ -9745,7 +9745,7 @@ module AWS::Cloudfront
     #   resp.data.field_level_encryption_profile.id #=> String
     #   resp.data.field_level_encryption_profile.last_modified_time #=> Time
     #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config #=> Types::FieldLevelEncryptionProfileConfig
-    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.member_name #=> String
+    #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.name #=> String
     #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.caller_reference #=> String
     #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.comment #=> String
     #   resp.data.field_level_encryption_profile.field_level_encryption_profile_config.encryption_entities #=> Types::EncryptionEntities
@@ -9810,7 +9810,7 @@ module AWS::Cloudfront
     # @param [Hash] params
     #   See {Types::UpdateFunctionInput}.
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the function that you are updating.</p>
     #
     # @option params [String] :if_match
@@ -9829,7 +9829,7 @@ module AWS::Cloudfront
     # @example Request syntax with placeholder values
     #
     #   resp = client.update_function(
-    #     member_name: 'Name', # required
+    #     name: 'Name', # required
     #     if_match: 'IfMatch', # required
     #     function_config: {
     #       comment: 'Comment', # required
@@ -9842,7 +9842,7 @@ module AWS::Cloudfront
     #
     #   resp.data #=> Types::UpdateFunctionOutput
     #   resp.data.function_summary #=> Types::FunctionSummary
-    #   resp.data.function_summary.member_name #=> String
+    #   resp.data.function_summary.name #=> String
     #   resp.data.function_summary.status #=> String
     #   resp.data.function_summary.function_config #=> Types::FunctionConfig
     #   resp.data.function_summary.function_config.comment #=> String
@@ -9932,7 +9932,7 @@ module AWS::Cloudfront
     #
     #   resp = client.update_key_group(
     #     key_group_config: {
-    #       member_name: 'Name', # required
+    #       name: 'Name', # required
     #       items: [
     #         'member'
     #       ], # required
@@ -9949,7 +9949,7 @@ module AWS::Cloudfront
     #   resp.data.key_group.id #=> String
     #   resp.data.key_group.last_modified_time #=> Time
     #   resp.data.key_group.key_group_config #=> Types::KeyGroupConfig
-    #   resp.data.key_group.key_group_config.member_name #=> String
+    #   resp.data.key_group.key_group_config.name #=> String
     #   resp.data.key_group.key_group_config.items #=> Array<String>
     #   resp.data.key_group.key_group_config.items[0] #=> String
     #   resp.data.key_group.key_group_config.comment #=> String
@@ -10037,7 +10037,7 @@ module AWS::Cloudfront
     #   resp = client.update_origin_request_policy(
     #     origin_request_policy_config: {
     #       comment: 'Comment',
-    #       member_name: 'Name', # required
+    #       name: 'Name', # required
     #       headers_config: {
     #         header_behavior: 'none', # required - accepts none, whitelist, allViewer, allViewerAndWhitelistCloudFront
     #         headers: {
@@ -10078,7 +10078,7 @@ module AWS::Cloudfront
     #   resp.data.origin_request_policy.last_modified_time #=> Time
     #   resp.data.origin_request_policy.origin_request_policy_config #=> Types::OriginRequestPolicyConfig
     #   resp.data.origin_request_policy.origin_request_policy_config.comment #=> String
-    #   resp.data.origin_request_policy.origin_request_policy_config.member_name #=> String
+    #   resp.data.origin_request_policy.origin_request_policy_config.name #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
@@ -10161,7 +10161,7 @@ module AWS::Cloudfront
     #   resp = client.update_public_key(
     #     public_key_config: {
     #       caller_reference: 'CallerReference', # required
-    #       member_name: 'Name', # required
+    #       name: 'Name', # required
     #       encoded_key: 'EncodedKey', # required
     #       comment: 'Comment'
     #     }, # required
@@ -10177,7 +10177,7 @@ module AWS::Cloudfront
     #   resp.data.public_key.created_time #=> Time
     #   resp.data.public_key.public_key_config #=> Types::PublicKeyConfig
     #   resp.data.public_key.public_key_config.caller_reference #=> String
-    #   resp.data.public_key.public_key_config.member_name #=> String
+    #   resp.data.public_key.public_key_config.name #=> String
     #   resp.data.public_key.public_key_config.encoded_key #=> String
     #   resp.data.public_key.public_key_config.comment #=> String
     #   resp.data.e_tag #=> String
@@ -10256,7 +10256,7 @@ module AWS::Cloudfront
     #   		       <p>For more information about fields, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields">Real-time log configuration fields</a> in the
     #   			<i>Amazon CloudFront Developer Guide</i>.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name for this real-time log configuration.</p>
     #
     # @option params [String] :arn
@@ -10284,7 +10284,7 @@ module AWS::Cloudfront
     #     fields: [
     #       'member'
     #     ],
-    #     member_name: 'Name',
+    #     name: 'Name',
     #     arn: 'ARN',
     #     sampling_rate: 1
     #   )
@@ -10294,7 +10294,7 @@ module AWS::Cloudfront
     #   resp.data #=> Types::UpdateRealtimeLogConfigOutput
     #   resp.data.realtime_log_config #=> Types::RealtimeLogConfig
     #   resp.data.realtime_log_config.arn #=> String
-    #   resp.data.realtime_log_config.member_name #=> String
+    #   resp.data.realtime_log_config.name #=> String
     #   resp.data.realtime_log_config.sampling_rate #=> Integer
     #   resp.data.realtime_log_config.end_points #=> Array<EndPoint>
     #   resp.data.realtime_log_config.end_points[0] #=> Types::EndPoint
@@ -10386,7 +10386,7 @@ module AWS::Cloudfront
     #   resp = client.update_response_headers_policy(
     #     response_headers_policy_config: {
     #       comment: 'Comment',
-    #       member_name: 'Name', # required
+    #       name: 'Name', # required
     #       cors_config: {
     #         access_control_allow_origins: {
     #           quantity: 1, # required
@@ -10468,7 +10468,7 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy.last_modified_time #=> Time
     #   resp.data.response_headers_policy.response_headers_policy_config #=> Types::ResponseHeadersPolicyConfig
     #   resp.data.response_headers_policy.response_headers_policy_config.comment #=> String
-    #   resp.data.response_headers_policy.response_headers_policy_config.member_name #=> String
+    #   resp.data.response_headers_policy.response_headers_policy_config.name #=> String
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config #=> Types::ResponseHeadersPolicyCorsConfig
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins #=> Types::ResponseHeadersPolicyAccessControlAllowOrigins
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_origins.quantity #=> Integer

@@ -213,7 +213,7 @@ module AWS::Cloudfront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CachePolicyConfig, context: context)
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:default_ttl], ::Integer, context: "#{context}[:default_ttl]")
         Hearth::Validator.validate!(input[:max_ttl], ::Integer, context: "#{context}[:max_ttl]")
         Hearth::Validator.validate!(input[:min_ttl], ::Integer, context: "#{context}[:min_ttl]")
@@ -541,7 +541,7 @@ module AWS::Cloudfront
     class CreateFunctionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateFunctionInput, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Validators::FunctionConfig.validate!(input[:function_config], context: "#{context}[:function_config]") unless input[:function_config].nil?
         Hearth::Validator.validate!(input[:function_code], ::String, context: "#{context}[:function_code]")
       end
@@ -640,7 +640,7 @@ module AWS::Cloudfront
         Hearth::Validator.validate!(input, Types::CreateRealtimeLogConfigInput, context: context)
         Validators::EndPointList.validate!(input[:end_points], context: "#{context}[:end_points]") unless input[:end_points].nil?
         Validators::FieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:sampling_rate], ::Integer, context: "#{context}[:sampling_rate]")
       end
     end
@@ -844,7 +844,7 @@ module AWS::Cloudfront
     class DeleteFunctionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteFunctionInput, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
       end
     end
@@ -913,7 +913,7 @@ module AWS::Cloudfront
     class DeleteRealtimeLogConfigInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteRealtimeLogConfigInput, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -955,7 +955,7 @@ module AWS::Cloudfront
     class DescribeFunctionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DescribeFunctionInput, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:stage], ::String, context: "#{context}[:stage]")
       end
     end
@@ -1202,7 +1202,7 @@ module AWS::Cloudfront
     class FieldLevelEncryptionProfileConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FieldLevelEncryptionProfileConfig, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:caller_reference], ::String, context: "#{context}[:caller_reference]")
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
         Validators::EncryptionEntities.validate!(input[:encryption_entities], context: "#{context}[:encryption_entities]") unless input[:encryption_entities].nil?
@@ -1238,7 +1238,7 @@ module AWS::Cloudfront
         Hearth::Validator.validate!(input, Types::FieldLevelEncryptionProfileSummary, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:last_modified_time], ::Time, context: "#{context}[:last_modified_time]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Validators::EncryptionEntities.validate!(input[:encryption_entities], context: "#{context}[:encryption_entities]") unless input[:encryption_entities].nil?
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
       end
@@ -1395,7 +1395,7 @@ module AWS::Cloudfront
     class FunctionSummary
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FunctionSummary, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Validators::FunctionConfig.validate!(input[:function_config], context: "#{context}[:function_config]") unless input[:function_config].nil?
         Validators::FunctionMetadata.validate!(input[:function_metadata], context: "#{context}[:function_metadata]") unless input[:function_metadata].nil?
@@ -1573,7 +1573,7 @@ module AWS::Cloudfront
     class GetFunctionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetFunctionInput, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:stage], ::String, context: "#{context}[:stage]")
       end
     end
@@ -1709,7 +1709,7 @@ module AWS::Cloudfront
     class GetRealtimeLogConfigInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetRealtimeLogConfigInput, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
       end
     end
@@ -2078,7 +2078,7 @@ module AWS::Cloudfront
     class KeyGroupConfig
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::KeyGroupConfig, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Validators::PublicKeyIdList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
       end
@@ -2747,7 +2747,7 @@ module AWS::Cloudfront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::OriginRequestPolicyConfig, context: context)
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Validators::OriginRequestPolicyHeadersConfig.validate!(input[:headers_config], context: "#{context}[:headers_config]") unless input[:headers_config].nil?
         Validators::OriginRequestPolicyCookiesConfig.validate!(input[:cookies_config], context: "#{context}[:cookies_config]") unless input[:cookies_config].nil?
         Validators::OriginRequestPolicyQueryStringsConfig.validate!(input[:query_strings_config], context: "#{context}[:query_strings_config]") unless input[:query_strings_config].nil?
@@ -2891,7 +2891,7 @@ module AWS::Cloudfront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PublicKeyConfig, context: context)
         Hearth::Validator.validate!(input[:caller_reference], ::String, context: "#{context}[:caller_reference]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:encoded_key], ::String, context: "#{context}[:encoded_key]")
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
       end
@@ -2927,7 +2927,7 @@ module AWS::Cloudfront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PublicKeySummary, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:created_time], ::Time, context: "#{context}[:created_time]")
         Hearth::Validator.validate!(input[:encoded_key], ::String, context: "#{context}[:encoded_key]")
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
@@ -2946,7 +2946,7 @@ module AWS::Cloudfront
     class PublishFunctionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::PublishFunctionInput, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
       end
     end
@@ -3036,7 +3036,7 @@ module AWS::Cloudfront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::RealtimeLogConfig, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:sampling_rate], ::Integer, context: "#{context}[:sampling_rate]")
         Validators::EndPointList.validate!(input[:end_points], context: "#{context}[:end_points]") unless input[:end_points].nil?
         Validators::FieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
@@ -3150,7 +3150,7 @@ module AWS::Cloudfront
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ResponseHeadersPolicyConfig, context: context)
         Hearth::Validator.validate!(input[:comment], ::String, context: "#{context}[:comment]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Validators::ResponseHeadersPolicyCorsConfig.validate!(input[:cors_config], context: "#{context}[:cors_config]") unless input[:cors_config].nil?
         Validators::ResponseHeadersPolicySecurityHeadersConfig.validate!(input[:security_headers_config], context: "#{context}[:security_headers_config]") unless input[:security_headers_config].nil?
         Validators::ResponseHeadersPolicyCustomHeadersConfig.validate!(input[:custom_headers_config], context: "#{context}[:custom_headers_config]") unless input[:custom_headers_config].nil?
@@ -3518,7 +3518,7 @@ module AWS::Cloudfront
     class TestFunctionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::TestFunctionInput, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
         Hearth::Validator.validate!(input[:stage], ::String, context: "#{context}[:stage]")
         Hearth::Validator.validate!(input[:event_object], ::String, context: "#{context}[:event_object]")
@@ -4022,7 +4022,7 @@ module AWS::Cloudfront
     class UpdateFunctionInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::UpdateFunctionInput, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:if_match], ::String, context: "#{context}[:if_match]")
         Validators::FunctionConfig.validate!(input[:function_config], context: "#{context}[:function_config]") unless input[:function_config].nil?
         Hearth::Validator.validate!(input[:function_code], ::String, context: "#{context}[:function_code]")
@@ -4093,7 +4093,7 @@ module AWS::Cloudfront
         Hearth::Validator.validate!(input, Types::UpdateRealtimeLogConfigInput, context: context)
         Validators::EndPointList.validate!(input[:end_points], context: "#{context}[:end_points]") unless input[:end_points].nil?
         Validators::FieldList.validate!(input[:fields], context: "#{context}[:fields]") unless input[:fields].nil?
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
         Hearth::Validator.validate!(input[:sampling_rate], ::Integer, context: "#{context}[:sampling_rate]")
       end

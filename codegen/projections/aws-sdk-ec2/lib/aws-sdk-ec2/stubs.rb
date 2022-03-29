@@ -1100,7 +1100,7 @@ module AWS::Ec2
         {
           instance_event_window_id: 'instance_event_window_id',
           time_ranges: Stubs::InstanceEventWindowTimeRangeList.default(visited),
-          member_name: 'member_name',
+          name: 'name',
           cron_expression: 'cron_expression',
           association_target: Stubs::InstanceEventWindowAssociationTarget.default(visited),
           state: 'state',
@@ -1112,7 +1112,7 @@ module AWS::Ec2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('instanceEventWindowId', stub[:instance_event_window_id].to_s) unless stub[:instance_event_window_id].nil?
         xml << Hearth::XML::Node.new('timeRangeSet', Stubs::InstanceEventWindowTimeRangeList.stub('item', stub[:time_ranges])) unless stub[:time_ranges].nil?
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('cronExpression', stub[:cron_expression].to_s) unless stub[:cron_expression].nil?
         xml << Stubs::InstanceEventWindowAssociationTarget.stub('associationTarget', stub[:association_target]) unless stub[:association_target].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
@@ -5200,14 +5200,14 @@ module AWS::Ec2
         visited = visited + ['LaunchTemplateIamInstanceProfileSpecification']
         {
           arn: 'arn',
-          member_name: 'member_name',
+          name: 'name',
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('arn', stub[:arn].to_s) unless stub[:arn].nil?
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml
       end
     end
@@ -8188,7 +8188,7 @@ module AWS::Ec2
           state: 'state',
           type: 'type',
           value: 'value',
-          member_name: 'member_name',
+          name: 'name',
         }
       end
 
@@ -8197,7 +8197,7 @@ module AWS::Ec2
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('type', stub[:type].to_s) unless stub[:type].nil?
         xml << Hearth::XML::Node.new('value', stub[:value].to_s) unless stub[:value].nil?
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml
       end
     end
@@ -13034,7 +13034,7 @@ module AWS::Ec2
         visited = visited + ['FpgaImageAttribute']
         {
           fpga_image_id: 'fpga_image_id',
-          member_name: 'member_name',
+          name: 'name',
           description: 'description',
           load_permissions: Stubs::LoadPermissionList.default(visited),
           product_codes: Stubs::ProductCodeList.default(visited),
@@ -13044,7 +13044,7 @@ module AWS::Ec2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('fpgaImageId', stub[:fpga_image_id].to_s) unless stub[:fpga_image_id].nil?
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('loadPermissions', Stubs::LoadPermissionList.stub('item', stub[:load_permissions])) unless stub[:load_permissions].nil?
         xml << Hearth::XML::Node.new('productCodes', Stubs::ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
@@ -13174,7 +13174,7 @@ module AWS::Ec2
         {
           fpga_image_id: 'fpga_image_id',
           fpga_image_global_id: 'fpga_image_global_id',
-          member_name: 'member_name',
+          name: 'name',
           description: 'description',
           shell_version: 'shell_version',
           pci_id: Stubs::PciId.default(visited),
@@ -13194,7 +13194,7 @@ module AWS::Ec2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('fpgaImageId', stub[:fpga_image_id].to_s) unless stub[:fpga_image_id].nil?
         xml << Hearth::XML::Node.new('fpgaImageGlobalId', stub[:fpga_image_global_id].to_s) unless stub[:fpga_image_global_id].nil?
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('shellVersion', stub[:shell_version].to_s) unless stub[:shell_version].nil?
         xml << Stubs::PciId.stub('pciId', stub[:pci_id]) unless stub[:pci_id].nil?
@@ -13914,7 +13914,7 @@ module AWS::Ec2
           ena_support: false,
           hypervisor: 'hypervisor',
           image_owner_alias: 'image_owner_alias',
-          member_name: 'member_name',
+          name: 'name',
           root_device_name: 'root_device_name',
           root_device_type: 'root_device_type',
           sriov_net_support: 'sriov_net_support',
@@ -13947,7 +13947,7 @@ module AWS::Ec2
         xml << Hearth::XML::Node.new('enaSupport', stub[:ena_support].to_s) unless stub[:ena_support].nil?
         xml << Hearth::XML::Node.new('hypervisor', stub[:hypervisor].to_s) unless stub[:hypervisor].nil?
         xml << Hearth::XML::Node.new('imageOwnerAlias', stub[:image_owner_alias].to_s) unless stub[:image_owner_alias].nil?
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('rootDeviceName', stub[:root_device_name].to_s) unless stub[:root_device_name].nil?
         xml << Hearth::XML::Node.new('rootDeviceType', stub[:root_device_type].to_s) unless stub[:root_device_type].nil?
         xml << Hearth::XML::Node.new('sriovNetSupport', stub[:sriov_net_support].to_s) unless stub[:sriov_net_support].nil?
@@ -14639,7 +14639,7 @@ module AWS::Ec2
         visited = visited + ['InstanceStatusDetails']
         {
           impaired_since: Time.now,
-          member_name: 'member_name',
+          name: 'name',
           status: 'status',
         }
       end
@@ -14647,7 +14647,7 @@ module AWS::Ec2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('impairedSince', Hearth::TimeHelper.to_date_time(stub[:impaired_since])) unless stub[:impaired_since].nil?
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml
       end
@@ -14660,14 +14660,14 @@ module AWS::Ec2
         visited = visited + ['InstanceState']
         {
           code: 1,
-          member_name: 'member_name',
+          name: 'name',
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('code', stub[:code].to_s) unless stub[:code].nil?
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml
       end
     end
@@ -14940,7 +14940,7 @@ module AWS::Ec2
         visited = visited + ['InferenceDeviceInfo']
         {
           count: 1,
-          member_name: 'member_name',
+          name: 'name',
           manufacturer: 'manufacturer',
         }
       end
@@ -14948,7 +14948,7 @@ module AWS::Ec2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('count', stub[:count].to_s) unless stub[:count].nil?
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('manufacturer', stub[:manufacturer].to_s) unless stub[:manufacturer].nil?
         xml
       end
@@ -15034,7 +15034,7 @@ module AWS::Ec2
         return nil if visited.include?('FpgaDeviceInfo')
         visited = visited + ['FpgaDeviceInfo']
         {
-          member_name: 'member_name',
+          name: 'name',
           manufacturer: 'manufacturer',
           count: 1,
           memory_info: Stubs::FpgaDeviceMemoryInfo.default(visited),
@@ -15043,7 +15043,7 @@ module AWS::Ec2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('manufacturer', stub[:manufacturer].to_s) unless stub[:manufacturer].nil?
         xml << Hearth::XML::Node.new('count', stub[:count].to_s) unless stub[:count].nil?
         xml << Stubs::FpgaDeviceMemoryInfo.stub('memoryInfo', stub[:memory_info]) unless stub[:memory_info].nil?
@@ -15112,7 +15112,7 @@ module AWS::Ec2
         return nil if visited.include?('GpuDeviceInfo')
         visited = visited + ['GpuDeviceInfo']
         {
-          member_name: 'member_name',
+          name: 'name',
           manufacturer: 'manufacturer',
           count: 1,
           memory_info: Stubs::GpuDeviceMemoryInfo.default(visited),
@@ -15121,7 +15121,7 @@ module AWS::Ec2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('manufacturer', stub[:manufacturer].to_s) unless stub[:manufacturer].nil?
         xml << Hearth::XML::Node.new('count', stub[:count].to_s) unless stub[:count].nil?
         xml << Stubs::GpuDeviceMemoryInfo.stub('memoryInfo', stub[:memory_info]) unless stub[:memory_info].nil?
@@ -17553,7 +17553,7 @@ module AWS::Ec2
         {
           id: 'id',
           arn: 'arn',
-          member_name: 'member_name',
+          name: 'name',
         }
       end
 
@@ -17561,7 +17561,7 @@ module AWS::Ec2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('arn', stub[:arn].to_s) unless stub[:arn].nil?
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml
       end
     end
@@ -20012,13 +20012,13 @@ module AWS::Ec2
         return nil if visited.include?('ClassicLoadBalancer')
         visited = visited + ['ClassicLoadBalancer']
         {
-          member_name: 'member_name',
+          name: 'name',
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml
       end
     end
@@ -20427,14 +20427,14 @@ module AWS::Ec2
         visited = visited + ['IamInstanceProfileSpecification']
         {
           arn: 'arn',
-          member_name: 'member_name',
+          name: 'name',
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('arn', stub[:arn].to_s) unless stub[:arn].nil?
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml
       end
     end
@@ -21726,14 +21726,14 @@ module AWS::Ec2
         return nil if visited.include?('VolumeStatusDetails')
         visited = visited + ['VolumeStatusDetails']
         {
-          member_name: 'member_name',
+          name: 'name',
           status: 'status',
         }
       end
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('name', stub[:member_name].to_s) unless stub[:member_name].nil?
+        xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml
       end

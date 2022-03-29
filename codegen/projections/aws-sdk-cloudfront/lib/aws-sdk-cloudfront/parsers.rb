@@ -135,7 +135,7 @@ module AWS::Cloudfront
           data.comment = (node.text || '')
         end
         xml.at('Name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('DefaultTTL') do |node|
           data.default_ttl = node.text&.to_i
@@ -2619,7 +2619,7 @@ module AWS::Cloudfront
       def self.parse(xml)
         data = Types::FieldLevelEncryptionProfileConfig.new
         xml.at('Name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('CallerReference') do |node|
           data.caller_reference = (node.text || '')
@@ -2806,7 +2806,7 @@ module AWS::Cloudfront
       def self.parse(xml)
         data = Types::FunctionSummary.new
         xml.at('Name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
@@ -3046,7 +3046,7 @@ module AWS::Cloudfront
       def self.parse(xml)
         data = Types::KeyGroupConfig.new
         xml.at('Name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('Items') do |node|
           children = node.children('PublicKey')
@@ -3183,7 +3183,7 @@ module AWS::Cloudfront
           data.comment = (node.text || '')
         end
         xml.at('Name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('HeadersConfig') do |node|
           data.headers_config = Parsers::OriginRequestPolicyHeadersConfig.parse(node)
@@ -3349,7 +3349,7 @@ module AWS::Cloudfront
           data.caller_reference = (node.text || '')
         end
         xml.at('Name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('EncodedKey') do |node|
           data.encoded_key = (node.text || '')
@@ -3412,7 +3412,7 @@ module AWS::Cloudfront
           data.arn = (node.text || '')
         end
         xml.at('Name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('SamplingRate') do |node|
           data.sampling_rate = node.text&.to_i
@@ -3542,7 +3542,7 @@ module AWS::Cloudfront
           data.comment = (node.text || '')
         end
         xml.at('Name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('CorsConfig') do |node|
           data.cors_config = Parsers::ResponseHeadersPolicyCorsConfig.parse(node)
@@ -5322,7 +5322,7 @@ module AWS::Cloudfront
           data.last_modified_time = Time.parse(node.text) if node.text
         end
         xml.at('Name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('EncryptionEntities') do |node|
           data.encryption_entities = Parsers::EncryptionEntities.parse(node)
@@ -5596,7 +5596,7 @@ module AWS::Cloudfront
           data.id = (node.text || '')
         end
         xml.at('Name') do |node|
-          data.member_name = (node.text || '')
+          data.name = (node.text || '')
         end
         xml.at('CreatedTime') do |node|
           data.created_time = Time.parse(node.text) if node.text

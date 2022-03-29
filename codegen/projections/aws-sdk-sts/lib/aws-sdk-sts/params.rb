@@ -204,7 +204,7 @@ module AWS::Sts
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::GetFederationTokenInput, context: context)
         type = Types::GetFederationTokenInput.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.policy = params[:policy]
         type.policy_arns = PolicyDescriptorListType.build(params[:policy_arns], context: "#{context}[:policy_arns]") unless params[:policy_arns].nil?
         type.duration_seconds = params[:duration_seconds]
