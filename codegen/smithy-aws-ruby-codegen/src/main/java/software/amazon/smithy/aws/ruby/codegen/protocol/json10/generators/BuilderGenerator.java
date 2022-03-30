@@ -53,7 +53,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     protected void renderOperationBuildMethod(OperationShape operation, Shape inputShape) {
         String target = context.service().getId().getName() + "." + operation.getId().getName();
         writer
-                .openBlock("def self.build(http_req, input:, disable_host_prefix:)")
+                .openBlock("def self.build(http_req, input:)")
                 .write("http_req.http_method = 'POST'")
                 .write("http_req.append_path('/')")
                 .write("http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'")

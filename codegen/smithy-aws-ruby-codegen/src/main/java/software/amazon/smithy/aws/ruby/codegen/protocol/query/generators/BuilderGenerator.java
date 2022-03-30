@@ -37,7 +37,7 @@ public class BuilderGenerator extends BuilderGeneratorBase {
     @Override
     protected void renderOperationBuildMethod(OperationShape operation, Shape inputShape) {
         writer
-                .openBlock("def self.build(http_req, input:, disable_host_prefix:)")
+                .openBlock("def self.build(http_req, input:)")
                 .write("http_req.http_method = 'POST'")
                 .write("http_req.append_path('/')")
                 .write("http_req.headers['Content-Type'] = 'application/x-www-form-urlencoded'")
