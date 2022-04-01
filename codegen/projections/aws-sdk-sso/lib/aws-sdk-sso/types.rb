@@ -291,6 +291,10 @@ module AWS::Sso
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.expiration ||= 0
+      end
 
       def to_s
         "#<struct AWS::Sso::Types::RoleCredentials "\

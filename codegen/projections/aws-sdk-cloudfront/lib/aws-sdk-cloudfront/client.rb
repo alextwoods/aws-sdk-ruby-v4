@@ -102,13 +102,13 @@ module AWS::Cloudfront
     def associate_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssociateAliasInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssociateAliasInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssociateAlias,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::AssociateAlias
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -129,7 +129,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :associate_alias
@@ -182,7 +182,7 @@ module AWS::Cloudfront
     #         enable_accept_encoding_gzip: false, # required
     #         enable_accept_encoding_brotli: false,
     #         headers_config: {
-    #           header_behavior: 'none', # required - accepts none, whitelist
+    #           header_behavior: 'none', # required - accepts ["none", "whitelist"]
     #           headers: {
     #             quantity: 1, # required
     #             items: [
@@ -191,7 +191,7 @@ module AWS::Cloudfront
     #           }
     #         }, # required
     #         cookies_config: {
-    #           cookie_behavior: 'none', # required - accepts none, whitelist, allExcept, all
+    #           cookie_behavior: 'none', # required - accepts ["none", "whitelist", "allExcept", "all"]
     #           cookies: {
     #             quantity: 1, # required
     #             items: [
@@ -200,7 +200,7 @@ module AWS::Cloudfront
     #           }
     #         }, # required
     #         query_strings_config: {
-    #           query_string_behavior: 'none', # required - accepts none, whitelist, allExcept, all
+    #           query_string_behavior: 'none', # required - accepts ["none", "whitelist", "allExcept", "all"]
     #           query_strings: {
     #             quantity: 1, # required
     #             items: [
@@ -228,19 +228,19 @@ module AWS::Cloudfront
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
-    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of ["none", "whitelist"]
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
-    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of ["none", "whitelist", "allExcept", "all"]
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
-    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of ["none", "whitelist", "allExcept", "all"]
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
@@ -251,13 +251,13 @@ module AWS::Cloudfront
     def create_cache_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCachePolicyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCachePolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateCachePolicy,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateCachePolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -278,7 +278,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_cache_policy
@@ -325,13 +325,13 @@ module AWS::Cloudfront
     def create_cloud_front_origin_access_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCloudFrontOriginAccessIdentityInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCloudFrontOriginAccessIdentityInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateCloudFrontOriginAccessIdentity,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateCloudFrontOriginAccessIdentity
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -352,7 +352,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_cloud_front_origin_access_identity
@@ -418,11 +418,11 @@ module AWS::Cloudfront
     #             custom_origin_config: {
     #               http_port: 1, # required
     #               https_port: 1, # required
-    #               origin_protocol_policy: 'http-only', # required - accepts http-only, match-viewer, https-only
+    #               origin_protocol_policy: 'http-only', # required - accepts ["http-only", "match-viewer", "https-only"]
     #               origin_ssl_protocols: {
     #                 quantity: 1, # required
     #                 items: [
-    #                   'SSLv3' # accepts SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #                   'SSLv3' # accepts ["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
     #                 ] # required
     #               },
     #               origin_read_timeout: 1,
@@ -477,11 +477,11 @@ module AWS::Cloudfront
     #             'member'
     #           ]
     #         },
-    #         viewer_protocol_policy: 'allow-all', # required - accepts allow-all, https-only, redirect-to-https
+    #         viewer_protocol_policy: 'allow-all', # required - accepts ["allow-all", "https-only", "redirect-to-https"]
     #         allowed_methods: {
     #           quantity: 1, # required
     #           items: [
-    #             'GET' # accepts GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #             'GET' # accepts ["GET", "HEAD", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     #           ], # required
     #           cached_methods: {
     #             quantity: 1, # required
@@ -494,7 +494,7 @@ module AWS::Cloudfront
     #           items: [
     #             {
     #               lambda_function_arn: 'LambdaFunctionARN', # required
-    #               event_type: 'viewer-request', # required - accepts viewer-request, viewer-response, origin-request, origin-response
+    #               event_type: 'viewer-request', # required - accepts ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #               include_body: false
     #             }
     #           ]
@@ -504,7 +504,7 @@ module AWS::Cloudfront
     #           items: [
     #             {
     #               function_arn: 'FunctionARN', # required
-    #               event_type: 'viewer-request' # required - accepts viewer-request, viewer-response, origin-request, origin-response
+    #               event_type: 'viewer-request' # required - accepts ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #             }
     #           ]
     #         },
@@ -516,7 +516,7 @@ module AWS::Cloudfront
     #         forwarded_values: {
     #           query_string: false, # required
     #           cookies: {
-    #             forward: 'none', # required - accepts none, whitelist, all
+    #             forward: 'none', # required - accepts ["none", "whitelist", "all"]
     #             whitelisted_names: {
     #               quantity: 1, # required
     #               items: [
@@ -547,7 +547,7 @@ module AWS::Cloudfront
     #           {
     #             path_pattern: 'PathPattern', # required
     #             target_origin_id: 'TargetOriginId', # required
-    #             viewer_protocol_policy: 'allow-all', # required - accepts allow-all, https-only, redirect-to-https
+    #             viewer_protocol_policy: 'allow-all', # required - accepts ["allow-all", "https-only", "redirect-to-https"]
     #             smooth_streaming: false,
     #             compress: false,
     #             field_level_encryption_id: 'FieldLevelEncryptionId',
@@ -579,20 +579,20 @@ module AWS::Cloudfront
     #         bucket: 'Bucket', # required
     #         prefix: 'Prefix' # required
     #       },
-    #       price_class: 'PriceClass_100', # accepts PriceClass_100, PriceClass_200, PriceClass_All
+    #       price_class: 'PriceClass_100', # accepts ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #       enabled: false, # required
     #       viewer_certificate: {
     #         cloud_front_default_certificate: false,
     #         iam_certificate_id: 'IAMCertificateId',
     #         acm_certificate_arn: 'ACMCertificateArn',
-    #         ssl_support_method: 'sni-only', # accepts sni-only, vip, static-ip
-    #         minimum_protocol_version: 'SSLv3', # accepts SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #         ssl_support_method: 'sni-only', # accepts ["sni-only", "vip", "static-ip"]
+    #         minimum_protocol_version: 'SSLv3', # accepts ["SSLv3", "TLSv1", "TLSv1_2016", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021"]
     #         certificate: 'Certificate',
-    #         certificate_source: 'cloudfront' # accepts cloudfront, iam, acm
+    #         certificate_source: 'cloudfront' # accepts ["cloudfront", "iam", "acm"]
     #       },
     #       restrictions: {
     #         geo_restriction: {
-    #           restriction_type: 'blacklist', # required - accepts blacklist, whitelist, none
+    #           restriction_type: 'blacklist', # required - accepts ["blacklist", "whitelist", "none"]
     #           quantity: 1, # required
     #           items: [
     #             'member'
@@ -600,7 +600,7 @@ module AWS::Cloudfront
     #         } # required
     #       },
     #       web_acl_id: 'WebACLId',
-    #       http_version: 'http1.1', # accepts http1.1, http2
+    #       http_version: 'http1.1', # accepts ["http1.1", "http2"]
     #       is_ipv6_enabled: false
     #     } # required
     #   )
@@ -657,11 +657,11 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of ["http-only", "match-viewer", "https-only"]
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of ["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].connection_attempts #=> Integer
@@ -696,11 +696,11 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
     #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.data.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of ["GET", "HEAD", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
@@ -711,14 +711,14 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
     #   resp.data.distribution.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
     #   resp.data.distribution.distribution_config.default_cache_behavior.cache_policy_id #=> String
@@ -727,7 +727,7 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
@@ -751,7 +751,7 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].compress #=> Boolean
@@ -780,42 +780,42 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.logging.include_cookies #=> Boolean
     #   resp.data.distribution.distribution_config.logging.bucket #=> String
     #   resp.data.distribution.distribution_config.logging.prefix #=> String
-    #   resp.data.distribution.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution.distribution_config.price_class #=> String, one of ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #   resp.data.distribution.distribution_config.enabled #=> Boolean
     #   resp.data.distribution.distribution_config.viewer_certificate #=> Types::ViewerCertificate
     #   resp.data.distribution.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
     #   resp.data.distribution.distribution_config.viewer_certificate.iam_certificate_id #=> String
     #   resp.data.distribution.distribution_config.viewer_certificate.acm_certificate_arn #=> String
-    #   resp.data.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.data.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of ["sni-only", "vip", "static-ip"]
+    #   resp.data.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of ["SSLv3", "TLSv1", "TLSv1_2016", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021"]
     #   resp.data.distribution.distribution_config.viewer_certificate.certificate #=> String
-    #   resp.data.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of ["cloudfront", "iam", "acm"]
     #   resp.data.distribution.distribution_config.restrictions #=> Types::Restrictions
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of ["blacklist", "whitelist", "none"]
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction.quantity #=> Integer
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items #=> Array<String>
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items[0] #=> String
     #   resp.data.distribution.distribution_config.web_acl_id #=> String
-    #   resp.data.distribution.distribution_config.http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution.distribution_config.http_version #=> String, one of ["http1.1", "http2"]
     #   resp.data.distribution.distribution_config.is_ipv6_enabled #=> Boolean
     #   resp.data.distribution.alias_icp_recordals #=> Array<AliasICPRecordal>
     #   resp.data.distribution.alias_icp_recordals[0] #=> Types::AliasICPRecordal
     #   resp.data.distribution.alias_icp_recordals[0].cname #=> String
-    #   resp.data.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
+    #   resp.data.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of ["APPROVED", "SUSPENDED", "PENDING"]
     #   resp.data.location #=> String
     #   resp.data.e_tag #=> String
     #
     def create_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDistributionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateDistribution,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateDistribution
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -836,7 +836,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_distribution
@@ -891,11 +891,11 @@ module AWS::Cloudfront
     #               custom_origin_config: {
     #                 http_port: 1, # required
     #                 https_port: 1, # required
-    #                 origin_protocol_policy: 'http-only', # required - accepts http-only, match-viewer, https-only
+    #                 origin_protocol_policy: 'http-only', # required - accepts ["http-only", "match-viewer", "https-only"]
     #                 origin_ssl_protocols: {
     #                   quantity: 1, # required
     #                   items: [
-    #                     'SSLv3' # accepts SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #                     'SSLv3' # accepts ["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
     #                   ] # required
     #                 },
     #                 origin_read_timeout: 1,
@@ -950,11 +950,11 @@ module AWS::Cloudfront
     #               'member'
     #             ]
     #           },
-    #           viewer_protocol_policy: 'allow-all', # required - accepts allow-all, https-only, redirect-to-https
+    #           viewer_protocol_policy: 'allow-all', # required - accepts ["allow-all", "https-only", "redirect-to-https"]
     #           allowed_methods: {
     #             quantity: 1, # required
     #             items: [
-    #               'GET' # accepts GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #               'GET' # accepts ["GET", "HEAD", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     #             ], # required
     #             cached_methods: {
     #               quantity: 1, # required
@@ -967,7 +967,7 @@ module AWS::Cloudfront
     #             items: [
     #               {
     #                 lambda_function_arn: 'LambdaFunctionARN', # required
-    #                 event_type: 'viewer-request', # required - accepts viewer-request, viewer-response, origin-request, origin-response
+    #                 event_type: 'viewer-request', # required - accepts ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #                 include_body: false
     #               }
     #             ]
@@ -977,7 +977,7 @@ module AWS::Cloudfront
     #             items: [
     #               {
     #                 function_arn: 'FunctionARN', # required
-    #                 event_type: 'viewer-request' # required - accepts viewer-request, viewer-response, origin-request, origin-response
+    #                 event_type: 'viewer-request' # required - accepts ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #               }
     #             ]
     #           },
@@ -989,7 +989,7 @@ module AWS::Cloudfront
     #           forwarded_values: {
     #             query_string: false, # required
     #             cookies: {
-    #               forward: 'none', # required - accepts none, whitelist, all
+    #               forward: 'none', # required - accepts ["none", "whitelist", "all"]
     #               whitelisted_names: {
     #                 quantity: 1, # required
     #                 items: [
@@ -1020,7 +1020,7 @@ module AWS::Cloudfront
     #             {
     #               path_pattern: 'PathPattern', # required
     #               target_origin_id: 'TargetOriginId', # required
-    #               viewer_protocol_policy: 'allow-all', # required - accepts allow-all, https-only, redirect-to-https
+    #               viewer_protocol_policy: 'allow-all', # required - accepts ["allow-all", "https-only", "redirect-to-https"]
     #               smooth_streaming: false,
     #               compress: false,
     #               field_level_encryption_id: 'FieldLevelEncryptionId',
@@ -1052,20 +1052,20 @@ module AWS::Cloudfront
     #           bucket: 'Bucket', # required
     #           prefix: 'Prefix' # required
     #         },
-    #         price_class: 'PriceClass_100', # accepts PriceClass_100, PriceClass_200, PriceClass_All
+    #         price_class: 'PriceClass_100', # accepts ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #         enabled: false, # required
     #         viewer_certificate: {
     #           cloud_front_default_certificate: false,
     #           iam_certificate_id: 'IAMCertificateId',
     #           acm_certificate_arn: 'ACMCertificateArn',
-    #           ssl_support_method: 'sni-only', # accepts sni-only, vip, static-ip
-    #           minimum_protocol_version: 'SSLv3', # accepts SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #           ssl_support_method: 'sni-only', # accepts ["sni-only", "vip", "static-ip"]
+    #           minimum_protocol_version: 'SSLv3', # accepts ["SSLv3", "TLSv1", "TLSv1_2016", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021"]
     #           certificate: 'Certificate',
-    #           certificate_source: 'cloudfront' # accepts cloudfront, iam, acm
+    #           certificate_source: 'cloudfront' # accepts ["cloudfront", "iam", "acm"]
     #         },
     #         restrictions: {
     #           geo_restriction: {
-    #             restriction_type: 'blacklist', # required - accepts blacklist, whitelist, none
+    #             restriction_type: 'blacklist', # required - accepts ["blacklist", "whitelist", "none"]
     #             quantity: 1, # required
     #             items: [
     #               'member'
@@ -1073,7 +1073,7 @@ module AWS::Cloudfront
     #           } # required
     #         },
     #         web_acl_id: 'WebACLId',
-    #         http_version: 'http1.1', # accepts http1.1, http2
+    #         http_version: 'http1.1', # accepts ["http1.1", "http2"]
     #         is_ipv6_enabled: false
     #       }, # required
     #       tags: {
@@ -1139,11 +1139,11 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of ["http-only", "match-viewer", "https-only"]
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of ["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].connection_attempts #=> Integer
@@ -1178,11 +1178,11 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
     #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.data.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of ["GET", "HEAD", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
@@ -1193,14 +1193,14 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
     #   resp.data.distribution.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
     #   resp.data.distribution.distribution_config.default_cache_behavior.cache_policy_id #=> String
@@ -1209,7 +1209,7 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
@@ -1233,7 +1233,7 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].compress #=> Boolean
@@ -1262,42 +1262,42 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.logging.include_cookies #=> Boolean
     #   resp.data.distribution.distribution_config.logging.bucket #=> String
     #   resp.data.distribution.distribution_config.logging.prefix #=> String
-    #   resp.data.distribution.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution.distribution_config.price_class #=> String, one of ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #   resp.data.distribution.distribution_config.enabled #=> Boolean
     #   resp.data.distribution.distribution_config.viewer_certificate #=> Types::ViewerCertificate
     #   resp.data.distribution.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
     #   resp.data.distribution.distribution_config.viewer_certificate.iam_certificate_id #=> String
     #   resp.data.distribution.distribution_config.viewer_certificate.acm_certificate_arn #=> String
-    #   resp.data.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.data.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of ["sni-only", "vip", "static-ip"]
+    #   resp.data.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of ["SSLv3", "TLSv1", "TLSv1_2016", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021"]
     #   resp.data.distribution.distribution_config.viewer_certificate.certificate #=> String
-    #   resp.data.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of ["cloudfront", "iam", "acm"]
     #   resp.data.distribution.distribution_config.restrictions #=> Types::Restrictions
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of ["blacklist", "whitelist", "none"]
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction.quantity #=> Integer
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items #=> Array<String>
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items[0] #=> String
     #   resp.data.distribution.distribution_config.web_acl_id #=> String
-    #   resp.data.distribution.distribution_config.http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution.distribution_config.http_version #=> String, one of ["http1.1", "http2"]
     #   resp.data.distribution.distribution_config.is_ipv6_enabled #=> Boolean
     #   resp.data.distribution.alias_icp_recordals #=> Array<AliasICPRecordal>
     #   resp.data.distribution.alias_icp_recordals[0] #=> Types::AliasICPRecordal
     #   resp.data.distribution.alias_icp_recordals[0].cname #=> String
-    #   resp.data.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
+    #   resp.data.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of ["APPROVED", "SUSPENDED", "PENDING"]
     #   resp.data.location #=> String
     #   resp.data.e_tag #=> String
     #
     def create_distribution_with_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateDistributionWithTagsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateDistributionWithTagsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateDistributionWithTags,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateDistributionWithTags
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1318,7 +1318,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_distribution_with_tags
@@ -1362,7 +1362,7 @@ module AWS::Cloudfront
     #           quantity: 1, # required
     #           items: [
     #             {
-    #               format: 'URLEncoded', # required - accepts URLEncoded
+    #               format: 'URLEncoded', # required - accepts ["URLEncoded"]
     #               profile_id: 'ProfileId',
     #               content_type: 'ContentType' # required
     #             }
@@ -1395,7 +1395,7 @@ module AWS::Cloudfront
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.quantity #=> Integer
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
-    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of ["URLEncoded"]
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].content_type #=> String
     #   resp.data.location #=> String
@@ -1404,13 +1404,13 @@ module AWS::Cloudfront
     def create_field_level_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFieldLevelEncryptionConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFieldLevelEncryptionConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateFieldLevelEncryptionConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateFieldLevelEncryptionConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1431,7 +1431,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_field_level_encryption_config
@@ -1502,13 +1502,13 @@ module AWS::Cloudfront
     def create_field_level_encryption_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFieldLevelEncryptionProfileInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFieldLevelEncryptionProfileInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateFieldLevelEncryptionProfile,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateFieldLevelEncryptionProfile
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1529,7 +1529,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_field_level_encryption_profile
@@ -1573,7 +1573,7 @@ module AWS::Cloudfront
     #     name: 'Name', # required
     #     function_config: {
     #       comment: 'Comment', # required
-    #       runtime: 'cloudfront-js-1.0' # required - accepts cloudfront-js-1.0
+    #       runtime: 'cloudfront-js-1.0' # required - accepts ["cloudfront-js-1.0"]
     #     }, # required
     #     function_code: 'FunctionCode' # required
     #   )
@@ -1586,10 +1586,10 @@ module AWS::Cloudfront
     #   resp.data.function_summary.status #=> String
     #   resp.data.function_summary.function_config #=> Types::FunctionConfig
     #   resp.data.function_summary.function_config.comment #=> String
-    #   resp.data.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
+    #   resp.data.function_summary.function_config.runtime #=> String, one of ["cloudfront-js-1.0"]
     #   resp.data.function_summary.function_metadata #=> Types::FunctionMetadata
     #   resp.data.function_summary.function_metadata.function_arn #=> String
-    #   resp.data.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
+    #   resp.data.function_summary.function_metadata.stage #=> String, one of ["DEVELOPMENT", "LIVE"]
     #   resp.data.function_summary.function_metadata.created_time #=> Time
     #   resp.data.function_summary.function_metadata.last_modified_time #=> Time
     #   resp.data.location #=> String
@@ -1598,13 +1598,13 @@ module AWS::Cloudfront
     def create_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFunctionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateFunction,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateFunction
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1625,7 +1625,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_function
@@ -1681,13 +1681,13 @@ module AWS::Cloudfront
     def create_invalidation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateInvalidationInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateInvalidationInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateInvalidation,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateInvalidation
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1708,7 +1708,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_invalidation
@@ -1764,13 +1764,13 @@ module AWS::Cloudfront
     def create_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateKeyGroupInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateKeyGroupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateKeyGroup,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateKeyGroup
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1791,7 +1791,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_key_group
@@ -1824,7 +1824,7 @@ module AWS::Cloudfront
     #     distribution_id: 'DistributionId', # required
     #     monitoring_subscription: {
     #       realtime_metrics_subscription_config: {
-    #         realtime_metrics_subscription_status: 'Enabled' # required - accepts Enabled, Disabled
+    #         realtime_metrics_subscription_status: 'Enabled' # required - accepts ["Enabled", "Disabled"]
     #       }
     #     } # required
     #   )
@@ -1834,18 +1834,18 @@ module AWS::Cloudfront
     #   resp.data #=> Types::CreateMonitoringSubscriptionOutput
     #   resp.data.monitoring_subscription #=> Types::MonitoringSubscription
     #   resp.data.monitoring_subscription.realtime_metrics_subscription_config #=> Types::RealtimeMetricsSubscriptionConfig
-    #   resp.data.monitoring_subscription.realtime_metrics_subscription_config.realtime_metrics_subscription_status #=> String, one of Enabled, Disabled
+    #   resp.data.monitoring_subscription.realtime_metrics_subscription_config.realtime_metrics_subscription_status #=> String, one of ["Enabled", "Disabled"]
     #
     def create_monitoring_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateMonitoringSubscriptionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateMonitoringSubscriptionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateMonitoringSubscription,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateMonitoringSubscription
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1866,7 +1866,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_monitoring_subscription
@@ -1917,7 +1917,7 @@ module AWS::Cloudfront
     #       comment: 'Comment',
     #       name: 'Name', # required
     #       headers_config: {
-    #         header_behavior: 'none', # required - accepts none, whitelist, allViewer, allViewerAndWhitelistCloudFront
+    #         header_behavior: 'none', # required - accepts ["none", "whitelist", "allViewer", "allViewerAndWhitelistCloudFront"]
     #         headers: {
     #           quantity: 1, # required
     #           items: [
@@ -1926,7 +1926,7 @@ module AWS::Cloudfront
     #         }
     #       }, # required
     #       cookies_config: {
-    #         cookie_behavior: 'none', # required - accepts none, whitelist, all
+    #         cookie_behavior: 'none', # required - accepts ["none", "whitelist", "all"]
     #         cookies: {
     #           quantity: 1, # required
     #           items: [
@@ -1935,7 +1935,7 @@ module AWS::Cloudfront
     #         }
     #       }, # required
     #       query_strings_config: {
-    #         query_string_behavior: 'none', # required - accepts none, whitelist, all
+    #         query_string_behavior: 'none', # required - accepts ["none", "whitelist", "all"]
     #         query_strings: {
     #           quantity: 1, # required
     #           items: [
@@ -1956,19 +1956,19 @@ module AWS::Cloudfront
     #   resp.data.origin_request_policy.origin_request_policy_config.comment #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.name #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
-    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of ["none", "whitelist", "allViewer", "allViewerAndWhitelistCloudFront"]
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.quantity #=> Integer
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.items #=> Array<String>
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.items[0] #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
-    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
-    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
     #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
     #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
@@ -1979,13 +1979,13 @@ module AWS::Cloudfront
     def create_origin_request_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateOriginRequestPolicyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateOriginRequestPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateOriginRequestPolicy,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateOriginRequestPolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2006,7 +2006,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_origin_request_policy
@@ -2054,13 +2054,13 @@ module AWS::Cloudfront
     def create_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreatePublicKeyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreatePublicKeyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreatePublicKey,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreatePublicKey
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2081,7 +2081,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_public_key
@@ -2156,13 +2156,13 @@ module AWS::Cloudfront
     def create_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateRealtimeLogConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateRealtimeLogConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateRealtimeLogConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateRealtimeLogConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2183,7 +2183,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_realtime_log_config
@@ -2233,7 +2233,7 @@ module AWS::Cloudfront
     #         access_control_allow_methods: {
     #           quantity: 1, # required
     #           items: [
-    #             'GET' # accepts GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
+    #             'GET' # accepts ["GET", "POST", "OPTIONS", "PUT", "DELETE", "PATCH", "HEAD", "ALL"]
     #           ] # required
     #         }, # required
     #         access_control_allow_credentials: false, # required
@@ -2255,11 +2255,11 @@ module AWS::Cloudfront
     #         },
     #         frame_options: {
     #           override: false, # required
-    #           frame_option: 'DENY' # required - accepts DENY, SAMEORIGIN
+    #           frame_option: 'DENY' # required - accepts ["DENY", "SAMEORIGIN"]
     #         },
     #         referrer_policy: {
     #           override: false, # required
-    #           referrer_policy: 'no-referrer' # required - accepts no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    #           referrer_policy: 'no-referrer' # required - accepts ["no-referrer", "no-referrer-when-downgrade", "origin", "origin-when-cross-origin", "same-origin", "strict-origin", "strict-origin-when-cross-origin", "unsafe-url"]
     #         },
     #         content_security_policy: {
     #           override: false, # required
@@ -2309,7 +2309,7 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
-    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of ["GET", "POST", "OPTIONS", "PUT", "DELETE", "PATCH", "HEAD", "ALL"]
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
@@ -2325,10 +2325,10 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
-    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of ["DENY", "SAMEORIGIN"]
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
-    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of ["no-referrer", "no-referrer-when-downgrade", "origin", "origin-when-cross-origin", "same-origin", "strict-origin", "strict-origin-when-cross-origin", "unsafe-url"]
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
@@ -2352,13 +2352,13 @@ module AWS::Cloudfront
     def create_response_headers_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateResponseHeadersPolicyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateResponseHeadersPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateResponseHeadersPolicy,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateResponseHeadersPolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2379,7 +2379,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_response_headers_policy
@@ -2429,7 +2429,7 @@ module AWS::Cloudfront
     #           'member'
     #         ]
     #       }, # required
-    #       price_class: 'PriceClass_100', # accepts PriceClass_100, PriceClass_200, PriceClass_All
+    #       price_class: 'PriceClass_100', # accepts ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #       enabled: false # required
     #     } # required
     #   )
@@ -2472,7 +2472,7 @@ module AWS::Cloudfront
     #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.quantity #=> Integer
     #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items #=> Array<String>
     #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items[0] #=> String
-    #   resp.data.streaming_distribution.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.streaming_distribution.streaming_distribution_config.price_class #=> String, one of ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #   resp.data.streaming_distribution.streaming_distribution_config.enabled #=> Boolean
     #   resp.data.location #=> String
     #   resp.data.e_tag #=> String
@@ -2480,13 +2480,13 @@ module AWS::Cloudfront
     def create_streaming_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamingDistributionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamingDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateStreamingDistribution,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateStreamingDistribution
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2507,7 +2507,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_streaming_distribution
@@ -2558,7 +2558,7 @@ module AWS::Cloudfront
     #             'member'
     #           ]
     #         }, # required
-    #         price_class: 'PriceClass_100', # accepts PriceClass_100, PriceClass_200, PriceClass_All
+    #         price_class: 'PriceClass_100', # accepts ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #         enabled: false # required
     #       }, # required
     #       tags: {
@@ -2610,7 +2610,7 @@ module AWS::Cloudfront
     #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.quantity #=> Integer
     #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items #=> Array<String>
     #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items[0] #=> String
-    #   resp.data.streaming_distribution.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.streaming_distribution.streaming_distribution_config.price_class #=> String, one of ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #   resp.data.streaming_distribution.streaming_distribution_config.enabled #=> Boolean
     #   resp.data.location #=> String
     #   resp.data.e_tag #=> String
@@ -2618,13 +2618,13 @@ module AWS::Cloudfront
     def create_streaming_distribution_with_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateStreamingDistributionWithTagsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateStreamingDistributionWithTagsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateStreamingDistributionWithTags,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateStreamingDistributionWithTags
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2645,7 +2645,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_streaming_distribution_with_tags
@@ -2692,13 +2692,13 @@ module AWS::Cloudfront
     def delete_cache_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCachePolicyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCachePolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteCachePolicy,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteCachePolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2719,7 +2719,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_cache_policy
@@ -2757,13 +2757,13 @@ module AWS::Cloudfront
     def delete_cloud_front_origin_access_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCloudFrontOriginAccessIdentityInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCloudFrontOriginAccessIdentityInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteCloudFrontOriginAccessIdentity,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteCloudFrontOriginAccessIdentity
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2784,7 +2784,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_cloud_front_origin_access_identity
@@ -2822,13 +2822,13 @@ module AWS::Cloudfront
     def delete_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteDistributionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteDistribution,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteDistribution
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2849,7 +2849,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_distribution
@@ -2887,13 +2887,13 @@ module AWS::Cloudfront
     def delete_field_level_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFieldLevelEncryptionConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFieldLevelEncryptionConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteFieldLevelEncryptionConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteFieldLevelEncryptionConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2914,7 +2914,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_field_level_encryption_config
@@ -2952,13 +2952,13 @@ module AWS::Cloudfront
     def delete_field_level_encryption_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFieldLevelEncryptionProfileInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFieldLevelEncryptionProfileInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteFieldLevelEncryptionProfile,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteFieldLevelEncryptionProfile
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2979,7 +2979,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_field_level_encryption_profile
@@ -3023,13 +3023,13 @@ module AWS::Cloudfront
     def delete_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteFunction,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteFunction
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3050,7 +3050,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_function
@@ -3096,13 +3096,13 @@ module AWS::Cloudfront
     def delete_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteKeyGroupInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteKeyGroupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteKeyGroup,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteKeyGroup
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3123,7 +3123,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_key_group
@@ -3156,13 +3156,13 @@ module AWS::Cloudfront
     def delete_monitoring_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteMonitoringSubscriptionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteMonitoringSubscriptionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteMonitoringSubscription,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteMonitoringSubscription
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3183,7 +3183,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_monitoring_subscription
@@ -3230,13 +3230,13 @@ module AWS::Cloudfront
     def delete_origin_request_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteOriginRequestPolicyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteOriginRequestPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteOriginRequestPolicy,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteOriginRequestPolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3257,7 +3257,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_origin_request_policy
@@ -3295,13 +3295,13 @@ module AWS::Cloudfront
     def delete_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeletePublicKeyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeletePublicKeyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeletePublicKey,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeletePublicKey
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3322,7 +3322,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_public_key
@@ -3365,13 +3365,13 @@ module AWS::Cloudfront
     def delete_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteRealtimeLogConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteRealtimeLogConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteRealtimeLogConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteRealtimeLogConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3392,7 +3392,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_realtime_log_config
@@ -3440,13 +3440,13 @@ module AWS::Cloudfront
     def delete_response_headers_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteResponseHeadersPolicyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteResponseHeadersPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteResponseHeadersPolicy,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteResponseHeadersPolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3467,7 +3467,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_response_headers_policy
@@ -3552,13 +3552,13 @@ module AWS::Cloudfront
     def delete_streaming_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteStreamingDistributionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteStreamingDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteStreamingDistribution,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteStreamingDistribution
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3579,7 +3579,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_streaming_distribution
@@ -3610,7 +3610,7 @@ module AWS::Cloudfront
     #
     #   resp = client.describe_function(
     #     name: 'Name', # required
-    #     stage: 'DEVELOPMENT' # accepts DEVELOPMENT, LIVE
+    #     stage: 'DEVELOPMENT' # accepts ["DEVELOPMENT", "LIVE"]
     #   )
     #
     # @example Response structure
@@ -3621,10 +3621,10 @@ module AWS::Cloudfront
     #   resp.data.function_summary.status #=> String
     #   resp.data.function_summary.function_config #=> Types::FunctionConfig
     #   resp.data.function_summary.function_config.comment #=> String
-    #   resp.data.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
+    #   resp.data.function_summary.function_config.runtime #=> String, one of ["cloudfront-js-1.0"]
     #   resp.data.function_summary.function_metadata #=> Types::FunctionMetadata
     #   resp.data.function_summary.function_metadata.function_arn #=> String
-    #   resp.data.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
+    #   resp.data.function_summary.function_metadata.stage #=> String, one of ["DEVELOPMENT", "LIVE"]
     #   resp.data.function_summary.function_metadata.created_time #=> Time
     #   resp.data.function_summary.function_metadata.last_modified_time #=> Time
     #   resp.data.e_tag #=> String
@@ -3632,13 +3632,13 @@ module AWS::Cloudfront
     def describe_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeFunctionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeFunction,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DescribeFunction
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3659,7 +3659,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :describe_function
@@ -3718,19 +3718,19 @@ module AWS::Cloudfront
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
-    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of ["none", "whitelist"]
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
-    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of ["none", "whitelist", "allExcept", "all"]
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
-    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of ["none", "whitelist", "allExcept", "all"]
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
@@ -3740,13 +3740,13 @@ module AWS::Cloudfront
     def get_cache_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCachePolicyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCachePolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetCachePolicy,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetCachePolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3767,7 +3767,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_cache_policy
@@ -3815,19 +3815,19 @@ module AWS::Cloudfront
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
-    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of ["none", "whitelist"]
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
-    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of ["none", "whitelist", "allExcept", "all"]
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
-    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of ["none", "whitelist", "allExcept", "all"]
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
     #   resp.data.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
@@ -3837,13 +3837,13 @@ module AWS::Cloudfront
     def get_cache_policy_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCachePolicyConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCachePolicyConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetCachePolicyConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetCachePolicyConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3864,7 +3864,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_cache_policy_config
@@ -3904,13 +3904,13 @@ module AWS::Cloudfront
     def get_cloud_front_origin_access_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCloudFrontOriginAccessIdentityInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCloudFrontOriginAccessIdentityInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetCloudFrontOriginAccessIdentity,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetCloudFrontOriginAccessIdentity
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3931,7 +3931,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_cloud_front_origin_access_identity
@@ -3968,13 +3968,13 @@ module AWS::Cloudfront
     def get_cloud_front_origin_access_identity_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCloudFrontOriginAccessIdentityConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCloudFrontOriginAccessIdentityConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetCloudFrontOriginAccessIdentityConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetCloudFrontOriginAccessIdentityConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3995,7 +3995,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_cloud_front_origin_access_identity_config
@@ -4073,11 +4073,11 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of ["http-only", "match-viewer", "https-only"]
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of ["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].connection_attempts #=> Integer
@@ -4112,11 +4112,11 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
     #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.data.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of ["GET", "HEAD", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
@@ -4127,14 +4127,14 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
     #   resp.data.distribution.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
     #   resp.data.distribution.distribution_config.default_cache_behavior.cache_policy_id #=> String
@@ -4143,7 +4143,7 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
@@ -4167,7 +4167,7 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].compress #=> Boolean
@@ -4196,41 +4196,41 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.logging.include_cookies #=> Boolean
     #   resp.data.distribution.distribution_config.logging.bucket #=> String
     #   resp.data.distribution.distribution_config.logging.prefix #=> String
-    #   resp.data.distribution.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution.distribution_config.price_class #=> String, one of ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #   resp.data.distribution.distribution_config.enabled #=> Boolean
     #   resp.data.distribution.distribution_config.viewer_certificate #=> Types::ViewerCertificate
     #   resp.data.distribution.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
     #   resp.data.distribution.distribution_config.viewer_certificate.iam_certificate_id #=> String
     #   resp.data.distribution.distribution_config.viewer_certificate.acm_certificate_arn #=> String
-    #   resp.data.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.data.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of ["sni-only", "vip", "static-ip"]
+    #   resp.data.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of ["SSLv3", "TLSv1", "TLSv1_2016", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021"]
     #   resp.data.distribution.distribution_config.viewer_certificate.certificate #=> String
-    #   resp.data.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of ["cloudfront", "iam", "acm"]
     #   resp.data.distribution.distribution_config.restrictions #=> Types::Restrictions
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of ["blacklist", "whitelist", "none"]
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction.quantity #=> Integer
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items #=> Array<String>
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items[0] #=> String
     #   resp.data.distribution.distribution_config.web_acl_id #=> String
-    #   resp.data.distribution.distribution_config.http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution.distribution_config.http_version #=> String, one of ["http1.1", "http2"]
     #   resp.data.distribution.distribution_config.is_ipv6_enabled #=> Boolean
     #   resp.data.distribution.alias_icp_recordals #=> Array<AliasICPRecordal>
     #   resp.data.distribution.alias_icp_recordals[0] #=> Types::AliasICPRecordal
     #   resp.data.distribution.alias_icp_recordals[0].cname #=> String
-    #   resp.data.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
+    #   resp.data.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of ["APPROVED", "SUSPENDED", "PENDING"]
     #   resp.data.e_tag #=> String
     #
     def get_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDistributionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetDistribution,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetDistribution
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4251,7 +4251,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_distribution
@@ -4305,11 +4305,11 @@ module AWS::Cloudfront
     #   resp.data.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
     #   resp.data.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
     #   resp.data.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of ["http-only", "match-viewer", "https-only"]
     #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
     #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
     #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of ["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
     #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
     #   resp.data.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
     #   resp.data.distribution_config.origins.items[0].connection_attempts #=> Integer
@@ -4344,11 +4344,11 @@ module AWS::Cloudfront
     #   resp.data.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
     #   resp.data.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
     #   resp.data.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.data.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
     #   resp.data.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.data.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of ["GET", "HEAD", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     #   resp.data.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
     #   resp.data.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
     #   resp.data.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
@@ -4359,14 +4359,14 @@ module AWS::Cloudfront
     #   resp.data.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
     #   resp.data.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
     #   resp.data.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.data.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
     #   resp.data.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
     #   resp.data.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
     #   resp.data.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
     #   resp.data.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
     #   resp.data.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.data.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
     #   resp.data.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
     #   resp.data.distribution_config.default_cache_behavior.cache_policy_id #=> String
@@ -4375,7 +4375,7 @@ module AWS::Cloudfront
     #   resp.data.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
     #   resp.data.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
     #   resp.data.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
     #   resp.data.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
     #   resp.data.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
@@ -4399,7 +4399,7 @@ module AWS::Cloudfront
     #   resp.data.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
     #   resp.data.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
     #   resp.data.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.data.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
     #   resp.data.distribution_config.cache_behaviors.items[0].compress #=> Boolean
@@ -4428,37 +4428,37 @@ module AWS::Cloudfront
     #   resp.data.distribution_config.logging.include_cookies #=> Boolean
     #   resp.data.distribution_config.logging.bucket #=> String
     #   resp.data.distribution_config.logging.prefix #=> String
-    #   resp.data.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution_config.price_class #=> String, one of ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #   resp.data.distribution_config.enabled #=> Boolean
     #   resp.data.distribution_config.viewer_certificate #=> Types::ViewerCertificate
     #   resp.data.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
     #   resp.data.distribution_config.viewer_certificate.iam_certificate_id #=> String
     #   resp.data.distribution_config.viewer_certificate.acm_certificate_arn #=> String
-    #   resp.data.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.data.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution_config.viewer_certificate.ssl_support_method #=> String, one of ["sni-only", "vip", "static-ip"]
+    #   resp.data.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of ["SSLv3", "TLSv1", "TLSv1_2016", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021"]
     #   resp.data.distribution_config.viewer_certificate.certificate #=> String
-    #   resp.data.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution_config.viewer_certificate.certificate_source #=> String, one of ["cloudfront", "iam", "acm"]
     #   resp.data.distribution_config.restrictions #=> Types::Restrictions
     #   resp.data.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.data.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of ["blacklist", "whitelist", "none"]
     #   resp.data.distribution_config.restrictions.geo_restriction.quantity #=> Integer
     #   resp.data.distribution_config.restrictions.geo_restriction.items #=> Array<String>
     #   resp.data.distribution_config.restrictions.geo_restriction.items[0] #=> String
     #   resp.data.distribution_config.web_acl_id #=> String
-    #   resp.data.distribution_config.http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution_config.http_version #=> String, one of ["http1.1", "http2"]
     #   resp.data.distribution_config.is_ipv6_enabled #=> Boolean
     #   resp.data.e_tag #=> String
     #
     def get_distribution_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetDistributionConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetDistributionConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetDistributionConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetDistributionConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4479,7 +4479,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_distribution_config
@@ -4528,7 +4528,7 @@ module AWS::Cloudfront
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.quantity #=> Integer
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
-    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of ["URLEncoded"]
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].content_type #=> String
     #   resp.data.e_tag #=> String
@@ -4536,13 +4536,13 @@ module AWS::Cloudfront
     def get_field_level_encryption(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFieldLevelEncryptionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFieldLevelEncryptionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFieldLevelEncryption,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetFieldLevelEncryption
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4563,7 +4563,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_field_level_encryption
@@ -4609,7 +4609,7 @@ module AWS::Cloudfront
     #   resp.data.field_level_encryption_config.content_type_profile_config.content_type_profiles.quantity #=> Integer
     #   resp.data.field_level_encryption_config.content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
     #   resp.data.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
-    #   resp.data.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
+    #   resp.data.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of ["URLEncoded"]
     #   resp.data.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
     #   resp.data.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].content_type #=> String
     #   resp.data.e_tag #=> String
@@ -4617,13 +4617,13 @@ module AWS::Cloudfront
     def get_field_level_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFieldLevelEncryptionConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFieldLevelEncryptionConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFieldLevelEncryptionConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetFieldLevelEncryptionConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4644,7 +4644,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_field_level_encryption_config
@@ -4695,13 +4695,13 @@ module AWS::Cloudfront
     def get_field_level_encryption_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFieldLevelEncryptionProfileInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFieldLevelEncryptionProfileInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFieldLevelEncryptionProfile,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetFieldLevelEncryptionProfile
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4722,7 +4722,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_field_level_encryption_profile
@@ -4770,13 +4770,13 @@ module AWS::Cloudfront
     def get_field_level_encryption_profile_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFieldLevelEncryptionProfileConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFieldLevelEncryptionProfileConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFieldLevelEncryptionProfileConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetFieldLevelEncryptionProfileConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4797,7 +4797,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_field_level_encryption_profile_config
@@ -4827,7 +4827,7 @@ module AWS::Cloudfront
     #
     #   resp = client.get_function(
     #     name: 'Name', # required
-    #     stage: 'DEVELOPMENT' # accepts DEVELOPMENT, LIVE
+    #     stage: 'DEVELOPMENT' # accepts ["DEVELOPMENT", "LIVE"]
     #   )
     #
     # @example Response structure
@@ -4840,13 +4840,13 @@ module AWS::Cloudfront
     def get_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFunction,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetFunction
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4867,7 +4867,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_function
@@ -4915,13 +4915,13 @@ module AWS::Cloudfront
     def get_invalidation(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetInvalidationInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetInvalidationInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetInvalidation,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetInvalidation
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4942,7 +4942,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_invalidation
@@ -4990,13 +4990,13 @@ module AWS::Cloudfront
     def get_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetKeyGroupInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKeyGroupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetKeyGroup,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetKeyGroup
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5017,7 +5017,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_key_group
@@ -5062,13 +5062,13 @@ module AWS::Cloudfront
     def get_key_group_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetKeyGroupConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetKeyGroupConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetKeyGroupConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetKeyGroupConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5089,7 +5089,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_key_group_config
@@ -5121,18 +5121,18 @@ module AWS::Cloudfront
     #   resp.data #=> Types::GetMonitoringSubscriptionOutput
     #   resp.data.monitoring_subscription #=> Types::MonitoringSubscription
     #   resp.data.monitoring_subscription.realtime_metrics_subscription_config #=> Types::RealtimeMetricsSubscriptionConfig
-    #   resp.data.monitoring_subscription.realtime_metrics_subscription_config.realtime_metrics_subscription_status #=> String, one of Enabled, Disabled
+    #   resp.data.monitoring_subscription.realtime_metrics_subscription_config.realtime_metrics_subscription_status #=> String, one of ["Enabled", "Disabled"]
     #
     def get_monitoring_subscription(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetMonitoringSubscriptionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetMonitoringSubscriptionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetMonitoringSubscription,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetMonitoringSubscription
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5153,7 +5153,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_monitoring_subscription
@@ -5206,19 +5206,19 @@ module AWS::Cloudfront
     #   resp.data.origin_request_policy.origin_request_policy_config.comment #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.name #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
-    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of ["none", "whitelist", "allViewer", "allViewerAndWhitelistCloudFront"]
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.quantity #=> Integer
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.items #=> Array<String>
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.items[0] #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
-    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
-    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
     #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
     #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
@@ -5228,13 +5228,13 @@ module AWS::Cloudfront
     def get_origin_request_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOriginRequestPolicyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOriginRequestPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetOriginRequestPolicy,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetOriginRequestPolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5255,7 +5255,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_origin_request_policy
@@ -5298,19 +5298,19 @@ module AWS::Cloudfront
     #   resp.data.origin_request_policy_config.comment #=> String
     #   resp.data.origin_request_policy_config.name #=> String
     #   resp.data.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
-    #   resp.data.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
+    #   resp.data.origin_request_policy_config.headers_config.header_behavior #=> String, one of ["none", "whitelist", "allViewer", "allViewerAndWhitelistCloudFront"]
     #   resp.data.origin_request_policy_config.headers_config.headers #=> Types::Headers
     #   resp.data.origin_request_policy_config.headers_config.headers.quantity #=> Integer
     #   resp.data.origin_request_policy_config.headers_config.headers.items #=> Array<String>
     #   resp.data.origin_request_policy_config.headers_config.headers.items[0] #=> String
     #   resp.data.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
-    #   resp.data.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
     #   resp.data.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
     #   resp.data.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
     #   resp.data.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
     #   resp.data.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
-    #   resp.data.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
     #   resp.data.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
     #   resp.data.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
@@ -5320,13 +5320,13 @@ module AWS::Cloudfront
     def get_origin_request_policy_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetOriginRequestPolicyConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetOriginRequestPolicyConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetOriginRequestPolicyConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetOriginRequestPolicyConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5347,7 +5347,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_origin_request_policy_config
@@ -5389,13 +5389,13 @@ module AWS::Cloudfront
     def get_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPublicKeyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPublicKeyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetPublicKey,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetPublicKey
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5416,7 +5416,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_public_key
@@ -5455,13 +5455,13 @@ module AWS::Cloudfront
     def get_public_key_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPublicKeyConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPublicKeyConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetPublicKeyConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetPublicKeyConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5482,7 +5482,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_public_key_config
@@ -5534,13 +5534,13 @@ module AWS::Cloudfront
     def get_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetRealtimeLogConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetRealtimeLogConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetRealtimeLogConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetRealtimeLogConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5561,7 +5561,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_realtime_log_config
@@ -5620,7 +5620,7 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
-    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of ["GET", "POST", "OPTIONS", "PUT", "DELETE", "PATCH", "HEAD", "ALL"]
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
@@ -5636,10 +5636,10 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
-    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of ["DENY", "SAMEORIGIN"]
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
-    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of ["no-referrer", "no-referrer-when-downgrade", "origin", "origin-when-cross-origin", "same-origin", "strict-origin", "strict-origin-when-cross-origin", "unsafe-url"]
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
@@ -5662,13 +5662,13 @@ module AWS::Cloudfront
     def get_response_headers_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResponseHeadersPolicyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResponseHeadersPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetResponseHeadersPolicy,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetResponseHeadersPolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5689,7 +5689,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_response_headers_policy
@@ -5744,7 +5744,7 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
     #   resp.data.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
     #   resp.data.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
-    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
+    #   resp.data.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of ["GET", "POST", "OPTIONS", "PUT", "DELETE", "PATCH", "HEAD", "ALL"]
     #   resp.data.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
     #   resp.data.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
     #   resp.data.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
@@ -5760,10 +5760,10 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
     #   resp.data.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
     #   resp.data.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
-    #   resp.data.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
+    #   resp.data.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of ["DENY", "SAMEORIGIN"]
     #   resp.data.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
     #   resp.data.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
-    #   resp.data.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    #   resp.data.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of ["no-referrer", "no-referrer-when-downgrade", "origin", "origin-when-cross-origin", "same-origin", "strict-origin", "strict-origin-when-cross-origin", "unsafe-url"]
     #   resp.data.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
     #   resp.data.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
     #   resp.data.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
@@ -5786,13 +5786,13 @@ module AWS::Cloudfront
     def get_response_headers_policy_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetResponseHeadersPolicyConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetResponseHeadersPolicyConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetResponseHeadersPolicyConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetResponseHeadersPolicyConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5813,7 +5813,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_response_headers_policy_config
@@ -5877,20 +5877,20 @@ module AWS::Cloudfront
     #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.quantity #=> Integer
     #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items #=> Array<String>
     #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items[0] #=> String
-    #   resp.data.streaming_distribution.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.streaming_distribution.streaming_distribution_config.price_class #=> String, one of ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #   resp.data.streaming_distribution.streaming_distribution_config.enabled #=> Boolean
     #   resp.data.e_tag #=> String
     #
     def get_streaming_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStreamingDistributionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStreamingDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetStreamingDistribution,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetStreamingDistribution
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5911,7 +5911,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_streaming_distribution
@@ -5959,20 +5959,20 @@ module AWS::Cloudfront
     #   resp.data.streaming_distribution_config.trusted_signers.quantity #=> Integer
     #   resp.data.streaming_distribution_config.trusted_signers.items #=> Array<String>
     #   resp.data.streaming_distribution_config.trusted_signers.items[0] #=> String
-    #   resp.data.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.streaming_distribution_config.price_class #=> String, one of ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #   resp.data.streaming_distribution_config.enabled #=> Boolean
     #   resp.data.e_tag #=> String
     #
     def get_streaming_distribution_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetStreamingDistributionConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetStreamingDistributionConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetStreamingDistributionConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetStreamingDistributionConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5993,7 +5993,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_streaming_distribution_config
@@ -6043,7 +6043,7 @@ module AWS::Cloudfront
     # @example Request syntax with placeholder values
     #
     #   resp = client.list_cache_policies(
-    #     type: 'managed', # accepts managed, custom
+    #     type: 'managed', # accepts ["managed", "custom"]
     #     marker: 'Marker',
     #     max_items: 1
     #   )
@@ -6057,7 +6057,7 @@ module AWS::Cloudfront
     #   resp.data.cache_policy_list.quantity #=> Integer
     #   resp.data.cache_policy_list.items #=> Array<CachePolicySummary>
     #   resp.data.cache_policy_list.items[0] #=> Types::CachePolicySummary
-    #   resp.data.cache_policy_list.items[0].type #=> String, one of managed, custom
+    #   resp.data.cache_policy_list.items[0].type #=> String, one of ["managed", "custom"]
     #   resp.data.cache_policy_list.items[0].cache_policy #=> Types::CachePolicy
     #   resp.data.cache_policy_list.items[0].cache_policy.id #=> String
     #   resp.data.cache_policy_list.items[0].cache_policy.last_modified_time #=> Time
@@ -6071,19 +6071,19 @@ module AWS::Cloudfront
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
-    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of ["none", "whitelist"]
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
-    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of ["none", "whitelist", "allExcept", "all"]
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
-    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of ["none", "whitelist", "allExcept", "all"]
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
     #   resp.data.cache_policy_list.items[0].cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
@@ -6092,13 +6092,13 @@ module AWS::Cloudfront
     def list_cache_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCachePoliciesInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCachePoliciesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListCachePolicies,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListCachePolicies
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6119,7 +6119,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_cache_policies
@@ -6172,13 +6172,13 @@ module AWS::Cloudfront
     def list_cloud_front_origin_access_identities(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCloudFrontOriginAccessIdentitiesInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCloudFrontOriginAccessIdentitiesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListCloudFrontOriginAccessIdentities,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListCloudFrontOriginAccessIdentities
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6199,7 +6199,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_cloud_front_origin_access_identities
@@ -6279,13 +6279,13 @@ module AWS::Cloudfront
     def list_conflicting_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListConflictingAliasesInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListConflictingAliasesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListConflictingAliases,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListConflictingAliases
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6306,7 +6306,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_conflicting_aliases
@@ -6378,11 +6378,11 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.http_port #=> Integer
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of ["http-only", "match-viewer", "https-only"]
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of ["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
     #   resp.data.distribution_list.items[0].origins.items[0].connection_attempts #=> Integer
@@ -6417,11 +6417,11 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items #=> Array<String>
     #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.data.distribution_list.items[0].default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_list.items[0].default_cache_behavior.viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items[0] #=> String, one of ["GET", "HEAD", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
@@ -6432,14 +6432,14 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
     #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
     #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations #=> Types::FunctionAssociations
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.field_level_encryption_id #=> String
     #   resp.data.distribution_list.items[0].default_cache_behavior.realtime_log_config_arn #=> String
     #   resp.data.distribution_list.items[0].default_cache_behavior.cache_policy_id #=> String
@@ -6448,7 +6448,7 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values #=> Types::ForwardedValues
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string #=> Boolean
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.forward #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
@@ -6472,7 +6472,7 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].target_origin_id #=> String
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].smooth_streaming #=> Boolean
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].compress #=> Boolean
@@ -6496,40 +6496,40 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].custom_error_responses.items[0].response_code #=> String
     #   resp.data.distribution_list.items[0].custom_error_responses.items[0].error_caching_min_ttl #=> Integer
     #   resp.data.distribution_list.items[0].comment #=> String
-    #   resp.data.distribution_list.items[0].price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution_list.items[0].price_class #=> String, one of ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #   resp.data.distribution_list.items[0].enabled #=> Boolean
     #   resp.data.distribution_list.items[0].viewer_certificate #=> Types::ViewerCertificate
     #   resp.data.distribution_list.items[0].viewer_certificate.cloud_front_default_certificate #=> Boolean
     #   resp.data.distribution_list.items[0].viewer_certificate.iam_certificate_id #=> String
     #   resp.data.distribution_list.items[0].viewer_certificate.acm_certificate_arn #=> String
-    #   resp.data.distribution_list.items[0].viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.data.distribution_list.items[0].viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution_list.items[0].viewer_certificate.ssl_support_method #=> String, one of ["sni-only", "vip", "static-ip"]
+    #   resp.data.distribution_list.items[0].viewer_certificate.minimum_protocol_version #=> String, one of ["SSLv3", "TLSv1", "TLSv1_2016", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021"]
     #   resp.data.distribution_list.items[0].viewer_certificate.certificate #=> String
-    #   resp.data.distribution_list.items[0].viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution_list.items[0].viewer_certificate.certificate_source #=> String, one of ["cloudfront", "iam", "acm"]
     #   resp.data.distribution_list.items[0].restrictions #=> Types::Restrictions
     #   resp.data.distribution_list.items[0].restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.restriction_type #=> String, one of ["blacklist", "whitelist", "none"]
     #   resp.data.distribution_list.items[0].restrictions.geo_restriction.quantity #=> Integer
     #   resp.data.distribution_list.items[0].restrictions.geo_restriction.items #=> Array<String>
     #   resp.data.distribution_list.items[0].restrictions.geo_restriction.items[0] #=> String
     #   resp.data.distribution_list.items[0].web_acl_id #=> String
-    #   resp.data.distribution_list.items[0].http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution_list.items[0].http_version #=> String, one of ["http1.1", "http2"]
     #   resp.data.distribution_list.items[0].is_ipv6_enabled #=> Boolean
     #   resp.data.distribution_list.items[0].alias_icp_recordals #=> Array<AliasICPRecordal>
     #   resp.data.distribution_list.items[0].alias_icp_recordals[0] #=> Types::AliasICPRecordal
     #   resp.data.distribution_list.items[0].alias_icp_recordals[0].cname #=> String
-    #   resp.data.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
+    #   resp.data.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of ["APPROVED", "SUSPENDED", "PENDING"]
     #
     def list_distributions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDistributions,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListDistributions
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6550,7 +6550,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_distributions
@@ -6608,13 +6608,13 @@ module AWS::Cloudfront
     def list_distributions_by_cache_policy_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByCachePolicyIdInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByCachePolicyIdInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDistributionsByCachePolicyId,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListDistributionsByCachePolicyId
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6635,7 +6635,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_distributions_by_cache_policy_id
@@ -6693,13 +6693,13 @@ module AWS::Cloudfront
     def list_distributions_by_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByKeyGroupInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByKeyGroupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDistributionsByKeyGroup,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListDistributionsByKeyGroup
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6720,7 +6720,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_distributions_by_key_group
@@ -6779,13 +6779,13 @@ module AWS::Cloudfront
     def list_distributions_by_origin_request_policy_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByOriginRequestPolicyIdInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByOriginRequestPolicyIdInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDistributionsByOriginRequestPolicyId,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListDistributionsByOriginRequestPolicyId
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6806,7 +6806,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_distributions_by_origin_request_policy_id
@@ -6896,11 +6896,11 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.http_port #=> Integer
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of ["http-only", "match-viewer", "https-only"]
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of ["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
     #   resp.data.distribution_list.items[0].origins.items[0].connection_attempts #=> Integer
@@ -6935,11 +6935,11 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items #=> Array<String>
     #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.data.distribution_list.items[0].default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_list.items[0].default_cache_behavior.viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items[0] #=> String, one of ["GET", "HEAD", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
@@ -6950,14 +6950,14 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
     #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
     #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations #=> Types::FunctionAssociations
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.field_level_encryption_id #=> String
     #   resp.data.distribution_list.items[0].default_cache_behavior.realtime_log_config_arn #=> String
     #   resp.data.distribution_list.items[0].default_cache_behavior.cache_policy_id #=> String
@@ -6966,7 +6966,7 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values #=> Types::ForwardedValues
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string #=> Boolean
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.forward #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
@@ -6990,7 +6990,7 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].target_origin_id #=> String
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].smooth_streaming #=> Boolean
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].compress #=> Boolean
@@ -7014,40 +7014,40 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].custom_error_responses.items[0].response_code #=> String
     #   resp.data.distribution_list.items[0].custom_error_responses.items[0].error_caching_min_ttl #=> Integer
     #   resp.data.distribution_list.items[0].comment #=> String
-    #   resp.data.distribution_list.items[0].price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution_list.items[0].price_class #=> String, one of ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #   resp.data.distribution_list.items[0].enabled #=> Boolean
     #   resp.data.distribution_list.items[0].viewer_certificate #=> Types::ViewerCertificate
     #   resp.data.distribution_list.items[0].viewer_certificate.cloud_front_default_certificate #=> Boolean
     #   resp.data.distribution_list.items[0].viewer_certificate.iam_certificate_id #=> String
     #   resp.data.distribution_list.items[0].viewer_certificate.acm_certificate_arn #=> String
-    #   resp.data.distribution_list.items[0].viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.data.distribution_list.items[0].viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution_list.items[0].viewer_certificate.ssl_support_method #=> String, one of ["sni-only", "vip", "static-ip"]
+    #   resp.data.distribution_list.items[0].viewer_certificate.minimum_protocol_version #=> String, one of ["SSLv3", "TLSv1", "TLSv1_2016", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021"]
     #   resp.data.distribution_list.items[0].viewer_certificate.certificate #=> String
-    #   resp.data.distribution_list.items[0].viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution_list.items[0].viewer_certificate.certificate_source #=> String, one of ["cloudfront", "iam", "acm"]
     #   resp.data.distribution_list.items[0].restrictions #=> Types::Restrictions
     #   resp.data.distribution_list.items[0].restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.restriction_type #=> String, one of ["blacklist", "whitelist", "none"]
     #   resp.data.distribution_list.items[0].restrictions.geo_restriction.quantity #=> Integer
     #   resp.data.distribution_list.items[0].restrictions.geo_restriction.items #=> Array<String>
     #   resp.data.distribution_list.items[0].restrictions.geo_restriction.items[0] #=> String
     #   resp.data.distribution_list.items[0].web_acl_id #=> String
-    #   resp.data.distribution_list.items[0].http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution_list.items[0].http_version #=> String, one of ["http1.1", "http2"]
     #   resp.data.distribution_list.items[0].is_ipv6_enabled #=> Boolean
     #   resp.data.distribution_list.items[0].alias_icp_recordals #=> Array<AliasICPRecordal>
     #   resp.data.distribution_list.items[0].alias_icp_recordals[0] #=> Types::AliasICPRecordal
     #   resp.data.distribution_list.items[0].alias_icp_recordals[0].cname #=> String
-    #   resp.data.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
+    #   resp.data.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of ["APPROVED", "SUSPENDED", "PENDING"]
     #
     def list_distributions_by_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByRealtimeLogConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByRealtimeLogConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDistributionsByRealtimeLogConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListDistributionsByRealtimeLogConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7068,7 +7068,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_distributions_by_realtime_log_config
@@ -7127,13 +7127,13 @@ module AWS::Cloudfront
     def list_distributions_by_response_headers_policy_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByResponseHeadersPolicyIdInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByResponseHeadersPolicyIdInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDistributionsByResponseHeadersPolicyId,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListDistributionsByResponseHeadersPolicyId
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7154,7 +7154,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_distributions_by_response_headers_policy_id
@@ -7233,11 +7233,11 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.http_port #=> Integer
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of ["http-only", "match-viewer", "https-only"]
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of ["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
     #   resp.data.distribution_list.items[0].origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
     #   resp.data.distribution_list.items[0].origins.items[0].connection_attempts #=> Integer
@@ -7272,11 +7272,11 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items #=> Array<String>
     #   resp.data.distribution_list.items[0].default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.data.distribution_list.items[0].default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_list.items[0].default_cache_behavior.viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.items[0] #=> String, one of ["GET", "HEAD", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
@@ -7287,14 +7287,14 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
     #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
     #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations #=> Types::FunctionAssociations
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
     #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution_list.items[0].default_cache_behavior.function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.field_level_encryption_id #=> String
     #   resp.data.distribution_list.items[0].default_cache_behavior.realtime_log_config_arn #=> String
     #   resp.data.distribution_list.items[0].default_cache_behavior.cache_policy_id #=> String
@@ -7303,7 +7303,7 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values #=> Types::ForwardedValues
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.query_string #=> Boolean
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.forward #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
     #   resp.data.distribution_list.items[0].default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
@@ -7327,7 +7327,7 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].target_origin_id #=> String
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution_list.items[0].cache_behaviors.items[0].viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].smooth_streaming #=> Boolean
     #   resp.data.distribution_list.items[0].cache_behaviors.items[0].compress #=> Boolean
@@ -7351,40 +7351,40 @@ module AWS::Cloudfront
     #   resp.data.distribution_list.items[0].custom_error_responses.items[0].response_code #=> String
     #   resp.data.distribution_list.items[0].custom_error_responses.items[0].error_caching_min_ttl #=> Integer
     #   resp.data.distribution_list.items[0].comment #=> String
-    #   resp.data.distribution_list.items[0].price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution_list.items[0].price_class #=> String, one of ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #   resp.data.distribution_list.items[0].enabled #=> Boolean
     #   resp.data.distribution_list.items[0].viewer_certificate #=> Types::ViewerCertificate
     #   resp.data.distribution_list.items[0].viewer_certificate.cloud_front_default_certificate #=> Boolean
     #   resp.data.distribution_list.items[0].viewer_certificate.iam_certificate_id #=> String
     #   resp.data.distribution_list.items[0].viewer_certificate.acm_certificate_arn #=> String
-    #   resp.data.distribution_list.items[0].viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.data.distribution_list.items[0].viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution_list.items[0].viewer_certificate.ssl_support_method #=> String, one of ["sni-only", "vip", "static-ip"]
+    #   resp.data.distribution_list.items[0].viewer_certificate.minimum_protocol_version #=> String, one of ["SSLv3", "TLSv1", "TLSv1_2016", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021"]
     #   resp.data.distribution_list.items[0].viewer_certificate.certificate #=> String
-    #   resp.data.distribution_list.items[0].viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution_list.items[0].viewer_certificate.certificate_source #=> String, one of ["cloudfront", "iam", "acm"]
     #   resp.data.distribution_list.items[0].restrictions #=> Types::Restrictions
     #   resp.data.distribution_list.items[0].restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution_list.items[0].restrictions.geo_restriction.restriction_type #=> String, one of ["blacklist", "whitelist", "none"]
     #   resp.data.distribution_list.items[0].restrictions.geo_restriction.quantity #=> Integer
     #   resp.data.distribution_list.items[0].restrictions.geo_restriction.items #=> Array<String>
     #   resp.data.distribution_list.items[0].restrictions.geo_restriction.items[0] #=> String
     #   resp.data.distribution_list.items[0].web_acl_id #=> String
-    #   resp.data.distribution_list.items[0].http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution_list.items[0].http_version #=> String, one of ["http1.1", "http2"]
     #   resp.data.distribution_list.items[0].is_ipv6_enabled #=> Boolean
     #   resp.data.distribution_list.items[0].alias_icp_recordals #=> Array<AliasICPRecordal>
     #   resp.data.distribution_list.items[0].alias_icp_recordals[0] #=> Types::AliasICPRecordal
     #   resp.data.distribution_list.items[0].alias_icp_recordals[0].cname #=> String
-    #   resp.data.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
+    #   resp.data.distribution_list.items[0].alias_icp_recordals[0].icp_recordal_status #=> String, one of ["APPROVED", "SUSPENDED", "PENDING"]
     #
     def list_distributions_by_web_acl_id(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListDistributionsByWebACLIdInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListDistributionsByWebACLIdInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListDistributionsByWebACLId,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListDistributionsByWebACLId
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7405,7 +7405,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_distributions_by_web_acl_id
@@ -7463,20 +7463,20 @@ module AWS::Cloudfront
     #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.quantity #=> Integer
     #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
     #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
-    #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
+    #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items[0].format #=> String, one of ["URLEncoded"]
     #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
     #   resp.data.field_level_encryption_list.items[0].content_type_profile_config.content_type_profiles.items[0].content_type #=> String
     #
     def list_field_level_encryption_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFieldLevelEncryptionConfigsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFieldLevelEncryptionConfigsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListFieldLevelEncryptionConfigs,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListFieldLevelEncryptionConfigs
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7497,7 +7497,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_field_level_encryption_configs
@@ -7556,13 +7556,13 @@ module AWS::Cloudfront
     def list_field_level_encryption_profiles(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFieldLevelEncryptionProfilesInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFieldLevelEncryptionProfilesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListFieldLevelEncryptionProfiles,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListFieldLevelEncryptionProfiles
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7583,7 +7583,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_field_level_encryption_profiles
@@ -7625,7 +7625,7 @@ module AWS::Cloudfront
     #   resp = client.list_functions(
     #     marker: 'Marker',
     #     max_items: 1,
-    #     stage: 'DEVELOPMENT' # accepts DEVELOPMENT, LIVE
+    #     stage: 'DEVELOPMENT' # accepts ["DEVELOPMENT", "LIVE"]
     #   )
     #
     # @example Response structure
@@ -7641,23 +7641,23 @@ module AWS::Cloudfront
     #   resp.data.function_list.items[0].status #=> String
     #   resp.data.function_list.items[0].function_config #=> Types::FunctionConfig
     #   resp.data.function_list.items[0].function_config.comment #=> String
-    #   resp.data.function_list.items[0].function_config.runtime #=> String, one of cloudfront-js-1.0
+    #   resp.data.function_list.items[0].function_config.runtime #=> String, one of ["cloudfront-js-1.0"]
     #   resp.data.function_list.items[0].function_metadata #=> Types::FunctionMetadata
     #   resp.data.function_list.items[0].function_metadata.function_arn #=> String
-    #   resp.data.function_list.items[0].function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
+    #   resp.data.function_list.items[0].function_metadata.stage #=> String, one of ["DEVELOPMENT", "LIVE"]
     #   resp.data.function_list.items[0].function_metadata.created_time #=> Time
     #   resp.data.function_list.items[0].function_metadata.last_modified_time #=> Time
     #
     def list_functions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListFunctions,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListFunctions
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7678,7 +7678,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_functions
@@ -7736,13 +7736,13 @@ module AWS::Cloudfront
     def list_invalidations(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListInvalidationsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListInvalidationsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListInvalidations,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListInvalidations
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7763,7 +7763,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_invalidations
@@ -7822,13 +7822,13 @@ module AWS::Cloudfront
     def list_key_groups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListKeyGroupsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListKeyGroupsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListKeyGroups,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListKeyGroups
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7849,7 +7849,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_key_groups
@@ -7899,7 +7899,7 @@ module AWS::Cloudfront
     # @example Request syntax with placeholder values
     #
     #   resp = client.list_origin_request_policies(
-    #     type: 'managed', # accepts managed, custom
+    #     type: 'managed', # accepts ["managed", "custom"]
     #     marker: 'Marker',
     #     max_items: 1
     #   )
@@ -7913,7 +7913,7 @@ module AWS::Cloudfront
     #   resp.data.origin_request_policy_list.quantity #=> Integer
     #   resp.data.origin_request_policy_list.items #=> Array<OriginRequestPolicySummary>
     #   resp.data.origin_request_policy_list.items[0] #=> Types::OriginRequestPolicySummary
-    #   resp.data.origin_request_policy_list.items[0].type #=> String, one of managed, custom
+    #   resp.data.origin_request_policy_list.items[0].type #=> String, one of ["managed", "custom"]
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy #=> Types::OriginRequestPolicy
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.id #=> String
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.last_modified_time #=> Time
@@ -7921,19 +7921,19 @@ module AWS::Cloudfront
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.comment #=> String
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.name #=> String
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
-    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of ["none", "whitelist", "allViewer", "allViewerAndWhitelistCloudFront"]
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.headers.quantity #=> Integer
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.headers.items #=> Array<String>
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.headers_config.headers.items[0] #=> String
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
-    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
-    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
     #   resp.data.origin_request_policy_list.items[0].origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
@@ -7942,13 +7942,13 @@ module AWS::Cloudfront
     def list_origin_request_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListOriginRequestPoliciesInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListOriginRequestPoliciesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListOriginRequestPolicies,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListOriginRequestPolicies
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7969,7 +7969,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_origin_request_policies
@@ -8019,13 +8019,13 @@ module AWS::Cloudfront
     def list_public_keys(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListPublicKeysInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListPublicKeysInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListPublicKeys,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListPublicKeys
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8046,7 +8046,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_public_keys
@@ -8109,13 +8109,13 @@ module AWS::Cloudfront
     def list_realtime_log_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListRealtimeLogConfigsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListRealtimeLogConfigsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListRealtimeLogConfigs,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListRealtimeLogConfigs
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8136,7 +8136,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_realtime_log_configs
@@ -8187,7 +8187,7 @@ module AWS::Cloudfront
     # @example Request syntax with placeholder values
     #
     #   resp = client.list_response_headers_policies(
-    #     type: 'managed', # accepts managed, custom
+    #     type: 'managed', # accepts ["managed", "custom"]
     #     marker: 'Marker',
     #     max_items: 1
     #   )
@@ -8201,7 +8201,7 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy_list.quantity #=> Integer
     #   resp.data.response_headers_policy_list.items #=> Array<ResponseHeadersPolicySummary>
     #   resp.data.response_headers_policy_list.items[0] #=> Types::ResponseHeadersPolicySummary
-    #   resp.data.response_headers_policy_list.items[0].type #=> String, one of managed, custom
+    #   resp.data.response_headers_policy_list.items[0].type #=> String, one of ["managed", "custom"]
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy #=> Types::ResponseHeadersPolicy
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.id #=> String
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.last_modified_time #=> Time
@@ -8220,7 +8220,7 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
-    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of ["GET", "POST", "OPTIONS", "PUT", "DELETE", "PATCH", "HEAD", "ALL"]
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
@@ -8236,10 +8236,10 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
-    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of ["DENY", "SAMEORIGIN"]
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
-    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of ["no-referrer", "no-referrer-when-downgrade", "origin", "origin-when-cross-origin", "same-origin", "strict-origin", "strict-origin-when-cross-origin", "unsafe-url"]
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
@@ -8261,13 +8261,13 @@ module AWS::Cloudfront
     def list_response_headers_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListResponseHeadersPoliciesInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListResponseHeadersPoliciesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListResponseHeadersPolicies,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListResponseHeadersPolicies
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8288,7 +8288,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_response_headers_policies
@@ -8347,19 +8347,19 @@ module AWS::Cloudfront
     #   resp.data.streaming_distribution_list.items[0].trusted_signers.items #=> Array<String>
     #   resp.data.streaming_distribution_list.items[0].trusted_signers.items[0] #=> String
     #   resp.data.streaming_distribution_list.items[0].comment #=> String
-    #   resp.data.streaming_distribution_list.items[0].price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.streaming_distribution_list.items[0].price_class #=> String, one of ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #   resp.data.streaming_distribution_list.items[0].enabled #=> Boolean
     #
     def list_streaming_distributions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListStreamingDistributionsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListStreamingDistributionsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListStreamingDistributions,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListStreamingDistributions
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8380,7 +8380,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_streaming_distributions
@@ -8418,13 +8418,13 @@ module AWS::Cloudfront
     def list_tags_for_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsForResourceInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsForResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListTagsForResource,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListTagsForResource
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8445,7 +8445,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_tags_for_resource
@@ -8492,23 +8492,23 @@ module AWS::Cloudfront
     #   resp.data.function_summary.status #=> String
     #   resp.data.function_summary.function_config #=> Types::FunctionConfig
     #   resp.data.function_summary.function_config.comment #=> String
-    #   resp.data.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
+    #   resp.data.function_summary.function_config.runtime #=> String, one of ["cloudfront-js-1.0"]
     #   resp.data.function_summary.function_metadata #=> Types::FunctionMetadata
     #   resp.data.function_summary.function_metadata.function_arn #=> String
-    #   resp.data.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
+    #   resp.data.function_summary.function_metadata.stage #=> String, one of ["DEVELOPMENT", "LIVE"]
     #   resp.data.function_summary.function_metadata.created_time #=> Time
     #   resp.data.function_summary.function_metadata.last_modified_time #=> Time
     #
     def publish_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PublishFunctionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::PublishFunction,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::PublishFunction
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8529,7 +8529,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :publish_function
@@ -8573,13 +8573,13 @@ module AWS::Cloudfront
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::TagResource,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::TagResource
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8600,7 +8600,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :tag_resource
@@ -8646,7 +8646,7 @@ module AWS::Cloudfront
     #   resp = client.test_function(
     #     name: 'Name', # required
     #     if_match: 'IfMatch', # required
-    #     stage: 'DEVELOPMENT', # accepts DEVELOPMENT, LIVE
+    #     stage: 'DEVELOPMENT', # accepts ["DEVELOPMENT", "LIVE"]
     #     event_object: 'EventObject' # required
     #   )
     #
@@ -8659,10 +8659,10 @@ module AWS::Cloudfront
     #   resp.data.test_result.function_summary.status #=> String
     #   resp.data.test_result.function_summary.function_config #=> Types::FunctionConfig
     #   resp.data.test_result.function_summary.function_config.comment #=> String
-    #   resp.data.test_result.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
+    #   resp.data.test_result.function_summary.function_config.runtime #=> String, one of ["cloudfront-js-1.0"]
     #   resp.data.test_result.function_summary.function_metadata #=> Types::FunctionMetadata
     #   resp.data.test_result.function_summary.function_metadata.function_arn #=> String
-    #   resp.data.test_result.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
+    #   resp.data.test_result.function_summary.function_metadata.stage #=> String, one of ["DEVELOPMENT", "LIVE"]
     #   resp.data.test_result.function_summary.function_metadata.created_time #=> Time
     #   resp.data.test_result.function_summary.function_metadata.last_modified_time #=> Time
     #   resp.data.test_result.compute_utilization #=> String
@@ -8674,13 +8674,13 @@ module AWS::Cloudfront
     def test_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TestFunctionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TestFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::TestFunction,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::TestFunction
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8701,7 +8701,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :test_function
@@ -8742,13 +8742,13 @@ module AWS::Cloudfront
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UntagResource,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UntagResource
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8769,7 +8769,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :untag_resource
@@ -8829,7 +8829,7 @@ module AWS::Cloudfront
     #         enable_accept_encoding_gzip: false, # required
     #         enable_accept_encoding_brotli: false,
     #         headers_config: {
-    #           header_behavior: 'none', # required - accepts none, whitelist
+    #           header_behavior: 'none', # required - accepts ["none", "whitelist"]
     #           headers: {
     #             quantity: 1, # required
     #             items: [
@@ -8838,7 +8838,7 @@ module AWS::Cloudfront
     #           }
     #         }, # required
     #         cookies_config: {
-    #           cookie_behavior: 'none', # required - accepts none, whitelist, allExcept, all
+    #           cookie_behavior: 'none', # required - accepts ["none", "whitelist", "allExcept", "all"]
     #           cookies: {
     #             quantity: 1, # required
     #             items: [
@@ -8847,7 +8847,7 @@ module AWS::Cloudfront
     #           }
     #         }, # required
     #         query_strings_config: {
-    #           query_string_behavior: 'none', # required - accepts none, whitelist, allExcept, all
+    #           query_string_behavior: 'none', # required - accepts ["none", "whitelist", "allExcept", "all"]
     #           query_strings: {
     #             quantity: 1, # required
     #             items: [
@@ -8877,19 +8877,19 @@ module AWS::Cloudfront
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_gzip #=> Boolean
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.enable_accept_encoding_brotli #=> Boolean
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config #=> Types::CachePolicyHeadersConfig
-    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of none, whitelist
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.header_behavior #=> String, one of ["none", "whitelist"]
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers #=> Types::Headers
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.quantity #=> Integer
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items #=> Array<String>
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.headers_config.headers.items[0] #=> String
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config #=> Types::CachePolicyCookiesConfig
-    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookie_behavior #=> String, one of ["none", "whitelist", "allExcept", "all"]
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies #=> Types::CookieNames
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.quantity #=> Integer
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items #=> Array<String>
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.cookies_config.cookies.items[0] #=> String
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config #=> Types::CachePolicyQueryStringsConfig
-    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of none, whitelist, allExcept, all
+    #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_string_behavior #=> String, one of ["none", "whitelist", "allExcept", "all"]
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings #=> Types::QueryStringNames
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.quantity #=> Integer
     #   resp.data.cache_policy.cache_policy_config.parameters_in_cache_key_and_forwarded_to_origin.query_strings_config.query_strings.items #=> Array<String>
@@ -8899,13 +8899,13 @@ module AWS::Cloudfront
     def update_cache_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCachePolicyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCachePolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateCachePolicy,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateCachePolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8926,7 +8926,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_cache_policy
@@ -8978,13 +8978,13 @@ module AWS::Cloudfront
     def update_cloud_front_origin_access_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCloudFrontOriginAccessIdentityInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCloudFrontOriginAccessIdentityInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateCloudFrontOriginAccessIdentity,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateCloudFrontOriginAccessIdentity
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -9005,7 +9005,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_cloud_front_origin_access_identity
@@ -9144,11 +9144,11 @@ module AWS::Cloudfront
     #             custom_origin_config: {
     #               http_port: 1, # required
     #               https_port: 1, # required
-    #               origin_protocol_policy: 'http-only', # required - accepts http-only, match-viewer, https-only
+    #               origin_protocol_policy: 'http-only', # required - accepts ["http-only", "match-viewer", "https-only"]
     #               origin_ssl_protocols: {
     #                 quantity: 1, # required
     #                 items: [
-    #                   'SSLv3' # accepts SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #                   'SSLv3' # accepts ["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
     #                 ] # required
     #               },
     #               origin_read_timeout: 1,
@@ -9203,11 +9203,11 @@ module AWS::Cloudfront
     #             'member'
     #           ]
     #         },
-    #         viewer_protocol_policy: 'allow-all', # required - accepts allow-all, https-only, redirect-to-https
+    #         viewer_protocol_policy: 'allow-all', # required - accepts ["allow-all", "https-only", "redirect-to-https"]
     #         allowed_methods: {
     #           quantity: 1, # required
     #           items: [
-    #             'GET' # accepts GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #             'GET' # accepts ["GET", "HEAD", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     #           ], # required
     #           cached_methods: {
     #             quantity: 1, # required
@@ -9220,7 +9220,7 @@ module AWS::Cloudfront
     #           items: [
     #             {
     #               lambda_function_arn: 'LambdaFunctionARN', # required
-    #               event_type: 'viewer-request', # required - accepts viewer-request, viewer-response, origin-request, origin-response
+    #               event_type: 'viewer-request', # required - accepts ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #               include_body: false
     #             }
     #           ]
@@ -9230,7 +9230,7 @@ module AWS::Cloudfront
     #           items: [
     #             {
     #               function_arn: 'FunctionARN', # required
-    #               event_type: 'viewer-request' # required - accepts viewer-request, viewer-response, origin-request, origin-response
+    #               event_type: 'viewer-request' # required - accepts ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #             }
     #           ]
     #         },
@@ -9242,7 +9242,7 @@ module AWS::Cloudfront
     #         forwarded_values: {
     #           query_string: false, # required
     #           cookies: {
-    #             forward: 'none', # required - accepts none, whitelist, all
+    #             forward: 'none', # required - accepts ["none", "whitelist", "all"]
     #             whitelisted_names: {
     #               quantity: 1, # required
     #               items: [
@@ -9273,7 +9273,7 @@ module AWS::Cloudfront
     #           {
     #             path_pattern: 'PathPattern', # required
     #             target_origin_id: 'TargetOriginId', # required
-    #             viewer_protocol_policy: 'allow-all', # required - accepts allow-all, https-only, redirect-to-https
+    #             viewer_protocol_policy: 'allow-all', # required - accepts ["allow-all", "https-only", "redirect-to-https"]
     #             smooth_streaming: false,
     #             compress: false,
     #             field_level_encryption_id: 'FieldLevelEncryptionId',
@@ -9305,20 +9305,20 @@ module AWS::Cloudfront
     #         bucket: 'Bucket', # required
     #         prefix: 'Prefix' # required
     #       },
-    #       price_class: 'PriceClass_100', # accepts PriceClass_100, PriceClass_200, PriceClass_All
+    #       price_class: 'PriceClass_100', # accepts ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #       enabled: false, # required
     #       viewer_certificate: {
     #         cloud_front_default_certificate: false,
     #         iam_certificate_id: 'IAMCertificateId',
     #         acm_certificate_arn: 'ACMCertificateArn',
-    #         ssl_support_method: 'sni-only', # accepts sni-only, vip, static-ip
-    #         minimum_protocol_version: 'SSLv3', # accepts SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #         ssl_support_method: 'sni-only', # accepts ["sni-only", "vip", "static-ip"]
+    #         minimum_protocol_version: 'SSLv3', # accepts ["SSLv3", "TLSv1", "TLSv1_2016", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021"]
     #         certificate: 'Certificate',
-    #         certificate_source: 'cloudfront' # accepts cloudfront, iam, acm
+    #         certificate_source: 'cloudfront' # accepts ["cloudfront", "iam", "acm"]
     #       },
     #       restrictions: {
     #         geo_restriction: {
-    #           restriction_type: 'blacklist', # required - accepts blacklist, whitelist, none
+    #           restriction_type: 'blacklist', # required - accepts ["blacklist", "whitelist", "none"]
     #           quantity: 1, # required
     #           items: [
     #             'member'
@@ -9326,7 +9326,7 @@ module AWS::Cloudfront
     #         } # required
     #       },
     #       web_acl_id: 'WebACLId',
-    #       http_version: 'http1.1', # accepts http1.1, http2
+    #       http_version: 'http1.1', # accepts ["http1.1", "http2"]
     #       is_ipv6_enabled: false
     #     }, # required
     #     id: 'Id', # required
@@ -9385,11 +9385,11 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config #=> Types::CustomOriginConfig
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.http_port #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.https_port #=> Integer
-    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of http-only, match-viewer, https-only
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_protocol_policy #=> String, one of ["http-only", "match-viewer", "https-only"]
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols #=> Types::OriginSslProtocols
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.quantity #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items #=> Array<String>
-    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of SSLv3, TLSv1, TLSv1.1, TLSv1.2
+    #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_ssl_protocols.items[0] #=> String, one of ["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_read_timeout #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].custom_origin_config.origin_keepalive_timeout #=> Integer
     #   resp.data.distribution.distribution_config.origins.items[0].connection_attempts #=> Integer
@@ -9424,11 +9424,11 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items #=> Array<String>
     #   resp.data.distribution.distribution_config.default_cache_behavior.trusted_key_groups.items[0] #=> String
-    #   resp.data.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.default_cache_behavior.viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items #=> Array<String>
-    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of GET, HEAD, POST, PUT, PATCH, OPTIONS, DELETE
+    #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.items[0] #=> String, one of ["GET", "HEAD", "POST", "PUT", "PATCH", "OPTIONS", "DELETE"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods #=> Types::CachedMethods
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.allowed_methods.cached_methods.items #=> Array<String>
@@ -9439,14 +9439,14 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items #=> Array<LambdaFunctionAssociation>
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0] #=> Types::LambdaFunctionAssociation
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].lambda_function_arn #=> String
-    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.lambda_function_associations.items[0].include_body #=> Boolean
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations #=> Types::FunctionAssociations
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items #=> Array<FunctionAssociation>
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0] #=> Types::FunctionAssociation
     #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].function_arn #=> String
-    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of viewer-request, viewer-response, origin-request, origin-response
+    #   resp.data.distribution.distribution_config.default_cache_behavior.function_associations.items[0].event_type #=> String, one of ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.field_level_encryption_id #=> String
     #   resp.data.distribution.distribution_config.default_cache_behavior.realtime_log_config_arn #=> String
     #   resp.data.distribution.distribution_config.default_cache_behavior.cache_policy_id #=> String
@@ -9455,7 +9455,7 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values #=> Types::ForwardedValues
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.query_string #=> Boolean
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies #=> Types::CookiePreference
-    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of none, whitelist, all
+    #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.forward #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names #=> Types::CookieNames
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.quantity #=> Integer
     #   resp.data.distribution.distribution_config.default_cache_behavior.forwarded_values.cookies.whitelisted_names.items #=> Array<String>
@@ -9479,7 +9479,7 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].target_origin_id #=> String
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_signers #=> Types::TrustedSigners
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].trusted_key_groups #=> Types::TrustedKeyGroups
-    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of allow-all, https-only, redirect-to-https
+    #   resp.data.distribution.distribution_config.cache_behaviors.items[0].viewer_protocol_policy #=> String, one of ["allow-all", "https-only", "redirect-to-https"]
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].allowed_methods #=> Types::AllowedMethods
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].smooth_streaming #=> Boolean
     #   resp.data.distribution.distribution_config.cache_behaviors.items[0].compress #=> Boolean
@@ -9508,41 +9508,41 @@ module AWS::Cloudfront
     #   resp.data.distribution.distribution_config.logging.include_cookies #=> Boolean
     #   resp.data.distribution.distribution_config.logging.bucket #=> String
     #   resp.data.distribution.distribution_config.logging.prefix #=> String
-    #   resp.data.distribution.distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.distribution.distribution_config.price_class #=> String, one of ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #   resp.data.distribution.distribution_config.enabled #=> Boolean
     #   resp.data.distribution.distribution_config.viewer_certificate #=> Types::ViewerCertificate
     #   resp.data.distribution.distribution_config.viewer_certificate.cloud_front_default_certificate #=> Boolean
     #   resp.data.distribution.distribution_config.viewer_certificate.iam_certificate_id #=> String
     #   resp.data.distribution.distribution_config.viewer_certificate.acm_certificate_arn #=> String
-    #   resp.data.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of sni-only, vip, static-ip
-    #   resp.data.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of SSLv3, TLSv1, TLSv1_2016, TLSv1.1_2016, TLSv1.2_2018, TLSv1.2_2019, TLSv1.2_2021
+    #   resp.data.distribution.distribution_config.viewer_certificate.ssl_support_method #=> String, one of ["sni-only", "vip", "static-ip"]
+    #   resp.data.distribution.distribution_config.viewer_certificate.minimum_protocol_version #=> String, one of ["SSLv3", "TLSv1", "TLSv1_2016", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021"]
     #   resp.data.distribution.distribution_config.viewer_certificate.certificate #=> String
-    #   resp.data.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of cloudfront, iam, acm
+    #   resp.data.distribution.distribution_config.viewer_certificate.certificate_source #=> String, one of ["cloudfront", "iam", "acm"]
     #   resp.data.distribution.distribution_config.restrictions #=> Types::Restrictions
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction #=> Types::GeoRestriction
-    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of blacklist, whitelist, none
+    #   resp.data.distribution.distribution_config.restrictions.geo_restriction.restriction_type #=> String, one of ["blacklist", "whitelist", "none"]
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction.quantity #=> Integer
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items #=> Array<String>
     #   resp.data.distribution.distribution_config.restrictions.geo_restriction.items[0] #=> String
     #   resp.data.distribution.distribution_config.web_acl_id #=> String
-    #   resp.data.distribution.distribution_config.http_version #=> String, one of http1.1, http2
+    #   resp.data.distribution.distribution_config.http_version #=> String, one of ["http1.1", "http2"]
     #   resp.data.distribution.distribution_config.is_ipv6_enabled #=> Boolean
     #   resp.data.distribution.alias_icp_recordals #=> Array<AliasICPRecordal>
     #   resp.data.distribution.alias_icp_recordals[0] #=> Types::AliasICPRecordal
     #   resp.data.distribution.alias_icp_recordals[0].cname #=> String
-    #   resp.data.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of APPROVED, SUSPENDED, PENDING
+    #   resp.data.distribution.alias_icp_recordals[0].icp_recordal_status #=> String, one of ["APPROVED", "SUSPENDED", "PENDING"]
     #   resp.data.e_tag #=> String
     #
     def update_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateDistributionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateDistribution,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateDistribution
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -9563,7 +9563,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_distribution
@@ -9614,7 +9614,7 @@ module AWS::Cloudfront
     #           quantity: 1, # required
     #           items: [
     #             {
-    #               format: 'URLEncoded', # required - accepts URLEncoded
+    #               format: 'URLEncoded', # required - accepts ["URLEncoded"]
     #               profile_id: 'ProfileId',
     #               content_type: 'ContentType' # required
     #             }
@@ -9649,7 +9649,7 @@ module AWS::Cloudfront
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.quantity #=> Integer
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items #=> Array<ContentTypeProfile>
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0] #=> Types::ContentTypeProfile
-    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of URLEncoded
+    #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].format #=> String, one of ["URLEncoded"]
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].profile_id #=> String
     #   resp.data.field_level_encryption.field_level_encryption_config.content_type_profile_config.content_type_profiles.items[0].content_type #=> String
     #   resp.data.e_tag #=> String
@@ -9657,13 +9657,13 @@ module AWS::Cloudfront
     def update_field_level_encryption_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFieldLevelEncryptionConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFieldLevelEncryptionConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateFieldLevelEncryptionConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateFieldLevelEncryptionConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -9684,7 +9684,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_field_level_encryption_config
@@ -9763,13 +9763,13 @@ module AWS::Cloudfront
     def update_field_level_encryption_profile(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFieldLevelEncryptionProfileInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFieldLevelEncryptionProfileInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateFieldLevelEncryptionProfile,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateFieldLevelEncryptionProfile
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -9790,7 +9790,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_field_level_encryption_profile
@@ -9833,7 +9833,7 @@ module AWS::Cloudfront
     #     if_match: 'IfMatch', # required
     #     function_config: {
     #       comment: 'Comment', # required
-    #       runtime: 'cloudfront-js-1.0' # required - accepts cloudfront-js-1.0
+    #       runtime: 'cloudfront-js-1.0' # required - accepts ["cloudfront-js-1.0"]
     #     }, # required
     #     function_code: 'FunctionCode' # required
     #   )
@@ -9846,10 +9846,10 @@ module AWS::Cloudfront
     #   resp.data.function_summary.status #=> String
     #   resp.data.function_summary.function_config #=> Types::FunctionConfig
     #   resp.data.function_summary.function_config.comment #=> String
-    #   resp.data.function_summary.function_config.runtime #=> String, one of cloudfront-js-1.0
+    #   resp.data.function_summary.function_config.runtime #=> String, one of ["cloudfront-js-1.0"]
     #   resp.data.function_summary.function_metadata #=> Types::FunctionMetadata
     #   resp.data.function_summary.function_metadata.function_arn #=> String
-    #   resp.data.function_summary.function_metadata.stage #=> String, one of DEVELOPMENT, LIVE
+    #   resp.data.function_summary.function_metadata.stage #=> String, one of ["DEVELOPMENT", "LIVE"]
     #   resp.data.function_summary.function_metadata.created_time #=> Time
     #   resp.data.function_summary.function_metadata.last_modified_time #=> Time
     #   resp.data.e_tag #=> String
@@ -9857,13 +9857,13 @@ module AWS::Cloudfront
     def update_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateFunction,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateFunction
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -9884,7 +9884,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_function
@@ -9958,13 +9958,13 @@ module AWS::Cloudfront
     def update_key_group(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateKeyGroupInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateKeyGroupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateKeyGroup,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateKeyGroup
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -9985,7 +9985,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_key_group
@@ -10039,7 +10039,7 @@ module AWS::Cloudfront
     #       comment: 'Comment',
     #       name: 'Name', # required
     #       headers_config: {
-    #         header_behavior: 'none', # required - accepts none, whitelist, allViewer, allViewerAndWhitelistCloudFront
+    #         header_behavior: 'none', # required - accepts ["none", "whitelist", "allViewer", "allViewerAndWhitelistCloudFront"]
     #         headers: {
     #           quantity: 1, # required
     #           items: [
@@ -10048,7 +10048,7 @@ module AWS::Cloudfront
     #         }
     #       }, # required
     #       cookies_config: {
-    #         cookie_behavior: 'none', # required - accepts none, whitelist, all
+    #         cookie_behavior: 'none', # required - accepts ["none", "whitelist", "all"]
     #         cookies: {
     #           quantity: 1, # required
     #           items: [
@@ -10057,7 +10057,7 @@ module AWS::Cloudfront
     #         }
     #       }, # required
     #       query_strings_config: {
-    #         query_string_behavior: 'none', # required - accepts none, whitelist, all
+    #         query_string_behavior: 'none', # required - accepts ["none", "whitelist", "all"]
     #         query_strings: {
     #           quantity: 1, # required
     #           items: [
@@ -10080,19 +10080,19 @@ module AWS::Cloudfront
     #   resp.data.origin_request_policy.origin_request_policy_config.comment #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.name #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config #=> Types::OriginRequestPolicyHeadersConfig
-    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of none, whitelist, allViewer, allViewerAndWhitelistCloudFront
+    #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.header_behavior #=> String, one of ["none", "whitelist", "allViewer", "allViewerAndWhitelistCloudFront"]
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers #=> Types::Headers
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.quantity #=> Integer
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.items #=> Array<String>
     #   resp.data.origin_request_policy.origin_request_policy_config.headers_config.headers.items[0] #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config #=> Types::OriginRequestPolicyCookiesConfig
-    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookie_behavior #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies #=> Types::CookieNames
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.quantity #=> Integer
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items #=> Array<String>
     #   resp.data.origin_request_policy.origin_request_policy_config.cookies_config.cookies.items[0] #=> String
     #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config #=> Types::OriginRequestPolicyQueryStringsConfig
-    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of none, whitelist, all
+    #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_string_behavior #=> String, one of ["none", "whitelist", "all"]
     #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings #=> Types::QueryStringNames
     #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.quantity #=> Integer
     #   resp.data.origin_request_policy.origin_request_policy_config.query_strings_config.query_strings.items #=> Array<String>
@@ -10102,13 +10102,13 @@ module AWS::Cloudfront
     def update_origin_request_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateOriginRequestPolicyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateOriginRequestPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateOriginRequestPolicy,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateOriginRequestPolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -10129,7 +10129,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_origin_request_policy
@@ -10185,13 +10185,13 @@ module AWS::Cloudfront
     def update_public_key(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdatePublicKeyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdatePublicKeyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdatePublicKey,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdatePublicKey
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -10212,7 +10212,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_public_key
@@ -10308,13 +10308,13 @@ module AWS::Cloudfront
     def update_realtime_log_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateRealtimeLogConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateRealtimeLogConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateRealtimeLogConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateRealtimeLogConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -10335,7 +10335,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_realtime_log_config
@@ -10403,7 +10403,7 @@ module AWS::Cloudfront
     #         access_control_allow_methods: {
     #           quantity: 1, # required
     #           items: [
-    #             'GET' # accepts GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
+    #             'GET' # accepts ["GET", "POST", "OPTIONS", "PUT", "DELETE", "PATCH", "HEAD", "ALL"]
     #           ] # required
     #         }, # required
     #         access_control_allow_credentials: false, # required
@@ -10425,11 +10425,11 @@ module AWS::Cloudfront
     #         },
     #         frame_options: {
     #           override: false, # required
-    #           frame_option: 'DENY' # required - accepts DENY, SAMEORIGIN
+    #           frame_option: 'DENY' # required - accepts ["DENY", "SAMEORIGIN"]
     #         },
     #         referrer_policy: {
     #           override: false, # required
-    #           referrer_policy: 'no-referrer' # required - accepts no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    #           referrer_policy: 'no-referrer' # required - accepts ["no-referrer", "no-referrer-when-downgrade", "origin", "origin-when-cross-origin", "same-origin", "strict-origin", "strict-origin-when-cross-origin", "unsafe-url"]
     #         },
     #         content_security_policy: {
     #           override: false, # required
@@ -10481,7 +10481,7 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods #=> Types::ResponseHeadersPolicyAccessControlAllowMethods
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.quantity #=> Integer
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items #=> Array<String>
-    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of GET, POST, OPTIONS, PUT, DELETE, PATCH, HEAD, ALL
+    #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_methods.items[0] #=> String, one of ["GET", "POST", "OPTIONS", "PUT", "DELETE", "PATCH", "HEAD", "ALL"]
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_allow_credentials #=> Boolean
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers #=> Types::ResponseHeadersPolicyAccessControlExposeHeaders
     #   resp.data.response_headers_policy.response_headers_policy_config.cors_config.access_control_expose_headers.quantity #=> Integer
@@ -10497,10 +10497,10 @@ module AWS::Cloudfront
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.xss_protection.report_uri #=> String
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options #=> Types::ResponseHeadersPolicyFrameOptions
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.override #=> Boolean
-    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of DENY, SAMEORIGIN
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.frame_options.frame_option #=> String, one of ["DENY", "SAMEORIGIN"]
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy #=> Types::ResponseHeadersPolicyReferrerPolicy
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.override #=> Boolean
-    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of no-referrer, no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.referrer_policy.referrer_policy #=> String, one of ["no-referrer", "no-referrer-when-downgrade", "origin", "origin-when-cross-origin", "same-origin", "strict-origin", "strict-origin-when-cross-origin", "unsafe-url"]
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy #=> Types::ResponseHeadersPolicyContentSecurityPolicy
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.override #=> Boolean
     #   resp.data.response_headers_policy.response_headers_policy_config.security_headers_config.content_security_policy.content_security_policy #=> String
@@ -10523,13 +10523,13 @@ module AWS::Cloudfront
     def update_response_headers_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateResponseHeadersPolicyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateResponseHeadersPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateResponseHeadersPolicy,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateResponseHeadersPolicy
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -10550,7 +10550,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_response_headers_policy
@@ -10605,7 +10605,7 @@ module AWS::Cloudfront
     #           'member'
     #         ]
     #       }, # required
-    #       price_class: 'PriceClass_100', # accepts PriceClass_100, PriceClass_200, PriceClass_All
+    #       price_class: 'PriceClass_100', # accepts ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #       enabled: false # required
     #     }, # required
     #     id: 'Id', # required
@@ -10650,20 +10650,20 @@ module AWS::Cloudfront
     #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.quantity #=> Integer
     #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items #=> Array<String>
     #   resp.data.streaming_distribution.streaming_distribution_config.trusted_signers.items[0] #=> String
-    #   resp.data.streaming_distribution.streaming_distribution_config.price_class #=> String, one of PriceClass_100, PriceClass_200, PriceClass_All
+    #   resp.data.streaming_distribution.streaming_distribution_config.price_class #=> String, one of ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #   resp.data.streaming_distribution.streaming_distribution_config.enabled #=> Boolean
     #   resp.data.e_tag #=> String
     #
     def update_streaming_distribution(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateStreamingDistributionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateStreamingDistributionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateStreamingDistribution,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateStreamingDistribution
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -10684,7 +10684,7 @@ module AWS::Cloudfront
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_streaming_distribution

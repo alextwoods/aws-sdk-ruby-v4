@@ -124,13 +124,13 @@ module AWS::Lambda
     def add_layer_version_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddLayerVersionPermissionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddLayerVersionPermissionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AddLayerVersionPermission,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::AddLayerVersionPermission
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -151,7 +151,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :add_layer_version_permission
@@ -253,13 +253,13 @@ module AWS::Lambda
     def add_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AddPermissionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddPermissionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AddPermission,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::AddPermission
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -280,7 +280,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :add_permission
@@ -366,13 +366,13 @@ module AWS::Lambda
     def create_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateAliasInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAliasInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateAlias,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateAlias
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -393,7 +393,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_alias
@@ -431,7 +431,7 @@ module AWS::Lambda
     #       ] # required
     #     }, # required
     #     code_signing_policies: {
-    #       untrusted_artifact_on_deployment: 'Warn' # accepts Warn, Enforce
+    #       untrusted_artifact_on_deployment: 'Warn' # accepts ["Warn", "Enforce"]
     #     }
     #   )
     #
@@ -446,19 +446,19 @@ module AWS::Lambda
     #   resp.data.code_signing_config.allowed_publishers.signing_profile_version_arns #=> Array<String>
     #   resp.data.code_signing_config.allowed_publishers.signing_profile_version_arns[0] #=> String
     #   resp.data.code_signing_config.code_signing_policies #=> Types::CodeSigningPolicies
-    #   resp.data.code_signing_config.code_signing_policies.untrusted_artifact_on_deployment #=> String, one of Warn, Enforce
+    #   resp.data.code_signing_config.code_signing_policies.untrusted_artifact_on_deployment #=> String, one of ["Warn", "Enforce"]
     #   resp.data.code_signing_config.last_modified #=> String
     #
     def create_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateCodeSigningConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateCodeSigningConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateCodeSigningConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -479,7 +479,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_code_signing_config
@@ -687,7 +687,7 @@ module AWS::Lambda
     #     batch_size: 1,
     #     maximum_batching_window_in_seconds: 1,
     #     parallelization_factor: 1,
-    #     starting_position: 'TRIM_HORIZON', # accepts TRIM_HORIZON, LATEST, AT_TIMESTAMP
+    #     starting_position: 'TRIM_HORIZON', # accepts ["TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
     #     starting_position_timestamp: Time.now,
     #     destination_config: {
     #       on_success: {
@@ -709,7 +709,7 @@ module AWS::Lambda
     #     ],
     #     source_access_configurations: [
     #       {
-    #         type: 'BASIC_AUTH', # accepts BASIC_AUTH, VPC_SUBNET, VPC_SECURITY_GROUP, SASL_SCRAM_512_AUTH, SASL_SCRAM_256_AUTH
+    #         type: 'BASIC_AUTH', # accepts ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
     #         uri: 'URI'
     #       }
     #     ],
@@ -721,7 +721,7 @@ module AWS::Lambda
     #       }
     #     },
     #     function_response_types: [
-    #       'ReportBatchItemFailures' # accepts ReportBatchItemFailures
+    #       'ReportBatchItemFailures' # accepts ["ReportBatchItemFailures"]
     #     ]
     #   )
     #
@@ -729,7 +729,7 @@ module AWS::Lambda
     #
     #   resp.data #=> Types::CreateEventSourceMappingOutput
     #   resp.data.uuid #=> String
-    #   resp.data.starting_position #=> String, one of TRIM_HORIZON, LATEST, AT_TIMESTAMP
+    #   resp.data.starting_position #=> String, one of ["TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
     #   resp.data.starting_position_timestamp #=> Time
     #   resp.data.batch_size #=> Integer
     #   resp.data.maximum_batching_window_in_seconds #=> Integer
@@ -751,7 +751,7 @@ module AWS::Lambda
     #   resp.data.queues[0] #=> String
     #   resp.data.source_access_configurations #=> Array<SourceAccessConfiguration>
     #   resp.data.source_access_configurations[0] #=> Types::SourceAccessConfiguration
-    #   resp.data.source_access_configurations[0].type #=> String, one of BASIC_AUTH, VPC_SUBNET, VPC_SECURITY_GROUP, SASL_SCRAM_512_AUTH, SASL_SCRAM_256_AUTH
+    #   resp.data.source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
     #   resp.data.source_access_configurations[0].uri #=> String
     #   resp.data.self_managed_event_source #=> Types::SelfManagedEventSource
     #   resp.data.self_managed_event_source.endpoints #=> Hash<String, Array<String>>
@@ -762,18 +762,18 @@ module AWS::Lambda
     #   resp.data.maximum_retry_attempts #=> Integer
     #   resp.data.tumbling_window_in_seconds #=> Integer
     #   resp.data.function_response_types #=> Array<String>
-    #   resp.data.function_response_types[0] #=> String, one of ReportBatchItemFailures
+    #   resp.data.function_response_types[0] #=> String, one of ["ReportBatchItemFailures"]
     #
     def create_event_source_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateEventSourceMappingInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEventSourceMappingInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateEventSourceMapping,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateEventSourceMapping
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -794,7 +794,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_event_source_mapping
@@ -942,7 +942,7 @@ module AWS::Lambda
     #
     #   resp = client.create_function(
     #     function_name: 'FunctionName', # required
-    #     runtime: 'nodejs', # accepts nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #     runtime: 'nodejs', # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #     role: 'Role', # required
     #     handler: 'Handler',
     #     code: {
@@ -964,7 +964,7 @@ module AWS::Lambda
     #         'member'
     #       ]
     #     },
-    #     package_type: 'Zip', # accepts Zip, Image
+    #     package_type: 'Zip', # accepts ["Zip", "Image"]
     #     dead_letter_config: {
     #       target_arn: 'TargetArn'
     #     },
@@ -975,7 +975,7 @@ module AWS::Lambda
     #     },
     #     kms_key_arn: 'KMSKeyArn',
     #     tracing_config: {
-    #       mode: 'Active' # accepts Active, PassThrough
+    #       mode: 'Active' # accepts ["Active", "PassThrough"]
     #     },
     #     tags: {
     #       'key' => 'value'
@@ -1003,7 +1003,7 @@ module AWS::Lambda
     #   resp.data #=> Types::CreateFunctionOutput
     #   resp.data.function_name #=> String
     #   resp.data.function_arn #=> String
-    #   resp.data.runtime #=> String, one of nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.role #=> String
     #   resp.data.handler #=> String
     #   resp.data.code_size #=> Integer
@@ -1029,7 +1029,7 @@ module AWS::Lambda
     #   resp.data.environment.error.message #=> String
     #   resp.data.kms_key_arn #=> String
     #   resp.data.tracing_config #=> Types::TracingConfigResponse
-    #   resp.data.tracing_config.mode #=> String, one of Active, PassThrough
+    #   resp.data.tracing_config.mode #=> String, one of ["Active", "PassThrough"]
     #   resp.data.master_arn #=> String
     #   resp.data.revision_id #=> String
     #   resp.data.layers #=> Array<Layer>
@@ -1038,17 +1038,17 @@ module AWS::Lambda
     #   resp.data.layers[0].code_size #=> Integer
     #   resp.data.layers[0].signing_profile_version_arn #=> String
     #   resp.data.layers[0].signing_job_arn #=> String
-    #   resp.data.state #=> String, one of Pending, Active, Inactive, Failed
+    #   resp.data.state #=> String, one of ["Pending", "Active", "Inactive", "Failed"]
     #   resp.data.state_reason #=> String
-    #   resp.data.state_reason_code #=> String, one of Idle, Creating, Restoring, EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
-    #   resp.data.last_update_status #=> String, one of Successful, Failed, InProgress
+    #   resp.data.state_reason_code #=> String, one of ["Idle", "Creating", "Restoring", "EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #   resp.data.last_update_status #=> String, one of ["Successful", "Failed", "InProgress"]
     #   resp.data.last_update_status_reason #=> String
-    #   resp.data.last_update_status_reason_code #=> String, one of EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
+    #   resp.data.last_update_status_reason_code #=> String, one of ["EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
     #   resp.data.file_system_configs #=> Array<FileSystemConfig>
     #   resp.data.file_system_configs[0] #=> Types::FileSystemConfig
     #   resp.data.file_system_configs[0].arn #=> String
     #   resp.data.file_system_configs[0].local_mount_path #=> String
-    #   resp.data.package_type #=> String, one of Zip, Image
+    #   resp.data.package_type #=> String, one of ["Zip", "Image"]
     #   resp.data.image_config_response #=> Types::ImageConfigResponse
     #   resp.data.image_config_response.image_config #=> Types::ImageConfig
     #   resp.data.image_config_response.image_config.entry_point #=> Array<String>
@@ -1064,13 +1064,13 @@ module AWS::Lambda
     def create_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateFunctionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateFunction,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateFunction
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1091,7 +1091,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_function
@@ -1147,13 +1147,13 @@ module AWS::Lambda
     def delete_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteAliasInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAliasInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteAlias,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteAlias
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -1173,7 +1173,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_alias
@@ -1207,13 +1207,13 @@ module AWS::Lambda
     def delete_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteCodeSigningConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteCodeSigningConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteCodeSigningConfig
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -1233,7 +1233,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_code_signing_config
@@ -1265,7 +1265,7 @@ module AWS::Lambda
     #
     #   resp.data #=> Types::DeleteEventSourceMappingOutput
     #   resp.data.uuid #=> String
-    #   resp.data.starting_position #=> String, one of TRIM_HORIZON, LATEST, AT_TIMESTAMP
+    #   resp.data.starting_position #=> String, one of ["TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
     #   resp.data.starting_position_timestamp #=> Time
     #   resp.data.batch_size #=> Integer
     #   resp.data.maximum_batching_window_in_seconds #=> Integer
@@ -1287,7 +1287,7 @@ module AWS::Lambda
     #   resp.data.queues[0] #=> String
     #   resp.data.source_access_configurations #=> Array<SourceAccessConfiguration>
     #   resp.data.source_access_configurations[0] #=> Types::SourceAccessConfiguration
-    #   resp.data.source_access_configurations[0].type #=> String, one of BASIC_AUTH, VPC_SUBNET, VPC_SECURITY_GROUP, SASL_SCRAM_512_AUTH, SASL_SCRAM_256_AUTH
+    #   resp.data.source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
     #   resp.data.source_access_configurations[0].uri #=> String
     #   resp.data.self_managed_event_source #=> Types::SelfManagedEventSource
     #   resp.data.self_managed_event_source.endpoints #=> Hash<String, Array<String>>
@@ -1298,18 +1298,18 @@ module AWS::Lambda
     #   resp.data.maximum_retry_attempts #=> Integer
     #   resp.data.tumbling_window_in_seconds #=> Integer
     #   resp.data.function_response_types #=> Array<String>
-    #   resp.data.function_response_types[0] #=> String, one of ReportBatchItemFailures
+    #   resp.data.function_response_types[0] #=> String, one of ["ReportBatchItemFailures"]
     #
     def delete_event_source_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteEventSourceMappingInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventSourceMappingInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteEventSourceMapping,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteEventSourceMapping
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ResourceInUseException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -1329,7 +1329,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_event_source_mapping
@@ -1390,13 +1390,13 @@ module AWS::Lambda
     def delete_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteFunction,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteFunction
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -1416,7 +1416,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_function
@@ -1468,13 +1468,13 @@ module AWS::Lambda
     def delete_function_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionCodeSigningConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteFunctionCodeSigningConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteFunctionCodeSigningConfig
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -1494,7 +1494,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_function_code_signing_config
@@ -1546,13 +1546,13 @@ module AWS::Lambda
     def delete_function_concurrency(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionConcurrencyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionConcurrencyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteFunctionConcurrency,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteFunctionConcurrency
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -1572,7 +1572,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_function_concurrency
@@ -1629,13 +1629,13 @@ module AWS::Lambda
     def delete_function_event_invoke_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteFunctionEventInvokeConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionEventInvokeConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteFunctionEventInvokeConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteFunctionEventInvokeConfig
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -1655,7 +1655,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_function_event_invoke_config
@@ -1694,13 +1694,13 @@ module AWS::Lambda
     def delete_layer_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteLayerVersionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLayerVersionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteLayerVersion,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteLayerVersion
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::TooManyRequestsException, Errors::ServiceException]),
@@ -1720,7 +1720,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_layer_version
@@ -1776,13 +1776,13 @@ module AWS::Lambda
     def delete_provisioned_concurrency_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteProvisionedConcurrencyConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProvisionedConcurrencyConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteProvisionedConcurrencyConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteProvisionedConcurrencyConfig
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -1802,7 +1802,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_provisioned_concurrency_config
@@ -1839,13 +1839,13 @@ module AWS::Lambda
     def get_account_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccountSettingsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountSettingsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetAccountSettings,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetAccountSettings
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException]),
@@ -1865,7 +1865,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_account_settings
@@ -1929,13 +1929,13 @@ module AWS::Lambda
     def get_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAliasInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAliasInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetAlias,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetAlias
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -1955,7 +1955,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_alias
@@ -1992,19 +1992,19 @@ module AWS::Lambda
     #   resp.data.code_signing_config.allowed_publishers.signing_profile_version_arns #=> Array<String>
     #   resp.data.code_signing_config.allowed_publishers.signing_profile_version_arns[0] #=> String
     #   resp.data.code_signing_config.code_signing_policies #=> Types::CodeSigningPolicies
-    #   resp.data.code_signing_config.code_signing_policies.untrusted_artifact_on_deployment #=> String, one of Warn, Enforce
+    #   resp.data.code_signing_config.code_signing_policies.untrusted_artifact_on_deployment #=> String, one of ["Warn", "Enforce"]
     #   resp.data.code_signing_config.last_modified #=> String
     #
     def get_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCodeSigningConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetCodeSigningConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetCodeSigningConfig
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2024,7 +2024,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_code_signing_config
@@ -2054,7 +2054,7 @@ module AWS::Lambda
     #
     #   resp.data #=> Types::GetEventSourceMappingOutput
     #   resp.data.uuid #=> String
-    #   resp.data.starting_position #=> String, one of TRIM_HORIZON, LATEST, AT_TIMESTAMP
+    #   resp.data.starting_position #=> String, one of ["TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
     #   resp.data.starting_position_timestamp #=> Time
     #   resp.data.batch_size #=> Integer
     #   resp.data.maximum_batching_window_in_seconds #=> Integer
@@ -2076,7 +2076,7 @@ module AWS::Lambda
     #   resp.data.queues[0] #=> String
     #   resp.data.source_access_configurations #=> Array<SourceAccessConfiguration>
     #   resp.data.source_access_configurations[0] #=> Types::SourceAccessConfiguration
-    #   resp.data.source_access_configurations[0].type #=> String, one of BASIC_AUTH, VPC_SUBNET, VPC_SECURITY_GROUP, SASL_SCRAM_512_AUTH, SASL_SCRAM_256_AUTH
+    #   resp.data.source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
     #   resp.data.source_access_configurations[0].uri #=> String
     #   resp.data.self_managed_event_source #=> Types::SelfManagedEventSource
     #   resp.data.self_managed_event_source.endpoints #=> Hash<String, Array<String>>
@@ -2087,18 +2087,18 @@ module AWS::Lambda
     #   resp.data.maximum_retry_attempts #=> Integer
     #   resp.data.tumbling_window_in_seconds #=> Integer
     #   resp.data.function_response_types #=> Array<String>
-    #   resp.data.function_response_types[0] #=> String, one of ReportBatchItemFailures
+    #   resp.data.function_response_types[0] #=> String, one of ["ReportBatchItemFailures"]
     #
     def get_event_source_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetEventSourceMappingInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventSourceMappingInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetEventSourceMapping,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetEventSourceMapping
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2118,7 +2118,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_event_source_mapping
@@ -2175,7 +2175,7 @@ module AWS::Lambda
     #   resp.data.configuration #=> Types::FunctionConfiguration
     #   resp.data.configuration.function_name #=> String
     #   resp.data.configuration.function_arn #=> String
-    #   resp.data.configuration.runtime #=> String, one of nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #   resp.data.configuration.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.configuration.role #=> String
     #   resp.data.configuration.handler #=> String
     #   resp.data.configuration.code_size #=> Integer
@@ -2201,7 +2201,7 @@ module AWS::Lambda
     #   resp.data.configuration.environment.error.message #=> String
     #   resp.data.configuration.kms_key_arn #=> String
     #   resp.data.configuration.tracing_config #=> Types::TracingConfigResponse
-    #   resp.data.configuration.tracing_config.mode #=> String, one of Active, PassThrough
+    #   resp.data.configuration.tracing_config.mode #=> String, one of ["Active", "PassThrough"]
     #   resp.data.configuration.master_arn #=> String
     #   resp.data.configuration.revision_id #=> String
     #   resp.data.configuration.layers #=> Array<Layer>
@@ -2210,17 +2210,17 @@ module AWS::Lambda
     #   resp.data.configuration.layers[0].code_size #=> Integer
     #   resp.data.configuration.layers[0].signing_profile_version_arn #=> String
     #   resp.data.configuration.layers[0].signing_job_arn #=> String
-    #   resp.data.configuration.state #=> String, one of Pending, Active, Inactive, Failed
+    #   resp.data.configuration.state #=> String, one of ["Pending", "Active", "Inactive", "Failed"]
     #   resp.data.configuration.state_reason #=> String
-    #   resp.data.configuration.state_reason_code #=> String, one of Idle, Creating, Restoring, EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
-    #   resp.data.configuration.last_update_status #=> String, one of Successful, Failed, InProgress
+    #   resp.data.configuration.state_reason_code #=> String, one of ["Idle", "Creating", "Restoring", "EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #   resp.data.configuration.last_update_status #=> String, one of ["Successful", "Failed", "InProgress"]
     #   resp.data.configuration.last_update_status_reason #=> String
-    #   resp.data.configuration.last_update_status_reason_code #=> String, one of EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
+    #   resp.data.configuration.last_update_status_reason_code #=> String, one of ["EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
     #   resp.data.configuration.file_system_configs #=> Array<FileSystemConfig>
     #   resp.data.configuration.file_system_configs[0] #=> Types::FileSystemConfig
     #   resp.data.configuration.file_system_configs[0].arn #=> String
     #   resp.data.configuration.file_system_configs[0].local_mount_path #=> String
-    #   resp.data.configuration.package_type #=> String, one of Zip, Image
+    #   resp.data.configuration.package_type #=> String, one of ["Zip", "Image"]
     #   resp.data.configuration.image_config_response #=> Types::ImageConfigResponse
     #   resp.data.configuration.image_config_response.image_config #=> Types::ImageConfig
     #   resp.data.configuration.image_config_response.image_config.entry_point #=> Array<String>
@@ -2245,13 +2245,13 @@ module AWS::Lambda
     def get_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFunction,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetFunction
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2271,7 +2271,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_function
@@ -2325,13 +2325,13 @@ module AWS::Lambda
     def get_function_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionCodeSigningConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFunctionCodeSigningConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetFunctionCodeSigningConfig
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2351,7 +2351,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_function_code_signing_config
@@ -2405,13 +2405,13 @@ module AWS::Lambda
     def get_function_concurrency(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionConcurrencyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionConcurrencyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFunctionConcurrency,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetFunctionConcurrency
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2431,7 +2431,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_function_concurrency
@@ -2487,7 +2487,7 @@ module AWS::Lambda
     #   resp.data #=> Types::GetFunctionConfigurationOutput
     #   resp.data.function_name #=> String
     #   resp.data.function_arn #=> String
-    #   resp.data.runtime #=> String, one of nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.role #=> String
     #   resp.data.handler #=> String
     #   resp.data.code_size #=> Integer
@@ -2513,7 +2513,7 @@ module AWS::Lambda
     #   resp.data.environment.error.message #=> String
     #   resp.data.kms_key_arn #=> String
     #   resp.data.tracing_config #=> Types::TracingConfigResponse
-    #   resp.data.tracing_config.mode #=> String, one of Active, PassThrough
+    #   resp.data.tracing_config.mode #=> String, one of ["Active", "PassThrough"]
     #   resp.data.master_arn #=> String
     #   resp.data.revision_id #=> String
     #   resp.data.layers #=> Array<Layer>
@@ -2522,17 +2522,17 @@ module AWS::Lambda
     #   resp.data.layers[0].code_size #=> Integer
     #   resp.data.layers[0].signing_profile_version_arn #=> String
     #   resp.data.layers[0].signing_job_arn #=> String
-    #   resp.data.state #=> String, one of Pending, Active, Inactive, Failed
+    #   resp.data.state #=> String, one of ["Pending", "Active", "Inactive", "Failed"]
     #   resp.data.state_reason #=> String
-    #   resp.data.state_reason_code #=> String, one of Idle, Creating, Restoring, EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
-    #   resp.data.last_update_status #=> String, one of Successful, Failed, InProgress
+    #   resp.data.state_reason_code #=> String, one of ["Idle", "Creating", "Restoring", "EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #   resp.data.last_update_status #=> String, one of ["Successful", "Failed", "InProgress"]
     #   resp.data.last_update_status_reason #=> String
-    #   resp.data.last_update_status_reason_code #=> String, one of EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
+    #   resp.data.last_update_status_reason_code #=> String, one of ["EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
     #   resp.data.file_system_configs #=> Array<FileSystemConfig>
     #   resp.data.file_system_configs[0] #=> Types::FileSystemConfig
     #   resp.data.file_system_configs[0].arn #=> String
     #   resp.data.file_system_configs[0].local_mount_path #=> String
-    #   resp.data.package_type #=> String, one of Zip, Image
+    #   resp.data.package_type #=> String, one of ["Zip", "Image"]
     #   resp.data.image_config_response #=> Types::ImageConfigResponse
     #   resp.data.image_config_response.image_config #=> Types::ImageConfig
     #   resp.data.image_config_response.image_config.entry_point #=> Array<String>
@@ -2548,13 +2548,13 @@ module AWS::Lambda
     def get_function_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionConfigurationInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionConfigurationInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFunctionConfiguration,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetFunctionConfiguration
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2574,7 +2574,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_function_configuration
@@ -2640,13 +2640,13 @@ module AWS::Lambda
     def get_function_event_invoke_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFunctionEventInvokeConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionEventInvokeConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFunctionEventInvokeConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetFunctionEventInvokeConfig
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2666,7 +2666,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_function_event_invoke_config
@@ -2713,19 +2713,19 @@ module AWS::Lambda
     #   resp.data.created_date #=> String
     #   resp.data.version #=> Integer
     #   resp.data.compatible_runtimes #=> Array<String>
-    #   resp.data.compatible_runtimes[0] #=> String, one of nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #   resp.data.compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.license_info #=> String
     #
     def get_layer_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLayerVersionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLayerVersionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetLayerVersion,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetLayerVersion
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2745,7 +2745,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_layer_version
@@ -2788,19 +2788,19 @@ module AWS::Lambda
     #   resp.data.created_date #=> String
     #   resp.data.version #=> Integer
     #   resp.data.compatible_runtimes #=> Array<String>
-    #   resp.data.compatible_runtimes[0] #=> String, one of nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #   resp.data.compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.license_info #=> String
     #
     def get_layer_version_by_arn(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLayerVersionByArnInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLayerVersionByArnInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetLayerVersionByArn,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetLayerVersionByArn
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2820,7 +2820,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_layer_version_by_arn
@@ -2860,13 +2860,13 @@ module AWS::Lambda
     def get_layer_version_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetLayerVersionPolicyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLayerVersionPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetLayerVersionPolicy,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetLayerVersionPolicy
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2886,7 +2886,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_layer_version_policy
@@ -2944,13 +2944,13 @@ module AWS::Lambda
     def get_policy(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetPolicyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPolicyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetPolicy,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetPolicy
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2970,7 +2970,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_policy
@@ -3025,20 +3025,20 @@ module AWS::Lambda
     #   resp.data.requested_provisioned_concurrent_executions #=> Integer
     #   resp.data.available_provisioned_concurrent_executions #=> Integer
     #   resp.data.allocated_provisioned_concurrent_executions #=> Integer
-    #   resp.data.status #=> String, one of IN_PROGRESS, READY, FAILED
+    #   resp.data.status #=> String, one of ["IN_PROGRESS", "READY", "FAILED"]
     #   resp.data.status_reason #=> String
     #   resp.data.last_modified #=> String
     #
     def get_provisioned_concurrency_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetProvisionedConcurrencyConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProvisionedConcurrencyConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetProvisionedConcurrencyConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetProvisionedConcurrencyConfig
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ProvisionedConcurrencyConfigNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3058,7 +3058,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_provisioned_concurrency_config
@@ -3161,8 +3161,8 @@ module AWS::Lambda
     #
     #   resp = client.invoke(
     #     function_name: 'FunctionName', # required
-    #     invocation_type: 'Event', # accepts Event, RequestResponse, DryRun
-    #     log_type: 'None', # accepts None, Tail
+    #     invocation_type: 'Event', # accepts ["Event", "RequestResponse", "DryRun"]
+    #     log_type: 'None', # accepts ["None", "Tail"]
     #     client_context: 'ClientContext',
     #     payload: 'Payload',
     #     qualifier: 'Qualifier'
@@ -3180,13 +3180,13 @@ module AWS::Lambda
     def invoke(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InvokeInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InvokeInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::Invoke,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::Invoke
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3207,7 +3207,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :invoke
@@ -3269,13 +3269,13 @@ module AWS::Lambda
     def invoke_async(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::InvokeAsyncInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InvokeAsyncInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::InvokeAsync,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::InvokeAsync
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3296,7 +3296,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :invoke_async
@@ -3372,13 +3372,13 @@ module AWS::Lambda
     def list_aliases(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListAliasesInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAliasesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListAliases,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListAliases
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3398,7 +3398,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_aliases
@@ -3443,19 +3443,19 @@ module AWS::Lambda
     #   resp.data.code_signing_configs[0].allowed_publishers.signing_profile_version_arns #=> Array<String>
     #   resp.data.code_signing_configs[0].allowed_publishers.signing_profile_version_arns[0] #=> String
     #   resp.data.code_signing_configs[0].code_signing_policies #=> Types::CodeSigningPolicies
-    #   resp.data.code_signing_configs[0].code_signing_policies.untrusted_artifact_on_deployment #=> String, one of Warn, Enforce
+    #   resp.data.code_signing_configs[0].code_signing_policies.untrusted_artifact_on_deployment #=> String, one of ["Warn", "Enforce"]
     #   resp.data.code_signing_configs[0].last_modified #=> String
     #
     def list_code_signing_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListCodeSigningConfigsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCodeSigningConfigsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListCodeSigningConfigs,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListCodeSigningConfigs
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3475,7 +3475,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_code_signing_configs
@@ -3562,7 +3562,7 @@ module AWS::Lambda
     #   resp.data.event_source_mappings #=> Array<EventSourceMappingConfiguration>
     #   resp.data.event_source_mappings[0] #=> Types::EventSourceMappingConfiguration
     #   resp.data.event_source_mappings[0].uuid #=> String
-    #   resp.data.event_source_mappings[0].starting_position #=> String, one of TRIM_HORIZON, LATEST, AT_TIMESTAMP
+    #   resp.data.event_source_mappings[0].starting_position #=> String, one of ["TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
     #   resp.data.event_source_mappings[0].starting_position_timestamp #=> Time
     #   resp.data.event_source_mappings[0].batch_size #=> Integer
     #   resp.data.event_source_mappings[0].maximum_batching_window_in_seconds #=> Integer
@@ -3584,7 +3584,7 @@ module AWS::Lambda
     #   resp.data.event_source_mappings[0].queues[0] #=> String
     #   resp.data.event_source_mappings[0].source_access_configurations #=> Array<SourceAccessConfiguration>
     #   resp.data.event_source_mappings[0].source_access_configurations[0] #=> Types::SourceAccessConfiguration
-    #   resp.data.event_source_mappings[0].source_access_configurations[0].type #=> String, one of BASIC_AUTH, VPC_SUBNET, VPC_SECURITY_GROUP, SASL_SCRAM_512_AUTH, SASL_SCRAM_256_AUTH
+    #   resp.data.event_source_mappings[0].source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
     #   resp.data.event_source_mappings[0].source_access_configurations[0].uri #=> String
     #   resp.data.event_source_mappings[0].self_managed_event_source #=> Types::SelfManagedEventSource
     #   resp.data.event_source_mappings[0].self_managed_event_source.endpoints #=> Hash<String, Array<String>>
@@ -3595,18 +3595,18 @@ module AWS::Lambda
     #   resp.data.event_source_mappings[0].maximum_retry_attempts #=> Integer
     #   resp.data.event_source_mappings[0].tumbling_window_in_seconds #=> Integer
     #   resp.data.event_source_mappings[0].function_response_types #=> Array<String>
-    #   resp.data.event_source_mappings[0].function_response_types[0] #=> String, one of ReportBatchItemFailures
+    #   resp.data.event_source_mappings[0].function_response_types[0] #=> String, one of ["ReportBatchItemFailures"]
     #
     def list_event_source_mappings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListEventSourceMappingsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventSourceMappingsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListEventSourceMappings,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListEventSourceMappings
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3626,7 +3626,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_event_source_mappings
@@ -3699,13 +3699,13 @@ module AWS::Lambda
     def list_function_event_invoke_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionEventInvokeConfigsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionEventInvokeConfigsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListFunctionEventInvokeConfigs,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListFunctionEventInvokeConfigs
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3725,7 +3725,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_function_event_invoke_configs
@@ -3769,7 +3769,7 @@ module AWS::Lambda
     #
     #   resp = client.list_functions(
     #     master_region: 'MasterRegion',
-    #     function_version: 'ALL', # accepts ALL
+    #     function_version: 'ALL', # accepts ["ALL"]
     #     marker: 'Marker',
     #     max_items: 1
     #   )
@@ -3782,7 +3782,7 @@ module AWS::Lambda
     #   resp.data.functions[0] #=> Types::FunctionConfiguration
     #   resp.data.functions[0].function_name #=> String
     #   resp.data.functions[0].function_arn #=> String
-    #   resp.data.functions[0].runtime #=> String, one of nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #   resp.data.functions[0].runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.functions[0].role #=> String
     #   resp.data.functions[0].handler #=> String
     #   resp.data.functions[0].code_size #=> Integer
@@ -3808,7 +3808,7 @@ module AWS::Lambda
     #   resp.data.functions[0].environment.error.message #=> String
     #   resp.data.functions[0].kms_key_arn #=> String
     #   resp.data.functions[0].tracing_config #=> Types::TracingConfigResponse
-    #   resp.data.functions[0].tracing_config.mode #=> String, one of Active, PassThrough
+    #   resp.data.functions[0].tracing_config.mode #=> String, one of ["Active", "PassThrough"]
     #   resp.data.functions[0].master_arn #=> String
     #   resp.data.functions[0].revision_id #=> String
     #   resp.data.functions[0].layers #=> Array<Layer>
@@ -3817,17 +3817,17 @@ module AWS::Lambda
     #   resp.data.functions[0].layers[0].code_size #=> Integer
     #   resp.data.functions[0].layers[0].signing_profile_version_arn #=> String
     #   resp.data.functions[0].layers[0].signing_job_arn #=> String
-    #   resp.data.functions[0].state #=> String, one of Pending, Active, Inactive, Failed
+    #   resp.data.functions[0].state #=> String, one of ["Pending", "Active", "Inactive", "Failed"]
     #   resp.data.functions[0].state_reason #=> String
-    #   resp.data.functions[0].state_reason_code #=> String, one of Idle, Creating, Restoring, EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
-    #   resp.data.functions[0].last_update_status #=> String, one of Successful, Failed, InProgress
+    #   resp.data.functions[0].state_reason_code #=> String, one of ["Idle", "Creating", "Restoring", "EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #   resp.data.functions[0].last_update_status #=> String, one of ["Successful", "Failed", "InProgress"]
     #   resp.data.functions[0].last_update_status_reason #=> String
-    #   resp.data.functions[0].last_update_status_reason_code #=> String, one of EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
+    #   resp.data.functions[0].last_update_status_reason_code #=> String, one of ["EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
     #   resp.data.functions[0].file_system_configs #=> Array<FileSystemConfig>
     #   resp.data.functions[0].file_system_configs[0] #=> Types::FileSystemConfig
     #   resp.data.functions[0].file_system_configs[0].arn #=> String
     #   resp.data.functions[0].file_system_configs[0].local_mount_path #=> String
-    #   resp.data.functions[0].package_type #=> String, one of Zip, Image
+    #   resp.data.functions[0].package_type #=> String, one of ["Zip", "Image"]
     #   resp.data.functions[0].image_config_response #=> Types::ImageConfigResponse
     #   resp.data.functions[0].image_config_response.image_config #=> Types::ImageConfig
     #   resp.data.functions[0].image_config_response.image_config.entry_point #=> Array<String>
@@ -3843,13 +3843,13 @@ module AWS::Lambda
     def list_functions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListFunctions,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListFunctions
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3869,7 +3869,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_functions
@@ -3914,13 +3914,13 @@ module AWS::Lambda
     def list_functions_by_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListFunctionsByCodeSigningConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionsByCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListFunctionsByCodeSigningConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListFunctionsByCodeSigningConfig
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3940,7 +3940,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_functions_by_code_signing_config
@@ -3974,7 +3974,7 @@ module AWS::Lambda
     # @example Request syntax with placeholder values
     #
     #   resp = client.list_layer_versions(
-    #     compatible_runtime: 'nodejs', # accepts nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #     compatible_runtime: 'nodejs', # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #     layer_name: 'LayerName', # required
     #     marker: 'Marker',
     #     max_items: 1
@@ -3991,19 +3991,19 @@ module AWS::Lambda
     #   resp.data.layer_versions[0].description #=> String
     #   resp.data.layer_versions[0].created_date #=> String
     #   resp.data.layer_versions[0].compatible_runtimes #=> Array<String>
-    #   resp.data.layer_versions[0].compatible_runtimes[0] #=> String, one of nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #   resp.data.layer_versions[0].compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.layer_versions[0].license_info #=> String
     #
     def list_layer_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLayerVersionsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLayerVersionsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListLayerVersions,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListLayerVersions
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -4023,7 +4023,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_layer_versions
@@ -4054,7 +4054,7 @@ module AWS::Lambda
     # @example Request syntax with placeholder values
     #
     #   resp = client.list_layers(
-    #     compatible_runtime: 'nodejs', # accepts nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #     compatible_runtime: 'nodejs', # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #     marker: 'Marker',
     #     max_items: 1
     #   )
@@ -4073,19 +4073,19 @@ module AWS::Lambda
     #   resp.data.layers[0].latest_matching_version.description #=> String
     #   resp.data.layers[0].latest_matching_version.created_date #=> String
     #   resp.data.layers[0].latest_matching_version.compatible_runtimes #=> Array<String>
-    #   resp.data.layers[0].latest_matching_version.compatible_runtimes[0] #=> String, one of nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #   resp.data.layers[0].latest_matching_version.compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.layers[0].latest_matching_version.license_info #=> String
     #
     def list_layers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListLayersInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLayersInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListLayers,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListLayers
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -4105,7 +4105,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_layers
@@ -4167,7 +4167,7 @@ module AWS::Lambda
     #   resp.data.provisioned_concurrency_configs[0].requested_provisioned_concurrent_executions #=> Integer
     #   resp.data.provisioned_concurrency_configs[0].available_provisioned_concurrent_executions #=> Integer
     #   resp.data.provisioned_concurrency_configs[0].allocated_provisioned_concurrent_executions #=> Integer
-    #   resp.data.provisioned_concurrency_configs[0].status #=> String, one of IN_PROGRESS, READY, FAILED
+    #   resp.data.provisioned_concurrency_configs[0].status #=> String, one of ["IN_PROGRESS", "READY", "FAILED"]
     #   resp.data.provisioned_concurrency_configs[0].status_reason #=> String
     #   resp.data.provisioned_concurrency_configs[0].last_modified #=> String
     #   resp.data.next_marker #=> String
@@ -4175,13 +4175,13 @@ module AWS::Lambda
     def list_provisioned_concurrency_configs(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListProvisionedConcurrencyConfigsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProvisionedConcurrencyConfigsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListProvisionedConcurrencyConfigs,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListProvisionedConcurrencyConfigs
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -4201,7 +4201,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_provisioned_concurrency_configs
@@ -4237,13 +4237,13 @@ module AWS::Lambda
     def list_tags(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListTags,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListTags
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -4263,7 +4263,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_tags
@@ -4325,7 +4325,7 @@ module AWS::Lambda
     #   resp.data.versions[0] #=> Types::FunctionConfiguration
     #   resp.data.versions[0].function_name #=> String
     #   resp.data.versions[0].function_arn #=> String
-    #   resp.data.versions[0].runtime #=> String, one of nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #   resp.data.versions[0].runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.versions[0].role #=> String
     #   resp.data.versions[0].handler #=> String
     #   resp.data.versions[0].code_size #=> Integer
@@ -4351,7 +4351,7 @@ module AWS::Lambda
     #   resp.data.versions[0].environment.error.message #=> String
     #   resp.data.versions[0].kms_key_arn #=> String
     #   resp.data.versions[0].tracing_config #=> Types::TracingConfigResponse
-    #   resp.data.versions[0].tracing_config.mode #=> String, one of Active, PassThrough
+    #   resp.data.versions[0].tracing_config.mode #=> String, one of ["Active", "PassThrough"]
     #   resp.data.versions[0].master_arn #=> String
     #   resp.data.versions[0].revision_id #=> String
     #   resp.data.versions[0].layers #=> Array<Layer>
@@ -4360,17 +4360,17 @@ module AWS::Lambda
     #   resp.data.versions[0].layers[0].code_size #=> Integer
     #   resp.data.versions[0].layers[0].signing_profile_version_arn #=> String
     #   resp.data.versions[0].layers[0].signing_job_arn #=> String
-    #   resp.data.versions[0].state #=> String, one of Pending, Active, Inactive, Failed
+    #   resp.data.versions[0].state #=> String, one of ["Pending", "Active", "Inactive", "Failed"]
     #   resp.data.versions[0].state_reason #=> String
-    #   resp.data.versions[0].state_reason_code #=> String, one of Idle, Creating, Restoring, EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
-    #   resp.data.versions[0].last_update_status #=> String, one of Successful, Failed, InProgress
+    #   resp.data.versions[0].state_reason_code #=> String, one of ["Idle", "Creating", "Restoring", "EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #   resp.data.versions[0].last_update_status #=> String, one of ["Successful", "Failed", "InProgress"]
     #   resp.data.versions[0].last_update_status_reason #=> String
-    #   resp.data.versions[0].last_update_status_reason_code #=> String, one of EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
+    #   resp.data.versions[0].last_update_status_reason_code #=> String, one of ["EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
     #   resp.data.versions[0].file_system_configs #=> Array<FileSystemConfig>
     #   resp.data.versions[0].file_system_configs[0] #=> Types::FileSystemConfig
     #   resp.data.versions[0].file_system_configs[0].arn #=> String
     #   resp.data.versions[0].file_system_configs[0].local_mount_path #=> String
-    #   resp.data.versions[0].package_type #=> String, one of Zip, Image
+    #   resp.data.versions[0].package_type #=> String, one of ["Zip", "Image"]
     #   resp.data.versions[0].image_config_response #=> Types::ImageConfigResponse
     #   resp.data.versions[0].image_config_response.image_config #=> Types::ImageConfig
     #   resp.data.versions[0].image_config_response.image_config.entry_point #=> Array<String>
@@ -4386,13 +4386,13 @@ module AWS::Lambda
     def list_versions_by_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListVersionsByFunctionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVersionsByFunctionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListVersionsByFunction,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListVersionsByFunction
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -4412,7 +4412,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_versions_by_function
@@ -4473,7 +4473,7 @@ module AWS::Lambda
     #       zip_file: 'ZipFile'
     #     }, # required
     #     compatible_runtimes: [
-    #       'nodejs' # accepts nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #       'nodejs' # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #     ],
     #     license_info: 'LicenseInfo'
     #   )
@@ -4493,19 +4493,19 @@ module AWS::Lambda
     #   resp.data.created_date #=> String
     #   resp.data.version #=> Integer
     #   resp.data.compatible_runtimes #=> Array<String>
-    #   resp.data.compatible_runtimes[0] #=> String, one of nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #   resp.data.compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.license_info #=> String
     #
     def publish_layer_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PublishLayerVersionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishLayerVersionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::PublishLayerVersion,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::PublishLayerVersion
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4526,7 +4526,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :publish_layer_version
@@ -4599,7 +4599,7 @@ module AWS::Lambda
     #   resp.data #=> Types::PublishVersionOutput
     #   resp.data.function_name #=> String
     #   resp.data.function_arn #=> String
-    #   resp.data.runtime #=> String, one of nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.role #=> String
     #   resp.data.handler #=> String
     #   resp.data.code_size #=> Integer
@@ -4625,7 +4625,7 @@ module AWS::Lambda
     #   resp.data.environment.error.message #=> String
     #   resp.data.kms_key_arn #=> String
     #   resp.data.tracing_config #=> Types::TracingConfigResponse
-    #   resp.data.tracing_config.mode #=> String, one of Active, PassThrough
+    #   resp.data.tracing_config.mode #=> String, one of ["Active", "PassThrough"]
     #   resp.data.master_arn #=> String
     #   resp.data.revision_id #=> String
     #   resp.data.layers #=> Array<Layer>
@@ -4634,17 +4634,17 @@ module AWS::Lambda
     #   resp.data.layers[0].code_size #=> Integer
     #   resp.data.layers[0].signing_profile_version_arn #=> String
     #   resp.data.layers[0].signing_job_arn #=> String
-    #   resp.data.state #=> String, one of Pending, Active, Inactive, Failed
+    #   resp.data.state #=> String, one of ["Pending", "Active", "Inactive", "Failed"]
     #   resp.data.state_reason #=> String
-    #   resp.data.state_reason_code #=> String, one of Idle, Creating, Restoring, EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
-    #   resp.data.last_update_status #=> String, one of Successful, Failed, InProgress
+    #   resp.data.state_reason_code #=> String, one of ["Idle", "Creating", "Restoring", "EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #   resp.data.last_update_status #=> String, one of ["Successful", "Failed", "InProgress"]
     #   resp.data.last_update_status_reason #=> String
-    #   resp.data.last_update_status_reason_code #=> String, one of EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
+    #   resp.data.last_update_status_reason_code #=> String, one of ["EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
     #   resp.data.file_system_configs #=> Array<FileSystemConfig>
     #   resp.data.file_system_configs[0] #=> Types::FileSystemConfig
     #   resp.data.file_system_configs[0].arn #=> String
     #   resp.data.file_system_configs[0].local_mount_path #=> String
-    #   resp.data.package_type #=> String, one of Zip, Image
+    #   resp.data.package_type #=> String, one of ["Zip", "Image"]
     #   resp.data.image_config_response #=> Types::ImageConfigResponse
     #   resp.data.image_config_response.image_config #=> Types::ImageConfig
     #   resp.data.image_config_response.image_config.entry_point #=> Array<String>
@@ -4660,13 +4660,13 @@ module AWS::Lambda
     def publish_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PublishVersionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishVersionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::PublishVersion,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::PublishVersion
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4687,7 +4687,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :publish_version
@@ -4746,13 +4746,13 @@ module AWS::Lambda
     def put_function_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutFunctionCodeSigningConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFunctionCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutFunctionCodeSigningConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::PutFunctionCodeSigningConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4773,7 +4773,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :put_function_code_signing_config
@@ -4838,13 +4838,13 @@ module AWS::Lambda
     def put_function_concurrency(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutFunctionConcurrencyInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFunctionConcurrencyInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutFunctionConcurrency,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::PutFunctionConcurrency
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4865,7 +4865,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :put_function_concurrency
@@ -4980,13 +4980,13 @@ module AWS::Lambda
     def put_function_event_invoke_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutFunctionEventInvokeConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFunctionEventInvokeConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutFunctionEventInvokeConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::PutFunctionEventInvokeConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5007,7 +5007,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :put_function_event_invoke_config
@@ -5066,20 +5066,20 @@ module AWS::Lambda
     #   resp.data.requested_provisioned_concurrent_executions #=> Integer
     #   resp.data.available_provisioned_concurrent_executions #=> Integer
     #   resp.data.allocated_provisioned_concurrent_executions #=> Integer
-    #   resp.data.status #=> String, one of IN_PROGRESS, READY, FAILED
+    #   resp.data.status #=> String, one of ["IN_PROGRESS", "READY", "FAILED"]
     #   resp.data.status_reason #=> String
     #   resp.data.last_modified #=> String
     #
     def put_provisioned_concurrency_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutProvisionedConcurrencyConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutProvisionedConcurrencyConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutProvisionedConcurrencyConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::PutProvisionedConcurrencyConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5100,7 +5100,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :put_provisioned_concurrency_config
@@ -5148,13 +5148,13 @@ module AWS::Lambda
     def remove_layer_version_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemoveLayerVersionPermissionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveLayerVersionPermissionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RemoveLayerVersionPermission,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::RemoveLayerVersionPermission
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -5174,7 +5174,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :remove_layer_version_permission
@@ -5240,13 +5240,13 @@ module AWS::Lambda
     def remove_permission(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RemovePermissionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemovePermissionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RemovePermission,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::RemovePermission
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -5266,7 +5266,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :remove_permission
@@ -5305,13 +5305,13 @@ module AWS::Lambda
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::TagResource,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::TagResource
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5332,7 +5332,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :tag_resource
@@ -5371,13 +5371,13 @@ module AWS::Lambda
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UntagResource,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UntagResource
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -5397,7 +5397,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :untag_resource
@@ -5483,13 +5483,13 @@ module AWS::Lambda
     def update_alias(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateAliasInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAliasInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateAlias,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateAlias
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5510,7 +5510,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_alias
@@ -5551,7 +5551,7 @@ module AWS::Lambda
     #       ] # required
     #     },
     #     code_signing_policies: {
-    #       untrusted_artifact_on_deployment: 'Warn' # accepts Warn, Enforce
+    #       untrusted_artifact_on_deployment: 'Warn' # accepts ["Warn", "Enforce"]
     #     }
     #   )
     #
@@ -5566,19 +5566,19 @@ module AWS::Lambda
     #   resp.data.code_signing_config.allowed_publishers.signing_profile_version_arns #=> Array<String>
     #   resp.data.code_signing_config.allowed_publishers.signing_profile_version_arns[0] #=> String
     #   resp.data.code_signing_config.code_signing_policies #=> Types::CodeSigningPolicies
-    #   resp.data.code_signing_config.code_signing_policies.untrusted_artifact_on_deployment #=> String, one of Warn, Enforce
+    #   resp.data.code_signing_config.code_signing_policies.untrusted_artifact_on_deployment #=> String, one of ["Warn", "Enforce"]
     #   resp.data.code_signing_config.last_modified #=> String
     #
     def update_code_signing_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateCodeSigningConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCodeSigningConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateCodeSigningConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateCodeSigningConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5599,7 +5599,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_code_signing_config
@@ -5745,13 +5745,13 @@ module AWS::Lambda
     #     parallelization_factor: 1,
     #     source_access_configurations: [
     #       {
-    #         type: 'BASIC_AUTH', # accepts BASIC_AUTH, VPC_SUBNET, VPC_SECURITY_GROUP, SASL_SCRAM_512_AUTH, SASL_SCRAM_256_AUTH
+    #         type: 'BASIC_AUTH', # accepts ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
     #         uri: 'URI'
     #       }
     #     ],
     #     tumbling_window_in_seconds: 1,
     #     function_response_types: [
-    #       'ReportBatchItemFailures' # accepts ReportBatchItemFailures
+    #       'ReportBatchItemFailures' # accepts ["ReportBatchItemFailures"]
     #     ]
     #   )
     #
@@ -5759,7 +5759,7 @@ module AWS::Lambda
     #
     #   resp.data #=> Types::UpdateEventSourceMappingOutput
     #   resp.data.uuid #=> String
-    #   resp.data.starting_position #=> String, one of TRIM_HORIZON, LATEST, AT_TIMESTAMP
+    #   resp.data.starting_position #=> String, one of ["TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
     #   resp.data.starting_position_timestamp #=> Time
     #   resp.data.batch_size #=> Integer
     #   resp.data.maximum_batching_window_in_seconds #=> Integer
@@ -5781,7 +5781,7 @@ module AWS::Lambda
     #   resp.data.queues[0] #=> String
     #   resp.data.source_access_configurations #=> Array<SourceAccessConfiguration>
     #   resp.data.source_access_configurations[0] #=> Types::SourceAccessConfiguration
-    #   resp.data.source_access_configurations[0].type #=> String, one of BASIC_AUTH, VPC_SUBNET, VPC_SECURITY_GROUP, SASL_SCRAM_512_AUTH, SASL_SCRAM_256_AUTH
+    #   resp.data.source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
     #   resp.data.source_access_configurations[0].uri #=> String
     #   resp.data.self_managed_event_source #=> Types::SelfManagedEventSource
     #   resp.data.self_managed_event_source.endpoints #=> Hash<String, Array<String>>
@@ -5792,18 +5792,18 @@ module AWS::Lambda
     #   resp.data.maximum_retry_attempts #=> Integer
     #   resp.data.tumbling_window_in_seconds #=> Integer
     #   resp.data.function_response_types #=> Array<String>
-    #   resp.data.function_response_types[0] #=> String, one of ReportBatchItemFailures
+    #   resp.data.function_response_types[0] #=> String, one of ["ReportBatchItemFailures"]
     #
     def update_event_source_mapping(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateEventSourceMappingInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEventSourceMappingInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateEventSourceMapping,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateEventSourceMapping
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5824,7 +5824,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_event_source_mapping
@@ -5918,7 +5918,7 @@ module AWS::Lambda
     #   resp.data #=> Types::UpdateFunctionCodeOutput
     #   resp.data.function_name #=> String
     #   resp.data.function_arn #=> String
-    #   resp.data.runtime #=> String, one of nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.role #=> String
     #   resp.data.handler #=> String
     #   resp.data.code_size #=> Integer
@@ -5944,7 +5944,7 @@ module AWS::Lambda
     #   resp.data.environment.error.message #=> String
     #   resp.data.kms_key_arn #=> String
     #   resp.data.tracing_config #=> Types::TracingConfigResponse
-    #   resp.data.tracing_config.mode #=> String, one of Active, PassThrough
+    #   resp.data.tracing_config.mode #=> String, one of ["Active", "PassThrough"]
     #   resp.data.master_arn #=> String
     #   resp.data.revision_id #=> String
     #   resp.data.layers #=> Array<Layer>
@@ -5953,17 +5953,17 @@ module AWS::Lambda
     #   resp.data.layers[0].code_size #=> Integer
     #   resp.data.layers[0].signing_profile_version_arn #=> String
     #   resp.data.layers[0].signing_job_arn #=> String
-    #   resp.data.state #=> String, one of Pending, Active, Inactive, Failed
+    #   resp.data.state #=> String, one of ["Pending", "Active", "Inactive", "Failed"]
     #   resp.data.state_reason #=> String
-    #   resp.data.state_reason_code #=> String, one of Idle, Creating, Restoring, EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
-    #   resp.data.last_update_status #=> String, one of Successful, Failed, InProgress
+    #   resp.data.state_reason_code #=> String, one of ["Idle", "Creating", "Restoring", "EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #   resp.data.last_update_status #=> String, one of ["Successful", "Failed", "InProgress"]
     #   resp.data.last_update_status_reason #=> String
-    #   resp.data.last_update_status_reason_code #=> String, one of EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
+    #   resp.data.last_update_status_reason_code #=> String, one of ["EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
     #   resp.data.file_system_configs #=> Array<FileSystemConfig>
     #   resp.data.file_system_configs[0] #=> Types::FileSystemConfig
     #   resp.data.file_system_configs[0].arn #=> String
     #   resp.data.file_system_configs[0].local_mount_path #=> String
-    #   resp.data.package_type #=> String, one of Zip, Image
+    #   resp.data.package_type #=> String, one of ["Zip", "Image"]
     #   resp.data.image_config_response #=> Types::ImageConfigResponse
     #   resp.data.image_config_response.image_config #=> Types::ImageConfig
     #   resp.data.image_config_response.image_config.entry_point #=> Array<String>
@@ -5979,13 +5979,13 @@ module AWS::Lambda
     def update_function_code(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionCodeInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionCodeInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateFunctionCode,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateFunctionCode
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6006,7 +6006,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_function_code
@@ -6139,13 +6139,13 @@ module AWS::Lambda
     #         'key' => 'value'
     #       }
     #     },
-    #     runtime: 'nodejs', # accepts nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #     runtime: 'nodejs', # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #     dead_letter_config: {
     #       target_arn: 'TargetArn'
     #     },
     #     kms_key_arn: 'KMSKeyArn',
     #     tracing_config: {
-    #       mode: 'Active' # accepts Active, PassThrough
+    #       mode: 'Active' # accepts ["Active", "PassThrough"]
     #     },
     #     revision_id: 'RevisionId',
     #     layers: [
@@ -6170,7 +6170,7 @@ module AWS::Lambda
     #   resp.data #=> Types::UpdateFunctionConfigurationOutput
     #   resp.data.function_name #=> String
     #   resp.data.function_arn #=> String
-    #   resp.data.runtime #=> String, one of nodejs, nodejs4.3, nodejs6.10, nodejs8.10, nodejs10.x, nodejs12.x, nodejs14.x, java8, java8.al2, java11, python2.7, python3.6, python3.7, python3.8, dotnetcore1.0, dotnetcore2.0, dotnetcore2.1, dotnetcore3.1, nodejs4.3-edge, go1.x, ruby2.5, ruby2.7, provided, provided.al2
+    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.role #=> String
     #   resp.data.handler #=> String
     #   resp.data.code_size #=> Integer
@@ -6196,7 +6196,7 @@ module AWS::Lambda
     #   resp.data.environment.error.message #=> String
     #   resp.data.kms_key_arn #=> String
     #   resp.data.tracing_config #=> Types::TracingConfigResponse
-    #   resp.data.tracing_config.mode #=> String, one of Active, PassThrough
+    #   resp.data.tracing_config.mode #=> String, one of ["Active", "PassThrough"]
     #   resp.data.master_arn #=> String
     #   resp.data.revision_id #=> String
     #   resp.data.layers #=> Array<Layer>
@@ -6205,17 +6205,17 @@ module AWS::Lambda
     #   resp.data.layers[0].code_size #=> Integer
     #   resp.data.layers[0].signing_profile_version_arn #=> String
     #   resp.data.layers[0].signing_job_arn #=> String
-    #   resp.data.state #=> String, one of Pending, Active, Inactive, Failed
+    #   resp.data.state #=> String, one of ["Pending", "Active", "Inactive", "Failed"]
     #   resp.data.state_reason #=> String
-    #   resp.data.state_reason_code #=> String, one of Idle, Creating, Restoring, EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
-    #   resp.data.last_update_status #=> String, one of Successful, Failed, InProgress
+    #   resp.data.state_reason_code #=> String, one of ["Idle", "Creating", "Restoring", "EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #   resp.data.last_update_status #=> String, one of ["Successful", "Failed", "InProgress"]
     #   resp.data.last_update_status_reason #=> String
-    #   resp.data.last_update_status_reason_code #=> String, one of EniLimitExceeded, InsufficientRolePermissions, InvalidConfiguration, InternalError, SubnetOutOfIPAddresses, InvalidSubnet, InvalidSecurityGroup, ImageDeleted, ImageAccessDenied, InvalidImage
+    #   resp.data.last_update_status_reason_code #=> String, one of ["EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
     #   resp.data.file_system_configs #=> Array<FileSystemConfig>
     #   resp.data.file_system_configs[0] #=> Types::FileSystemConfig
     #   resp.data.file_system_configs[0].arn #=> String
     #   resp.data.file_system_configs[0].local_mount_path #=> String
-    #   resp.data.package_type #=> String, one of Zip, Image
+    #   resp.data.package_type #=> String, one of ["Zip", "Image"]
     #   resp.data.image_config_response #=> Types::ImageConfigResponse
     #   resp.data.image_config_response.image_config #=> Types::ImageConfig
     #   resp.data.image_config_response.image_config.entry_point #=> Array<String>
@@ -6231,13 +6231,13 @@ module AWS::Lambda
     def update_function_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionConfigurationInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionConfigurationInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateFunctionConfiguration,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateFunctionConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6258,7 +6258,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_function_configuration
@@ -6364,13 +6364,13 @@ module AWS::Lambda
     def update_function_event_invoke_config(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateFunctionEventInvokeConfigInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionEventInvokeConfigInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateFunctionEventInvokeConfig,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateFunctionEventInvokeConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6391,7 +6391,7 @@ module AWS::Lambda
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_function_event_invoke_config

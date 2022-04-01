@@ -391,13 +391,13 @@ module AWS::Sts
     def assume_role(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssumeRoleInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssumeRoleInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssumeRole,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::AssumeRole
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -418,7 +418,7 @@ module AWS::Sts
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :assume_role
@@ -689,13 +689,13 @@ module AWS::Sts
     def assume_role_with_saml(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssumeRoleWithSAMLInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssumeRoleWithSAMLInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssumeRoleWithSAML,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::AssumeRoleWithSAML
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -716,7 +716,7 @@ module AWS::Sts
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :assume_role_with_saml
@@ -1002,13 +1002,13 @@ module AWS::Sts
     def assume_role_with_web_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::AssumeRoleWithWebIdentityInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssumeRoleWithWebIdentityInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::AssumeRoleWithWebIdentity,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::AssumeRoleWithWebIdentity
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1029,7 +1029,7 @@ module AWS::Sts
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :assume_role_with_web_identity
@@ -1098,13 +1098,13 @@ module AWS::Sts
     def decode_authorization_message(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DecodeAuthorizationMessageInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DecodeAuthorizationMessageInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DecodeAuthorizationMessage,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DecodeAuthorizationMessage
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1125,7 +1125,7 @@ module AWS::Sts
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :decode_authorization_message
@@ -1178,13 +1178,13 @@ module AWS::Sts
     def get_access_key_info(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetAccessKeyInfoInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessKeyInfoInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetAccessKeyInfo,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetAccessKeyInfo
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1205,7 +1205,7 @@ module AWS::Sts
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_access_key_info
@@ -1245,13 +1245,13 @@ module AWS::Sts
     def get_caller_identity(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetCallerIdentityInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCallerIdentityInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetCallerIdentity,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetCallerIdentity
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1272,7 +1272,7 @@ module AWS::Sts
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_caller_identity
@@ -1521,13 +1521,13 @@ module AWS::Sts
     def get_federation_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetFederationTokenInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFederationTokenInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetFederationToken,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetFederationToken
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1548,7 +1548,7 @@ module AWS::Sts
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_federation_token
@@ -1664,13 +1664,13 @@ module AWS::Sts
     def get_session_token(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetSessionTokenInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSessionTokenInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetSessionToken,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetSessionToken
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1691,7 +1691,7 @@ module AWS::Sts
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_session_token

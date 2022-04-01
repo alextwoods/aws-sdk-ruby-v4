@@ -48,6 +48,14 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.total_code_size ||= 0
+        self.code_size_unzipped ||= 0
+        self.code_size_zipped ||= 0
+        self.concurrent_executions ||= 0
+      end
+
     end
 
     # <p>The number of functions and amount of storage in use.</p>
@@ -68,6 +76,12 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.total_code_size ||= 0
+        self.function_count ||= 0
+      end
+
     end
 
     # @!attribute layer_name
@@ -118,6 +132,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.version_number ||= 0
+      end
+
     end
 
     # @!attribute statement
@@ -381,6 +400,8 @@ module AWS::Lambda
     #            <p>Default value: <code>Warn</code>
     #            </p>
     #
+    #   Enum, one of: ["Warn", "Enforce"]
+    #
     #   @return [String]
     #
     CodeSigningPolicies = ::Struct.new(
@@ -388,6 +409,18 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for CodeSigningPolicy
+    #
+    module CodeSigningPolicy
+      # No documentation available.
+      #
+      Warn = "Warn"
+
+      # No documentation available.
+      #
+      Enforce = "Enforce"
     end
 
     # <p>You have exceeded your maximum total code size per account. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
@@ -675,6 +708,8 @@ module AWS::Lambda
     #   <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams
     #         sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
     #
+    #   Enum, one of: ["TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
+    #
     #   @return [String]
     #
     # @!attribute starting_position_timestamp
@@ -769,6 +804,8 @@ module AWS::Lambda
     # @!attribute starting_position
     #   <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams
     #         sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+    #
+    #   Enum, one of: ["TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
     #
     #   @return [String]
     #
@@ -933,6 +970,8 @@ module AWS::Lambda
     # @!attribute runtime
     #   <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
     #
+    #   Enum, one of: ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #
     #   @return [String]
     #
     # @!attribute role
@@ -983,6 +1022,8 @@ module AWS::Lambda
     #
     # @!attribute package_type
     #   <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for ZIP archive.</p>
+    #
+    #   Enum, one of: ["Zip", "Image"]
     #
     #   @return [String]
     #
@@ -1063,6 +1104,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.publish ||= false
+      end
+
     end
 
     # <p>Details about a function's configuration.</p>
@@ -1079,6 +1125,8 @@ module AWS::Lambda
     #
     # @!attribute runtime
     #   <p>The runtime environment for the Lambda function.</p>
+    #
+    #   Enum, one of: ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #
     #   @return [String]
     #
@@ -1173,6 +1221,8 @@ module AWS::Lambda
     #   <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by
     #         invoking it.</p>
     #
+    #   Enum, one of: ["Pending", "Active", "Inactive", "Failed"]
+    #
     #   @return [String]
     #
     # @!attribute state_reason
@@ -1184,11 +1234,15 @@ module AWS::Lambda
     #   <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or
     #         modify the function.</p>
     #
+    #   Enum, one of: ["Idle", "Creating", "Restoring", "EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #
     #   @return [String]
     #
     # @!attribute last_update_status
     #   <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code>
     #         after function creation completes.</p>
+    #
+    #   Enum, one of: ["Successful", "Failed", "InProgress"]
     #
     #   @return [String]
     #
@@ -1200,6 +1254,8 @@ module AWS::Lambda
     # @!attribute last_update_status_reason_code
     #   <p>The reason code for the last update that was performed on the function.</p>
     #
+    #   Enum, one of: ["EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #
     #   @return [String]
     #
     # @!attribute file_system_configs
@@ -1209,6 +1265,8 @@ module AWS::Lambda
     #
     # @!attribute package_type
     #   <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
+    #
+    #   Enum, one of: ["Zip", "Image"]
     #
     #   @return [String]
     #
@@ -1262,6 +1320,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.code_size ||= 0
+      end
+
     end
 
     # <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">dead-letter queue</a> for
@@ -1364,6 +1427,8 @@ module AWS::Lambda
     # @!attribute starting_position
     #   <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams
     #         sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+    #
+    #   Enum, one of: ["TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
     #
     #   @return [String]
     #
@@ -1681,6 +1746,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.version_number ||= 0
+      end
+
     end
 
     DeleteLayerVersionOutput = ::Struct.new(
@@ -1906,6 +1976,14 @@ module AWS::Lambda
       include Hearth::Structure
     end
 
+    # Includes enum constants for EndPointType
+    #
+    module EndPointType
+      # No documentation available.
+      #
+      KAFKA_BOOTSTRAP_SERVERS = "KAFKA_BOOTSTRAP_SERVERS"
+    end
+
     # <p>A function's environment variable settings.</p>
     #
     # @!attribute variables
@@ -1997,6 +2075,8 @@ module AWS::Lambda
     # @!attribute starting_position
     #   <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams
     #         sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+    #
+    #   Enum, one of: ["TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
     #
     #   @return [String]
     #
@@ -2134,6 +2214,22 @@ module AWS::Lambda
       include Hearth::Structure
     end
 
+    # Includes enum constants for EventSourcePosition
+    #
+    module EventSourcePosition
+      # No documentation available.
+      #
+      TRIM_HORIZON = "TRIM_HORIZON"
+
+      # No documentation available.
+      #
+      LATEST = "LATEST"
+
+      # No documentation available.
+      #
+      AT_TIMESTAMP = "AT_TIMESTAMP"
+    end
+
     # <p>Details about the connection between a Lambda function and an Amazon EFS file system.</p>
     #
     # @!attribute arn
@@ -2253,6 +2349,8 @@ module AWS::Lambda
     # @!attribute runtime
     #   <p>The runtime environment for the Lambda function.</p>
     #
+    #   Enum, one of: ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #
     #   @return [String]
     #
     # @!attribute role
@@ -2346,6 +2444,8 @@ module AWS::Lambda
     #   <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by
     #         invoking it.</p>
     #
+    #   Enum, one of: ["Pending", "Active", "Inactive", "Failed"]
+    #
     #   @return [String]
     #
     # @!attribute state_reason
@@ -2357,11 +2457,15 @@ module AWS::Lambda
     #   <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or
     #         modify the function.</p>
     #
+    #   Enum, one of: ["Idle", "Creating", "Restoring", "EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #
     #   @return [String]
     #
     # @!attribute last_update_status
     #   <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code>
     #         after function creation completes.</p>
+    #
+    #   Enum, one of: ["Successful", "Failed", "InProgress"]
     #
     #   @return [String]
     #
@@ -2373,6 +2477,8 @@ module AWS::Lambda
     # @!attribute last_update_status_reason_code
     #   <p>The reason code for the last update that was performed on the function.</p>
     #
+    #   Enum, one of: ["EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #
     #   @return [String]
     #
     # @!attribute file_system_configs
@@ -2382,6 +2488,8 @@ module AWS::Lambda
     #
     # @!attribute package_type
     #   <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
+    #
+    #   Enum, one of: ["Zip", "Image"]
     #
     #   @return [String]
     #
@@ -2435,6 +2543,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.code_size ||= 0
+      end
+
     end
 
     # @!attribute last_modified
@@ -2492,6 +2605,22 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for FunctionResponseType
+    #
+    module FunctionResponseType
+      # No documentation available.
+      #
+      ReportBatchItemFailures = "ReportBatchItemFailures"
+    end
+
+    # Includes enum constants for FunctionVersion
+    #
+    module FunctionVersion
+      # No documentation available.
+      #
+      ALL = "ALL"
     end
 
     GetAccountSettingsInput = ::Struct.new(
@@ -2647,6 +2776,8 @@ module AWS::Lambda
     # @!attribute starting_position
     #   <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams
     #         sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+    #
+    #   Enum, one of: ["TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
     #
     #   @return [String]
     #
@@ -2947,6 +3078,8 @@ module AWS::Lambda
     # @!attribute runtime
     #   <p>The runtime environment for the Lambda function.</p>
     #
+    #   Enum, one of: ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #
     #   @return [String]
     #
     # @!attribute role
@@ -3040,6 +3173,8 @@ module AWS::Lambda
     #   <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by
     #         invoking it.</p>
     #
+    #   Enum, one of: ["Pending", "Active", "Inactive", "Failed"]
+    #
     #   @return [String]
     #
     # @!attribute state_reason
@@ -3051,11 +3186,15 @@ module AWS::Lambda
     #   <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or
     #         modify the function.</p>
     #
+    #   Enum, one of: ["Idle", "Creating", "Restoring", "EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #
     #   @return [String]
     #
     # @!attribute last_update_status
     #   <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code>
     #         after function creation completes.</p>
+    #
+    #   Enum, one of: ["Successful", "Failed", "InProgress"]
     #
     #   @return [String]
     #
@@ -3067,6 +3206,8 @@ module AWS::Lambda
     # @!attribute last_update_status_reason_code
     #   <p>The reason code for the last update that was performed on the function.</p>
     #
+    #   Enum, one of: ["EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #
     #   @return [String]
     #
     # @!attribute file_system_configs
@@ -3076,6 +3217,8 @@ module AWS::Lambda
     #
     # @!attribute package_type
     #   <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
+    #
+    #   Enum, one of: ["Zip", "Image"]
     #
     #   @return [String]
     #
@@ -3129,6 +3272,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.code_size ||= 0
+      end
+
     end
 
     # @!attribute function_name
@@ -3357,6 +3505,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.version ||= 0
+      end
+
     end
 
     # @!attribute layer_name
@@ -3375,6 +3528,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.version_number ||= 0
+      end
+
     end
 
     # @!attribute content
@@ -3429,6 +3587,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.version ||= 0
+      end
+
     end
 
     # @!attribute layer_name
@@ -3447,6 +3610,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.version_number ||= 0
+      end
+
     end
 
     # @!attribute policy
@@ -3576,6 +3744,8 @@ module AWS::Lambda
     #
     # @!attribute status
     #   <p>The status of the allocation process.</p>
+    #
+    #   Enum, one of: ["IN_PROGRESS", "READY", "FAILED"]
     #
     #   @return [String]
     #
@@ -3809,6 +3979,22 @@ module AWS::Lambda
       include Hearth::Structure
     end
 
+    # Includes enum constants for InvocationType
+    #
+    module InvocationType
+      # No documentation available.
+      #
+      Event = "Event"
+
+      # No documentation available.
+      #
+      RequestResponse = "RequestResponse"
+
+      # No documentation available.
+      #
+      DryRun = "DryRun"
+    end
+
     # @deprecated
     #
     # @!attribute function_name
@@ -3862,6 +4048,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.status ||= 0
+      end
+
     end
 
     # @!attribute function_name
@@ -3909,10 +4100,14 @@ module AWS::Lambda
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["Event", "RequestResponse", "DryRun"]
+    #
     #   @return [String]
     #
     # @!attribute log_type
     #   <p>Set to <code>Tail</code> to include the execution log in the response.</p>
+    #
+    #   Enum, one of: ["None", "Tail"]
     #
     #   @return [String]
     #
@@ -3998,6 +4193,10 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.status_code ||= 0
+      end
 
       def to_s
         "#<struct AWS::Lambda::Types::InvokeOutput "\
@@ -4085,6 +4284,66 @@ module AWS::Lambda
       include Hearth::Structure
     end
 
+    # Includes enum constants for LastUpdateStatus
+    #
+    module LastUpdateStatus
+      # No documentation available.
+      #
+      Successful = "Successful"
+
+      # No documentation available.
+      #
+      Failed = "Failed"
+
+      # No documentation available.
+      #
+      InProgress = "InProgress"
+    end
+
+    # Includes enum constants for LastUpdateStatusReasonCode
+    #
+    module LastUpdateStatusReasonCode
+      # No documentation available.
+      #
+      EniLimitExceeded = "EniLimitExceeded"
+
+      # No documentation available.
+      #
+      InsufficientRolePermissions = "InsufficientRolePermissions"
+
+      # No documentation available.
+      #
+      InvalidConfiguration = "InvalidConfiguration"
+
+      # No documentation available.
+      #
+      InternalError = "InternalError"
+
+      # No documentation available.
+      #
+      SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses"
+
+      # No documentation available.
+      #
+      InvalidSubnet = "InvalidSubnet"
+
+      # No documentation available.
+      #
+      InvalidSecurityGroup = "InvalidSecurityGroup"
+
+      # No documentation available.
+      #
+      ImageDeleted = "ImageDeleted"
+
+      # No documentation available.
+      #
+      ImageAccessDenied = "ImageAccessDenied"
+
+      # No documentation available.
+      #
+      InvalidImage = "InvalidImage"
+    end
+
     # <p>An <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
     #         layer</a>.</p>
     #
@@ -4116,6 +4375,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.code_size ||= 0
+      end
+
     end
 
     # <p>A ZIP archive that contains the contents of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
@@ -4201,6 +4465,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.code_size ||= 0
+      end
+
     end
 
     # <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
@@ -4246,6 +4515,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.version ||= 0
+      end
+
     end
 
     # <p>Details about an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
@@ -4580,6 +4854,8 @@ module AWS::Lambda
     # @!attribute function_version
     #   <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
     #
+    #   Enum, one of: ["ALL"]
+    #
     #   @return [String]
     #
     # @!attribute marker
@@ -4625,6 +4901,8 @@ module AWS::Lambda
 
     # @!attribute compatible_runtime
     #   <p>A runtime identifier. For example, <code>go1.x</code>.</p>
+    #
+    #   Enum, one of: ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #
     #   @return [String]
     #
@@ -4673,6 +4951,8 @@ module AWS::Lambda
 
     # @!attribute compatible_runtime
     #   <p>A runtime identifier. For example, <code>go1.x</code>.</p>
+    #
+    #   Enum, one of: ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #
     #   @return [String]
     #
@@ -4859,6 +5139,18 @@ module AWS::Lambda
       include Hearth::Structure
     end
 
+    # Includes enum constants for LogType
+    #
+    module LogType
+      # No documentation available.
+      #
+      None = "None"
+
+      # No documentation available.
+      #
+      Tail = "Tail"
+    end
+
     # <p>A destination for events that failed processing.</p>
     #
     # @!attribute destination
@@ -4885,6 +5177,18 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for PackageType
+    #
+    module PackageType
+      # No documentation available.
+      #
+      Zip = "Zip"
+
+      # No documentation available.
+      #
+      Image = "Image"
     end
 
     # <p>The permissions policy for the resource is too large. <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">Learn more</a>
@@ -4953,6 +5257,8 @@ module AWS::Lambda
     # @!attribute status
     #   <p>The status of the allocation process.</p>
     #
+    #   Enum, one of: ["IN_PROGRESS", "READY", "FAILED"]
+    #
     #   @return [String]
     #
     # @!attribute status_reason
@@ -4994,6 +5300,22 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ProvisionedConcurrencyStatusEnum
+    #
+    module ProvisionedConcurrencyStatusEnum
+      # No documentation available.
+      #
+      IN_PROGRESS = "IN_PROGRESS"
+
+      # No documentation available.
+      #
+      READY = "READY"
+
+      # No documentation available.
+      #
+      FAILED = "FAILED"
     end
 
     # @!attribute layer_name
@@ -5098,6 +5420,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.version ||= 0
+      end
+
     end
 
     # @!attribute function_name
@@ -5166,6 +5493,8 @@ module AWS::Lambda
     #
     # @!attribute runtime
     #   <p>The runtime environment for the Lambda function.</p>
+    #
+    #   Enum, one of: ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #
     #   @return [String]
     #
@@ -5260,6 +5589,8 @@ module AWS::Lambda
     #   <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by
     #         invoking it.</p>
     #
+    #   Enum, one of: ["Pending", "Active", "Inactive", "Failed"]
+    #
     #   @return [String]
     #
     # @!attribute state_reason
@@ -5271,11 +5602,15 @@ module AWS::Lambda
     #   <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or
     #         modify the function.</p>
     #
+    #   Enum, one of: ["Idle", "Creating", "Restoring", "EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #
     #   @return [String]
     #
     # @!attribute last_update_status
     #   <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code>
     #         after function creation completes.</p>
+    #
+    #   Enum, one of: ["Successful", "Failed", "InProgress"]
     #
     #   @return [String]
     #
@@ -5287,6 +5622,8 @@ module AWS::Lambda
     # @!attribute last_update_status_reason_code
     #   <p>The reason code for the last update that was performed on the function.</p>
     #
+    #   Enum, one of: ["EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #
     #   @return [String]
     #
     # @!attribute file_system_configs
@@ -5296,6 +5633,8 @@ module AWS::Lambda
     #
     # @!attribute package_type
     #   <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
+    #
+    #   Enum, one of: ["Zip", "Image"]
     #
     #   @return [String]
     #
@@ -5349,6 +5688,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.code_size ||= 0
+      end
+
     end
 
     # @!attribute code_signing_config_arn
@@ -5668,6 +6012,8 @@ module AWS::Lambda
     # @!attribute status
     #   <p>The status of the allocation process.</p>
     #
+    #   Enum, one of: ["IN_PROGRESS", "READY", "FAILED"]
+    #
     #   @return [String]
     #
     # @!attribute status_reason
@@ -5721,6 +6067,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.version_number ||= 0
+      end
+
     end
 
     RemoveLayerVersionPermissionOutput = ::Struct.new(
@@ -5884,6 +6235,106 @@ module AWS::Lambda
       include Hearth::Structure
     end
 
+    # Includes enum constants for Runtime
+    #
+    module Runtime
+      # No documentation available.
+      #
+      nodejs = "nodejs"
+
+      # No documentation available.
+      #
+      nodejs43 = "nodejs4.3"
+
+      # No documentation available.
+      #
+      nodejs610 = "nodejs6.10"
+
+      # No documentation available.
+      #
+      nodejs810 = "nodejs8.10"
+
+      # No documentation available.
+      #
+      nodejs10x = "nodejs10.x"
+
+      # No documentation available.
+      #
+      nodejs12x = "nodejs12.x"
+
+      # No documentation available.
+      #
+      nodejs14x = "nodejs14.x"
+
+      # No documentation available.
+      #
+      java8 = "java8"
+
+      # No documentation available.
+      #
+      java8al2 = "java8.al2"
+
+      # No documentation available.
+      #
+      java11 = "java11"
+
+      # No documentation available.
+      #
+      python27 = "python2.7"
+
+      # No documentation available.
+      #
+      python36 = "python3.6"
+
+      # No documentation available.
+      #
+      python37 = "python3.7"
+
+      # No documentation available.
+      #
+      python38 = "python3.8"
+
+      # No documentation available.
+      #
+      dotnetcore10 = "dotnetcore1.0"
+
+      # No documentation available.
+      #
+      dotnetcore20 = "dotnetcore2.0"
+
+      # No documentation available.
+      #
+      dotnetcore21 = "dotnetcore2.1"
+
+      # No documentation available.
+      #
+      dotnetcore31 = "dotnetcore3.1"
+
+      # No documentation available.
+      #
+      nodejs43edge = "nodejs4.3-edge"
+
+      # No documentation available.
+      #
+      go1x = "go1.x"
+
+      # No documentation available.
+      #
+      ruby25 = "ruby2.5"
+
+      # No documentation available.
+      #
+      ruby27 = "ruby2.7"
+
+      # No documentation available.
+      #
+      provided = "provided"
+
+      # No documentation available.
+      #
+      providedal2 = "provided.al2"
+    end
+
     # <p>The Self-Managed Apache Kafka cluster for your event source.</p>
     #
     # @!attribute endpoints
@@ -5943,6 +6394,8 @@ module AWS::Lambda
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
+    #
     #   @return [String]
     #
     # @!attribute uri
@@ -5956,6 +6409,106 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for SourceAccessType
+    #
+    module SourceAccessType
+      # No documentation available.
+      #
+      BASIC_AUTH = "BASIC_AUTH"
+
+      # No documentation available.
+      #
+      VPC_SUBNET = "VPC_SUBNET"
+
+      # No documentation available.
+      #
+      VPC_SECURITY_GROUP = "VPC_SECURITY_GROUP"
+
+      # No documentation available.
+      #
+      SASL_SCRAM_512_AUTH = "SASL_SCRAM_512_AUTH"
+
+      # No documentation available.
+      #
+      SASL_SCRAM_256_AUTH = "SASL_SCRAM_256_AUTH"
+    end
+
+    # Includes enum constants for State
+    #
+    module State
+      # No documentation available.
+      #
+      Pending = "Pending"
+
+      # No documentation available.
+      #
+      Active = "Active"
+
+      # No documentation available.
+      #
+      Inactive = "Inactive"
+
+      # No documentation available.
+      #
+      Failed = "Failed"
+    end
+
+    # Includes enum constants for StateReasonCode
+    #
+    module StateReasonCode
+      # No documentation available.
+      #
+      Idle = "Idle"
+
+      # No documentation available.
+      #
+      Creating = "Creating"
+
+      # No documentation available.
+      #
+      Restoring = "Restoring"
+
+      # No documentation available.
+      #
+      EniLimitExceeded = "EniLimitExceeded"
+
+      # No documentation available.
+      #
+      InsufficientRolePermissions = "InsufficientRolePermissions"
+
+      # No documentation available.
+      #
+      InvalidConfiguration = "InvalidConfiguration"
+
+      # No documentation available.
+      #
+      InternalError = "InternalError"
+
+      # No documentation available.
+      #
+      SubnetOutOfIPAddresses = "SubnetOutOfIPAddresses"
+
+      # No documentation available.
+      #
+      InvalidSubnet = "InvalidSubnet"
+
+      # No documentation available.
+      #
+      InvalidSecurityGroup = "InvalidSecurityGroup"
+
+      # No documentation available.
+      #
+      ImageDeleted = "ImageDeleted"
+
+      # No documentation available.
+      #
+      ImageAccessDenied = "ImageAccessDenied"
+
+      # No documentation available.
+      #
+      InvalidImage = "InvalidImage"
     end
 
     # <p>AWS Lambda was not able to set up VPC access for the Lambda function because one or more configured subnets
@@ -6002,6 +6555,30 @@ module AWS::Lambda
       include Hearth::Structure
     end
 
+    # Includes enum constants for ThrottleReason
+    #
+    module ThrottleReason
+      # No documentation available.
+      #
+      ConcurrentInvocationLimitExceeded = "ConcurrentInvocationLimitExceeded"
+
+      # No documentation available.
+      #
+      FunctionInvocationRateLimitExceeded = "FunctionInvocationRateLimitExceeded"
+
+      # No documentation available.
+      #
+      ReservedFunctionConcurrentInvocationLimitExceeded = "ReservedFunctionConcurrentInvocationLimitExceeded"
+
+      # No documentation available.
+      #
+      ReservedFunctionInvocationRateLimitExceeded = "ReservedFunctionInvocationRateLimitExceeded"
+
+      # No documentation available.
+      #
+      CallerRateLimitExceeded = "CallerRateLimitExceeded"
+    end
+
     # <p>The request throughput limit was exceeded.</p>
     #
     # @!attribute retry_after_seconds
@@ -6018,6 +6595,7 @@ module AWS::Lambda
     #   @return [String]
     #
     # @!attribute reason
+    #   Enum, one of: ["ConcurrentInvocationLimitExceeded", "FunctionInvocationRateLimitExceeded", "ReservedFunctionConcurrentInvocationLimitExceeded", "ReservedFunctionInvocationRateLimitExceeded", "CallerRateLimitExceeded"]
     #
     #   @return [String]
     #
@@ -6037,6 +6615,8 @@ module AWS::Lambda
     # @!attribute mode
     #   <p>The tracing mode.</p>
     #
+    #   Enum, one of: ["Active", "PassThrough"]
+    #
     #   @return [String]
     #
     TracingConfig = ::Struct.new(
@@ -6051,6 +6631,8 @@ module AWS::Lambda
     # @!attribute mode
     #   <p>The tracing mode.</p>
     #
+    #   Enum, one of: ["Active", "PassThrough"]
+    #
     #   @return [String]
     #
     TracingConfigResponse = ::Struct.new(
@@ -6058,6 +6640,18 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for TracingMode
+    #
+    module TracingMode
+      # No documentation available.
+      #
+      Active = "Active"
+
+      # No documentation available.
+      #
+      PassThrough = "PassThrough"
     end
 
     # <p>The content type of the <code>Invoke</code> request body is not JSON.</p>
@@ -6393,6 +6987,8 @@ module AWS::Lambda
     #   <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams
     #         sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
     #
+    #   Enum, one of: ["TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
+    #
     #   @return [String]
     #
     # @!attribute starting_position_timestamp
@@ -6613,6 +7209,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.publish ||= false
+        self.dry_run ||= false
+      end
 
       def to_s
         "#<struct AWS::Lambda::Types::UpdateFunctionCodeInput "\
@@ -6642,6 +7243,8 @@ module AWS::Lambda
     #
     # @!attribute runtime
     #   <p>The runtime environment for the Lambda function.</p>
+    #
+    #   Enum, one of: ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #
     #   @return [String]
     #
@@ -6736,6 +7339,8 @@ module AWS::Lambda
     #   <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by
     #         invoking it.</p>
     #
+    #   Enum, one of: ["Pending", "Active", "Inactive", "Failed"]
+    #
     #   @return [String]
     #
     # @!attribute state_reason
@@ -6747,11 +7352,15 @@ module AWS::Lambda
     #   <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or
     #         modify the function.</p>
     #
+    #   Enum, one of: ["Idle", "Creating", "Restoring", "EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #
     #   @return [String]
     #
     # @!attribute last_update_status
     #   <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code>
     #         after function creation completes.</p>
+    #
+    #   Enum, one of: ["Successful", "Failed", "InProgress"]
     #
     #   @return [String]
     #
@@ -6763,6 +7372,8 @@ module AWS::Lambda
     # @!attribute last_update_status_reason_code
     #   <p>The reason code for the last update that was performed on the function.</p>
     #
+    #   Enum, one of: ["EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #
     #   @return [String]
     #
     # @!attribute file_system_configs
@@ -6772,6 +7383,8 @@ module AWS::Lambda
     #
     # @!attribute package_type
     #   <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
+    #
+    #   Enum, one of: ["Zip", "Image"]
     #
     #   @return [String]
     #
@@ -6825,6 +7438,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.code_size ||= 0
+      end
+
     end
 
     # @!attribute function_name
@@ -6894,6 +7512,8 @@ module AWS::Lambda
     #
     # @!attribute runtime
     #   <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
+    #
+    #   Enum, one of: ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #
     #   @return [String]
     #
@@ -6976,6 +7596,8 @@ module AWS::Lambda
     # @!attribute runtime
     #   <p>The runtime environment for the Lambda function.</p>
     #
+    #   Enum, one of: ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #
     #   @return [String]
     #
     # @!attribute role
@@ -7069,6 +7691,8 @@ module AWS::Lambda
     #   <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by
     #         invoking it.</p>
     #
+    #   Enum, one of: ["Pending", "Active", "Inactive", "Failed"]
+    #
     #   @return [String]
     #
     # @!attribute state_reason
@@ -7080,11 +7704,15 @@ module AWS::Lambda
     #   <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or
     #         modify the function.</p>
     #
+    #   Enum, one of: ["Idle", "Creating", "Restoring", "EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #
     #   @return [String]
     #
     # @!attribute last_update_status
     #   <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code>
     #         after function creation completes.</p>
+    #
+    #   Enum, one of: ["Successful", "Failed", "InProgress"]
     #
     #   @return [String]
     #
@@ -7096,6 +7724,8 @@ module AWS::Lambda
     # @!attribute last_update_status_reason_code
     #   <p>The reason code for the last update that was performed on the function.</p>
     #
+    #   Enum, one of: ["EniLimitExceeded", "InsufficientRolePermissions", "InvalidConfiguration", "InternalError", "SubnetOutOfIPAddresses", "InvalidSubnet", "InvalidSecurityGroup", "ImageDeleted", "ImageAccessDenied", "InvalidImage"]
+    #
     #   @return [String]
     #
     # @!attribute file_system_configs
@@ -7105,6 +7735,8 @@ module AWS::Lambda
     #
     # @!attribute package_type
     #   <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
+    #
+    #   Enum, one of: ["Zip", "Image"]
     #
     #   @return [String]
     #
@@ -7158,6 +7790,11 @@ module AWS::Lambda
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.code_size ||= 0
+      end
+
     end
 
     # @!attribute function_name

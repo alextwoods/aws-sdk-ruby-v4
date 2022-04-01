@@ -48,6 +48,22 @@ module AWS::Dynamodb
       include Hearth::Structure
     end
 
+    # Includes enum constants for AttributeAction
+    #
+    module AttributeAction
+      # No documentation available.
+      #
+      ADD = "ADD"
+
+      # No documentation available.
+      #
+      PUT = "PUT"
+
+      # No documentation available.
+      #
+      DELETE = "DELETE"
+    end
+
     # <p>Represents an attribute for describing the key schema for the table and
     #             indexes.</p>
     #
@@ -72,6 +88,8 @@ module AWS::Dynamodb
     #                       <code>B</code> - the attribute is of type Binary</p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["S", "N", "B"]
     #
     #   @return [String]
     #
@@ -378,6 +396,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["ADD", "PUT", "DELETE"]
+    #
     #   @return [String]
     #
     AttributeValueUpdate = ::Struct.new(
@@ -649,6 +669,8 @@ module AWS::Dynamodb
     # @!attribute backup_status
     #   <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED. </p>
     #
+    #   Enum, one of: ["CREATING", "DELETED", "AVAILABLE"]
+    #
     #   @return [String]
     #
     # @!attribute backup_type
@@ -671,6 +693,8 @@ module AWS::Dynamodb
     #                       <code>AWS_BACKUP</code> - On-demand backup created by you from Backup service.</p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["USER", "SYSTEM", "AWS_BACKUP"]
     #
     #   @return [String]
     #
@@ -726,6 +750,22 @@ module AWS::Dynamodb
       include Hearth::Structure
     end
 
+    # Includes enum constants for BackupStatus
+    #
+    module BackupStatus
+      # No documentation available.
+      #
+      CREATING = "CREATING"
+
+      # No documentation available.
+      #
+      DELETED = "DELETED"
+
+      # No documentation available.
+      #
+      AVAILABLE = "AVAILABLE"
+    end
+
     # <p>Contains details for the backup.</p>
     #
     # @!attribute table_name
@@ -768,6 +808,8 @@ module AWS::Dynamodb
     # @!attribute backup_status
     #   <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
     #
+    #   Enum, one of: ["CREATING", "DELETED", "AVAILABLE"]
+    #
     #   @return [String]
     #
     # @!attribute backup_type
@@ -791,6 +833,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["USER", "SYSTEM", "AWS_BACKUP"]
+    #
     #   @return [String]
     #
     # @!attribute backup_size_bytes
@@ -812,6 +856,42 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for BackupType
+    #
+    module BackupType
+      # No documentation available.
+      #
+      USER = "USER"
+
+      # No documentation available.
+      #
+      SYSTEM = "SYSTEM"
+
+      # No documentation available.
+      #
+      AWS_BACKUP = "AWS_BACKUP"
+    end
+
+    # Includes enum constants for BackupTypeFilter
+    #
+    module BackupTypeFilter
+      # No documentation available.
+      #
+      USER = "USER"
+
+      # No documentation available.
+      #
+      SYSTEM = "SYSTEM"
+
+      # No documentation available.
+      #
+      AWS_BACKUP = "AWS_BACKUP"
+
+      # No documentation available.
+      #
+      ALL = "ALL"
     end
 
     # @!attribute statements
@@ -845,6 +925,8 @@ module AWS::Dynamodb
     #                       response.</p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
     #
     #   @return [String]
     #
@@ -1008,6 +1090,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
+    #
     #   @return [String]
     #
     BatchGetItemInput = ::Struct.new(
@@ -1090,6 +1174,8 @@ module AWS::Dynamodb
     # @!attribute code
     #   <p> The error code associated with the failed PartiQL batch statement. </p>
     #
+    #   Enum, one of: ["ConditionalCheckFailed", "ItemCollectionSizeLimitExceeded", "RequestLimitExceeded", "ValidationError", "ProvisionedThroughputExceeded", "TransactionConflict", "ThrottlingError", "InternalServerError", "ResourceNotFound", "AccessDenied", "DuplicateItem"]
+    #
     #   @return [String]
     #
     # @!attribute message
@@ -1103,6 +1189,54 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for BatchStatementErrorCodeEnum
+    #
+    module BatchStatementErrorCodeEnum
+      # No documentation available.
+      #
+      ConditionalCheckFailed = "ConditionalCheckFailed"
+
+      # No documentation available.
+      #
+      ItemCollectionSizeLimitExceeded = "ItemCollectionSizeLimitExceeded"
+
+      # No documentation available.
+      #
+      RequestLimitExceeded = "RequestLimitExceeded"
+
+      # No documentation available.
+      #
+      ValidationError = "ValidationError"
+
+      # No documentation available.
+      #
+      ProvisionedThroughputExceeded = "ProvisionedThroughputExceeded"
+
+      # No documentation available.
+      #
+      TransactionConflict = "TransactionConflict"
+
+      # No documentation available.
+      #
+      ThrottlingError = "ThrottlingError"
+
+      # No documentation available.
+      #
+      InternalServerError = "InternalServerError"
+
+      # No documentation available.
+      #
+      ResourceNotFound = "ResourceNotFound"
+
+      # No documentation available.
+      #
+      AccessDenied = "AccessDenied"
+
+      # No documentation available.
+      #
+      DuplicateItem = "DuplicateItem"
     end
 
     # <p> A PartiQL batch statement request. </p>
@@ -1233,6 +1367,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
+    #
     #   @return [String]
     #
     # @!attribute return_item_collection_metrics
@@ -1240,6 +1376,8 @@ module AWS::Dynamodb
     #               the response includes statistics about item collections, if any, that were modified
     #               during the operation are returned in the response. If set to <code>NONE</code> (the
     #               default), no statistics are returned.</p>
+    #
+    #   Enum, one of: ["SIZE", "NONE"]
     #
     #   @return [String]
     #
@@ -1357,6 +1495,18 @@ module AWS::Dynamodb
       include Hearth::Structure
     end
 
+    # Includes enum constants for BillingMode
+    #
+    module BillingMode
+      # No documentation available.
+      #
+      PROVISIONED = "PROVISIONED"
+
+      # No documentation available.
+      #
+      PAY_PER_REQUEST = "PAY_PER_REQUEST"
+    end
+
     # <p>Contains the details for the read/write capacity mode.</p>
     #
     # @!attribute billing_mode
@@ -1376,6 +1526,8 @@ module AWS::Dynamodb
     #                           <code>PAY_PER_REQUEST</code> for unpredictable workloads. </p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["PROVISIONED", "PAY_PER_REQUEST"]
     #
     #   @return [String]
     #
@@ -1447,6 +1599,62 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ComparisonOperator
+    #
+    module ComparisonOperator
+      # No documentation available.
+      #
+      EQ = "EQ"
+
+      # No documentation available.
+      #
+      NE = "NE"
+
+      # No documentation available.
+      #
+      IN = "IN"
+
+      # No documentation available.
+      #
+      LE = "LE"
+
+      # No documentation available.
+      #
+      LT = "LT"
+
+      # No documentation available.
+      #
+      GE = "GE"
+
+      # No documentation available.
+      #
+      GT = "GT"
+
+      # No documentation available.
+      #
+      BETWEEN = "BETWEEN"
+
+      # No documentation available.
+      #
+      NOT_NULL = "NOT_NULL"
+
+      # No documentation available.
+      #
+      NULL = "NULL"
+
+      # No documentation available.
+      #
+      CONTAINS = "CONTAINS"
+
+      # No documentation available.
+      #
+      NOT_CONTAINS = "NOT_CONTAINS"
+
+      # No documentation available.
+      #
+      BEGINS_WITH = "BEGINS_WITH"
     end
 
     # <p>Represents the selection criteria for a <code>Query</code> or <code>Scan</code>
@@ -1671,6 +1879,8 @@ module AWS::Dynamodb
     #                   Conditional Parameters</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
     #
+    #   Enum, one of: ["EQ", "NE", "IN", "LE", "LT", "GE", "GT", "BETWEEN", "NOT_NULL", "NULL", "CONTAINS", "NOT_CONTAINS", "BEGINS_WITH"]
+    #
     #   @return [String]
     #
     Condition = ::Struct.new(
@@ -1717,6 +1927,8 @@ module AWS::Dynamodb
     #                   <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and
     #               ALL_OLD.</p>
     #
+    #   Enum, one of: ["ALL_OLD", "NONE"]
+    #
     #   @return [String]
     #
     ConditionCheck = ::Struct.new(
@@ -1743,6 +1955,18 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ConditionalOperator
+    #
+    module ConditionalOperator
+      # No documentation available.
+      #
+      AND = "AND"
+
+      # No documentation available.
+      #
+      OR = "OR"
     end
 
     # <p>The capacity units consumed by an operation. The data returned includes the total
@@ -1809,6 +2033,8 @@ module AWS::Dynamodb
     #               <code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED,
     #               DISABLED</p>
     #
+    #   Enum, one of: ["ENABLED", "DISABLED"]
+    #
     #   @return [String]
     #
     # @!attribute point_in_time_recovery_description
@@ -1824,6 +2050,18 @@ module AWS::Dynamodb
       include Hearth::Structure
     end
 
+    # Includes enum constants for ContinuousBackupsStatus
+    #
+    module ContinuousBackupsStatus
+      # No documentation available.
+      #
+      ENABLED = "ENABLED"
+
+      # No documentation available.
+      #
+      DISABLED = "DISABLED"
+    end
+
     # <p>Backups have not yet been enabled for this table.</p>
     #
     # @!attribute message
@@ -1835,6 +2073,42 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ContributorInsightsAction
+    #
+    module ContributorInsightsAction
+      # No documentation available.
+      #
+      ENABLE = "ENABLE"
+
+      # No documentation available.
+      #
+      DISABLE = "DISABLE"
+    end
+
+    # Includes enum constants for ContributorInsightsStatus
+    #
+    module ContributorInsightsStatus
+      # No documentation available.
+      #
+      ENABLING = "ENABLING"
+
+      # No documentation available.
+      #
+      ENABLED = "ENABLED"
+
+      # No documentation available.
+      #
+      DISABLING = "DISABLING"
+
+      # No documentation available.
+      #
+      DISABLED = "DISABLED"
+
+      # No documentation available.
+      #
+      FAILED = "FAILED"
     end
 
     # <p>Represents a Contributor Insights summary entry.</p>
@@ -1852,6 +2126,8 @@ module AWS::Dynamodb
     # @!attribute contributor_insights_status
     #   <p>Describes the current status for contributor insights for the given table and index,
     #               if applicable.</p>
+    #
+    #   Enum, one of: ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"]
     #
     #   @return [String]
     #
@@ -2006,6 +2282,8 @@ module AWS::Dynamodb
     # @!attribute table_class_override
     #   <p>Replica-specific table class. If not specified, uses the source table's
     #               table class.</p>
+    #
+    #   Enum, one of: ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #
     #   @return [String]
     #
@@ -2223,6 +2501,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["PROVISIONED", "PAY_PER_REQUEST"]
+    #
     #   @return [String]
     #
     # @!attribute provisioned_throughput
@@ -2292,6 +2572,8 @@ module AWS::Dynamodb
     #   <p>The table class of the new table. Valid values are <code>STANDARD</code> and
     #                   <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
     #
+    #   Enum, one of: ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
+    #
     #   @return [String]
     #
     CreateTableInput = ::Struct.new(
@@ -2359,6 +2641,8 @@ module AWS::Dynamodb
     #                   <code>Delete</code> condition fails. For
     #                   <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and
     #               ALL_OLD.</p>
+    #
+    #   Enum, one of: ["ALL_OLD", "NONE"]
     #
     #   @return [String]
     #
@@ -2441,6 +2725,8 @@ module AWS::Dynamodb
     #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
     #
+    #   Enum, one of: ["AND", "OR"]
+    #
     #   @return [String]
     #
     # @!attribute return_values
@@ -2463,6 +2749,8 @@ module AWS::Dynamodb
     #                   however, <code>DeleteItem</code> does not recognize any values other than
     #                       <code>NONE</code> or <code>ALL_OLD</code>.</p>
     #           </note>
+    #
+    #   Enum, one of: ["NONE", "ALL_OLD", "UPDATED_OLD", "ALL_NEW", "UPDATED_NEW"]
     #
     #   @return [String]
     #
@@ -2493,6 +2781,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
+    #
     #   @return [String]
     #
     # @!attribute return_item_collection_metrics
@@ -2500,6 +2790,8 @@ module AWS::Dynamodb
     #               the response includes statistics about item collections, if any, that were modified
     #               during the operation are returned in the response. If set to <code>NONE</code> (the
     #               default), no statistics are returned.</p>
+    #
+    #   Enum, one of: ["SIZE", "NONE"]
     #
     #   @return [String]
     #
@@ -2839,6 +3131,8 @@ module AWS::Dynamodb
     # @!attribute contributor_insights_status
     #   <p>Current status of contributor insights.</p>
     #
+    #   Enum, one of: ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"]
+    #
     #   @return [String]
     #
     # @!attribute last_update_date_time
@@ -3134,6 +3428,30 @@ module AWS::Dynamodb
       include Hearth::Structure
     end
 
+    # Includes enum constants for DestinationStatus
+    #
+    module DestinationStatus
+      # No documentation available.
+      #
+      ENABLING = "ENABLING"
+
+      # No documentation available.
+      #
+      ACTIVE = "ACTIVE"
+
+      # No documentation available.
+      #
+      DISABLING = "DISABLING"
+
+      # No documentation available.
+      #
+      DISABLED = "DISABLED"
+
+      # No documentation available.
+      #
+      ENABLE_FAILED = "ENABLE_FAILED"
+    end
+
     # @!attribute table_name
     #   <p>The name of the DynamoDB table.</p>
     #
@@ -3164,6 +3482,8 @@ module AWS::Dynamodb
     #
     # @!attribute destination_status
     #   <p>The current status of the replication.</p>
+    #
+    #   Enum, one of: ["ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED"]
     #
     #   @return [String]
     #
@@ -3221,6 +3541,8 @@ module AWS::Dynamodb
     # @!attribute destination_status
     #   <p>The current status of the replication.</p>
     #
+    #   Enum, one of: ["ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED"]
+    #
     #   @return [String]
     #
     EnableKinesisStreamingDestinationOutput = ::Struct.new(
@@ -3250,6 +3572,11 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.cache_period_in_minutes ||= 0
+      end
+
     end
 
     # @!attribute statement
@@ -3300,6 +3627,8 @@ module AWS::Dynamodb
     #                       response.</p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
     #
     #   @return [String]
     #
@@ -3360,6 +3689,8 @@ module AWS::Dynamodb
     # @!attribute return_consumed_capacity
     #   <p>Determines the level of detail about either provisioned or on-demand throughput consumption that is
     #               returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
+    #
+    #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
     #
     #   @return [String]
     #
@@ -3652,6 +3983,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["EQ", "NE", "IN", "LE", "LT", "GE", "GT", "BETWEEN", "NOT_NULL", "NULL", "CONTAINS", "NOT_CONTAINS", "BEGINS_WITH"]
+    #
     #   @return [String]
     #
     # @!attribute attribute_value_list
@@ -3701,6 +4034,8 @@ module AWS::Dynamodb
     # @!attribute export_status
     #   <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or
     #               FAILED.</p>
+    #
+    #   Enum, one of: ["IN_PROGRESS", "COMPLETED", "FAILED"]
     #
     #   @return [String]
     #
@@ -3774,6 +4109,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["AES256", "KMS"]
+    #
     #   @return [String]
     #
     # @!attribute s3_sse_kms_key_id
@@ -3795,6 +4132,8 @@ module AWS::Dynamodb
     # @!attribute export_format
     #   <p>The format of the exported data. Valid values for <code>ExportFormat</code> are
     #                   <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
+    #
+    #   Enum, one of: ["DYNAMODB_JSON", "ION"]
     #
     #   @return [String]
     #
@@ -3833,6 +4172,18 @@ module AWS::Dynamodb
       include Hearth::Structure
     end
 
+    # Includes enum constants for ExportFormat
+    #
+    module ExportFormat
+      # No documentation available.
+      #
+      DYNAMODB_JSON = "DYNAMODB_JSON"
+
+      # No documentation available.
+      #
+      ION = "ION"
+    end
+
     # <p>The specified export was not found.</p>
     #
     # @!attribute message
@@ -3846,6 +4197,22 @@ module AWS::Dynamodb
       include Hearth::Structure
     end
 
+    # Includes enum constants for ExportStatus
+    #
+    module ExportStatus
+      # No documentation available.
+      #
+      IN_PROGRESS = "IN_PROGRESS"
+
+      # No documentation available.
+      #
+      COMPLETED = "COMPLETED"
+
+      # No documentation available.
+      #
+      FAILED = "FAILED"
+    end
+
     # <p>Summary information about an export task.</p>
     #
     # @!attribute export_arn
@@ -3856,6 +4223,8 @@ module AWS::Dynamodb
     # @!attribute export_status
     #   <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or
     #               FAILED.</p>
+    #
+    #   Enum, one of: ["IN_PROGRESS", "COMPLETED", "FAILED"]
     #
     #   @return [String]
     #
@@ -3925,6 +4294,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["AES256", "KMS"]
+    #
     #   @return [String]
     #
     # @!attribute s3_sse_kms_key_id
@@ -3936,6 +4307,8 @@ module AWS::Dynamodb
     # @!attribute export_format
     #   <p>The format for the exported data. Valid values for <code>ExportFormat</code> are
     #                   <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
+    #
+    #   Enum, one of: ["DYNAMODB_JSON", "ION"]
     #
     #   @return [String]
     #
@@ -4081,6 +4454,8 @@ module AWS::Dynamodb
     #                       response.</p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
     #
     #   @return [String]
     #
@@ -4331,6 +4706,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["CREATING", "UPDATING", "DELETING", "ACTIVE"]
+    #
     #   @return [String]
     #
     # @!attribute backfilling
@@ -4392,6 +4769,12 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.index_size_bytes ||= 0
+        self.item_count ||= 0
+      end
+
     end
 
     # <p>Represents the properties of a global secondary index for the table when the backup
@@ -4589,6 +4972,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["CREATING", "ACTIVE", "DELETING", "UPDATING"]
+    #
     #   @return [String]
     #
     # @!attribute global_table_name
@@ -4651,6 +5036,26 @@ module AWS::Dynamodb
       include Hearth::Structure
     end
 
+    # Includes enum constants for GlobalTableStatus
+    #
+    module GlobalTableStatus
+      # No documentation available.
+      #
+      CREATING = "CREATING"
+
+      # No documentation available.
+      #
+      ACTIVE = "ACTIVE"
+
+      # No documentation available.
+      #
+      DELETING = "DELETING"
+
+      # No documentation available.
+      #
+      UPDATING = "UPDATING"
+    end
+
     # <p>DynamoDB rejected the request because you retried a request with a
     #             different payload but with an idempotent token that was already used.</p>
     #
@@ -4676,6 +5081,26 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for IndexStatus
+    #
+    module IndexStatus
+      # No documentation available.
+      #
+      CREATING = "CREATING"
+
+      # No documentation available.
+      #
+      UPDATING = "UPDATING"
+
+      # No documentation available.
+      #
+      DELETING = "DELETING"
+
+      # No documentation available.
+      #
+      ACTIVE = "ACTIVE"
     end
 
     # <p>An error occurred on the server side.</p>
@@ -4830,6 +5255,8 @@ module AWS::Dynamodb
     #                   value.</p>
     #           </note>
     #
+    #   Enum, one of: ["HASH", "RANGE"]
+    #
     #   @return [String]
     #
     KeySchemaElement = ::Struct.new(
@@ -4838,6 +5265,18 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for KeyType
+    #
+    module KeyType
+      # No documentation available.
+      #
+      HASH = "HASH"
+
+      # No documentation available.
+      #
+      RANGE = "RANGE"
     end
 
     # <p>Represents a set of primary keys and, for each key, the attributes to retrieve from
@@ -4954,6 +5393,8 @@ module AWS::Dynamodb
     # @!attribute destination_status
     #   <p>The current status of replication.</p>
     #
+    #   Enum, one of: ["ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED"]
+    #
     #   @return [String]
     #
     # @!attribute destination_status_description
@@ -5043,6 +5484,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["USER", "SYSTEM", "AWS_BACKUP", "ALL"]
+    #
     #   @return [String]
     #
     ListBackupsInput = ::Struct.new(
@@ -5105,6 +5548,11 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute contributor_insights_summaries
@@ -5428,6 +5876,12 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.index_size_bytes ||= 0
+        self.item_count ||= 0
+      end
+
     end
 
     # <p>Represents the properties of a local secondary index for the table when the backup was
@@ -5519,6 +5973,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["ENABLED", "DISABLED"]
+    #
     #   @return [String]
     #
     # @!attribute earliest_restorable_date_time
@@ -5556,6 +6012,18 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for PointInTimeRecoveryStatus
+    #
+    module PointInTimeRecoveryStatus
+      # No documentation available.
+      #
+      ENABLED = "ENABLED"
+
+      # No documentation available.
+      #
+      DISABLED = "DISABLED"
     end
 
     # <p>Point in time recovery has not yet been enabled for this source table.</p>
@@ -5596,6 +6064,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["ALL", "KEYS_ONLY", "INCLUDE"]
+    #
     #   @return [String]
     #
     # @!attribute non_key_attributes
@@ -5613,6 +6083,22 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ProjectionType
+    #
+    module ProjectionType
+      # No documentation available.
+      #
+      ALL = "ALL"
+
+      # No documentation available.
+      #
+      KEYS_ONLY = "KEYS_ONLY"
+
+      # No documentation available.
+      #
+      INCLUDE = "INCLUDE"
     end
 
     # <p>Represents the provisioned throughput settings for a specified table or index. The
@@ -5765,6 +6251,8 @@ module AWS::Dynamodb
     #                   <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and
     #               ALL_OLD.</p>
     #
+    #   Enum, one of: ["ALL_OLD", "NONE"]
+    #
     #   @return [String]
     #
     Put = ::Struct.new(
@@ -5839,6 +6327,8 @@ module AWS::Dynamodb
     #                       <code>NONE</code> or <code>ALL_OLD</code>.</p>
     #           </note>
     #
+    #   Enum, one of: ["NONE", "ALL_OLD", "UPDATED_OLD", "ALL_NEW", "UPDATED_NEW"]
+    #
     #   @return [String]
     #
     # @!attribute return_consumed_capacity
@@ -5868,6 +6358,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
+    #
     #   @return [String]
     #
     # @!attribute return_item_collection_metrics
@@ -5876,12 +6368,16 @@ module AWS::Dynamodb
     #               during the operation are returned in the response. If set to <code>NONE</code> (the
     #               default), no statistics are returned.</p>
     #
+    #   Enum, one of: ["SIZE", "NONE"]
+    #
     #   @return [String]
     #
     # @!attribute conditional_operator
     #   <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
     #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
+    #
+    #   Enum, one of: ["AND", "OR"]
     #
     #   @return [String]
     #
@@ -6150,6 +6646,8 @@ module AWS::Dynamodb
     #                   value for <code>Select</code> will return an error.</p>
     #           </note>
     #
+    #   Enum, one of: ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
+    #
     #   @return [String]
     #
     # @!attribute attributes_to_get
@@ -6200,6 +6698,8 @@ module AWS::Dynamodb
     #   <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more
     #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
+    #
+    #   Enum, one of: ["AND", "OR"]
     #
     #   @return [String]
     #
@@ -6252,6 +6752,8 @@ module AWS::Dynamodb
     #                       response.</p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
     #
     #   @return [String]
     #
@@ -6569,6 +7071,12 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.count ||= 0
+        self.scanned_count ||= 0
+      end
+
     end
 
     # <p>Represents the properties of a replica.</p>
@@ -6642,6 +7150,8 @@ module AWS::Dynamodb
     #                       <code>ACTIVE</code> - The replica is ready for use.</p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #
     #   @return [String]
     #
@@ -6732,6 +7242,8 @@ module AWS::Dynamodb
     #                   </note>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #
     #   @return [String]
     #
@@ -6838,6 +7350,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["CREATING", "UPDATING", "DELETING", "ACTIVE"]
+    #
     #   @return [String]
     #
     # @!attribute provisioned_read_capacity_auto_scaling_settings
@@ -6932,6 +7446,8 @@ module AWS::Dynamodb
     #                       <code>ACTIVE</code> - The global secondary index is ready for use.</p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["CREATING", "UPDATING", "DELETING", "ACTIVE"]
     #
     #   @return [String]
     #
@@ -7042,6 +7558,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
+    #
     #   @return [String]
     #
     # @!attribute replica_billing_mode_summary
@@ -7128,6 +7646,8 @@ module AWS::Dynamodb
     #   <p>Replica-specific table class. If not specified, uses the source table's
     #               table class.</p>
     #
+    #   Enum, one of: ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
+    #
     #   @return [String]
     #
     ReplicaSettingsUpdate = ::Struct.new(
@@ -7139,6 +7659,38 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ReplicaStatus
+    #
+    module ReplicaStatus
+      # No documentation available.
+      #
+      CREATING = "CREATING"
+
+      # No documentation available.
+      #
+      CREATION_FAILED = "CREATION_FAILED"
+
+      # No documentation available.
+      #
+      UPDATING = "UPDATING"
+
+      # No documentation available.
+      #
+      DELETING = "DELETING"
+
+      # No documentation available.
+      #
+      ACTIVE = "ACTIVE"
+
+      # No documentation available.
+      #
+      REGION_DISABLED = "REGION_DISABLED"
+
+      # No documentation available.
+      #
+      INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
     end
 
     # <p>Represents one of the following:</p>
@@ -7305,6 +7857,8 @@ module AWS::Dynamodb
     # @!attribute billing_mode_override
     #   <p>The billing mode of the restored table.</p>
     #
+    #   Enum, one of: ["PROVISIONED", "PAY_PER_REQUEST"]
+    #
     #   @return [String]
     #
     # @!attribute global_secondary_index_override
@@ -7386,6 +7940,8 @@ module AWS::Dynamodb
     # @!attribute billing_mode_override
     #   <p>The billing mode of the restored table.</p>
     #
+    #   Enum, one of: ["PROVISIONED", "PAY_PER_REQUEST"]
+    #
     #   @return [String]
     #
     # @!attribute global_secondary_index_override
@@ -7440,6 +7996,82 @@ module AWS::Dynamodb
       include Hearth::Structure
     end
 
+    # Includes enum constants for ReturnConsumedCapacity
+    #
+    module ReturnConsumedCapacity
+      # No documentation available.
+      #
+      INDEXES = "INDEXES"
+
+      # No documentation available.
+      #
+      TOTAL = "TOTAL"
+
+      # No documentation available.
+      #
+      NONE = "NONE"
+    end
+
+    # Includes enum constants for ReturnItemCollectionMetrics
+    #
+    module ReturnItemCollectionMetrics
+      # No documentation available.
+      #
+      SIZE = "SIZE"
+
+      # No documentation available.
+      #
+      NONE = "NONE"
+    end
+
+    # Includes enum constants for ReturnValue
+    #
+    module ReturnValue
+      # No documentation available.
+      #
+      NONE = "NONE"
+
+      # No documentation available.
+      #
+      ALL_OLD = "ALL_OLD"
+
+      # No documentation available.
+      #
+      UPDATED_OLD = "UPDATED_OLD"
+
+      # No documentation available.
+      #
+      ALL_NEW = "ALL_NEW"
+
+      # No documentation available.
+      #
+      UPDATED_NEW = "UPDATED_NEW"
+    end
+
+    # Includes enum constants for ReturnValuesOnConditionCheckFailure
+    #
+    module ReturnValuesOnConditionCheckFailure
+      # No documentation available.
+      #
+      ALL_OLD = "ALL_OLD"
+
+      # No documentation available.
+      #
+      NONE = "NONE"
+    end
+
+    # Includes enum constants for S3SseAlgorithm
+    #
+    module S3SseAlgorithm
+      # No documentation available.
+      #
+      AES256 = "AES256"
+
+      # No documentation available.
+      #
+      KMS = "KMS"
+    end
+
     # <p>The description of the server-side encryption status on the specified table.</p>
     #
     # @!attribute status
@@ -7456,6 +8088,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"]
+    #
     #   @return [String]
     #
     # @!attribute sse_type
@@ -7467,6 +8101,8 @@ module AWS::Dynamodb
     #                       key is stored in your account and is managed by KMS (KMS charges apply).</p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["AES256", "KMS"]
     #
     #   @return [String]
     #
@@ -7514,6 +8150,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["AES256", "KMS"]
+    #
     #   @return [String]
     #
     # @!attribute kms_master_key_id
@@ -7531,6 +8169,58 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for SSEStatus
+    #
+    module SSEStatus
+      # No documentation available.
+      #
+      ENABLING = "ENABLING"
+
+      # No documentation available.
+      #
+      ENABLED = "ENABLED"
+
+      # No documentation available.
+      #
+      DISABLING = "DISABLING"
+
+      # No documentation available.
+      #
+      DISABLED = "DISABLED"
+
+      # No documentation available.
+      #
+      UPDATING = "UPDATING"
+    end
+
+    # Includes enum constants for SSEType
+    #
+    module SSEType
+      # No documentation available.
+      #
+      AES256 = "AES256"
+
+      # No documentation available.
+      #
+      KMS = "KMS"
+    end
+
+    # Includes enum constants for ScalarAttributeType
+    #
+    module ScalarAttributeType
+      # No documentation available.
+      #
+      S = "S"
+
+      # No documentation available.
+      #
+      N = "N"
+
+      # No documentation available.
+      #
+      B = "B"
     end
 
     # <p>Represents the input of a <code>Scan</code> operation.</p>
@@ -7623,6 +8313,8 @@ module AWS::Dynamodb
     #                   value for <code>Select</code> will return an error.</p>
     #           </note>
     #
+    #   Enum, one of: ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
+    #
     #   @return [String]
     #
     # @!attribute scan_filter
@@ -7636,6 +8328,8 @@ module AWS::Dynamodb
     #   <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more
     #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
+    #
+    #   Enum, one of: ["AND", "OR"]
     #
     #   @return [String]
     #
@@ -7677,6 +8371,8 @@ module AWS::Dynamodb
     #                       response.</p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
     #
     #   @return [String]
     #
@@ -7919,6 +8615,32 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.count ||= 0
+        self.scanned_count ||= 0
+      end
+
+    end
+
+    # Includes enum constants for Select
+    #
+    module Select
+      # No documentation available.
+      #
+      ALL_ATTRIBUTES = "ALL_ATTRIBUTES"
+
+      # No documentation available.
+      #
+      ALL_PROJECTED_ATTRIBUTES = "ALL_PROJECTED_ATTRIBUTES"
+
+      # No documentation available.
+      #
+      SPECIFIC_ATTRIBUTES = "SPECIFIC_ATTRIBUTES"
+
+      # No documentation available.
+      #
+      COUNT = "COUNT"
     end
 
     # <p>Contains the details of the table when the backup was created. </p>
@@ -7981,6 +8703,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["PROVISIONED", "PAY_PER_REQUEST"]
+    #
     #   @return [String]
     #
     SourceTableDetails = ::Struct.new(
@@ -7996,6 +8720,11 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.table_size_bytes ||= 0
+      end
+
     end
 
     # <p>Contains the details of the features enabled on the table when the backup was created.
@@ -8077,6 +8806,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"]
+    #
     #   @return [String]
     #
     StreamSpecification = ::Struct.new(
@@ -8085,6 +8816,26 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for StreamViewType
+    #
+    module StreamViewType
+      # No documentation available.
+      #
+      NEW_IMAGE = "NEW_IMAGE"
+
+      # No documentation available.
+      #
+      OLD_IMAGE = "OLD_IMAGE"
+
+      # No documentation available.
+      #
+      NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES"
+
+      # No documentation available.
+      #
+      KEYS_ONLY = "KEYS_ONLY"
     end
 
     # <p>A target table with the specified name already exists. </p>
@@ -8128,6 +8879,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["CREATING", "UPDATING", "DELETING", "ACTIVE", "INACCESSIBLE_ENCRYPTION_CREDENTIALS", "ARCHIVING", "ARCHIVED"]
+    #
     #   @return [String]
     #
     # @!attribute replicas
@@ -8144,11 +8897,25 @@ module AWS::Dynamodb
       include Hearth::Structure
     end
 
+    # Includes enum constants for TableClass
+    #
+    module TableClass
+      # No documentation available.
+      #
+      STANDARD = "STANDARD"
+
+      # No documentation available.
+      #
+      STANDARD_INFREQUENT_ACCESS = "STANDARD_INFREQUENT_ACCESS"
+    end
+
     # <p>Contains details of the table class.</p>
     #
     # @!attribute table_class
     #   <p>The table class of the specified table. Valid values are <code>STANDARD</code> and
     #                   <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
+    #
+    #   Enum, one of: ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #
     #   @return [String]
     #
@@ -8266,6 +9033,8 @@ module AWS::Dynamodb
     #                       more information. </p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["CREATING", "UPDATING", "DELETING", "ACTIVE", "INACCESSIBLE_ENCRYPTION_CREDENTIALS", "ARCHIVING", "ARCHIVED"]
     #
     #   @return [String]
     #
@@ -8588,6 +9357,12 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.table_size_bytes ||= 0
+        self.item_count ||= 0
+      end
+
     end
 
     # <p>A target table with the specified name is either being created or deleted.
@@ -8616,6 +9391,38 @@ module AWS::Dynamodb
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for TableStatus
+    #
+    module TableStatus
+      # No documentation available.
+      #
+      CREATING = "CREATING"
+
+      # No documentation available.
+      #
+      UPDATING = "UPDATING"
+
+      # No documentation available.
+      #
+      DELETING = "DELETING"
+
+      # No documentation available.
+      #
+      ACTIVE = "ACTIVE"
+
+      # No documentation available.
+      #
+      INACCESSIBLE_ENCRYPTION_CREDENTIALS = "INACCESSIBLE_ENCRYPTION_CREDENTIALS"
+
+      # No documentation available.
+      #
+      ARCHIVING = "ARCHIVING"
+
+      # No documentation available.
+      #
+      ARCHIVED = "ARCHIVED"
     end
 
     # <p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single
@@ -8680,6 +9487,8 @@ module AWS::Dynamodb
     # @!attribute time_to_live_status
     #   <p> The TTL status for the table.</p>
     #
+    #   Enum, one of: ["ENABLING", "DISABLING", "ENABLED", "DISABLED"]
+    #
     #   @return [String]
     #
     # @!attribute attribute_name
@@ -8717,6 +9526,26 @@ module AWS::Dynamodb
       include Hearth::Structure
     end
 
+    # Includes enum constants for TimeToLiveStatus
+    #
+    module TimeToLiveStatus
+      # No documentation available.
+      #
+      ENABLING = "ENABLING"
+
+      # No documentation available.
+      #
+      DISABLING = "DISABLING"
+
+      # No documentation available.
+      #
+      ENABLED = "ENABLED"
+
+      # No documentation available.
+      #
+      DISABLED = "DISABLED"
+    end
+
     # <p>Specifies an item to be retrieved as part of the transaction.</p>
     #
     # @!attribute get
@@ -8743,6 +9572,8 @@ module AWS::Dynamodb
     #   <p>A value of <code>TOTAL</code> causes consumed capacity information to be returned, and
     #               a value of <code>NONE</code> prevents that information from being returned. No other
     #               value is valid.</p>
+    #
+    #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
     #
     #   @return [String]
     #
@@ -8852,6 +9683,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
+    #
     #   @return [String]
     #
     # @!attribute return_item_collection_metrics
@@ -8859,6 +9692,8 @@ module AWS::Dynamodb
     #               the response includes statistics about item collections (if any), that were modified
     #               during the operation and are returned in the response. If set to <code>NONE</code> (the
     #               default), no statistics are returned. </p>
+    #
+    #   Enum, one of: ["SIZE", "NONE"]
     #
     #   @return [String]
     #
@@ -9265,6 +10100,8 @@ module AWS::Dynamodb
     #                   <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE,
     #               ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.</p>
     #
+    #   Enum, one of: ["ALL_OLD", "NONE"]
+    #
     #   @return [String]
     #
     Update = ::Struct.new(
@@ -9324,6 +10161,8 @@ module AWS::Dynamodb
     # @!attribute contributor_insights_action
     #   <p>Represents the contributor insights action.</p>
     #
+    #   Enum, one of: ["ENABLE", "DISABLE"]
+    #
     #   @return [String]
     #
     UpdateContributorInsightsInput = ::Struct.new(
@@ -9347,6 +10186,8 @@ module AWS::Dynamodb
     #
     # @!attribute contributor_insights_status
     #   <p>The status of contributor insights</p>
+    #
+    #   Enum, one of: ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"]
     #
     #   @return [String]
     #
@@ -9436,6 +10277,8 @@ module AWS::Dynamodb
     #                       to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html HowItWorks.OnDemand">On-Demand Mode</a>. </p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["PROVISIONED", "PAY_PER_REQUEST"]
     #
     #   @return [String]
     #
@@ -9529,6 +10372,8 @@ module AWS::Dynamodb
     #               information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.ConditionalOperator.html">ConditionalOperator</a> in the <i>Amazon DynamoDB Developer
     #                   Guide</i>.</p>
     #
+    #   Enum, one of: ["AND", "OR"]
+    #
     #   @return [String]
     #
     # @!attribute return_values
@@ -9568,6 +10413,8 @@ module AWS::Dynamodb
     #               units are consumed.</p>
     #           <p>The values returned are strongly consistent.</p>
     #
+    #   Enum, one of: ["NONE", "ALL_OLD", "UPDATED_OLD", "ALL_NEW", "UPDATED_NEW"]
+    #
     #   @return [String]
     #
     # @!attribute return_consumed_capacity
@@ -9597,6 +10444,8 @@ module AWS::Dynamodb
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["INDEXES", "TOTAL", "NONE"]
+    #
     #   @return [String]
     #
     # @!attribute return_item_collection_metrics
@@ -9604,6 +10453,8 @@ module AWS::Dynamodb
     #               the response includes statistics about item collections, if any, that were modified
     #               during the operation are returned in the response. If set to <code>NONE</code> (the
     #               default), no statistics are returned.</p>
+    #
+    #   Enum, one of: ["SIZE", "NONE"]
     #
     #   @return [String]
     #
@@ -9926,6 +10777,8 @@ module AWS::Dynamodb
     #   <p>Replica-specific table class. If not specified, uses the source table's
     #               table class.</p>
     #
+    #   Enum, one of: ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
+    #
     #   @return [String]
     #
     UpdateReplicationGroupMemberAction = ::Struct.new(
@@ -9972,6 +10825,8 @@ module AWS::Dynamodb
     #                       to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html HowItWorks.OnDemand">On-Demand Mode</a>. </p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["PROVISIONED", "PAY_PER_REQUEST"]
     #
     #   @return [String]
     #
@@ -10033,6 +10888,8 @@ module AWS::Dynamodb
     # @!attribute table_class
     #   <p>The table class of the table to be updated. Valid values are <code>STANDARD</code> and
     #                   <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
+    #
+    #   Enum, one of: ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #
     #   @return [String]
     #

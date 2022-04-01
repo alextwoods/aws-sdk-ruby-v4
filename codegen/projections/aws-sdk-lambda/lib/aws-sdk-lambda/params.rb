@@ -208,7 +208,7 @@ module AWS::Lambda
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -678,7 +678,7 @@ module AWS::Lambda
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -802,7 +802,7 @@ module AWS::Lambda
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -912,7 +912,7 @@ module AWS::Lambda
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -1370,7 +1370,11 @@ module AWS::Lambda
         Hearth::Validator.validate!(params, ::Hash, Types::InvokeAsyncInput, context: context)
         type = Types::InvokeAsyncInput.new
         type.function_name = params[:function_name]
-        type.invoke_args = params[:invoke_args]
+        io = params[:invoke_args] || StringIO.new
+        unless io.respond_to?(:read) || io.respond_to?(:readpartial)
+          io = StringIO.new(io)
+        end
+        type.invoke_args = io
         type
       end
     end
@@ -1467,7 +1471,7 @@ module AWS::Lambda
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2036,7 +2040,7 @@ module AWS::Lambda
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2137,7 +2141,7 @@ module AWS::Lambda
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2167,7 +2171,7 @@ module AWS::Lambda
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2199,7 +2203,7 @@ module AWS::Lambda
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2220,7 +2224,7 @@ module AWS::Lambda
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2231,7 +2235,7 @@ module AWS::Lambda
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2283,7 +2287,7 @@ module AWS::Lambda
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data

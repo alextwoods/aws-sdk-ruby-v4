@@ -36,7 +36,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -47,7 +47,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -78,7 +78,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -295,7 +295,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -546,7 +546,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -557,7 +557,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -734,7 +734,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -745,7 +745,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -756,7 +756,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -1142,7 +1142,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -1469,7 +1469,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -1521,7 +1521,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -1575,7 +1575,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -1586,7 +1586,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2007,7 +2007,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2050,7 +2050,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2143,7 +2143,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2467,7 +2467,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2524,7 +2524,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2571,7 +2571,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2651,7 +2651,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2673,7 +2673,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2776,7 +2776,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -2787,7 +2787,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -4673,7 +4673,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -4695,7 +4695,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -5409,7 +5409,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -6064,7 +6064,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -9432,7 +9432,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -10135,7 +10135,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -10189,7 +10189,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -10644,7 +10644,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -10655,7 +10655,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -10819,7 +10819,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -10856,7 +10856,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -11085,7 +11085,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -11286,7 +11286,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -11297,7 +11297,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -11387,7 +11387,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -12233,7 +12233,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -12276,7 +12276,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -12287,7 +12287,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -12479,7 +12479,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -12678,7 +12678,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -12689,7 +12689,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -12999,7 +12999,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -13021,7 +13021,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -13098,7 +13098,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -13337,7 +13337,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -13435,7 +13435,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -13446,7 +13446,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -13457,7 +13457,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -13468,7 +13468,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -13479,7 +13479,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -13970,7 +13970,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -14054,7 +14054,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -14087,7 +14087,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -14161,7 +14161,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -14183,7 +14183,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -14220,7 +14220,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -14252,7 +14252,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -14387,7 +14387,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -14608,7 +14608,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -14672,7 +14672,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -14775,7 +14775,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -14786,7 +14786,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -15160,7 +15160,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -15334,7 +15334,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -15697,7 +15697,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -15749,7 +15749,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -15787,7 +15787,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -15825,7 +15825,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -15888,7 +15888,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -15910,7 +15910,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -15932,7 +15932,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -17429,7 +17429,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -17515,7 +17515,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -17611,7 +17611,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -17644,7 +17644,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -17688,7 +17688,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -17728,7 +17728,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -17845,7 +17845,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -17901,7 +17901,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -17977,7 +17977,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -17988,7 +17988,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -18027,7 +18027,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -18038,7 +18038,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -18049,7 +18049,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -18467,7 +18467,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -18498,7 +18498,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -18509,7 +18509,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -18644,7 +18644,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -18655,7 +18655,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -18861,7 +18861,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -18903,7 +18903,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -18914,7 +18914,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -18945,7 +18945,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -19047,7 +19047,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -19073,7 +19073,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -19246,7 +19246,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -19331,7 +19331,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -19342,7 +19342,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -19732,7 +19732,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -19853,7 +19853,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -19864,7 +19864,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -19875,7 +19875,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -20017,7 +20017,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -20028,7 +20028,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -20100,7 +20100,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -20201,7 +20201,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -20269,7 +20269,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -20335,7 +20335,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -20502,7 +20502,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -20513,7 +20513,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -20554,7 +20554,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -20565,7 +20565,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -20613,7 +20613,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -20796,7 +20796,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -20892,7 +20892,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -21093,7 +21093,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -21290,7 +21290,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -21385,7 +21385,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -21481,7 +21481,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -21540,7 +21540,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -21741,7 +21741,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -21974,7 +21974,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -22033,7 +22033,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -22395,7 +22395,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -22492,7 +22492,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -22837,7 +22837,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -22922,7 +22922,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -22952,7 +22952,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -22985,7 +22985,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -23034,7 +23034,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -23045,7 +23045,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -23082,7 +23082,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -23185,7 +23185,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -23228,7 +23228,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -23301,7 +23301,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -23332,7 +23332,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -23430,7 +23430,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -23515,7 +23515,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -23719,7 +23719,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -23764,7 +23764,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -23829,7 +23829,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24066,7 +24066,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24106,7 +24106,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24154,7 +24154,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24217,7 +24217,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24228,7 +24228,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24264,7 +24264,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24275,7 +24275,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24344,7 +24344,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24609,7 +24609,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24683,7 +24683,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24694,7 +24694,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24705,7 +24705,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24716,7 +24716,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24738,7 +24738,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24749,7 +24749,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24809,7 +24809,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24913,7 +24913,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -24982,7 +24982,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -25082,7 +25082,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data
@@ -25093,7 +25093,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
         data = []
-        params.each_with_index do |element, index|
+        params.each do |element|
           data << element
         end
         data

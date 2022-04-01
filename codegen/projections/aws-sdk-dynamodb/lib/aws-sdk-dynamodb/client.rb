@@ -151,7 +151,7 @@ module AWS::Dynamodb
     #         consistent_read: false
     #       }
     #     ], # required
-    #     return_consumed_capacity: 'INDEXES' # accepts INDEXES, TOTAL, NONE
+    #     return_consumed_capacity: 'INDEXES' # accepts ["INDEXES", "TOTAL", "NONE"]
     #   )
     #
     # @example Response structure
@@ -160,7 +160,7 @@ module AWS::Dynamodb
     #   resp.data.responses #=> Array<BatchStatementResponse>
     #   resp.data.responses[0] #=> Types::BatchStatementResponse
     #   resp.data.responses[0].error #=> Types::BatchStatementError
-    #   resp.data.responses[0].error.code #=> String, one of ConditionalCheckFailed, ItemCollectionSizeLimitExceeded, RequestLimitExceeded, ValidationError, ProvisionedThroughputExceeded, TransactionConflict, ThrottlingError, InternalServerError, ResourceNotFound, AccessDenied, DuplicateItem
+    #   resp.data.responses[0].error.code #=> String, one of ["ConditionalCheckFailed", "ItemCollectionSizeLimitExceeded", "RequestLimitExceeded", "ValidationError", "ProvisionedThroughputExceeded", "TransactionConflict", "ThrottlingError", "InternalServerError", "ResourceNotFound", "AccessDenied", "DuplicateItem"]
     #   resp.data.responses[0].error.message #=> String
     #   resp.data.responses[0].table_name #=> String
     #   resp.data.responses[0].item #=> Hash<String, AttributeValue>
@@ -181,13 +181,13 @@ module AWS::Dynamodb
     def batch_execute_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchExecuteStatementInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchExecuteStatementInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::BatchExecuteStatement,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::BatchExecuteStatement
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -208,7 +208,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :batch_execute_statement
@@ -436,7 +436,7 @@ module AWS::Dynamodb
     #         }
     #       }
     #     }, # required
-    #     return_consumed_capacity: 'INDEXES' # accepts INDEXES, TOTAL, NONE
+    #     return_consumed_capacity: 'INDEXES' # accepts ["INDEXES", "TOTAL", "NONE"]
     #   )
     #
     # @example Response structure
@@ -472,13 +472,13 @@ module AWS::Dynamodb
     def batch_get_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchGetItemInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetItemInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::BatchGetItem,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::BatchGetItem
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -499,7 +499,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :batch_get_item
@@ -704,8 +704,8 @@ module AWS::Dynamodb
     #         }
     #       ]
     #     }, # required
-    #     return_consumed_capacity: 'INDEXES', # accepts INDEXES, TOTAL, NONE
-    #     return_item_collection_metrics: 'SIZE' # accepts SIZE, NONE
+    #     return_consumed_capacity: 'INDEXES', # accepts ["INDEXES", "TOTAL", "NONE"]
+    #     return_item_collection_metrics: 'SIZE' # accepts ["SIZE", "NONE"]
     #   )
     #
     # @example Response structure
@@ -741,13 +741,13 @@ module AWS::Dynamodb
     def batch_write_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::BatchWriteItemInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchWriteItemInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::BatchWriteItem,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::BatchWriteItem
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -768,7 +768,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :batch_write_item
@@ -834,21 +834,21 @@ module AWS::Dynamodb
     #   resp.data.backup_details.backup_arn #=> String
     #   resp.data.backup_details.backup_name #=> String
     #   resp.data.backup_details.backup_size_bytes #=> Integer
-    #   resp.data.backup_details.backup_status #=> String, one of CREATING, DELETED, AVAILABLE
-    #   resp.data.backup_details.backup_type #=> String, one of USER, SYSTEM, AWS_BACKUP
+    #   resp.data.backup_details.backup_status #=> String, one of ["CREATING", "DELETED", "AVAILABLE"]
+    #   resp.data.backup_details.backup_type #=> String, one of ["USER", "SYSTEM", "AWS_BACKUP"]
     #   resp.data.backup_details.backup_creation_date_time #=> Time
     #   resp.data.backup_details.backup_expiry_date_time #=> Time
     #
     def create_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateBackupInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateBackup,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateBackup
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -869,7 +869,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_backup
@@ -966,7 +966,7 @@ module AWS::Dynamodb
     #   resp.data.global_table_description.replication_group #=> Array<ReplicaDescription>
     #   resp.data.global_table_description.replication_group[0] #=> Types::ReplicaDescription
     #   resp.data.global_table_description.replication_group[0].region_name #=> String
-    #   resp.data.global_table_description.replication_group[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.global_table_description.replication_group[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #   resp.data.global_table_description.replication_group[0].replica_status_description #=> String
     #   resp.data.global_table_description.replication_group[0].replica_status_percent_progress #=> String
     #   resp.data.global_table_description.replication_group[0].kms_master_key_id #=> String
@@ -978,23 +978,23 @@ module AWS::Dynamodb
     #   resp.data.global_table_description.replication_group[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
     #   resp.data.global_table_description.replication_group[0].replica_inaccessible_date_time #=> Time
     #   resp.data.global_table_description.replication_group[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.table_class #=> String, one of ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.last_update_date_time #=> Time
     #   resp.data.global_table_description.global_table_arn #=> String
     #   resp.data.global_table_description.creation_date_time #=> Time
-    #   resp.data.global_table_description.global_table_status #=> String, one of CREATING, ACTIVE, DELETING, UPDATING
+    #   resp.data.global_table_description.global_table_status #=> String, one of ["CREATING", "ACTIVE", "DELETING", "UPDATING"]
     #   resp.data.global_table_description.global_table_name #=> String
     #
     def create_global_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateGlobalTableInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGlobalTableInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateGlobalTable,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateGlobalTable
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1015,7 +1015,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_global_table
@@ -1300,21 +1300,21 @@ module AWS::Dynamodb
     #     attribute_definitions: [
     #       {
     #         attribute_name: 'AttributeName', # required
-    #         attribute_type: 'S' # required - accepts S, N, B
+    #         attribute_type: 'S' # required - accepts ["S", "N", "B"]
     #       }
     #     ], # required
     #     table_name: 'TableName', # required
     #     key_schema: [
     #       {
     #         attribute_name: 'AttributeName', # required
-    #         key_type: 'HASH' # required - accepts HASH, RANGE
+    #         key_type: 'HASH' # required - accepts ["HASH", "RANGE"]
     #       }
     #     ], # required
     #     local_secondary_indexes: [
     #       {
     #         index_name: 'IndexName', # required
     #         projection: {
-    #           projection_type: 'ALL', # accepts ALL, KEYS_ONLY, INCLUDE
+    #           projection_type: 'ALL', # accepts ["ALL", "KEYS_ONLY", "INCLUDE"]
     #           non_key_attributes: [
     #             'member'
     #           ]
@@ -1330,14 +1330,14 @@ module AWS::Dynamodb
     #         }
     #       }
     #     ],
-    #     billing_mode: 'PROVISIONED', # accepts PROVISIONED, PAY_PER_REQUEST
+    #     billing_mode: 'PROVISIONED', # accepts ["PROVISIONED", "PAY_PER_REQUEST"]
     #     stream_specification: {
     #       stream_enabled: false, # required
-    #       stream_view_type: 'NEW_IMAGE' # accepts NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #       stream_view_type: 'NEW_IMAGE' # accepts ["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"]
     #     },
     #     sse_specification: {
     #       enabled: false,
-    #       sse_type: 'AES256', # accepts AES256, KMS
+    #       sse_type: 'AES256', # accepts ["AES256", "KMS"]
     #       kms_master_key_id: 'KMSMasterKeyId'
     #     },
     #     tags: [
@@ -1346,7 +1346,7 @@ module AWS::Dynamodb
     #         value: 'Value' # required
     #       }
     #     ],
-    #     table_class: 'STANDARD' # accepts STANDARD, STANDARD_INFREQUENT_ACCESS
+    #     table_class: 'STANDARD' # accepts ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   )
     #
     # @example Response structure
@@ -1356,13 +1356,13 @@ module AWS::Dynamodb
     #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
     #   resp.data.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
     #   resp.data.table_description.attribute_definitions[0].attribute_name #=> String
-    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
+    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of ["S", "N", "B"]
     #   resp.data.table_description.table_name #=> String
     #   resp.data.table_description.key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.key_schema[0] #=> Types::KeySchemaElement
     #   resp.data.table_description.key_schema[0].attribute_name #=> String
-    #   resp.data.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
-    #   resp.data.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table_description.key_schema[0].key_type #=> String, one of ["HASH", "RANGE"]
+    #   resp.data.table_description.table_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE", "INACCESSIBLE_ENCRYPTION_CREDENTIALS", "ARCHIVING", "ARCHIVED"]
     #   resp.data.table_description.creation_date_time #=> Time
     #   resp.data.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
     #   resp.data.table_description.provisioned_throughput.last_increase_date_time #=> Time
@@ -1375,14 +1375,14 @@ module AWS::Dynamodb
     #   resp.data.table_description.table_arn #=> String
     #   resp.data.table_description.table_id #=> String
     #   resp.data.table_description.billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of ["PROVISIONED", "PAY_PER_REQUEST"]
     #   resp.data.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
     #   resp.data.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
     #   resp.data.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
     #   resp.data.table_description.local_secondary_indexes[0].index_name #=> String
     #   resp.data.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ["ALL", "KEYS_ONLY", "INCLUDE"]
     #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
     #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
     #   resp.data.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
@@ -1393,7 +1393,7 @@ module AWS::Dynamodb
     #   resp.data.table_description.global_secondary_indexes[0].index_name #=> String
     #   resp.data.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.global_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE"]
     #   resp.data.table_description.global_secondary_indexes[0].backfilling #=> Boolean
     #   resp.data.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
     #   resp.data.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
@@ -1401,14 +1401,14 @@ module AWS::Dynamodb
     #   resp.data.table_description.global_secondary_indexes[0].index_arn #=> String
     #   resp.data.table_description.stream_specification #=> Types::StreamSpecification
     #   resp.data.table_description.stream_specification.stream_enabled #=> Boolean
-    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of ["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"]
     #   resp.data.table_description.latest_stream_label #=> String
     #   resp.data.table_description.latest_stream_arn #=> String
     #   resp.data.table_description.global_table_version #=> String
     #   resp.data.table_description.replicas #=> Array<ReplicaDescription>
     #   resp.data.table_description.replicas[0] #=> Types::ReplicaDescription
     #   resp.data.table_description.replicas[0].region_name #=> String
-    #   resp.data.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.table_description.replicas[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #   resp.data.table_description.replicas[0].replica_status_description #=> String
     #   resp.data.table_description.replicas[0].replica_status_percent_progress #=> String
     #   resp.data.table_description.replicas[0].kms_master_key_id #=> String
@@ -1420,7 +1420,7 @@ module AWS::Dynamodb
     #   resp.data.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
     #   resp.data.table_description.replicas[0].replica_inaccessible_date_time #=> Time
     #   resp.data.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   resp.data.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
     #   resp.data.table_description.restore_summary #=> Types::RestoreSummary
     #   resp.data.table_description.restore_summary.source_backup_arn #=> String
@@ -1428,8 +1428,8 @@ module AWS::Dynamodb
     #   resp.data.table_description.restore_summary.restore_date_time #=> Time
     #   resp.data.table_description.restore_summary.restore_in_progress #=> Boolean
     #   resp.data.table_description.sse_description #=> Types::SSEDescription
-    #   resp.data.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.data.table_description.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.table_description.sse_description.status #=> String, one of ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"]
+    #   resp.data.table_description.sse_description.sse_type #=> String, one of ["AES256", "KMS"]
     #   resp.data.table_description.sse_description.kms_master_key_arn #=> String
     #   resp.data.table_description.sse_description.inaccessible_encryption_date_time #=> Time
     #   resp.data.table_description.archival_summary #=> Types::ArchivalSummary
@@ -1441,13 +1441,13 @@ module AWS::Dynamodb
     def create_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::CreateTableInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTableInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::CreateTable,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::CreateTable
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1468,7 +1468,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :create_table
@@ -1504,8 +1504,8 @@ module AWS::Dynamodb
     #   resp.data.backup_description.backup_details.backup_arn #=> String
     #   resp.data.backup_description.backup_details.backup_name #=> String
     #   resp.data.backup_description.backup_details.backup_size_bytes #=> Integer
-    #   resp.data.backup_description.backup_details.backup_status #=> String, one of CREATING, DELETED, AVAILABLE
-    #   resp.data.backup_description.backup_details.backup_type #=> String, one of USER, SYSTEM, AWS_BACKUP
+    #   resp.data.backup_description.backup_details.backup_status #=> String, one of ["CREATING", "DELETED", "AVAILABLE"]
+    #   resp.data.backup_description.backup_details.backup_type #=> String, one of ["USER", "SYSTEM", "AWS_BACKUP"]
     #   resp.data.backup_description.backup_details.backup_creation_date_time #=> Time
     #   resp.data.backup_description.backup_details.backup_expiry_date_time #=> Time
     #   resp.data.backup_description.source_table_details #=> Types::SourceTableDetails
@@ -1516,20 +1516,20 @@ module AWS::Dynamodb
     #   resp.data.backup_description.source_table_details.key_schema #=> Array<KeySchemaElement>
     #   resp.data.backup_description.source_table_details.key_schema[0] #=> Types::KeySchemaElement
     #   resp.data.backup_description.source_table_details.key_schema[0].attribute_name #=> String
-    #   resp.data.backup_description.source_table_details.key_schema[0].key_type #=> String, one of HASH, RANGE
+    #   resp.data.backup_description.source_table_details.key_schema[0].key_type #=> String, one of ["HASH", "RANGE"]
     #   resp.data.backup_description.source_table_details.table_creation_date_time #=> Time
     #   resp.data.backup_description.source_table_details.provisioned_throughput #=> Types::ProvisionedThroughput
     #   resp.data.backup_description.source_table_details.provisioned_throughput.read_capacity_units #=> Integer
     #   resp.data.backup_description.source_table_details.provisioned_throughput.write_capacity_units #=> Integer
     #   resp.data.backup_description.source_table_details.item_count #=> Integer
-    #   resp.data.backup_description.source_table_details.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.backup_description.source_table_details.billing_mode #=> String, one of ["PROVISIONED", "PAY_PER_REQUEST"]
     #   resp.data.backup_description.source_table_feature_details #=> Types::SourceTableFeatureDetails
     #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes #=> Array<LocalSecondaryIndexInfo>
     #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexInfo
     #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].index_name #=> String
     #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
     #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.projection_type #=> String, one of ["ALL", "KEYS_ONLY", "INCLUDE"]
     #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
     #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
     #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes #=> Array<GlobalSecondaryIndexInfo>
@@ -1540,26 +1540,26 @@ module AWS::Dynamodb
     #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughput
     #   resp.data.backup_description.source_table_feature_details.stream_description #=> Types::StreamSpecification
     #   resp.data.backup_description.source_table_feature_details.stream_description.stream_enabled #=> Boolean
-    #   resp.data.backup_description.source_table_feature_details.stream_description.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.backup_description.source_table_feature_details.stream_description.stream_view_type #=> String, one of ["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"]
     #   resp.data.backup_description.source_table_feature_details.time_to_live_description #=> Types::TimeToLiveDescription
-    #   resp.data.backup_description.source_table_feature_details.time_to_live_description.time_to_live_status #=> String, one of ENABLING, DISABLING, ENABLED, DISABLED
+    #   resp.data.backup_description.source_table_feature_details.time_to_live_description.time_to_live_status #=> String, one of ["ENABLING", "DISABLING", "ENABLED", "DISABLED"]
     #   resp.data.backup_description.source_table_feature_details.time_to_live_description.attribute_name #=> String
     #   resp.data.backup_description.source_table_feature_details.sse_description #=> Types::SSEDescription
-    #   resp.data.backup_description.source_table_feature_details.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.data.backup_description.source_table_feature_details.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.backup_description.source_table_feature_details.sse_description.status #=> String, one of ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"]
+    #   resp.data.backup_description.source_table_feature_details.sse_description.sse_type #=> String, one of ["AES256", "KMS"]
     #   resp.data.backup_description.source_table_feature_details.sse_description.kms_master_key_arn #=> String
     #   resp.data.backup_description.source_table_feature_details.sse_description.inaccessible_encryption_date_time #=> Time
     #
     def delete_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteBackupInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteBackup,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteBackup
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1580,7 +1580,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_backup
@@ -1807,13 +1807,13 @@ module AWS::Dynamodb
     #     expected: {
     #       'key' => {
     #         exists: false,
-    #         comparison_operator: 'EQ', # accepts EQ, NE, IN, LE, LT, GE, GT, BETWEEN, NOT_NULL, NULL, CONTAINS, NOT_CONTAINS, BEGINS_WITH
+    #         comparison_operator: 'EQ', # accepts ["EQ", "NE", "IN", "LE", "LT", "GE", "GT", "BETWEEN", "NOT_NULL", "NULL", "CONTAINS", "NOT_CONTAINS", "BEGINS_WITH"]
     #       }
     #     },
-    #     conditional_operator: 'AND', # accepts AND, OR
-    #     return_values: 'NONE', # accepts NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW
-    #     return_consumed_capacity: 'INDEXES', # accepts INDEXES, TOTAL, NONE
-    #     return_item_collection_metrics: 'SIZE', # accepts SIZE, NONE
+    #     conditional_operator: 'AND', # accepts ["AND", "OR"]
+    #     return_values: 'NONE', # accepts ["NONE", "ALL_OLD", "UPDATED_OLD", "ALL_NEW", "UPDATED_NEW"]
+    #     return_consumed_capacity: 'INDEXES', # accepts ["INDEXES", "TOTAL", "NONE"]
+    #     return_item_collection_metrics: 'SIZE', # accepts ["SIZE", "NONE"]
     #     condition_expression: 'ConditionExpression',
     #     expression_attribute_names: {
     #       'key' => 'value'
@@ -1844,13 +1844,13 @@ module AWS::Dynamodb
     def delete_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteItemInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteItemInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteItem,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteItem
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -1871,7 +1871,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_item
@@ -1922,13 +1922,13 @@ module AWS::Dynamodb
     #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
     #   resp.data.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
     #   resp.data.table_description.attribute_definitions[0].attribute_name #=> String
-    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
+    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of ["S", "N", "B"]
     #   resp.data.table_description.table_name #=> String
     #   resp.data.table_description.key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.key_schema[0] #=> Types::KeySchemaElement
     #   resp.data.table_description.key_schema[0].attribute_name #=> String
-    #   resp.data.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
-    #   resp.data.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table_description.key_schema[0].key_type #=> String, one of ["HASH", "RANGE"]
+    #   resp.data.table_description.table_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE", "INACCESSIBLE_ENCRYPTION_CREDENTIALS", "ARCHIVING", "ARCHIVED"]
     #   resp.data.table_description.creation_date_time #=> Time
     #   resp.data.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
     #   resp.data.table_description.provisioned_throughput.last_increase_date_time #=> Time
@@ -1941,14 +1941,14 @@ module AWS::Dynamodb
     #   resp.data.table_description.table_arn #=> String
     #   resp.data.table_description.table_id #=> String
     #   resp.data.table_description.billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of ["PROVISIONED", "PAY_PER_REQUEST"]
     #   resp.data.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
     #   resp.data.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
     #   resp.data.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
     #   resp.data.table_description.local_secondary_indexes[0].index_name #=> String
     #   resp.data.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ["ALL", "KEYS_ONLY", "INCLUDE"]
     #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
     #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
     #   resp.data.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
@@ -1959,7 +1959,7 @@ module AWS::Dynamodb
     #   resp.data.table_description.global_secondary_indexes[0].index_name #=> String
     #   resp.data.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.global_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE"]
     #   resp.data.table_description.global_secondary_indexes[0].backfilling #=> Boolean
     #   resp.data.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
     #   resp.data.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
@@ -1967,14 +1967,14 @@ module AWS::Dynamodb
     #   resp.data.table_description.global_secondary_indexes[0].index_arn #=> String
     #   resp.data.table_description.stream_specification #=> Types::StreamSpecification
     #   resp.data.table_description.stream_specification.stream_enabled #=> Boolean
-    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of ["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"]
     #   resp.data.table_description.latest_stream_label #=> String
     #   resp.data.table_description.latest_stream_arn #=> String
     #   resp.data.table_description.global_table_version #=> String
     #   resp.data.table_description.replicas #=> Array<ReplicaDescription>
     #   resp.data.table_description.replicas[0] #=> Types::ReplicaDescription
     #   resp.data.table_description.replicas[0].region_name #=> String
-    #   resp.data.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.table_description.replicas[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #   resp.data.table_description.replicas[0].replica_status_description #=> String
     #   resp.data.table_description.replicas[0].replica_status_percent_progress #=> String
     #   resp.data.table_description.replicas[0].kms_master_key_id #=> String
@@ -1986,7 +1986,7 @@ module AWS::Dynamodb
     #   resp.data.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
     #   resp.data.table_description.replicas[0].replica_inaccessible_date_time #=> Time
     #   resp.data.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   resp.data.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
     #   resp.data.table_description.restore_summary #=> Types::RestoreSummary
     #   resp.data.table_description.restore_summary.source_backup_arn #=> String
@@ -1994,8 +1994,8 @@ module AWS::Dynamodb
     #   resp.data.table_description.restore_summary.restore_date_time #=> Time
     #   resp.data.table_description.restore_summary.restore_in_progress #=> Boolean
     #   resp.data.table_description.sse_description #=> Types::SSEDescription
-    #   resp.data.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.data.table_description.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.table_description.sse_description.status #=> String, one of ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"]
+    #   resp.data.table_description.sse_description.sse_type #=> String, one of ["AES256", "KMS"]
     #   resp.data.table_description.sse_description.kms_master_key_arn #=> String
     #   resp.data.table_description.sse_description.inaccessible_encryption_date_time #=> Time
     #   resp.data.table_description.archival_summary #=> Types::ArchivalSummary
@@ -2007,13 +2007,13 @@ module AWS::Dynamodb
     def delete_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DeleteTableInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTableInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DeleteTable,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DeleteTable
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2034,7 +2034,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :delete_table
@@ -2070,8 +2070,8 @@ module AWS::Dynamodb
     #   resp.data.backup_description.backup_details.backup_arn #=> String
     #   resp.data.backup_description.backup_details.backup_name #=> String
     #   resp.data.backup_description.backup_details.backup_size_bytes #=> Integer
-    #   resp.data.backup_description.backup_details.backup_status #=> String, one of CREATING, DELETED, AVAILABLE
-    #   resp.data.backup_description.backup_details.backup_type #=> String, one of USER, SYSTEM, AWS_BACKUP
+    #   resp.data.backup_description.backup_details.backup_status #=> String, one of ["CREATING", "DELETED", "AVAILABLE"]
+    #   resp.data.backup_description.backup_details.backup_type #=> String, one of ["USER", "SYSTEM", "AWS_BACKUP"]
     #   resp.data.backup_description.backup_details.backup_creation_date_time #=> Time
     #   resp.data.backup_description.backup_details.backup_expiry_date_time #=> Time
     #   resp.data.backup_description.source_table_details #=> Types::SourceTableDetails
@@ -2082,20 +2082,20 @@ module AWS::Dynamodb
     #   resp.data.backup_description.source_table_details.key_schema #=> Array<KeySchemaElement>
     #   resp.data.backup_description.source_table_details.key_schema[0] #=> Types::KeySchemaElement
     #   resp.data.backup_description.source_table_details.key_schema[0].attribute_name #=> String
-    #   resp.data.backup_description.source_table_details.key_schema[0].key_type #=> String, one of HASH, RANGE
+    #   resp.data.backup_description.source_table_details.key_schema[0].key_type #=> String, one of ["HASH", "RANGE"]
     #   resp.data.backup_description.source_table_details.table_creation_date_time #=> Time
     #   resp.data.backup_description.source_table_details.provisioned_throughput #=> Types::ProvisionedThroughput
     #   resp.data.backup_description.source_table_details.provisioned_throughput.read_capacity_units #=> Integer
     #   resp.data.backup_description.source_table_details.provisioned_throughput.write_capacity_units #=> Integer
     #   resp.data.backup_description.source_table_details.item_count #=> Integer
-    #   resp.data.backup_description.source_table_details.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.backup_description.source_table_details.billing_mode #=> String, one of ["PROVISIONED", "PAY_PER_REQUEST"]
     #   resp.data.backup_description.source_table_feature_details #=> Types::SourceTableFeatureDetails
     #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes #=> Array<LocalSecondaryIndexInfo>
     #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexInfo
     #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].index_name #=> String
     #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
     #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.projection_type #=> String, one of ["ALL", "KEYS_ONLY", "INCLUDE"]
     #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
     #   resp.data.backup_description.source_table_feature_details.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
     #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes #=> Array<GlobalSecondaryIndexInfo>
@@ -2106,26 +2106,26 @@ module AWS::Dynamodb
     #   resp.data.backup_description.source_table_feature_details.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughput
     #   resp.data.backup_description.source_table_feature_details.stream_description #=> Types::StreamSpecification
     #   resp.data.backup_description.source_table_feature_details.stream_description.stream_enabled #=> Boolean
-    #   resp.data.backup_description.source_table_feature_details.stream_description.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.backup_description.source_table_feature_details.stream_description.stream_view_type #=> String, one of ["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"]
     #   resp.data.backup_description.source_table_feature_details.time_to_live_description #=> Types::TimeToLiveDescription
-    #   resp.data.backup_description.source_table_feature_details.time_to_live_description.time_to_live_status #=> String, one of ENABLING, DISABLING, ENABLED, DISABLED
+    #   resp.data.backup_description.source_table_feature_details.time_to_live_description.time_to_live_status #=> String, one of ["ENABLING", "DISABLING", "ENABLED", "DISABLED"]
     #   resp.data.backup_description.source_table_feature_details.time_to_live_description.attribute_name #=> String
     #   resp.data.backup_description.source_table_feature_details.sse_description #=> Types::SSEDescription
-    #   resp.data.backup_description.source_table_feature_details.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.data.backup_description.source_table_feature_details.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.backup_description.source_table_feature_details.sse_description.status #=> String, one of ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"]
+    #   resp.data.backup_description.source_table_feature_details.sse_description.sse_type #=> String, one of ["AES256", "KMS"]
     #   resp.data.backup_description.source_table_feature_details.sse_description.kms_master_key_arn #=> String
     #   resp.data.backup_description.source_table_feature_details.sse_description.inaccessible_encryption_date_time #=> Time
     #
     def describe_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeBackupInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBackupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeBackup,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DescribeBackup
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2146,7 +2146,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :describe_backup
@@ -2188,22 +2188,22 @@ module AWS::Dynamodb
     #
     #   resp.data #=> Types::DescribeContinuousBackupsOutput
     #   resp.data.continuous_backups_description #=> Types::ContinuousBackupsDescription
-    #   resp.data.continuous_backups_description.continuous_backups_status #=> String, one of ENABLED, DISABLED
+    #   resp.data.continuous_backups_description.continuous_backups_status #=> String, one of ["ENABLED", "DISABLED"]
     #   resp.data.continuous_backups_description.point_in_time_recovery_description #=> Types::PointInTimeRecoveryDescription
-    #   resp.data.continuous_backups_description.point_in_time_recovery_description.point_in_time_recovery_status #=> String, one of ENABLED, DISABLED
+    #   resp.data.continuous_backups_description.point_in_time_recovery_description.point_in_time_recovery_status #=> String, one of ["ENABLED", "DISABLED"]
     #   resp.data.continuous_backups_description.point_in_time_recovery_description.earliest_restorable_date_time #=> Time
     #   resp.data.continuous_backups_description.point_in_time_recovery_description.latest_restorable_date_time #=> Time
     #
     def describe_continuous_backups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContinuousBackupsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContinuousBackupsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeContinuousBackups,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DescribeContinuousBackups
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2224,7 +2224,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :describe_continuous_backups
@@ -2262,7 +2262,7 @@ module AWS::Dynamodb
     #   resp.data.index_name #=> String
     #   resp.data.contributor_insights_rule_list #=> Array<String>
     #   resp.data.contributor_insights_rule_list[0] #=> String
-    #   resp.data.contributor_insights_status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, FAILED
+    #   resp.data.contributor_insights_status #=> String, one of ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"]
     #   resp.data.last_update_date_time #=> Time
     #   resp.data.failure_exception #=> Types::FailureException
     #   resp.data.failure_exception.exception_name #=> String
@@ -2271,13 +2271,13 @@ module AWS::Dynamodb
     def describe_contributor_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeContributorInsightsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContributorInsightsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeContributorInsights,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DescribeContributorInsights
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2298,7 +2298,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :describe_contributor_insights
@@ -2330,13 +2330,13 @@ module AWS::Dynamodb
     def describe_endpoints(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeEndpointsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeEndpoints,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DescribeEndpoints
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2357,7 +2357,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :describe_endpoints
@@ -2388,7 +2388,7 @@ module AWS::Dynamodb
     #   resp.data #=> Types::DescribeExportOutput
     #   resp.data.export_description #=> Types::ExportDescription
     #   resp.data.export_description.export_arn #=> String
-    #   resp.data.export_description.export_status #=> String, one of IN_PROGRESS, COMPLETED, FAILED
+    #   resp.data.export_description.export_status #=> String, one of ["IN_PROGRESS", "COMPLETED", "FAILED"]
     #   resp.data.export_description.start_time #=> Time
     #   resp.data.export_description.end_time #=> Time
     #   resp.data.export_description.export_manifest #=> String
@@ -2399,24 +2399,24 @@ module AWS::Dynamodb
     #   resp.data.export_description.s3_bucket #=> String
     #   resp.data.export_description.s3_bucket_owner #=> String
     #   resp.data.export_description.s3_prefix #=> String
-    #   resp.data.export_description.s3_sse_algorithm #=> String, one of AES256, KMS
+    #   resp.data.export_description.s3_sse_algorithm #=> String, one of ["AES256", "KMS"]
     #   resp.data.export_description.s3_sse_kms_key_id #=> String
     #   resp.data.export_description.failure_code #=> String
     #   resp.data.export_description.failure_message #=> String
-    #   resp.data.export_description.export_format #=> String, one of DYNAMODB_JSON, ION
+    #   resp.data.export_description.export_format #=> String, one of ["DYNAMODB_JSON", "ION"]
     #   resp.data.export_description.billed_size_bytes #=> Integer
     #   resp.data.export_description.item_count #=> Integer
     #
     def describe_export(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeExportInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExportInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeExport,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DescribeExport
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2437,7 +2437,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :describe_export
@@ -2475,7 +2475,7 @@ module AWS::Dynamodb
     #   resp.data.global_table_description.replication_group #=> Array<ReplicaDescription>
     #   resp.data.global_table_description.replication_group[0] #=> Types::ReplicaDescription
     #   resp.data.global_table_description.replication_group[0].region_name #=> String
-    #   resp.data.global_table_description.replication_group[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.global_table_description.replication_group[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #   resp.data.global_table_description.replication_group[0].replica_status_description #=> String
     #   resp.data.global_table_description.replication_group[0].replica_status_percent_progress #=> String
     #   resp.data.global_table_description.replication_group[0].kms_master_key_id #=> String
@@ -2487,23 +2487,23 @@ module AWS::Dynamodb
     #   resp.data.global_table_description.replication_group[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
     #   resp.data.global_table_description.replication_group[0].replica_inaccessible_date_time #=> Time
     #   resp.data.global_table_description.replication_group[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.table_class #=> String, one of ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.last_update_date_time #=> Time
     #   resp.data.global_table_description.global_table_arn #=> String
     #   resp.data.global_table_description.creation_date_time #=> Time
-    #   resp.data.global_table_description.global_table_status #=> String, one of CREATING, ACTIVE, DELETING, UPDATING
+    #   resp.data.global_table_description.global_table_status #=> String, one of ["CREATING", "ACTIVE", "DELETING", "UPDATING"]
     #   resp.data.global_table_description.global_table_name #=> String
     #
     def describe_global_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGlobalTableInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGlobalTableInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeGlobalTable,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DescribeGlobalTable
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2524,7 +2524,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :describe_global_table
@@ -2561,9 +2561,9 @@ module AWS::Dynamodb
     #   resp.data.replica_settings #=> Array<ReplicaSettingsDescription>
     #   resp.data.replica_settings[0] #=> Types::ReplicaSettingsDescription
     #   resp.data.replica_settings[0].region_name #=> String
-    #   resp.data.replica_settings[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.replica_settings[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #   resp.data.replica_settings[0].replica_billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.data.replica_settings[0].replica_billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.replica_settings[0].replica_billing_mode_summary.billing_mode #=> String, one of ["PROVISIONED", "PAY_PER_REQUEST"]
     #   resp.data.replica_settings[0].replica_billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
     #   resp.data.replica_settings[0].replica_provisioned_read_capacity_units #=> Integer
     #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
@@ -2584,25 +2584,25 @@ module AWS::Dynamodb
     #   resp.data.replica_settings[0].replica_global_secondary_index_settings #=> Array<ReplicaGlobalSecondaryIndexSettingsDescription>
     #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0] #=> Types::ReplicaGlobalSecondaryIndexSettingsDescription
     #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].index_name #=> String
-    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].index_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE"]
     #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_read_capacity_units #=> Integer
     #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
     #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_write_capacity_units #=> Integer
     #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
     #   resp.data.replica_settings[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.data.replica_settings[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.replica_settings[0].replica_table_class_summary.table_class #=> String, one of ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   resp.data.replica_settings[0].replica_table_class_summary.last_update_date_time #=> Time
     #
     def describe_global_table_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeGlobalTableSettingsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGlobalTableSettingsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeGlobalTableSettings,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DescribeGlobalTableSettings
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2623,7 +2623,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :describe_global_table_settings
@@ -2656,19 +2656,19 @@ module AWS::Dynamodb
     #   resp.data.kinesis_data_stream_destinations #=> Array<KinesisDataStreamDestination>
     #   resp.data.kinesis_data_stream_destinations[0] #=> Types::KinesisDataStreamDestination
     #   resp.data.kinesis_data_stream_destinations[0].stream_arn #=> String
-    #   resp.data.kinesis_data_stream_destinations[0].destination_status #=> String, one of ENABLING, ACTIVE, DISABLING, DISABLED, ENABLE_FAILED
+    #   resp.data.kinesis_data_stream_destinations[0].destination_status #=> String, one of ["ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED"]
     #   resp.data.kinesis_data_stream_destinations[0].destination_status_description #=> String
     #
     def describe_kinesis_streaming_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeKinesisStreamingDestinationInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeKinesisStreamingDestinationInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeKinesisStreamingDestination,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DescribeKinesisStreamingDestination
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2689,7 +2689,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :describe_kinesis_streaming_destination
@@ -2794,13 +2794,13 @@ module AWS::Dynamodb
     def describe_limits(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeLimitsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLimitsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeLimits,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DescribeLimits
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2821,7 +2821,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :describe_limits
@@ -2863,13 +2863,13 @@ module AWS::Dynamodb
     #   resp.data.table.attribute_definitions #=> Array<AttributeDefinition>
     #   resp.data.table.attribute_definitions[0] #=> Types::AttributeDefinition
     #   resp.data.table.attribute_definitions[0].attribute_name #=> String
-    #   resp.data.table.attribute_definitions[0].attribute_type #=> String, one of S, N, B
+    #   resp.data.table.attribute_definitions[0].attribute_type #=> String, one of ["S", "N", "B"]
     #   resp.data.table.table_name #=> String
     #   resp.data.table.key_schema #=> Array<KeySchemaElement>
     #   resp.data.table.key_schema[0] #=> Types::KeySchemaElement
     #   resp.data.table.key_schema[0].attribute_name #=> String
-    #   resp.data.table.key_schema[0].key_type #=> String, one of HASH, RANGE
-    #   resp.data.table.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table.key_schema[0].key_type #=> String, one of ["HASH", "RANGE"]
+    #   resp.data.table.table_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE", "INACCESSIBLE_ENCRYPTION_CREDENTIALS", "ARCHIVING", "ARCHIVED"]
     #   resp.data.table.creation_date_time #=> Time
     #   resp.data.table.provisioned_throughput #=> Types::ProvisionedThroughputDescription
     #   resp.data.table.provisioned_throughput.last_increase_date_time #=> Time
@@ -2882,14 +2882,14 @@ module AWS::Dynamodb
     #   resp.data.table.table_arn #=> String
     #   resp.data.table.table_id #=> String
     #   resp.data.table.billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.data.table.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.table.billing_mode_summary.billing_mode #=> String, one of ["PROVISIONED", "PAY_PER_REQUEST"]
     #   resp.data.table.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
     #   resp.data.table.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
     #   resp.data.table.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
     #   resp.data.table.local_secondary_indexes[0].index_name #=> String
     #   resp.data.table.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
     #   resp.data.table.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.data.table.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.table.local_secondary_indexes[0].projection.projection_type #=> String, one of ["ALL", "KEYS_ONLY", "INCLUDE"]
     #   resp.data.table.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
     #   resp.data.table.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
     #   resp.data.table.local_secondary_indexes[0].index_size_bytes #=> Integer
@@ -2900,7 +2900,7 @@ module AWS::Dynamodb
     #   resp.data.table.global_secondary_indexes[0].index_name #=> String
     #   resp.data.table.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
     #   resp.data.table.global_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.data.table.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table.global_secondary_indexes[0].index_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE"]
     #   resp.data.table.global_secondary_indexes[0].backfilling #=> Boolean
     #   resp.data.table.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
     #   resp.data.table.global_secondary_indexes[0].index_size_bytes #=> Integer
@@ -2908,14 +2908,14 @@ module AWS::Dynamodb
     #   resp.data.table.global_secondary_indexes[0].index_arn #=> String
     #   resp.data.table.stream_specification #=> Types::StreamSpecification
     #   resp.data.table.stream_specification.stream_enabled #=> Boolean
-    #   resp.data.table.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.table.stream_specification.stream_view_type #=> String, one of ["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"]
     #   resp.data.table.latest_stream_label #=> String
     #   resp.data.table.latest_stream_arn #=> String
     #   resp.data.table.global_table_version #=> String
     #   resp.data.table.replicas #=> Array<ReplicaDescription>
     #   resp.data.table.replicas[0] #=> Types::ReplicaDescription
     #   resp.data.table.replicas[0].region_name #=> String
-    #   resp.data.table.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.table.replicas[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #   resp.data.table.replicas[0].replica_status_description #=> String
     #   resp.data.table.replicas[0].replica_status_percent_progress #=> String
     #   resp.data.table.replicas[0].kms_master_key_id #=> String
@@ -2927,7 +2927,7 @@ module AWS::Dynamodb
     #   resp.data.table.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
     #   resp.data.table.replicas[0].replica_inaccessible_date_time #=> Time
     #   resp.data.table.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.data.table.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.table.replicas[0].replica_table_class_summary.table_class #=> String, one of ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   resp.data.table.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
     #   resp.data.table.restore_summary #=> Types::RestoreSummary
     #   resp.data.table.restore_summary.source_backup_arn #=> String
@@ -2935,8 +2935,8 @@ module AWS::Dynamodb
     #   resp.data.table.restore_summary.restore_date_time #=> Time
     #   resp.data.table.restore_summary.restore_in_progress #=> Boolean
     #   resp.data.table.sse_description #=> Types::SSEDescription
-    #   resp.data.table.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.data.table.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.table.sse_description.status #=> String, one of ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"]
+    #   resp.data.table.sse_description.sse_type #=> String, one of ["AES256", "KMS"]
     #   resp.data.table.sse_description.kms_master_key_arn #=> String
     #   resp.data.table.sse_description.inaccessible_encryption_date_time #=> Time
     #   resp.data.table.archival_summary #=> Types::ArchivalSummary
@@ -2948,13 +2948,13 @@ module AWS::Dynamodb
     def describe_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTable,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DescribeTable
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -2975,7 +2975,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :describe_table
@@ -3010,14 +3010,14 @@ module AWS::Dynamodb
     #   resp.data #=> Types::DescribeTableReplicaAutoScalingOutput
     #   resp.data.table_auto_scaling_description #=> Types::TableAutoScalingDescription
     #   resp.data.table_auto_scaling_description.table_name #=> String
-    #   resp.data.table_auto_scaling_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table_auto_scaling_description.table_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE", "INACCESSIBLE_ENCRYPTION_CREDENTIALS", "ARCHIVING", "ARCHIVED"]
     #   resp.data.table_auto_scaling_description.replicas #=> Array<ReplicaAutoScalingDescription>
     #   resp.data.table_auto_scaling_description.replicas[0] #=> Types::ReplicaAutoScalingDescription
     #   resp.data.table_auto_scaling_description.replicas[0].region_name #=> String
     #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexAutoScalingDescription>
     #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexAutoScalingDescription
     #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].index_name #=> String
-    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].index_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE"]
     #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
     #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.minimum_units #=> Integer
     #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.maximum_units #=> Integer
@@ -3034,18 +3034,18 @@ module AWS::Dynamodb
     #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
     #   resp.data.table_auto_scaling_description.replicas[0].replica_provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
     #   resp.data.table_auto_scaling_description.replicas[0].replica_provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.data.table_auto_scaling_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.table_auto_scaling_description.replicas[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #
     def describe_table_replica_auto_scaling(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTableReplicaAutoScalingInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableReplicaAutoScalingInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTableReplicaAutoScaling,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DescribeTableReplicaAutoScaling
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3066,7 +3066,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :describe_table_replica_auto_scaling
@@ -3096,19 +3096,19 @@ module AWS::Dynamodb
     #
     #   resp.data #=> Types::DescribeTimeToLiveOutput
     #   resp.data.time_to_live_description #=> Types::TimeToLiveDescription
-    #   resp.data.time_to_live_description.time_to_live_status #=> String, one of ENABLING, DISABLING, ENABLED, DISABLED
+    #   resp.data.time_to_live_description.time_to_live_status #=> String, one of ["ENABLING", "DISABLING", "ENABLED", "DISABLED"]
     #   resp.data.time_to_live_description.attribute_name #=> String
     #
     def describe_time_to_live(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DescribeTimeToLiveInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTimeToLiveInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DescribeTimeToLive,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DescribeTimeToLive
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3129,7 +3129,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :describe_time_to_live
@@ -3165,18 +3165,18 @@ module AWS::Dynamodb
     #   resp.data #=> Types::DisableKinesisStreamingDestinationOutput
     #   resp.data.table_name #=> String
     #   resp.data.stream_arn #=> String
-    #   resp.data.destination_status #=> String, one of ENABLING, ACTIVE, DISABLING, DISABLED, ENABLE_FAILED
+    #   resp.data.destination_status #=> String, one of ["ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED"]
     #
     def disable_kinesis_streaming_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::DisableKinesisStreamingDestinationInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableKinesisStreamingDestinationInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::DisableKinesisStreamingDestination,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::DisableKinesisStreamingDestination
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3197,7 +3197,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :disable_kinesis_streaming_destination
@@ -3235,18 +3235,18 @@ module AWS::Dynamodb
     #   resp.data #=> Types::EnableKinesisStreamingDestinationOutput
     #   resp.data.table_name #=> String
     #   resp.data.stream_arn #=> String
-    #   resp.data.destination_status #=> String, one of ENABLING, ACTIVE, DISABLING, DISABLED, ENABLE_FAILED
+    #   resp.data.destination_status #=> String, one of ["ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED"]
     #
     def enable_kinesis_streaming_destination(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::EnableKinesisStreamingDestinationInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableKinesisStreamingDestinationInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::EnableKinesisStreamingDestination,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::EnableKinesisStreamingDestination
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3267,7 +3267,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :enable_kinesis_streaming_destination
@@ -3351,7 +3351,7 @@ module AWS::Dynamodb
     #     ],
     #     consistent_read: false,
     #     next_token: 'NextToken',
-    #     return_consumed_capacity: 'INDEXES' # accepts INDEXES, TOTAL, NONE
+    #     return_consumed_capacity: 'INDEXES' # accepts ["INDEXES", "TOTAL", "NONE"]
     #   )
     #
     # @example Response structure
@@ -3376,13 +3376,13 @@ module AWS::Dynamodb
     def execute_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteStatementInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteStatementInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ExecuteStatement,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ExecuteStatement
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3403,7 +3403,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :execute_statement
@@ -3466,7 +3466,7 @@ module AWS::Dynamodb
     #       }
     #     ], # required
     #     client_request_token: 'ClientRequestToken',
-    #     return_consumed_capacity: 'INDEXES' # accepts INDEXES, TOTAL, NONE
+    #     return_consumed_capacity: 'INDEXES' # accepts ["INDEXES", "TOTAL", "NONE"]
     #   )
     #
     # @example Response structure
@@ -3492,13 +3492,13 @@ module AWS::Dynamodb
     def execute_transaction(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExecuteTransactionInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteTransactionInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ExecuteTransaction,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ExecuteTransaction
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3519,7 +3519,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :execute_transaction
@@ -3601,9 +3601,9 @@ module AWS::Dynamodb
     #     s3_bucket: 'S3Bucket', # required
     #     s3_bucket_owner: 'S3BucketOwner',
     #     s3_prefix: 'S3Prefix',
-    #     s3_sse_algorithm: 'AES256', # accepts AES256, KMS
+    #     s3_sse_algorithm: 'AES256', # accepts ["AES256", "KMS"]
     #     s3_sse_kms_key_id: 'S3SseKmsKeyId',
-    #     export_format: 'DYNAMODB_JSON' # accepts DYNAMODB_JSON, ION
+    #     export_format: 'DYNAMODB_JSON' # accepts ["DYNAMODB_JSON", "ION"]
     #   )
     #
     # @example Response structure
@@ -3611,7 +3611,7 @@ module AWS::Dynamodb
     #   resp.data #=> Types::ExportTableToPointInTimeOutput
     #   resp.data.export_description #=> Types::ExportDescription
     #   resp.data.export_description.export_arn #=> String
-    #   resp.data.export_description.export_status #=> String, one of IN_PROGRESS, COMPLETED, FAILED
+    #   resp.data.export_description.export_status #=> String, one of ["IN_PROGRESS", "COMPLETED", "FAILED"]
     #   resp.data.export_description.start_time #=> Time
     #   resp.data.export_description.end_time #=> Time
     #   resp.data.export_description.export_manifest #=> String
@@ -3622,24 +3622,24 @@ module AWS::Dynamodb
     #   resp.data.export_description.s3_bucket #=> String
     #   resp.data.export_description.s3_bucket_owner #=> String
     #   resp.data.export_description.s3_prefix #=> String
-    #   resp.data.export_description.s3_sse_algorithm #=> String, one of AES256, KMS
+    #   resp.data.export_description.s3_sse_algorithm #=> String, one of ["AES256", "KMS"]
     #   resp.data.export_description.s3_sse_kms_key_id #=> String
     #   resp.data.export_description.failure_code #=> String
     #   resp.data.export_description.failure_message #=> String
-    #   resp.data.export_description.export_format #=> String, one of DYNAMODB_JSON, ION
+    #   resp.data.export_description.export_format #=> String, one of ["DYNAMODB_JSON", "ION"]
     #   resp.data.export_description.billed_size_bytes #=> Integer
     #   resp.data.export_description.item_count #=> Integer
     #
     def export_table_to_point_in_time(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ExportTableToPointInTimeInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportTableToPointInTimeInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ExportTableToPointInTime,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ExportTableToPointInTime
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3660,7 +3660,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :export_table_to_point_in_time
@@ -3821,7 +3821,7 @@ module AWS::Dynamodb
     #       'member'
     #     ],
     #     consistent_read: false,
-    #     return_consumed_capacity: 'INDEXES', # accepts INDEXES, TOTAL, NONE
+    #     return_consumed_capacity: 'INDEXES', # accepts ["INDEXES", "TOTAL", "NONE"]
     #     projection_expression: 'ProjectionExpression',
     #     expression_attribute_names: {
     #       'key' => 'value'
@@ -3848,13 +3848,13 @@ module AWS::Dynamodb
     def get_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::GetItemInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetItemInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::GetItem,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::GetItem
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3875,7 +3875,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :get_item
@@ -3946,7 +3946,7 @@ module AWS::Dynamodb
     #     time_range_lower_bound: Time.now,
     #     time_range_upper_bound: Time.now,
     #     exclusive_start_backup_arn: 'ExclusiveStartBackupArn',
-    #     backup_type: 'USER' # accepts USER, SYSTEM, AWS_BACKUP, ALL
+    #     backup_type: 'USER' # accepts ["USER", "SYSTEM", "AWS_BACKUP", "ALL"]
     #   )
     #
     # @example Response structure
@@ -3961,21 +3961,21 @@ module AWS::Dynamodb
     #   resp.data.backup_summaries[0].backup_name #=> String
     #   resp.data.backup_summaries[0].backup_creation_date_time #=> Time
     #   resp.data.backup_summaries[0].backup_expiry_date_time #=> Time
-    #   resp.data.backup_summaries[0].backup_status #=> String, one of CREATING, DELETED, AVAILABLE
-    #   resp.data.backup_summaries[0].backup_type #=> String, one of USER, SYSTEM, AWS_BACKUP
+    #   resp.data.backup_summaries[0].backup_status #=> String, one of ["CREATING", "DELETED", "AVAILABLE"]
+    #   resp.data.backup_summaries[0].backup_type #=> String, one of ["USER", "SYSTEM", "AWS_BACKUP"]
     #   resp.data.backup_summaries[0].backup_size_bytes #=> Integer
     #   resp.data.last_evaluated_backup_arn #=> String
     #
     def list_backups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListBackupsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBackupsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListBackups,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListBackups
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -3996,7 +3996,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_backups
@@ -4038,19 +4038,19 @@ module AWS::Dynamodb
     #   resp.data.contributor_insights_summaries[0] #=> Types::ContributorInsightsSummary
     #   resp.data.contributor_insights_summaries[0].table_name #=> String
     #   resp.data.contributor_insights_summaries[0].index_name #=> String
-    #   resp.data.contributor_insights_summaries[0].contributor_insights_status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, FAILED
+    #   resp.data.contributor_insights_summaries[0].contributor_insights_status #=> String, one of ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"]
     #   resp.data.next_token #=> String
     #
     def list_contributor_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListContributorInsightsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContributorInsightsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListContributorInsights,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListContributorInsights
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4071,7 +4071,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_contributor_insights
@@ -4113,19 +4113,19 @@ module AWS::Dynamodb
     #   resp.data.export_summaries #=> Array<ExportSummary>
     #   resp.data.export_summaries[0] #=> Types::ExportSummary
     #   resp.data.export_summaries[0].export_arn #=> String
-    #   resp.data.export_summaries[0].export_status #=> String, one of IN_PROGRESS, COMPLETED, FAILED
+    #   resp.data.export_summaries[0].export_status #=> String, one of ["IN_PROGRESS", "COMPLETED", "FAILED"]
     #   resp.data.next_token #=> String
     #
     def list_exports(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListExportsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExportsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListExports,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListExports
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4146,7 +4146,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_exports
@@ -4203,13 +4203,13 @@ module AWS::Dynamodb
     def list_global_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListGlobalTablesInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGlobalTablesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListGlobalTables,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListGlobalTables
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4230,7 +4230,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_global_tables
@@ -4275,13 +4275,13 @@ module AWS::Dynamodb
     def list_tables(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTablesInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTablesInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListTables,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListTables
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4302,7 +4302,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_tables
@@ -4350,13 +4350,13 @@ module AWS::Dynamodb
     def list_tags_of_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ListTagsOfResourceInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsOfResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::ListTagsOfResource,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::ListTagsOfResource
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4377,7 +4377,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :list_tags_of_resource
@@ -4683,13 +4683,13 @@ module AWS::Dynamodb
     #     expected: {
     #       'key' => {
     #         exists: false,
-    #         comparison_operator: 'EQ', # accepts EQ, NE, IN, LE, LT, GE, GT, BETWEEN, NOT_NULL, NULL, CONTAINS, NOT_CONTAINS, BEGINS_WITH
+    #         comparison_operator: 'EQ', # accepts ["EQ", "NE", "IN", "LE", "LT", "GE", "GT", "BETWEEN", "NOT_NULL", "NULL", "CONTAINS", "NOT_CONTAINS", "BEGINS_WITH"]
     #       }
     #     },
-    #     return_values: 'NONE', # accepts NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW
-    #     return_consumed_capacity: 'INDEXES', # accepts INDEXES, TOTAL, NONE
-    #     return_item_collection_metrics: 'SIZE', # accepts SIZE, NONE
-    #     conditional_operator: 'AND', # accepts AND, OR
+    #     return_values: 'NONE', # accepts ["NONE", "ALL_OLD", "UPDATED_OLD", "ALL_NEW", "UPDATED_NEW"]
+    #     return_consumed_capacity: 'INDEXES', # accepts ["INDEXES", "TOTAL", "NONE"]
+    #     return_item_collection_metrics: 'SIZE', # accepts ["SIZE", "NONE"]
+    #     conditional_operator: 'AND', # accepts ["AND", "OR"]
     #     condition_expression: 'ConditionExpression',
     #     expression_attribute_names: {
     #       'key' => 'value'
@@ -4720,13 +4720,13 @@ module AWS::Dynamodb
     def put_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::PutItemInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutItemInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::PutItem,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::PutItem
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -4747,7 +4747,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :put_item
@@ -5190,7 +5190,7 @@ module AWS::Dynamodb
     #   resp = client.query(
     #     table_name: 'TableName', # required
     #     index_name: 'IndexName',
-    #     select: 'ALL_ATTRIBUTES', # accepts ALL_ATTRIBUTES, ALL_PROJECTED_ATTRIBUTES, SPECIFIC_ATTRIBUTES, COUNT
+    #     select: 'ALL_ATTRIBUTES', # accepts ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
     #     attributes_to_get: [
     #       'member'
     #     ],
@@ -5217,12 +5217,12 @@ module AWS::Dynamodb
     #             bool: false
     #           }
     #         ],
-    #         comparison_operator: 'EQ' # required - accepts EQ, NE, IN, LE, LT, GE, GT, BETWEEN, NOT_NULL, NULL, CONTAINS, NOT_CONTAINS, BEGINS_WITH
+    #         comparison_operator: 'EQ' # required - accepts ["EQ", "NE", "IN", "LE", "LT", "GE", "GT", "BETWEEN", "NOT_NULL", "NULL", "CONTAINS", "NOT_CONTAINS", "BEGINS_WITH"]
     #       }
     #     },
-    #     conditional_operator: 'AND', # accepts AND, OR
+    #     conditional_operator: 'AND', # accepts ["AND", "OR"]
     #     scan_index_forward: false,
-    #     return_consumed_capacity: 'INDEXES', # accepts INDEXES, TOTAL, NONE
+    #     return_consumed_capacity: 'INDEXES', # accepts ["INDEXES", "TOTAL", "NONE"]
     #     projection_expression: 'ProjectionExpression',
     #     filter_expression: 'FilterExpression',
     #     key_condition_expression: 'KeyConditionExpression',
@@ -5255,13 +5255,13 @@ module AWS::Dynamodb
     def query(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::QueryInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::QueryInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::Query,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::Query
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5282,7 +5282,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :query
@@ -5353,18 +5353,18 @@ module AWS::Dynamodb
     #   resp = client.restore_table_from_backup(
     #     target_table_name: 'TargetTableName', # required
     #     backup_arn: 'BackupArn', # required
-    #     billing_mode_override: 'PROVISIONED', # accepts PROVISIONED, PAY_PER_REQUEST
+    #     billing_mode_override: 'PROVISIONED', # accepts ["PROVISIONED", "PAY_PER_REQUEST"]
     #     global_secondary_index_override: [
     #       {
     #         index_name: 'IndexName', # required
     #         key_schema: [
     #           {
     #             attribute_name: 'AttributeName', # required
-    #             key_type: 'HASH' # required - accepts HASH, RANGE
+    #             key_type: 'HASH' # required - accepts ["HASH", "RANGE"]
     #           }
     #         ], # required
     #         projection: {
-    #           projection_type: 'ALL', # accepts ALL, KEYS_ONLY, INCLUDE
+    #           projection_type: 'ALL', # accepts ["ALL", "KEYS_ONLY", "INCLUDE"]
     #           non_key_attributes: [
     #             'member'
     #           ]
@@ -5382,7 +5382,7 @@ module AWS::Dynamodb
     #     ],
     #     sse_specification_override: {
     #       enabled: false,
-    #       sse_type: 'AES256', # accepts AES256, KMS
+    #       sse_type: 'AES256', # accepts ["AES256", "KMS"]
     #       kms_master_key_id: 'KMSMasterKeyId'
     #     }
     #   )
@@ -5394,13 +5394,13 @@ module AWS::Dynamodb
     #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
     #   resp.data.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
     #   resp.data.table_description.attribute_definitions[0].attribute_name #=> String
-    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
+    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of ["S", "N", "B"]
     #   resp.data.table_description.table_name #=> String
     #   resp.data.table_description.key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.key_schema[0] #=> Types::KeySchemaElement
     #   resp.data.table_description.key_schema[0].attribute_name #=> String
-    #   resp.data.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
-    #   resp.data.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table_description.key_schema[0].key_type #=> String, one of ["HASH", "RANGE"]
+    #   resp.data.table_description.table_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE", "INACCESSIBLE_ENCRYPTION_CREDENTIALS", "ARCHIVING", "ARCHIVED"]
     #   resp.data.table_description.creation_date_time #=> Time
     #   resp.data.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
     #   resp.data.table_description.provisioned_throughput.last_increase_date_time #=> Time
@@ -5413,14 +5413,14 @@ module AWS::Dynamodb
     #   resp.data.table_description.table_arn #=> String
     #   resp.data.table_description.table_id #=> String
     #   resp.data.table_description.billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of ["PROVISIONED", "PAY_PER_REQUEST"]
     #   resp.data.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
     #   resp.data.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
     #   resp.data.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
     #   resp.data.table_description.local_secondary_indexes[0].index_name #=> String
     #   resp.data.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ["ALL", "KEYS_ONLY", "INCLUDE"]
     #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
     #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
     #   resp.data.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
@@ -5431,7 +5431,7 @@ module AWS::Dynamodb
     #   resp.data.table_description.global_secondary_indexes[0].index_name #=> String
     #   resp.data.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.global_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE"]
     #   resp.data.table_description.global_secondary_indexes[0].backfilling #=> Boolean
     #   resp.data.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
     #   resp.data.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
@@ -5439,14 +5439,14 @@ module AWS::Dynamodb
     #   resp.data.table_description.global_secondary_indexes[0].index_arn #=> String
     #   resp.data.table_description.stream_specification #=> Types::StreamSpecification
     #   resp.data.table_description.stream_specification.stream_enabled #=> Boolean
-    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of ["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"]
     #   resp.data.table_description.latest_stream_label #=> String
     #   resp.data.table_description.latest_stream_arn #=> String
     #   resp.data.table_description.global_table_version #=> String
     #   resp.data.table_description.replicas #=> Array<ReplicaDescription>
     #   resp.data.table_description.replicas[0] #=> Types::ReplicaDescription
     #   resp.data.table_description.replicas[0].region_name #=> String
-    #   resp.data.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.table_description.replicas[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #   resp.data.table_description.replicas[0].replica_status_description #=> String
     #   resp.data.table_description.replicas[0].replica_status_percent_progress #=> String
     #   resp.data.table_description.replicas[0].kms_master_key_id #=> String
@@ -5458,7 +5458,7 @@ module AWS::Dynamodb
     #   resp.data.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
     #   resp.data.table_description.replicas[0].replica_inaccessible_date_time #=> Time
     #   resp.data.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   resp.data.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
     #   resp.data.table_description.restore_summary #=> Types::RestoreSummary
     #   resp.data.table_description.restore_summary.source_backup_arn #=> String
@@ -5466,8 +5466,8 @@ module AWS::Dynamodb
     #   resp.data.table_description.restore_summary.restore_date_time #=> Time
     #   resp.data.table_description.restore_summary.restore_in_progress #=> Boolean
     #   resp.data.table_description.sse_description #=> Types::SSEDescription
-    #   resp.data.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.data.table_description.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.table_description.sse_description.status #=> String, one of ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"]
+    #   resp.data.table_description.sse_description.sse_type #=> String, one of ["AES256", "KMS"]
     #   resp.data.table_description.sse_description.kms_master_key_arn #=> String
     #   resp.data.table_description.sse_description.inaccessible_encryption_date_time #=> Time
     #   resp.data.table_description.archival_summary #=> Types::ArchivalSummary
@@ -5479,13 +5479,13 @@ module AWS::Dynamodb
     def restore_table_from_backup(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreTableFromBackupInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreTableFromBackupInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RestoreTableFromBackup,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::RestoreTableFromBackup
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5506,7 +5506,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :restore_table_from_backup
@@ -5617,18 +5617,18 @@ module AWS::Dynamodb
     #     target_table_name: 'TargetTableName', # required
     #     use_latest_restorable_time: false,
     #     restore_date_time: Time.now,
-    #     billing_mode_override: 'PROVISIONED', # accepts PROVISIONED, PAY_PER_REQUEST
+    #     billing_mode_override: 'PROVISIONED', # accepts ["PROVISIONED", "PAY_PER_REQUEST"]
     #     global_secondary_index_override: [
     #       {
     #         index_name: 'IndexName', # required
     #         key_schema: [
     #           {
     #             attribute_name: 'AttributeName', # required
-    #             key_type: 'HASH' # required - accepts HASH, RANGE
+    #             key_type: 'HASH' # required - accepts ["HASH", "RANGE"]
     #           }
     #         ], # required
     #         projection: {
-    #           projection_type: 'ALL', # accepts ALL, KEYS_ONLY, INCLUDE
+    #           projection_type: 'ALL', # accepts ["ALL", "KEYS_ONLY", "INCLUDE"]
     #           non_key_attributes: [
     #             'member'
     #           ]
@@ -5646,7 +5646,7 @@ module AWS::Dynamodb
     #     ],
     #     sse_specification_override: {
     #       enabled: false,
-    #       sse_type: 'AES256', # accepts AES256, KMS
+    #       sse_type: 'AES256', # accepts ["AES256", "KMS"]
     #       kms_master_key_id: 'KMSMasterKeyId'
     #     }
     #   )
@@ -5658,13 +5658,13 @@ module AWS::Dynamodb
     #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
     #   resp.data.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
     #   resp.data.table_description.attribute_definitions[0].attribute_name #=> String
-    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
+    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of ["S", "N", "B"]
     #   resp.data.table_description.table_name #=> String
     #   resp.data.table_description.key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.key_schema[0] #=> Types::KeySchemaElement
     #   resp.data.table_description.key_schema[0].attribute_name #=> String
-    #   resp.data.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
-    #   resp.data.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table_description.key_schema[0].key_type #=> String, one of ["HASH", "RANGE"]
+    #   resp.data.table_description.table_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE", "INACCESSIBLE_ENCRYPTION_CREDENTIALS", "ARCHIVING", "ARCHIVED"]
     #   resp.data.table_description.creation_date_time #=> Time
     #   resp.data.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
     #   resp.data.table_description.provisioned_throughput.last_increase_date_time #=> Time
@@ -5677,14 +5677,14 @@ module AWS::Dynamodb
     #   resp.data.table_description.table_arn #=> String
     #   resp.data.table_description.table_id #=> String
     #   resp.data.table_description.billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of ["PROVISIONED", "PAY_PER_REQUEST"]
     #   resp.data.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
     #   resp.data.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
     #   resp.data.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
     #   resp.data.table_description.local_secondary_indexes[0].index_name #=> String
     #   resp.data.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ["ALL", "KEYS_ONLY", "INCLUDE"]
     #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
     #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
     #   resp.data.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
@@ -5695,7 +5695,7 @@ module AWS::Dynamodb
     #   resp.data.table_description.global_secondary_indexes[0].index_name #=> String
     #   resp.data.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.global_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE"]
     #   resp.data.table_description.global_secondary_indexes[0].backfilling #=> Boolean
     #   resp.data.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
     #   resp.data.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
@@ -5703,14 +5703,14 @@ module AWS::Dynamodb
     #   resp.data.table_description.global_secondary_indexes[0].index_arn #=> String
     #   resp.data.table_description.stream_specification #=> Types::StreamSpecification
     #   resp.data.table_description.stream_specification.stream_enabled #=> Boolean
-    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of ["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"]
     #   resp.data.table_description.latest_stream_label #=> String
     #   resp.data.table_description.latest_stream_arn #=> String
     #   resp.data.table_description.global_table_version #=> String
     #   resp.data.table_description.replicas #=> Array<ReplicaDescription>
     #   resp.data.table_description.replicas[0] #=> Types::ReplicaDescription
     #   resp.data.table_description.replicas[0].region_name #=> String
-    #   resp.data.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.table_description.replicas[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #   resp.data.table_description.replicas[0].replica_status_description #=> String
     #   resp.data.table_description.replicas[0].replica_status_percent_progress #=> String
     #   resp.data.table_description.replicas[0].kms_master_key_id #=> String
@@ -5722,7 +5722,7 @@ module AWS::Dynamodb
     #   resp.data.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
     #   resp.data.table_description.replicas[0].replica_inaccessible_date_time #=> Time
     #   resp.data.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   resp.data.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
     #   resp.data.table_description.restore_summary #=> Types::RestoreSummary
     #   resp.data.table_description.restore_summary.source_backup_arn #=> String
@@ -5730,8 +5730,8 @@ module AWS::Dynamodb
     #   resp.data.table_description.restore_summary.restore_date_time #=> Time
     #   resp.data.table_description.restore_summary.restore_in_progress #=> Boolean
     #   resp.data.table_description.sse_description #=> Types::SSEDescription
-    #   resp.data.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.data.table_description.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.table_description.sse_description.status #=> String, one of ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"]
+    #   resp.data.table_description.sse_description.sse_type #=> String, one of ["AES256", "KMS"]
     #   resp.data.table_description.sse_description.kms_master_key_arn #=> String
     #   resp.data.table_description.sse_description.inaccessible_encryption_date_time #=> Time
     #   resp.data.table_description.archival_summary #=> Types::ArchivalSummary
@@ -5743,13 +5743,13 @@ module AWS::Dynamodb
     def restore_table_to_point_in_time(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::RestoreTableToPointInTimeInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreTableToPointInTimeInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::RestoreTableToPointInTime,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::RestoreTableToPointInTime
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -5770,7 +5770,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :restore_table_to_point_in_time
@@ -6091,7 +6091,7 @@ module AWS::Dynamodb
     #       'member'
     #     ],
     #     limit: 1,
-    #     select: 'ALL_ATTRIBUTES', # accepts ALL_ATTRIBUTES, ALL_PROJECTED_ATTRIBUTES, SPECIFIC_ATTRIBUTES, COUNT
+    #     select: 'ALL_ATTRIBUTES', # accepts ["ALL_ATTRIBUTES", "ALL_PROJECTED_ATTRIBUTES", "SPECIFIC_ATTRIBUTES", "COUNT"]
     #     scan_filter: {
     #       'key' => {
     #         attribute_value_list: [
@@ -6113,11 +6113,11 @@ module AWS::Dynamodb
     #             bool: false
     #           }
     #         ],
-    #         comparison_operator: 'EQ' # required - accepts EQ, NE, IN, LE, LT, GE, GT, BETWEEN, NOT_NULL, NULL, CONTAINS, NOT_CONTAINS, BEGINS_WITH
+    #         comparison_operator: 'EQ' # required - accepts ["EQ", "NE", "IN", "LE", "LT", "GE", "GT", "BETWEEN", "NOT_NULL", "NULL", "CONTAINS", "NOT_CONTAINS", "BEGINS_WITH"]
     #       }
     #     },
-    #     conditional_operator: 'AND', # accepts AND, OR
-    #     return_consumed_capacity: 'INDEXES', # accepts INDEXES, TOTAL, NONE
+    #     conditional_operator: 'AND', # accepts ["AND", "OR"]
+    #     return_consumed_capacity: 'INDEXES', # accepts ["INDEXES", "TOTAL", "NONE"]
     #     total_segments: 1,
     #     segment: 1,
     #     projection_expression: 'ProjectionExpression',
@@ -6152,13 +6152,13 @@ module AWS::Dynamodb
     def scan(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::ScanInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ScanInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::Scan,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::Scan
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6179,7 +6179,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :scan
@@ -6227,13 +6227,13 @@ module AWS::Dynamodb
     def tag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TagResourceInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::TagResource,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::TagResource
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6254,7 +6254,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :tag_resource
@@ -6339,7 +6339,7 @@ module AWS::Dynamodb
     #         } # required
     #       }
     #     ], # required
-    #     return_consumed_capacity: 'INDEXES' # accepts INDEXES, TOTAL, NONE
+    #     return_consumed_capacity: 'INDEXES' # accepts ["INDEXES", "TOTAL", "NONE"]
     #   )
     #
     # @example Response structure
@@ -6365,13 +6365,13 @@ module AWS::Dynamodb
     def transact_get_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TransactGetItemsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransactGetItemsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::TransactGetItems,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::TransactGetItems
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6392,7 +6392,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :transact_get_items
@@ -6573,28 +6573,28 @@ module AWS::Dynamodb
     #           expression_attribute_names: {
     #             'key' => 'value'
     #           },
-    #           return_values_on_condition_check_failure: 'ALL_OLD' # accepts ALL_OLD, NONE
+    #           return_values_on_condition_check_failure: 'ALL_OLD' # accepts ["ALL_OLD", "NONE"]
     #         },
     #         put: {
     #           table_name: 'TableName', # required
     #           condition_expression: 'ConditionExpression',
-    #           return_values_on_condition_check_failure: 'ALL_OLD' # accepts ALL_OLD, NONE
+    #           return_values_on_condition_check_failure: 'ALL_OLD' # accepts ["ALL_OLD", "NONE"]
     #         },
     #         delete: {
     #           table_name: 'TableName', # required
     #           condition_expression: 'ConditionExpression',
-    #           return_values_on_condition_check_failure: 'ALL_OLD' # accepts ALL_OLD, NONE
+    #           return_values_on_condition_check_failure: 'ALL_OLD' # accepts ["ALL_OLD", "NONE"]
     #         },
     #         update: {
     #           update_expression: 'UpdateExpression', # required
     #           table_name: 'TableName', # required
     #           condition_expression: 'ConditionExpression',
-    #           return_values_on_condition_check_failure: 'ALL_OLD' # accepts ALL_OLD, NONE
+    #           return_values_on_condition_check_failure: 'ALL_OLD' # accepts ["ALL_OLD", "NONE"]
     #         }
     #       }
     #     ], # required
-    #     return_consumed_capacity: 'INDEXES', # accepts INDEXES, TOTAL, NONE
-    #     return_item_collection_metrics: 'SIZE', # accepts SIZE, NONE
+    #     return_consumed_capacity: 'INDEXES', # accepts ["INDEXES", "TOTAL", "NONE"]
+    #     return_item_collection_metrics: 'SIZE', # accepts ["SIZE", "NONE"]
     #     client_request_token: 'ClientRequestToken'
     #   )
     #
@@ -6624,13 +6624,13 @@ module AWS::Dynamodb
     def transact_write_items(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::TransactWriteItemsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransactWriteItemsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::TransactWriteItems,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::TransactWriteItems
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6651,7 +6651,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :transact_write_items
@@ -6695,13 +6695,13 @@ module AWS::Dynamodb
     def untag_resource(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UntagResourceInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UntagResource,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UntagResource
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6722,7 +6722,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :untag_resource
@@ -6769,22 +6769,22 @@ module AWS::Dynamodb
     #
     #   resp.data #=> Types::UpdateContinuousBackupsOutput
     #   resp.data.continuous_backups_description #=> Types::ContinuousBackupsDescription
-    #   resp.data.continuous_backups_description.continuous_backups_status #=> String, one of ENABLED, DISABLED
+    #   resp.data.continuous_backups_description.continuous_backups_status #=> String, one of ["ENABLED", "DISABLED"]
     #   resp.data.continuous_backups_description.point_in_time_recovery_description #=> Types::PointInTimeRecoveryDescription
-    #   resp.data.continuous_backups_description.point_in_time_recovery_description.point_in_time_recovery_status #=> String, one of ENABLED, DISABLED
+    #   resp.data.continuous_backups_description.point_in_time_recovery_description.point_in_time_recovery_status #=> String, one of ["ENABLED", "DISABLED"]
     #   resp.data.continuous_backups_description.point_in_time_recovery_description.earliest_restorable_date_time #=> Time
     #   resp.data.continuous_backups_description.point_in_time_recovery_description.latest_restorable_date_time #=> Time
     #
     def update_continuous_backups(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContinuousBackupsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContinuousBackupsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateContinuousBackups,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateContinuousBackups
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6805,7 +6805,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_continuous_backups
@@ -6841,7 +6841,7 @@ module AWS::Dynamodb
     #   resp = client.update_contributor_insights(
     #     table_name: 'TableName', # required
     #     index_name: 'IndexName',
-    #     contributor_insights_action: 'ENABLE' # required - accepts ENABLE, DISABLE
+    #     contributor_insights_action: 'ENABLE' # required - accepts ["ENABLE", "DISABLE"]
     #   )
     #
     # @example Response structure
@@ -6849,18 +6849,18 @@ module AWS::Dynamodb
     #   resp.data #=> Types::UpdateContributorInsightsOutput
     #   resp.data.table_name #=> String
     #   resp.data.index_name #=> String
-    #   resp.data.contributor_insights_status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, FAILED
+    #   resp.data.contributor_insights_status #=> String, one of ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"]
     #
     def update_contributor_insights(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateContributorInsightsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContributorInsightsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateContributorInsights,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateContributorInsights
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6881,7 +6881,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_contributor_insights
@@ -6950,7 +6950,7 @@ module AWS::Dynamodb
     #   resp.data.global_table_description.replication_group #=> Array<ReplicaDescription>
     #   resp.data.global_table_description.replication_group[0] #=> Types::ReplicaDescription
     #   resp.data.global_table_description.replication_group[0].region_name #=> String
-    #   resp.data.global_table_description.replication_group[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.global_table_description.replication_group[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #   resp.data.global_table_description.replication_group[0].replica_status_description #=> String
     #   resp.data.global_table_description.replication_group[0].replica_status_percent_progress #=> String
     #   resp.data.global_table_description.replication_group[0].kms_master_key_id #=> String
@@ -6962,23 +6962,23 @@ module AWS::Dynamodb
     #   resp.data.global_table_description.replication_group[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
     #   resp.data.global_table_description.replication_group[0].replica_inaccessible_date_time #=> Time
     #   resp.data.global_table_description.replication_group[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.table_class #=> String, one of ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   resp.data.global_table_description.replication_group[0].replica_table_class_summary.last_update_date_time #=> Time
     #   resp.data.global_table_description.global_table_arn #=> String
     #   resp.data.global_table_description.creation_date_time #=> Time
-    #   resp.data.global_table_description.global_table_status #=> String, one of CREATING, ACTIVE, DELETING, UPDATING
+    #   resp.data.global_table_description.global_table_status #=> String, one of ["CREATING", "ACTIVE", "DELETING", "UPDATING"]
     #   resp.data.global_table_description.global_table_name #=> String
     #
     def update_global_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGlobalTableInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGlobalTableInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateGlobalTable,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateGlobalTable
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -6999,7 +6999,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_global_table
@@ -7057,7 +7057,7 @@ module AWS::Dynamodb
     #
     #   resp = client.update_global_table_settings(
     #     global_table_name: 'GlobalTableName', # required
-    #     global_table_billing_mode: 'PROVISIONED', # accepts PROVISIONED, PAY_PER_REQUEST
+    #     global_table_billing_mode: 'PROVISIONED', # accepts ["PROVISIONED", "PAY_PER_REQUEST"]
     #     global_table_provisioned_write_capacity_units: 1,
     #     global_table_provisioned_write_capacity_auto_scaling_settings_update: {
     #       minimum_units: 1,
@@ -7090,7 +7090,7 @@ module AWS::Dynamodb
     #             provisioned_read_capacity_units: 1,
     #           }
     #         ],
-    #         replica_table_class: 'STANDARD' # accepts STANDARD, STANDARD_INFREQUENT_ACCESS
+    #         replica_table_class: 'STANDARD' # accepts ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #       }
     #     ]
     #   )
@@ -7102,9 +7102,9 @@ module AWS::Dynamodb
     #   resp.data.replica_settings #=> Array<ReplicaSettingsDescription>
     #   resp.data.replica_settings[0] #=> Types::ReplicaSettingsDescription
     #   resp.data.replica_settings[0].region_name #=> String
-    #   resp.data.replica_settings[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.replica_settings[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #   resp.data.replica_settings[0].replica_billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.data.replica_settings[0].replica_billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.replica_settings[0].replica_billing_mode_summary.billing_mode #=> String, one of ["PROVISIONED", "PAY_PER_REQUEST"]
     #   resp.data.replica_settings[0].replica_billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
     #   resp.data.replica_settings[0].replica_provisioned_read_capacity_units #=> Integer
     #   resp.data.replica_settings[0].replica_provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
@@ -7125,25 +7125,25 @@ module AWS::Dynamodb
     #   resp.data.replica_settings[0].replica_global_secondary_index_settings #=> Array<ReplicaGlobalSecondaryIndexSettingsDescription>
     #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0] #=> Types::ReplicaGlobalSecondaryIndexSettingsDescription
     #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].index_name #=> String
-    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].index_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE"]
     #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_read_capacity_units #=> Integer
     #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
     #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_write_capacity_units #=> Integer
     #   resp.data.replica_settings[0].replica_global_secondary_index_settings[0].provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
     #   resp.data.replica_settings[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.data.replica_settings[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.replica_settings[0].replica_table_class_summary.table_class #=> String, one of ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   resp.data.replica_settings[0].replica_table_class_summary.last_update_date_time #=> Time
     #
     def update_global_table_settings(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateGlobalTableSettingsInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGlobalTableSettingsInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateGlobalTableSettings,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateGlobalTableSettings
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7164,7 +7164,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_global_table_settings
@@ -7512,19 +7512,19 @@ module AWS::Dynamodb
     #     }, # required
     #     attribute_updates: {
     #       'key' => {
-    #         action: 'ADD' # accepts ADD, PUT, DELETE
+    #         action: 'ADD' # accepts ["ADD", "PUT", "DELETE"]
     #       }
     #     },
     #     expected: {
     #       'key' => {
     #         exists: false,
-    #         comparison_operator: 'EQ', # accepts EQ, NE, IN, LE, LT, GE, GT, BETWEEN, NOT_NULL, NULL, CONTAINS, NOT_CONTAINS, BEGINS_WITH
+    #         comparison_operator: 'EQ', # accepts ["EQ", "NE", "IN", "LE", "LT", "GE", "GT", "BETWEEN", "NOT_NULL", "NULL", "CONTAINS", "NOT_CONTAINS", "BEGINS_WITH"]
     #       }
     #     },
-    #     conditional_operator: 'AND', # accepts AND, OR
-    #     return_values: 'NONE', # accepts NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW
-    #     return_consumed_capacity: 'INDEXES', # accepts INDEXES, TOTAL, NONE
-    #     return_item_collection_metrics: 'SIZE', # accepts SIZE, NONE
+    #     conditional_operator: 'AND', # accepts ["AND", "OR"]
+    #     return_values: 'NONE', # accepts ["NONE", "ALL_OLD", "UPDATED_OLD", "ALL_NEW", "UPDATED_NEW"]
+    #     return_consumed_capacity: 'INDEXES', # accepts ["INDEXES", "TOTAL", "NONE"]
+    #     return_item_collection_metrics: 'SIZE', # accepts ["SIZE", "NONE"]
     #     update_expression: 'UpdateExpression',
     #     condition_expression: 'ConditionExpression',
     #     expression_attribute_names: {
@@ -7556,13 +7556,13 @@ module AWS::Dynamodb
     def update_item(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateItemInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateItemInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateItem,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateItem
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7583,7 +7583,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_item
@@ -7707,11 +7707,11 @@ module AWS::Dynamodb
     #     attribute_definitions: [
     #       {
     #         attribute_name: 'AttributeName', # required
-    #         attribute_type: 'S' # required - accepts S, N, B
+    #         attribute_type: 'S' # required - accepts ["S", "N", "B"]
     #       }
     #     ],
     #     table_name: 'TableName', # required
-    #     billing_mode: 'PROVISIONED', # accepts PROVISIONED, PAY_PER_REQUEST
+    #     billing_mode: 'PROVISIONED', # accepts ["PROVISIONED", "PAY_PER_REQUEST"]
     #     provisioned_throughput: {
     #       read_capacity_units: 1, # required
     #       write_capacity_units: 1 # required
@@ -7726,11 +7726,11 @@ module AWS::Dynamodb
     #           key_schema: [
     #             {
     #               attribute_name: 'AttributeName', # required
-    #               key_type: 'HASH' # required - accepts HASH, RANGE
+    #               key_type: 'HASH' # required - accepts ["HASH", "RANGE"]
     #             }
     #           ], # required
     #           projection: {
-    #             projection_type: 'ALL', # accepts ALL, KEYS_ONLY, INCLUDE
+    #             projection_type: 'ALL', # accepts ["ALL", "KEYS_ONLY", "INCLUDE"]
     #             non_key_attributes: [
     #               'member'
     #             ]
@@ -7743,11 +7743,11 @@ module AWS::Dynamodb
     #     ],
     #     stream_specification: {
     #       stream_enabled: false, # required
-    #       stream_view_type: 'NEW_IMAGE' # accepts NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #       stream_view_type: 'NEW_IMAGE' # accepts ["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"]
     #     },
     #     sse_specification: {
     #       enabled: false,
-    #       sse_type: 'AES256', # accepts AES256, KMS
+    #       sse_type: 'AES256', # accepts ["AES256", "KMS"]
     #       kms_master_key_id: 'KMSMasterKeyId'
     #     },
     #     replica_updates: [
@@ -7763,19 +7763,19 @@ module AWS::Dynamodb
     #               index_name: 'IndexName', # required
     #             }
     #           ],
-    #           table_class_override: 'STANDARD' # accepts STANDARD, STANDARD_INFREQUENT_ACCESS
+    #           table_class_override: 'STANDARD' # accepts ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #         },
     #         update: {
     #           region_name: 'RegionName', # required
     #           kms_master_key_id: 'KMSMasterKeyId',
-    #           table_class_override: 'STANDARD' # accepts STANDARD, STANDARD_INFREQUENT_ACCESS
+    #           table_class_override: 'STANDARD' # accepts ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #         },
     #         delete: {
     #           region_name: 'RegionName' # required
     #         }
     #       }
     #     ],
-    #     table_class: 'STANDARD' # accepts STANDARD, STANDARD_INFREQUENT_ACCESS
+    #     table_class: 'STANDARD' # accepts ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   )
     #
     # @example Response structure
@@ -7785,13 +7785,13 @@ module AWS::Dynamodb
     #   resp.data.table_description.attribute_definitions #=> Array<AttributeDefinition>
     #   resp.data.table_description.attribute_definitions[0] #=> Types::AttributeDefinition
     #   resp.data.table_description.attribute_definitions[0].attribute_name #=> String
-    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of S, N, B
+    #   resp.data.table_description.attribute_definitions[0].attribute_type #=> String, one of ["S", "N", "B"]
     #   resp.data.table_description.table_name #=> String
     #   resp.data.table_description.key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.key_schema[0] #=> Types::KeySchemaElement
     #   resp.data.table_description.key_schema[0].attribute_name #=> String
-    #   resp.data.table_description.key_schema[0].key_type #=> String, one of HASH, RANGE
-    #   resp.data.table_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table_description.key_schema[0].key_type #=> String, one of ["HASH", "RANGE"]
+    #   resp.data.table_description.table_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE", "INACCESSIBLE_ENCRYPTION_CREDENTIALS", "ARCHIVING", "ARCHIVED"]
     #   resp.data.table_description.creation_date_time #=> Time
     #   resp.data.table_description.provisioned_throughput #=> Types::ProvisionedThroughputDescription
     #   resp.data.table_description.provisioned_throughput.last_increase_date_time #=> Time
@@ -7804,14 +7804,14 @@ module AWS::Dynamodb
     #   resp.data.table_description.table_arn #=> String
     #   resp.data.table_description.table_id #=> String
     #   resp.data.table_description.billing_mode_summary #=> Types::BillingModeSummary
-    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of PROVISIONED, PAY_PER_REQUEST
+    #   resp.data.table_description.billing_mode_summary.billing_mode #=> String, one of ["PROVISIONED", "PAY_PER_REQUEST"]
     #   resp.data.table_description.billing_mode_summary.last_update_to_pay_per_request_date_time #=> Time
     #   resp.data.table_description.local_secondary_indexes #=> Array<LocalSecondaryIndexDescription>
     #   resp.data.table_description.local_secondary_indexes[0] #=> Types::LocalSecondaryIndexDescription
     #   resp.data.table_description.local_secondary_indexes[0].index_name #=> String
     #   resp.data.table_description.local_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.local_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ALL, KEYS_ONLY, INCLUDE
+    #   resp.data.table_description.local_secondary_indexes[0].projection.projection_type #=> String, one of ["ALL", "KEYS_ONLY", "INCLUDE"]
     #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes #=> Array<String>
     #   resp.data.table_description.local_secondary_indexes[0].projection.non_key_attributes[0] #=> String
     #   resp.data.table_description.local_secondary_indexes[0].index_size_bytes #=> Integer
@@ -7822,7 +7822,7 @@ module AWS::Dynamodb
     #   resp.data.table_description.global_secondary_indexes[0].index_name #=> String
     #   resp.data.table_description.global_secondary_indexes[0].key_schema #=> Array<KeySchemaElement>
     #   resp.data.table_description.global_secondary_indexes[0].projection #=> Types::Projection
-    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table_description.global_secondary_indexes[0].index_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE"]
     #   resp.data.table_description.global_secondary_indexes[0].backfilling #=> Boolean
     #   resp.data.table_description.global_secondary_indexes[0].provisioned_throughput #=> Types::ProvisionedThroughputDescription
     #   resp.data.table_description.global_secondary_indexes[0].index_size_bytes #=> Integer
@@ -7830,14 +7830,14 @@ module AWS::Dynamodb
     #   resp.data.table_description.global_secondary_indexes[0].index_arn #=> String
     #   resp.data.table_description.stream_specification #=> Types::StreamSpecification
     #   resp.data.table_description.stream_specification.stream_enabled #=> Boolean
-    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of NEW_IMAGE, OLD_IMAGE, NEW_AND_OLD_IMAGES, KEYS_ONLY
+    #   resp.data.table_description.stream_specification.stream_view_type #=> String, one of ["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"]
     #   resp.data.table_description.latest_stream_label #=> String
     #   resp.data.table_description.latest_stream_arn #=> String
     #   resp.data.table_description.global_table_version #=> String
     #   resp.data.table_description.replicas #=> Array<ReplicaDescription>
     #   resp.data.table_description.replicas[0] #=> Types::ReplicaDescription
     #   resp.data.table_description.replicas[0].region_name #=> String
-    #   resp.data.table_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.table_description.replicas[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #   resp.data.table_description.replicas[0].replica_status_description #=> String
     #   resp.data.table_description.replicas[0].replica_status_percent_progress #=> String
     #   resp.data.table_description.replicas[0].kms_master_key_id #=> String
@@ -7849,7 +7849,7 @@ module AWS::Dynamodb
     #   resp.data.table_description.replicas[0].global_secondary_indexes[0].provisioned_throughput_override #=> Types::ProvisionedThroughputOverride
     #   resp.data.table_description.replicas[0].replica_inaccessible_date_time #=> Time
     #   resp.data.table_description.replicas[0].replica_table_class_summary #=> Types::TableClassSummary
-    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of STANDARD, STANDARD_INFREQUENT_ACCESS
+    #   resp.data.table_description.replicas[0].replica_table_class_summary.table_class #=> String, one of ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
     #   resp.data.table_description.replicas[0].replica_table_class_summary.last_update_date_time #=> Time
     #   resp.data.table_description.restore_summary #=> Types::RestoreSummary
     #   resp.data.table_description.restore_summary.source_backup_arn #=> String
@@ -7857,8 +7857,8 @@ module AWS::Dynamodb
     #   resp.data.table_description.restore_summary.restore_date_time #=> Time
     #   resp.data.table_description.restore_summary.restore_in_progress #=> Boolean
     #   resp.data.table_description.sse_description #=> Types::SSEDescription
-    #   resp.data.table_description.sse_description.status #=> String, one of ENABLING, ENABLED, DISABLING, DISABLED, UPDATING
-    #   resp.data.table_description.sse_description.sse_type #=> String, one of AES256, KMS
+    #   resp.data.table_description.sse_description.status #=> String, one of ["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"]
+    #   resp.data.table_description.sse_description.sse_type #=> String, one of ["AES256", "KMS"]
     #   resp.data.table_description.sse_description.kms_master_key_arn #=> String
     #   resp.data.table_description.sse_description.inaccessible_encryption_date_time #=> Time
     #   resp.data.table_description.archival_summary #=> Types::ArchivalSummary
@@ -7870,13 +7870,13 @@ module AWS::Dynamodb
     def update_table(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateTable,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateTable
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -7897,7 +7897,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_table
@@ -7974,14 +7974,14 @@ module AWS::Dynamodb
     #   resp.data #=> Types::UpdateTableReplicaAutoScalingOutput
     #   resp.data.table_auto_scaling_description #=> Types::TableAutoScalingDescription
     #   resp.data.table_auto_scaling_description.table_name #=> String
-    #   resp.data.table_auto_scaling_description.table_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE, INACCESSIBLE_ENCRYPTION_CREDENTIALS, ARCHIVING, ARCHIVED
+    #   resp.data.table_auto_scaling_description.table_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE", "INACCESSIBLE_ENCRYPTION_CREDENTIALS", "ARCHIVING", "ARCHIVED"]
     #   resp.data.table_auto_scaling_description.replicas #=> Array<ReplicaAutoScalingDescription>
     #   resp.data.table_auto_scaling_description.replicas[0] #=> Types::ReplicaAutoScalingDescription
     #   resp.data.table_auto_scaling_description.replicas[0].region_name #=> String
     #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes #=> Array<ReplicaGlobalSecondaryIndexAutoScalingDescription>
     #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0] #=> Types::ReplicaGlobalSecondaryIndexAutoScalingDescription
     #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].index_name #=> String
-    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].index_status #=> String, one of CREATING, UPDATING, DELETING, ACTIVE
+    #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].index_status #=> String, one of ["CREATING", "UPDATING", "DELETING", "ACTIVE"]
     #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
     #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.minimum_units #=> Integer
     #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_read_capacity_auto_scaling_settings.maximum_units #=> Integer
@@ -7998,18 +7998,18 @@ module AWS::Dynamodb
     #   resp.data.table_auto_scaling_description.replicas[0].global_secondary_indexes[0].provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
     #   resp.data.table_auto_scaling_description.replicas[0].replica_provisioned_read_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
     #   resp.data.table_auto_scaling_description.replicas[0].replica_provisioned_write_capacity_auto_scaling_settings #=> Types::AutoScalingSettingsDescription
-    #   resp.data.table_auto_scaling_description.replicas[0].replica_status #=> String, one of CREATING, CREATION_FAILED, UPDATING, DELETING, ACTIVE, REGION_DISABLED, INACCESSIBLE_ENCRYPTION_CREDENTIALS
+    #   resp.data.table_auto_scaling_description.replicas[0].replica_status #=> String, one of ["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE", "REGION_DISABLED", "INACCESSIBLE_ENCRYPTION_CREDENTIALS"]
     #
     def update_table_replica_auto_scaling(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTableReplicaAutoScalingInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableReplicaAutoScalingInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateTableReplicaAutoScaling,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateTableReplicaAutoScaling
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8030,7 +8030,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_table_replica_auto_scaling
@@ -8098,13 +8098,13 @@ module AWS::Dynamodb
     def update_time_to_live(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
       input = Params::UpdateTimeToLiveInput.build(params)
+      response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTimeToLiveInput,
         validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
-        builder: Builders::UpdateTimeToLive,
-        disable_host_prefix: options.fetch(:disable_host_prefix, @disable_host_prefix)
+        builder: Builders::UpdateTimeToLive
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
       stack.use(Hearth::Middleware::Parse,
@@ -8125,7 +8125,7 @@ module AWS::Dynamodb
         input: input,
         context: Hearth::Context.new(
           request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
-          response: Hearth::HTTP::Response.new(body: output_stream(options, &block)),
+          response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
           logger: @logger,
           operation_name: :update_time_to_live

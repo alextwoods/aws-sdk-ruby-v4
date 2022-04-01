@@ -14,8 +14,14 @@ module AWS::Lambda
 
     # Operation Builder for AddLayerVersionPermission
     class AddLayerVersionPermission
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
+        if input[:layer_name].to_s.empty?
+          raise ArgumentError, "HTTP label :layer_name cannot be nil or empty."
+        end
+        if input[:version_number].to_s.empty?
+          raise ArgumentError, "HTTP label :version_number cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s/policy',
             LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s),
@@ -38,8 +44,11 @@ module AWS::Lambda
 
     # Operation Builder for AddPermission
     class AddPermission
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/policy',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -64,8 +73,11 @@ module AWS::Lambda
 
     # Operation Builder for CreateAlias
     class CreateAlias
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -106,7 +118,7 @@ module AWS::Lambda
 
     # Operation Builder for CreateCodeSigningConfig
     class CreateCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2020-04-22/code-signing-configs')
         params = Hearth::Query::ParamList.new
@@ -152,7 +164,7 @@ module AWS::Lambda
 
     # Operation Builder for CreateEventSourceMapping
     class CreateEventSourceMapping
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2015-03-31/event-source-mappings')
         params = Hearth::Query::ParamList.new
@@ -297,7 +309,7 @@ module AWS::Lambda
 
     # Operation Builder for CreateFunction
     class CreateFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/2015-03-31/functions')
         params = Hearth::Query::ParamList.new
@@ -479,8 +491,14 @@ module AWS::Lambda
 
     # Operation Builder for DeleteAlias
     class DeleteAlias
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
+        if input[:name].to_s.empty?
+          raise ArgumentError, "HTTP label :name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s),
@@ -494,8 +512,11 @@ module AWS::Lambda
 
     # Operation Builder for DeleteCodeSigningConfig
     class DeleteCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
+        if input[:code_signing_config_arn].to_s.empty?
+          raise ArgumentError, "HTTP label :code_signing_config_arn cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s',
             CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
@@ -508,8 +529,11 @@ module AWS::Lambda
 
     # Operation Builder for DeleteEventSourceMapping
     class DeleteEventSourceMapping
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
+        if input[:uuid].to_s.empty?
+          raise ArgumentError, "HTTP label :uuid cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/event-source-mappings/%<UUID>s',
             UUID: Hearth::HTTP.uri_escape(input[:uuid].to_s)
@@ -522,8 +546,11 @@ module AWS::Lambda
 
     # Operation Builder for DeleteFunction
     class DeleteFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -537,8 +564,11 @@ module AWS::Lambda
 
     # Operation Builder for DeleteFunctionCodeSigningConfig
     class DeleteFunctionCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2020-06-30/functions/%<FunctionName>s/code-signing-config',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -551,8 +581,11 @@ module AWS::Lambda
 
     # Operation Builder for DeleteFunctionConcurrency
     class DeleteFunctionConcurrency
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2017-10-31/functions/%<FunctionName>s/concurrency',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -565,8 +598,11 @@ module AWS::Lambda
 
     # Operation Builder for DeleteFunctionEventInvokeConfig
     class DeleteFunctionEventInvokeConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -580,8 +616,14 @@ module AWS::Lambda
 
     # Operation Builder for DeleteLayerVersion
     class DeleteLayerVersion
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
+        if input[:layer_name].to_s.empty?
+          raise ArgumentError, "HTTP label :layer_name cannot be nil or empty."
+        end
+        if input[:version_number].to_s.empty?
+          raise ArgumentError, "HTTP label :version_number cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s',
             LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s),
@@ -595,8 +637,11 @@ module AWS::Lambda
 
     # Operation Builder for DeleteProvisionedConcurrencyConfig
     class DeleteProvisionedConcurrencyConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -610,7 +655,7 @@ module AWS::Lambda
 
     # Operation Builder for GetAccountSettings
     class GetAccountSettings
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2016-08-19/account-settings')
         params = Hearth::Query::ParamList.new
@@ -620,8 +665,14 @@ module AWS::Lambda
 
     # Operation Builder for GetAlias
     class GetAlias
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
+        if input[:name].to_s.empty?
+          raise ArgumentError, "HTTP label :name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s),
@@ -635,8 +686,11 @@ module AWS::Lambda
 
     # Operation Builder for GetCodeSigningConfig
     class GetCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:code_signing_config_arn].to_s.empty?
+          raise ArgumentError, "HTTP label :code_signing_config_arn cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s',
             CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
@@ -649,8 +703,11 @@ module AWS::Lambda
 
     # Operation Builder for GetEventSourceMapping
     class GetEventSourceMapping
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:uuid].to_s.empty?
+          raise ArgumentError, "HTTP label :uuid cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/event-source-mappings/%<UUID>s',
             UUID: Hearth::HTTP.uri_escape(input[:uuid].to_s)
@@ -663,8 +720,11 @@ module AWS::Lambda
 
     # Operation Builder for GetFunction
     class GetFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -678,8 +738,11 @@ module AWS::Lambda
 
     # Operation Builder for GetFunctionCodeSigningConfig
     class GetFunctionCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2020-06-30/functions/%<FunctionName>s/code-signing-config',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -692,8 +755,11 @@ module AWS::Lambda
 
     # Operation Builder for GetFunctionConcurrency
     class GetFunctionConcurrency
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/concurrency',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -706,8 +772,11 @@ module AWS::Lambda
 
     # Operation Builder for GetFunctionConfiguration
     class GetFunctionConfiguration
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/configuration',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -721,8 +790,11 @@ module AWS::Lambda
 
     # Operation Builder for GetFunctionEventInvokeConfig
     class GetFunctionEventInvokeConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -736,8 +808,14 @@ module AWS::Lambda
 
     # Operation Builder for GetLayerVersion
     class GetLayerVersion
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:layer_name].to_s.empty?
+          raise ArgumentError, "HTTP label :layer_name cannot be nil or empty."
+        end
+        if input[:version_number].to_s.empty?
+          raise ArgumentError, "HTTP label :version_number cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s',
             LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s),
@@ -751,7 +829,7 @@ module AWS::Lambda
 
     # Operation Builder for GetLayerVersionByArn
     class GetLayerVersionByArn
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('find=LayerVersion').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
@@ -765,8 +843,14 @@ module AWS::Lambda
 
     # Operation Builder for GetLayerVersionPolicy
     class GetLayerVersionPolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:layer_name].to_s.empty?
+          raise ArgumentError, "HTTP label :layer_name cannot be nil or empty."
+        end
+        if input[:version_number].to_s.empty?
+          raise ArgumentError, "HTTP label :version_number cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s/policy',
             LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s),
@@ -780,8 +864,11 @@ module AWS::Lambda
 
     # Operation Builder for GetPolicy
     class GetPolicy
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/policy',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -795,8 +882,11 @@ module AWS::Lambda
 
     # Operation Builder for GetProvisionedConcurrencyConfig
     class GetProvisionedConcurrencyConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -810,8 +900,11 @@ module AWS::Lambda
 
     # Operation Builder for Invoke
     class Invoke
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/invocations',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -830,8 +923,11 @@ module AWS::Lambda
 
     # Operation Builder for InvokeAsync
     class InvokeAsync
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2014-11-13/functions/%<FunctionName>s/invoke-async',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -839,15 +935,18 @@ module AWS::Lambda
         )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
-        http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:invoke_args] || '')
+        http_req.body = input[:invoke_args]
+        http_req.headers['Transfer-Encoding'] = 'chunked'
       end
     end
 
     # Operation Builder for ListAliases
     class ListAliases
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -863,7 +962,7 @@ module AWS::Lambda
 
     # Operation Builder for ListCodeSigningConfigs
     class ListCodeSigningConfigs
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2020-04-22/code-signing-configs')
         params = Hearth::Query::ParamList.new
@@ -875,7 +974,7 @@ module AWS::Lambda
 
     # Operation Builder for ListEventSourceMappings
     class ListEventSourceMappings
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2015-03-31/event-source-mappings')
         params = Hearth::Query::ParamList.new
@@ -889,8 +988,11 @@ module AWS::Lambda
 
     # Operation Builder for ListFunctionEventInvokeConfigs
     class ListFunctionEventInvokeConfigs
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config/list',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -905,7 +1007,7 @@ module AWS::Lambda
 
     # Operation Builder for ListFunctions
     class ListFunctions
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2015-03-31/functions')
         params = Hearth::Query::ParamList.new
@@ -919,8 +1021,11 @@ module AWS::Lambda
 
     # Operation Builder for ListFunctionsByCodeSigningConfig
     class ListFunctionsByCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:code_signing_config_arn].to_s.empty?
+          raise ArgumentError, "HTTP label :code_signing_config_arn cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s/functions',
             CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
@@ -935,8 +1040,11 @@ module AWS::Lambda
 
     # Operation Builder for ListLayerVersions
     class ListLayerVersions
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:layer_name].to_s.empty?
+          raise ArgumentError, "HTTP label :layer_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions',
             LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s)
@@ -952,7 +1060,7 @@ module AWS::Lambda
 
     # Operation Builder for ListLayers
     class ListLayers
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/2018-10-31/layers')
         params = Hearth::Query::ParamList.new
@@ -965,10 +1073,13 @@ module AWS::Lambda
 
     # Operation Builder for ListProvisionedConcurrencyConfigs
     class ListProvisionedConcurrencyConfigs
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         CGI.parse('List=ALL').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
+        end
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
         end
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
@@ -984,8 +1095,11 @@ module AWS::Lambda
 
     # Operation Builder for ListTags
     class ListTags
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:resource].to_s.empty?
+          raise ArgumentError, "HTTP label :resource cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2017-03-31/tags/%<Resource>s',
             Resource: Hearth::HTTP.uri_escape(input[:resource].to_s)
@@ -998,8 +1112,11 @@ module AWS::Lambda
 
     # Operation Builder for ListVersionsByFunction
     class ListVersionsByFunction
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/versions',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -1014,8 +1131,11 @@ module AWS::Lambda
 
     # Operation Builder for PublishLayerVersion
     class PublishLayerVersion
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
+        if input[:layer_name].to_s.empty?
+          raise ArgumentError, "HTTP label :layer_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions',
             LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s)
@@ -1059,8 +1179,11 @@ module AWS::Lambda
 
     # Operation Builder for PublishVersion
     class PublishVersion
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/versions',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -1080,8 +1203,11 @@ module AWS::Lambda
 
     # Operation Builder for PutFunctionCodeSigningConfig
     class PutFunctionCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2020-06-30/functions/%<FunctionName>s/code-signing-config',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -1099,8 +1225,11 @@ module AWS::Lambda
 
     # Operation Builder for PutFunctionConcurrency
     class PutFunctionConcurrency
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2017-10-31/functions/%<FunctionName>s/concurrency',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -1118,8 +1247,11 @@ module AWS::Lambda
 
     # Operation Builder for PutFunctionEventInvokeConfig
     class PutFunctionEventInvokeConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -1140,8 +1272,11 @@ module AWS::Lambda
 
     # Operation Builder for PutProvisionedConcurrencyConfig
     class PutProvisionedConcurrencyConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2019-09-30/functions/%<FunctionName>s/provisioned-concurrency',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -1160,8 +1295,17 @@ module AWS::Lambda
 
     # Operation Builder for RemoveLayerVersionPermission
     class RemoveLayerVersionPermission
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
+        if input[:layer_name].to_s.empty?
+          raise ArgumentError, "HTTP label :layer_name cannot be nil or empty."
+        end
+        if input[:version_number].to_s.empty?
+          raise ArgumentError, "HTTP label :version_number cannot be nil or empty."
+        end
+        if input[:statement_id].to_s.empty?
+          raise ArgumentError, "HTTP label :statement_id cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2018-10-31/layers/%<LayerName>s/versions/%<VersionNumber>s/policy/%<StatementId>s',
             LayerName: Hearth::HTTP.uri_escape(input[:layer_name].to_s),
@@ -1177,8 +1321,14 @@ module AWS::Lambda
 
     # Operation Builder for RemovePermission
     class RemovePermission
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
+        if input[:statement_id].to_s.empty?
+          raise ArgumentError, "HTTP label :statement_id cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/policy/%<StatementId>s',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s),
@@ -1194,8 +1344,11 @@ module AWS::Lambda
 
     # Operation Builder for TagResource
     class TagResource
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
+        if input[:resource].to_s.empty?
+          raise ArgumentError, "HTTP label :resource cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2017-03-31/tags/%<Resource>s',
             Resource: Hearth::HTTP.uri_escape(input[:resource].to_s)
@@ -1213,8 +1366,11 @@ module AWS::Lambda
 
     # Operation Builder for UntagResource
     class UntagResource
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
+        if input[:resource].to_s.empty?
+          raise ArgumentError, "HTTP label :resource cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2017-03-31/tags/%<Resource>s',
             Resource: Hearth::HTTP.uri_escape(input[:resource].to_s)
@@ -1243,8 +1399,14 @@ module AWS::Lambda
 
     # Operation Builder for UpdateAlias
     class UpdateAlias
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
+        if input[:name].to_s.empty?
+          raise ArgumentError, "HTTP label :name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s),
@@ -1266,8 +1428,11 @@ module AWS::Lambda
 
     # Operation Builder for UpdateCodeSigningConfig
     class UpdateCodeSigningConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
+        if input[:code_signing_config_arn].to_s.empty?
+          raise ArgumentError, "HTTP label :code_signing_config_arn cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2020-04-22/code-signing-configs/%<CodeSigningConfigArn>s',
             CodeSigningConfigArn: Hearth::HTTP.uri_escape(input[:code_signing_config_arn].to_s)
@@ -1287,8 +1452,11 @@ module AWS::Lambda
 
     # Operation Builder for UpdateEventSourceMapping
     class UpdateEventSourceMapping
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
+        if input[:uuid].to_s.empty?
+          raise ArgumentError, "HTTP label :uuid cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/event-source-mappings/%<UUID>s',
             UUID: Hearth::HTTP.uri_escape(input[:uuid].to_s)
@@ -1317,8 +1485,11 @@ module AWS::Lambda
 
     # Operation Builder for UpdateFunctionCode
     class UpdateFunctionCode
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/code',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -1343,8 +1514,11 @@ module AWS::Lambda
 
     # Operation Builder for UpdateFunctionConfiguration
     class UpdateFunctionConfiguration
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'PUT'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/configuration',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
@@ -1376,8 +1550,11 @@ module AWS::Lambda
 
     # Operation Builder for UpdateFunctionEventInvokeConfig
     class UpdateFunctionEventInvokeConfig
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)

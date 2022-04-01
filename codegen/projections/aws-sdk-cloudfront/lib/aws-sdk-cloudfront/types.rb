@@ -119,6 +119,8 @@ module AWS::Cloudfront
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["APPROVED", "SUSPENDED", "PENDING"]
+    #
     #   @return [String]
     #
     AliasICPRecordal = ::Struct.new(
@@ -363,6 +365,8 @@ module AWS::Cloudfront
     #   				matches the protocol used previously. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html">Managing Cache Expiration</a> in the
     #   				<i>Amazon CloudFront Developer Guide</i>.</p>
     #   		       </note>
+    #
+    #   Enum, one of: ["allow-all", "https-only", "redirect-to-https"]
     #
     #   @return [String]
     #
@@ -705,6 +709,26 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
+    # Includes enum constants for CachePolicyCookieBehavior
+    #
+    module CachePolicyCookieBehavior
+      # No documentation available.
+      #
+      none = "none"
+
+      # No documentation available.
+      #
+      whitelist = "whitelist"
+
+      # No documentation available.
+      #
+      allExcept = "allExcept"
+
+      # No documentation available.
+      #
+      all = "all"
+    end
+
     # <p>An object that determines whether any cookies in viewer requests (and if so, which cookies)
     # 			are included in the cache key and automatically included in requests that CloudFront sends to
     # 			the origin.</p>
@@ -744,6 +768,8 @@ module AWS::Cloudfront
     #   			         </li>
     #            </ul>
     #
+    #   Enum, one of: ["none", "whitelist", "allExcept", "all"]
+    #
     #   @return [String]
     #
     # @!attribute cookies
@@ -757,6 +783,18 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for CachePolicyHeaderBehavior
+    #
+    module CachePolicyHeaderBehavior
+      # No documentation available.
+      #
+      none = "none"
+
+      # No documentation available.
+      #
+      whitelist = "whitelist"
     end
 
     # <p>An object that determines whether any HTTP headers (and if so, which headers) are included
@@ -783,6 +821,8 @@ module AWS::Cloudfront
     #   					CloudFront sends to the origin.</p>
     #   			         </li>
     #            </ul>
+    #
+    #   Enum, one of: ["none", "whitelist"]
     #
     #   @return [String]
     #
@@ -847,6 +887,26 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
+    # Includes enum constants for CachePolicyQueryStringBehavior
+    #
+    module CachePolicyQueryStringBehavior
+      # No documentation available.
+      #
+      none = "none"
+
+      # No documentation available.
+      #
+      whitelist = "whitelist"
+
+      # No documentation available.
+      #
+      allExcept = "allExcept"
+
+      # No documentation available.
+      #
+      all = "all"
+    end
+
     # <p>An object that determines whether any URL query strings in viewer requests (and if so, which
     # 			query strings) are included in the cache key and automatically included in requests that
     # 			CloudFront sends to the origin.</p>
@@ -886,6 +946,8 @@ module AWS::Cloudfront
     #   			         </li>
     #            </ul>
     #
+    #   Enum, one of: ["none", "whitelist", "allExcept", "all"]
+    #
     #   @return [String]
     #
     # @!attribute query_strings
@@ -921,6 +983,8 @@ module AWS::Cloudfront
     #   <p>The type of cache policy, either <code>managed</code> (created by Amazon Web Services) or
     #   			<code>custom</code> (created in this Amazon Web Services account).</p>
     #
+    #   Enum, one of: ["managed", "custom"]
+    #
     #   @return [String]
     #
     # @!attribute cache_policy
@@ -934,6 +998,18 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for CachePolicyType
+    #
+    module CachePolicyType
+      # No documentation available.
+      #
+      managed = "managed"
+
+      # No documentation available.
+      #
+      custom = "custom"
     end
 
     # <p>A complex type that controls whether CloudFront caches the response to requests using the
@@ -984,6 +1060,22 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for CertificateSource
+    #
+    module CertificateSource
+      # No documentation available.
+      #
+      cloudfront = "cloudfront"
+
+      # No documentation available.
+      #
+      iam = "iam"
+
+      # No documentation available.
+      #
+      acm = "acm"
     end
 
     # <p>CloudFront origin access identity.</p>
@@ -1237,6 +1329,8 @@ module AWS::Cloudfront
     # @!attribute format
     #   <p>The format for a field-level encryption content type-profile mapping. </p>
     #
+    #   Enum, one of: ["URLEncoded"]
+    #
     #   @return [String]
     #
     # @!attribute profile_id
@@ -1345,6 +1439,8 @@ module AWS::Cloudfront
     #   			the list of cookies specified in the <code>WhitelistedNames</code> complex type.</p>
     #   		       <p>Amazon S3 doesn't process cookies. When the cache behavior is forwarding requests to an
     #   			Amazon S3 origin, specify none for the <code>Forward</code> element.</p>
+    #
+    #   Enum, one of: ["none", "whitelist", "all"]
     #
     #   @return [String]
     #
@@ -2203,6 +2299,8 @@ module AWS::Cloudfront
     #   			         </li>
     #            </ul>
     #
+    #   Enum, one of: ["http-only", "match-viewer", "https-only"]
+    #
     #   @return [String]
     #
     # @!attribute origin_ssl_protocols
@@ -2314,6 +2412,8 @@ module AWS::Cloudfront
     #   				Expiration</a> in the
     #   					<i>Amazon CloudFront Developer Guide</i>.</p>
     #   		       </note>
+    #
+    #   Enum, one of: ["allow-all", "https-only", "redirect-to-https"]
     #
     #   @return [String]
     #
@@ -2895,6 +2995,8 @@ module AWS::Cloudfront
     # @!attribute stage
     #   <p>The function’s stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
     #
+    #   Enum, one of: ["DEVELOPMENT", "LIVE"]
+    #
     #   @return [String]
     #
     DescribeFunctionInput = ::Struct.new(
@@ -3137,6 +3239,8 @@ module AWS::Cloudfront
     #   			map to CloudFront regions, see <a href="http://aws.amazon.com/cloudfront/pricing/">Amazon CloudFront
     #   			Pricing</a>.</p>
     #
+    #   Enum, one of: ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
+    #
     #   @return [String]
     #
     # @!attribute enabled
@@ -3182,6 +3286,8 @@ module AWS::Cloudfront
     #   		       <p>In general, configuring CloudFront to communicate with viewers using HTTP/2 reduces latency.
     #   			You can improve performance by optimizing for HTTP/2. For more information, do an Internet
     #   			search for "http/2 optimization." </p>
+    #
+    #   Enum, one of: ["http1.1", "http2"]
     #
     #   @return [String]
     #
@@ -3470,6 +3576,8 @@ module AWS::Cloudfront
     #   <p>A complex type that contains information about price class for this streaming
     #   			distribution. </p>
     #
+    #   Enum, one of: ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
+    #
     #   @return [String]
     #
     # @!attribute enabled
@@ -3498,6 +3606,8 @@ module AWS::Cloudfront
     #   <p> Specify the maximum HTTP version that you want viewers to use to communicate with
     #   			CloudFront. The default value for new web distributions is <code>http2</code>. Viewers that don't
     #   			support <code>HTTP/2</code> will automatically use an earlier version.</p>
+    #
+    #   Enum, one of: ["http1.1", "http2"]
     #
     #   @return [String]
     #
@@ -3613,6 +3723,26 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for EventType
+    #
+    module EventType
+      # No documentation available.
+      #
+      viewer_request = "viewer-request"
+
+      # No documentation available.
+      #
+      viewer_response = "viewer-response"
+
+      # No documentation available.
+      #
+      origin_request = "origin-request"
+
+      # No documentation available.
+      #
+      origin_response = "origin-response"
     end
 
     # <p>A complex data type that includes the profile configurations and other options specified for field-level encryption. </p>
@@ -3974,6 +4104,14 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
+    # Includes enum constants for Format
+    #
+    module Format
+      # No documentation available.
+      #
+      URLEncoded = "URLEncoded"
+    end
+
     # <p>This field is deprecated. We recommend that you use a cache policy or an origin
     # 			request policy instead of this field.</p>
     # 		       <p>If you want to include values in the cache key, use a cache policy. For more information,
@@ -4064,6 +4202,18 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
+    # Includes enum constants for FrameOptionsList
+    #
+    module FrameOptionsList
+      # No documentation available.
+      #
+      DENY = "DENY"
+
+      # No documentation available.
+      #
+      SAMEORIGIN = "SAMEORIGIN"
+    end
+
     # <p>A function with the same name already exists in this Amazon Web Services account. To create a
     # 			function, you must provide a unique name. To update an existing function, use
     # 			<code>UpdateFunction</code>.</p>
@@ -4092,6 +4242,8 @@ module AWS::Cloudfront
     #   			<code>viewer-response</code>. You cannot use origin-facing event types
     #   			(<code>origin-request</code> and <code>origin-response</code>) with a CloudFront
     #   			function.</p>
+    #
+    #   Enum, one of: ["viewer-request", "viewer-response", "origin-request", "origin-response"]
     #
     #   @return [String]
     #
@@ -4137,6 +4289,8 @@ module AWS::Cloudfront
     # @!attribute runtime
     #   <p>The function’s runtime environment. The only valid value is
     #   			<code>cloudfront-js-1.0</code>.</p>
+    #
+    #   Enum, one of: ["cloudfront-js-1.0"]
     #
     #   @return [String]
     #
@@ -4212,6 +4366,8 @@ module AWS::Cloudfront
     #   		       <p>When a function is in the <code>LIVE</code> stage, you can attach the function to a
     #   			distribution’s cache behavior, using the function’s ARN.</p>
     #
+    #   Enum, one of: ["DEVELOPMENT", "LIVE"]
+    #
     #   @return [String]
     #
     # @!attribute created_time
@@ -4234,6 +4390,14 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
+    # Includes enum constants for FunctionRuntime
+    #
+    module FunctionRuntime
+      # No documentation available.
+      #
+      cloudfront_js_1_0 = "cloudfront-js-1.0"
+    end
+
     # <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
     # 			<i>Amazon CloudFront Developer Guide</i>.</p>
     #
@@ -4246,6 +4410,18 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for FunctionStage
+    #
+    module FunctionStage
+      # No documentation available.
+      #
+      DEVELOPMENT = "DEVELOPMENT"
+
+      # No documentation available.
+      #
+      LIVE = "LIVE"
     end
 
     # <p>Contains configuration information and metadata about a CloudFront function.</p>
@@ -4304,6 +4480,8 @@ module AWS::Cloudfront
     #   			         </li>
     #            </ul>
     #
+    #   Enum, one of: ["blacklist", "whitelist", "none"]
+    #
     #   @return [String]
     #
     # @!attribute quantity
@@ -4335,6 +4513,22 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for GeoRestrictionType
+    #
+    module GeoRestrictionType
+      # No documentation available.
+      #
+      blacklist = "blacklist"
+
+      # No documentation available.
+      #
+      whitelist = "whitelist"
+
+      # No documentation available.
+      #
+      none = "none"
     end
 
     # @!attribute id
@@ -4673,6 +4867,8 @@ module AWS::Cloudfront
     #
     # @!attribute stage
     #   <p>The function’s stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
+    #
+    #   Enum, one of: ["DEVELOPMENT", "LIVE"]
     #
     #   @return [String]
     #
@@ -5156,6 +5352,34 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for HttpVersion
+    #
+    module HttpVersion
+      # No documentation available.
+      #
+      http1_1 = "http1.1"
+
+      # No documentation available.
+      #
+      http2 = "http2"
+    end
+
+    # Includes enum constants for ICPRecordalStatus
+    #
+    module ICPRecordalStatus
+      # No documentation available.
+      #
+      APPROVED = "APPROVED"
+
+      # No documentation available.
+      #
+      SUSPENDED = "SUSPENDED"
+
+      # No documentation available.
+      #
+      PENDING = "PENDING"
     end
 
     # <p>You cannot delete a managed policy.</p>
@@ -5676,6 +5900,22 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
+    # Includes enum constants for ItemSelection
+    #
+    module ItemSelection
+      # No documentation available.
+      #
+      none = "none"
+
+      # No documentation available.
+      #
+      whitelist = "whitelist"
+
+      # No documentation available.
+      #
+      all = "all"
+    end
+
     # <p>A list of identifiers for the public keys that CloudFront can use to verify the
     # 			signatures of signed URLs and signed cookies.</p>
     #
@@ -5894,6 +6134,8 @@ module AWS::Cloudfront
     #   			         </li>
     #            </ul>
     #
+    #   Enum, one of: ["viewer-request", "viewer-response", "origin-request", "origin-response"]
+    #
     #   @return [String]
     #
     # @!attribute include_body
@@ -5958,6 +6200,8 @@ module AWS::Cloudfront
     #                     <code>custom</code> – Returns only the custom policies created in your Amazon Web Services account.</p>
     #   			         </li>
     #            </ul>
+    #
+    #   Enum, one of: ["managed", "custom"]
     #
     #   @return [String]
     #
@@ -6453,6 +6697,8 @@ module AWS::Cloudfront
     #   <p>An optional filter to return only the functions that are in the specified stage,
     #   			either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
     #
+    #   Enum, one of: ["DEVELOPMENT", "LIVE"]
+    #
     #   @return [String]
     #
     ListFunctionsInput = ::Struct.new(
@@ -6569,6 +6815,8 @@ module AWS::Cloudfront
     #   			         </li>
     #            </ul>
     #
+    #   Enum, one of: ["managed", "custom"]
+    #
     #   @return [String]
     #
     # @!attribute marker
@@ -6684,6 +6932,8 @@ module AWS::Cloudfront
     #   					Amazon Web Services account.</p>
     #   			         </li>
     #            </ul>
+    #
+    #   Enum, one of: ["managed", "custom"]
     #
     #   @return [String]
     #
@@ -6828,6 +7078,70 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for Method
+    #
+    module Method
+      # No documentation available.
+      #
+      GET = "GET"
+
+      # No documentation available.
+      #
+      HEAD = "HEAD"
+
+      # No documentation available.
+      #
+      POST = "POST"
+
+      # No documentation available.
+      #
+      PUT = "PUT"
+
+      # No documentation available.
+      #
+      PATCH = "PATCH"
+
+      # No documentation available.
+      #
+      OPTIONS = "OPTIONS"
+
+      # No documentation available.
+      #
+      DELETE = "DELETE"
+    end
+
+    # Includes enum constants for MinimumProtocolVersion
+    #
+    module MinimumProtocolVersion
+      # No documentation available.
+      #
+      SSLv3 = "SSLv3"
+
+      # No documentation available.
+      #
+      TLSv1 = "TLSv1"
+
+      # No documentation available.
+      #
+      TLSv1_2016 = "TLSv1_2016"
+
+      # No documentation available.
+      #
+      TLSv1_1_2016 = "TLSv1.1_2016"
+
+      # No documentation available.
+      #
+      TLSv1_2_2018 = "TLSv1.2_2018"
+
+      # No documentation available.
+      #
+      TLSv1_2_2019 = "TLSv1.2_2019"
+
+      # No documentation available.
+      #
+      TLSv1_2_2021 = "TLSv1.2_2021"
     end
 
     # <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
@@ -7294,6 +7608,22 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
+    # Includes enum constants for OriginProtocolPolicy
+    #
+    module OriginProtocolPolicy
+      # No documentation available.
+      #
+      http_only = "http-only"
+
+      # No documentation available.
+      #
+      match_viewer = "match-viewer"
+
+      # No documentation available.
+      #
+      https_only = "https-only"
+    end
+
     # <p>An origin request policy.</p>
     # 		       <p>When it’s attached to a cache behavior, the origin request policy determines the values that
     # 			CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to
@@ -7418,6 +7748,22 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
+    # Includes enum constants for OriginRequestPolicyCookieBehavior
+    #
+    module OriginRequestPolicyCookieBehavior
+      # No documentation available.
+      #
+      none = "none"
+
+      # No documentation available.
+      #
+      whitelist = "whitelist"
+
+      # No documentation available.
+      #
+      all = "all"
+    end
+
     # <p>An object that determines whether any cookies in viewer requests (and if so, which cookies)
     # 			are included in requests that CloudFront sends to the origin.</p>
     #
@@ -7446,6 +7792,8 @@ module AWS::Cloudfront
     #   			         </li>
     #            </ul>
     #
+    #   Enum, one of: ["none", "whitelist", "all"]
+    #
     #   @return [String]
     #
     # @!attribute cookies
@@ -7459,6 +7807,26 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for OriginRequestPolicyHeaderBehavior
+    #
+    module OriginRequestPolicyHeaderBehavior
+      # No documentation available.
+      #
+      none = "none"
+
+      # No documentation available.
+      #
+      whitelist = "whitelist"
+
+      # No documentation available.
+      #
+      allViewer = "allViewer"
+
+      # No documentation available.
+      #
+      allViewerAndWhitelistCloudFront = "allViewerAndWhitelistCloudFront"
     end
 
     # <p>An object that determines whether any HTTP headers (and if so, which headers) are included
@@ -7494,6 +7862,8 @@ module AWS::Cloudfront
     #   					added by CloudFront.</p>
     #   			         </li>
     #            </ul>
+    #
+    #   Enum, one of: ["none", "whitelist", "allViewer", "allViewerAndWhitelistCloudFront"]
     #
     #   @return [String]
     #
@@ -7559,6 +7929,22 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
+    # Includes enum constants for OriginRequestPolicyQueryStringBehavior
+    #
+    module OriginRequestPolicyQueryStringBehavior
+      # No documentation available.
+      #
+      none = "none"
+
+      # No documentation available.
+      #
+      whitelist = "whitelist"
+
+      # No documentation available.
+      #
+      all = "all"
+    end
+
     # <p>An object that determines whether any URL query strings in viewer requests (and if so, which
     # 			query strings) are included in requests that CloudFront sends to the origin.</p>
     #
@@ -7586,6 +7972,8 @@ module AWS::Cloudfront
     #   			         </li>
     #            </ul>
     #
+    #   Enum, one of: ["none", "whitelist", "all"]
+    #
     #   @return [String]
     #
     # @!attribute query_strings
@@ -7608,6 +7996,8 @@ module AWS::Cloudfront
     #   <p>The type of origin request policy, either <code>managed</code> (created by Amazon Web Services) or
     #   			<code>custom</code> (created in this Amazon Web Services account).</p>
     #
+    #   Enum, one of: ["managed", "custom"]
+    #
     #   @return [String]
     #
     # @!attribute origin_request_policy
@@ -7621,6 +8011,18 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for OriginRequestPolicyType
+    #
+    module OriginRequestPolicyType
+      # No documentation available.
+      #
+      managed = "managed"
+
+      # No documentation available.
+      #
+      custom = "custom"
     end
 
     # <p>CloudFront Origin Shield.</p>
@@ -7840,6 +8242,22 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for PriceClass
+    #
+    module PriceClass
+      # No documentation available.
+      #
+      PriceClass_100 = "PriceClass_100"
+
+      # No documentation available.
+      #
+      PriceClass_200 = "PriceClass_200"
+
+      # No documentation available.
+      #
+      PriceClass_All = "PriceClass_All"
     end
 
     # <p>A public key that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
@@ -8294,6 +8712,8 @@ module AWS::Cloudfront
     #   <p>A flag that indicates whether additional CloudWatch metrics are enabled for a given
     #   			CloudFront distribution.</p>
     #
+    #   Enum, one of: ["Enabled", "Disabled"]
+    #
     #   @return [String]
     #
     RealtimeMetricsSubscriptionConfig = ::Struct.new(
@@ -8301,6 +8721,54 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for RealtimeMetricsSubscriptionStatus
+    #
+    module RealtimeMetricsSubscriptionStatus
+      # No documentation available.
+      #
+      Enabled = "Enabled"
+
+      # No documentation available.
+      #
+      Disabled = "Disabled"
+    end
+
+    # Includes enum constants for ReferrerPolicyList
+    #
+    module ReferrerPolicyList
+      # No documentation available.
+      #
+      no_referrer = "no-referrer"
+
+      # No documentation available.
+      #
+      no_referrer_when_downgrade = "no-referrer-when-downgrade"
+
+      # No documentation available.
+      #
+      origin = "origin"
+
+      # No documentation available.
+      #
+      origin_when_cross_origin = "origin-when-cross-origin"
+
+      # No documentation available.
+      #
+      same_origin = "same-origin"
+
+      # No documentation available.
+      #
+      strict_origin = "strict-origin"
+
+      # No documentation available.
+      #
+      strict_origin_when_cross_origin = "strict-origin-when-cross-origin"
+
+      # No documentation available.
+      #
+      unsafe_url = "unsafe-url"
     end
 
     # <p>Cannot delete this resource because it is in use.</p>
@@ -8442,6 +8910,42 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ResponseHeadersPolicyAccessControlAllowMethodsValues
+    #
+    module ResponseHeadersPolicyAccessControlAllowMethodsValues
+      # No documentation available.
+      #
+      GET = "GET"
+
+      # No documentation available.
+      #
+      POST = "POST"
+
+      # No documentation available.
+      #
+      OPTIONS = "OPTIONS"
+
+      # No documentation available.
+      #
+      PUT = "PUT"
+
+      # No documentation available.
+      #
+      DELETE = "DELETE"
+
+      # No documentation available.
+      #
+      PATCH = "PATCH"
+
+      # No documentation available.
+      #
+      HEAD = "HEAD"
+
+      # No documentation available.
+      #
+      ALL = "ALL"
     end
 
     # <p>A list of origins (domain names) that CloudFront can use as the value for the
@@ -8738,6 +9242,8 @@ module AWS::Cloudfront
     #   				<code>DENY</code> and <code>SAMEORIGIN</code>. </p>
     #   		       <p>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
     #
+    #   Enum, one of: ["DENY", "SAMEORIGIN"]
+    #
     #   @return [String]
     #
     ResponseHeadersPolicyFrameOptions = ::Struct.new(
@@ -8854,6 +9360,8 @@ module AWS::Cloudfront
     #   			         </li>
     #            </ul>
     #   		       <p>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> in the MDN Web Docs.</p>
+    #
+    #   Enum, one of: ["no-referrer", "no-referrer-when-downgrade", "origin", "origin-when-cross-origin", "same-origin", "strict-origin", "strict-origin-when-cross-origin", "unsafe-url"]
     #
     #   @return [String]
     #
@@ -8975,6 +9483,8 @@ module AWS::Cloudfront
     #   <p>The type of response headers policy, either <code>managed</code> (created by Amazon Web Services) or
     #   				<code>custom</code> (created in this Amazon Web Services account).</p>
     #
+    #   Enum, one of: ["managed", "custom"]
+    #
     #   @return [String]
     #
     # @!attribute response_headers_policy
@@ -8988,6 +9498,18 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ResponseHeadersPolicyType
+    #
+    module ResponseHeadersPolicyType
+      # No documentation available.
+      #
+      managed = "managed"
+
+      # No documentation available.
+      #
+      custom = "custom"
     end
 
     # <p>Determines whether CloudFront includes the <code>X-XSS-Protection</code> HTTP response header and
@@ -9121,6 +9643,22 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
+    # Includes enum constants for SSLSupportMethod
+    #
+    module SSLSupportMethod
+      # No documentation available.
+      #
+      sni_only = "sni-only"
+
+      # No documentation available.
+      #
+      vip = "vip"
+
+      # No documentation available.
+      #
+      static_ip = "static-ip"
+    end
+
     # <p>A list of Amazon Web Services accounts and the active CloudFront key pairs in each account that CloudFront can use to
     # 			verify the signatures of signed URLs and signed cookies.</p>
     #
@@ -9143,6 +9681,26 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for SslProtocol
+    #
+    module SslProtocol
+      # No documentation available.
+      #
+      SSLv3 = "SSLv3"
+
+      # No documentation available.
+      #
+      TLSv1 = "TLSv1"
+
+      # No documentation available.
+      #
+      TLSv1_1 = "TLSv1.1"
+
+      # No documentation available.
+      #
+      TLSv1_2 = "TLSv1.2"
     end
 
     # <p>A complex data type for the status codes that you specify that, when returned by a primary origin, trigger
@@ -9291,6 +9849,8 @@ module AWS::Cloudfront
     # @!attribute price_class
     #   <p>A complex type that contains information about price class for this streaming
     #   			distribution. </p>
+    #
+    #   Enum, one of: ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
     #
     #   @return [String]
     #
@@ -9468,6 +10028,8 @@ module AWS::Cloudfront
     #   <p>A complex type that contains information about price class for this streaming
     #   			distribution. </p>
     #
+    #   Enum, one of: ["PriceClass_100", "PriceClass_200", "PriceClass_All"]
+    #
     #   @return [String]
     #
     # @!attribute enabled
@@ -9634,6 +10196,8 @@ module AWS::Cloudfront
     # @!attribute stage
     #   <p>The stage of the function that you are testing, either <code>DEVELOPMENT</code> or
     #   			<code>LIVE</code>.</p>
+    #
+    #   Enum, one of: ["DEVELOPMENT", "LIVE"]
     #
     #   @return [String]
     #
@@ -11222,6 +11786,8 @@ module AWS::Cloudfront
     #   		       <p>If the distribution uses the CloudFront domain name such as
     #   			<code>d111111abcdef8.cloudfront.net</code>, don’t set a value for this field.</p>
     #
+    #   Enum, one of: ["sni-only", "vip", "static-ip"]
+    #
     #   @return [String]
     #
     # @!attribute minimum_protocol_version
@@ -11251,6 +11817,8 @@ module AWS::Cloudfront
     #   			<code>CloudFrontDefaultCertificate</code> to <code>true</code>), CloudFront automatically sets
     #   			the security policy to <code>TLSv1</code> regardless of the value that you set
     #   			here.</p>
+    #
+    #   Enum, one of: ["SSLv3", "TLSv1", "TLSv1_2016", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019", "TLSv1.2_2021"]
     #
     #   @return [String]
     #
@@ -11298,6 +11866,8 @@ module AWS::Cloudfront
     #   			         </li>
     #            </ul>
     #
+    #   Enum, one of: ["cloudfront", "iam", "acm"]
+    #
     #   @deprecated
     #
     #   @return [String]
@@ -11313,6 +11883,22 @@ module AWS::Cloudfront
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ViewerProtocolPolicy
+    #
+    module ViewerProtocolPolicy
+      # No documentation available.
+      #
+      allow_all = "allow-all"
+
+      # No documentation available.
+      #
+      https_only = "https-only"
+
+      # No documentation available.
+      #
+      redirect_to_https = "redirect-to-https"
     end
 
   end
