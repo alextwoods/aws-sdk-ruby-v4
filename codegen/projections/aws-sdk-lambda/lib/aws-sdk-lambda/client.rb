@@ -322,7 +322,7 @@ module AWS::Lambda
     #            <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
     #         characters in length.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the alias.</p>
     #
     # @option params [String] :function_version
@@ -341,7 +341,7 @@ module AWS::Lambda
     #
     #   resp = client.create_alias(
     #     function_name: 'FunctionName', # required
-    #     member_name: 'Name', # required
+    #     name: 'Name', # required
     #     function_version: 'FunctionVersion', # required
     #     description: 'Description',
     #     routing_config: {
@@ -355,7 +355,7 @@ module AWS::Lambda
     #
     #   resp.data #=> Types::CreateAliasOutput
     #   resp.data.alias_arn #=> String
-    #   resp.data.member_name #=> String
+    #   resp.data.name #=> String
     #   resp.data.function_version #=> String
     #   resp.data.description #=> String
     #   resp.data.routing_config #=> Types::AliasRoutingConfiguration
@@ -1128,7 +1128,7 @@ module AWS::Lambda
     #            <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
     #         characters in length.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the alias.</p>
     #
     # @return [Types::DeleteAliasOutput]
@@ -1137,7 +1137,7 @@ module AWS::Lambda
     #
     #   resp = client.delete_alias(
     #     function_name: 'FunctionName', # required
-    #     member_name: 'Name' # required
+    #     name: 'Name' # required
     #   )
     #
     # @example Response structure
@@ -1902,7 +1902,7 @@ module AWS::Lambda
     #            <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
     #         characters in length.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the alias.</p>
     #
     # @return [Types::GetAliasOutput]
@@ -1911,14 +1911,14 @@ module AWS::Lambda
     #
     #   resp = client.get_alias(
     #     function_name: 'FunctionName', # required
-    #     member_name: 'Name' # required
+    #     name: 'Name' # required
     #   )
     #
     # @example Response structure
     #
     #   resp.data #=> Types::GetAliasOutput
     #   resp.data.alias_arn #=> String
-    #   resp.data.member_name #=> String
+    #   resp.data.name #=> String
     #   resp.data.function_version #=> String
     #   resp.data.description #=> String
     #   resp.data.routing_config #=> Types::AliasRoutingConfiguration
@@ -3361,7 +3361,7 @@ module AWS::Lambda
     #   resp.data.aliases #=> Array<AliasConfiguration>
     #   resp.data.aliases[0] #=> Types::AliasConfiguration
     #   resp.data.aliases[0].alias_arn #=> String
-    #   resp.data.aliases[0].member_name #=> String
+    #   resp.data.aliases[0].name #=> String
     #   resp.data.aliases[0].function_version #=> String
     #   resp.data.aliases[0].description #=> String
     #   resp.data.aliases[0].routing_config #=> Types::AliasRoutingConfiguration
@@ -5434,7 +5434,7 @@ module AWS::Lambda
     #            <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
     #         characters in length.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the alias.</p>
     #
     # @option params [String] :function_version
@@ -5457,7 +5457,7 @@ module AWS::Lambda
     #
     #   resp = client.update_alias(
     #     function_name: 'FunctionName', # required
-    #     member_name: 'Name', # required
+    #     name: 'Name', # required
     #     function_version: 'FunctionVersion',
     #     description: 'Description',
     #     routing_config: {
@@ -5472,7 +5472,7 @@ module AWS::Lambda
     #
     #   resp.data #=> Types::UpdateAliasOutput
     #   resp.data.alias_arn #=> String
-    #   resp.data.member_name #=> String
+    #   resp.data.name #=> String
     #   resp.data.function_version #=> String
     #   resp.data.description #=> String
     #   resp.data.routing_config #=> Types::AliasRoutingConfiguration

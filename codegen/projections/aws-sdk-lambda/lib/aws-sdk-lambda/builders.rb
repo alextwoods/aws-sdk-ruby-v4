@@ -76,7 +76,7 @@ module AWS::Lambda
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Name'] = input[:member_name] unless input[:member_name].nil?
+        data['Name'] = input[:name] unless input[:name].nil?
         data['FunctionVersion'] = input[:function_version] unless input[:function_version].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['RoutingConfig'] = Builders::AliasRoutingConfiguration.build(input[:routing_config]) unless input[:routing_config].nil?
@@ -484,7 +484,7 @@ module AWS::Lambda
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s),
-            Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
+            Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
         )
         params = Hearth::Query::ParamList.new
@@ -625,7 +625,7 @@ module AWS::Lambda
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s),
-            Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
+            Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
         )
         params = Hearth::Query::ParamList.new
@@ -1248,7 +1248,7 @@ module AWS::Lambda
         http_req.append_path(format(
             '/2015-03-31/functions/%<FunctionName>s/aliases/%<Name>s',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s),
-            Name: Hearth::HTTP.uri_escape(input[:member_name].to_s)
+            Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
         )
         params = Hearth::Query::ParamList.new

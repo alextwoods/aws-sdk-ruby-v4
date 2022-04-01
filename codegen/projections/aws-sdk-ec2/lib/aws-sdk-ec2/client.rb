@@ -1713,7 +1713,7 @@ module AWS::Ec2
     #   resp = client.associate_iam_instance_profile(
     #     iam_instance_profile: {
     #       arn: 'Arn',
-    #       member_name: 'Name'
+    #       name: 'Name'
     #     }, # required
     #     instance_id: 'InstanceId' # required
     #   )
@@ -1823,7 +1823,7 @@ module AWS::Ec2
     #   resp.data.instance_event_window.time_ranges[0].start_hour #=> Integer
     #   resp.data.instance_event_window.time_ranges[0].end_week_day #=> String, one of sunday, monday, tuesday, wednesday, thursday, friday, saturday
     #   resp.data.instance_event_window.time_ranges[0].end_hour #=> Integer
-    #   resp.data.instance_event_window.member_name #=> String
+    #   resp.data.instance_event_window.name #=> String
     #   resp.data.instance_event_window.cron_expression #=> String
     #   resp.data.instance_event_window.association_target #=> Types::InstanceEventWindowAssociationTarget
     #   resp.data.instance_event_window.association_target.instance_ids #=> Array<String>
@@ -4216,7 +4216,7 @@ module AWS::Ec2
     # @option params [String] :description
     #   <p>The description for the new AFI.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name for the new AFI. The default is the name of the source AFI.</p>
     #
     # @option params [String] :source_region
@@ -4234,7 +4234,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     source_fpga_image_id: 'SourceFpgaImageId', # required
     #     description: 'Description',
-    #     member_name: 'Name',
+    #     name: 'Name',
     #     source_region: 'SourceRegion', # required
     #     client_token: 'ClientToken'
     #   )
@@ -4348,7 +4348,7 @@ module AWS::Ec2
     #      	     <p>The specified KMS key must exist in the destination Region.</p>
     #      	     <p>Amazon EBS does not support asymmetric KMS keys.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the new AMI in the destination Region.</p>
     #
     # @option params [String] :source_image_id
@@ -4382,7 +4382,7 @@ module AWS::Ec2
     #     description: 'Description',
     #     encrypted: false,
     #     kms_key_id: 'KmsKeyId',
-    #     member_name: 'Name', # required
+    #     name: 'Name', # required
     #     source_image_id: 'SourceImageId', # required
     #     source_region: 'SourceRegion', # required
     #     destination_outpost_arn: 'DestinationOutpostArn',
@@ -6583,7 +6583,7 @@ module AWS::Ec2
     # @option params [String] :description
     #   <p>A description for the AFI.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>A name for the AFI.</p>
     #
     # @option params [String] :client_token
@@ -6604,7 +6604,7 @@ module AWS::Ec2
     #       key: 'Key'
     #     }, # required
     #     description: 'Description',
-    #     member_name: 'Name',
+    #     name: 'Name',
     #     client_token: 'ClientToken',
     #     tag_specifications: [
     #       {
@@ -6696,7 +6696,7 @@ module AWS::Ec2
     # @option params [String] :instance_id
     #   <p>The ID of the instance.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>A name for the new image.</p>
     #            <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
     #
@@ -6751,7 +6751,7 @@ module AWS::Ec2
     #     description: 'Description',
     #     dry_run: false,
     #     instance_id: 'InstanceId', # required
-    #     member_name: 'Name', # required
+    #     name: 'Name', # required
     #     no_reboot: false,
     #     tag_specifications: [
     #       {
@@ -6845,7 +6845,7 @@ module AWS::Ec2
     #      and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
     #      Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the event window.</p>
     #
     # @option params [Array<InstanceEventWindowTimeRangeRequest>] :time_ranges
@@ -6893,7 +6893,7 @@ module AWS::Ec2
     #
     #   resp = client.create_instance_event_window(
     #     dry_run: false,
-    #     member_name: 'Name',
+    #     name: 'Name',
     #     time_ranges: [
     #       {
     #         start_week_day: 'sunday', # accepts sunday, monday, tuesday, wednesday, thursday, friday, saturday
@@ -6927,7 +6927,7 @@ module AWS::Ec2
     #   resp.data.instance_event_window.time_ranges[0].start_hour #=> Integer
     #   resp.data.instance_event_window.time_ranges[0].end_week_day #=> String, one of sunday, monday, tuesday, wednesday, thursday, friday, saturday
     #   resp.data.instance_event_window.time_ranges[0].end_hour #=> Integer
-    #   resp.data.instance_event_window.member_name #=> String
+    #   resp.data.instance_event_window.name #=> String
     #   resp.data.instance_event_window.cron_expression #=> String
     #   resp.data.instance_event_window.association_target #=> Types::InstanceEventWindowAssociationTarget
     #   resp.data.instance_event_window.association_target.instance_ids #=> Array<String>
@@ -7728,7 +7728,7 @@ module AWS::Ec2
     #       ebs_optimized: false,
     #       iam_instance_profile: {
     #         arn: 'Arn',
-    #         member_name: 'Name'
+    #         name: 'Name'
     #       },
     #       block_device_mappings: [
     #         {
@@ -8069,7 +8069,7 @@ module AWS::Ec2
     #       ebs_optimized: false,
     #       iam_instance_profile: {
     #         arn: 'Arn',
-    #         member_name: 'Name'
+    #         name: 'Name'
     #       },
     #       block_device_mappings: [
     #         {
@@ -8302,7 +8302,7 @@ module AWS::Ec2
     #   resp.data.launch_template_version.launch_template_data.ebs_optimized #=> Boolean
     #   resp.data.launch_template_version.launch_template_data.iam_instance_profile #=> Types::LaunchTemplateIamInstanceProfileSpecification
     #   resp.data.launch_template_version.launch_template_data.iam_instance_profile.arn #=> String
-    #   resp.data.launch_template_version.launch_template_data.iam_instance_profile.member_name #=> String
+    #   resp.data.launch_template_version.launch_template_data.iam_instance_profile.name #=> String
     #   resp.data.launch_template_version.launch_template_data.block_device_mappings #=> Array<LaunchTemplateBlockDeviceMapping>
     #   resp.data.launch_template_version.launch_template_data.block_device_mappings[0] #=> Types::LaunchTemplateBlockDeviceMapping
     #   resp.data.launch_template_version.launch_template_data.block_device_mappings[0].device_name #=> String
@@ -10187,7 +10187,7 @@ module AWS::Ec2
     # @option params [String] :object_key
     #   <p>The name of the stored AMI object in the bucket.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name for the restored AMI. The name must be unique for AMIs in the Region for this
     #         account. If you do not provide a name, the new AMI gets the same name as the original
     #         AMI.</p>
@@ -10218,7 +10218,7 @@ module AWS::Ec2
     #   resp = client.create_restore_image_task(
     #     bucket: 'Bucket', # required
     #     object_key: 'ObjectKey', # required
-    #     member_name: 'Name',
+    #     name: 'Name',
     #     tag_specifications: [
     #       {
     #         resource_type: 'capacity-reservation', # accepts capacity-reservation, client-vpn-endpoint, customer-gateway, carrier-gateway, dedicated-host, dhcp-options, egress-only-internet-gateway, elastic-ip, elastic-gpu, export-image-task, export-instance-task, fleet, fpga-image, host-reservation, image, import-image-task, import-snapshot-task, instance, instance-event-window, internet-gateway, ipam, ipam-pool, ipam-scope, ipv4pool-ec2, ipv6pool-ec2, key-pair, launch-template, local-gateway, local-gateway-route-table, local-gateway-virtual-interface, local-gateway-virtual-interface-group, local-gateway-route-table-vpc-association, local-gateway-route-table-virtual-interface-group-association, natgateway, network-acl, network-interface, network-insights-analysis, network-insights-path, network-insights-access-scope, network-insights-access-scope-analysis, placement-group, prefix-list, replace-root-volume-task, reserved-instances, route-table, security-group, security-group-rule, snapshot, spot-fleet-request, spot-instances-request, subnet, traffic-mirror-filter, traffic-mirror-session, traffic-mirror-target, transit-gateway, transit-gateway-attachment, transit-gateway-connect-peer, transit-gateway-multicast-domain, transit-gateway-route-table, volume, vpc, vpc-endpoint, vpc-endpoint-service, vpc-peering-connection, vpn-connection, vpn-gateway, vpc-flow-log
@@ -13766,7 +13766,7 @@ module AWS::Ec2
     #   resp.data.service_configuration.private_dns_name_configuration.state #=> String, one of pendingVerification, verified, failed
     #   resp.data.service_configuration.private_dns_name_configuration.type #=> String
     #   resp.data.service_configuration.private_dns_name_configuration.value #=> String
-    #   resp.data.service_configuration.private_dns_name_configuration.member_name #=> String
+    #   resp.data.service_configuration.private_dns_name_configuration.name #=> String
     #   resp.data.service_configuration.payer_responsibility #=> String, one of ServiceOwner
     #   resp.data.service_configuration.tags #=> Array<Tag>
     #   resp.data.service_configuration.tags[0] #=> Types::Tag
@@ -19778,7 +19778,7 @@ module AWS::Ec2
     #   resp = client.describe_addresses(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -20126,7 +20126,7 @@ module AWS::Ec2
     #   resp = client.describe_availability_zones(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -20274,7 +20274,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -20477,7 +20477,7 @@ module AWS::Ec2
     #     max_results: 1,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -20701,7 +20701,7 @@ module AWS::Ec2
     #     max_results: 1,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -20843,7 +20843,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -20971,7 +20971,7 @@ module AWS::Ec2
     #   resp = client.describe_classic_link_instances(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -21087,7 +21087,7 @@ module AWS::Ec2
     #     next_token: 'NextToken',
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -21191,7 +21191,7 @@ module AWS::Ec2
     #     client_vpn_endpoint_id: 'ClientVpnEndpointId', # required
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -21309,7 +21309,7 @@ module AWS::Ec2
     #     next_token: 'NextToken',
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -21455,7 +21455,7 @@ module AWS::Ec2
     #     client_vpn_endpoint_id: 'ClientVpnEndpointId', # required
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -21572,7 +21572,7 @@ module AWS::Ec2
     #     next_token: 'NextToken',
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #       }
     #     ],
     #     dry_run: false
@@ -21681,7 +21681,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -21919,7 +21919,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -22048,7 +22048,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -22165,7 +22165,7 @@ module AWS::Ec2
     #     next_token: 'NextToken',
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -22292,7 +22292,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -22392,7 +22392,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -22486,7 +22486,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -22606,7 +22606,7 @@ module AWS::Ec2
     #   resp = client.describe_fast_snapshot_restores(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -22819,7 +22819,7 @@ module AWS::Ec2
     #     fleet_id: 'FleetId', # required
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -22948,7 +22948,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -23197,7 +23197,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filter: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -23309,7 +23309,7 @@ module AWS::Ec2
     #   resp.data #=> Types::DescribeFpgaImageAttributeOutput
     #   resp.data.fpga_image_attribute #=> Types::FpgaImageAttribute
     #   resp.data.fpga_image_attribute.fpga_image_id #=> String
-    #   resp.data.fpga_image_attribute.member_name #=> String
+    #   resp.data.fpga_image_attribute.name #=> String
     #   resp.data.fpga_image_attribute.description #=> String
     #   resp.data.fpga_image_attribute.load_permissions #=> Array<LoadPermission>
     #   resp.data.fpga_image_attribute.load_permissions[0] #=> Types::LoadPermission
@@ -23450,7 +23450,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -23467,7 +23467,7 @@ module AWS::Ec2
     #   resp.data.fpga_images[0] #=> Types::FpgaImage
     #   resp.data.fpga_images[0].fpga_image_id #=> String
     #   resp.data.fpga_images[0].fpga_image_global_id #=> String
-    #   resp.data.fpga_images[0].member_name #=> String
+    #   resp.data.fpga_images[0].name #=> String
     #   resp.data.fpga_images[0].description #=> String
     #   resp.data.fpga_images[0].shell_version #=> String
     #   resp.data.fpga_images[0].pci_id #=> Types::PciId
@@ -23588,7 +23588,7 @@ module AWS::Ec2
     #   resp = client.describe_host_reservation_offerings(
     #     filter: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -23707,7 +23707,7 @@ module AWS::Ec2
     #   resp = client.describe_host_reservations(
     #     filter: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -23852,7 +23852,7 @@ module AWS::Ec2
     #   resp = client.describe_hosts(
     #     filter: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -23986,7 +23986,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -24567,7 +24567,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -24624,7 +24624,7 @@ module AWS::Ec2
     #   resp.data.images[0].ena_support #=> Boolean
     #   resp.data.images[0].hypervisor #=> String, one of ovm, xen
     #   resp.data.images[0].image_owner_alias #=> String
-    #   resp.data.images[0].member_name #=> String
+    #   resp.data.images[0].name #=> String
     #   resp.data.images[0].root_device_name #=> String
     #   resp.data.images[0].root_device_type #=> String, one of ebs, instance-store
     #   resp.data.images[0].sriov_net_support #=> String
@@ -24710,7 +24710,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -24836,7 +24836,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -25086,7 +25086,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -25311,7 +25311,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -25333,7 +25333,7 @@ module AWS::Ec2
     #   resp.data.instance_event_windows[0].time_ranges[0].start_hour #=> Integer
     #   resp.data.instance_event_windows[0].time_ranges[0].end_week_day #=> String, one of sunday, monday, tuesday, wednesday, thursday, friday, saturday
     #   resp.data.instance_event_windows[0].time_ranges[0].end_hour #=> Integer
-    #   resp.data.instance_event_windows[0].member_name #=> String
+    #   resp.data.instance_event_windows[0].name #=> String
     #   resp.data.instance_event_windows[0].cron_expression #=> String
     #   resp.data.instance_event_windows[0].association_target #=> Types::InstanceEventWindowAssociationTarget
     #   resp.data.instance_event_windows[0].association_target.instance_ids #=> Array<String>
@@ -25531,7 +25531,7 @@ module AWS::Ec2
     #   resp = client.describe_instance_status(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -25564,12 +25564,12 @@ module AWS::Ec2
     #   resp.data.instance_statuses[0].instance_id #=> String
     #   resp.data.instance_statuses[0].instance_state #=> Types::InstanceState
     #   resp.data.instance_statuses[0].instance_state.code #=> Integer
-    #   resp.data.instance_statuses[0].instance_state.member_name #=> String, one of pending, running, shutting-down, terminated, stopping, stopped
+    #   resp.data.instance_statuses[0].instance_state.name #=> String, one of pending, running, shutting-down, terminated, stopping, stopped
     #   resp.data.instance_statuses[0].instance_status #=> Types::InstanceStatusSummary
     #   resp.data.instance_statuses[0].instance_status.details #=> Array<InstanceStatusDetails>
     #   resp.data.instance_statuses[0].instance_status.details[0] #=> Types::InstanceStatusDetails
     #   resp.data.instance_statuses[0].instance_status.details[0].impaired_since #=> Time
-    #   resp.data.instance_statuses[0].instance_status.details[0].member_name #=> String, one of reachability
+    #   resp.data.instance_statuses[0].instance_status.details[0].name #=> String, one of reachability
     #   resp.data.instance_statuses[0].instance_status.details[0].status #=> String, one of passed, failed, insufficient-data, initializing
     #   resp.data.instance_statuses[0].instance_status.status #=> String, one of ok, impaired, insufficient-data, not-applicable, initializing
     #   resp.data.instance_statuses[0].system_status #=> Types::InstanceStatusSummary
@@ -25660,7 +25660,7 @@ module AWS::Ec2
     #     location_type: 'region', # accepts region, availability-zone, availability-zone-id
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -25973,7 +25973,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -26055,7 +26055,7 @@ module AWS::Ec2
     #   resp.data.instance_types[0].gpu_info #=> Types::GpuInfo
     #   resp.data.instance_types[0].gpu_info.gpus #=> Array<GpuDeviceInfo>
     #   resp.data.instance_types[0].gpu_info.gpus[0] #=> Types::GpuDeviceInfo
-    #   resp.data.instance_types[0].gpu_info.gpus[0].member_name #=> String
+    #   resp.data.instance_types[0].gpu_info.gpus[0].name #=> String
     #   resp.data.instance_types[0].gpu_info.gpus[0].manufacturer #=> String
     #   resp.data.instance_types[0].gpu_info.gpus[0].count #=> Integer
     #   resp.data.instance_types[0].gpu_info.gpus[0].memory_info #=> Types::GpuDeviceMemoryInfo
@@ -26064,7 +26064,7 @@ module AWS::Ec2
     #   resp.data.instance_types[0].fpga_info #=> Types::FpgaInfo
     #   resp.data.instance_types[0].fpga_info.fpgas #=> Array<FpgaDeviceInfo>
     #   resp.data.instance_types[0].fpga_info.fpgas[0] #=> Types::FpgaDeviceInfo
-    #   resp.data.instance_types[0].fpga_info.fpgas[0].member_name #=> String
+    #   resp.data.instance_types[0].fpga_info.fpgas[0].name #=> String
     #   resp.data.instance_types[0].fpga_info.fpgas[0].manufacturer #=> String
     #   resp.data.instance_types[0].fpga_info.fpgas[0].count #=> Integer
     #   resp.data.instance_types[0].fpga_info.fpgas[0].memory_info #=> Types::FpgaDeviceMemoryInfo
@@ -26077,7 +26077,7 @@ module AWS::Ec2
     #   resp.data.instance_types[0].inference_accelerator_info.accelerators #=> Array<InferenceDeviceInfo>
     #   resp.data.instance_types[0].inference_accelerator_info.accelerators[0] #=> Types::InferenceDeviceInfo
     #   resp.data.instance_types[0].inference_accelerator_info.accelerators[0].count #=> Integer
-    #   resp.data.instance_types[0].inference_accelerator_info.accelerators[0].member_name #=> String
+    #   resp.data.instance_types[0].inference_accelerator_info.accelerators[0].name #=> String
     #   resp.data.instance_types[0].inference_accelerator_info.accelerators[0].manufacturer #=> String
     #   resp.data.instance_types[0].hibernation_supported #=> Boolean
     #   resp.data.instance_types[0].burstable_performance_supported #=> Boolean
@@ -26633,7 +26633,7 @@ module AWS::Ec2
     #   resp = client.describe_instances(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -26688,7 +26688,7 @@ module AWS::Ec2
     #   resp.data.reservations[0].instances[0].ramdisk_id #=> String
     #   resp.data.reservations[0].instances[0].state #=> Types::InstanceState
     #   resp.data.reservations[0].instances[0].state.code #=> Integer
-    #   resp.data.reservations[0].instances[0].state.member_name #=> String, one of pending, running, shutting-down, terminated, stopping, stopped
+    #   resp.data.reservations[0].instances[0].state.name #=> String, one of pending, running, shutting-down, terminated, stopping, stopped
     #   resp.data.reservations[0].instances[0].state_transition_reason #=> String
     #   resp.data.reservations[0].instances[0].subnet_id #=> String
     #   resp.data.reservations[0].instances[0].vpc_id #=> String
@@ -26914,7 +26914,7 @@ module AWS::Ec2
     #   resp = client.describe_internet_gateways(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -27015,7 +27015,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -27130,7 +27130,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -27233,7 +27233,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -27353,7 +27353,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -27469,7 +27469,7 @@ module AWS::Ec2
     #   resp = client.describe_key_pairs(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -27674,7 +27674,7 @@ module AWS::Ec2
     #     max_results: 1,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -27699,7 +27699,7 @@ module AWS::Ec2
     #   resp.data.launch_template_versions[0].launch_template_data.ebs_optimized #=> Boolean
     #   resp.data.launch_template_versions[0].launch_template_data.iam_instance_profile #=> Types::LaunchTemplateIamInstanceProfileSpecification
     #   resp.data.launch_template_versions[0].launch_template_data.iam_instance_profile.arn #=> String
-    #   resp.data.launch_template_versions[0].launch_template_data.iam_instance_profile.member_name #=> String
+    #   resp.data.launch_template_versions[0].launch_template_data.iam_instance_profile.name #=> String
     #   resp.data.launch_template_versions[0].launch_template_data.block_device_mappings #=> Array<LaunchTemplateBlockDeviceMapping>
     #   resp.data.launch_template_versions[0].launch_template_data.block_device_mappings[0] #=> Types::LaunchTemplateBlockDeviceMapping
     #   resp.data.launch_template_versions[0].launch_template_data.block_device_mappings[0].device_name #=> String
@@ -27964,7 +27964,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -28086,7 +28086,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -28210,7 +28210,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -28331,7 +28331,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -28446,7 +28446,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -28546,7 +28546,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -28676,7 +28676,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -28788,7 +28788,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -28898,7 +28898,7 @@ module AWS::Ec2
     #   resp = client.describe_moving_addresses(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -29017,7 +29017,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filter: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -29211,7 +29211,7 @@ module AWS::Ec2
     #   resp = client.describe_network_acls(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -29344,7 +29344,7 @@ module AWS::Ec2
     #     analysis_start_time_end: Time.now,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -29449,7 +29449,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -29568,7 +29568,7 @@ module AWS::Ec2
     #     analysis_end_time: Time.now,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -29609,7 +29609,7 @@ module AWS::Ec2
     #   resp.data.network_insights_analyses[0].forward_path_components[0].attached_to #=> Types::AnalysisComponent
     #   resp.data.network_insights_analyses[0].forward_path_components[0].attached_to.id #=> String
     #   resp.data.network_insights_analyses[0].forward_path_components[0].attached_to.arn #=> String
-    #   resp.data.network_insights_analyses[0].forward_path_components[0].attached_to.member_name #=> String
+    #   resp.data.network_insights_analyses[0].forward_path_components[0].attached_to.name #=> String
     #   resp.data.network_insights_analyses[0].forward_path_components[0].component #=> Types::AnalysisComponent
     #   resp.data.network_insights_analyses[0].forward_path_components[0].destination_vpc #=> Types::AnalysisComponent
     #   resp.data.network_insights_analyses[0].forward_path_components[0].outbound_header #=> Types::AnalysisPacketHeader
@@ -29797,7 +29797,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -30010,7 +30010,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -30261,7 +30261,7 @@ module AWS::Ec2
     #   resp = client.describe_network_interfaces(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -30441,7 +30441,7 @@ module AWS::Ec2
     #   resp = client.describe_placement_groups(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -30555,7 +30555,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -30776,7 +30776,7 @@ module AWS::Ec2
     #     max_results: 1,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -30890,7 +30890,7 @@ module AWS::Ec2
     #   resp = client.describe_regions(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -30992,7 +30992,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -31159,7 +31159,7 @@ module AWS::Ec2
     #   resp = client.describe_reserved_instances(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -31288,7 +31288,7 @@ module AWS::Ec2
     #   resp = client.describe_reserved_instances_listings(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -31442,7 +31442,7 @@ module AWS::Ec2
     #   resp = client.describe_reserved_instances_modifications(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -31657,7 +31657,7 @@ module AWS::Ec2
     #     availability_zone: 'AvailabilityZone',
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -31883,7 +31883,7 @@ module AWS::Ec2
     #   resp = client.describe_route_tables(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -32046,7 +32046,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -32191,7 +32191,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -32396,7 +32396,7 @@ module AWS::Ec2
     #   resp = client.describe_security_group_rules(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -32645,7 +32645,7 @@ module AWS::Ec2
     #   resp = client.describe_security_groups(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -32869,7 +32869,7 @@ module AWS::Ec2
     #   resp = client.describe_snapshot_tier_status(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -33100,7 +33100,7 @@ module AWS::Ec2
     #   resp = client.describe_snapshots(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -33530,7 +33530,7 @@ module AWS::Ec2
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].ebs_optimized #=> Boolean
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].iam_instance_profile #=> Types::IamInstanceProfileSpecification
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].iam_instance_profile.arn #=> String
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].iam_instance_profile.member_name #=> String
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].iam_instance_profile.name #=> String
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].image_id #=> String
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].instance_type #=> String, one of a1.medium, a1.large, a1.xlarge, a1.2xlarge, a1.4xlarge, a1.metal, c1.medium, c1.xlarge, c3.large, c3.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c4.large, c4.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c5.large, c5.xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.12xlarge, c5.18xlarge, c5.24xlarge, c5.metal, c5a.large, c5a.xlarge, c5a.2xlarge, c5a.4xlarge, c5a.8xlarge, c5a.12xlarge, c5a.16xlarge, c5a.24xlarge, c5ad.large, c5ad.xlarge, c5ad.2xlarge, c5ad.4xlarge, c5ad.8xlarge, c5ad.12xlarge, c5ad.16xlarge, c5ad.24xlarge, c5d.large, c5d.xlarge, c5d.2xlarge, c5d.4xlarge, c5d.9xlarge, c5d.12xlarge, c5d.18xlarge, c5d.24xlarge, c5d.metal, c5n.large, c5n.xlarge, c5n.2xlarge, c5n.4xlarge, c5n.9xlarge, c5n.18xlarge, c5n.metal, c6g.medium, c6g.large, c6g.xlarge, c6g.2xlarge, c6g.4xlarge, c6g.8xlarge, c6g.12xlarge, c6g.16xlarge, c6g.metal, c6gd.medium, c6gd.large, c6gd.xlarge, c6gd.2xlarge, c6gd.4xlarge, c6gd.8xlarge, c6gd.12xlarge, c6gd.16xlarge, c6gd.metal, c6gn.medium, c6gn.large, c6gn.xlarge, c6gn.2xlarge, c6gn.4xlarge, c6gn.8xlarge, c6gn.12xlarge, c6gn.16xlarge, c6i.large, c6i.xlarge, c6i.2xlarge, c6i.4xlarge, c6i.8xlarge, c6i.12xlarge, c6i.16xlarge, c6i.24xlarge, c6i.32xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d3.xlarge, d3.2xlarge, d3.4xlarge, d3.8xlarge, d3en.xlarge, d3en.2xlarge, d3en.4xlarge, d3en.6xlarge, d3en.8xlarge, d3en.12xlarge, dl1.24xlarge, f1.2xlarge, f1.4xlarge, f1.16xlarge, g2.2xlarge, g2.8xlarge, g3.4xlarge, g3.8xlarge, g3.16xlarge, g3s.xlarge, g4ad.xlarge, g4ad.2xlarge, g4ad.4xlarge, g4ad.8xlarge, g4ad.16xlarge, g4dn.xlarge, g4dn.2xlarge, g4dn.4xlarge, g4dn.8xlarge, g4dn.12xlarge, g4dn.16xlarge, g4dn.metal, g5.xlarge, g5.2xlarge, g5.4xlarge, g5.8xlarge, g5.12xlarge, g5.16xlarge, g5.24xlarge, g5.48xlarge, g5g.xlarge, g5g.2xlarge, g5g.4xlarge, g5g.8xlarge, g5g.16xlarge, g5g.metal, hi1.4xlarge, hs1.8xlarge, h1.2xlarge, h1.4xlarge, h1.8xlarge, h1.16xlarge, i2.xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i3.large, i3.xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.16xlarge, i3.metal, i3en.large, i3en.xlarge, i3en.2xlarge, i3en.3xlarge, i3en.6xlarge, i3en.12xlarge, i3en.24xlarge, i3en.metal, im4gn.large, im4gn.xlarge, im4gn.2xlarge, im4gn.4xlarge, im4gn.8xlarge, im4gn.16xlarge, inf1.xlarge, inf1.2xlarge, inf1.6xlarge, inf1.24xlarge, is4gen.medium, is4gen.large, is4gen.xlarge, is4gen.2xlarge, is4gen.4xlarge, is4gen.8xlarge, m1.small, m1.medium, m1.large, m1.xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, m3.medium, m3.large, m3.xlarge, m3.2xlarge, m4.large, m4.xlarge, m4.2xlarge, m4.4xlarge, m4.10xlarge, m4.16xlarge, m5.large, m5.xlarge, m5.2xlarge, m5.4xlarge, m5.8xlarge, m5.12xlarge, m5.16xlarge, m5.24xlarge, m5.metal, m5a.large, m5a.xlarge, m5a.2xlarge, m5a.4xlarge, m5a.8xlarge, m5a.12xlarge, m5a.16xlarge, m5a.24xlarge, m5ad.large, m5ad.xlarge, m5ad.2xlarge, m5ad.4xlarge, m5ad.8xlarge, m5ad.12xlarge, m5ad.16xlarge, m5ad.24xlarge, m5d.large, m5d.xlarge, m5d.2xlarge, m5d.4xlarge, m5d.8xlarge, m5d.12xlarge, m5d.16xlarge, m5d.24xlarge, m5d.metal, m5dn.large, m5dn.xlarge, m5dn.2xlarge, m5dn.4xlarge, m5dn.8xlarge, m5dn.12xlarge, m5dn.16xlarge, m5dn.24xlarge, m5dn.metal, m5n.large, m5n.xlarge, m5n.2xlarge, m5n.4xlarge, m5n.8xlarge, m5n.12xlarge, m5n.16xlarge, m5n.24xlarge, m5n.metal, m5zn.large, m5zn.xlarge, m5zn.2xlarge, m5zn.3xlarge, m5zn.6xlarge, m5zn.12xlarge, m5zn.metal, m6a.large, m6a.xlarge, m6a.2xlarge, m6a.4xlarge, m6a.8xlarge, m6a.12xlarge, m6a.16xlarge, m6a.24xlarge, m6a.32xlarge, m6a.48xlarge, m6g.metal, m6g.medium, m6g.large, m6g.xlarge, m6g.2xlarge, m6g.4xlarge, m6g.8xlarge, m6g.12xlarge, m6g.16xlarge, m6gd.metal, m6gd.medium, m6gd.large, m6gd.xlarge, m6gd.2xlarge, m6gd.4xlarge, m6gd.8xlarge, m6gd.12xlarge, m6gd.16xlarge, m6i.large, m6i.xlarge, m6i.2xlarge, m6i.4xlarge, m6i.8xlarge, m6i.12xlarge, m6i.16xlarge, m6i.24xlarge, m6i.32xlarge, mac1.metal, p2.xlarge, p2.8xlarge, p2.16xlarge, p3.2xlarge, p3.8xlarge, p3.16xlarge, p3dn.24xlarge, p4d.24xlarge, r3.large, r3.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r4.large, r4.xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.16xlarge, r5.large, r5.xlarge, r5.2xlarge, r5.4xlarge, r5.8xlarge, r5.12xlarge, r5.16xlarge, r5.24xlarge, r5.metal, r5a.large, r5a.xlarge, r5a.2xlarge, r5a.4xlarge, r5a.8xlarge, r5a.12xlarge, r5a.16xlarge, r5a.24xlarge, r5ad.large, r5ad.xlarge, r5ad.2xlarge, r5ad.4xlarge, r5ad.8xlarge, r5ad.12xlarge, r5ad.16xlarge, r5ad.24xlarge, r5b.large, r5b.xlarge, r5b.2xlarge, r5b.4xlarge, r5b.8xlarge, r5b.12xlarge, r5b.16xlarge, r5b.24xlarge, r5b.metal, r5d.large, r5d.xlarge, r5d.2xlarge, r5d.4xlarge, r5d.8xlarge, r5d.12xlarge, r5d.16xlarge, r5d.24xlarge, r5d.metal, r5dn.large, r5dn.xlarge, r5dn.2xlarge, r5dn.4xlarge, r5dn.8xlarge, r5dn.12xlarge, r5dn.16xlarge, r5dn.24xlarge, r5dn.metal, r5n.large, r5n.xlarge, r5n.2xlarge, r5n.4xlarge, r5n.8xlarge, r5n.12xlarge, r5n.16xlarge, r5n.24xlarge, r5n.metal, r6g.medium, r6g.large, r6g.xlarge, r6g.2xlarge, r6g.4xlarge, r6g.8xlarge, r6g.12xlarge, r6g.16xlarge, r6g.metal, r6gd.medium, r6gd.large, r6gd.xlarge, r6gd.2xlarge, r6gd.4xlarge, r6gd.8xlarge, r6gd.12xlarge, r6gd.16xlarge, r6gd.metal, t1.micro, t2.nano, t2.micro, t2.small, t2.medium, t2.large, t2.xlarge, t2.2xlarge, t3.nano, t3.micro, t3.small, t3.medium, t3.large, t3.xlarge, t3.2xlarge, t3a.nano, t3a.micro, t3a.small, t3a.medium, t3a.large, t3a.xlarge, t3a.2xlarge, t4g.nano, t4g.micro, t4g.small, t4g.medium, t4g.large, t4g.xlarge, t4g.2xlarge, u-6tb1.56xlarge, u-6tb1.112xlarge, u-9tb1.112xlarge, u-12tb1.112xlarge, u-6tb1.metal, u-9tb1.metal, u-12tb1.metal, u-18tb1.metal, u-24tb1.metal, vt1.3xlarge, vt1.6xlarge, vt1.24xlarge, x1.16xlarge, x1.32xlarge, x1e.xlarge, x1e.2xlarge, x1e.4xlarge, x1e.8xlarge, x1e.16xlarge, x1e.32xlarge, x2gd.medium, x2gd.large, x2gd.xlarge, x2gd.2xlarge, x2gd.4xlarge, x2gd.8xlarge, x2gd.12xlarge, x2gd.16xlarge, x2gd.metal, z1d.large, z1d.xlarge, z1d.2xlarge, z1d.3xlarge, z1d.6xlarge, z1d.12xlarge, z1d.metal
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.launch_specifications[0].kernel_id #=> String
@@ -33659,7 +33659,7 @@ module AWS::Ec2
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.load_balancers_config.classic_load_balancers_config #=> Types::ClassicLoadBalancersConfig
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.load_balancers_config.classic_load_balancers_config.classic_load_balancers #=> Array<ClassicLoadBalancer>
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.load_balancers_config.classic_load_balancers_config.classic_load_balancers[0] #=> Types::ClassicLoadBalancer
-    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.load_balancers_config.classic_load_balancers_config.classic_load_balancers[0].member_name #=> String
+    #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.load_balancers_config.classic_load_balancers_config.classic_load_balancers[0].name #=> String
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.load_balancers_config.target_groups_config #=> Types::TargetGroupsConfig
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.load_balancers_config.target_groups_config.target_groups #=> Array<TargetGroup>
     #   resp.data.spot_fleet_request_configs[0].spot_fleet_request_config.load_balancers_config.target_groups_config.target_groups[0] #=> Types::TargetGroup
@@ -33956,7 +33956,7 @@ module AWS::Ec2
     #   resp = client.describe_spot_instance_requests(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -34009,7 +34009,7 @@ module AWS::Ec2
     #   resp.data.spot_instance_requests[0].launch_specification.ebs_optimized #=> Boolean
     #   resp.data.spot_instance_requests[0].launch_specification.iam_instance_profile #=> Types::IamInstanceProfileSpecification
     #   resp.data.spot_instance_requests[0].launch_specification.iam_instance_profile.arn #=> String
-    #   resp.data.spot_instance_requests[0].launch_specification.iam_instance_profile.member_name #=> String
+    #   resp.data.spot_instance_requests[0].launch_specification.iam_instance_profile.name #=> String
     #   resp.data.spot_instance_requests[0].launch_specification.image_id #=> String
     #   resp.data.spot_instance_requests[0].launch_specification.instance_type #=> String, one of a1.medium, a1.large, a1.xlarge, a1.2xlarge, a1.4xlarge, a1.metal, c1.medium, c1.xlarge, c3.large, c3.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c4.large, c4.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c5.large, c5.xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.12xlarge, c5.18xlarge, c5.24xlarge, c5.metal, c5a.large, c5a.xlarge, c5a.2xlarge, c5a.4xlarge, c5a.8xlarge, c5a.12xlarge, c5a.16xlarge, c5a.24xlarge, c5ad.large, c5ad.xlarge, c5ad.2xlarge, c5ad.4xlarge, c5ad.8xlarge, c5ad.12xlarge, c5ad.16xlarge, c5ad.24xlarge, c5d.large, c5d.xlarge, c5d.2xlarge, c5d.4xlarge, c5d.9xlarge, c5d.12xlarge, c5d.18xlarge, c5d.24xlarge, c5d.metal, c5n.large, c5n.xlarge, c5n.2xlarge, c5n.4xlarge, c5n.9xlarge, c5n.18xlarge, c5n.metal, c6g.medium, c6g.large, c6g.xlarge, c6g.2xlarge, c6g.4xlarge, c6g.8xlarge, c6g.12xlarge, c6g.16xlarge, c6g.metal, c6gd.medium, c6gd.large, c6gd.xlarge, c6gd.2xlarge, c6gd.4xlarge, c6gd.8xlarge, c6gd.12xlarge, c6gd.16xlarge, c6gd.metal, c6gn.medium, c6gn.large, c6gn.xlarge, c6gn.2xlarge, c6gn.4xlarge, c6gn.8xlarge, c6gn.12xlarge, c6gn.16xlarge, c6i.large, c6i.xlarge, c6i.2xlarge, c6i.4xlarge, c6i.8xlarge, c6i.12xlarge, c6i.16xlarge, c6i.24xlarge, c6i.32xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d3.xlarge, d3.2xlarge, d3.4xlarge, d3.8xlarge, d3en.xlarge, d3en.2xlarge, d3en.4xlarge, d3en.6xlarge, d3en.8xlarge, d3en.12xlarge, dl1.24xlarge, f1.2xlarge, f1.4xlarge, f1.16xlarge, g2.2xlarge, g2.8xlarge, g3.4xlarge, g3.8xlarge, g3.16xlarge, g3s.xlarge, g4ad.xlarge, g4ad.2xlarge, g4ad.4xlarge, g4ad.8xlarge, g4ad.16xlarge, g4dn.xlarge, g4dn.2xlarge, g4dn.4xlarge, g4dn.8xlarge, g4dn.12xlarge, g4dn.16xlarge, g4dn.metal, g5.xlarge, g5.2xlarge, g5.4xlarge, g5.8xlarge, g5.12xlarge, g5.16xlarge, g5.24xlarge, g5.48xlarge, g5g.xlarge, g5g.2xlarge, g5g.4xlarge, g5g.8xlarge, g5g.16xlarge, g5g.metal, hi1.4xlarge, hs1.8xlarge, h1.2xlarge, h1.4xlarge, h1.8xlarge, h1.16xlarge, i2.xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i3.large, i3.xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.16xlarge, i3.metal, i3en.large, i3en.xlarge, i3en.2xlarge, i3en.3xlarge, i3en.6xlarge, i3en.12xlarge, i3en.24xlarge, i3en.metal, im4gn.large, im4gn.xlarge, im4gn.2xlarge, im4gn.4xlarge, im4gn.8xlarge, im4gn.16xlarge, inf1.xlarge, inf1.2xlarge, inf1.6xlarge, inf1.24xlarge, is4gen.medium, is4gen.large, is4gen.xlarge, is4gen.2xlarge, is4gen.4xlarge, is4gen.8xlarge, m1.small, m1.medium, m1.large, m1.xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, m3.medium, m3.large, m3.xlarge, m3.2xlarge, m4.large, m4.xlarge, m4.2xlarge, m4.4xlarge, m4.10xlarge, m4.16xlarge, m5.large, m5.xlarge, m5.2xlarge, m5.4xlarge, m5.8xlarge, m5.12xlarge, m5.16xlarge, m5.24xlarge, m5.metal, m5a.large, m5a.xlarge, m5a.2xlarge, m5a.4xlarge, m5a.8xlarge, m5a.12xlarge, m5a.16xlarge, m5a.24xlarge, m5ad.large, m5ad.xlarge, m5ad.2xlarge, m5ad.4xlarge, m5ad.8xlarge, m5ad.12xlarge, m5ad.16xlarge, m5ad.24xlarge, m5d.large, m5d.xlarge, m5d.2xlarge, m5d.4xlarge, m5d.8xlarge, m5d.12xlarge, m5d.16xlarge, m5d.24xlarge, m5d.metal, m5dn.large, m5dn.xlarge, m5dn.2xlarge, m5dn.4xlarge, m5dn.8xlarge, m5dn.12xlarge, m5dn.16xlarge, m5dn.24xlarge, m5dn.metal, m5n.large, m5n.xlarge, m5n.2xlarge, m5n.4xlarge, m5n.8xlarge, m5n.12xlarge, m5n.16xlarge, m5n.24xlarge, m5n.metal, m5zn.large, m5zn.xlarge, m5zn.2xlarge, m5zn.3xlarge, m5zn.6xlarge, m5zn.12xlarge, m5zn.metal, m6a.large, m6a.xlarge, m6a.2xlarge, m6a.4xlarge, m6a.8xlarge, m6a.12xlarge, m6a.16xlarge, m6a.24xlarge, m6a.32xlarge, m6a.48xlarge, m6g.metal, m6g.medium, m6g.large, m6g.xlarge, m6g.2xlarge, m6g.4xlarge, m6g.8xlarge, m6g.12xlarge, m6g.16xlarge, m6gd.metal, m6gd.medium, m6gd.large, m6gd.xlarge, m6gd.2xlarge, m6gd.4xlarge, m6gd.8xlarge, m6gd.12xlarge, m6gd.16xlarge, m6i.large, m6i.xlarge, m6i.2xlarge, m6i.4xlarge, m6i.8xlarge, m6i.12xlarge, m6i.16xlarge, m6i.24xlarge, m6i.32xlarge, mac1.metal, p2.xlarge, p2.8xlarge, p2.16xlarge, p3.2xlarge, p3.8xlarge, p3.16xlarge, p3dn.24xlarge, p4d.24xlarge, r3.large, r3.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r4.large, r4.xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.16xlarge, r5.large, r5.xlarge, r5.2xlarge, r5.4xlarge, r5.8xlarge, r5.12xlarge, r5.16xlarge, r5.24xlarge, r5.metal, r5a.large, r5a.xlarge, r5a.2xlarge, r5a.4xlarge, r5a.8xlarge, r5a.12xlarge, r5a.16xlarge, r5a.24xlarge, r5ad.large, r5ad.xlarge, r5ad.2xlarge, r5ad.4xlarge, r5ad.8xlarge, r5ad.12xlarge, r5ad.16xlarge, r5ad.24xlarge, r5b.large, r5b.xlarge, r5b.2xlarge, r5b.4xlarge, r5b.8xlarge, r5b.12xlarge, r5b.16xlarge, r5b.24xlarge, r5b.metal, r5d.large, r5d.xlarge, r5d.2xlarge, r5d.4xlarge, r5d.8xlarge, r5d.12xlarge, r5d.16xlarge, r5d.24xlarge, r5d.metal, r5dn.large, r5dn.xlarge, r5dn.2xlarge, r5dn.4xlarge, r5dn.8xlarge, r5dn.12xlarge, r5dn.16xlarge, r5dn.24xlarge, r5dn.metal, r5n.large, r5n.xlarge, r5n.2xlarge, r5n.4xlarge, r5n.8xlarge, r5n.12xlarge, r5n.16xlarge, r5n.24xlarge, r5n.metal, r6g.medium, r6g.large, r6g.xlarge, r6g.2xlarge, r6g.4xlarge, r6g.8xlarge, r6g.12xlarge, r6g.16xlarge, r6g.metal, r6gd.medium, r6gd.large, r6gd.xlarge, r6gd.2xlarge, r6gd.4xlarge, r6gd.8xlarge, r6gd.12xlarge, r6gd.16xlarge, r6gd.metal, t1.micro, t2.nano, t2.micro, t2.small, t2.medium, t2.large, t2.xlarge, t2.2xlarge, t3.nano, t3.micro, t3.small, t3.medium, t3.large, t3.xlarge, t3.2xlarge, t3a.nano, t3a.micro, t3a.small, t3a.medium, t3a.large, t3a.xlarge, t3a.2xlarge, t4g.nano, t4g.micro, t4g.small, t4g.medium, t4g.large, t4g.xlarge, t4g.2xlarge, u-6tb1.56xlarge, u-6tb1.112xlarge, u-9tb1.112xlarge, u-12tb1.112xlarge, u-6tb1.metal, u-9tb1.metal, u-12tb1.metal, u-18tb1.metal, u-24tb1.metal, vt1.3xlarge, vt1.6xlarge, vt1.24xlarge, x1.16xlarge, x1.32xlarge, x1e.xlarge, x1e.2xlarge, x1e.4xlarge, x1e.8xlarge, x1e.16xlarge, x1e.32xlarge, x2gd.medium, x2gd.large, x2gd.xlarge, x2gd.2xlarge, x2gd.4xlarge, x2gd.8xlarge, x2gd.12xlarge, x2gd.16xlarge, x2gd.metal, z1d.large, z1d.xlarge, z1d.2xlarge, z1d.3xlarge, z1d.6xlarge, z1d.12xlarge, z1d.metal
     #   resp.data.spot_instance_requests[0].launch_specification.kernel_id #=> String
@@ -34198,7 +34198,7 @@ module AWS::Ec2
     #   resp = client.describe_spot_price_history(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -34432,7 +34432,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -34611,7 +34611,7 @@ module AWS::Ec2
     #   resp = client.describe_subnets(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -34760,7 +34760,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -34865,7 +34865,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -35018,7 +35018,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -35144,7 +35144,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -35286,7 +35286,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -35408,7 +35408,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -35548,7 +35548,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -35664,7 +35664,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -35800,7 +35800,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -35931,7 +35931,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -36051,7 +36051,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -36207,7 +36207,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -36335,7 +36335,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -36615,7 +36615,7 @@ module AWS::Ec2
     #   resp = client.describe_volume_status(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -36655,7 +36655,7 @@ module AWS::Ec2
     #   resp.data.volume_statuses[0].volume_status #=> Types::VolumeStatusInfo
     #   resp.data.volume_statuses[0].volume_status.details #=> Array<VolumeStatusDetails>
     #   resp.data.volume_statuses[0].volume_status.details[0] #=> Types::VolumeStatusDetails
-    #   resp.data.volume_statuses[0].volume_status.details[0].member_name #=> String, one of io-enabled, io-performance
+    #   resp.data.volume_statuses[0].volume_status.details[0].name #=> String, one of io-enabled, io-performance
     #   resp.data.volume_statuses[0].volume_status.details[0].status #=> String
     #   resp.data.volume_statuses[0].volume_status.status #=> String, one of ok, impaired, insufficient-data
     #   resp.data.volume_statuses[0].attachment_statuses #=> Array<VolumeStatusAttachmentStatus>
@@ -36835,7 +36835,7 @@ module AWS::Ec2
     #   resp = client.describe_volumes(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -37011,7 +37011,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -37197,7 +37197,7 @@ module AWS::Ec2
     #   resp = client.describe_vpc_classic_link(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -37404,7 +37404,7 @@ module AWS::Ec2
     #     connection_notification_id: 'ConnectionNotificationId',
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -37523,7 +37523,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -37653,7 +37653,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -37686,7 +37686,7 @@ module AWS::Ec2
     #   resp.data.service_configurations[0].private_dns_name_configuration.state #=> String, one of pendingVerification, verified, failed
     #   resp.data.service_configurations[0].private_dns_name_configuration.type #=> String
     #   resp.data.service_configurations[0].private_dns_name_configuration.value #=> String
-    #   resp.data.service_configurations[0].private_dns_name_configuration.member_name #=> String
+    #   resp.data.service_configurations[0].private_dns_name_configuration.name #=> String
     #   resp.data.service_configurations[0].payer_responsibility #=> String, one of ServiceOwner
     #   resp.data.service_configurations[0].tags #=> Array<Tag>
     #   resp.data.service_configurations[0].tags[0] #=> Types::Tag
@@ -37782,7 +37782,7 @@ module AWS::Ec2
     #     service_id: 'ServiceId', # required
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -37901,7 +37901,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #       }
     #     ],
     #     max_results: 1,
@@ -38045,7 +38045,7 @@ module AWS::Ec2
     #     ],
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -38223,7 +38223,7 @@ module AWS::Ec2
     #   resp = client.describe_vpc_peering_connections(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -38412,7 +38412,7 @@ module AWS::Ec2
     #   resp = client.describe_vpcs(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -38587,7 +38587,7 @@ module AWS::Ec2
     #   resp = client.describe_vpn_connections(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -38789,7 +38789,7 @@ module AWS::Ec2
     #   resp = client.describe_vpn_gateways(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -40269,7 +40269,7 @@ module AWS::Ec2
     #   resp.data.instance_event_window.time_ranges[0].start_hour #=> Integer
     #   resp.data.instance_event_window.time_ranges[0].end_week_day #=> String, one of sunday, monday, tuesday, wednesday, thursday, friday, saturday
     #   resp.data.instance_event_window.time_ranges[0].end_hour #=> Integer
-    #   resp.data.instance_event_window.member_name #=> String
+    #   resp.data.instance_event_window.name #=> String
     #   resp.data.instance_event_window.cron_expression #=> String
     #   resp.data.instance_event_window.association_target #=> Types::InstanceEventWindowAssociationTarget
     #   resp.data.instance_event_window.association_target.instance_ids #=> Array<String>
@@ -41848,7 +41848,7 @@ module AWS::Ec2
     #     transit_gateway_route_table_id: 'TransitGatewayRouteTableId', # required
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -42201,7 +42201,7 @@ module AWS::Ec2
     #     pool_id: 'PoolId', # required
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -43192,7 +43192,7 @@ module AWS::Ec2
     #     ipam_pool_allocation_id: 'IpamPoolAllocationId',
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -43287,7 +43287,7 @@ module AWS::Ec2
     #     ipam_pool_id: 'IpamPoolId', # required
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -43394,7 +43394,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -43513,7 +43513,7 @@ module AWS::Ec2
     #   resp.data.launch_template_data.ebs_optimized #=> Boolean
     #   resp.data.launch_template_data.iam_instance_profile #=> Types::LaunchTemplateIamInstanceProfileSpecification
     #   resp.data.launch_template_data.iam_instance_profile.arn #=> String
-    #   resp.data.launch_template_data.iam_instance_profile.member_name #=> String
+    #   resp.data.launch_template_data.iam_instance_profile.name #=> String
     #   resp.data.launch_template_data.block_device_mappings #=> Array<LaunchTemplateBlockDeviceMapping>
     #   resp.data.launch_template_data.block_device_mappings[0] #=> Types::LaunchTemplateBlockDeviceMapping
     #   resp.data.launch_template_data.block_device_mappings[0].device_name #=> String
@@ -43936,7 +43936,7 @@ module AWS::Ec2
     #   resp.data.analysis_findings[0].finding_components[0].attached_to #=> Types::AnalysisComponent
     #   resp.data.analysis_findings[0].finding_components[0].attached_to.id #=> String
     #   resp.data.analysis_findings[0].finding_components[0].attached_to.arn #=> String
-    #   resp.data.analysis_findings[0].finding_components[0].attached_to.member_name #=> String
+    #   resp.data.analysis_findings[0].finding_components[0].attached_to.name #=> String
     #   resp.data.analysis_findings[0].finding_components[0].component #=> Types::AnalysisComponent
     #   resp.data.analysis_findings[0].finding_components[0].destination_vpc #=> Types::AnalysisComponent
     #   resp.data.analysis_findings[0].finding_components[0].outbound_header #=> Types::AnalysisPacketHeader
@@ -44588,7 +44588,7 @@ module AWS::Ec2
     #   resp = client.get_subnet_cidr_reservations(
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -44695,7 +44695,7 @@ module AWS::Ec2
     #     transit_gateway_attachment_id: 'TransitGatewayAttachmentId', # required
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -44812,7 +44812,7 @@ module AWS::Ec2
     #     transit_gateway_multicast_domain_id: 'TransitGatewayMulticastDomainId',
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -44940,7 +44940,7 @@ module AWS::Ec2
     #     transit_gateway_route_table_id: 'TransitGatewayRouteTableId', # required
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -45054,7 +45054,7 @@ module AWS::Ec2
     #     transit_gateway_route_table_id: 'TransitGatewayRouteTableId', # required
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -45163,7 +45163,7 @@ module AWS::Ec2
     #     transit_gateway_route_table_id: 'TransitGatewayRouteTableId', # required
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -47240,7 +47240,7 @@ module AWS::Ec2
     # @option params [String] :description
     #   <p>A description for the AFI.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>A name for the AFI.</p>
     #
     # @return [Types::ModifyFpgaImageAttributeOutput]
@@ -47270,7 +47270,7 @@ module AWS::Ec2
     #       ],
     #     },
     #     description: 'Description',
-    #     member_name: 'Name'
+    #     name: 'Name'
     #   )
     #
     # @example Response structure
@@ -47278,7 +47278,7 @@ module AWS::Ec2
     #   resp.data #=> Types::ModifyFpgaImageAttributeOutput
     #   resp.data.fpga_image_attribute #=> Types::FpgaImageAttribute
     #   resp.data.fpga_image_attribute.fpga_image_id #=> String
-    #   resp.data.fpga_image_attribute.member_name #=> String
+    #   resp.data.fpga_image_attribute.name #=> String
     #   resp.data.fpga_image_attribute.description #=> String
     #   resp.data.fpga_image_attribute.load_permissions #=> Array<LoadPermission>
     #   resp.data.fpga_image_attribute.load_permissions[0] #=> Types::LoadPermission
@@ -48217,7 +48217,7 @@ module AWS::Ec2
     #      and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
     #      Otherwise, it is <code>UnauthorizedOperation</code>.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the event window.</p>
     #
     # @option params [String] :instance_event_window_id
@@ -48263,7 +48263,7 @@ module AWS::Ec2
     #
     #   resp = client.modify_instance_event_window(
     #     dry_run: false,
-    #     member_name: 'Name',
+    #     name: 'Name',
     #     instance_event_window_id: 'InstanceEventWindowId', # required
     #     time_ranges: [
     #       {
@@ -48287,7 +48287,7 @@ module AWS::Ec2
     #   resp.data.instance_event_window.time_ranges[0].start_hour #=> Integer
     #   resp.data.instance_event_window.time_ranges[0].end_week_day #=> String, one of sunday, monday, tuesday, wednesday, thursday, friday, saturday
     #   resp.data.instance_event_window.time_ranges[0].end_hour #=> Integer
-    #   resp.data.instance_event_window.member_name #=> String
+    #   resp.data.instance_event_window.name #=> String
     #   resp.data.instance_event_window.cron_expression #=> String
     #   resp.data.instance_event_window.association_target #=> Types::InstanceEventWindowAssociationTarget
     #   resp.data.instance_event_window.association_target.instance_ids #=> Array<String>
@@ -53381,7 +53381,7 @@ module AWS::Ec2
     # @option params [String] :kernel_id
     #   <p>The ID of the kernel.</p>
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>A name for your AMI.</p>
     #            <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
     #
@@ -53438,7 +53438,7 @@ module AWS::Ec2
     #     dry_run: false,
     #     ena_support: false,
     #     kernel_id: 'KernelId',
-    #     member_name: 'Name', # required
+    #     name: 'Name', # required
     #     billing_products: [
     #       'member'
     #     ],
@@ -54411,7 +54411,7 @@ module AWS::Ec2
     #   resp = client.replace_iam_instance_profile_association(
     #     iam_instance_profile: {
     #       arn: 'Arn',
-    #       member_name: 'Name'
+    #       name: 'Name'
     #     }, # required
     #     association_id: 'AssociationId' # required
     #   )
@@ -55178,7 +55178,7 @@ module AWS::Ec2
     #           ebs_optimized: false,
     #           iam_instance_profile: {
     #             arn: 'Arn',
-    #             member_name: 'Name'
+    #             name: 'Name'
     #           },
     #           image_id: 'ImageId',
     #           instance_type: 'a1.medium', # accepts a1.medium, a1.large, a1.xlarge, a1.2xlarge, a1.4xlarge, a1.metal, c1.medium, c1.xlarge, c3.large, c3.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c4.large, c4.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c5.large, c5.xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.12xlarge, c5.18xlarge, c5.24xlarge, c5.metal, c5a.large, c5a.xlarge, c5a.2xlarge, c5a.4xlarge, c5a.8xlarge, c5a.12xlarge, c5a.16xlarge, c5a.24xlarge, c5ad.large, c5ad.xlarge, c5ad.2xlarge, c5ad.4xlarge, c5ad.8xlarge, c5ad.12xlarge, c5ad.16xlarge, c5ad.24xlarge, c5d.large, c5d.xlarge, c5d.2xlarge, c5d.4xlarge, c5d.9xlarge, c5d.12xlarge, c5d.18xlarge, c5d.24xlarge, c5d.metal, c5n.large, c5n.xlarge, c5n.2xlarge, c5n.4xlarge, c5n.9xlarge, c5n.18xlarge, c5n.metal, c6g.medium, c6g.large, c6g.xlarge, c6g.2xlarge, c6g.4xlarge, c6g.8xlarge, c6g.12xlarge, c6g.16xlarge, c6g.metal, c6gd.medium, c6gd.large, c6gd.xlarge, c6gd.2xlarge, c6gd.4xlarge, c6gd.8xlarge, c6gd.12xlarge, c6gd.16xlarge, c6gd.metal, c6gn.medium, c6gn.large, c6gn.xlarge, c6gn.2xlarge, c6gn.4xlarge, c6gn.8xlarge, c6gn.12xlarge, c6gn.16xlarge, c6i.large, c6i.xlarge, c6i.2xlarge, c6i.4xlarge, c6i.8xlarge, c6i.12xlarge, c6i.16xlarge, c6i.24xlarge, c6i.32xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d3.xlarge, d3.2xlarge, d3.4xlarge, d3.8xlarge, d3en.xlarge, d3en.2xlarge, d3en.4xlarge, d3en.6xlarge, d3en.8xlarge, d3en.12xlarge, dl1.24xlarge, f1.2xlarge, f1.4xlarge, f1.16xlarge, g2.2xlarge, g2.8xlarge, g3.4xlarge, g3.8xlarge, g3.16xlarge, g3s.xlarge, g4ad.xlarge, g4ad.2xlarge, g4ad.4xlarge, g4ad.8xlarge, g4ad.16xlarge, g4dn.xlarge, g4dn.2xlarge, g4dn.4xlarge, g4dn.8xlarge, g4dn.12xlarge, g4dn.16xlarge, g4dn.metal, g5.xlarge, g5.2xlarge, g5.4xlarge, g5.8xlarge, g5.12xlarge, g5.16xlarge, g5.24xlarge, g5.48xlarge, g5g.xlarge, g5g.2xlarge, g5g.4xlarge, g5g.8xlarge, g5g.16xlarge, g5g.metal, hi1.4xlarge, hs1.8xlarge, h1.2xlarge, h1.4xlarge, h1.8xlarge, h1.16xlarge, i2.xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i3.large, i3.xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.16xlarge, i3.metal, i3en.large, i3en.xlarge, i3en.2xlarge, i3en.3xlarge, i3en.6xlarge, i3en.12xlarge, i3en.24xlarge, i3en.metal, im4gn.large, im4gn.xlarge, im4gn.2xlarge, im4gn.4xlarge, im4gn.8xlarge, im4gn.16xlarge, inf1.xlarge, inf1.2xlarge, inf1.6xlarge, inf1.24xlarge, is4gen.medium, is4gen.large, is4gen.xlarge, is4gen.2xlarge, is4gen.4xlarge, is4gen.8xlarge, m1.small, m1.medium, m1.large, m1.xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, m3.medium, m3.large, m3.xlarge, m3.2xlarge, m4.large, m4.xlarge, m4.2xlarge, m4.4xlarge, m4.10xlarge, m4.16xlarge, m5.large, m5.xlarge, m5.2xlarge, m5.4xlarge, m5.8xlarge, m5.12xlarge, m5.16xlarge, m5.24xlarge, m5.metal, m5a.large, m5a.xlarge, m5a.2xlarge, m5a.4xlarge, m5a.8xlarge, m5a.12xlarge, m5a.16xlarge, m5a.24xlarge, m5ad.large, m5ad.xlarge, m5ad.2xlarge, m5ad.4xlarge, m5ad.8xlarge, m5ad.12xlarge, m5ad.16xlarge, m5ad.24xlarge, m5d.large, m5d.xlarge, m5d.2xlarge, m5d.4xlarge, m5d.8xlarge, m5d.12xlarge, m5d.16xlarge, m5d.24xlarge, m5d.metal, m5dn.large, m5dn.xlarge, m5dn.2xlarge, m5dn.4xlarge, m5dn.8xlarge, m5dn.12xlarge, m5dn.16xlarge, m5dn.24xlarge, m5dn.metal, m5n.large, m5n.xlarge, m5n.2xlarge, m5n.4xlarge, m5n.8xlarge, m5n.12xlarge, m5n.16xlarge, m5n.24xlarge, m5n.metal, m5zn.large, m5zn.xlarge, m5zn.2xlarge, m5zn.3xlarge, m5zn.6xlarge, m5zn.12xlarge, m5zn.metal, m6a.large, m6a.xlarge, m6a.2xlarge, m6a.4xlarge, m6a.8xlarge, m6a.12xlarge, m6a.16xlarge, m6a.24xlarge, m6a.32xlarge, m6a.48xlarge, m6g.metal, m6g.medium, m6g.large, m6g.xlarge, m6g.2xlarge, m6g.4xlarge, m6g.8xlarge, m6g.12xlarge, m6g.16xlarge, m6gd.metal, m6gd.medium, m6gd.large, m6gd.xlarge, m6gd.2xlarge, m6gd.4xlarge, m6gd.8xlarge, m6gd.12xlarge, m6gd.16xlarge, m6i.large, m6i.xlarge, m6i.2xlarge, m6i.4xlarge, m6i.8xlarge, m6i.12xlarge, m6i.16xlarge, m6i.24xlarge, m6i.32xlarge, mac1.metal, p2.xlarge, p2.8xlarge, p2.16xlarge, p3.2xlarge, p3.8xlarge, p3.16xlarge, p3dn.24xlarge, p4d.24xlarge, r3.large, r3.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r4.large, r4.xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.16xlarge, r5.large, r5.xlarge, r5.2xlarge, r5.4xlarge, r5.8xlarge, r5.12xlarge, r5.16xlarge, r5.24xlarge, r5.metal, r5a.large, r5a.xlarge, r5a.2xlarge, r5a.4xlarge, r5a.8xlarge, r5a.12xlarge, r5a.16xlarge, r5a.24xlarge, r5ad.large, r5ad.xlarge, r5ad.2xlarge, r5ad.4xlarge, r5ad.8xlarge, r5ad.12xlarge, r5ad.16xlarge, r5ad.24xlarge, r5b.large, r5b.xlarge, r5b.2xlarge, r5b.4xlarge, r5b.8xlarge, r5b.12xlarge, r5b.16xlarge, r5b.24xlarge, r5b.metal, r5d.large, r5d.xlarge, r5d.2xlarge, r5d.4xlarge, r5d.8xlarge, r5d.12xlarge, r5d.16xlarge, r5d.24xlarge, r5d.metal, r5dn.large, r5dn.xlarge, r5dn.2xlarge, r5dn.4xlarge, r5dn.8xlarge, r5dn.12xlarge, r5dn.16xlarge, r5dn.24xlarge, r5dn.metal, r5n.large, r5n.xlarge, r5n.2xlarge, r5n.4xlarge, r5n.8xlarge, r5n.12xlarge, r5n.16xlarge, r5n.24xlarge, r5n.metal, r6g.medium, r6g.large, r6g.xlarge, r6g.2xlarge, r6g.4xlarge, r6g.8xlarge, r6g.12xlarge, r6g.16xlarge, r6g.metal, r6gd.medium, r6gd.large, r6gd.xlarge, r6gd.2xlarge, r6gd.4xlarge, r6gd.8xlarge, r6gd.12xlarge, r6gd.16xlarge, r6gd.metal, t1.micro, t2.nano, t2.micro, t2.small, t2.medium, t2.large, t2.xlarge, t2.2xlarge, t3.nano, t3.micro, t3.small, t3.medium, t3.large, t3.xlarge, t3.2xlarge, t3a.nano, t3a.micro, t3a.small, t3a.medium, t3a.large, t3a.xlarge, t3a.2xlarge, t4g.nano, t4g.micro, t4g.small, t4g.medium, t4g.large, t4g.xlarge, t4g.2xlarge, u-6tb1.56xlarge, u-6tb1.112xlarge, u-9tb1.112xlarge, u-12tb1.112xlarge, u-6tb1.metal, u-9tb1.metal, u-12tb1.metal, u-18tb1.metal, u-24tb1.metal, vt1.3xlarge, vt1.6xlarge, vt1.24xlarge, x1.16xlarge, x1.32xlarge, x1e.xlarge, x1e.2xlarge, x1e.4xlarge, x1e.8xlarge, x1e.16xlarge, x1e.32xlarge, x2gd.medium, x2gd.large, x2gd.xlarge, x2gd.2xlarge, x2gd.4xlarge, x2gd.8xlarge, x2gd.12xlarge, x2gd.16xlarge, x2gd.metal, z1d.large, z1d.xlarge, z1d.2xlarge, z1d.3xlarge, z1d.6xlarge, z1d.12xlarge, z1d.metal
@@ -55347,7 +55347,7 @@ module AWS::Ec2
     #         classic_load_balancers_config: {
     #           classic_load_balancers: [
     #             {
-    #               member_name: 'Name'
+    #               name: 'Name'
     #             }
     #           ]
     #         },
@@ -55548,7 +55548,7 @@ module AWS::Ec2
     #       ebs_optimized: false,
     #       iam_instance_profile: {
     #         arn: 'Arn',
-    #         member_name: 'Name'
+    #         name: 'Name'
     #       },
     #       image_id: 'ImageId',
     #       instance_type: 'a1.medium', # accepts a1.medium, a1.large, a1.xlarge, a1.2xlarge, a1.4xlarge, a1.metal, c1.medium, c1.xlarge, c3.large, c3.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c4.large, c4.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c5.large, c5.xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.12xlarge, c5.18xlarge, c5.24xlarge, c5.metal, c5a.large, c5a.xlarge, c5a.2xlarge, c5a.4xlarge, c5a.8xlarge, c5a.12xlarge, c5a.16xlarge, c5a.24xlarge, c5ad.large, c5ad.xlarge, c5ad.2xlarge, c5ad.4xlarge, c5ad.8xlarge, c5ad.12xlarge, c5ad.16xlarge, c5ad.24xlarge, c5d.large, c5d.xlarge, c5d.2xlarge, c5d.4xlarge, c5d.9xlarge, c5d.12xlarge, c5d.18xlarge, c5d.24xlarge, c5d.metal, c5n.large, c5n.xlarge, c5n.2xlarge, c5n.4xlarge, c5n.9xlarge, c5n.18xlarge, c5n.metal, c6g.medium, c6g.large, c6g.xlarge, c6g.2xlarge, c6g.4xlarge, c6g.8xlarge, c6g.12xlarge, c6g.16xlarge, c6g.metal, c6gd.medium, c6gd.large, c6gd.xlarge, c6gd.2xlarge, c6gd.4xlarge, c6gd.8xlarge, c6gd.12xlarge, c6gd.16xlarge, c6gd.metal, c6gn.medium, c6gn.large, c6gn.xlarge, c6gn.2xlarge, c6gn.4xlarge, c6gn.8xlarge, c6gn.12xlarge, c6gn.16xlarge, c6i.large, c6i.xlarge, c6i.2xlarge, c6i.4xlarge, c6i.8xlarge, c6i.12xlarge, c6i.16xlarge, c6i.24xlarge, c6i.32xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d3.xlarge, d3.2xlarge, d3.4xlarge, d3.8xlarge, d3en.xlarge, d3en.2xlarge, d3en.4xlarge, d3en.6xlarge, d3en.8xlarge, d3en.12xlarge, dl1.24xlarge, f1.2xlarge, f1.4xlarge, f1.16xlarge, g2.2xlarge, g2.8xlarge, g3.4xlarge, g3.8xlarge, g3.16xlarge, g3s.xlarge, g4ad.xlarge, g4ad.2xlarge, g4ad.4xlarge, g4ad.8xlarge, g4ad.16xlarge, g4dn.xlarge, g4dn.2xlarge, g4dn.4xlarge, g4dn.8xlarge, g4dn.12xlarge, g4dn.16xlarge, g4dn.metal, g5.xlarge, g5.2xlarge, g5.4xlarge, g5.8xlarge, g5.12xlarge, g5.16xlarge, g5.24xlarge, g5.48xlarge, g5g.xlarge, g5g.2xlarge, g5g.4xlarge, g5g.8xlarge, g5g.16xlarge, g5g.metal, hi1.4xlarge, hs1.8xlarge, h1.2xlarge, h1.4xlarge, h1.8xlarge, h1.16xlarge, i2.xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i3.large, i3.xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.16xlarge, i3.metal, i3en.large, i3en.xlarge, i3en.2xlarge, i3en.3xlarge, i3en.6xlarge, i3en.12xlarge, i3en.24xlarge, i3en.metal, im4gn.large, im4gn.xlarge, im4gn.2xlarge, im4gn.4xlarge, im4gn.8xlarge, im4gn.16xlarge, inf1.xlarge, inf1.2xlarge, inf1.6xlarge, inf1.24xlarge, is4gen.medium, is4gen.large, is4gen.xlarge, is4gen.2xlarge, is4gen.4xlarge, is4gen.8xlarge, m1.small, m1.medium, m1.large, m1.xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, m3.medium, m3.large, m3.xlarge, m3.2xlarge, m4.large, m4.xlarge, m4.2xlarge, m4.4xlarge, m4.10xlarge, m4.16xlarge, m5.large, m5.xlarge, m5.2xlarge, m5.4xlarge, m5.8xlarge, m5.12xlarge, m5.16xlarge, m5.24xlarge, m5.metal, m5a.large, m5a.xlarge, m5a.2xlarge, m5a.4xlarge, m5a.8xlarge, m5a.12xlarge, m5a.16xlarge, m5a.24xlarge, m5ad.large, m5ad.xlarge, m5ad.2xlarge, m5ad.4xlarge, m5ad.8xlarge, m5ad.12xlarge, m5ad.16xlarge, m5ad.24xlarge, m5d.large, m5d.xlarge, m5d.2xlarge, m5d.4xlarge, m5d.8xlarge, m5d.12xlarge, m5d.16xlarge, m5d.24xlarge, m5d.metal, m5dn.large, m5dn.xlarge, m5dn.2xlarge, m5dn.4xlarge, m5dn.8xlarge, m5dn.12xlarge, m5dn.16xlarge, m5dn.24xlarge, m5dn.metal, m5n.large, m5n.xlarge, m5n.2xlarge, m5n.4xlarge, m5n.8xlarge, m5n.12xlarge, m5n.16xlarge, m5n.24xlarge, m5n.metal, m5zn.large, m5zn.xlarge, m5zn.2xlarge, m5zn.3xlarge, m5zn.6xlarge, m5zn.12xlarge, m5zn.metal, m6a.large, m6a.xlarge, m6a.2xlarge, m6a.4xlarge, m6a.8xlarge, m6a.12xlarge, m6a.16xlarge, m6a.24xlarge, m6a.32xlarge, m6a.48xlarge, m6g.metal, m6g.medium, m6g.large, m6g.xlarge, m6g.2xlarge, m6g.4xlarge, m6g.8xlarge, m6g.12xlarge, m6g.16xlarge, m6gd.metal, m6gd.medium, m6gd.large, m6gd.xlarge, m6gd.2xlarge, m6gd.4xlarge, m6gd.8xlarge, m6gd.12xlarge, m6gd.16xlarge, m6i.large, m6i.xlarge, m6i.2xlarge, m6i.4xlarge, m6i.8xlarge, m6i.12xlarge, m6i.16xlarge, m6i.24xlarge, m6i.32xlarge, mac1.metal, p2.xlarge, p2.8xlarge, p2.16xlarge, p3.2xlarge, p3.8xlarge, p3.16xlarge, p3dn.24xlarge, p4d.24xlarge, r3.large, r3.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r4.large, r4.xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.16xlarge, r5.large, r5.xlarge, r5.2xlarge, r5.4xlarge, r5.8xlarge, r5.12xlarge, r5.16xlarge, r5.24xlarge, r5.metal, r5a.large, r5a.xlarge, r5a.2xlarge, r5a.4xlarge, r5a.8xlarge, r5a.12xlarge, r5a.16xlarge, r5a.24xlarge, r5ad.large, r5ad.xlarge, r5ad.2xlarge, r5ad.4xlarge, r5ad.8xlarge, r5ad.12xlarge, r5ad.16xlarge, r5ad.24xlarge, r5b.large, r5b.xlarge, r5b.2xlarge, r5b.4xlarge, r5b.8xlarge, r5b.12xlarge, r5b.16xlarge, r5b.24xlarge, r5b.metal, r5d.large, r5d.xlarge, r5d.2xlarge, r5d.4xlarge, r5d.8xlarge, r5d.12xlarge, r5d.16xlarge, r5d.24xlarge, r5d.metal, r5dn.large, r5dn.xlarge, r5dn.2xlarge, r5dn.4xlarge, r5dn.8xlarge, r5dn.12xlarge, r5dn.16xlarge, r5dn.24xlarge, r5dn.metal, r5n.large, r5n.xlarge, r5n.2xlarge, r5n.4xlarge, r5n.8xlarge, r5n.12xlarge, r5n.16xlarge, r5n.24xlarge, r5n.metal, r6g.medium, r6g.large, r6g.xlarge, r6g.2xlarge, r6g.4xlarge, r6g.8xlarge, r6g.12xlarge, r6g.16xlarge, r6g.metal, r6gd.medium, r6gd.large, r6gd.xlarge, r6gd.2xlarge, r6gd.4xlarge, r6gd.8xlarge, r6gd.12xlarge, r6gd.16xlarge, r6gd.metal, t1.micro, t2.nano, t2.micro, t2.small, t2.medium, t2.large, t2.xlarge, t2.2xlarge, t3.nano, t3.micro, t3.small, t3.medium, t3.large, t3.xlarge, t3.2xlarge, t3a.nano, t3a.micro, t3a.small, t3a.medium, t3a.large, t3a.xlarge, t3a.2xlarge, t4g.nano, t4g.micro, t4g.small, t4g.medium, t4g.large, t4g.xlarge, t4g.2xlarge, u-6tb1.56xlarge, u-6tb1.112xlarge, u-9tb1.112xlarge, u-12tb1.112xlarge, u-6tb1.metal, u-9tb1.metal, u-12tb1.metal, u-18tb1.metal, u-24tb1.metal, vt1.3xlarge, vt1.6xlarge, vt1.24xlarge, x1.16xlarge, x1.32xlarge, x1e.xlarge, x1e.2xlarge, x1e.4xlarge, x1e.8xlarge, x1e.16xlarge, x1e.32xlarge, x2gd.medium, x2gd.large, x2gd.xlarge, x2gd.2xlarge, x2gd.4xlarge, x2gd.8xlarge, x2gd.12xlarge, x2gd.16xlarge, x2gd.metal, z1d.large, z1d.xlarge, z1d.2xlarge, z1d.3xlarge, z1d.6xlarge, z1d.12xlarge, z1d.metal
@@ -55665,7 +55665,7 @@ module AWS::Ec2
     #   resp.data.spot_instance_requests[0].launch_specification.ebs_optimized #=> Boolean
     #   resp.data.spot_instance_requests[0].launch_specification.iam_instance_profile #=> Types::IamInstanceProfileSpecification
     #   resp.data.spot_instance_requests[0].launch_specification.iam_instance_profile.arn #=> String
-    #   resp.data.spot_instance_requests[0].launch_specification.iam_instance_profile.member_name #=> String
+    #   resp.data.spot_instance_requests[0].launch_specification.iam_instance_profile.name #=> String
     #   resp.data.spot_instance_requests[0].launch_specification.image_id #=> String
     #   resp.data.spot_instance_requests[0].launch_specification.instance_type #=> String, one of a1.medium, a1.large, a1.xlarge, a1.2xlarge, a1.4xlarge, a1.metal, c1.medium, c1.xlarge, c3.large, c3.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c4.large, c4.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c5.large, c5.xlarge, c5.2xlarge, c5.4xlarge, c5.9xlarge, c5.12xlarge, c5.18xlarge, c5.24xlarge, c5.metal, c5a.large, c5a.xlarge, c5a.2xlarge, c5a.4xlarge, c5a.8xlarge, c5a.12xlarge, c5a.16xlarge, c5a.24xlarge, c5ad.large, c5ad.xlarge, c5ad.2xlarge, c5ad.4xlarge, c5ad.8xlarge, c5ad.12xlarge, c5ad.16xlarge, c5ad.24xlarge, c5d.large, c5d.xlarge, c5d.2xlarge, c5d.4xlarge, c5d.9xlarge, c5d.12xlarge, c5d.18xlarge, c5d.24xlarge, c5d.metal, c5n.large, c5n.xlarge, c5n.2xlarge, c5n.4xlarge, c5n.9xlarge, c5n.18xlarge, c5n.metal, c6g.medium, c6g.large, c6g.xlarge, c6g.2xlarge, c6g.4xlarge, c6g.8xlarge, c6g.12xlarge, c6g.16xlarge, c6g.metal, c6gd.medium, c6gd.large, c6gd.xlarge, c6gd.2xlarge, c6gd.4xlarge, c6gd.8xlarge, c6gd.12xlarge, c6gd.16xlarge, c6gd.metal, c6gn.medium, c6gn.large, c6gn.xlarge, c6gn.2xlarge, c6gn.4xlarge, c6gn.8xlarge, c6gn.12xlarge, c6gn.16xlarge, c6i.large, c6i.xlarge, c6i.2xlarge, c6i.4xlarge, c6i.8xlarge, c6i.12xlarge, c6i.16xlarge, c6i.24xlarge, c6i.32xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d3.xlarge, d3.2xlarge, d3.4xlarge, d3.8xlarge, d3en.xlarge, d3en.2xlarge, d3en.4xlarge, d3en.6xlarge, d3en.8xlarge, d3en.12xlarge, dl1.24xlarge, f1.2xlarge, f1.4xlarge, f1.16xlarge, g2.2xlarge, g2.8xlarge, g3.4xlarge, g3.8xlarge, g3.16xlarge, g3s.xlarge, g4ad.xlarge, g4ad.2xlarge, g4ad.4xlarge, g4ad.8xlarge, g4ad.16xlarge, g4dn.xlarge, g4dn.2xlarge, g4dn.4xlarge, g4dn.8xlarge, g4dn.12xlarge, g4dn.16xlarge, g4dn.metal, g5.xlarge, g5.2xlarge, g5.4xlarge, g5.8xlarge, g5.12xlarge, g5.16xlarge, g5.24xlarge, g5.48xlarge, g5g.xlarge, g5g.2xlarge, g5g.4xlarge, g5g.8xlarge, g5g.16xlarge, g5g.metal, hi1.4xlarge, hs1.8xlarge, h1.2xlarge, h1.4xlarge, h1.8xlarge, h1.16xlarge, i2.xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i3.large, i3.xlarge, i3.2xlarge, i3.4xlarge, i3.8xlarge, i3.16xlarge, i3.metal, i3en.large, i3en.xlarge, i3en.2xlarge, i3en.3xlarge, i3en.6xlarge, i3en.12xlarge, i3en.24xlarge, i3en.metal, im4gn.large, im4gn.xlarge, im4gn.2xlarge, im4gn.4xlarge, im4gn.8xlarge, im4gn.16xlarge, inf1.xlarge, inf1.2xlarge, inf1.6xlarge, inf1.24xlarge, is4gen.medium, is4gen.large, is4gen.xlarge, is4gen.2xlarge, is4gen.4xlarge, is4gen.8xlarge, m1.small, m1.medium, m1.large, m1.xlarge, m2.xlarge, m2.2xlarge, m2.4xlarge, m3.medium, m3.large, m3.xlarge, m3.2xlarge, m4.large, m4.xlarge, m4.2xlarge, m4.4xlarge, m4.10xlarge, m4.16xlarge, m5.large, m5.xlarge, m5.2xlarge, m5.4xlarge, m5.8xlarge, m5.12xlarge, m5.16xlarge, m5.24xlarge, m5.metal, m5a.large, m5a.xlarge, m5a.2xlarge, m5a.4xlarge, m5a.8xlarge, m5a.12xlarge, m5a.16xlarge, m5a.24xlarge, m5ad.large, m5ad.xlarge, m5ad.2xlarge, m5ad.4xlarge, m5ad.8xlarge, m5ad.12xlarge, m5ad.16xlarge, m5ad.24xlarge, m5d.large, m5d.xlarge, m5d.2xlarge, m5d.4xlarge, m5d.8xlarge, m5d.12xlarge, m5d.16xlarge, m5d.24xlarge, m5d.metal, m5dn.large, m5dn.xlarge, m5dn.2xlarge, m5dn.4xlarge, m5dn.8xlarge, m5dn.12xlarge, m5dn.16xlarge, m5dn.24xlarge, m5dn.metal, m5n.large, m5n.xlarge, m5n.2xlarge, m5n.4xlarge, m5n.8xlarge, m5n.12xlarge, m5n.16xlarge, m5n.24xlarge, m5n.metal, m5zn.large, m5zn.xlarge, m5zn.2xlarge, m5zn.3xlarge, m5zn.6xlarge, m5zn.12xlarge, m5zn.metal, m6a.large, m6a.xlarge, m6a.2xlarge, m6a.4xlarge, m6a.8xlarge, m6a.12xlarge, m6a.16xlarge, m6a.24xlarge, m6a.32xlarge, m6a.48xlarge, m6g.metal, m6g.medium, m6g.large, m6g.xlarge, m6g.2xlarge, m6g.4xlarge, m6g.8xlarge, m6g.12xlarge, m6g.16xlarge, m6gd.metal, m6gd.medium, m6gd.large, m6gd.xlarge, m6gd.2xlarge, m6gd.4xlarge, m6gd.8xlarge, m6gd.12xlarge, m6gd.16xlarge, m6i.large, m6i.xlarge, m6i.2xlarge, m6i.4xlarge, m6i.8xlarge, m6i.12xlarge, m6i.16xlarge, m6i.24xlarge, m6i.32xlarge, mac1.metal, p2.xlarge, p2.8xlarge, p2.16xlarge, p3.2xlarge, p3.8xlarge, p3.16xlarge, p3dn.24xlarge, p4d.24xlarge, r3.large, r3.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r4.large, r4.xlarge, r4.2xlarge, r4.4xlarge, r4.8xlarge, r4.16xlarge, r5.large, r5.xlarge, r5.2xlarge, r5.4xlarge, r5.8xlarge, r5.12xlarge, r5.16xlarge, r5.24xlarge, r5.metal, r5a.large, r5a.xlarge, r5a.2xlarge, r5a.4xlarge, r5a.8xlarge, r5a.12xlarge, r5a.16xlarge, r5a.24xlarge, r5ad.large, r5ad.xlarge, r5ad.2xlarge, r5ad.4xlarge, r5ad.8xlarge, r5ad.12xlarge, r5ad.16xlarge, r5ad.24xlarge, r5b.large, r5b.xlarge, r5b.2xlarge, r5b.4xlarge, r5b.8xlarge, r5b.12xlarge, r5b.16xlarge, r5b.24xlarge, r5b.metal, r5d.large, r5d.xlarge, r5d.2xlarge, r5d.4xlarge, r5d.8xlarge, r5d.12xlarge, r5d.16xlarge, r5d.24xlarge, r5d.metal, r5dn.large, r5dn.xlarge, r5dn.2xlarge, r5dn.4xlarge, r5dn.8xlarge, r5dn.12xlarge, r5dn.16xlarge, r5dn.24xlarge, r5dn.metal, r5n.large, r5n.xlarge, r5n.2xlarge, r5n.4xlarge, r5n.8xlarge, r5n.12xlarge, r5n.16xlarge, r5n.24xlarge, r5n.metal, r6g.medium, r6g.large, r6g.xlarge, r6g.2xlarge, r6g.4xlarge, r6g.8xlarge, r6g.12xlarge, r6g.16xlarge, r6g.metal, r6gd.medium, r6gd.large, r6gd.xlarge, r6gd.2xlarge, r6gd.4xlarge, r6gd.8xlarge, r6gd.12xlarge, r6gd.16xlarge, r6gd.metal, t1.micro, t2.nano, t2.micro, t2.small, t2.medium, t2.large, t2.xlarge, t2.2xlarge, t3.nano, t3.micro, t3.small, t3.medium, t3.large, t3.xlarge, t3.2xlarge, t3a.nano, t3a.micro, t3a.small, t3a.medium, t3a.large, t3a.xlarge, t3a.2xlarge, t4g.nano, t4g.micro, t4g.small, t4g.medium, t4g.large, t4g.xlarge, t4g.2xlarge, u-6tb1.56xlarge, u-6tb1.112xlarge, u-9tb1.112xlarge, u-12tb1.112xlarge, u-6tb1.metal, u-9tb1.metal, u-12tb1.metal, u-18tb1.metal, u-24tb1.metal, vt1.3xlarge, vt1.6xlarge, vt1.24xlarge, x1.16xlarge, x1.32xlarge, x1e.xlarge, x1e.2xlarge, x1e.4xlarge, x1e.8xlarge, x1e.16xlarge, x1e.32xlarge, x2gd.medium, x2gd.large, x2gd.xlarge, x2gd.2xlarge, x2gd.4xlarge, x2gd.8xlarge, x2gd.12xlarge, x2gd.16xlarge, x2gd.metal, z1d.large, z1d.xlarge, z1d.2xlarge, z1d.3xlarge, z1d.6xlarge, z1d.12xlarge, z1d.metal
     #   resp.data.spot_instance_requests[0].launch_specification.kernel_id #=> String
@@ -57408,7 +57408,7 @@ module AWS::Ec2
     #     ebs_optimized: false,
     #     iam_instance_profile: {
     #       arn: 'Arn',
-    #       member_name: 'Name'
+    #       name: 'Name'
     #     },
     #     instance_initiated_shutdown_behavior: 'stop', # accepts stop, terminate
     #     network_interfaces: [
@@ -57561,7 +57561,7 @@ module AWS::Ec2
     #   resp.data.instances[0].ramdisk_id #=> String
     #   resp.data.instances[0].state #=> Types::InstanceState
     #   resp.data.instances[0].state.code #=> Integer
-    #   resp.data.instances[0].state.member_name #=> String, one of pending, running, shutting-down, terminated, stopping, stopped
+    #   resp.data.instances[0].state.name #=> String, one of pending, running, shutting-down, terminated, stopping, stopped
     #   resp.data.instances[0].state_transition_reason #=> String
     #   resp.data.instances[0].subnet_id #=> String
     #   resp.data.instances[0].vpc_id #=> String
@@ -57784,7 +57784,7 @@ module AWS::Ec2
     #       ebs_optimized: false,
     #       iam_instance_profile: {
     #         arn: 'Arn',
-    #         member_name: 'Name'
+    #         name: 'Name'
     #       },
     #       image_id: 'ImageId', # required
     #       instance_type: 'InstanceType',
@@ -57908,7 +57908,7 @@ module AWS::Ec2
     #     local_gateway_route_table_id: 'LocalGatewayRouteTableId', # required
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -58042,7 +58042,7 @@ module AWS::Ec2
     #     transit_gateway_multicast_domain_id: 'TransitGatewayMulticastDomainId',
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -58183,7 +58183,7 @@ module AWS::Ec2
     #     transit_gateway_route_table_id: 'TransitGatewayRouteTableId', # required
     #     filters: [
     #       {
-    #         member_name: 'Name',
+    #         name: 'Name',
     #         values: [
     #           'member'
     #         ]
@@ -58384,7 +58384,7 @@ module AWS::Ec2
     #   resp.data.starting_instances[0] #=> Types::InstanceStateChange
     #   resp.data.starting_instances[0].current_state #=> Types::InstanceState
     #   resp.data.starting_instances[0].current_state.code #=> Integer
-    #   resp.data.starting_instances[0].current_state.member_name #=> String, one of pending, running, shutting-down, terminated, stopping, stopped
+    #   resp.data.starting_instances[0].current_state.name #=> String, one of pending, running, shutting-down, terminated, stopping, stopped
     #   resp.data.starting_instances[0].instance_id #=> String
     #   resp.data.starting_instances[0].previous_state #=> Types::InstanceState
     #
@@ -58605,7 +58605,7 @@ module AWS::Ec2
     #   resp.data.network_insights_analysis.forward_path_components[0].attached_to #=> Types::AnalysisComponent
     #   resp.data.network_insights_analysis.forward_path_components[0].attached_to.id #=> String
     #   resp.data.network_insights_analysis.forward_path_components[0].attached_to.arn #=> String
-    #   resp.data.network_insights_analysis.forward_path_components[0].attached_to.member_name #=> String
+    #   resp.data.network_insights_analysis.forward_path_components[0].attached_to.name #=> String
     #   resp.data.network_insights_analysis.forward_path_components[0].component #=> Types::AnalysisComponent
     #   resp.data.network_insights_analysis.forward_path_components[0].destination_vpc #=> Types::AnalysisComponent
     #   resp.data.network_insights_analysis.forward_path_components[0].outbound_header #=> Types::AnalysisPacketHeader
@@ -58889,7 +58889,7 @@ module AWS::Ec2
     #   resp.data.stopping_instances[0] #=> Types::InstanceStateChange
     #   resp.data.stopping_instances[0].current_state #=> Types::InstanceState
     #   resp.data.stopping_instances[0].current_state.code #=> Integer
-    #   resp.data.stopping_instances[0].current_state.member_name #=> String, one of pending, running, shutting-down, terminated, stopping, stopped
+    #   resp.data.stopping_instances[0].current_state.name #=> String, one of pending, running, shutting-down, terminated, stopping, stopped
     #   resp.data.stopping_instances[0].instance_id #=> String
     #   resp.data.stopping_instances[0].previous_state #=> Types::InstanceState
     #
@@ -59109,7 +59109,7 @@ module AWS::Ec2
     #   resp.data.terminating_instances[0] #=> Types::InstanceStateChange
     #   resp.data.terminating_instances[0].current_state #=> Types::InstanceState
     #   resp.data.terminating_instances[0].current_state.code #=> Integer
-    #   resp.data.terminating_instances[0].current_state.member_name #=> String, one of pending, running, shutting-down, terminated, stopping, stopped
+    #   resp.data.terminating_instances[0].current_state.name #=> String, one of pending, running, shutting-down, terminated, stopping, stopped
     #   resp.data.terminating_instances[0].instance_id #=> String
     #   resp.data.terminating_instances[0].previous_state #=> Types::InstanceState
     #

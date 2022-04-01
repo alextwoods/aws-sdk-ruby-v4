@@ -626,7 +626,7 @@ module AWS::Ec2
         type = Types::AnalysisComponent.new
         type.id = params[:id]
         type.arn = params[:arn]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type
       end
     end
@@ -2257,7 +2257,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::ClassicLoadBalancer, context: context)
         type = Types::ClassicLoadBalancer.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type
       end
     end
@@ -2702,7 +2702,7 @@ module AWS::Ec2
         type.dry_run = params[:dry_run]
         type.source_fpga_image_id = params[:source_fpga_image_id]
         type.description = params[:description]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.source_region = params[:source_region]
         type.client_token = params[:client_token]
         type
@@ -2726,7 +2726,7 @@ module AWS::Ec2
         type.description = params[:description]
         type.encrypted = params[:encrypted]
         type.kms_key_id = params[:kms_key_id]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.source_image_id = params[:source_image_id]
         type.source_region = params[:source_region]
         type.destination_outpost_arn = params[:destination_outpost_arn]
@@ -3186,7 +3186,7 @@ module AWS::Ec2
         type.input_storage_location = StorageLocation.build(params[:input_storage_location], context: "#{context}[:input_storage_location]") unless params[:input_storage_location].nil?
         type.logs_storage_location = StorageLocation.build(params[:logs_storage_location], context: "#{context}[:logs_storage_location]") unless params[:logs_storage_location].nil?
         type.description = params[:description]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.client_token = params[:client_token]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type
@@ -3211,7 +3211,7 @@ module AWS::Ec2
         type.description = params[:description]
         type.dry_run = params[:dry_run]
         type.instance_id = params[:instance_id]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.no_reboot = params[:no_reboot]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type
@@ -3232,7 +3232,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(params, ::Hash, Types::CreateInstanceEventWindowInput, context: context)
         type = Types::CreateInstanceEventWindowInput.new
         type.dry_run = params[:dry_run]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.time_ranges = InstanceEventWindowTimeRangeRequestSet.build(params[:time_ranges], context: "#{context}[:time_ranges]") unless params[:time_ranges].nil?
         type.cron_expression = params[:cron_expression]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
@@ -3771,7 +3771,7 @@ module AWS::Ec2
         type = Types::CreateRestoreImageTaskInput.new
         type.bucket = params[:bucket]
         type.object_key = params[:object_key]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.tag_specifications = TagSpecificationList.build(params[:tag_specifications], context: "#{context}[:tag_specifications]") unless params[:tag_specifications].nil?
         type.dry_run = params[:dry_run]
         type
@@ -11005,7 +11005,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::Filter, context: context)
         type = Types::Filter.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.values = ValueStringList.build(params[:values], context: "#{context}[:values]") unless params[:values].nil?
         type
       end
@@ -11319,7 +11319,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::FpgaDeviceInfo, context: context)
         type = Types::FpgaDeviceInfo.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.manufacturer = params[:manufacturer]
         type.count = params[:count]
         type.memory_info = FpgaDeviceMemoryInfo.build(params[:memory_info], context: "#{context}[:memory_info]") unless params[:memory_info].nil?
@@ -11353,7 +11353,7 @@ module AWS::Ec2
         type = Types::FpgaImage.new
         type.fpga_image_id = params[:fpga_image_id]
         type.fpga_image_global_id = params[:fpga_image_global_id]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.description = params[:description]
         type.shell_version = params[:shell_version]
         type.pci_id = PciId.build(params[:pci_id], context: "#{context}[:pci_id]") unless params[:pci_id].nil?
@@ -11375,7 +11375,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(params, ::Hash, Types::FpgaImageAttribute, context: context)
         type = Types::FpgaImageAttribute.new
         type.fpga_image_id = params[:fpga_image_id]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.description = params[:description]
         type.load_permissions = LoadPermissionList.build(params[:load_permissions], context: "#{context}[:load_permissions]") unless params[:load_permissions].nil?
         type.product_codes = ProductCodeList.build(params[:product_codes], context: "#{context}[:product_codes]") unless params[:product_codes].nil?
@@ -12191,7 +12191,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::GpuDeviceInfo, context: context)
         type = Types::GpuDeviceInfo.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.manufacturer = params[:manufacturer]
         type.count = params[:count]
         type.memory_info = GpuDeviceMemoryInfo.build(params[:memory_info], context: "#{context}[:memory_info]") unless params[:memory_info].nil?
@@ -12576,7 +12576,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(params, ::Hash, Types::IamInstanceProfileSpecification, context: context)
         type = Types::IamInstanceProfileSpecification.new
         type.arn = params[:arn]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type
       end
     end
@@ -12636,7 +12636,7 @@ module AWS::Ec2
         type.ena_support = params[:ena_support]
         type.hypervisor = params[:hypervisor]
         type.image_owner_alias = params[:image_owner_alias]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.root_device_name = params[:root_device_name]
         type.root_device_type = params[:root_device_type]
         type.sriov_net_support = params[:sriov_net_support]
@@ -13077,7 +13077,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(params, ::Hash, Types::InferenceDeviceInfo, context: context)
         type = Types::InferenceDeviceInfo.new
         type.count = params[:count]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.manufacturer = params[:manufacturer]
         type
       end
@@ -13291,7 +13291,7 @@ module AWS::Ec2
         type = Types::InstanceEventWindow.new
         type.instance_event_window_id = params[:instance_event_window_id]
         type.time_ranges = InstanceEventWindowTimeRangeList.build(params[:time_ranges], context: "#{context}[:time_ranges]") unless params[:time_ranges].nil?
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.cron_expression = params[:cron_expression]
         type.association_target = InstanceEventWindowAssociationTarget.build(params[:association_target], context: "#{context}[:association_target]") unless params[:association_target].nil?
         type.state = params[:state]
@@ -13844,7 +13844,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(params, ::Hash, Types::InstanceState, context: context)
         type = Types::InstanceState.new
         type.code = params[:code]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type
       end
     end
@@ -13891,7 +13891,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(params, ::Hash, Types::InstanceStatusDetails, context: context)
         type = Types::InstanceStatusDetails.new
         type.impaired_since = params[:impaired_since]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.status = params[:status]
         type
       end
@@ -15141,7 +15141,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(params, ::Hash, Types::LaunchTemplateIamInstanceProfileSpecification, context: context)
         type = Types::LaunchTemplateIamInstanceProfileSpecification.new
         type.arn = params[:arn]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type
       end
     end
@@ -15151,7 +15151,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(params, ::Hash, Types::LaunchTemplateIamInstanceProfileSpecificationRequest, context: context)
         type = Types::LaunchTemplateIamInstanceProfileSpecificationRequest.new
         type.arn = params[:arn]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type
       end
     end
@@ -16207,7 +16207,7 @@ module AWS::Ec2
         type.product_codes = ProductCodeStringList.build(params[:product_codes], context: "#{context}[:product_codes]") unless params[:product_codes].nil?
         type.load_permission = LoadPermissionModifications.build(params[:load_permission], context: "#{context}[:load_permission]") unless params[:load_permission].nil?
         type.description = params[:description]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type
       end
     end
@@ -16408,7 +16408,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(params, ::Hash, Types::ModifyInstanceEventWindowInput, context: context)
         type = Types::ModifyInstanceEventWindowInput.new
         type.dry_run = params[:dry_run]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.instance_event_window_id = params[:instance_event_window_id]
         type.time_ranges = InstanceEventWindowTimeRangeRequestSet.build(params[:time_ranges], context: "#{context}[:time_ranges]") unless params[:time_ranges].nil?
         type.cron_expression = params[:cron_expression]
@@ -18787,7 +18787,7 @@ module AWS::Ec2
         type.state = params[:state]
         type.type = params[:type]
         type.value = params[:value]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type
       end
     end
@@ -19360,7 +19360,7 @@ module AWS::Ec2
         type.dry_run = params[:dry_run]
         type.ena_support = params[:ena_support]
         type.kernel_id = params[:kernel_id]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.billing_products = BillingProductList.build(params[:billing_products], context: "#{context}[:billing_products]") unless params[:billing_products].nil?
         type.ramdisk_id = params[:ramdisk_id]
         type.root_device_name = params[:root_device_name]
@@ -21179,7 +21179,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(params, ::Hash, Types::ScheduledInstancesIamInstanceProfile, context: context)
         type = Types::ScheduledInstancesIamInstanceProfile.new
         type.arn = params[:arn]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type
       end
     end
@@ -24445,7 +24445,7 @@ module AWS::Ec2
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::VolumeStatusDetails, context: context)
         type = Types::VolumeStatusDetails.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.status = params[:status]
         type
       end

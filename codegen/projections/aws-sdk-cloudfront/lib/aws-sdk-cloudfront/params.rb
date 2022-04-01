@@ -260,7 +260,7 @@ module AWS::Cloudfront
         Hearth::Validator.validate!(params, ::Hash, Types::CachePolicyConfig, context: context)
         type = Types::CachePolicyConfig.new
         type.comment = params[:comment]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.default_ttl = params[:default_ttl]
         type.max_ttl = params[:max_ttl]
         type.min_ttl = params[:min_ttl]
@@ -666,7 +666,7 @@ module AWS::Cloudfront
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::CreateFunctionInput, context: context)
         type = Types::CreateFunctionInput.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.function_config = FunctionConfig.build(params[:function_config], context: "#{context}[:function_config]") unless params[:function_config].nil?
         type.function_code = params[:function_code]
         type
@@ -789,7 +789,7 @@ module AWS::Cloudfront
         type = Types::CreateRealtimeLogConfigInput.new
         type.end_points = EndPointList.build(params[:end_points], context: "#{context}[:end_points]") unless params[:end_points].nil?
         type.fields = FieldList.build(params[:fields], context: "#{context}[:fields]") unless params[:fields].nil?
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.sampling_rate = params[:sampling_rate]
         type
       end
@@ -1041,7 +1041,7 @@ module AWS::Cloudfront
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionInput, context: context)
         type = Types::DeleteFunctionInput.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.if_match = params[:if_match]
         type
       end
@@ -1130,7 +1130,7 @@ module AWS::Cloudfront
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteRealtimeLogConfigInput, context: context)
         type = Types::DeleteRealtimeLogConfigInput.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.arn = params[:arn]
         type
       end
@@ -1184,7 +1184,7 @@ module AWS::Cloudfront
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DescribeFunctionInput, context: context)
         type = Types::DescribeFunctionInput.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.stage = params[:stage]
         type
       end
@@ -1479,7 +1479,7 @@ module AWS::Cloudfront
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::FieldLevelEncryptionProfileConfig, context: context)
         type = Types::FieldLevelEncryptionProfileConfig.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.caller_reference = params[:caller_reference]
         type.comment = params[:comment]
         type.encryption_entities = EncryptionEntities.build(params[:encryption_entities], context: "#{context}[:encryption_entities]") unless params[:encryption_entities].nil?
@@ -1523,7 +1523,7 @@ module AWS::Cloudfront
         type = Types::FieldLevelEncryptionProfileSummary.new
         type.id = params[:id]
         type.last_modified_time = params[:last_modified_time]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.encryption_entities = EncryptionEntities.build(params[:encryption_entities], context: "#{context}[:encryption_entities]") unless params[:encryption_entities].nil?
         type.comment = params[:comment]
         type
@@ -1716,7 +1716,7 @@ module AWS::Cloudfront
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::FunctionSummary, context: context)
         type = Types::FunctionSummary.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.status = params[:status]
         type.function_config = FunctionConfig.build(params[:function_config], context: "#{context}[:function_config]") unless params[:function_config].nil?
         type.function_metadata = FunctionMetadata.build(params[:function_metadata], context: "#{context}[:function_metadata]") unless params[:function_metadata].nil?
@@ -1940,7 +1940,7 @@ module AWS::Cloudfront
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionInput, context: context)
         type = Types::GetFunctionInput.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.stage = params[:stage]
         type
       end
@@ -2112,7 +2112,7 @@ module AWS::Cloudfront
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::GetRealtimeLogConfigInput, context: context)
         type = Types::GetRealtimeLogConfigInput.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.arn = params[:arn]
         type
       end
@@ -2579,7 +2579,7 @@ module AWS::Cloudfront
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::KeyGroupConfig, context: context)
         type = Types::KeyGroupConfig.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.items = PublicKeyIdList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
         type.comment = params[:comment]
         type
@@ -3416,7 +3416,7 @@ module AWS::Cloudfront
         Hearth::Validator.validate!(params, ::Hash, Types::OriginRequestPolicyConfig, context: context)
         type = Types::OriginRequestPolicyConfig.new
         type.comment = params[:comment]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.headers_config = OriginRequestPolicyHeadersConfig.build(params[:headers_config], context: "#{context}[:headers_config]") unless params[:headers_config].nil?
         type.cookies_config = OriginRequestPolicyCookiesConfig.build(params[:cookies_config], context: "#{context}[:cookies_config]") unless params[:cookies_config].nil?
         type.query_strings_config = OriginRequestPolicyQueryStringsConfig.build(params[:query_strings_config], context: "#{context}[:query_strings_config]") unless params[:query_strings_config].nil?
@@ -3594,7 +3594,7 @@ module AWS::Cloudfront
         Hearth::Validator.validate!(params, ::Hash, Types::PublicKeyConfig, context: context)
         type = Types::PublicKeyConfig.new
         type.caller_reference = params[:caller_reference]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.encoded_key = params[:encoded_key]
         type.comment = params[:comment]
         type
@@ -3638,7 +3638,7 @@ module AWS::Cloudfront
         Hearth::Validator.validate!(params, ::Hash, Types::PublicKeySummary, context: context)
         type = Types::PublicKeySummary.new
         type.id = params[:id]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.created_time = params[:created_time]
         type.encoded_key = params[:encoded_key]
         type.comment = params[:comment]
@@ -3661,7 +3661,7 @@ module AWS::Cloudfront
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::PublishFunctionInput, context: context)
         type = Types::PublishFunctionInput.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.if_match = params[:if_match]
         type
       end
@@ -3773,7 +3773,7 @@ module AWS::Cloudfront
         Hearth::Validator.validate!(params, ::Hash, Types::RealtimeLogConfig, context: context)
         type = Types::RealtimeLogConfig.new
         type.arn = params[:arn]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.sampling_rate = params[:sampling_rate]
         type.end_points = EndPointList.build(params[:end_points], context: "#{context}[:end_points]") unless params[:end_points].nil?
         type.fields = FieldList.build(params[:fields], context: "#{context}[:fields]") unless params[:fields].nil?
@@ -3915,7 +3915,7 @@ module AWS::Cloudfront
         Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyConfig, context: context)
         type = Types::ResponseHeadersPolicyConfig.new
         type.comment = params[:comment]
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.cors_config = ResponseHeadersPolicyCorsConfig.build(params[:cors_config], context: "#{context}[:cors_config]") unless params[:cors_config].nil?
         type.security_headers_config = ResponseHeadersPolicySecurityHeadersConfig.build(params[:security_headers_config], context: "#{context}[:security_headers_config]") unless params[:security_headers_config].nil?
         type.custom_headers_config = ResponseHeadersPolicyCustomHeadersConfig.build(params[:custom_headers_config], context: "#{context}[:custom_headers_config]") unless params[:custom_headers_config].nil?
@@ -4365,7 +4365,7 @@ module AWS::Cloudfront
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::TestFunctionInput, context: context)
         type = Types::TestFunctionInput.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.if_match = params[:if_match]
         type.stage = params[:stage]
         type.event_object = params[:event_object]
@@ -5005,7 +5005,7 @@ module AWS::Cloudfront
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::UpdateFunctionInput, context: context)
         type = Types::UpdateFunctionInput.new
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.if_match = params[:if_match]
         type.function_config = FunctionConfig.build(params[:function_config], context: "#{context}[:function_config]") unless params[:function_config].nil?
         type.function_code = params[:function_code]
@@ -5092,7 +5092,7 @@ module AWS::Cloudfront
         type = Types::UpdateRealtimeLogConfigInput.new
         type.end_points = EndPointList.build(params[:end_points], context: "#{context}[:end_points]") unless params[:end_points].nil?
         type.fields = FieldList.build(params[:fields], context: "#{context}[:fields]") unless params[:fields].nil?
-        type.member_name = params[:member_name]
+        type.name = params[:name]
         type.arn = params[:arn]
         type.sampling_rate = params[:sampling_rate]
         type

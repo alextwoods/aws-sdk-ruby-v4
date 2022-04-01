@@ -659,7 +659,7 @@ module AWS::Ec2
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"name\"",
                     comparator: "allStringEquals",
                     expected: 'running'
                   }
@@ -669,7 +669,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"name\"",
                     comparator: "anyStringEquals",
                     expected: 'shutting-down'
                   }
@@ -679,7 +679,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"name\"",
                     comparator: "anyStringEquals",
                     expected: 'terminated'
                   }
@@ -689,7 +689,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"name\"",
                     comparator: "anyStringEquals",
                     expected: 'stopping'
                   }
@@ -750,7 +750,7 @@ module AWS::Ec2
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"name\"",
                     comparator: "allStringEquals",
                     expected: 'stopped'
                   }
@@ -760,7 +760,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"name\"",
                     comparator: "anyStringEquals",
                     expected: 'pending'
                   }
@@ -770,7 +770,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"name\"",
                     comparator: "anyStringEquals",
                     expected: 'terminated'
                   }
@@ -825,7 +825,7 @@ module AWS::Ec2
                 state: 'success',
                 matcher: {
                   output: {
-                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"name\"",
                     comparator: "allStringEquals",
                     expected: 'terminated'
                   }
@@ -835,7 +835,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"name\"",
                     comparator: "anyStringEquals",
                     expected: 'pending'
                   }
@@ -845,7 +845,7 @@ module AWS::Ec2
                 state: 'failure',
                 matcher: {
                   output: {
-                    path: "\"reservations\"[].\"instances\"[].\"state\".\"member_name\"",
+                    path: "\"reservations\"[].\"instances\"[].\"state\".\"name\"",
                     comparator: "anyStringEquals",
                     expected: 'stopping'
                   }

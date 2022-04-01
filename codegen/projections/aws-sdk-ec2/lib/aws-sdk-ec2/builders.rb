@@ -466,7 +466,7 @@ module AWS::Ec2
     class IamInstanceProfileSpecification
       def self.build(input, params, context: nil)
         params[context + 'Arn'] = input[:arn].to_s unless input[:arn].nil?
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
       end
     end
 
@@ -1136,7 +1136,7 @@ module AWS::Ec2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'SourceFpgaImageId'] = input[:source_fpga_image_id].to_s unless input[:source_fpga_image_id].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         params[context + 'SourceRegion'] = input[:source_region].to_s unless input[:source_region].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         http_req.body = StringIO.new(params.to_s)
@@ -1157,7 +1157,7 @@ module AWS::Ec2
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'Encrypted'] = input[:encrypted].to_s unless input[:encrypted].nil?
         params[context + 'KmsKeyId'] = input[:kms_key_id].to_s unless input[:kms_key_id].nil?
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         params[context + 'SourceImageId'] = input[:source_image_id].to_s unless input[:source_image_id].nil?
         params[context + 'SourceRegion'] = input[:source_region].to_s unless input[:source_region].nil?
         params[context + 'DestinationOutpostArn'] = input[:destination_outpost_arn].to_s unless input[:destination_outpost_arn].nil?
@@ -1859,7 +1859,7 @@ module AWS::Ec2
         Builders::StorageLocation.build(input[:input_storage_location], params, context: context + 'InputStorageLocation' + '.') unless input[:input_storage_location].nil?
         Builders::StorageLocation.build(input[:logs_storage_location], params, context: context + 'LogsStorageLocation' + '.') unless input[:logs_storage_location].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         http_req.body = StringIO.new(params.to_s)
@@ -1888,7 +1888,7 @@ module AWS::Ec2
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         params[context + 'NoReboot'] = input[:no_reboot].to_s unless input[:no_reboot].nil?
         Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         http_req.body = StringIO.new(params.to_s)
@@ -1940,7 +1940,7 @@ module AWS::Ec2
         params['Action'] = 'CreateInstanceEventWindow'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         Builders::InstanceEventWindowTimeRangeRequestSet.build(input[:time_ranges], params, context: context + 'TimeRange') unless input[:time_ranges].nil?
         params[context + 'CronExpression'] = input[:cron_expression].to_s unless input[:cron_expression].nil?
         Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
@@ -2510,7 +2510,7 @@ module AWS::Ec2
     class LaunchTemplateIamInstanceProfileSpecificationRequest
       def self.build(input, params, context: nil)
         params[context + 'Arn'] = input[:arn].to_s unless input[:arn].nil?
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
       end
     end
 
@@ -2967,7 +2967,7 @@ module AWS::Ec2
         params['Version'] = '2016-11-15'
         params[context + 'Bucket'] = input[:bucket].to_s unless input[:bucket].nil?
         params[context + 'ObjectKey'] = input[:object_key].to_s unless input[:object_key].nil?
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         http_req.body = StringIO.new(params.to_s)
@@ -5200,7 +5200,7 @@ module AWS::Ec2
     # Structure Builder for Filter
     class Filter
       def self.build(input, params, context: nil)
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         Builders::ValueStringList.build(input[:values], params, context: context + 'Value') unless input[:values].nil?
       end
     end
@@ -10234,7 +10234,7 @@ module AWS::Ec2
         Builders::ProductCodeStringList.build(input[:product_codes], params, context: context + 'ProductCode') unless input[:product_codes].nil?
         Builders::LoadPermissionModifications.build(input[:load_permission], params, context: context + 'LoadPermission' + '.') unless input[:load_permission].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         http_req.body = StringIO.new(params.to_s)
       end
     end
@@ -10580,7 +10580,7 @@ module AWS::Ec2
         params['Action'] = 'ModifyInstanceEventWindow'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         params[context + 'InstanceEventWindowId'] = input[:instance_event_window_id].to_s unless input[:instance_event_window_id].nil?
         Builders::InstanceEventWindowTimeRangeRequestSet.build(input[:time_ranges], params, context: context + 'TimeRange') unless input[:time_ranges].nil?
         params[context + 'CronExpression'] = input[:cron_expression].to_s unless input[:cron_expression].nil?
@@ -11871,7 +11871,7 @@ module AWS::Ec2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'EnaSupport'] = input[:ena_support].to_s unless input[:ena_support].nil?
         params[context + 'KernelId'] = input[:kernel_id].to_s unless input[:kernel_id].nil?
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         Builders::BillingProductList.build(input[:billing_products], params, context: context + 'BillingProduct') unless input[:billing_products].nil?
         params[context + 'RamdiskId'] = input[:ramdisk_id].to_s unless input[:ramdisk_id].nil?
         params[context + 'RootDeviceName'] = input[:root_device_name].to_s unless input[:root_device_name].nil?
@@ -12337,7 +12337,7 @@ module AWS::Ec2
     # Structure Builder for ClassicLoadBalancer
     class ClassicLoadBalancer
       def self.build(input, params, context: nil)
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
       end
     end
 
@@ -13101,7 +13101,7 @@ module AWS::Ec2
     class ScheduledInstancesIamInstanceProfile
       def self.build(input, params, context: nil)
         params[context + 'Arn'] = input[:arn].to_s unless input[:arn].nil?
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
       end
     end
 

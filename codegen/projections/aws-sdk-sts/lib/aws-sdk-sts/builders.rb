@@ -174,7 +174,7 @@ module AWS::Sts
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetFederationToken'
         params['Version'] = '2011-06-15'
-        params[context + 'Name'] = input[:member_name].to_s unless input[:member_name].nil?
+        params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         params[context + 'Policy'] = input[:policy].to_s unless input[:policy].nil?
         Builders::PolicyDescriptorListType.build(input[:policy_arns], params, context: context + 'PolicyArns' + '.member') unless input[:policy_arns].nil?
         params[context + 'DurationSeconds'] = input[:duration_seconds].to_s unless input[:duration_seconds].nil?

@@ -648,7 +648,7 @@ module AWS::Cloudfront
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>A unique name to identify the cache policy.</p>
     #
     #   @return [String]
@@ -695,7 +695,7 @@ module AWS::Cloudfront
     #
     CachePolicyConfig = ::Struct.new(
       :comment,
-      :member_name,
+      :name,
       :default_ttl,
       :max_ttl,
       :min_ttl,
@@ -1610,7 +1610,7 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
-    # @!attribute member_name
+    # @!attribute name
     #   <p>A name to identify the function.</p>
     #
     #   @return [String]
@@ -1631,7 +1631,7 @@ module AWS::Cloudfront
     #   @return [String]
     #
     CreateFunctionInput = ::Struct.new(
-      :member_name,
+      :name,
       :function_config,
       :function_code,
       keyword_init: true
@@ -1640,7 +1640,7 @@ module AWS::Cloudfront
 
       def to_s
         "#<struct AWS::Cloudfront::Types::CreateFunctionInput "\
-          "member_name=#{member_name || 'nil'}, "\
+          "name=#{name || 'nil'}, "\
           "function_config=#{function_config || 'nil'}, "\
           "function_code=\"[SENSITIVE]\">"
       end
@@ -1865,7 +1865,7 @@ module AWS::Cloudfront
     #
     #   @return [Array<String>]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>A unique name to identify this real-time log configuration.</p>
     #
     #   @return [String]
@@ -1880,7 +1880,7 @@ module AWS::Cloudfront
     CreateRealtimeLogConfigInput = ::Struct.new(
       :end_points,
       :fields,
-      :member_name,
+      :name,
       :sampling_rate,
       keyword_init: true
     ) do
@@ -2676,7 +2676,7 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the function that you are deleting.</p>
     #
     #   @return [String]
@@ -2688,7 +2688,7 @@ module AWS::Cloudfront
     #   @return [String]
     #
     DeleteFunctionInput = ::Struct.new(
-      :member_name,
+      :name,
       :if_match,
       keyword_init: true
     ) do
@@ -2804,7 +2804,7 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the real-time log configuration to delete.</p>
     #
     #   @return [String]
@@ -2815,7 +2815,7 @@ module AWS::Cloudfront
     #   @return [String]
     #
     DeleteRealtimeLogConfigInput = ::Struct.new(
-      :member_name,
+      :name,
       :arn,
       keyword_init: true
     ) do
@@ -2887,7 +2887,7 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the function that you are getting information about.</p>
     #
     #   @return [String]
@@ -2898,7 +2898,7 @@ module AWS::Cloudfront
     #   @return [String]
     #
     DescribeFunctionInput = ::Struct.new(
-      :member_name,
+      :name,
       :stage,
       keyword_init: true
     ) do
@@ -3779,7 +3779,7 @@ module AWS::Cloudfront
 
     # <p>A complex data type of profiles for the field-level encryption.</p>
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>Profile name for the field-level encryption profile.</p>
     #
     #   @return [String]
@@ -3802,7 +3802,7 @@ module AWS::Cloudfront
     #   @return [EncryptionEntities]
     #
     FieldLevelEncryptionProfileConfig = ::Struct.new(
-      :member_name,
+      :name,
       :caller_reference,
       :comment,
       :encryption_entities,
@@ -3883,7 +3883,7 @@ module AWS::Cloudfront
     #
     #   @return [Time]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>Name for the field-level encryption profile summary.</p>
     #
     #   @return [String]
@@ -3903,7 +3903,7 @@ module AWS::Cloudfront
     FieldLevelEncryptionProfileSummary = ::Struct.new(
       :id,
       :last_modified_time,
-      :member_name,
+      :name,
       :encryption_entities,
       :comment,
       keyword_init: true
@@ -4250,7 +4250,7 @@ module AWS::Cloudfront
 
     # <p>Contains configuration information and metadata about a CloudFront function.</p>
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the CloudFront function.</p>
     #
     #   @return [String]
@@ -4271,7 +4271,7 @@ module AWS::Cloudfront
     #   @return [FunctionMetadata]
     #
     FunctionSummary = ::Struct.new(
-      :member_name,
+      :name,
       :status,
       :function_config,
       :function_metadata,
@@ -4666,7 +4666,7 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the function whose code you are getting.</p>
     #
     #   @return [String]
@@ -4677,7 +4677,7 @@ module AWS::Cloudfront
     #   @return [String]
     #
     GetFunctionInput = ::Struct.new(
-      :member_name,
+      :name,
       :stage,
       keyword_init: true
     ) do
@@ -4968,7 +4968,7 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the real-time log configuration to get.</p>
     #
     #   @return [String]
@@ -4979,7 +4979,7 @@ module AWS::Cloudfront
     #   @return [String]
     #
     GetRealtimeLogConfigInput = ::Struct.new(
-      :member_name,
+      :name,
       :arn,
       keyword_init: true
     ) do
@@ -5741,7 +5741,7 @@ module AWS::Cloudfront
     # <p>A key group configuration.</p>
     # 		       <p>A key group contains a list of public keys that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>A name to identify the key group.</p>
     #
     #   @return [String]
@@ -5758,7 +5758,7 @@ module AWS::Cloudfront
     #   @return [String]
     #
     KeyGroupConfig = ::Struct.new(
-      :member_name,
+      :name,
       :items,
       :comment,
       keyword_init: true
@@ -7386,7 +7386,7 @@ module AWS::Cloudfront
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>A unique name to identify the origin request policy.</p>
     #
     #   @return [String]
@@ -7409,7 +7409,7 @@ module AWS::Cloudfront
     #
     OriginRequestPolicyConfig = ::Struct.new(
       :comment,
-      :member_name,
+      :name,
       :headers_config,
       :cookies_config,
       :query_strings_config,
@@ -7889,7 +7889,7 @@ module AWS::Cloudfront
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>A name to help identify the public key.</p>
     #
     #   @return [String]
@@ -7907,7 +7907,7 @@ module AWS::Cloudfront
     #
     PublicKeyConfig = ::Struct.new(
       :caller_reference,
-      :member_name,
+      :name,
       :encoded_key,
       :comment,
       keyword_init: true
@@ -7969,7 +7969,7 @@ module AWS::Cloudfront
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>A name to help identify the public key.</p>
     #
     #   @return [String]
@@ -7992,7 +7992,7 @@ module AWS::Cloudfront
     #
     PublicKeySummary = ::Struct.new(
       :id,
-      :member_name,
+      :name,
       :created_time,
       :encoded_key,
       :comment,
@@ -8001,7 +8001,7 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the function that you are publishing.</p>
     #
     #   @return [String]
@@ -8013,7 +8013,7 @@ module AWS::Cloudfront
     #   @return [String]
     #
     PublishFunctionInput = ::Struct.new(
-      :member_name,
+      :name,
       :if_match,
       keyword_init: true
     ) do
@@ -8166,7 +8166,7 @@ module AWS::Cloudfront
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The unique name of this real-time log configuration.</p>
     #
     #   @return [String]
@@ -8195,7 +8195,7 @@ module AWS::Cloudfront
     #
     RealtimeLogConfig = ::Struct.new(
       :arn,
-      :member_name,
+      :name,
       :sampling_rate,
       :end_points,
       :fields,
@@ -8518,7 +8518,7 @@ module AWS::Cloudfront
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>A name to identify the response headers policy.</p>
     #   		       <p>The name must be unique for response headers policies in this Amazon Web Services account.</p>
     #
@@ -8542,7 +8542,7 @@ module AWS::Cloudfront
     #
     ResponseHeadersPolicyConfig = ::Struct.new(
       :comment,
-      :member_name,
+      :name,
       :cors_config,
       :security_headers_config,
       :custom_headers_config,
@@ -9620,7 +9620,7 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the function that you are testing.</p>
     #
     #   @return [String]
@@ -9647,7 +9647,7 @@ module AWS::Cloudfront
     #   @return [String]
     #
     TestFunctionInput = ::Struct.new(
-      :member_name,
+      :name,
       :if_match,
       :stage,
       :event_object,
@@ -9657,7 +9657,7 @@ module AWS::Cloudfront
 
       def to_s
         "#<struct AWS::Cloudfront::Types::TestFunctionInput "\
-          "member_name=#{member_name || 'nil'}, "\
+          "name=#{name || 'nil'}, "\
           "if_match=#{if_match || 'nil'}, "\
           "stage=#{stage || 'nil'}, "\
           "event_object=\"[SENSITIVE]\">"
@@ -10749,7 +10749,7 @@ module AWS::Cloudfront
       include Hearth::Structure
     end
 
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the function that you are updating.</p>
     #
     #   @return [String]
@@ -10775,7 +10775,7 @@ module AWS::Cloudfront
     #   @return [String]
     #
     UpdateFunctionInput = ::Struct.new(
-      :member_name,
+      :name,
       :if_match,
       :function_config,
       :function_code,
@@ -10785,7 +10785,7 @@ module AWS::Cloudfront
 
       def to_s
         "#<struct AWS::Cloudfront::Types::UpdateFunctionInput "\
-          "member_name=#{member_name || 'nil'}, "\
+          "name=#{name || 'nil'}, "\
           "if_match=#{if_match || 'nil'}, "\
           "function_config=#{function_config || 'nil'}, "\
           "function_code=\"[SENSITIVE]\">"
@@ -10955,7 +10955,7 @@ module AWS::Cloudfront
     #
     #   @return [Array<String>]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name for this real-time log configuration.</p>
     #
     #   @return [String]
@@ -10975,7 +10975,7 @@ module AWS::Cloudfront
     UpdateRealtimeLogConfigInput = ::Struct.new(
       :end_points,
       :fields,
-      :member_name,
+      :name,
       :arn,
       :sampling_rate,
       keyword_init: true

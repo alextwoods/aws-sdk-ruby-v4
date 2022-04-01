@@ -1071,7 +1071,7 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the analysis component.</p>
     #
     #   @return [String]
@@ -1079,7 +1079,7 @@ module AWS::Ec2
     AnalysisComponent = ::Struct.new(
       :id,
       :arn,
-      :member_name,
+      :name,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -4361,13 +4361,13 @@ module AWS::Ec2
 
     # <p>Describes a Classic Load Balancer.</p>
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the load balancer.</p>
     #
     #   @return [String]
     #
     ClassicLoadBalancer = ::Struct.new(
-      :member_name,
+      :name,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -5248,7 +5248,7 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name for the new AFI. The default is the name of the source AFI.</p>
     #
     #   @return [String]
@@ -5268,7 +5268,7 @@ module AWS::Ec2
       :dry_run,
       :source_fpga_image_id,
       :description,
-      :member_name,
+      :name,
       :source_region,
       :client_token,
       keyword_init: true
@@ -5336,7 +5336,7 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the new AMI in the destination Region.</p>
     #
     #   @return [String]
@@ -5376,7 +5376,7 @@ module AWS::Ec2
       :description,
       :encrypted,
       :kms_key_id,
-      :member_name,
+      :name,
       :source_image_id,
       :source_region,
       :destination_outpost_arn,
@@ -6819,7 +6819,7 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>A name for the AFI.</p>
     #
     #   @return [String]
@@ -6840,7 +6840,7 @@ module AWS::Ec2
       :input_storage_location,
       :logs_storage_location,
       :description,
-      :member_name,
+      :name,
       :client_token,
       :tag_specifications,
       keyword_init: true
@@ -6890,7 +6890,7 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>A name for the new image.</p>
     #            <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
     #
@@ -6930,7 +6930,7 @@ module AWS::Ec2
       :description,
       :dry_run,
       :instance_id,
-      :member_name,
+      :name,
       :no_reboot,
       :tag_specifications,
       keyword_init: true
@@ -6957,7 +6957,7 @@ module AWS::Ec2
     #
     #   @return [Boolean]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the event window.</p>
     #
     #   @return [String]
@@ -7009,7 +7009,7 @@ module AWS::Ec2
     #
     CreateInstanceEventWindowInput = ::Struct.new(
       :dry_run,
-      :member_name,
+      :name,
       :time_ranges,
       :cron_expression,
       :tag_specifications,
@@ -8440,7 +8440,7 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name for the restored AMI. The name must be unique for AMIs in the Region for this
     #         account. If you do not provide a name, the new AMI gets the same name as the original
     #         AMI.</p>
@@ -8473,7 +8473,7 @@ module AWS::Ec2
     CreateRestoreImageTaskInput = ::Struct.new(
       :bucket,
       :object_key,
-      :member_name,
+      :name,
       :tag_specifications,
       :dry_run,
       keyword_init: true
@@ -28985,7 +28985,7 @@ module AWS::Ec2
     #          <p>If you specify multiple filters, the filters are joined with an <code>AND</code>, and the request returns only
     #            results that match all of the specified filters.</p>
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the filter. Filter names are case-sensitive.</p>
     #
     #   @return [String]
@@ -28998,7 +28998,7 @@ module AWS::Ec2
     #   @return [Array<String>]
     #
     Filter = ::Struct.new(
-      :member_name,
+      :name,
       :values,
       keyword_init: true
     ) do
@@ -29732,7 +29732,7 @@ module AWS::Ec2
 
     # <p>Describes the FPGA accelerator for the instance type.</p>
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the FPGA accelerator.</p>
     #
     #   @return [String]
@@ -29753,7 +29753,7 @@ module AWS::Ec2
     #   @return [FpgaDeviceMemoryInfo]
     #
     FpgaDeviceInfo = ::Struct.new(
-      :member_name,
+      :name,
       :manufacturer,
       :count,
       :memory_info,
@@ -29788,7 +29788,7 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the AFI.</p>
     #
     #   @return [String]
@@ -29856,7 +29856,7 @@ module AWS::Ec2
     FpgaImage = ::Struct.new(
       :fpga_image_id,
       :fpga_image_global_id,
-      :member_name,
+      :name,
       :description,
       :shell_version,
       :pci_id,
@@ -29881,7 +29881,7 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the AFI.</p>
     #
     #   @return [String]
@@ -29903,7 +29903,7 @@ module AWS::Ec2
     #
     FpgaImageAttribute = ::Struct.new(
       :fpga_image_id,
-      :member_name,
+      :name,
       :description,
       :load_permissions,
       :product_codes,
@@ -32007,7 +32007,7 @@ module AWS::Ec2
 
     # <p>Describes the GPU accelerators for the instance type.</p>
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the GPU accelerator.</p>
     #
     #   @return [String]
@@ -32028,7 +32028,7 @@ module AWS::Ec2
     #   @return [GpuDeviceMemoryInfo]
     #
     GpuDeviceInfo = ::Struct.new(
-      :member_name,
+      :name,
       :manufacturer,
       :count,
       :memory_info,
@@ -32629,14 +32629,14 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the instance profile.</p>
     #
     #   @return [String]
     #
     IamInstanceProfileSpecification = ::Struct.new(
       :arn,
-      :member_name,
+      :name,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -32796,7 +32796,7 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the AMI that was provided during image creation.</p>
     #
     #   @return [String]
@@ -32865,7 +32865,7 @@ module AWS::Ec2
       :ena_support,
       :hypervisor,
       :image_owner_alias,
-      :member_name,
+      :name,
       :root_device_name,
       :root_device_type,
       :sriov_net_support,
@@ -33892,7 +33892,7 @@ module AWS::Ec2
     #
     #   @return [Integer]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the Inference accelerator.</p>
     #
     #   @return [String]
@@ -33904,7 +33904,7 @@ module AWS::Ec2
     #
     InferenceDeviceInfo = ::Struct.new(
       :count,
-      :member_name,
+      :name,
       :manufacturer,
       keyword_init: true
     ) do
@@ -34427,7 +34427,7 @@ module AWS::Ec2
     #
     #   @return [Array<InstanceEventWindowTimeRange>]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the event window.</p>
     #
     #   @return [String]
@@ -34455,7 +34455,7 @@ module AWS::Ec2
     InstanceEventWindow = ::Struct.new(
       :instance_event_window_id,
       :time_ranges,
-      :member_name,
+      :name,
       :cron_expression,
       :association_target,
       :state,
@@ -36011,14 +36011,14 @@ module AWS::Ec2
     #
     #   @return [Integer]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The current state of the instance.</p>
     #
     #   @return [String]
     #
     InstanceState = ::Struct.new(
       :code,
-      :member_name,
+      :name,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -36111,7 +36111,7 @@ module AWS::Ec2
     #
     #   @return [Time]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The type of instance status.</p>
     #
     #   @return [String]
@@ -36123,7 +36123,7 @@ module AWS::Ec2
     #
     InstanceStatusDetails = ::Struct.new(
       :impaired_since,
-      :member_name,
+      :name,
       :status,
       keyword_init: true
     ) do
@@ -38212,14 +38212,14 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the instance profile.</p>
     #
     #   @return [String]
     #
     LaunchTemplateIamInstanceProfileSpecification = ::Struct.new(
       :arn,
-      :member_name,
+      :name,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -38232,14 +38232,14 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the instance profile.</p>
     #
     #   @return [String]
     #
     LaunchTemplateIamInstanceProfileSpecificationRequest = ::Struct.new(
       :arn,
-      :member_name,
+      :name,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -40386,7 +40386,7 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>A name for the AFI.</p>
     #
     #   @return [String]
@@ -40401,7 +40401,7 @@ module AWS::Ec2
       :product_codes,
       :load_permission,
       :description,
-      :member_name,
+      :name,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -40945,7 +40945,7 @@ module AWS::Ec2
     #
     #   @return [Boolean]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the event window.</p>
     #
     #   @return [String]
@@ -40995,7 +40995,7 @@ module AWS::Ec2
     #
     ModifyInstanceEventWindowInput = ::Struct.new(
       :dry_run,
-      :member_name,
+      :name,
       :instance_event_window_id,
       :time_ranges,
       :cron_expression,
@@ -45826,7 +45826,7 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the record subdomain the service provider needs to create. The service provider adds the <code>value</code> text to the <code>name</code>.</p>
     #
     #   @return [String]
@@ -45835,7 +45835,7 @@ module AWS::Ec2
       :state,
       :type,
       :value,
-      :member_name,
+      :name,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -46736,7 +46736,7 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>A name for your AMI.</p>
     #            <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
     #
@@ -46786,7 +46786,7 @@ module AWS::Ec2
       :dry_run,
       :ena_support,
       :kernel_id,
-      :member_name,
+      :name,
       :billing_products,
       :ramdisk_id,
       :root_device_name,
@@ -51097,14 +51097,14 @@ module AWS::Ec2
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name.</p>
     #
     #   @return [String]
     #
     ScheduledInstancesIamInstanceProfile = ::Struct.new(
       :arn,
-      :member_name,
+      :name,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -57758,7 +57758,7 @@ module AWS::Ec2
 
     # <p>Describes a volume status.</p>
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the volume status.</p>
     #
     #   @return [String]
@@ -57769,7 +57769,7 @@ module AWS::Ec2
     #   @return [String]
     #
     VolumeStatusDetails = ::Struct.new(
-      :member_name,
+      :name,
       :status,
       keyword_init: true
     ) do

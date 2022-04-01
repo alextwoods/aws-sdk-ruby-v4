@@ -1372,7 +1372,7 @@ module AWS::Sts
     # @param [Hash] params
     #   See {Types::GetFederationTokenInput}.
     #
-    # @option params [String] :member_name
+    # @option params [String] :name
     #   <p>The name of the federated user. The name is used as an identifier for the temporary
     #            security credentials (such as <code>Bob</code>). For example, you can reference the
     #            federated user name in a resource-based policy, such as in an Amazon S3 bucket policy.</p>
@@ -1489,7 +1489,7 @@ module AWS::Sts
     # @example Request syntax with placeholder values
     #
     #   resp = client.get_federation_token(
-    #     member_name: 'Name', # required
+    #     name: 'Name', # required
     #     policy: 'Policy',
     #     policy_arns: [
     #       {

@@ -242,7 +242,7 @@ module AWS::Lambda
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the alias.</p>
     #
     #   @return [String]
@@ -270,7 +270,7 @@ module AWS::Lambda
     #
     AliasConfiguration = ::Struct.new(
       :alias_arn,
-      :member_name,
+      :name,
       :function_version,
       :description,
       :routing_config,
@@ -465,7 +465,7 @@ module AWS::Lambda
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the alias.</p>
     #
     #   @return [String]
@@ -488,7 +488,7 @@ module AWS::Lambda
     #
     CreateAliasInput = ::Struct.new(
       :function_name,
-      :member_name,
+      :name,
       :function_version,
       :description,
       :routing_config,
@@ -504,7 +504,7 @@ module AWS::Lambda
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the alias.</p>
     #
     #   @return [String]
@@ -532,7 +532,7 @@ module AWS::Lambda
     #
     CreateAliasOutput = ::Struct.new(
       :alias_arn,
-      :member_name,
+      :name,
       :function_version,
       :description,
       :routing_config,
@@ -1303,14 +1303,14 @@ module AWS::Lambda
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the alias.</p>
     #
     #   @return [String]
     #
     DeleteAliasInput = ::Struct.new(
       :function_name,
-      :member_name,
+      :name,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -2543,14 +2543,14 @@ module AWS::Lambda
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the alias.</p>
     #
     #   @return [String]
     #
     GetAliasInput = ::Struct.new(
       :function_name,
-      :member_name,
+      :name,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -2563,7 +2563,7 @@ module AWS::Lambda
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the alias.</p>
     #
     #   @return [String]
@@ -2591,7 +2591,7 @@ module AWS::Lambda
     #
     GetAliasOutput = ::Struct.new(
       :alias_arn,
-      :member_name,
+      :name,
       :function_version,
       :description,
       :routing_config,
@@ -6127,7 +6127,7 @@ module AWS::Lambda
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the alias.</p>
     #
     #   @return [String]
@@ -6156,7 +6156,7 @@ module AWS::Lambda
     #
     UpdateAliasInput = ::Struct.new(
       :function_name,
-      :member_name,
+      :name,
       :function_version,
       :description,
       :routing_config,
@@ -6173,7 +6173,7 @@ module AWS::Lambda
     #
     #   @return [String]
     #
-    # @!attribute member_name
+    # @!attribute name
     #   <p>The name of the alias.</p>
     #
     #   @return [String]
@@ -6201,7 +6201,7 @@ module AWS::Lambda
     #
     UpdateAliasOutput = ::Struct.new(
       :alias_arn,
-      :member_name,
+      :name,
       :function_version,
       :description,
       :routing_config,

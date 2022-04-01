@@ -513,7 +513,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(input, Types::AnalysisComponent, context: context)
         Hearth::Validator.validate!(input[:id], ::String, context: "#{context}[:id]")
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
 
@@ -1850,7 +1850,7 @@ module AWS::Ec2
     class ClassicLoadBalancer
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ClassicLoadBalancer, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
 
@@ -2221,7 +2221,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
         Hearth::Validator.validate!(input[:source_fpga_image_id], ::String, context: "#{context}[:source_fpga_image_id]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:source_region], ::String, context: "#{context}[:source_region]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
       end
@@ -2241,7 +2241,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:encrypted], ::TrueClass, ::FalseClass, context: "#{context}[:encrypted]")
         Hearth::Validator.validate!(input[:kms_key_id], ::String, context: "#{context}[:kms_key_id]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:source_image_id], ::String, context: "#{context}[:source_image_id]")
         Hearth::Validator.validate!(input[:source_region], ::String, context: "#{context}[:source_region]")
         Hearth::Validator.validate!(input[:destination_outpost_arn], ::String, context: "#{context}[:destination_outpost_arn]")
@@ -2629,7 +2629,7 @@ module AWS::Ec2
         Validators::StorageLocation.validate!(input[:input_storage_location], context: "#{context}[:input_storage_location]") unless input[:input_storage_location].nil?
         Validators::StorageLocation.validate!(input[:logs_storage_location], context: "#{context}[:logs_storage_location]") unless input[:logs_storage_location].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:client_token], ::String, context: "#{context}[:client_token]")
         Validators::TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
       end
@@ -2650,7 +2650,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
         Hearth::Validator.validate!(input[:instance_id], ::String, context: "#{context}[:instance_id]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:no_reboot], ::TrueClass, ::FalseClass, context: "#{context}[:no_reboot]")
         Validators::TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
       end
@@ -2667,7 +2667,7 @@ module AWS::Ec2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::CreateInstanceEventWindowInput, context: context)
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Validators::InstanceEventWindowTimeRangeRequestSet.validate!(input[:time_ranges], context: "#{context}[:time_ranges]") unless input[:time_ranges].nil?
         Hearth::Validator.validate!(input[:cron_expression], ::String, context: "#{context}[:cron_expression]")
         Validators::TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
@@ -3114,7 +3114,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(input, Types::CreateRestoreImageTaskInput, context: context)
         Hearth::Validator.validate!(input[:bucket], ::String, context: "#{context}[:bucket]")
         Hearth::Validator.validate!(input[:object_key], ::String, context: "#{context}[:object_key]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Validators::TagSpecificationList.validate!(input[:tag_specifications], context: "#{context}[:tag_specifications]") unless input[:tag_specifications].nil?
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
       end
@@ -9026,7 +9026,7 @@ module AWS::Ec2
     class Filter
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Filter, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Validators::ValueStringList.validate!(input[:values], context: "#{context}[:values]") unless input[:values].nil?
       end
     end
@@ -9290,7 +9290,7 @@ module AWS::Ec2
     class FpgaDeviceInfo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FpgaDeviceInfo, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:manufacturer], ::String, context: "#{context}[:manufacturer]")
         Hearth::Validator.validate!(input[:count], ::Integer, context: "#{context}[:count]")
         Validators::FpgaDeviceMemoryInfo.validate!(input[:memory_info], context: "#{context}[:memory_info]") unless input[:memory_info].nil?
@@ -9318,7 +9318,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(input, Types::FpgaImage, context: context)
         Hearth::Validator.validate!(input[:fpga_image_id], ::String, context: "#{context}[:fpga_image_id]")
         Hearth::Validator.validate!(input[:fpga_image_global_id], ::String, context: "#{context}[:fpga_image_global_id]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Hearth::Validator.validate!(input[:shell_version], ::String, context: "#{context}[:shell_version]")
         Validators::PciId.validate!(input[:pci_id], context: "#{context}[:pci_id]") unless input[:pci_id].nil?
@@ -9338,7 +9338,7 @@ module AWS::Ec2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::FpgaImageAttribute, context: context)
         Hearth::Validator.validate!(input[:fpga_image_id], ::String, context: "#{context}[:fpga_image_id]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
         Validators::LoadPermissionList.validate!(input[:load_permissions], context: "#{context}[:load_permissions]") unless input[:load_permissions].nil?
         Validators::ProductCodeList.validate!(input[:product_codes], context: "#{context}[:product_codes]") unless input[:product_codes].nil?
@@ -10008,7 +10008,7 @@ module AWS::Ec2
     class GpuDeviceInfo
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GpuDeviceInfo, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:manufacturer], ::String, context: "#{context}[:manufacturer]")
         Hearth::Validator.validate!(input[:count], ::Integer, context: "#{context}[:count]")
         Validators::GpuDeviceMemoryInfo.validate!(input[:memory_info], context: "#{context}[:memory_info]") unless input[:memory_info].nil?
@@ -10327,7 +10327,7 @@ module AWS::Ec2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::IamInstanceProfileSpecification, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
 
@@ -10379,7 +10379,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(input[:ena_support], ::TrueClass, ::FalseClass, context: "#{context}[:ena_support]")
         Hearth::Validator.validate!(input[:hypervisor], ::String, context: "#{context}[:hypervisor]")
         Hearth::Validator.validate!(input[:image_owner_alias], ::String, context: "#{context}[:image_owner_alias]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:root_device_name], ::String, context: "#{context}[:root_device_name]")
         Hearth::Validator.validate!(input[:root_device_type], ::String, context: "#{context}[:root_device_type]")
         Hearth::Validator.validate!(input[:sriov_net_support], ::String, context: "#{context}[:sriov_net_support]")
@@ -10752,7 +10752,7 @@ module AWS::Ec2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InferenceDeviceInfo, context: context)
         Hearth::Validator.validate!(input[:count], ::Integer, context: "#{context}[:count]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:manufacturer], ::String, context: "#{context}[:manufacturer]")
       end
     end
@@ -10936,7 +10936,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(input, Types::InstanceEventWindow, context: context)
         Hearth::Validator.validate!(input[:instance_event_window_id], ::String, context: "#{context}[:instance_event_window_id]")
         Validators::InstanceEventWindowTimeRangeList.validate!(input[:time_ranges], context: "#{context}[:time_ranges]") unless input[:time_ranges].nil?
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:cron_expression], ::String, context: "#{context}[:cron_expression]")
         Validators::InstanceEventWindowAssociationTarget.validate!(input[:association_target], context: "#{context}[:association_target]") unless input[:association_target].nil?
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
@@ -11401,7 +11401,7 @@ module AWS::Ec2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceState, context: context)
         Hearth::Validator.validate!(input[:code], ::Integer, context: "#{context}[:code]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
 
@@ -11440,7 +11440,7 @@ module AWS::Ec2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InstanceStatusDetails, context: context)
         Hearth::Validator.validate!(input[:impaired_since], ::Time, context: "#{context}[:impaired_since]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
@@ -12476,7 +12476,7 @@ module AWS::Ec2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LaunchTemplateIamInstanceProfileSpecification, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
 
@@ -12484,7 +12484,7 @@ module AWS::Ec2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::LaunchTemplateIamInstanceProfileSpecificationRequest, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
 
@@ -13362,7 +13362,7 @@ module AWS::Ec2
         Validators::ProductCodeStringList.validate!(input[:product_codes], context: "#{context}[:product_codes]") unless input[:product_codes].nil?
         Validators::LoadPermissionModifications.validate!(input[:load_permission], context: "#{context}[:load_permission]") unless input[:load_permission].nil?
         Hearth::Validator.validate!(input[:description], ::String, context: "#{context}[:description]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
 
@@ -13527,7 +13527,7 @@ module AWS::Ec2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ModifyInstanceEventWindowInput, context: context)
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:instance_event_window_id], ::String, context: "#{context}[:instance_event_window_id]")
         Validators::InstanceEventWindowTimeRangeRequestSet.validate!(input[:time_ranges], context: "#{context}[:time_ranges]") unless input[:time_ranges].nil?
         Hearth::Validator.validate!(input[:cron_expression], ::String, context: "#{context}[:cron_expression]")
@@ -15494,7 +15494,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(input[:state], ::String, context: "#{context}[:state]")
         Hearth::Validator.validate!(input[:type], ::String, context: "#{context}[:type]")
         Hearth::Validator.validate!(input[:value], ::String, context: "#{context}[:value]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
 
@@ -15965,7 +15965,7 @@ module AWS::Ec2
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
         Hearth::Validator.validate!(input[:ena_support], ::TrueClass, ::FalseClass, context: "#{context}[:ena_support]")
         Hearth::Validator.validate!(input[:kernel_id], ::String, context: "#{context}[:kernel_id]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Validators::BillingProductList.validate!(input[:billing_products], context: "#{context}[:billing_products]") unless input[:billing_products].nil?
         Hearth::Validator.validate!(input[:ramdisk_id], ::String, context: "#{context}[:ramdisk_id]")
         Hearth::Validator.validate!(input[:root_device_name], ::String, context: "#{context}[:root_device_name]")
@@ -17486,7 +17486,7 @@ module AWS::Ec2
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ScheduledInstancesIamInstanceProfile, context: context)
         Hearth::Validator.validate!(input[:arn], ::String, context: "#{context}[:arn]")
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
       end
     end
 
@@ -20212,7 +20212,7 @@ module AWS::Ec2
     class VolumeStatusDetails
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::VolumeStatusDetails, context: context)
-        Hearth::Validator.validate!(input[:member_name], ::String, context: "#{context}[:member_name]")
+        Hearth::Validator.validate!(input[:name], ::String, context: "#{context}[:name]")
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
       end
     end
