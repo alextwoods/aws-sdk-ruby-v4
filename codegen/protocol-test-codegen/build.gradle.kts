@@ -20,6 +20,15 @@ plugins {
     id("software.amazon.smithy") version "0.6.0"
 }
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        "classpath"("software.amazon.smithy:smithy-cli:${rootProject.extra["smithyVersion"]}")
+    }
+}
+
 repositories {
     mavenLocal()
     mavenCentral()

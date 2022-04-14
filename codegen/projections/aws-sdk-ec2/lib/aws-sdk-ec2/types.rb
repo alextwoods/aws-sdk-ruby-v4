@@ -31,6 +31,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
     end
 
     # <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
@@ -56,6 +62,64 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
+    end
+
+    # Includes enum constants for AcceleratorManufacturer
+    #
+    module AcceleratorManufacturer
+      # No documentation available.
+      #
+      NVIDIA = "nvidia"
+
+      # No documentation available.
+      #
+      AMD = "amd"
+
+      # No documentation available.
+      #
+      AMAZON_WEB_SERVICES = "amazon-web-services"
+
+      # No documentation available.
+      #
+      XILINX = "xilinx"
+    end
+
+    # Includes enum constants for AcceleratorName
+    #
+    module AcceleratorName
+      # No documentation available.
+      #
+      A100 = "a100"
+
+      # No documentation available.
+      #
+      V100 = "v100"
+
+      # No documentation available.
+      #
+      K80 = "k80"
+
+      # No documentation available.
+      #
+      T4 = "t4"
+
+      # No documentation available.
+      #
+      M60 = "m60"
+
+      # No documentation available.
+      #
+      RADEON_PRO_V520 = "radeon-pro-v520"
+
+      # No documentation available.
+      #
+      VU9P = "vu9p"
     end
 
     # <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
@@ -78,6 +142,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
     end
 
     # <p>The minimum and maximum amount of total accelerator memory, in MiB.</p>
@@ -100,6 +170,28 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
+    end
+
+    # Includes enum constants for AcceleratorType
+    #
+    module AcceleratorType
+      # No documentation available.
+      #
+      GPU = "gpu"
+
+      # No documentation available.
+      #
+      FPGA = "fpga"
+
+      # No documentation available.
+      #
+      INFERENCE = "inference"
     end
 
     # <p>Contains the parameters for accepting the quote.</p>
@@ -130,6 +222,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>The result of the exchange and whether it was <code>successful</code>.</p>
@@ -176,6 +273,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute associations
@@ -208,6 +310,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_peering_attachment
@@ -240,6 +347,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -278,6 +390,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute unsuccessful
@@ -312,6 +429,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute vpc_peering_connection
@@ -430,6 +552,18 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for AccountAttributeName
+    #
+    module AccountAttributeName
+      # No documentation available.
+      #
+      supported_platforms = "supported-platforms"
+
+      # No documentation available.
+      #
+      default_vpc = "default-vpc"
+    end
+
     # <p>Describes a value of an account attribute.</p>
     #
     # @!attribute attribute_value
@@ -466,6 +600,8 @@ module AWS::Ec2
     #               or the system status check is <code>impaired</code>, the health status of the instance
     #               is <code>unhealthy</code>. Otherwise, the health status is <code>healthy</code>.</p>
     #
+    #   Enum, one of: ["healthy", "unhealthy"]
+    #
     #   @return [String]
     #
     ActiveInstance = ::Struct.new(
@@ -476,6 +612,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ActivityStatus
+    #
+    module ActivityStatus
+      # No documentation available.
+      #
+      ERROR = "error"
+
+      # No documentation available.
+      #
+      PENDING_FULFILLMENT = "pending_fulfillment"
+
+      # No documentation available.
+      #
+      PENDING_TERMINATION = "pending_termination"
+
+      # No documentation available.
+      #
+      FULFILLED = "fulfilled"
     end
 
     # <p>Add an operating Region to an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
@@ -541,6 +697,8 @@ module AWS::Ec2
     # @!attribute domain
     #   <p>Indicates whether this Elastic IP address is for use with instances
     #   				in EC2-Classic (<code>standard</code>) or instances in a VPC (<code>vpc</code>).</p>
+    #
+    #   Enum, one of: ["vpc", "standard"]
     #
     #   @return [String]
     #
@@ -643,6 +801,26 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for AddressAttributeName
+    #
+    module AddressAttributeName
+      # No documentation available.
+      #
+      domain_name = "domain-name"
+    end
+
+    # Includes enum constants for AddressFamily
+    #
+    module AddressFamily
+      # No documentation available.
+      #
+      ipv4 = "ipv4"
+
+      # No documentation available.
+      #
+      ipv6 = "ipv6"
+    end
+
     # @!attribute cidr
     #   <p>The address range, in CIDR notation. This must be the exact range that you provisioned.
     #            You can't advertise only a portion of the provisioned range.</p>
@@ -662,6 +840,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute byoip_cidr
@@ -676,10 +859,24 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for Affinity
+    #
+    module Affinity
+      # No documentation available.
+      #
+      default = "default"
+
+      # No documentation available.
+      #
+      host = "host"
+    end
+
     # @!attribute domain
     #   <p>Indicates whether the Elastic IP address is for use with instances in a VPC or instances in EC2-Classic.</p>
     #            <p>Default: If the Region supports EC2-Classic, the default is <code>standard</code>. Otherwise, the default
     #            is <code>vpc</code>.</p>
+    #
+    #   Enum, one of: ["vpc", "standard"]
     #
     #   @return [String]
     #
@@ -735,6 +932,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute public_ip
@@ -761,6 +963,8 @@ module AWS::Ec2
     # @!attribute domain
     #   <p>Indicates whether the Elastic IP address is for use with instances in a VPC (<code>vpc</code>) or
     #   				instances in EC2-Classic (<code>standard</code>).</p>
+    #
+    #   Enum, one of: ["vpc", "standard"]
     #
     #   @return [String]
     #
@@ -803,6 +1007,8 @@ module AWS::Ec2
     #
     #           <p>Default: <code>on</code>
     #            </p>
+    #
+    #   Enum, one of: ["on", "off"]
     #
     #   @return [String]
     #
@@ -858,6 +1064,8 @@ module AWS::Ec2
     #   		       <p>Default: <code>off</code>
     #            </p>
     #
+    #   Enum, one of: ["on", "off"]
+    #
     #   @return [String]
     #
     AllocateHostsInput = ::Struct.new(
@@ -872,6 +1080,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.quantity ||= 0
+      end
+
     end
 
     # <p>Contains the output of AllocateHosts.</p>
@@ -961,6 +1174,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.netmask_length ||= 0
+        self.preview_next_cidr ||= false
+      end
+
     end
 
     # @!attribute ipam_pool_allocation
@@ -975,10 +1195,60 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for AllocationState
+    #
+    module AllocationState
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      under_assessment = "under-assessment"
+
+      # No documentation available.
+      #
+      permanent_failure = "permanent-failure"
+
+      # No documentation available.
+      #
+      released = "released"
+
+      # No documentation available.
+      #
+      released_permanent_failure = "released-permanent-failure"
+
+      # No documentation available.
+      #
+      pending = "pending"
+    end
+
+    # Includes enum constants for AllocationStrategy
+    #
+    module AllocationStrategy
+      # No documentation available.
+      #
+      LOWEST_PRICE = "lowestPrice"
+
+      # No documentation available.
+      #
+      DIVERSIFIED = "diversified"
+
+      # No documentation available.
+      #
+      CAPACITY_OPTIMIZED = "capacityOptimized"
+
+      # No documentation available.
+      #
+      CAPACITY_OPTIMIZED_PRIORITIZED = "capacityOptimizedPrioritized"
+    end
+
     # <p>Describes a principal.</p>
     #
     # @!attribute principal_type
     #   <p>The type of principal.</p>
+    #
+    #   Enum, one of: ["All", "Service", "OrganizationUnit", "Account", "User", "Role"]
     #
     #   @return [String]
     #
@@ -993,6 +1263,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for AllowsMultipleInstanceTypes
+    #
+    module AllowsMultipleInstanceTypes
+      # No documentation available.
+      #
+      on = "on"
+
+      # No documentation available.
+      #
+      off = "off"
     end
 
     # <p>Describes an potential intermediate component of a feasible path.</p>
@@ -1057,6 +1339,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.egress ||= false
+        self.rule_number ||= 0
+      end
+
     end
 
     # <p>Describes a path component.</p>
@@ -1103,6 +1391,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.load_balancer_port ||= 0
+        self.instance_port ||= 0
+      end
+
     end
 
     # <p>Describes a load balancer target.</p>
@@ -1135,6 +1429,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.port ||= 0
+      end
+
     end
 
     # <p>Describes a header. Reflects any changes made by a component as traffic passes through.
@@ -1310,6 +1609,34 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for AnalysisStatus
+    #
+    module AnalysisStatus
+      # No documentation available.
+      #
+      running = "running"
+
+      # No documentation available.
+      #
+      succeeded = "succeeded"
+
+      # No documentation available.
+      #
+      failed = "failed"
+    end
+
+    # Includes enum constants for ApplianceModeSupportValue
+    #
+    module ApplianceModeSupportValue
+      # No documentation available.
+      #
+      enable = "enable"
+
+      # No documentation available.
+      #
+      disable = "disable"
+    end
+
     # @!attribute client_vpn_endpoint_id
     #   <p>The ID of the Client VPN endpoint.</p>
     #
@@ -1339,6 +1666,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute security_group_ids
@@ -1351,6 +1683,46 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ArchitectureType
+    #
+    module ArchitectureType
+      # No documentation available.
+      #
+      i386 = "i386"
+
+      # No documentation available.
+      #
+      x86_64 = "x86_64"
+
+      # No documentation available.
+      #
+      arm64 = "arm64"
+
+      # No documentation available.
+      #
+      x86_64_mac = "x86_64_mac"
+    end
+
+    # Includes enum constants for ArchitectureValues
+    #
+    module ArchitectureValues
+      # No documentation available.
+      #
+      i386 = "i386"
+
+      # No documentation available.
+      #
+      x86_64 = "x86_64"
+
+      # No documentation available.
+      #
+      arm64 = "arm64"
+
+      # No documentation available.
+      #
+      x86_64_mac = "x86_64_mac"
     end
 
     # @!attribute ipv6_address_count
@@ -1393,6 +1765,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.ipv6_address_count ||= 0
+        self.ipv6_prefix_count ||= 0
+      end
+
     end
 
     # @!attribute assigned_ipv6_addresses
@@ -1463,6 +1841,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.allow_reassignment ||= false
+        self.secondary_private_ip_address_count ||= 0
+        self.ipv4_prefix_count ||= 0
+      end
+
     end
 
     # @!attribute network_interface_id
@@ -1556,6 +1941,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.allow_reassociation ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute association_id
@@ -1598,6 +1989,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute association_id
@@ -1643,6 +2039,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     AssociateDhcpOptionsOutput = ::Struct.new(
@@ -1675,6 +2076,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute certificate_s3_bucket_name
@@ -1756,6 +2162,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_event_window
@@ -1800,6 +2211,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute association_id
@@ -1888,6 +2304,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute associations
@@ -1926,6 +2347,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute association
@@ -1984,6 +2410,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.vlan_id ||= 0
+        self.gre_key ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute interface_association
@@ -2075,6 +2508,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.amazon_provided_ipv6_cidr_block ||= false
+      end
+
     end
 
     # @!attribute ipv6_cidr_block_association
@@ -2099,6 +2537,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for AssociatedNetworkType
+    #
+    module AssociatedNetworkType
+      # No documentation available.
+      #
+      vpc = "vpc"
     end
 
     # <p>Information about the associated IAM roles.</p>
@@ -2145,6 +2591,8 @@ module AWS::Ec2
     # @!attribute network_type
     #   <p>The target network type.</p>
     #
+    #   Enum, one of: ["vpc"]
+    #
     #   @return [String]
     #
     AssociatedTargetNetwork = ::Struct.new(
@@ -2159,6 +2607,8 @@ module AWS::Ec2
     #
     # @!attribute code
     #   <p>The state of the target network association.</p>
+    #
+    #   Enum, one of: ["associating", "associated", "association-failed", "disassociating", "disassociated"]
     #
     #   @return [String]
     #
@@ -2175,6 +2625,30 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for AssociationStatusCode
+    #
+    module AssociationStatusCode
+      # No documentation available.
+      #
+      associating = "associating"
+
+      # No documentation available.
+      #
+      associated = "associated"
+
+      # No documentation available.
+      #
+      association_failed = "association-failed"
+
+      # No documentation available.
+      #
+      disassociating = "disassociating"
+
+      # No documentation available.
+      #
+      disassociated = "disassociated"
+    end
+
     # <p>Describes integration options for Amazon Athena.</p>
     #
     # @!attribute integration_result_s3_destination_arn
@@ -2184,6 +2658,8 @@ module AWS::Ec2
     #
     # @!attribute partition_load_frequency
     #   <p>The schedule for adding new partitions to the table.</p>
+    #
+    #   Enum, one of: ["none", "daily", "weekly", "monthly"]
     #
     #   @return [String]
     #
@@ -2237,6 +2713,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -2249,6 +2730,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -2275,6 +2761,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     AttachInternetGatewayOutput = ::Struct.new(
@@ -2324,6 +2815,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.device_index ||= 0
+        self.dry_run ||= false
+        self.network_card_index ||= 0
+      end
+
     end
 
     # <p>Contains the output of AttachNetworkInterface.</p>
@@ -2344,6 +2842,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.network_card_index ||= 0
+      end
+
     end
 
     # @!attribute device
@@ -2377,6 +2880,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Describes volume attachment details.</p>
@@ -2398,6 +2906,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The attachment state of the volume.</p>
+    #
+    #   Enum, one of: ["attaching", "attached", "detaching", "detached", "busy"]
     #
     #   @return [String]
     #
@@ -2421,6 +2931,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.delete_on_termination ||= false
+      end
+
     end
 
     # <p>Contains the parameters for AttachVpnGateway.</p>
@@ -2450,6 +2965,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of AttachVpnGateway.</p>
@@ -2466,6 +2986,26 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for AttachmentStatus
+    #
+    module AttachmentStatus
+      # No documentation available.
+      #
+      attaching = "attaching"
+
+      # No documentation available.
+      #
+      attached = "attached"
+
+      # No documentation available.
+      #
+      detaching = "detaching"
+
+      # No documentation available.
+      #
+      detached = "detached"
+    end
+
     # <p>Describes a value for a resource attribute that is a Boolean value.</p>
     #
     # @!attribute value
@@ -2478,6 +3018,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.value ||= false
+      end
+
     end
 
     # <p>Describes a value for a resource attribute that is a String.</p>
@@ -2536,6 +3081,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.access_all ||= false
+      end
+
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -2586,6 +3136,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.authorize_all_groups ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute status
@@ -2670,6 +3226,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.from_port ||= 0
+        self.to_port ||= 0
+      end
+
     end
 
     # @!attribute return
@@ -2688,6 +3251,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute cidr_ip
@@ -2786,6 +3354,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.from_port ||= 0
+        self.to_port ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -2804,12 +3379,55 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
+    end
+
+    # Includes enum constants for AutoAcceptSharedAssociationsValue
+    #
+    module AutoAcceptSharedAssociationsValue
+      # No documentation available.
+      #
+      enable = "enable"
+
+      # No documentation available.
+      #
+      disable = "disable"
+    end
+
+    # Includes enum constants for AutoAcceptSharedAttachmentsValue
+    #
+    module AutoAcceptSharedAttachmentsValue
+      # No documentation available.
+      #
+      enable = "enable"
+
+      # No documentation available.
+      #
+      disable = "disable"
+    end
+
+    # Includes enum constants for AutoPlacement
+    #
+    module AutoPlacement
+      # No documentation available.
+      #
+      on = "on"
+
+      # No documentation available.
+      #
+      off = "off"
     end
 
     # <p>Describes Availability Zones, Local Zones, and Wavelength Zones.</p>
     #
     # @!attribute state
     #   <p>The state of the Availability Zone, Local Zone, or Wavelength Zone.</p>
+    #
+    #   Enum, one of: ["available", "information", "impaired", "unavailable"]
     #
     #   @return [String]
     #
@@ -2818,6 +3436,8 @@ module AWS::Ec2
     #           <code>opt-in-not-required</code>.</p>
     #            <p>For Local Zones and Wavelength Zones, this parameter is the opt-in status. The possible
     #         values are <code>opted-in</code>, and <code>not-opted-in</code>.</p>
+    #
+    #   Enum, one of: ["opt-in-not-required", "opted-in", "not-opted-in"]
     #
     #   @return [String]
     #
@@ -2904,6 +3524,42 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for AvailabilityZoneOptInStatus
+    #
+    module AvailabilityZoneOptInStatus
+      # No documentation available.
+      #
+      opt_in_not_required = "opt-in-not-required"
+
+      # No documentation available.
+      #
+      opted_in = "opted-in"
+
+      # No documentation available.
+      #
+      not_opted_in = "not-opted-in"
+    end
+
+    # Includes enum constants for AvailabilityZoneState
+    #
+    module AvailabilityZoneState
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      information = "information"
+
+      # No documentation available.
+      #
+      impaired = "impaired"
+
+      # No documentation available.
+      #
+      unavailable = "unavailable"
+    end
+
     # <p>The capacity information for instances that can be launched onto the Dedicated Host. </p>
     #
     # @!attribute available_instance_capacity
@@ -2925,6 +3581,27 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.available_v_cpus ||= 0
+      end
+
+    end
+
+    # Includes enum constants for BareMetal
+    #
+    module BareMetal
+      # No documentation available.
+      #
+      INCLUDED = "included"
+
+      # No documentation available.
+      #
+      REQUIRED = "required"
+
+      # No documentation available.
+      #
+      EXCLUDED = "excluded"
     end
 
     # <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
@@ -2949,6 +3626,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
     end
 
     # <p>The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see
@@ -2973,6 +3656,56 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
+    end
+
+    # Includes enum constants for BatchState
+    #
+    module BatchState
+      # No documentation available.
+      #
+      SUBMITTED = "submitted"
+
+      # No documentation available.
+      #
+      ACTIVE = "active"
+
+      # No documentation available.
+      #
+      CANCELLED = "cancelled"
+
+      # No documentation available.
+      #
+      FAILED = "failed"
+
+      # No documentation available.
+      #
+      CANCELLED_RUNNING = "cancelled_running"
+
+      # No documentation available.
+      #
+      CANCELLED_TERMINATING_INSTANCES = "cancelled_terminating"
+
+      # No documentation available.
+      #
+      MODIFYING = "modifying"
+    end
+
+    # Includes enum constants for BgpStatus
+    #
+    module BgpStatus
+      # No documentation available.
+      #
+      up = "up"
+
+      # No documentation available.
+      #
+      down = "down"
     end
 
     # @!attribute value
@@ -3031,6 +3764,30 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for BootModeType
+    #
+    module BootModeType
+      # No documentation available.
+      #
+      legacy_bios = "legacy-bios"
+
+      # No documentation available.
+      #
+      uefi = "uefi"
+    end
+
+    # Includes enum constants for BootModeValues
+    #
+    module BootModeValues
+      # No documentation available.
+      #
+      legacy_bios = "legacy-bios"
+
+      # No documentation available.
+      #
+      uefi = "uefi"
+    end
+
     # <p>Contains the parameters for BundleInstance.</p>
     #
     # @!attribute instance_id
@@ -3060,6 +3817,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of BundleInstance.</p>
@@ -3105,6 +3867,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the task.</p>
+    #
+    #   Enum, one of: ["pending", "waiting-for-shutdown", "bundling", "storing", "cancelling", "complete", "failed"]
     #
     #   @return [String]
     #
@@ -3152,6 +3916,54 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for BundleTaskState
+    #
+    module BundleTaskState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      waiting_for_shutdown = "waiting-for-shutdown"
+
+      # No documentation available.
+      #
+      bundling = "bundling"
+
+      # No documentation available.
+      #
+      storing = "storing"
+
+      # No documentation available.
+      #
+      cancelling = "cancelling"
+
+      # No documentation available.
+      #
+      complete = "complete"
+
+      # No documentation available.
+      #
+      failed = "failed"
+    end
+
+    # Includes enum constants for BurstablePerformance
+    #
+    module BurstablePerformance
+      # No documentation available.
+      #
+      INCLUDED = "included"
+
+      # No documentation available.
+      #
+      REQUIRED = "required"
+
+      # No documentation available.
+      #
+      EXCLUDED = "excluded"
+    end
+
     # <p>Information about an address range that is provisioned for use with your Amazon Web Services resources
     #          through bring your own IP addresses (BYOIP).</p>
     #
@@ -3173,6 +3985,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of the address pool.</p>
     #
+    #   Enum, one of: ["advertised", "deprovisioned", "failed-deprovision", "failed-provision", "pending-deprovision", "pending-provision", "provisioned", "provisioned-not-publicly-advertisable"]
+    #
     #   @return [String]
     #
     ByoipCidr = ::Struct.new(
@@ -3183,6 +3997,62 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ByoipCidrState
+    #
+    module ByoipCidrState
+      # No documentation available.
+      #
+      advertised = "advertised"
+
+      # No documentation available.
+      #
+      deprovisioned = "deprovisioned"
+
+      # No documentation available.
+      #
+      failed_deprovision = "failed-deprovision"
+
+      # No documentation available.
+      #
+      failed_provision = "failed-provision"
+
+      # No documentation available.
+      #
+      pending_deprovision = "pending-deprovision"
+
+      # No documentation available.
+      #
+      pending_provision = "pending-provision"
+
+      # No documentation available.
+      #
+      provisioned = "provisioned"
+
+      # No documentation available.
+      #
+      provisioned_not_publicly_advertisable = "provisioned-not-publicly-advertisable"
+    end
+
+    # Includes enum constants for CancelBatchErrorCode
+    #
+    module CancelBatchErrorCode
+      # No documentation available.
+      #
+      FLEET_REQUEST_ID_DOES_NOT_EXIST = "fleetRequestIdDoesNotExist"
+
+      # No documentation available.
+      #
+      FLEET_REQUEST_ID_MALFORMED = "fleetRequestIdMalformed"
+
+      # No documentation available.
+      #
+      FLEET_REQUEST_NOT_IN_CANCELLABLE_STATE = "fleetRequestNotInCancellableState"
+
+      # No documentation available.
+      #
+      UNEXPECTED_ERROR = "unexpectedError"
     end
 
     # <p>Contains the parameters for CancelBundleTask.</p>
@@ -3205,6 +4075,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of CancelBundleTask.</p>
@@ -3257,6 +4132,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute successful_fleet_cancellations
@@ -3293,6 +4173,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -3305,6 +4190,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute conversion_task_id
@@ -3331,6 +4221,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     CancelConversionTaskOutput = ::Struct.new(
@@ -3383,6 +4278,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute import_task_id
@@ -3441,6 +4341,8 @@ module AWS::Ec2
     #
     # @!attribute code
     #   <p>The error code.</p>
+    #
+    #   Enum, one of: ["fleetRequestIdDoesNotExist", "fleetRequestIdMalformed", "fleetRequestNotInCancellableState", "unexpectedError"]
     #
     #   @return [String]
     #
@@ -3505,6 +4407,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.terminate_instances ||= false
+      end
+
     end
 
     # <p>Contains the output of CancelSpotFleetRequests.</p>
@@ -3532,10 +4440,14 @@ module AWS::Ec2
     # @!attribute current_spot_fleet_request_state
     #   <p>The current state of the Spot Fleet request.</p>
     #
+    #   Enum, one of: ["submitted", "active", "cancelled", "failed", "cancelled_running", "cancelled_terminating", "modifying"]
+    #
     #   @return [String]
     #
     # @!attribute previous_spot_fleet_request_state
     #   <p>The previous state of the Spot Fleet request.</p>
+    #
+    #   Enum, one of: ["submitted", "active", "cancelled", "failed", "cancelled_running", "cancelled_terminating", "modifying"]
     #
     #   @return [String]
     #
@@ -3551,6 +4463,30 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for CancelSpotInstanceRequestState
+    #
+    module CancelSpotInstanceRequestState
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      open = "open"
+
+      # No documentation available.
+      #
+      closed = "closed"
+
+      # No documentation available.
+      #
+      cancelled = "cancelled"
+
+      # No documentation available.
+      #
+      completed = "completed"
     end
 
     # <p>Contains the parameters for CancelSpotInstanceRequests.</p>
@@ -3574,6 +4510,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of CancelSpotInstanceRequests.</p>
@@ -3599,6 +4540,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the Spot Instance request.</p>
+    #
+    #   Enum, one of: ["active", "open", "closed", "cancelled", "completed"]
     #
     #   @return [String]
     #
@@ -3640,6 +4583,8 @@ module AWS::Ec2
     # @!attribute instance_platform
     #   <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
     #
+    #   Enum, one of: ["Linux/UNIX", "Red Hat Enterprise Linux", "SUSE Linux", "Windows", "Windows with SQL Server", "Windows with SQL Server Enterprise", "Windows with SQL Server Standard", "Windows with SQL Server Web", "Linux with SQL Server Standard", "Linux with SQL Server Web", "Linux with SQL Server Enterprise"]
+    #
     #   @return [String]
     #
     # @!attribute availability_zone
@@ -3659,6 +4604,8 @@ module AWS::Ec2
     #                     <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["default", "dedicated"]
     #
     #   @return [String]
     #
@@ -3716,6 +4663,8 @@ module AWS::Ec2
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["active", "expired", "cancelled", "pending", "failed"]
+    #
     #   @return [String]
     #
     # @!attribute start_date
@@ -3744,6 +4693,8 @@ module AWS::Ec2
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["unlimited", "limited"]
+    #
     #   @return [String]
     #
     # @!attribute instance_match_criteria
@@ -3763,6 +4714,8 @@ module AWS::Ec2
     #   					Capacity Reservation. This ensures that only permitted instances can use the reserved capacity. </p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["open", "targeted"]
     #
     #   @return [String]
     #
@@ -3823,6 +4776,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.total_instance_count ||= 0
+        self.available_instance_count ||= 0
+        self.ebs_optimized ||= false
+        self.ephemeral_storage ||= false
+      end
+
     end
 
     # <p>Information about a Capacity Reservation Fleet.</p>
@@ -3893,6 +4854,8 @@ module AWS::Ec2
     #   			         </li>
     #            </ul>
     #
+    #   Enum, one of: ["submitted", "modifying", "active", "partially_fulfilled", "expiring", "expired", "cancelling", "cancelled", "failed"]
+    #
     #   @return [String]
     #
     # @!attribute total_target_capacity
@@ -3922,6 +4885,8 @@ module AWS::Ec2
     #   			         </li>
     #            </ul>
     #
+    #   Enum, one of: ["default"]
+    #
     #   @return [String]
     #
     # @!attribute end_date
@@ -3941,6 +4906,8 @@ module AWS::Ec2
     #   			only. This means that instances that have matching attributes (instance type, platform, and
     #   			Availability Zone) run in the Capacity Reservations automatically. Instances do not need to
     #   			explicitly target a Capacity Reservation Fleet to use its reserved capacity.</p>
+    #
+    #   Enum, one of: ["open"]
     #
     #   @return [String]
     #
@@ -3978,6 +4945,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.total_target_capacity ||= 0
+        self.total_fulfilled_capacity ||= 0
+      end
+
     end
 
     # <p>Describes a Capacity Reservation Fleet that was successfully cancelled.</p>
@@ -3985,10 +4958,14 @@ module AWS::Ec2
     # @!attribute current_fleet_state
     #   <p>The current state of the Capacity Reservation Fleet.</p>
     #
+    #   Enum, one of: ["submitted", "modifying", "active", "partially_fulfilled", "expiring", "expired", "cancelling", "cancelled", "failed"]
+    #
     #   @return [String]
     #
     # @!attribute previous_fleet_state
     #   <p>The previous state of the Capacity Reservation Fleet.</p>
+    #
+    #   Enum, one of: ["submitted", "modifying", "active", "partially_fulfilled", "expiring", "expired", "cancelling", "cancelled", "failed"]
     #
     #   @return [String]
     #
@@ -4004,6 +4981,46 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for CapacityReservationFleetState
+    #
+    module CapacityReservationFleetState
+      # No documentation available.
+      #
+      SUBMITTED = "submitted"
+
+      # No documentation available.
+      #
+      MODIFYING = "modifying"
+
+      # No documentation available.
+      #
+      ACTIVE = "active"
+
+      # No documentation available.
+      #
+      PARTIALLY_FULFILLED = "partially_fulfilled"
+
+      # No documentation available.
+      #
+      EXPIRING = "expiring"
+
+      # No documentation available.
+      #
+      EXPIRED = "expired"
+
+      # No documentation available.
+      #
+      CANCELLING = "cancelling"
+
+      # No documentation available.
+      #
+      CANCELLED = "cancelled"
+
+      # No documentation available.
+      #
+      FAILED = "failed"
     end
 
     # <p>Describes a resource group to which a Capacity Reservation has been added.</p>
@@ -4024,6 +5041,54 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for CapacityReservationInstancePlatform
+    #
+    module CapacityReservationInstancePlatform
+      # No documentation available.
+      #
+      LINUX_UNIX = "Linux/UNIX"
+
+      # No documentation available.
+      #
+      RED_HAT_ENTERPRISE_LINUX = "Red Hat Enterprise Linux"
+
+      # No documentation available.
+      #
+      SUSE_LINUX = "SUSE Linux"
+
+      # No documentation available.
+      #
+      WINDOWS = "Windows"
+
+      # No documentation available.
+      #
+      WINDOWS_WITH_SQL_SERVER = "Windows with SQL Server"
+
+      # No documentation available.
+      #
+      WINDOWS_WITH_SQL_SERVER_ENTERPRISE = "Windows with SQL Server Enterprise"
+
+      # No documentation available.
+      #
+      WINDOWS_WITH_SQL_SERVER_STANDARD = "Windows with SQL Server Standard"
+
+      # No documentation available.
+      #
+      WINDOWS_WITH_SQL_SERVER_WEB = "Windows with SQL Server Web"
+
+      # No documentation available.
+      #
+      LINUX_WITH_SQL_SERVER_STANDARD = "Linux with SQL Server Standard"
+
+      # No documentation available.
+      #
+      LINUX_WITH_SQL_SERVER_WEB = "Linux with SQL Server Web"
+
+      # No documentation available.
+      #
+      LINUX_WITH_SQL_SERVER_ENTERPRISE = "Linux with SQL Server Enterprise"
     end
 
     # <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand
@@ -4048,6 +5113,8 @@ module AWS::Ec2
     #               (<code>lowest-price</code> or <code>prioritized</code>).</p>
     #            <p>If you do not specify a value, the fleet fulfils the On-Demand capacity according to the
     #            chosen On-Demand allocation strategy.</p>
+    #
+    #   Enum, one of: ["use-capacity-reservations-first"]
     #
     #   @return [String]
     #
@@ -4080,6 +5147,8 @@ module AWS::Ec2
     #            <p>If you do not specify a value, the fleet fulfils the On-Demand capacity according to the
     #            chosen On-Demand allocation strategy.</p>
     #
+    #   Enum, one of: ["use-capacity-reservations-first"]
+    #
     #   @return [String]
     #
     CapacityReservationOptionsRequest = ::Struct.new(
@@ -4087,6 +5156,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for CapacityReservationPreference
+    #
+    module CapacityReservationPreference
+      # No documentation available.
+      #
+      open = "open"
+
+      # No documentation available.
+      #
+      none = "none"
     end
 
     # <p>Describes an instance's Capacity Reservation targeting option. You can specify only one parameter
@@ -4112,6 +5193,8 @@ module AWS::Ec2
     #   					instance runs as an On-Demand Instance.</p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["open", "none"]
     #
     #   @return [String]
     #
@@ -4150,6 +5233,8 @@ module AWS::Ec2
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["open", "none"]
+    #
     #   @return [String]
     #
     # @!attribute capacity_reservation_target
@@ -4163,6 +5248,30 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for CapacityReservationState
+    #
+    module CapacityReservationState
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      expired = "expired"
+
+      # No documentation available.
+      #
+      cancelled = "cancelled"
+
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      failed = "failed"
     end
 
     # <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
@@ -4205,6 +5314,18 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for CapacityReservationTenancy
+    #
+    module CapacityReservationTenancy
+      # No documentation available.
+      #
+      default = "default"
+
+      # No documentation available.
+      #
+      dedicated = "dedicated"
+    end
+
     # <p>Describes a carrier gateway.</p>
     #
     # @!attribute carrier_gateway_id
@@ -4219,6 +5340,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the carrier gateway.</p>
+    #
+    #   Enum, one of: ["pending", "available", "deleting", "deleted"]
     #
     #   @return [String]
     #
@@ -4241,6 +5364,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for CarrierGatewayState
+    #
+    module CarrierGatewayState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
+
+      # No documentation available.
+      #
+      deleted = "deleted"
     end
 
     # <p>Information about the client certificate used for authentication.</p>
@@ -4325,6 +5468,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.classic_link_dns_supported ||= false
+      end
+
     end
 
     # <p>Describes a linked EC2-Classic instance.</p>
@@ -4393,6 +5541,8 @@ module AWS::Ec2
     # @!attribute code
     #   <p>The state of the client certificate revocation list.</p>
     #
+    #   Enum, one of: ["pending", "active"]
+    #
     #   @return [String]
     #
     # @!attribute message
@@ -4406,6 +5556,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ClientCertificateRevocationListStatusCode
+    #
+    module ClientCertificateRevocationListStatusCode
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      active = "active"
     end
 
     # <p>The options for managing connection authorization for new client connections.</p>
@@ -4426,6 +5588,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enabled ||= false
+      end
+
     end
 
     # <p>The options for managing connection authorization for new client connections.</p>
@@ -4452,6 +5619,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enabled ||= false
+      end
+
     end
 
     # <p>Describes the client-specific data.</p>
@@ -4484,6 +5656,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.upload_size ||= 0
+      end
+
     end
 
     # <p>Describes the authentication methods used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html">Authentication</a>
@@ -4491,6 +5668,8 @@ module AWS::Ec2
     #
     # @!attribute type
     #   <p>The authentication type used.</p>
+    #
+    #   Enum, one of: ["certificate-authentication", "directory-service-authentication", "federated-authentication"]
     #
     #   @return [String]
     #
@@ -4525,6 +5704,8 @@ module AWS::Ec2
     # @!attribute type
     #   <p>The type of client authentication to be used.</p>
     #
+    #   Enum, one of: ["certificate-authentication", "directory-service-authentication", "federated-authentication"]
+    #
     #   @return [String]
     #
     # @!attribute active_directory
@@ -4552,10 +5733,28 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for ClientVpnAuthenticationType
+    #
+    module ClientVpnAuthenticationType
+      # No documentation available.
+      #
+      certificate_authentication = "certificate-authentication"
+
+      # No documentation available.
+      #
+      directory_service_authentication = "directory-service-authentication"
+
+      # No documentation available.
+      #
+      federated_authentication = "federated-authentication"
+    end
+
     # <p>Describes the state of an authorization rule.</p>
     #
     # @!attribute code
     #   <p>The state of the authorization rule.</p>
+    #
+    #   Enum, one of: ["authorizing", "active", "failed", "revoking"]
     #
     #   @return [String]
     #
@@ -4570,6 +5769,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ClientVpnAuthorizationRuleStatusCode
+    #
+    module ClientVpnAuthorizationRuleStatusCode
+      # No documentation available.
+      #
+      authorizing = "authorizing"
+
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      failed = "failed"
+
+      # No documentation available.
+      #
+      revoking = "revoking"
     end
 
     # <p>Describes a client connection.</p>
@@ -4671,6 +5890,8 @@ module AWS::Ec2
     # @!attribute code
     #   <p>The state of the client connection.</p>
     #
+    #   Enum, one of: ["active", "failed-to-terminate", "terminating", "terminated"]
+    #
     #   @return [String]
     #
     # @!attribute message
@@ -4684,6 +5905,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ClientVpnConnectionStatusCode
+    #
+    module ClientVpnConnectionStatusCode
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      failed_to_terminate = "failed-to-terminate"
+
+      # No documentation available.
+      #
+      terminating = "terminating"
+
+      # No documentation available.
+      #
+      terminated = "terminated"
     end
 
     # <p>Describes a Client VPN endpoint.</p>
@@ -4738,10 +5979,14 @@ module AWS::Ec2
     # @!attribute vpn_protocol
     #   <p>The protocol used by the VPN session.</p>
     #
+    #   Enum, one of: ["openvpn"]
+    #
     #   @return [String]
     #
     # @!attribute transport_protocol
     #   <p>The transport protocol used by the Client VPN endpoint.</p>
+    #
+    #   Enum, one of: ["tcp", "udp"]
     #
     #   @return [String]
     #
@@ -4823,12 +6068,20 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.split_tunnel ||= false
+        self.vpn_port ||= 0
+      end
+
     end
 
     # <p>Describes the status of the Client VPN endpoint attribute.</p>
     #
     # @!attribute code
     #   <p>The status code.</p>
+    #
+    #   Enum, one of: ["applying", "applied"]
     #
     #   @return [String]
     #
@@ -4843,6 +6096,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ClientVpnEndpointAttributeStatusCode
+    #
+    module ClientVpnEndpointAttributeStatusCode
+      # No documentation available.
+      #
+      applying = "applying"
+
+      # No documentation available.
+      #
+      applied = "applied"
     end
 
     # <p>Describes the state of a Client VPN endpoint.</p>
@@ -4872,6 +6137,8 @@ module AWS::Ec2
     #   			         </li>
     #            </ul>
     #
+    #   Enum, one of: ["pending-associate", "available", "deleting", "deleted"]
+    #
     #   @return [String]
     #
     # @!attribute message
@@ -4885,6 +6152,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ClientVpnEndpointStatusCode
+    #
+    module ClientVpnEndpointStatusCode
+      # No documentation available.
+      #
+      pending_associate = "pending-associate"
+
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
+
+      # No documentation available.
+      #
+      deleted = "deleted"
     end
 
     # <p>Information about a Client VPN endpoint route.</p>
@@ -4945,6 +6232,8 @@ module AWS::Ec2
     # @!attribute code
     #   <p>The state of the Client VPN endpoint route.</p>
     #
+    #   Enum, one of: ["creating", "active", "failed", "deleting"]
+    #
     #   @return [String]
     #
     # @!attribute message
@@ -4958,6 +6247,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ClientVpnRouteStatusCode
+    #
+    module ClientVpnRouteStatusCode
+      # No documentation available.
+      #
+      creating = "creating"
+
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      failed = "failed"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
     end
 
     # <p>Describes address usage for a customer-owned address pool.</p>
@@ -5054,6 +6363,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute owner_id
@@ -5074,6 +6388,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # <p>Describes the client connection logging options for the Client VPN endpoint.</p>
@@ -5100,6 +6419,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enabled ||= false
+      end
+
     end
 
     # <p>Information about the client connection logging options for a Client VPN endpoint.</p>
@@ -5126,6 +6450,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enabled ||= false
+      end
+
     end
 
     # <p>Describes a connection notification for a VPC endpoint or VPC endpoint
@@ -5149,6 +6478,8 @@ module AWS::Ec2
     # @!attribute connection_notification_type
     #   <p>The type of notification.</p>
     #
+    #   Enum, one of: ["Topic"]
+    #
     #   @return [String]
     #
     # @!attribute connection_notification_arn
@@ -5165,6 +6496,8 @@ module AWS::Ec2
     # @!attribute connection_notification_state
     #   <p>The state of the notification.</p>
     #
+    #   Enum, one of: ["Enabled", "Disabled"]
+    #
     #   @return [String]
     #
     ConnectionNotification = ::Struct.new(
@@ -5178,6 +6511,46 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ConnectionNotificationState
+    #
+    module ConnectionNotificationState
+      # No documentation available.
+      #
+      Enabled = "Enabled"
+
+      # No documentation available.
+      #
+      Disabled = "Disabled"
+    end
+
+    # Includes enum constants for ConnectionNotificationType
+    #
+    module ConnectionNotificationType
+      # No documentation available.
+      #
+      Topic = "Topic"
+    end
+
+    # Includes enum constants for ConnectivityType
+    #
+    module ConnectivityType
+      # No documentation available.
+      #
+      PRIVATE = "private"
+
+      # No documentation available.
+      #
+      PUBLIC = "public"
+    end
+
+    # Includes enum constants for ContainerFormat
+    #
+    module ContainerFormat
+      # No documentation available.
+      #
+      ova = "ova"
     end
 
     # <p>Describes a conversion task.</p>
@@ -5206,6 +6579,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of the conversion task.</p>
     #
+    #   Enum, one of: ["active", "cancelling", "cancelled", "completed"]
+    #
     #   @return [String]
     #
     # @!attribute status_message
@@ -5229,6 +6604,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ConversionTaskState
+    #
+    module ConversionTaskState
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      cancelling = "cancelling"
+
+      # No documentation available.
+      #
+      cancelled = "cancelled"
+
+      # No documentation available.
+      #
+      completed = "completed"
     end
 
     # @!attribute dry_run
@@ -5274,6 +6669,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute fpga_image_id
@@ -5384,6 +6784,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.encrypted ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of CopyImage.</p>
@@ -5515,6 +6921,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.encrypted ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute snapshot_id
@@ -5535,6 +6947,30 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for CopyTagsFromSource
+    #
+    module CopyTagsFromSource
+      # No documentation available.
+      #
+      volume = "volume"
+    end
+
+    # Includes enum constants for CpuManufacturer
+    #
+    module CpuManufacturer
+      # No documentation available.
+      #
+      INTEL = "intel"
+
+      # No documentation available.
+      #
+      AMD = "amd"
+
+      # No documentation available.
+      #
+      AMAZON_WEB_SERVICES = "amazon-web-services"
+    end
+
     # <p>The CPU options for the instance.</p>
     #
     # @!attribute core_count
@@ -5553,6 +6989,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.core_count ||= 0
+        self.threads_per_core ||= 0
+      end
+
     end
 
     # <p>The CPU options for the instance. Both the core count and threads per core must be
@@ -5576,6 +7018,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.core_count ||= 0
+        self.threads_per_core ||= 0
+      end
+
     end
 
     # @!attribute allocation_strategy
@@ -5615,6 +7063,8 @@ module AWS::Ec2
     #   			         </li>
     #            </ul>
     #
+    #   Enum, one of: ["default"]
+    #
     #   @return [String]
     #
     # @!attribute total_target_capacity
@@ -5646,6 +7096,8 @@ module AWS::Ec2
     #   			Availability Zone) run in the Capacity Reservations automatically. Instances do not need to
     #   			explicitly target a Capacity Reservation Fleet to use its reserved capacity.</p>
     #
+    #   Enum, one of: ["open"]
+    #
     #   @return [String]
     #
     # @!attribute tag_specifications
@@ -5672,6 +7124,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.total_target_capacity ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute capacity_reservation_fleet_id
@@ -5681,6 +7139,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The status of the Capacity Reservation Fleet.</p>
+    #
+    #   Enum, one of: ["submitted", "modifying", "active", "partially_fulfilled", "expiring", "expired", "cancelling", "cancelled", "failed"]
     #
     #   @return [String]
     #
@@ -5696,6 +7156,8 @@ module AWS::Ec2
     #
     # @!attribute instance_match_criteria
     #   <p>The instance matching criteria for the Capacity Reservation Fleet.</p>
+    #
+    #   Enum, one of: ["open"]
     #
     #   @return [String]
     #
@@ -5716,6 +7178,8 @@ module AWS::Ec2
     #
     # @!attribute tenancy
     #   <p>Indicates the tenancy of Capacity Reservation Fleet.</p>
+    #
+    #   Enum, one of: ["default"]
     #
     #   @return [String]
     #
@@ -5744,6 +7208,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.total_target_capacity ||= 0
+        self.total_fulfilled_capacity ||= 0
+      end
+
     end
 
     # @!attribute client_token
@@ -5758,6 +7228,8 @@ module AWS::Ec2
     #
     # @!attribute instance_platform
     #   <p>The type of operating system for which to reserve capacity.</p>
+    #
+    #   Enum, one of: ["Linux/UNIX", "Red Hat Enterprise Linux", "SUSE Linux", "Windows", "Windows with SQL Server", "Windows with SQL Server Enterprise", "Windows with SQL Server Standard", "Windows with SQL Server Web", "Linux with SQL Server Standard", "Linux with SQL Server Web", "Linux with SQL Server Enterprise"]
     #
     #   @return [String]
     #
@@ -5783,6 +7255,8 @@ module AWS::Ec2
     #                     <code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single Amazon Web Services account.</p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["default", "dedicated"]
     #
     #   @return [String]
     #
@@ -5837,6 +7311,8 @@ module AWS::Ec2
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["unlimited", "limited"]
+    #
     #   @return [String]
     #
     # @!attribute instance_match_criteria
@@ -5858,6 +7334,8 @@ module AWS::Ec2
     #            </ul>
     #   		       <p>Default: <code>open</code>
     #            </p>
+    #
+    #   Enum, one of: ["open", "targeted"]
     #
     #   @return [String]
     #
@@ -5905,6 +7383,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.instance_count ||= 0
+        self.ebs_optimized ||= false
+        self.ephemeral_storage ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute capacity_reservation
@@ -5951,6 +7437,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute carrier_gateway
@@ -6013,6 +7504,8 @@ module AWS::Ec2
     #   		       <p>Default value: <code>udp</code>
     #            </p>
     #
+    #   Enum, one of: ["tcp", "udp"]
+    #
     #   @return [String]
     #
     # @!attribute vpn_port
@@ -6067,6 +7560,8 @@ module AWS::Ec2
     #           <p>Default Value: <code>enabled</code>
     #            </p>
     #
+    #   Enum, one of: ["enabled", "disabled"]
+    #
     #   @return [String]
     #
     # @!attribute client_connect_options
@@ -6094,6 +7589,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.vpn_port ||= 0
+        self.split_tunnel ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -6177,6 +7679,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute status
@@ -6214,6 +7721,8 @@ module AWS::Ec2
     #   <p>The type of VPN connection that this customer gateway supports
     #               (<code>ipsec.1</code>).</p>
     #
+    #   Enum, one of: ["ipsec.1"]
+    #
     #   @return [String]
     #
     # @!attribute tag_specifications
@@ -6246,6 +7755,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.bgp_asn ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of CreateCustomerGateway.</p>
@@ -6287,6 +7802,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.ipv6_native ||= false
+      end
+
     end
 
     # @!attribute subnet
@@ -6313,6 +7834,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute vpc
@@ -6351,6 +7877,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute dhcp_options
@@ -6397,6 +7928,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute client_token
@@ -6428,6 +7964,8 @@ module AWS::Ec2
     #
     # @!attribute lifecycle
     #   <p>Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.</p>
+    #
+    #   Enum, one of: ["spot", "on-demand"]
     #
     #   @return [String]
     #
@@ -6481,6 +8019,8 @@ module AWS::Ec2
     #   <p>Indicates whether running instances should be terminated if the total target capacity of
     #            the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
     #
+    #   Enum, one of: ["no-termination", "termination"]
+    #
     #   @return [String]
     #
     # @!attribute launch_template_configs
@@ -6523,6 +8063,8 @@ module AWS::Ec2
     #            </ul>
     #            <p>For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/ec2-fleet-request-type.html">EC2 Fleet
     #               request types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+    #
+    #   Enum, one of: ["request", "maintain", "instant"]
     #
     #   @return [String]
     #
@@ -6581,6 +8123,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.terminate_instances_with_expiration ||= false
+        self.replace_unhealthy_instances ||= false
+      end
+
     end
 
     # <p>Describes the instances that were launched by the fleet.</p>
@@ -6594,6 +8143,8 @@ module AWS::Ec2
     # @!attribute lifecycle
     #   <p>Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.</p>
     #
+    #   Enum, one of: ["spot", "on-demand"]
+    #
     #   @return [String]
     #
     # @!attribute instance_ids
@@ -6604,11 +8155,15 @@ module AWS::Ec2
     # @!attribute instance_type
     #   <p>The instance type.</p>
     #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
+    #
     #   @return [String]
     #
     # @!attribute platform
     #   <p>The value is <code>Windows</code> for Windows instances. Otherwise, the value is
     #            blank.</p>
+    #
+    #   Enum, one of: ["Windows"]
     #
     #   @return [String]
     #
@@ -6688,10 +8243,14 @@ module AWS::Ec2
     #   <p>The type of resource for which to create the flow log. For example, if you specified a VPC ID for
     #               the <code>ResourceId</code> property, specify <code>VPC</code> for this property.</p>
     #
+    #   Enum, one of: ["VPC", "Subnet", "NetworkInterface"]
+    #
     #   @return [String]
     #
     # @!attribute traffic_type
     #   <p>The type of traffic to log. You can log traffic that the resource accepts or rejects, or all traffic.</p>
+    #
+    #   Enum, one of: ["ACCEPT", "REJECT", "ALL"]
     #
     #   @return [String]
     #
@@ -6703,6 +8262,8 @@ module AWS::Ec2
     #               <code>DeliverLogsPermissionArn</code> or <code>LogGroupName</code>.</p>
     #           <p>Default: <code>cloud-watch-logs</code>
     #            </p>
+    #
+    #   Enum, one of: ["cloud-watch-logs", "s3"]
     #
     #   @return [String]
     #
@@ -6770,6 +8331,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_aggregation_interval ||= 0
+      end
+
     end
 
     # @!attribute client_token
@@ -6846,6 +8413,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute fpga_image_id
@@ -6936,6 +8508,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.no_reboot ||= false
+      end
+
     end
 
     # @!attribute image_id
@@ -7016,6 +8594,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_event_window
@@ -7047,6 +8630,8 @@ module AWS::Ec2
     #
     # @!attribute target_environment
     #   <p>The target virtualization environment.</p>
+    #
+    #   Enum, one of: ["citrix", "vmware", "microsoft"]
     #
     #   @return [String]
     #
@@ -7096,6 +8681,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute internet_gateway
@@ -7150,6 +8740,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute ipam
@@ -7194,6 +8789,8 @@ module AWS::Ec2
     #
     # @!attribute address_family
     #   <p>The IP protocol assigned to this IPAM pool. You must choose either IPv4 or IPv6 protocol for a pool.</p>
+    #
+    #   Enum, one of: ["ipv4", "ipv6"]
     #
     #   @return [String]
     #
@@ -7251,6 +8848,8 @@ module AWS::Ec2
     # @!attribute aws_service
     #   <p>Limits which service in Amazon Web Services that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.</p>
     #
+    #   Enum, one of: ["ec2"]
+    #
     #   @return [String]
     #
     CreateIpamPoolInput = ::Struct.new(
@@ -7272,6 +8871,16 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.auto_import ||= false
+        self.publicly_advertisable ||= false
+        self.allocation_min_netmask_length ||= 0
+        self.allocation_max_netmask_length ||= 0
+        self.allocation_default_netmask_length ||= 0
+      end
+
     end
 
     # @!attribute ipam_pool
@@ -7323,6 +8932,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute ipam_scope
@@ -7355,6 +8969,8 @@ module AWS::Ec2
     #           <p>Default: <code>rsa</code>
     #            </p>
     #
+    #   Enum, one of: ["rsa", "ed25519"]
+    #
     #   @return [String]
     #
     # @!attribute tag_specifications
@@ -7370,6 +8986,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Describes a key pair.</p>
@@ -7381,9 +9002,6 @@ module AWS::Ec2
     #
     # @!attribute key_material
     #   <p>An unencrypted PEM encoded RSA or ED25519 private key.</p>
-    #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
     #
     #   @return [String]
     #
@@ -7468,6 +9086,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute launch_template
@@ -7546,6 +9169,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute launch_template_version
@@ -7597,6 +9225,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute route
@@ -7641,6 +9274,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute local_gateway_route_table_vpc_association
@@ -7709,6 +9347,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_entries ||= 0
+      end
+
     end
 
     # @!attribute prefix_list
@@ -7759,6 +9403,8 @@ module AWS::Ec2
     #   <p>Indicates whether the NAT gateway supports public or private connectivity.
     #             The default is public connectivity.</p>
     #
+    #   Enum, one of: ["private", "public"]
+    #
     #   @return [String]
     #
     CreateNatGatewayInput = ::Struct.new(
@@ -7771,6 +9417,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute client_token
@@ -7845,6 +9496,8 @@ module AWS::Ec2
     # @!attribute rule_action
     #   <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
     #
+    #   Enum, one of: ["allow", "deny"]
+    #
     #   @return [String]
     #
     # @!attribute rule_number
@@ -7867,6 +9520,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.egress ||= false
+        self.rule_number ||= 0
+      end
+
     end
 
     CreateNetworkAclEntryOutput = ::Struct.new(
@@ -7900,6 +9560,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_acl
@@ -7951,6 +9616,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_insights_access_scope
@@ -7994,6 +9664,8 @@ module AWS::Ec2
     # @!attribute protocol
     #   <p>The protocol.</p>
     #
+    #   Enum, one of: ["tcp", "udp"]
+    #
     #   @return [String]
     #
     # @!attribute destination_port
@@ -8032,6 +9704,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.destination_port ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_insights_path
@@ -8130,6 +9808,8 @@ module AWS::Ec2
     #   			    Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. To create a trunk network interface, specify
     #   		    <code>trunk</code>.</p>
     #
+    #   Enum, one of: ["efa", "branch", "trunk"]
+    #
     #   @return [String]
     #
     # @!attribute subnet_id
@@ -8167,6 +9847,15 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.ipv6_address_count ||= 0
+        self.secondary_private_ip_address_count ||= 0
+        self.ipv4_prefix_count ||= 0
+        self.ipv6_prefix_count ||= 0
+      end
+
     end
 
     # <p>Contains the output of CreateNetworkInterface.</p>
@@ -8209,6 +9898,8 @@ module AWS::Ec2
     # @!attribute permission
     #   <p>The type of permission to grant.</p>
     #
+    #   Enum, one of: ["INSTANCE-ATTACH", "EIP-ASSOCIATE"]
+    #
     #   @return [String]
     #
     # @!attribute dry_run
@@ -8227,6 +9918,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of CreateNetworkInterfacePermission.</p>
@@ -8260,6 +9956,8 @@ module AWS::Ec2
     # @!attribute strategy
     #   <p>The placement strategy.</p>
     #
+    #   Enum, one of: ["cluster", "spread", "partition"]
+    #
     #   @return [String]
     #
     # @!attribute partition_count
@@ -8282,6 +9980,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.partition_count ||= 0
+      end
+
     end
 
     # @!attribute placement_group
@@ -8315,6 +10019,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute pool_id
@@ -8368,6 +10077,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute replace_root_volume_task
@@ -8414,6 +10128,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.instance_count ||= 0
+      end
+
     end
 
     # <p>Contains the output of CreateReservedInstancesListing.</p>
@@ -8479,6 +10198,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute image_id
@@ -8597,6 +10321,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -8609,6 +10338,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -8635,6 +10369,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute route_table
@@ -8692,6 +10431,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute group_id
@@ -8766,6 +10510,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Describes a snapshot.</p>
@@ -8819,6 +10568,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The snapshot state.</p>
     #
+    #   Enum, one of: ["pending", "completed", "error", "recoverable", "recovering"]
+    #
     #   @return [String]
     #
     # @!attribute state_message
@@ -8863,6 +10614,8 @@ module AWS::Ec2
     #         for use. <code>archive</code> indicates that the snapshot is currently archived and that
     #         it must be restored before it can be used.</p>
     #
+    #   Enum, one of: ["archive", "standard"]
+    #
     #   @return [String]
     #
     # @!attribute restore_expiry_time
@@ -8892,6 +10645,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.encrypted ||= false
+        self.volume_size ||= 0
+      end
+
     end
 
     # @!attribute description
@@ -8944,6 +10703,8 @@ module AWS::Ec2
     # @!attribute copy_tags_from_source
     #   <p>Copies the tags from the specified volume to corresponding snapshot.</p>
     #
+    #   Enum, one of: ["volume"]
+    #
     #   @return [String]
     #
     CreateSnapshotsInput = ::Struct.new(
@@ -8956,6 +10717,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute snapshots
@@ -8999,6 +10765,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of CreateSpotDatafeedSubscription.</p>
@@ -9047,6 +10818,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute object_key
@@ -9098,6 +10874,8 @@ module AWS::Ec2
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["prefix", "explicit"]
+    #
     #   @return [String]
     #
     # @!attribute description
@@ -9124,6 +10902,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute subnet_cidr_reservation
@@ -9211,6 +10994,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.ipv6_native ||= false
+      end
+
     end
 
     # @!attribute subnet
@@ -9251,6 +11040,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     CreateTagsOutput = ::Struct.new(
@@ -9290,6 +11084,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute traffic_mirror_filter
@@ -9318,6 +11117,8 @@ module AWS::Ec2
     # @!attribute traffic_direction
     #   <p>The type of traffic.</p>
     #
+    #   Enum, one of: ["ingress", "egress"]
+    #
     #   @return [String]
     #
     # @!attribute rule_number
@@ -9328,6 +11129,8 @@ module AWS::Ec2
     #
     # @!attribute rule_action
     #   <p>The action to take on the filtered traffic.</p>
+    #
+    #   Enum, one of: ["accept", "reject"]
     #
     #   @return [String]
     #
@@ -9390,6 +11193,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.rule_number ||= 0
+        self.protocol ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute traffic_mirror_filter_rule
@@ -9485,6 +11295,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.packet_length ||= 0
+        self.session_number ||= 0
+        self.virtual_network_id ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute traffic_mirror_session
@@ -9547,6 +11365,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute traffic_mirror_target
@@ -9597,6 +11420,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_connect
@@ -9665,6 +11493,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_connect_peer
@@ -9683,6 +11516,8 @@ module AWS::Ec2
     #
     # @!attribute protocol
     #   <p>The tunnel protocol.</p>
+    #
+    #   Enum, one of: ["gre"]
     #
     #   @return [String]
     #
@@ -9723,6 +11558,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_id
@@ -9755,6 +11595,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_multicast_domain
@@ -9774,15 +11619,21 @@ module AWS::Ec2
     # @!attribute igmpv2_support
     #   <p>Specify whether to enable Internet Group Management Protocol (IGMP) version 2 for the transit gateway multicast domain.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute static_sources_support
     #   <p>Specify whether to enable support for statically configuring multicast group sources for a domain.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute auto_accept_shared_associations
     #   <p>Indicates whether to automatically accept cross-account subnet associations that are associated with the transit gateway multicast domain.</p>
+    #
+    #   Enum, one of: ["enable", "disable"]
     #
     #   @return [String]
     #
@@ -9849,6 +11700,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_peering_attachment
@@ -9899,6 +11755,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.blackhole ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_prefix_list_reference
@@ -9950,6 +11812,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.blackhole ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute route
@@ -9988,6 +11856,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_route_table
@@ -10046,6 +11919,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -10065,15 +11943,21 @@ module AWS::Ec2
     # @!attribute dns_support
     #   <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute ipv6_support
     #   <p>Enable or disable IPv6 support.  The default is <code>disable</code>.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute appliance_mode_support
     #   <p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>
+    #
+    #   Enum, one of: ["enable", "disable"]
     #
     #   @return [String]
     #
@@ -10221,6 +12105,8 @@ module AWS::Ec2
     #            <p>Default: <code>gp2</code>
     #            </p>
     #
+    #   Enum, one of: ["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"]
+    #
     #   @return [String]
     #
     # @!attribute dry_run
@@ -10275,6 +12161,16 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.encrypted ||= false
+        self.iops ||= 0
+        self.size ||= 0
+        self.dry_run ||= false
+        self.multi_attach_enabled ||= false
+        self.throughput ||= 0
+      end
+
     end
 
     # <p>Describes a volume.</p>
@@ -10323,6 +12219,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The volume state.</p>
     #
+    #   Enum, one of: ["creating", "available", "in-use", "deleting", "deleted", "error"]
+    #
     #   @return [String]
     #
     # @!attribute volume_id
@@ -10344,6 +12242,8 @@ module AWS::Ec2
     #
     # @!attribute volume_type
     #   <p>The volume type.</p>
+    #
+    #   Enum, one of: ["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"]
     #
     #   @return [String]
     #
@@ -10382,6 +12282,16 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.encrypted ||= false
+        self.size ||= 0
+        self.iops ||= 0
+        self.fast_restored ||= false
+        self.multi_attach_enabled ||= false
+        self.throughput ||= 0
+      end
+
     end
 
     # <p>Describes the user or group to be added or removed from the list of create volume
@@ -10389,6 +12299,8 @@ module AWS::Ec2
     #
     # @!attribute group
     #   <p>The group to be added or removed. The possible value is <code>all</code>.</p>
+    #
+    #   Enum, one of: ["all"]
     #
     #   @return [String]
     #
@@ -10471,6 +12383,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute connection_notification
@@ -10504,6 +12421,8 @@ module AWS::Ec2
     # @!attribute vpc_endpoint_type
     #   <p>The type of endpoint.</p>
     #           <p>Default: Gateway</p>
+    #
+    #   Enum, one of: ["Interface", "Gateway", "GatewayLoadBalancer"]
     #
     #   @return [String]
     #
@@ -10586,6 +12505,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.private_dns_enabled ||= false
+      end
+
     end
 
     # <p>Contains the output of CreateVpcEndpoint.</p>
@@ -10661,6 +12586,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.acceptance_required ||= false
+      end
+
     end
 
     # @!attribute service_configuration
@@ -10745,6 +12676,8 @@ module AWS::Ec2
     #            <p>Default: <code>default</code>
     #            </p>
     #
+    #   Enum, one of: ["default", "dedicated", "host"]
+    #
     #   @return [String]
     #
     # @!attribute ipv6_cidr_block_network_border_group
@@ -10774,6 +12707,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.amazon_provided_ipv6_cidr_block ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute vpc
@@ -10835,6 +12774,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute vpc_peering_connection
@@ -10902,6 +12846,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of CreateVpnConnection.</p>
@@ -10955,6 +12904,8 @@ module AWS::Ec2
     # @!attribute type
     #   <p>The type of VPN connection this virtual private gateway supports.</p>
     #
+    #   Enum, one of: ["ipsec.1"]
+    #
     #   @return [String]
     #
     # @!attribute tag_specifications
@@ -10987,6 +12938,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.amazon_side_asn ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of CreateVpnGateway.</p>
@@ -11031,6 +12988,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for CurrencyCodeValues
+    #
+    module CurrencyCodeValues
+      # No documentation available.
+      #
+      USD = "USD"
     end
 
     # <p>Describes a customer gateway.</p>
@@ -11092,6 +13057,54 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for DatafeedSubscriptionState
+    #
+    module DatafeedSubscriptionState
+      # No documentation available.
+      #
+      Active = "Active"
+
+      # No documentation available.
+      #
+      Inactive = "Inactive"
+    end
+
+    # Includes enum constants for DefaultRouteTableAssociationValue
+    #
+    module DefaultRouteTableAssociationValue
+      # No documentation available.
+      #
+      enable = "enable"
+
+      # No documentation available.
+      #
+      disable = "disable"
+    end
+
+    # Includes enum constants for DefaultRouteTablePropagationValue
+    #
+    module DefaultRouteTablePropagationValue
+      # No documentation available.
+      #
+      enable = "enable"
+
+      # No documentation available.
+      #
+      disable = "disable"
+    end
+
+    # Includes enum constants for DefaultTargetCapacityType
+    #
+    module DefaultTargetCapacityType
+      # No documentation available.
+      #
+      SPOT = "spot"
+
+      # No documentation available.
+      #
+      ON_DEMAND = "on-demand"
+    end
+
     # @!attribute carrier_gateway_id
     #   <p>The ID of the carrier gateway.</p>
     #
@@ -11110,6 +13123,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute carrier_gateway
@@ -11140,6 +13158,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute status
@@ -11182,6 +13205,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute status
@@ -11217,6 +13245,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteCustomerGatewayOutput = ::Struct.new(
@@ -11244,6 +13277,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteDhcpOptionsOutput = ::Struct.new(
@@ -11271,6 +13309,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return_code
@@ -11283,12 +13326,19 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return_code ||= false
+      end
+
     end
 
     # <p>Describes an EC2 Fleet error.</p>
     #
     # @!attribute code
     #   <p>The error code.</p>
+    #
+    #   Enum, one of: ["fleetIdDoesNotExist", "fleetIdMalformed", "fleetNotInDeletableState", "unexpectedError"]
     #
     #   @return [String]
     #
@@ -11303,6 +13353,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for DeleteFleetErrorCode
+    #
+    module DeleteFleetErrorCode
+      # No documentation available.
+      #
+      FLEET_ID_DOES_NOT_EXIST = "fleetIdDoesNotExist"
+
+      # No documentation available.
+      #
+      FLEET_ID_MALFORMED = "fleetIdMalformed"
+
+      # No documentation available.
+      #
+      FLEET_NOT_IN_DELETABLE_STATE = "fleetNotInDeletableState"
+
+      # No documentation available.
+      #
+      UNEXPECTED_ERROR = "unexpectedError"
     end
 
     # <p>Describes an EC2 Fleet that was not successfully deleted.</p>
@@ -11330,10 +13400,14 @@ module AWS::Ec2
     # @!attribute current_fleet_state
     #   <p>The current state of the EC2 Fleet.</p>
     #
+    #   Enum, one of: ["submitted", "active", "deleted", "failed", "deleted_running", "deleted_terminating", "modifying"]
+    #
     #   @return [String]
     #
     # @!attribute previous_fleet_state
     #   <p>The previous state of the EC2 Fleet.</p>
+    #
+    #   Enum, one of: ["submitted", "active", "deleted", "failed", "deleted_running", "deleted_terminating", "modifying"]
     #
     #   @return [String]
     #
@@ -11381,6 +13455,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.terminate_instances ||= false
+      end
+
     end
 
     # @!attribute successful_fleet_deletions
@@ -11420,6 +13500,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute unsuccessful
@@ -11452,6 +13537,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -11464,6 +13554,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -11491,6 +13586,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.force_delete ||= false
+      end
+
     end
 
     # @!attribute instance_event_window_state
@@ -11523,6 +13624,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteInternetGatewayOutput = ::Struct.new(
@@ -11550,6 +13656,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute ipam
@@ -11582,6 +13693,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute ipam_pool
@@ -11614,6 +13730,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute ipam_scope
@@ -11652,6 +13773,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteKeyPairOutput = ::Struct.new(
@@ -11688,6 +13814,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute launch_template
@@ -11735,6 +13866,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute successfully_deleted_launch_template_versions
@@ -11786,6 +13922,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.version_number ||= 0
+      end
+
     end
 
     # <p>Describes a launch template version that was successfully deleted.</p>
@@ -11812,6 +13953,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.version_number ||= 0
+      end
+
     end
 
     # @!attribute destination_cidr_block
@@ -11838,6 +13984,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute route
@@ -11870,6 +14021,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute local_gateway_route_table_vpc_association
@@ -11902,6 +14058,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute prefix_list
@@ -11934,6 +14095,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute nat_gateway_id
@@ -11978,6 +14144,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.egress ||= false
+        self.rule_number ||= 0
+      end
+
     end
 
     DeleteNetworkAclEntryOutput = ::Struct.new(
@@ -12005,6 +14178,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteNetworkAclOutput = ::Struct.new(
@@ -12032,6 +14210,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_insights_access_scope_analysis_id
@@ -12064,6 +14247,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_insights_access_scope_id
@@ -12096,6 +14284,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_insights_analysis_id
@@ -12128,6 +14321,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_insights_path_id
@@ -12162,6 +14360,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteNetworkInterfaceOutput = ::Struct.new(
@@ -12198,6 +14401,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.force ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output for DeleteNetworkInterfacePermission.</p>
@@ -12212,6 +14421,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -12232,6 +14446,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeletePlacementGroupOutput = ::Struct.new(
@@ -12259,6 +14478,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return_value
@@ -12271,12 +14495,19 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return_value ||= false
+      end
+
     end
 
     # <p>Describes the error for a Reserved Instance whose queued purchase could not be deleted.</p>
     #
     # @!attribute code
     #   <p>The error code.</p>
+    #
+    #   Enum, one of: ["reserved-instances-id-invalid", "reserved-instances-not-in-queued-state", "unexpected-error"]
     #
     #   @return [String]
     #
@@ -12291,6 +14522,22 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for DeleteQueuedReservedInstancesErrorCode
+    #
+    module DeleteQueuedReservedInstancesErrorCode
+      # No documentation available.
+      #
+      RESERVED_INSTANCES_ID_INVALID = "reserved-instances-id-invalid"
+
+      # No documentation available.
+      #
+      RESERVED_INSTANCES_NOT_IN_QUEUED_STATE = "reserved-instances-not-in-queued-state"
+
+      # No documentation available.
+      #
+      UNEXPECTED_ERROR = "unexpected-error"
     end
 
     # @!attribute dry_run
@@ -12311,6 +14558,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute successful_queued_purchase_deletions
@@ -12367,6 +14619,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteRouteOutput = ::Struct.new(
@@ -12394,6 +14651,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteRouteTableOutput = ::Struct.new(
@@ -12427,6 +14689,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteSecurityGroupOutput = ::Struct.new(
@@ -12454,6 +14721,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteSnapshotOutput = ::Struct.new(
@@ -12478,6 +14750,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteSpotDatafeedSubscriptionOutput = ::Struct.new(
@@ -12505,6 +14782,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute deleted_subnet_cidr_reservation
@@ -12537,6 +14819,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteSubnetOutput = ::Struct.new(
@@ -12578,6 +14865,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteTagsOutput = ::Struct.new(
@@ -12605,6 +14897,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute traffic_mirror_filter_id
@@ -12637,6 +14934,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute traffic_mirror_filter_rule_id
@@ -12669,6 +14971,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute traffic_mirror_session_id
@@ -12701,6 +15008,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute traffic_mirror_target_id
@@ -12733,6 +15045,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_connect
@@ -12765,6 +15082,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_connect_peer
@@ -12797,6 +15119,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -12817,6 +15144,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_multicast_domain
@@ -12861,6 +15193,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_peering_attachment
@@ -12899,6 +15236,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_prefix_list_reference
@@ -12937,6 +15279,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute route
@@ -12969,6 +15316,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_route_table
@@ -13001,6 +15353,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -13033,6 +15390,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteVolumeOutput = ::Struct.new(
@@ -13060,6 +15422,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute unsuccessful
@@ -13093,6 +15460,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute unsuccessful
@@ -13128,6 +15500,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of DeleteVpcEndpoints.</p>
@@ -13162,6 +15539,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteVpcOutput = ::Struct.new(
@@ -13189,6 +15571,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -13201,6 +15588,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # <p>Contains the parameters for DeleteVpnConnection.</p>
@@ -13224,6 +15616,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteVpnConnectionOutput = ::Struct.new(
@@ -13281,6 +15678,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeleteVpnGatewayOutput = ::Struct.new(
@@ -13309,6 +15711,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute byoip_cidr
@@ -13347,6 +15754,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute ipam_pool_cidr
@@ -13385,6 +15797,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute pool_id
@@ -13425,6 +15842,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DeregisterImageOutput = ::Struct.new(
@@ -13452,6 +15874,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_tag_attribute
@@ -13487,6 +15914,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.include_all_tags_of_instance ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -13519,6 +15951,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute deregistered_multicast_group_members
@@ -13563,6 +16000,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute deregistered_multicast_group_sources
@@ -13595,6 +16037,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute account_attributes
@@ -13616,6 +16063,8 @@ module AWS::Ec2
     #
     # @!attribute attribute
     #   <p>The attribute of the IP address.</p>
+    #
+    #   Enum, one of: ["domain-name"]
     #
     #   @return [String]
     #
@@ -13645,6 +16094,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute addresses
@@ -13745,6 +16200,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute addresses
@@ -13771,6 +16231,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute use_long_ids_aggregated
@@ -13791,6 +16256,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.use_long_ids_aggregated ||= false
+      end
+
     end
 
     # @!attribute filters
@@ -13890,6 +16360,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.all_availability_zones ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute availability_zones
@@ -13972,6 +16448,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute bundle_tasks
@@ -14011,6 +16492,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute byoip_cidrs
@@ -14085,6 +16572,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute capacity_reservation_fleets
@@ -14247,6 +16740,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute next_token
@@ -14332,6 +16831,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute carrier_gateways
@@ -14419,6 +16924,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute instances
@@ -14488,6 +16999,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute authorization_rules
@@ -14553,6 +17070,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute connections
@@ -14618,6 +17141,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute client_vpn_endpoints
@@ -14686,6 +17215,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute routes
@@ -14760,6 +17295,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute client_vpn_target_networks
@@ -14831,6 +17372,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute coip_pools
@@ -14869,6 +17416,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute conversion_tasks
@@ -14947,6 +17499,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of DescribeCustomerGateways.</p>
@@ -15028,6 +17585,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute dhcp_options
@@ -15096,6 +17659,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute egress_only_internet_gateways
@@ -15181,6 +17750,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute elastic_gpu_set
@@ -15208,6 +17783,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute dry_run
@@ -15247,6 +17827,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute export_image_tasks
@@ -15312,6 +17898,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of fast snapshot restores.</p>
+    #
+    #   Enum, one of: ["enabling", "optimizing", "enabled", "disabling", "disabled"]
     #
     #   @return [String]
     #
@@ -15438,6 +18026,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute fast_snapshot_restores
@@ -15468,6 +18061,8 @@ module AWS::Ec2
     #
     # @!attribute lifecycle
     #   <p>Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.</p>
+    #
+    #   Enum, one of: ["spot", "on-demand"]
     #
     #   @return [String]
     #
@@ -15502,6 +18097,8 @@ module AWS::Ec2
     #
     # @!attribute event_type
     #   <p>The type of events to describe. By default, all events are described.</p>
+    #
+    #   Enum, one of: ["instance-change", "fleet-change", "service-error"]
     #
     #   @return [String]
     #
@@ -15538,6 +18135,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute history_records
@@ -15625,6 +18228,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute active_instances
@@ -15721,6 +18330,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # <p>Describes the instances that were launched by the fleet.</p>
@@ -15734,6 +18349,8 @@ module AWS::Ec2
     # @!attribute lifecycle
     #   <p>Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.</p>
     #
+    #   Enum, one of: ["spot", "on-demand"]
+    #
     #   @return [String]
     #
     # @!attribute instance_ids
@@ -15744,11 +18361,15 @@ module AWS::Ec2
     # @!attribute instance_type
     #   <p>The instance type.</p>
     #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
+    #
     #   @return [String]
     #
     # @!attribute platform
     #   <p>The value is <code>Windows</code> for Windows instances. Otherwise, the value is
     #            blank.</p>
+    #
+    #   Enum, one of: ["Windows"]
     #
     #   @return [String]
     #
@@ -15858,6 +18479,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute flow_logs
@@ -15893,6 +18520,8 @@ module AWS::Ec2
     # @!attribute attribute
     #   <p>The AFI attribute.</p>
     #
+    #   Enum, one of: ["description", "name", "loadPermission", "productCodes"]
+    #
     #   @return [String]
     #
     DescribeFpgaImageAttributeInput = ::Struct.new(
@@ -15902,6 +18531,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute fpga_image_attribute
@@ -16007,6 +18641,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute fpga_images
@@ -16085,6 +18725,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_duration ||= 0
+        self.max_results ||= 0
+        self.min_duration ||= 0
+      end
+
     end
 
     # @!attribute next_token
@@ -16160,6 +18807,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute host_reservation_set
@@ -16248,6 +18900,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute hosts
@@ -16308,6 +18965,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute iam_instance_profile_associations
@@ -16417,6 +19079,8 @@ module AWS::Ec2
     #      	    Using this attribute returns the <code>Client.AuthFailure</code> error. To get information about
     #      	    the block device mappings for an AMI, use the <a>DescribeImages</a> action.</p>
     #
+    #   Enum, one of: ["description", "kernel", "ramdisk", "launchPermission", "productCodes", "blockDeviceMapping", "sriovNetSupport", "bootMode"]
+    #
     #   @return [String]
     #
     # @!attribute image_id
@@ -16438,6 +19102,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Describes an image attribute.</p>
@@ -16717,6 +19386,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.include_deprecated ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute images
@@ -16768,6 +19443,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute import_image_tasks
@@ -16827,6 +19508,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute import_snapshot_tasks
@@ -16853,6 +19540,8 @@ module AWS::Ec2
     #   <p>The instance attribute.</p>
     #           <p>Note: The <code>enaSupport</code> attribute is not supported at this time.</p>
     #
+    #   Enum, one of: ["instanceType", "kernel", "ramdisk", "userData", "disableApiTermination", "instanceInitiatedShutdownBehavior", "rootDeviceName", "blockDeviceMapping", "productCodes", "sourceDestCheck", "groupSet", "ebsOptimized", "sriovNetSupport", "enaSupport", "enclaveOptions"]
+    #
     #   @return [String]
     #
     # @!attribute dry_run
@@ -16874,6 +19563,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Describes an instance attribute.</p>
@@ -17037,6 +19731,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute instance_credit_specifications
@@ -17070,6 +19770,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_tag_attribute
@@ -17177,6 +19882,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute instance_event_windows
@@ -17323,6 +20034,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+        self.include_all_instances ||= false
+      end
+
     end
 
     # @!attribute instance_statuses
@@ -17353,6 +20071,8 @@ module AWS::Ec2
     #
     # @!attribute location_type
     #   <p>The location type.</p>
+    #
+    #   Enum, one of: ["region", "availability-zone", "availability-zone-id"]
     #
     #   @return [String]
     #
@@ -17393,6 +20113,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_type_offerings
@@ -17669,6 +20394,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_types
@@ -18189,6 +20919,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute reservations
@@ -18276,6 +21012,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute internet_gateways
@@ -18332,6 +21074,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute next_token
@@ -18388,6 +21136,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute next_token
@@ -18444,6 +21198,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute next_token
@@ -18512,6 +21272,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute ipv6_pools
@@ -18586,6 +21352,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute key_pairs
@@ -18742,6 +21513,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute launch_template_versions
@@ -18827,6 +21604,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute launch_templates
@@ -18907,6 +21690,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute local_gateway_route_table_virtual_interface_group_associations
@@ -18986,6 +21775,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute local_gateway_route_table_vpc_associations
@@ -19061,6 +21856,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute local_gateway_route_tables
@@ -19132,6 +21933,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute local_gateway_virtual_interface_groups
@@ -19189,6 +21996,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute local_gateway_virtual_interfaces
@@ -19272,6 +22085,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute local_gateways
@@ -19343,6 +22162,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute next_token
@@ -19410,6 +22235,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute moving_address_statuses
@@ -19495,6 +22326,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute nat_gateways
@@ -19629,6 +22466,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute network_acls
@@ -19704,6 +22547,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_insights_access_scope_analyses
@@ -19761,6 +22610,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_insights_access_scopes
@@ -19844,6 +22699,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_insights_analyses
@@ -19918,6 +22779,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_insights_paths
@@ -19943,6 +22810,8 @@ module AWS::Ec2
     # @!attribute attribute
     #   <p>The attribute of the network interface. This parameter is required.</p>
     #
+    #   Enum, one of: ["description", "groupSet", "sourceDestCheck", "attachment"]
+    #
     #   @return [String]
     #
     # @!attribute dry_run
@@ -19964,6 +22833,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of DescribeNetworkInterfaceAttribute.</p>
@@ -20061,6 +22935,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+      end
+
     end
 
     # <p>Contains the output for DescribeNetworkInterfacePermissions.</p>
@@ -20278,6 +23157,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # <p>Contains the output of DescribeNetworkInterfaces.</p>
@@ -20363,6 +23248,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute placement_groups
@@ -20424,6 +23314,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute next_token
@@ -20488,6 +23384,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute principals
@@ -20548,6 +23450,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute public_ipv4_pools
@@ -20613,6 +23520,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.all_regions ||= false
+      end
+
     end
 
     # @!attribute regions
@@ -20670,6 +23583,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute replace_root_volume_tasks
@@ -20766,6 +23685,8 @@ module AWS::Ec2
     # @!attribute offering_class
     #   <p>Describes whether the Reserved Instance is Standard or Convertible.</p>
     #
+    #   Enum, one of: ["standard", "convertible"]
+    #
     #   @return [String]
     #
     # @!attribute reserved_instances_ids
@@ -20786,6 +23707,8 @@ module AWS::Ec2
     #   			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
     #   			offering type.</p>
     #
+    #   Enum, one of: ["Heavy Utilization", "Medium Utilization", "Light Utilization", "No Upfront", "Partial Upfront", "All Upfront"]
+    #
     #   @return [String]
     #
     DescribeReservedInstancesInput = ::Struct.new(
@@ -20797,6 +23720,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the parameters for DescribeReservedInstancesListings.</p>
@@ -21039,6 +23967,8 @@ module AWS::Ec2
     #          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the
     #         <i>Amazon EC2 User Guide</i>.</p>
     #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
+    #
     #   @return [String]
     #
     # @!attribute max_duration
@@ -21062,11 +23992,15 @@ module AWS::Ec2
     # @!attribute offering_class
     #   <p>The offering class of the Reserved Instance. Can be <code>standard</code> or <code>convertible</code>.</p>
     #
+    #   Enum, one of: ["standard", "convertible"]
+    #
     #   @return [String]
     #
     # @!attribute product_description
     #   <p>The Reserved Instance product platform description. Instances that include <code>(Amazon
     #           VPC)</code> in the description are for use with Amazon VPC.</p>
+    #
+    #   Enum, one of: ["Linux/UNIX", "Linux/UNIX (Amazon VPC)", "Windows", "Windows (Amazon VPC)"]
     #
     #   @return [String]
     #
@@ -21091,6 +24025,8 @@ module AWS::Ec2
     #            <p>Default: <code>default</code>
     #            </p>
     #
+    #   Enum, one of: ["default", "dedicated", "host"]
+    #
     #   @return [String]
     #
     # @!attribute max_results
@@ -21110,6 +24046,8 @@ module AWS::Ec2
     #   <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API
     #   			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
     #   			offering type. </p>
+    #
+    #   Enum, one of: ["Heavy Utilization", "Medium Utilization", "Light Utilization", "No Upfront", "Partial Upfront", "All Upfront"]
     #
     #   @return [String]
     #
@@ -21132,6 +24070,16 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.include_marketplace ||= false
+        self.max_duration ||= 0
+        self.max_instance_count ||= 0
+        self.min_duration ||= 0
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # <p>Contains the output of DescribeReservedInstancesOfferings.</p>
@@ -21308,6 +24256,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # <p>Contains the output of DescribeRouteTables.</p>
@@ -21408,6 +24362,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+        self.max_slot_duration_in_hours ||= 0
+        self.min_slot_duration_in_hours ||= 0
+      end
+
     end
 
     # <p>Contains the output of DescribeScheduledInstanceAvailability.</p>
@@ -21495,6 +24457,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # <p>Contains the output of DescribeScheduledInstances.</p>
@@ -21535,6 +24503,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute security_group_reference_set
@@ -21603,6 +24576,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute security_group_rules
@@ -21794,6 +24773,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute security_groups
@@ -21817,6 +24802,8 @@ module AWS::Ec2
     # @!attribute attribute
     #   <p>The snapshot attribute you would like to view.</p>
     #
+    #   Enum, one of: ["productCodes", "createVolumePermission"]
+    #
     #   @return [String]
     #
     # @!attribute snapshot_id
@@ -21838,6 +24825,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute create_volume_permissions
@@ -21912,6 +24904,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute snapshot_tier_statuses
@@ -22057,6 +25054,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute snapshots
@@ -22095,6 +25098,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of DescribeSpotDatafeedSubscription.</p>
@@ -22146,6 +25154,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # <p>Contains the output of DescribeSpotFleetInstances.</p>
@@ -22189,6 +25203,8 @@ module AWS::Ec2
     # @!attribute event_type
     #   <p>The type of events to describe. By default, all events are described.</p>
     #
+    #   Enum, one of: ["instanceChange", "fleetRequestChange", "error", "information"]
+    #
     #   @return [String]
     #
     # @!attribute max_results
@@ -22224,6 +25240,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # <p>Contains the output of DescribeSpotFleetRequestHistory.</p>
@@ -22305,6 +25327,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # <p>Contains the output of DescribeSpotFleetRequests.</p>
@@ -22563,6 +25591,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # <p>Contains the output of DescribeSpotInstanceRequests.</p>
@@ -22689,6 +25723,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # <p>Contains the output of DescribeSpotPriceHistory.</p>
@@ -22742,6 +25782,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute next_token
@@ -22813,6 +25859,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute store_image_task_results
@@ -22954,6 +26006,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute subnets
@@ -23030,6 +26088,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute next_token
@@ -23098,6 +26162,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute traffic_mirror_filters
@@ -23193,6 +26263,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute traffic_mirror_sessions
@@ -23272,6 +26348,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute traffic_mirror_targets
@@ -23370,6 +26452,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_attachments
@@ -23443,6 +26531,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_connect_peers
@@ -23528,6 +26622,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_connects
@@ -23599,6 +26699,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_multicast_domains
@@ -23687,6 +26793,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_peering_attachments
@@ -23768,6 +26880,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_route_tables
@@ -23843,6 +26961,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_vpc_attachments
@@ -23948,6 +27072,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateways
@@ -24015,6 +27145,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute interface_associations
@@ -24038,6 +27174,8 @@ module AWS::Ec2
     # @!attribute attribute
     #   <p>The attribute of the volume. This parameter is required.</p>
     #
+    #   Enum, one of: ["autoEnableIO", "productCodes"]
+    #
     #   @return [String]
     #
     # @!attribute volume_id
@@ -24059,6 +27197,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute auto_enable_io
@@ -24193,6 +27336,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute next_token
@@ -24346,6 +27495,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute dry_run
@@ -24434,6 +27589,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute volumes_modifications
@@ -24478,6 +27639,8 @@ module AWS::Ec2
     # @!attribute attribute
     #   <p>The VPC attribute.</p>
     #
+    #   Enum, one of: ["enableDnsSupport", "enableDnsHostnames"]
+    #
     #   @return [String]
     #
     # @!attribute vpc_id
@@ -24499,6 +27662,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute vpc_id
@@ -24553,6 +27721,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute next_token
@@ -24613,6 +27786,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute vpcs
@@ -24694,6 +27872,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute connection_notification_set
@@ -24771,6 +27955,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute vpc_endpoint_connections
@@ -24855,6 +28045,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute service_configurations
@@ -24927,6 +28123,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute allowed_principals
@@ -25005,6 +28207,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # <p>Contains the output of DescribeVpcEndpointServices.</p>
@@ -25105,6 +28313,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # <p>Contains the output of DescribeVpcEndpoints.</p>
@@ -25226,6 +28440,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute vpc_peering_connections
@@ -25356,6 +28576,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute vpcs
@@ -25466,6 +28692,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of DescribeVpnConnections.</p>
@@ -25556,6 +28787,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of DescribeVpnGateways.</p>
@@ -25572,10 +28808,24 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for DestinationFileFormat
+    #
+    module DestinationFileFormat
+      # No documentation available.
+      #
+      plain_text = "plain-text"
+
+      # No documentation available.
+      #
+      parquet = "parquet"
+    end
+
     # <p>Describes the destination options for a flow log.</p>
     #
     # @!attribute file_format
     #   <p>The format for the flow log. The default is <code>plain-text</code>.</p>
+    #
+    #   Enum, one of: ["plain-text", "parquet"]
     #
     #   @return [String]
     #
@@ -25598,12 +28848,20 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.hive_compatible_partitions ||= false
+        self.per_hour_partition ||= false
+      end
+
     end
 
     # <p>Describes the destination options for a flow log.</p>
     #
     # @!attribute file_format
     #   <p>The format for the flow log.</p>
+    #
+    #   Enum, one of: ["plain-text", "parquet"]
     #
     #   @return [String]
     #
@@ -25624,6 +28882,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.hive_compatible_partitions ||= false
+        self.per_hour_partition ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -25650,6 +28914,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -25662,6 +28931,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -25688,6 +28962,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DetachInternetGatewayOutput = ::Struct.new(
@@ -25740,6 +29019,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.force ||= false
+      end
+
     end
 
     DetachNetworkInterfaceOutput = ::Struct.new(
@@ -25790,6 +29075,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.force ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Describes volume attachment details.</p>
@@ -25811,6 +29102,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The attachment state of the volume.</p>
+    #
+    #   Enum, one of: ["attaching", "attached", "detaching", "detached", "busy"]
     #
     #   @return [String]
     #
@@ -25834,6 +29127,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.delete_on_termination ||= false
+      end
+
     end
 
     # <p>Contains the parameters for DetachVpnGateway.</p>
@@ -25863,6 +29161,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DetachVpnGatewayOutput = ::Struct.new(
@@ -25870,6 +29173,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for DeviceType
+    #
+    module DeviceType
+      # No documentation available.
+      #
+      ebs = "ebs"
+
+      # No documentation available.
+      #
+      instance_store = "instance-store"
     end
 
     # <p>Describes a DHCP configuration option.</p>
@@ -25964,6 +29279,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute ebs_encryption_by_default
@@ -25976,6 +29296,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.ebs_encryption_by_default ||= false
+      end
+
     end
 
     # <p>Contains information about the errors that occurred when disabling fast snapshot restores.</p>
@@ -26052,6 +29377,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of fast snapshot restores for the snapshot.</p>
+    #
+    #   Enum, one of: ["enabling", "optimizing", "enabled", "disabling", "disabled"]
     #
     #   @return [String]
     #
@@ -26148,6 +29475,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute successful
@@ -26186,6 +29518,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -26198,6 +29535,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -26218,6 +29560,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute success
@@ -26230,6 +29577,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.success ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -26242,6 +29594,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute serial_console_access_enabled
@@ -26256,6 +29613,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.serial_console_access_enabled ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -26282,6 +29644,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute propagation
@@ -26323,6 +29690,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DisableVgwRoutePropagationOutput = ::Struct.new(
@@ -26354,6 +29726,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -26374,6 +29751,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -26386,6 +29768,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute association_id
@@ -26412,6 +29799,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DisassociateAddressOutput = ::Struct.new(
@@ -26443,6 +29835,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute association_id
@@ -26485,6 +29882,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -26497,6 +29899,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute association_id
@@ -26547,6 +29954,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_event_window
@@ -26579,6 +29991,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     DisassociateRouteTableOutput = ::Struct.new(
@@ -26648,6 +30065,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute associations
@@ -26686,6 +30108,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute association
@@ -26726,6 +30153,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -26746,6 +30178,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute association_id
@@ -26820,6 +30257,8 @@ module AWS::Ec2
     # @!attribute format
     #   <p>The disk image format.</p>
     #
+    #   Enum, one of: ["VMDK", "RAW", "VHD"]
+    #
     #   @return [String]
     #
     # @!attribute import_manifest_url
@@ -26843,6 +30282,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.size ||= 0
+      end
+
     end
 
     # <p>Describes a disk image.</p>
@@ -26854,6 +30298,8 @@ module AWS::Ec2
     #
     # @!attribute format
     #   <p>The disk image format.</p>
+    #
+    #   Enum, one of: ["VMDK", "RAW", "VHD"]
     #
     #   @return [String]
     #
@@ -26873,6 +30319,27 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.bytes ||= 0
+      end
+
+    end
+
+    # Includes enum constants for DiskImageFormat
+    #
+    module DiskImageFormat
+      # No documentation available.
+      #
+      VMDK = "VMDK"
+
+      # No documentation available.
+      #
+      RAW = "RAW"
+
+      # No documentation available.
+      #
+      VHD = "VHD"
     end
 
     # <p>Describes a disk image volume.</p>
@@ -26893,6 +30360,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.size ||= 0
+      end
+
     end
 
     # <p>Describes a disk.</p>
@@ -26910,6 +30382,8 @@ module AWS::Ec2
     # @!attribute type
     #   <p>The type of disk.</p>
     #
+    #   Enum, one of: ["hdd", "ssd"]
+    #
     #   @return [String]
     #
     DiskInfo = ::Struct.new(
@@ -26919,6 +30393,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for DiskType
+    #
+    module DiskType
+      # No documentation available.
+      #
+      hdd = "hdd"
+
+      # No documentation available.
+      #
+      ssd = "ssd"
     end
 
     # <p>Describes a DNS entry.</p>
@@ -26939,6 +30425,22 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for DnsNameState
+    #
+    module DnsNameState
+      # No documentation available.
+      #
+      PendingVerification = "pendingVerification"
+
+      # No documentation available.
+      #
+      Verified = "verified"
+
+      # No documentation available.
+      #
+      Failed = "failed"
     end
 
     # <p>Information about the DNS server to be used.</p>
@@ -26962,6 +30464,35 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enabled ||= false
+      end
+
+    end
+
+    # Includes enum constants for DnsSupportValue
+    #
+    module DnsSupportValue
+      # No documentation available.
+      #
+      enable = "enable"
+
+      # No documentation available.
+      #
+      disable = "disable"
+    end
+
+    # Includes enum constants for DomainType
+    #
+    module DomainType
+      # No documentation available.
+      #
+      vpc = "vpc"
+
+      # No documentation available.
+      #
+      standard = "standard"
     end
 
     # <p>Describes a block device for an EBS volume.</p>
@@ -27038,6 +30569,8 @@ module AWS::Ec2
     #               <i>Amazon EC2 User Guide</i>. If the volume type is <code>io1</code> or <code>io2</code>,
     #               you must specify the IOPS that the volume supports.</p>
     #
+    #   Enum, one of: ["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"]
+    #
     #   @return [String]
     #
     # @!attribute kms_key_id
@@ -27088,6 +30621,27 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.delete_on_termination ||= false
+        self.iops ||= 0
+        self.volume_size ||= 0
+        self.throughput ||= 0
+        self.encrypted ||= false
+      end
+
+    end
+
+    # Includes enum constants for EbsEncryptionSupport
+    #
+    module EbsEncryptionSupport
+      # No documentation available.
+      #
+      unsupported = "unsupported"
+
+      # No documentation available.
+      #
+      supported = "supported"
     end
 
     # <p>Describes the Amazon EBS features supported by the instance type.</p>
@@ -27096,10 +30650,14 @@ module AWS::Ec2
     #   <p>Indicates whether the instance type is Amazon EBS-optimized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-optimized
     #       instances</a> in <i>Amazon EC2 User Guide</i>.</p>
     #
+    #   Enum, one of: ["unsupported", "supported", "default"]
+    #
     #   @return [String]
     #
     # @!attribute encryption_support
     #   <p>Indicates whether Amazon EBS encryption is supported.</p>
+    #
+    #   Enum, one of: ["unsupported", "supported"]
     #
     #   @return [String]
     #
@@ -27110,6 +30668,8 @@ module AWS::Ec2
     #
     # @!attribute nvme_support
     #   <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
+    #
+    #   Enum, one of: ["unsupported", "supported", "required"]
     #
     #   @return [String]
     #
@@ -27138,6 +30698,8 @@ module AWS::Ec2
     # @!attribute status
     #   <p>The attachment state.</p>
     #
+    #   Enum, one of: ["attaching", "attached", "detaching", "detached"]
+    #
     #   @return [String]
     #
     # @!attribute volume_id
@@ -27153,6 +30715,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.delete_on_termination ||= false
+      end
+
     end
 
     # <p>Describes information used to set up an EBS volume specified in a block device
@@ -27174,6 +30741,27 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.delete_on_termination ||= false
+      end
+
+    end
+
+    # Includes enum constants for EbsNvmeSupport
+    #
+    module EbsNvmeSupport
+      # No documentation available.
+      #
+      UNSUPPORTED = "unsupported"
+
+      # No documentation available.
+      #
+      SUPPORTED = "supported"
+
+      # No documentation available.
+      #
+      REQUIRED = "required"
     end
 
     # <p>Describes the optimized EBS performance for supported instance types.</p>
@@ -27218,6 +30806,22 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for EbsOptimizedSupport
+    #
+    module EbsOptimizedSupport
+      # No documentation available.
+      #
+      unsupported = "unsupported"
+
+      # No documentation available.
+      #
+      supported = "supported"
+
+      # No documentation available.
+      #
+      default = "default"
     end
 
     # <p>Describes the Elastic Fabric Adapters for the instance type.</p>
@@ -27298,6 +30902,8 @@ module AWS::Ec2
     # @!attribute status
     #   <p>The health status.</p>
     #
+    #   Enum, one of: ["OK", "IMPAIRED"]
+    #
     #   @return [String]
     #
     ElasticGpuHealth = ::Struct.new(
@@ -27337,6 +30943,26 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for ElasticGpuState
+    #
+    module ElasticGpuState
+      # No documentation available.
+      #
+      Attached = "ATTACHED"
+    end
+
+    # Includes enum constants for ElasticGpuStatus
+    #
+    module ElasticGpuStatus
+      # No documentation available.
+      #
+      Ok = "OK"
+
+      # No documentation available.
+      #
+      Impaired = "IMPAIRED"
+    end
+
     # <p>Describes an Elastic Graphics accelerator.</p>
     #
     # @!attribute elastic_gpu_id
@@ -27361,6 +30987,8 @@ module AWS::Ec2
     #
     # @!attribute elastic_gpu_state
     #   <p>The state of the Elastic Graphics accelerator.</p>
+    #
+    #   Enum, one of: ["ATTACHED"]
     #
     #   @return [String]
     #
@@ -27412,6 +31040,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.count ||= 0
+      end
+
     end
 
     # <p>
@@ -27456,6 +31089,22 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for EnaSupport
+    #
+    module EnaSupport
+      # No documentation available.
+      #
+      unsupported = "unsupported"
+
+      # No documentation available.
+      #
+      supported = "supported"
+
+      # No documentation available.
+      #
+      required = "required"
+    end
+
     # @!attribute dry_run
     #   <p>Checks whether you have the required permissions for the action, without actually making the request,
     #      and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
@@ -27468,6 +31117,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute ebs_encryption_by_default
@@ -27480,6 +31134,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.ebs_encryption_by_default ||= false
+      end
+
     end
 
     # <p>Contains information about the errors that occurred when enabling fast snapshot restores.</p>
@@ -27556,6 +31215,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of fast snapshot restores.</p>
+    #
+    #   Enum, one of: ["enabling", "optimizing", "enabled", "disabling", "disabled"]
     #
     #   @return [String]
     #
@@ -27653,6 +31314,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute successful
@@ -27702,6 +31368,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -27714,6 +31385,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -27734,6 +31410,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute success
@@ -27746,6 +31427,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.success ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -27758,6 +31444,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute serial_console_access_enabled
@@ -27772,6 +31463,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.serial_console_access_enabled ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_route_table_id
@@ -27798,6 +31494,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute propagation
@@ -27842,6 +31543,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     EnableVgwRoutePropagationOutput = ::Struct.new(
@@ -27869,6 +31575,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     EnableVolumeIOOutput = ::Struct.new(
@@ -27900,6 +31611,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -27920,6 +31636,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -27932,6 +31653,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
@@ -27947,6 +31673,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enabled ||= false
+      end
+
     end
 
     # <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information,
@@ -27963,6 +31694,63 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enabled ||= false
+      end
+
+    end
+
+    # Includes enum constants for EndDateType
+    #
+    module EndDateType
+      # No documentation available.
+      #
+      unlimited = "unlimited"
+
+      # No documentation available.
+      #
+      limited = "limited"
+    end
+
+    # Includes enum constants for EphemeralNvmeSupport
+    #
+    module EphemeralNvmeSupport
+      # No documentation available.
+      #
+      UNSUPPORTED = "unsupported"
+
+      # No documentation available.
+      #
+      SUPPORTED = "supported"
+
+      # No documentation available.
+      #
+      REQUIRED = "required"
+    end
+
+    # Includes enum constants for EventCode
+    #
+    module EventCode
+      # No documentation available.
+      #
+      instance_reboot = "instance-reboot"
+
+      # No documentation available.
+      #
+      system_reboot = "system-reboot"
+
+      # No documentation available.
+      #
+      system_maintenance = "system-maintenance"
+
+      # No documentation available.
+      #
+      instance_retirement = "instance-retirement"
+
+      # No documentation available.
+      #
+      instance_stop = "instance-stop"
     end
 
     # <p>Describes an EC2 Fleet or Spot Fleet event.</p>
@@ -28120,6 +31908,38 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for EventType
+    #
+    module EventType
+      # No documentation available.
+      #
+      INSTANCE_CHANGE = "instanceChange"
+
+      # No documentation available.
+      #
+      BATCH_CHANGE = "fleetRequestChange"
+
+      # No documentation available.
+      #
+      ERROR = "error"
+
+      # No documentation available.
+      #
+      INFORMATION = "information"
+    end
+
+    # Includes enum constants for ExcessCapacityTerminationPolicy
+    #
+    module ExcessCapacityTerminationPolicy
+      # No documentation available.
+      #
+      NO_TERMINATION = "noTermination"
+
+      # No documentation available.
+      #
+      DEFAULT = "default"
     end
 
     # <p>Describes an explanation code for an unreachable path. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
@@ -28406,6 +32226,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.load_balancer_listener_port ||= 0
+        self.load_balancer_target_port ||= 0
+        self.port ||= 0
+      end
+
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -28424,6 +32251,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute certificate_revocation_list
@@ -28460,6 +32292,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute client_configuration
@@ -28474,6 +32311,22 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for ExportEnvironment
+    #
+    module ExportEnvironment
+      # No documentation available.
+      #
+      citrix = "citrix"
+
+      # No documentation available.
+      #
+      vmware = "vmware"
+
+      # No documentation available.
+      #
+      microsoft = "microsoft"
+    end
+
     # @!attribute client_token
     #   <p>Token to enable idempotency for export image requests.</p>
     #
@@ -28486,6 +32339,8 @@ module AWS::Ec2
     #
     # @!attribute disk_image_format
     #   <p>The disk image format.</p>
+    #
+    #   Enum, one of: ["VMDK", "RAW", "VHD"]
     #
     #   @return [String]
     #
@@ -28530,6 +32385,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute description
@@ -28539,6 +32399,8 @@ module AWS::Ec2
     #
     # @!attribute disk_image_format
     #   <p>The disk image format for the exported image.</p>
+    #
+    #   Enum, one of: ["VMDK", "RAW", "VHD"]
     #
     #   @return [String]
     #
@@ -28682,6 +32544,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of the export task.</p>
     #
+    #   Enum, one of: ["active", "cancelling", "cancelled", "completed"]
+    #
     #   @return [String]
     #
     # @!attribute status_message
@@ -28747,16 +32611,40 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for ExportTaskState
+    #
+    module ExportTaskState
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      cancelling = "cancelling"
+
+      # No documentation available.
+      #
+      cancelled = "cancelled"
+
+      # No documentation available.
+      #
+      completed = "completed"
+    end
+
     # <p>Describes the format and location for the export task.</p>
     #
     # @!attribute container_format
     #   <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
     #      exported.</p>
     #
+    #   Enum, one of: ["ova"]
+    #
     #   @return [String]
     #
     # @!attribute disk_image_format
     #   <p>The format for the exported image.</p>
+    #
+    #   Enum, one of: ["VMDK", "RAW", "VHD"]
     #
     #   @return [String]
     #
@@ -28787,10 +32675,14 @@ module AWS::Ec2
     #   <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
     #      exported.</p>
     #
+    #   Enum, one of: ["ova"]
+    #
     #   @return [String]
     #
     # @!attribute disk_image_format
     #   <p>The format for the exported image.</p>
+    #
+    #   Enum, one of: ["VMDK", "RAW", "VHD"]
     #
     #   @return [String]
     #
@@ -28885,6 +32777,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute s3_location
@@ -28938,6 +32835,30 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for FastSnapshotRestoreStateCode
+    #
+    module FastSnapshotRestoreStateCode
+      # No documentation available.
+      #
+      enabling = "enabling"
+
+      # No documentation available.
+      #
+      optimizing = "optimizing"
+
+      # No documentation available.
+      #
+      enabled = "enabled"
+
+      # No documentation available.
+      #
+      disabling = "disabling"
+
+      # No documentation available.
+      #
+      disabled = "disabled"
     end
 
     # <p>Describes the IAM SAML identity providers used for federated authentication.</p>
@@ -29005,6 +32926,42 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for FindingsFound
+    #
+    module FindingsFound
+      # No documentation available.
+      #
+      true = "true"
+
+      # No documentation available.
+      #
+      false = "false"
+
+      # No documentation available.
+      #
+      unknown = "unknown"
+    end
+
+    # Includes enum constants for FleetActivityStatus
+    #
+    module FleetActivityStatus
+      # No documentation available.
+      #
+      ERROR = "error"
+
+      # No documentation available.
+      #
+      PENDING_FULFILLMENT = "pending_fulfillment"
+
+      # No documentation available.
+      #
+      PENDING_TERMINATION = "pending_termination"
+
+      # No documentation available.
+      #
+      FULFILLED = "fulfilled"
+    end
+
     # <p>Information about a Capacity Reservation in a Capacity Reservation Fleet.</p>
     #
     # @!attribute capacity_reservation_id
@@ -29020,10 +32977,14 @@ module AWS::Ec2
     # @!attribute instance_type
     #   <p>The instance type for which the Capacity Reservation reserves capacity.</p>
     #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
+    #
     #   @return [String]
     #
     # @!attribute instance_platform
     #   <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
+    #
+    #   Enum, one of: ["Linux/UNIX", "Red Hat Enterprise Linux", "SUSE Linux", "Windows", "Windows with SQL Server", "Windows with SQL Server Enterprise", "Windows with SQL Server Standard", "Windows with SQL Server Web", "Linux with SQL Server Standard", "Linux with SQL Server Web", "Linux with SQL Server Enterprise"]
     #
     #   @return [String]
     #
@@ -29083,6 +33044,29 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.total_instance_count ||= 0
+        self.fulfilled_capacity ||= 0
+        self.ebs_optimized ||= false
+      end
+
+    end
+
+    # Includes enum constants for FleetCapacityReservationTenancy
+    #
+    module FleetCapacityReservationTenancy
+      # No documentation available.
+      #
+      default = "default"
+    end
+
+    # Includes enum constants for FleetCapacityReservationUsageStrategy
+    #
+    module FleetCapacityReservationUsageStrategy
+      # No documentation available.
+      #
+      USE_CAPACITY_RESERVATIONS_FIRST = "use-capacity-reservations-first"
     end
 
     # <p>Describes an EC2 Fleet.</p>
@@ -29093,6 +33077,8 @@ module AWS::Ec2
     #            EC2 Fleet is equal to or greater than its target capacity, the status is <code>fulfilled</code>.
     #            If the size of the EC2 Fleet is decreased, the status is <code>pending_termination</code> while
     #            instances are terminating.</p>
+    #
+    #   Enum, one of: ["error", "pending_fulfillment", "pending_termination", "fulfilled"]
     #
     #   @return [String]
     #
@@ -29109,6 +33095,8 @@ module AWS::Ec2
     # @!attribute fleet_state
     #   <p>The state of the EC2 Fleet.</p>
     #
+    #   Enum, one of: ["submitted", "active", "deleted", "failed", "deleted_running", "deleted_terminating", "modifying"]
+    #
     #   @return [String]
     #
     # @!attribute client_token
@@ -29122,6 +33110,8 @@ module AWS::Ec2
     # @!attribute excess_capacity_termination_policy
     #   <p>Indicates whether running instances should be terminated if the target capacity of the
     #            EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
+    #
+    #   Enum, one of: ["no-termination", "termination"]
     #
     #   @return [String]
     #
@@ -29163,6 +33153,8 @@ module AWS::Ec2
     #            capacity pools if capacity is unavailable. To maintain a certain target capacity, EC2 Fleet
     #            places the required requests to meet this target capacity. It also automatically
     #            replenishes any interrupted Spot Instances. Default: <code>maintain</code>.</p>
+    #
+    #   Enum, one of: ["request", "maintain", "instant"]
     #
     #   @return [String]
     #
@@ -29245,6 +33237,50 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.fulfilled_capacity ||= 0
+        self.fulfilled_on_demand_capacity ||= 0
+        self.terminate_instances_with_expiration ||= false
+        self.replace_unhealthy_instances ||= false
+      end
+
+    end
+
+    # Includes enum constants for FleetEventType
+    #
+    module FleetEventType
+      # No documentation available.
+      #
+      INSTANCE_CHANGE = "instance-change"
+
+      # No documentation available.
+      #
+      FLEET_CHANGE = "fleet-change"
+
+      # No documentation available.
+      #
+      SERVICE_ERROR = "service-error"
+    end
+
+    # Includes enum constants for FleetExcessCapacityTerminationPolicy
+    #
+    module FleetExcessCapacityTerminationPolicy
+      # No documentation available.
+      #
+      NO_TERMINATION = "no-termination"
+
+      # No documentation available.
+      #
+      TERMINATION = "termination"
+    end
+
+    # Includes enum constants for FleetInstanceMatchCriteria
+    #
+    module FleetInstanceMatchCriteria
+      # No documentation available.
+      #
+      open = "open"
     end
 
     # <p>Describes a launch template and overrides.</p>
@@ -29300,6 +33336,8 @@ module AWS::Ec2
     #               <p>If you specify <code>InstanceTypes</code>, you can't specify
     #                  <code>InstanceRequirements</code>.</p>
     #            </note>
+    #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
     #
     #   @return [String]
     #
@@ -29366,6 +33404,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.weighted_capacity ||= 0
+        self.priority ||= 0
+      end
+
     end
 
     # <p>Describes overrides for a launch template.</p>
@@ -29376,6 +33420,8 @@ module AWS::Ec2
     #               <p>If you specify <code>InstanceTypes</code>, you can't specify
     #                  <code>InstanceRequirements</code>.</p>
     #            </note>
+    #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
     #
     #   @return [String]
     #
@@ -29442,6 +33488,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.weighted_capacity ||= 0
+        self.priority ||= 0
+      end
+
     end
 
     # <p>Describes the Amazon EC2 launch template and the launch template version that can be used
@@ -29511,6 +33563,30 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for FleetOnDemandAllocationStrategy
+    #
+    module FleetOnDemandAllocationStrategy
+      # No documentation available.
+      #
+      LOWEST_PRICE = "lowest-price"
+
+      # No documentation available.
+      #
+      PRIORITIZED = "prioritized"
+    end
+
+    # Includes enum constants for FleetReplacementStrategy
+    #
+    module FleetReplacementStrategy
+      # No documentation available.
+      #
+      LAUNCH = "launch"
+
+      # No documentation available.
+      #
+      LAUNCH_BEFORE_TERMINATE = "launch-before-terminate"
+    end
+
     # <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
     #          elevated risk of being interrupted.</p>
     #
@@ -29529,6 +33605,8 @@ module AWS::Ec2
     #            fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
     #            terminates the instances that received a rebalance notification.</p>
     #
+    #   Enum, one of: ["launch", "launch-before-terminate"]
+    #
     #   @return [String]
     #
     # @!attribute termination_delay
@@ -29546,6 +33624,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.termination_delay ||= 0
+      end
+
     end
 
     # <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a rebalance
@@ -29567,6 +33650,8 @@ module AWS::Ec2
     #            then, after a delay that you specify (in <code>TerminationDelay</code>), terminates the
     #            instances that received a rebalance notification.</p>
     #
+    #   Enum, one of: ["launch", "launch-before-terminate"]
+    #
     #   @return [String]
     #
     # @!attribute termination_delay
@@ -29584,6 +33669,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.termination_delay ||= 0
+      end
+
     end
 
     # <p>The strategies for managing your Spot Instances that are at an elevated risk of being
@@ -29615,6 +33705,54 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for FleetStateCode
+    #
+    module FleetStateCode
+      # No documentation available.
+      #
+      SUBMITTED = "submitted"
+
+      # No documentation available.
+      #
+      ACTIVE = "active"
+
+      # No documentation available.
+      #
+      DELETED = "deleted"
+
+      # No documentation available.
+      #
+      FAILED = "failed"
+
+      # No documentation available.
+      #
+      DELETED_RUNNING = "deleted_running"
+
+      # No documentation available.
+      #
+      DELETED_TERMINATING_INSTANCES = "deleted_terminating"
+
+      # No documentation available.
+      #
+      MODIFYING = "modifying"
+    end
+
+    # Includes enum constants for FleetType
+    #
+    module FleetType
+      # No documentation available.
+      #
+      REQUEST = "request"
+
+      # No documentation available.
+      #
+      MAINTAIN = "maintain"
+
+      # No documentation available.
+      #
+      INSTANT = "instant"
     end
 
     # <p>Describes a flow log.</p>
@@ -29667,11 +33805,15 @@ module AWS::Ec2
     # @!attribute traffic_type
     #   <p>The type of traffic captured for the flow log.</p>
     #
+    #   Enum, one of: ["ACCEPT", "REJECT", "ALL"]
+    #
     #   @return [String]
     #
     # @!attribute log_destination_type
     #   <p>The type of destination to which the flow log data is published. Flow log data can be
     #               published to CloudWatch Logs or Amazon S3.</p>
+    #
+    #   Enum, one of: ["cloud-watch-logs", "s3"]
     #
     #   @return [String]
     #
@@ -29728,6 +33870,27 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_aggregation_interval ||= 0
+      end
+
+    end
+
+    # Includes enum constants for FlowLogsResourceType
+    #
+    module FlowLogsResourceType
+      # No documentation available.
+      #
+      VPC = "VPC"
+
+      # No documentation available.
+      #
+      Subnet = "Subnet"
+
+      # No documentation available.
+      #
+      NetworkInterface = "NetworkInterface"
     end
 
     # <p>Describes the FPGA accelerator for the instance type.</p>
@@ -29872,6 +34035,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.public ||= false
+        self.data_retention_support ||= false
+      end
+
     end
 
     # <p>Describes an Amazon FPGA image (AFI) attribute.</p>
@@ -29912,6 +34081,26 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for FpgaImageAttributeName
+    #
+    module FpgaImageAttributeName
+      # No documentation available.
+      #
+      description = "description"
+
+      # No documentation available.
+      #
+      name = "name"
+
+      # No documentation available.
+      #
+      loadPermission = "loadPermission"
+
+      # No documentation available.
+      #
+      productCodes = "productCodes"
+    end
+
     # <p>Describes the state of the bitstream generation process for an Amazon FPGA image (AFI).</p>
     #
     # @!attribute code
@@ -29935,6 +34124,8 @@ module AWS::Ec2
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["pending", "failed", "available", "unavailable"]
+    #
     #   @return [String]
     #
     # @!attribute message
@@ -29948,6 +34139,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for FpgaImageStateCode
+    #
+    module FpgaImageStateCode
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      failed = "failed"
+
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      unavailable = "unavailable"
     end
 
     # <p>Describes the FPGAs for the instance type.</p>
@@ -29970,6 +34181,34 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for GatewayAssociationState
+    #
+    module GatewayAssociationState
+      # No documentation available.
+      #
+      associated = "associated"
+
+      # No documentation available.
+      #
+      not_associated = "not-associated"
+
+      # No documentation available.
+      #
+      associating = "associating"
+
+      # No documentation available.
+      #
+      disassociating = "disassociating"
+    end
+
+    # Includes enum constants for GatewayType
+    #
+    module GatewayType
+      # No documentation available.
+      #
+      ipsec_1 = "ipsec.1"
+    end
+
     # @!attribute certificate_arn
     #   <p>The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon
     #   			S3 object information.</p>
@@ -29987,6 +34226,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute associated_roles
@@ -30032,6 +34276,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute ipv6_cidr_associations
@@ -30081,6 +34331,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute next_token
@@ -30138,6 +34394,8 @@ module AWS::Ec2
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["active", "expired", "cancelled", "pending", "failed"]
+    #
     #   @return [String]
     #
     # @!attribute instance_usages
@@ -30156,6 +34414,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.total_instance_count ||= 0
+        self.available_instance_count ||= 0
+      end
+
     end
 
     # @!attribute pool_id
@@ -30223,6 +34487,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute coip_pool_id
@@ -30274,6 +34544,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.latest ||= false
+      end
+
     end
 
     # @!attribute instance_id
@@ -30326,6 +34602,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.wake_up ||= false
+      end
+
     end
 
     # @!attribute image_data
@@ -30356,6 +34638,8 @@ module AWS::Ec2
     # @!attribute instance_family
     #   <p>The instance family.</p>
     #
+    #   Enum, one of: ["t2", "t3", "t3a", "t4g"]
+    #
     #   @return [String]
     #
     GetDefaultCreditSpecificationInput = ::Struct.new(
@@ -30364,6 +34648,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_family_credit_specification
@@ -30390,6 +34679,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute kms_key_id
@@ -30416,6 +34710,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute ebs_encryption_by_default
@@ -30428,6 +34727,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.ebs_encryption_by_default ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -30460,6 +34764,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute result
@@ -30502,6 +34811,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute next_token
@@ -30544,6 +34859,8 @@ module AWS::Ec2
     #   <p>The currency in which the <code>totalUpfrontPrice</code> and
     #                   <code>totalHourlyPrice</code> amounts are specified. At this time, the only
     #               supported currency is <code>USD</code>.</p>
+    #
+    #   Enum, one of: ["USD"]
     #
     #   @return [String]
     #
@@ -30617,6 +34934,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute instance_types
@@ -30692,6 +35015,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute history_records
@@ -30754,6 +35083,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute ipam_pool_allocations
@@ -30810,6 +35145,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute ipam_pool_cidrs
@@ -30870,6 +35211,8 @@ module AWS::Ec2
     # @!attribute resource_type
     #   <p>The resource type.</p>
     #
+    #   Enum, one of: ["vpc", "subnet", "eip", "public-ipv4-pool", "ipv6-pool"]
+    #
     #   @return [String]
     #
     # @!attribute resource_tag
@@ -30896,6 +35239,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute next_token
@@ -30935,6 +35284,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute launch_template_data
@@ -30980,6 +35334,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute prefix_list_associations
@@ -31037,6 +35397,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.target_version ||= 0
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute entries
@@ -31088,6 +35455,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_insights_access_scope_analysis_id
@@ -31097,6 +35470,8 @@ module AWS::Ec2
     #
     # @!attribute analysis_status
     #   <p>The status of Network Access Scope Analysis.</p>
+    #
+    #   Enum, one of: ["running", "succeeded", "failed"]
     #
     #   @return [String]
     #
@@ -31138,6 +35513,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_insights_access_scope_content
@@ -31170,6 +35550,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_id
@@ -31224,6 +35609,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of GetReservedInstancesExchangeQuote.</p>
@@ -31286,6 +35676,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.is_valid_exchange ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -31298,6 +35693,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute serial_console_access_enabled
@@ -31312,6 +35712,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.serial_console_access_enabled ||= false
+      end
+
     end
 
     # @!attribute instance_types
@@ -31332,6 +35737,8 @@ module AWS::Ec2
     # @!attribute target_capacity_unit_type
     #   <p>The unit for the target capacity.</p>
     #            <p>Default: <code>units</code> (translates to number of instances)</p>
+    #
+    #   Enum, one of: ["vcpu", "memory-mib", "units"]
     #
     #   @return [String]
     #
@@ -31389,6 +35796,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.target_capacity ||= 0
+        self.single_availability_zone ||= false
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute spot_placement_scores
@@ -31481,6 +35896,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.max_results ||= 0
+      end
+
     end
 
     # @!attribute subnet_ipv4_cidr_reservations
@@ -31550,6 +35971,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_attachment_propagations
@@ -31633,6 +36060,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute multicast_domain_associations
@@ -31722,6 +36155,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_prefix_list_references
@@ -31795,6 +36234,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute associations
@@ -31868,6 +36313,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_route_table_propagations
@@ -31922,13 +36373,15 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute vpn_connection_device_sample_configuration
     #   <p>Sample configuration file for the specified customer gateway device.</p>
-    #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
     #
     #   @return [String]
     #
@@ -31980,6 +36433,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute vpn_connection_device_types
@@ -32108,6 +36566,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.configured ||= false
+      end
+
     end
 
     # <p>Indicates whether your instance is configured for hibernation. This parameter is valid
@@ -32129,6 +36592,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.configured ||= false
+      end
+
     end
 
     # <p>Describes an event in the history of the Spot Fleet request.</p>
@@ -32160,6 +36628,8 @@ module AWS::Ec2
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["instanceChange", "fleetRequestChange", "error", "information"]
+    #
     #   @return [String]
     #
     # @!attribute timestamp
@@ -32187,6 +36657,8 @@ module AWS::Ec2
     # @!attribute event_type
     #   <p>The event type.</p>
     #
+    #   Enum, one of: ["instance-change", "fleet-change", "service-error"]
+    #
     #   @return [String]
     #
     # @!attribute timestamp
@@ -32208,6 +36680,8 @@ module AWS::Ec2
     #
     # @!attribute auto_placement
     #   <p>Whether auto-placement is on or off.</p>
+    #
+    #   Enum, one of: ["on", "off"]
     #
     #   @return [String]
     #
@@ -32251,6 +36725,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The Dedicated Host's state.</p>
     #
+    #   Enum, one of: ["available", "under-assessment", "permanent-failure", "released", "released-permanent-failure", "pending"]
+    #
     #   @return [String]
     #
     # @!attribute allocation_time
@@ -32271,12 +36747,16 @@ module AWS::Ec2
     # @!attribute host_recovery
     #   <p>Indicates whether host recovery is enabled or disabled for the Dedicated Host.</p>
     #
+    #   Enum, one of: ["on", "off"]
+    #
     #   @return [String]
     #
     # @!attribute allows_multiple_instance_types
     #   <p>Indicates whether the Dedicated Host supports multiple instance types of the same instance family.
     #   			If the value is <code>on</code>, the Dedicated Host supports multiple instance types in the instance family.
     #   		    If the value is <code>off</code>, the Dedicated Host supports a single instance type only.</p>
+    #
+    #   Enum, one of: ["on", "off"]
     #
     #   @return [String]
     #
@@ -32318,6 +36798,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.member_of_service_linked_resource_group ||= false
+      end
+
     end
 
     # <p>Describes an instance running on a Dedicated Host.</p>
@@ -32351,6 +36836,8 @@ module AWS::Ec2
     # @!attribute currency_code
     #   <p>The currency of the offering.</p>
     #
+    #   Enum, one of: ["USD"]
+    #
     #   @return [String]
     #
     # @!attribute duration
@@ -32376,6 +36863,8 @@ module AWS::Ec2
     # @!attribute payment_option
     #   <p>The available payment option.</p>
     #
+    #   Enum, one of: ["AllUpfront", "PartialUpfront", "NoUpfront"]
+    #
     #   @return [String]
     #
     # @!attribute upfront_price
@@ -32395,6 +36884,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.duration ||= 0
+      end
+
     end
 
     # <p>Describes the properties of a Dedicated Host.</p>
@@ -32435,6 +36929,25 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.cores ||= 0
+        self.sockets ||= 0
+        self.total_v_cpus ||= 0
+      end
+
+    end
+
+    # Includes enum constants for HostRecovery
+    #
+    module HostRecovery
+      # No documentation available.
+      #
+      on = "on"
+
+      # No documentation available.
+      #
+      off = "off"
     end
 
     # <p>Details about the Dedicated Host Reservation and associated Dedicated
@@ -32449,6 +36962,8 @@ module AWS::Ec2
     #   <p>The currency in which the <code>upfrontPrice</code> and <code>hourlyPrice</code>
     #               amounts are specified. At this time, the only supported currency is
     #               <code>USD</code>.</p>
+    #
+    #   Enum, one of: ["USD"]
     #
     #   @return [String]
     #
@@ -32494,6 +37009,8 @@ module AWS::Ec2
     # @!attribute payment_option
     #   <p>The payment option selected for this reservation.</p>
     #
+    #   Enum, one of: ["AllUpfront", "PartialUpfront", "NoUpfront"]
+    #
     #   @return [String]
     #
     # @!attribute start
@@ -32503,6 +37020,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the reservation.</p>
+    #
+    #   Enum, one of: ["payment-pending", "payment-failed", "active", "retired"]
     #
     #   @return [String]
     #
@@ -32534,6 +37053,60 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.count ||= 0
+        self.duration ||= 0
+      end
+
+    end
+
+    # Includes enum constants for HostTenancy
+    #
+    module HostTenancy
+      # No documentation available.
+      #
+      dedicated = "dedicated"
+
+      # No documentation available.
+      #
+      host = "host"
+    end
+
+    # Includes enum constants for HostnameType
+    #
+    module HostnameType
+      # No documentation available.
+      #
+      ip_name = "ip-name"
+
+      # No documentation available.
+      #
+      resource_name = "resource-name"
+    end
+
+    # Includes enum constants for HttpTokensState
+    #
+    module HttpTokensState
+      # No documentation available.
+      #
+      optional = "optional"
+
+      # No documentation available.
+      #
+      required = "required"
+    end
+
+    # Includes enum constants for HypervisorType
+    #
+    module HypervisorType
+      # No documentation available.
+      #
+      ovm = "ovm"
+
+      # No documentation available.
+      #
+      xen = "xen"
     end
 
     # <p>The internet key exchange (IKE) version permitted for the VPN tunnel.</p>
@@ -32604,6 +37177,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of the association.</p>
     #
+    #   Enum, one of: ["associating", "associated", "disassociating", "disassociated"]
+    #
     #   @return [String]
     #
     # @!attribute timestamp
@@ -32620,6 +37195,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for IamInstanceProfileAssociationState
+    #
+    module IamInstanceProfileAssociationState
+      # No documentation available.
+      #
+      ASSOCIATING = "associating"
+
+      # No documentation available.
+      #
+      ASSOCIATED = "associated"
+
+      # No documentation available.
+      #
+      DISASSOCIATING = "disassociating"
+
+      # No documentation available.
+      #
+      DISASSOCIATED = "disassociated"
     end
 
     # <p>Describes an IAM instance profile.</p>
@@ -32660,6 +37255,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.code ||= 0
+        self.type ||= 0
+      end
+
     end
 
     # <p>Describes the ID format for a resource.</p>
@@ -32686,12 +37287,31 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.use_long_ids ||= false
+      end
+
+    end
+
+    # Includes enum constants for Igmpv2SupportValue
+    #
+    module Igmpv2SupportValue
+      # No documentation available.
+      #
+      enable = "enable"
+
+      # No documentation available.
+      #
+      disable = "disable"
     end
 
     # <p>Describes an image.</p>
     #
     # @!attribute architecture
     #   <p>The architecture of the image.</p>
+    #
+    #   Enum, one of: ["i386", "x86_64", "arm64", "x86_64_mac"]
     #
     #   @return [String]
     #
@@ -32712,6 +37332,8 @@ module AWS::Ec2
     #
     # @!attribute image_type
     #   <p>The type of image.</p>
+    #
+    #   Enum, one of: ["machine", "kernel", "ramdisk"]
     #
     #   @return [String]
     #
@@ -32734,6 +37356,8 @@ module AWS::Ec2
     #
     # @!attribute platform
     #   <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is blank.</p>
+    #
+    #   Enum, one of: ["Windows"]
     #
     #   @return [String]
     #
@@ -32768,6 +37392,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The current state of the AMI. If the state is <code>available</code>, the image is successfully registered and can be used to launch an instance.</p>
     #
+    #   Enum, one of: ["pending", "available", "invalid", "deregistered", "transient", "failed", "error"]
+    #
     #   @return [String]
     #
     # @!attribute block_device_mappings
@@ -32787,6 +37413,8 @@ module AWS::Ec2
     #
     # @!attribute hypervisor
     #   <p>The hypervisor type of the image.</p>
+    #
+    #   Enum, one of: ["ovm", "xen"]
     #
     #   @return [String]
     #
@@ -32809,6 +37437,8 @@ module AWS::Ec2
     # @!attribute root_device_type
     #   <p>The type of root device used by the AMI. The AMI can use an Amazon EBS volume or an instance store volume.</p>
     #
+    #   Enum, one of: ["ebs", "instance-store"]
+    #
     #   @return [String]
     #
     # @!attribute sriov_net_support
@@ -32829,11 +37459,15 @@ module AWS::Ec2
     # @!attribute virtualization_type
     #   <p>The type of virtualization of the AMI.</p>
     #
+    #   Enum, one of: ["hvm", "paravirtual"]
+    #
     #   @return [String]
     #
     # @!attribute boot_mode
     #   <p>The boot mode of the image. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
     #           <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+    #
+    #   Enum, one of: ["legacy-bios", "uefi"]
     #
     #   @return [String]
     #
@@ -32877,6 +37511,48 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.public ||= false
+        self.ena_support ||= false
+      end
+
+    end
+
+    # Includes enum constants for ImageAttributeName
+    #
+    module ImageAttributeName
+      # No documentation available.
+      #
+      description = "description"
+
+      # No documentation available.
+      #
+      kernel = "kernel"
+
+      # No documentation available.
+      #
+      ramdisk = "ramdisk"
+
+      # No documentation available.
+      #
+      launchPermission = "launchPermission"
+
+      # No documentation available.
+      #
+      productCodes = "productCodes"
+
+      # No documentation available.
+      #
+      blockDeviceMapping = "blockDeviceMapping"
+
+      # No documentation available.
+      #
+      sriovNetSupport = "sriovNetSupport"
+
+      # No documentation available.
+      #
+      bootMode = "bootMode"
     end
 
     # <p>Describes the disk container object for an import image task.</p>
@@ -32926,6 +37602,54 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for ImageState
+    #
+    module ImageState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      invalid = "invalid"
+
+      # No documentation available.
+      #
+      deregistered = "deregistered"
+
+      # No documentation available.
+      #
+      transient = "transient"
+
+      # No documentation available.
+      #
+      failed = "failed"
+
+      # No documentation available.
+      #
+      error = "error"
+    end
+
+    # Includes enum constants for ImageTypeValues
+    #
+    module ImageTypeValues
+      # No documentation available.
+      #
+      machine = "machine"
+
+      # No documentation available.
+      #
+      kernel = "kernel"
+
+      # No documentation available.
+      #
+      ramdisk = "ramdisk"
+    end
+
     # @!attribute client_vpn_endpoint_id
     #   <p>The ID of the Client VPN endpoint to which the client certificate revocation list applies.</p>
     #
@@ -32949,6 +37673,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -32961,6 +37690,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute architecture
@@ -33079,6 +37813,8 @@ module AWS::Ec2
     # @!attribute boot_mode
     #   <p>The boot mode of the virtual machine.</p>
     #
+    #   Enum, one of: ["legacy-bios", "uefi"]
+    #
     #   @return [String]
     #
     ImportImageInput = ::Struct.new(
@@ -33101,6 +37837,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.encrypted ||= false
+      end
+
     end
 
     # <p>The request information of license configurations.</p>
@@ -33231,6 +37973,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.encrypted ||= false
+      end
+
     end
 
     # <p>Describes an import image task.</p>
@@ -33322,6 +38069,8 @@ module AWS::Ec2
     # @!attribute boot_mode
     #   <p>The boot mode of the virtual machine.</p>
     #
+    #   Enum, one of: ["legacy-bios", "uefi"]
+    #
     #   @return [String]
     #
     ImportImageTask = ::Struct.new(
@@ -33345,6 +38094,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.encrypted ||= false
+      end
+
     end
 
     # @!attribute description
@@ -33372,6 +38126,8 @@ module AWS::Ec2
     # @!attribute platform
     #   <p>The instance operating system.</p>
     #
+    #   Enum, one of: ["Windows"]
+    #
     #   @return [String]
     #
     ImportInstanceInput = ::Struct.new(
@@ -33383,6 +38139,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Describes the launch specification for VM import.</p>
@@ -33394,6 +38155,8 @@ module AWS::Ec2
     #
     # @!attribute architecture
     #   <p>The architecture of the instance.</p>
+    #
+    #   Enum, one of: ["i386", "x86_64", "arm64", "x86_64_mac"]
     #
     #   @return [String]
     #
@@ -33411,11 +38174,15 @@ module AWS::Ec2
     #   <p>Indicates whether an instance stops or terminates when you initiate shutdown from the instance (using the
     #      operating system command for system shutdown).</p>
     #
+    #   Enum, one of: ["stop", "terminate"]
+    #
     #   @return [String]
     #
     # @!attribute instance_type
     #   <p>The instance type. For more information about the instance types that you can import, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmie_prereqs.html vmimport-instance-types">Instance Types</a> in the
     #      VM Import/Export User Guide.</p>
+    #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
     #
     #   @return [String]
     #
@@ -33442,9 +38209,6 @@ module AWS::Ec2
     # @!attribute user_data
     #   <p>The Base64-encoded user data to make available to the instance.</p>
     #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
-    #
     #   @return [UserData]
     #
     ImportInstanceLaunchSpecification = ::Struct.new(
@@ -33462,6 +38226,10 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.monitoring ||= false
+      end
 
       def to_s
         "#<struct AWS::Ec2::Types::ImportInstanceLaunchSpecification "\
@@ -33505,6 +38273,8 @@ module AWS::Ec2
     #
     # @!attribute platform
     #   <p>The instance operating system.</p>
+    #
+    #   Enum, one of: ["Windows"]
     #
     #   @return [String]
     #
@@ -33571,6 +38341,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.bytes_converted ||= 0
+      end
+
     end
 
     # @!attribute dry_run
@@ -33603,6 +38378,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute key_fingerprint
@@ -33719,6 +38499,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.encrypted ||= false
+      end
+
     end
 
     # @!attribute description
@@ -33819,6 +38605,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute conversion_task
@@ -33869,6 +38660,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.bytes_converted ||= 0
+      end
+
     end
 
     # <p>Describes the Inference accelerators for the instance type.</p>
@@ -33932,6 +38728,8 @@ module AWS::Ec2
     # @!attribute instance_type
     #   <p>The instance type.</p>
     #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
+    #
     #   @return [String]
     #
     # @!attribute kernel_id
@@ -33962,6 +38760,8 @@ module AWS::Ec2
     #
     # @!attribute platform
     #   <p>The value is <code>Windows</code> for Windows instances; otherwise blank.</p>
+    #
+    #   Enum, one of: ["Windows"]
     #
     #   @return [String]
     #
@@ -34029,6 +38829,8 @@ module AWS::Ec2
     # @!attribute architecture
     #   <p>The architecture of the image.</p>
     #
+    #   Enum, one of: ["i386", "x86_64", "arm64", "x86_64_mac"]
+    #
     #   @return [String]
     #
     # @!attribute block_device_mappings
@@ -34059,6 +38861,8 @@ module AWS::Ec2
     #   <p>The hypervisor type of the instance. The value <code>xen</code> is used for both Xen and
     #               Nitro hypervisors.</p>
     #
+    #   Enum, one of: ["ovm", "xen"]
+    #
     #   @return [String]
     #
     # @!attribute iam_instance_profile
@@ -34068,6 +38872,8 @@ module AWS::Ec2
     #
     # @!attribute instance_lifecycle
     #   <p>Indicates whether this is a Spot Instance or a Scheduled Instance.</p>
+    #
+    #   Enum, one of: ["spot", "scheduled"]
     #
     #   @return [String]
     #
@@ -34100,6 +38906,8 @@ module AWS::Ec2
     # @!attribute root_device_type
     #   <p>The root device type used by the AMI. The AMI can use an EBS volume or an instance
     #               store volume.</p>
+    #
+    #   Enum, one of: ["ebs", "instance-store"]
     #
     #   @return [String]
     #
@@ -34136,6 +38944,8 @@ module AWS::Ec2
     #
     # @!attribute virtualization_type
     #   <p>The virtualization type of the instance.</p>
+    #
+    #   Enum, one of: ["hvm", "paravirtual"]
     #
     #   @return [String]
     #
@@ -34177,6 +38987,8 @@ module AWS::Ec2
     # @!attribute boot_mode
     #   <p>The boot mode of the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
     #               <i>Amazon EC2 User Guide</i>.</p>
+    #
+    #   Enum, one of: ["legacy-bios", "uefi"]
     #
     #   @return [String]
     #
@@ -34266,6 +39078,78 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.ami_launch_index ||= 0
+        self.ebs_optimized ||= false
+        self.ena_support ||= false
+        self.source_dest_check ||= false
+      end
+
+    end
+
+    # Includes enum constants for InstanceAttributeName
+    #
+    module InstanceAttributeName
+      # No documentation available.
+      #
+      instanceType = "instanceType"
+
+      # No documentation available.
+      #
+      kernel = "kernel"
+
+      # No documentation available.
+      #
+      ramdisk = "ramdisk"
+
+      # No documentation available.
+      #
+      userData = "userData"
+
+      # No documentation available.
+      #
+      disableApiTermination = "disableApiTermination"
+
+      # No documentation available.
+      #
+      instanceInitiatedShutdownBehavior = "instanceInitiatedShutdownBehavior"
+
+      # No documentation available.
+      #
+      rootDeviceName = "rootDeviceName"
+
+      # No documentation available.
+      #
+      blockDeviceMapping = "blockDeviceMapping"
+
+      # No documentation available.
+      #
+      productCodes = "productCodes"
+
+      # No documentation available.
+      #
+      sourceDestCheck = "sourceDestCheck"
+
+      # No documentation available.
+      #
+      groupSet = "groupSet"
+
+      # No documentation available.
+      #
+      ebsOptimized = "ebsOptimized"
+
+      # No documentation available.
+      #
+      sriovNetSupport = "sriovNetSupport"
+
+      # No documentation available.
+      #
+      enaSupport = "enaSupport"
+
+      # No documentation available.
+      #
+      enclaveOptions = "enclaveOptions"
     end
 
     # <p>Describes a block device mapping.</p>
@@ -34349,6 +39233,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.available_capacity ||= 0
+        self.total_capacity ||= 0
+      end
+
     end
 
     # <p>Describes a Reserved Instance listing state.</p>
@@ -34361,6 +39251,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The states of the listed Reserved Instances.</p>
     #
+    #   Enum, one of: ["available", "sold", "cancelled", "pending"]
+    #
     #   @return [String]
     #
     InstanceCount = ::Struct.new(
@@ -34369,6 +39261,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.instance_count ||= 0
+      end
+
     end
 
     # <p>Describes the credit option for CPU usage of a burstable performance instance. </p>
@@ -34444,6 +39341,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The current state of the event window.</p>
+    #
+    #   Enum, one of: ["creating", "deleting", "active", "deleted"]
     #
     #   @return [String]
     #
@@ -34550,6 +39449,26 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for InstanceEventWindowState
+    #
+    module InstanceEventWindowState
+      # No documentation available.
+      #
+      creating = "creating"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
+
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      deleted = "deleted"
+    end
+
     # <p>The state of the event window.</p>
     #
     # @!attribute instance_event_window_id
@@ -34559,6 +39478,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The current state of the event window.</p>
+    #
+    #   Enum, one of: ["creating", "deleting", "active", "deleted"]
     #
     #   @return [String]
     #
@@ -34575,6 +39496,8 @@ module AWS::Ec2
     # @!attribute start_week_day
     #   <p>The day on which the time range begins.</p>
     #
+    #   Enum, one of: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    #
     #   @return [String]
     #
     # @!attribute start_hour
@@ -34584,6 +39507,8 @@ module AWS::Ec2
     #
     # @!attribute end_week_day
     #   <p>The day on which the time range ends.</p>
+    #
+    #   Enum, one of: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
     #
     #   @return [String]
     #
@@ -34600,12 +39525,20 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.start_hour ||= 0
+        self.end_hour ||= 0
+      end
+
     end
 
     # <p>The start day and time and the end day and time of the time range, in UTC.</p>
     #
     # @!attribute start_week_day
     #   <p>The day on which the time range begins.</p>
+    #
+    #   Enum, one of: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
     #
     #   @return [String]
     #
@@ -34616,6 +39549,8 @@ module AWS::Ec2
     #
     # @!attribute end_week_day
     #   <p>The day on which the time range ends.</p>
+    #
+    #   Enum, one of: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
     #
     #   @return [String]
     #
@@ -34632,6 +39567,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.start_hour ||= 0
+        self.end_hour ||= 0
+      end
+
     end
 
     # <p>Describes an instance to export.</p>
@@ -34643,6 +39584,8 @@ module AWS::Ec2
     #
     # @!attribute target_environment
     #   <p>The target virtualization environment.</p>
+    #
+    #   Enum, one of: ["citrix", "vmware", "microsoft"]
     #
     #   @return [String]
     #
@@ -34659,6 +39602,8 @@ module AWS::Ec2
     # @!attribute instance_family
     #   <p>The instance family.</p>
     #
+    #   Enum, one of: ["t2", "t3", "t3a", "t4g"]
+    #
     #   @return [String]
     #
     # @!attribute cpu_credits
@@ -34672,6 +39617,46 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for InstanceGeneration
+    #
+    module InstanceGeneration
+      # No documentation available.
+      #
+      CURRENT = "current"
+
+      # No documentation available.
+      #
+      PREVIOUS = "previous"
+    end
+
+    # Includes enum constants for InstanceHealthStatus
+    #
+    module InstanceHealthStatus
+      # No documentation available.
+      #
+      HEALTHY_STATUS = "healthy"
+
+      # No documentation available.
+      #
+      UNHEALTHY_STATUS = "unhealthy"
+    end
+
+    # Includes enum constants for InstanceInterruptionBehavior
+    #
+    module InstanceInterruptionBehavior
+      # No documentation available.
+      #
+      hibernate = "hibernate"
+
+      # No documentation available.
+      #
+      stop = "stop"
+
+      # No documentation available.
+      #
+      terminate = "terminate"
     end
 
     # <p>Information about an IPv4 prefix.</p>
@@ -34730,10 +39715,36 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for InstanceLifecycle
+    #
+    module InstanceLifecycle
+      # No documentation available.
+      #
+      SPOT = "spot"
+
+      # No documentation available.
+      #
+      ON_DEMAND = "on-demand"
+    end
+
+    # Includes enum constants for InstanceLifecycleType
+    #
+    module InstanceLifecycleType
+      # No documentation available.
+      #
+      spot = "spot"
+
+      # No documentation available.
+      #
+      scheduled = "scheduled"
+    end
+
     # <p>Describes the market (purchasing) option for the instances.</p>
     #
     # @!attribute market_type
     #   <p>The market type.</p>
+    #
+    #   Enum, one of: ["spot"]
     #
     #   @return [String]
     #
@@ -34748,6 +39759,30 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for InstanceMatchCriteria
+    #
+    module InstanceMatchCriteria
+      # No documentation available.
+      #
+      open = "open"
+
+      # No documentation available.
+      #
+      targeted = "targeted"
+    end
+
+    # Includes enum constants for InstanceMetadataEndpointState
+    #
+    module InstanceMetadataEndpointState
+      # No documentation available.
+      #
+      disabled = "disabled"
+
+      # No documentation available.
+      #
+      enabled = "enabled"
     end
 
     # <p>The metadata options for the instance.</p>
@@ -34766,6 +39801,8 @@ module AWS::Ec2
     #           <p>Default: <code>optional</code>
     #            </p>
     #
+    #   Enum, one of: ["optional", "required"]
+    #
     #   @return [String]
     #
     # @!attribute http_put_response_hop_limit
@@ -34783,10 +39820,14 @@ module AWS::Ec2
     #           <p>Default: <code>enabled</code>
     #            </p>
     #
+    #   Enum, one of: ["disabled", "enabled"]
+    #
     #   @return [String]
     #
     # @!attribute http_protocol_ipv6
     #   <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
+    #
+    #   Enum, one of: ["disabled", "enabled"]
     #
     #   @return [String]
     #
@@ -34795,6 +39836,8 @@ module AWS::Ec2
     #               access to instance tags from the instance metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html work-with-tags-in-IMDS">Work with instance tags using the instance metadata</a>.</p>
     #           <p>Default: <code>disabled</code>
     #            </p>
+    #
+    #   Enum, one of: ["disabled", "enabled"]
     #
     #   @return [String]
     #
@@ -34807,6 +39850,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.http_put_response_hop_limit ||= 0
+      end
+
     end
 
     # <p>The metadata options for the instance.</p>
@@ -34819,6 +39867,8 @@ module AWS::Ec2
     #           <p>
     #               <code>applied</code> - The metadata options have been successfully applied on the
     #               instance.</p>
+    #
+    #   Enum, one of: ["pending", "applied"]
     #
     #   @return [String]
     #
@@ -34836,6 +39886,8 @@ module AWS::Ec2
     #           <p>Default: <code>optional</code>
     #            </p>
     #
+    #   Enum, one of: ["optional", "required"]
+    #
     #   @return [String]
     #
     # @!attribute http_put_response_hop_limit
@@ -34852,10 +39904,14 @@ module AWS::Ec2
     #               <p>If the value is <code>disabled</code>, you cannot access your
     #                   instance metadata.</p>
     #
+    #   Enum, one of: ["disabled", "enabled"]
+    #
     #   @return [String]
     #
     # @!attribute http_protocol_ipv6
     #   <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or disabled.</p>
+    #
+    #   Enum, one of: ["disabled", "enabled"]
     #
     #   @return [String]
     #
@@ -34863,6 +39919,8 @@ module AWS::Ec2
     #   <p>Indicates whether access to instance tags from the instance metadata is enabled or
     #               disabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html work-with-tags-in-IMDS">Work with
     #                   instance tags using the instance metadata</a>.</p>
+    #
+    #   Enum, one of: ["disabled", "enabled"]
     #
     #   @return [String]
     #
@@ -34876,6 +39934,47 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.http_put_response_hop_limit ||= 0
+      end
+
+    end
+
+    # Includes enum constants for InstanceMetadataOptionsState
+    #
+    module InstanceMetadataOptionsState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      applied = "applied"
+    end
+
+    # Includes enum constants for InstanceMetadataProtocolState
+    #
+    module InstanceMetadataProtocolState
+      # No documentation available.
+      #
+      disabled = "disabled"
+
+      # No documentation available.
+      #
+      enabled = "enabled"
+    end
+
+    # Includes enum constants for InstanceMetadataTagsState
+    #
+    module InstanceMetadataTagsState
+      # No documentation available.
+      #
+      disabled = "disabled"
+
+      # No documentation available.
+      #
+      enabled = "enabled"
     end
 
     # <p>Describes the monitoring of an instance.</p>
@@ -34964,6 +40063,8 @@ module AWS::Ec2
     # @!attribute status
     #   <p>The status of the network interface.</p>
     #
+    #   Enum, one of: ["available", "associated", "attaching", "in-use", "detaching"]
+    #
     #   @return [String]
     #
     # @!attribute subnet_id
@@ -35015,6 +40116,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.source_dest_check ||= false
+      end
+
     end
 
     # <p>Describes association information for an Elastic IP address (IPv4).</p>
@@ -35080,6 +40186,8 @@ module AWS::Ec2
     # @!attribute status
     #   <p>The attachment state.</p>
     #
+    #   Enum, one of: ["attaching", "attached", "detaching", "detached"]
+    #
     #   @return [String]
     #
     # @!attribute network_card_index
@@ -35097,6 +40205,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.delete_on_termination ||= false
+        self.device_index ||= 0
+        self.network_card_index ||= 0
+      end
+
     end
 
     # <p>Describes a network interface.</p>
@@ -35255,6 +40370,19 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.associate_public_ip_address ||= false
+        self.delete_on_termination ||= false
+        self.device_index ||= 0
+        self.ipv6_address_count ||= 0
+        self.secondary_private_ip_address_count ||= 0
+        self.associate_carrier_ip_address ||= false
+        self.network_card_index ||= 0
+        self.ipv4_prefix_count ||= 0
+        self.ipv6_prefix_count ||= 0
+      end
+
     end
 
     # <p>Describes a private IPv4 address.</p>
@@ -35287,6 +40415,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.primary ||= false
+      end
+
     end
 
     # <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
@@ -35406,6 +40539,8 @@ module AWS::Ec2
     #            <p>Default: <code>excluded</code>
     #            </p>
     #
+    #   Enum, one of: ["included", "required", "excluded"]
+    #
     #   @return [String]
     #
     # @!attribute burstable_performance
@@ -35424,6 +40559,8 @@ module AWS::Ec2
     #            </ul>
     #            <p>Default: <code>excluded</code>
     #            </p>
+    #
+    #   Enum, one of: ["included", "required", "excluded"]
     #
     #   @return [String]
     #
@@ -35462,6 +40599,8 @@ module AWS::Ec2
     #            </ul>
     #            <p>Default: <code>included</code>
     #            </p>
+    #
+    #   Enum, one of: ["included", "required", "excluded"]
     #
     #   @return [String]
     #
@@ -35599,6 +40738,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.spot_max_price_percentage_over_lowest_price ||= 0
+        self.on_demand_max_price_percentage_over_lowest_price ||= 0
+        self.require_hibernate_support ||= false
+      end
+
     end
 
     # <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
@@ -35718,6 +40864,8 @@ module AWS::Ec2
     #            <p>Default: <code>excluded</code>
     #            </p>
     #
+    #   Enum, one of: ["included", "required", "excluded"]
+    #
     #   @return [String]
     #
     # @!attribute burstable_performance
@@ -35736,6 +40884,8 @@ module AWS::Ec2
     #            </ul>
     #            <p>Default: <code>excluded</code>
     #            </p>
+    #
+    #   Enum, one of: ["included", "required", "excluded"]
     #
     #   @return [String]
     #
@@ -35773,6 +40923,8 @@ module AWS::Ec2
     #            </ul>
     #            <p>Default: <code>included</code>
     #            </p>
+    #
+    #   Enum, one of: ["included", "required", "excluded"]
     #
     #   @return [String]
     #
@@ -35910,6 +41062,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.spot_max_price_percentage_over_lowest_price ||= 0
+        self.on_demand_max_price_percentage_over_lowest_price ||= 0
+        self.require_hibernate_support ||= false
+      end
+
     end
 
     # <p>The architecture type, virtualization type, and other attributes for the instance types.
@@ -35961,6 +41120,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.exclude_boot_volume ||= false
+      end
+
     end
 
     # <p>Describes the current state of an instance.</p>
@@ -36014,6 +41178,8 @@ module AWS::Ec2
     # @!attribute name
     #   <p>The current state of the instance.</p>
     #
+    #   Enum, one of: ["pending", "running", "shutting-down", "terminated", "stopping", "stopped"]
+    #
     #   @return [String]
     #
     InstanceState = ::Struct.new(
@@ -36022,6 +41188,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.code ||= 0
+      end
+
     end
 
     # <p>Describes an instance state change.</p>
@@ -36048,6 +41219,34 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for InstanceStateName
+    #
+    module InstanceStateName
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      running = "running"
+
+      # No documentation available.
+      #
+      shutting_down = "shutting-down"
+
+      # No documentation available.
+      #
+      terminated = "terminated"
+
+      # No documentation available.
+      #
+      stopping = "stopping"
+
+      # No documentation available.
+      #
+      stopped = "stopped"
     end
 
     # <p>Describes the status of an instance.</p>
@@ -36114,10 +41313,14 @@ module AWS::Ec2
     # @!attribute name
     #   <p>The type of instance status.</p>
     #
+    #   Enum, one of: ["reachability"]
+    #
     #   @return [String]
     #
     # @!attribute status
     #   <p>The status.</p>
+    #
+    #   Enum, one of: ["passed", "failed", "insufficient-data", "initializing"]
     #
     #   @return [String]
     #
@@ -36139,6 +41342,8 @@ module AWS::Ec2
     #
     # @!attribute code
     #   <p>The event code.</p>
+    #
+    #   Enum, one of: ["instance-reboot", "system-reboot", "system-maintenance", "instance-retirement", "instance-stop"]
     #
     #   @return [String]
     #
@@ -36187,6 +41392,8 @@ module AWS::Ec2
     # @!attribute status
     #   <p>The status.</p>
     #
+    #   Enum, one of: ["ok", "impaired", "insufficient-data", "not-applicable", "initializing"]
+    #
     #   @return [String]
     #
     InstanceStatusSummary = ::Struct.new(
@@ -36195,6 +41402,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for InstanceStorageEncryptionSupport
+    #
+    module InstanceStorageEncryptionSupport
+      # No documentation available.
+      #
+      unsupported = "unsupported"
+
+      # No documentation available.
+      #
+      required = "required"
     end
 
     # <p>Describes the instance store features that are supported by the instance type.</p>
@@ -36212,10 +41431,14 @@ module AWS::Ec2
     # @!attribute nvme_support
     #   <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
     #
+    #   Enum, one of: ["unsupported", "supported", "required"]
+    #
     #   @return [String]
     #
     # @!attribute encryption_support
     #   <p>Indicates whether data is encrypted at rest.</p>
+    #
+    #   Enum, one of: ["unsupported", "required"]
     #
     #   @return [String]
     #
@@ -36248,12 +41471,1899 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.include_all_tags_of_instance ||= false
+      end
+
+    end
+
+    # Includes enum constants for InstanceType
+    #
+    module InstanceType
+      # No documentation available.
+      #
+      a1_medium = "a1.medium"
+
+      # No documentation available.
+      #
+      a1_large = "a1.large"
+
+      # No documentation available.
+      #
+      a1_xlarge = "a1.xlarge"
+
+      # No documentation available.
+      #
+      a1_2xlarge = "a1.2xlarge"
+
+      # No documentation available.
+      #
+      a1_4xlarge = "a1.4xlarge"
+
+      # No documentation available.
+      #
+      a1_metal = "a1.metal"
+
+      # No documentation available.
+      #
+      c1_medium = "c1.medium"
+
+      # No documentation available.
+      #
+      c1_xlarge = "c1.xlarge"
+
+      # No documentation available.
+      #
+      c3_large = "c3.large"
+
+      # No documentation available.
+      #
+      c3_xlarge = "c3.xlarge"
+
+      # No documentation available.
+      #
+      c3_2xlarge = "c3.2xlarge"
+
+      # No documentation available.
+      #
+      c3_4xlarge = "c3.4xlarge"
+
+      # No documentation available.
+      #
+      c3_8xlarge = "c3.8xlarge"
+
+      # No documentation available.
+      #
+      c4_large = "c4.large"
+
+      # No documentation available.
+      #
+      c4_xlarge = "c4.xlarge"
+
+      # No documentation available.
+      #
+      c4_2xlarge = "c4.2xlarge"
+
+      # No documentation available.
+      #
+      c4_4xlarge = "c4.4xlarge"
+
+      # No documentation available.
+      #
+      c4_8xlarge = "c4.8xlarge"
+
+      # No documentation available.
+      #
+      c5_large = "c5.large"
+
+      # No documentation available.
+      #
+      c5_xlarge = "c5.xlarge"
+
+      # No documentation available.
+      #
+      c5_2xlarge = "c5.2xlarge"
+
+      # No documentation available.
+      #
+      c5_4xlarge = "c5.4xlarge"
+
+      # No documentation available.
+      #
+      c5_9xlarge = "c5.9xlarge"
+
+      # No documentation available.
+      #
+      c5_12xlarge = "c5.12xlarge"
+
+      # No documentation available.
+      #
+      c5_18xlarge = "c5.18xlarge"
+
+      # No documentation available.
+      #
+      c5_24xlarge = "c5.24xlarge"
+
+      # No documentation available.
+      #
+      c5_metal = "c5.metal"
+
+      # No documentation available.
+      #
+      c5a_large = "c5a.large"
+
+      # No documentation available.
+      #
+      c5a_xlarge = "c5a.xlarge"
+
+      # No documentation available.
+      #
+      c5a_2xlarge = "c5a.2xlarge"
+
+      # No documentation available.
+      #
+      c5a_4xlarge = "c5a.4xlarge"
+
+      # No documentation available.
+      #
+      c5a_8xlarge = "c5a.8xlarge"
+
+      # No documentation available.
+      #
+      c5a_12xlarge = "c5a.12xlarge"
+
+      # No documentation available.
+      #
+      c5a_16xlarge = "c5a.16xlarge"
+
+      # No documentation available.
+      #
+      c5a_24xlarge = "c5a.24xlarge"
+
+      # No documentation available.
+      #
+      c5ad_large = "c5ad.large"
+
+      # No documentation available.
+      #
+      c5ad_xlarge = "c5ad.xlarge"
+
+      # No documentation available.
+      #
+      c5ad_2xlarge = "c5ad.2xlarge"
+
+      # No documentation available.
+      #
+      c5ad_4xlarge = "c5ad.4xlarge"
+
+      # No documentation available.
+      #
+      c5ad_8xlarge = "c5ad.8xlarge"
+
+      # No documentation available.
+      #
+      c5ad_12xlarge = "c5ad.12xlarge"
+
+      # No documentation available.
+      #
+      c5ad_16xlarge = "c5ad.16xlarge"
+
+      # No documentation available.
+      #
+      c5ad_24xlarge = "c5ad.24xlarge"
+
+      # No documentation available.
+      #
+      c5d_large = "c5d.large"
+
+      # No documentation available.
+      #
+      c5d_xlarge = "c5d.xlarge"
+
+      # No documentation available.
+      #
+      c5d_2xlarge = "c5d.2xlarge"
+
+      # No documentation available.
+      #
+      c5d_4xlarge = "c5d.4xlarge"
+
+      # No documentation available.
+      #
+      c5d_9xlarge = "c5d.9xlarge"
+
+      # No documentation available.
+      #
+      c5d_12xlarge = "c5d.12xlarge"
+
+      # No documentation available.
+      #
+      c5d_18xlarge = "c5d.18xlarge"
+
+      # No documentation available.
+      #
+      c5d_24xlarge = "c5d.24xlarge"
+
+      # No documentation available.
+      #
+      c5d_metal = "c5d.metal"
+
+      # No documentation available.
+      #
+      c5n_large = "c5n.large"
+
+      # No documentation available.
+      #
+      c5n_xlarge = "c5n.xlarge"
+
+      # No documentation available.
+      #
+      c5n_2xlarge = "c5n.2xlarge"
+
+      # No documentation available.
+      #
+      c5n_4xlarge = "c5n.4xlarge"
+
+      # No documentation available.
+      #
+      c5n_9xlarge = "c5n.9xlarge"
+
+      # No documentation available.
+      #
+      c5n_18xlarge = "c5n.18xlarge"
+
+      # No documentation available.
+      #
+      c5n_metal = "c5n.metal"
+
+      # No documentation available.
+      #
+      c6g_medium = "c6g.medium"
+
+      # No documentation available.
+      #
+      c6g_large = "c6g.large"
+
+      # No documentation available.
+      #
+      c6g_xlarge = "c6g.xlarge"
+
+      # No documentation available.
+      #
+      c6g_2xlarge = "c6g.2xlarge"
+
+      # No documentation available.
+      #
+      c6g_4xlarge = "c6g.4xlarge"
+
+      # No documentation available.
+      #
+      c6g_8xlarge = "c6g.8xlarge"
+
+      # No documentation available.
+      #
+      c6g_12xlarge = "c6g.12xlarge"
+
+      # No documentation available.
+      #
+      c6g_16xlarge = "c6g.16xlarge"
+
+      # No documentation available.
+      #
+      c6g_metal = "c6g.metal"
+
+      # No documentation available.
+      #
+      c6gd_medium = "c6gd.medium"
+
+      # No documentation available.
+      #
+      c6gd_large = "c6gd.large"
+
+      # No documentation available.
+      #
+      c6gd_xlarge = "c6gd.xlarge"
+
+      # No documentation available.
+      #
+      c6gd_2xlarge = "c6gd.2xlarge"
+
+      # No documentation available.
+      #
+      c6gd_4xlarge = "c6gd.4xlarge"
+
+      # No documentation available.
+      #
+      c6gd_8xlarge = "c6gd.8xlarge"
+
+      # No documentation available.
+      #
+      c6gd_12xlarge = "c6gd.12xlarge"
+
+      # No documentation available.
+      #
+      c6gd_16xlarge = "c6gd.16xlarge"
+
+      # No documentation available.
+      #
+      c6gd_metal = "c6gd.metal"
+
+      # No documentation available.
+      #
+      c6gn_medium = "c6gn.medium"
+
+      # No documentation available.
+      #
+      c6gn_large = "c6gn.large"
+
+      # No documentation available.
+      #
+      c6gn_xlarge = "c6gn.xlarge"
+
+      # No documentation available.
+      #
+      c6gn_2xlarge = "c6gn.2xlarge"
+
+      # No documentation available.
+      #
+      c6gn_4xlarge = "c6gn.4xlarge"
+
+      # No documentation available.
+      #
+      c6gn_8xlarge = "c6gn.8xlarge"
+
+      # No documentation available.
+      #
+      c6gn_12xlarge = "c6gn.12xlarge"
+
+      # No documentation available.
+      #
+      c6gn_16xlarge = "c6gn.16xlarge"
+
+      # No documentation available.
+      #
+      c6i_large = "c6i.large"
+
+      # No documentation available.
+      #
+      c6i_xlarge = "c6i.xlarge"
+
+      # No documentation available.
+      #
+      c6i_2xlarge = "c6i.2xlarge"
+
+      # No documentation available.
+      #
+      c6i_4xlarge = "c6i.4xlarge"
+
+      # No documentation available.
+      #
+      c6i_8xlarge = "c6i.8xlarge"
+
+      # No documentation available.
+      #
+      c6i_12xlarge = "c6i.12xlarge"
+
+      # No documentation available.
+      #
+      c6i_16xlarge = "c6i.16xlarge"
+
+      # No documentation available.
+      #
+      c6i_24xlarge = "c6i.24xlarge"
+
+      # No documentation available.
+      #
+      c6i_32xlarge = "c6i.32xlarge"
+
+      # No documentation available.
+      #
+      cc1_4xlarge = "cc1.4xlarge"
+
+      # No documentation available.
+      #
+      cc2_8xlarge = "cc2.8xlarge"
+
+      # No documentation available.
+      #
+      cg1_4xlarge = "cg1.4xlarge"
+
+      # No documentation available.
+      #
+      cr1_8xlarge = "cr1.8xlarge"
+
+      # No documentation available.
+      #
+      d2_xlarge = "d2.xlarge"
+
+      # No documentation available.
+      #
+      d2_2xlarge = "d2.2xlarge"
+
+      # No documentation available.
+      #
+      d2_4xlarge = "d2.4xlarge"
+
+      # No documentation available.
+      #
+      d2_8xlarge = "d2.8xlarge"
+
+      # No documentation available.
+      #
+      d3_xlarge = "d3.xlarge"
+
+      # No documentation available.
+      #
+      d3_2xlarge = "d3.2xlarge"
+
+      # No documentation available.
+      #
+      d3_4xlarge = "d3.4xlarge"
+
+      # No documentation available.
+      #
+      d3_8xlarge = "d3.8xlarge"
+
+      # No documentation available.
+      #
+      d3en_xlarge = "d3en.xlarge"
+
+      # No documentation available.
+      #
+      d3en_2xlarge = "d3en.2xlarge"
+
+      # No documentation available.
+      #
+      d3en_4xlarge = "d3en.4xlarge"
+
+      # No documentation available.
+      #
+      d3en_6xlarge = "d3en.6xlarge"
+
+      # No documentation available.
+      #
+      d3en_8xlarge = "d3en.8xlarge"
+
+      # No documentation available.
+      #
+      d3en_12xlarge = "d3en.12xlarge"
+
+      # No documentation available.
+      #
+      dl1_24xlarge = "dl1.24xlarge"
+
+      # No documentation available.
+      #
+      f1_2xlarge = "f1.2xlarge"
+
+      # No documentation available.
+      #
+      f1_4xlarge = "f1.4xlarge"
+
+      # No documentation available.
+      #
+      f1_16xlarge = "f1.16xlarge"
+
+      # No documentation available.
+      #
+      g2_2xlarge = "g2.2xlarge"
+
+      # No documentation available.
+      #
+      g2_8xlarge = "g2.8xlarge"
+
+      # No documentation available.
+      #
+      g3_4xlarge = "g3.4xlarge"
+
+      # No documentation available.
+      #
+      g3_8xlarge = "g3.8xlarge"
+
+      # No documentation available.
+      #
+      g3_16xlarge = "g3.16xlarge"
+
+      # No documentation available.
+      #
+      g3s_xlarge = "g3s.xlarge"
+
+      # No documentation available.
+      #
+      g4ad_xlarge = "g4ad.xlarge"
+
+      # No documentation available.
+      #
+      g4ad_2xlarge = "g4ad.2xlarge"
+
+      # No documentation available.
+      #
+      g4ad_4xlarge = "g4ad.4xlarge"
+
+      # No documentation available.
+      #
+      g4ad_8xlarge = "g4ad.8xlarge"
+
+      # No documentation available.
+      #
+      g4ad_16xlarge = "g4ad.16xlarge"
+
+      # No documentation available.
+      #
+      g4dn_xlarge = "g4dn.xlarge"
+
+      # No documentation available.
+      #
+      g4dn_2xlarge = "g4dn.2xlarge"
+
+      # No documentation available.
+      #
+      g4dn_4xlarge = "g4dn.4xlarge"
+
+      # No documentation available.
+      #
+      g4dn_8xlarge = "g4dn.8xlarge"
+
+      # No documentation available.
+      #
+      g4dn_12xlarge = "g4dn.12xlarge"
+
+      # No documentation available.
+      #
+      g4dn_16xlarge = "g4dn.16xlarge"
+
+      # No documentation available.
+      #
+      g4dn_metal = "g4dn.metal"
+
+      # No documentation available.
+      #
+      g5_xlarge = "g5.xlarge"
+
+      # No documentation available.
+      #
+      g5_2xlarge = "g5.2xlarge"
+
+      # No documentation available.
+      #
+      g5_4xlarge = "g5.4xlarge"
+
+      # No documentation available.
+      #
+      g5_8xlarge = "g5.8xlarge"
+
+      # No documentation available.
+      #
+      g5_12xlarge = "g5.12xlarge"
+
+      # No documentation available.
+      #
+      g5_16xlarge = "g5.16xlarge"
+
+      # No documentation available.
+      #
+      g5_24xlarge = "g5.24xlarge"
+
+      # No documentation available.
+      #
+      g5_48xlarge = "g5.48xlarge"
+
+      # No documentation available.
+      #
+      g5g_xlarge = "g5g.xlarge"
+
+      # No documentation available.
+      #
+      g5g_2xlarge = "g5g.2xlarge"
+
+      # No documentation available.
+      #
+      g5g_4xlarge = "g5g.4xlarge"
+
+      # No documentation available.
+      #
+      g5g_8xlarge = "g5g.8xlarge"
+
+      # No documentation available.
+      #
+      g5g_16xlarge = "g5g.16xlarge"
+
+      # No documentation available.
+      #
+      g5g_metal = "g5g.metal"
+
+      # No documentation available.
+      #
+      hi1_4xlarge = "hi1.4xlarge"
+
+      # No documentation available.
+      #
+      hs1_8xlarge = "hs1.8xlarge"
+
+      # No documentation available.
+      #
+      h1_2xlarge = "h1.2xlarge"
+
+      # No documentation available.
+      #
+      h1_4xlarge = "h1.4xlarge"
+
+      # No documentation available.
+      #
+      h1_8xlarge = "h1.8xlarge"
+
+      # No documentation available.
+      #
+      h1_16xlarge = "h1.16xlarge"
+
+      # No documentation available.
+      #
+      i2_xlarge = "i2.xlarge"
+
+      # No documentation available.
+      #
+      i2_2xlarge = "i2.2xlarge"
+
+      # No documentation available.
+      #
+      i2_4xlarge = "i2.4xlarge"
+
+      # No documentation available.
+      #
+      i2_8xlarge = "i2.8xlarge"
+
+      # No documentation available.
+      #
+      i3_large = "i3.large"
+
+      # No documentation available.
+      #
+      i3_xlarge = "i3.xlarge"
+
+      # No documentation available.
+      #
+      i3_2xlarge = "i3.2xlarge"
+
+      # No documentation available.
+      #
+      i3_4xlarge = "i3.4xlarge"
+
+      # No documentation available.
+      #
+      i3_8xlarge = "i3.8xlarge"
+
+      # No documentation available.
+      #
+      i3_16xlarge = "i3.16xlarge"
+
+      # No documentation available.
+      #
+      i3_metal = "i3.metal"
+
+      # No documentation available.
+      #
+      i3en_large = "i3en.large"
+
+      # No documentation available.
+      #
+      i3en_xlarge = "i3en.xlarge"
+
+      # No documentation available.
+      #
+      i3en_2xlarge = "i3en.2xlarge"
+
+      # No documentation available.
+      #
+      i3en_3xlarge = "i3en.3xlarge"
+
+      # No documentation available.
+      #
+      i3en_6xlarge = "i3en.6xlarge"
+
+      # No documentation available.
+      #
+      i3en_12xlarge = "i3en.12xlarge"
+
+      # No documentation available.
+      #
+      i3en_24xlarge = "i3en.24xlarge"
+
+      # No documentation available.
+      #
+      i3en_metal = "i3en.metal"
+
+      # No documentation available.
+      #
+      im4gn_large = "im4gn.large"
+
+      # No documentation available.
+      #
+      im4gn_xlarge = "im4gn.xlarge"
+
+      # No documentation available.
+      #
+      im4gn_2xlarge = "im4gn.2xlarge"
+
+      # No documentation available.
+      #
+      im4gn_4xlarge = "im4gn.4xlarge"
+
+      # No documentation available.
+      #
+      im4gn_8xlarge = "im4gn.8xlarge"
+
+      # No documentation available.
+      #
+      im4gn_16xlarge = "im4gn.16xlarge"
+
+      # No documentation available.
+      #
+      inf1_xlarge = "inf1.xlarge"
+
+      # No documentation available.
+      #
+      inf1_2xlarge = "inf1.2xlarge"
+
+      # No documentation available.
+      #
+      inf1_6xlarge = "inf1.6xlarge"
+
+      # No documentation available.
+      #
+      inf1_24xlarge = "inf1.24xlarge"
+
+      # No documentation available.
+      #
+      is4gen_medium = "is4gen.medium"
+
+      # No documentation available.
+      #
+      is4gen_large = "is4gen.large"
+
+      # No documentation available.
+      #
+      is4gen_xlarge = "is4gen.xlarge"
+
+      # No documentation available.
+      #
+      is4gen_2xlarge = "is4gen.2xlarge"
+
+      # No documentation available.
+      #
+      is4gen_4xlarge = "is4gen.4xlarge"
+
+      # No documentation available.
+      #
+      is4gen_8xlarge = "is4gen.8xlarge"
+
+      # No documentation available.
+      #
+      m1_small = "m1.small"
+
+      # No documentation available.
+      #
+      m1_medium = "m1.medium"
+
+      # No documentation available.
+      #
+      m1_large = "m1.large"
+
+      # No documentation available.
+      #
+      m1_xlarge = "m1.xlarge"
+
+      # No documentation available.
+      #
+      m2_xlarge = "m2.xlarge"
+
+      # No documentation available.
+      #
+      m2_2xlarge = "m2.2xlarge"
+
+      # No documentation available.
+      #
+      m2_4xlarge = "m2.4xlarge"
+
+      # No documentation available.
+      #
+      m3_medium = "m3.medium"
+
+      # No documentation available.
+      #
+      m3_large = "m3.large"
+
+      # No documentation available.
+      #
+      m3_xlarge = "m3.xlarge"
+
+      # No documentation available.
+      #
+      m3_2xlarge = "m3.2xlarge"
+
+      # No documentation available.
+      #
+      m4_large = "m4.large"
+
+      # No documentation available.
+      #
+      m4_xlarge = "m4.xlarge"
+
+      # No documentation available.
+      #
+      m4_2xlarge = "m4.2xlarge"
+
+      # No documentation available.
+      #
+      m4_4xlarge = "m4.4xlarge"
+
+      # No documentation available.
+      #
+      m4_10xlarge = "m4.10xlarge"
+
+      # No documentation available.
+      #
+      m4_16xlarge = "m4.16xlarge"
+
+      # No documentation available.
+      #
+      m5_large = "m5.large"
+
+      # No documentation available.
+      #
+      m5_xlarge = "m5.xlarge"
+
+      # No documentation available.
+      #
+      m5_2xlarge = "m5.2xlarge"
+
+      # No documentation available.
+      #
+      m5_4xlarge = "m5.4xlarge"
+
+      # No documentation available.
+      #
+      m5_8xlarge = "m5.8xlarge"
+
+      # No documentation available.
+      #
+      m5_12xlarge = "m5.12xlarge"
+
+      # No documentation available.
+      #
+      m5_16xlarge = "m5.16xlarge"
+
+      # No documentation available.
+      #
+      m5_24xlarge = "m5.24xlarge"
+
+      # No documentation available.
+      #
+      m5_metal = "m5.metal"
+
+      # No documentation available.
+      #
+      m5a_large = "m5a.large"
+
+      # No documentation available.
+      #
+      m5a_xlarge = "m5a.xlarge"
+
+      # No documentation available.
+      #
+      m5a_2xlarge = "m5a.2xlarge"
+
+      # No documentation available.
+      #
+      m5a_4xlarge = "m5a.4xlarge"
+
+      # No documentation available.
+      #
+      m5a_8xlarge = "m5a.8xlarge"
+
+      # No documentation available.
+      #
+      m5a_12xlarge = "m5a.12xlarge"
+
+      # No documentation available.
+      #
+      m5a_16xlarge = "m5a.16xlarge"
+
+      # No documentation available.
+      #
+      m5a_24xlarge = "m5a.24xlarge"
+
+      # No documentation available.
+      #
+      m5ad_large = "m5ad.large"
+
+      # No documentation available.
+      #
+      m5ad_xlarge = "m5ad.xlarge"
+
+      # No documentation available.
+      #
+      m5ad_2xlarge = "m5ad.2xlarge"
+
+      # No documentation available.
+      #
+      m5ad_4xlarge = "m5ad.4xlarge"
+
+      # No documentation available.
+      #
+      m5ad_8xlarge = "m5ad.8xlarge"
+
+      # No documentation available.
+      #
+      m5ad_12xlarge = "m5ad.12xlarge"
+
+      # No documentation available.
+      #
+      m5ad_16xlarge = "m5ad.16xlarge"
+
+      # No documentation available.
+      #
+      m5ad_24xlarge = "m5ad.24xlarge"
+
+      # No documentation available.
+      #
+      m5d_large = "m5d.large"
+
+      # No documentation available.
+      #
+      m5d_xlarge = "m5d.xlarge"
+
+      # No documentation available.
+      #
+      m5d_2xlarge = "m5d.2xlarge"
+
+      # No documentation available.
+      #
+      m5d_4xlarge = "m5d.4xlarge"
+
+      # No documentation available.
+      #
+      m5d_8xlarge = "m5d.8xlarge"
+
+      # No documentation available.
+      #
+      m5d_12xlarge = "m5d.12xlarge"
+
+      # No documentation available.
+      #
+      m5d_16xlarge = "m5d.16xlarge"
+
+      # No documentation available.
+      #
+      m5d_24xlarge = "m5d.24xlarge"
+
+      # No documentation available.
+      #
+      m5d_metal = "m5d.metal"
+
+      # No documentation available.
+      #
+      m5dn_large = "m5dn.large"
+
+      # No documentation available.
+      #
+      m5dn_xlarge = "m5dn.xlarge"
+
+      # No documentation available.
+      #
+      m5dn_2xlarge = "m5dn.2xlarge"
+
+      # No documentation available.
+      #
+      m5dn_4xlarge = "m5dn.4xlarge"
+
+      # No documentation available.
+      #
+      m5dn_8xlarge = "m5dn.8xlarge"
+
+      # No documentation available.
+      #
+      m5dn_12xlarge = "m5dn.12xlarge"
+
+      # No documentation available.
+      #
+      m5dn_16xlarge = "m5dn.16xlarge"
+
+      # No documentation available.
+      #
+      m5dn_24xlarge = "m5dn.24xlarge"
+
+      # No documentation available.
+      #
+      m5dn_metal = "m5dn.metal"
+
+      # No documentation available.
+      #
+      m5n_large = "m5n.large"
+
+      # No documentation available.
+      #
+      m5n_xlarge = "m5n.xlarge"
+
+      # No documentation available.
+      #
+      m5n_2xlarge = "m5n.2xlarge"
+
+      # No documentation available.
+      #
+      m5n_4xlarge = "m5n.4xlarge"
+
+      # No documentation available.
+      #
+      m5n_8xlarge = "m5n.8xlarge"
+
+      # No documentation available.
+      #
+      m5n_12xlarge = "m5n.12xlarge"
+
+      # No documentation available.
+      #
+      m5n_16xlarge = "m5n.16xlarge"
+
+      # No documentation available.
+      #
+      m5n_24xlarge = "m5n.24xlarge"
+
+      # No documentation available.
+      #
+      m5n_metal = "m5n.metal"
+
+      # No documentation available.
+      #
+      m5zn_large = "m5zn.large"
+
+      # No documentation available.
+      #
+      m5zn_xlarge = "m5zn.xlarge"
+
+      # No documentation available.
+      #
+      m5zn_2xlarge = "m5zn.2xlarge"
+
+      # No documentation available.
+      #
+      m5zn_3xlarge = "m5zn.3xlarge"
+
+      # No documentation available.
+      #
+      m5zn_6xlarge = "m5zn.6xlarge"
+
+      # No documentation available.
+      #
+      m5zn_12xlarge = "m5zn.12xlarge"
+
+      # No documentation available.
+      #
+      m5zn_metal = "m5zn.metal"
+
+      # No documentation available.
+      #
+      m6a_large = "m6a.large"
+
+      # No documentation available.
+      #
+      m6a_xlarge = "m6a.xlarge"
+
+      # No documentation available.
+      #
+      m6a_2xlarge = "m6a.2xlarge"
+
+      # No documentation available.
+      #
+      m6a_4xlarge = "m6a.4xlarge"
+
+      # No documentation available.
+      #
+      m6a_8xlarge = "m6a.8xlarge"
+
+      # No documentation available.
+      #
+      m6a_12xlarge = "m6a.12xlarge"
+
+      # No documentation available.
+      #
+      m6a_16xlarge = "m6a.16xlarge"
+
+      # No documentation available.
+      #
+      m6a_24xlarge = "m6a.24xlarge"
+
+      # No documentation available.
+      #
+      m6a_32xlarge = "m6a.32xlarge"
+
+      # No documentation available.
+      #
+      m6a_48xlarge = "m6a.48xlarge"
+
+      # No documentation available.
+      #
+      m6g_metal = "m6g.metal"
+
+      # No documentation available.
+      #
+      m6g_medium = "m6g.medium"
+
+      # No documentation available.
+      #
+      m6g_large = "m6g.large"
+
+      # No documentation available.
+      #
+      m6g_xlarge = "m6g.xlarge"
+
+      # No documentation available.
+      #
+      m6g_2xlarge = "m6g.2xlarge"
+
+      # No documentation available.
+      #
+      m6g_4xlarge = "m6g.4xlarge"
+
+      # No documentation available.
+      #
+      m6g_8xlarge = "m6g.8xlarge"
+
+      # No documentation available.
+      #
+      m6g_12xlarge = "m6g.12xlarge"
+
+      # No documentation available.
+      #
+      m6g_16xlarge = "m6g.16xlarge"
+
+      # No documentation available.
+      #
+      m6gd_metal = "m6gd.metal"
+
+      # No documentation available.
+      #
+      m6gd_medium = "m6gd.medium"
+
+      # No documentation available.
+      #
+      m6gd_large = "m6gd.large"
+
+      # No documentation available.
+      #
+      m6gd_xlarge = "m6gd.xlarge"
+
+      # No documentation available.
+      #
+      m6gd_2xlarge = "m6gd.2xlarge"
+
+      # No documentation available.
+      #
+      m6gd_4xlarge = "m6gd.4xlarge"
+
+      # No documentation available.
+      #
+      m6gd_8xlarge = "m6gd.8xlarge"
+
+      # No documentation available.
+      #
+      m6gd_12xlarge = "m6gd.12xlarge"
+
+      # No documentation available.
+      #
+      m6gd_16xlarge = "m6gd.16xlarge"
+
+      # No documentation available.
+      #
+      m6i_large = "m6i.large"
+
+      # No documentation available.
+      #
+      m6i_xlarge = "m6i.xlarge"
+
+      # No documentation available.
+      #
+      m6i_2xlarge = "m6i.2xlarge"
+
+      # No documentation available.
+      #
+      m6i_4xlarge = "m6i.4xlarge"
+
+      # No documentation available.
+      #
+      m6i_8xlarge = "m6i.8xlarge"
+
+      # No documentation available.
+      #
+      m6i_12xlarge = "m6i.12xlarge"
+
+      # No documentation available.
+      #
+      m6i_16xlarge = "m6i.16xlarge"
+
+      # No documentation available.
+      #
+      m6i_24xlarge = "m6i.24xlarge"
+
+      # No documentation available.
+      #
+      m6i_32xlarge = "m6i.32xlarge"
+
+      # No documentation available.
+      #
+      mac1_metal = "mac1.metal"
+
+      # No documentation available.
+      #
+      p2_xlarge = "p2.xlarge"
+
+      # No documentation available.
+      #
+      p2_8xlarge = "p2.8xlarge"
+
+      # No documentation available.
+      #
+      p2_16xlarge = "p2.16xlarge"
+
+      # No documentation available.
+      #
+      p3_2xlarge = "p3.2xlarge"
+
+      # No documentation available.
+      #
+      p3_8xlarge = "p3.8xlarge"
+
+      # No documentation available.
+      #
+      p3_16xlarge = "p3.16xlarge"
+
+      # No documentation available.
+      #
+      p3dn_24xlarge = "p3dn.24xlarge"
+
+      # No documentation available.
+      #
+      p4d_24xlarge = "p4d.24xlarge"
+
+      # No documentation available.
+      #
+      r3_large = "r3.large"
+
+      # No documentation available.
+      #
+      r3_xlarge = "r3.xlarge"
+
+      # No documentation available.
+      #
+      r3_2xlarge = "r3.2xlarge"
+
+      # No documentation available.
+      #
+      r3_4xlarge = "r3.4xlarge"
+
+      # No documentation available.
+      #
+      r3_8xlarge = "r3.8xlarge"
+
+      # No documentation available.
+      #
+      r4_large = "r4.large"
+
+      # No documentation available.
+      #
+      r4_xlarge = "r4.xlarge"
+
+      # No documentation available.
+      #
+      r4_2xlarge = "r4.2xlarge"
+
+      # No documentation available.
+      #
+      r4_4xlarge = "r4.4xlarge"
+
+      # No documentation available.
+      #
+      r4_8xlarge = "r4.8xlarge"
+
+      # No documentation available.
+      #
+      r4_16xlarge = "r4.16xlarge"
+
+      # No documentation available.
+      #
+      r5_large = "r5.large"
+
+      # No documentation available.
+      #
+      r5_xlarge = "r5.xlarge"
+
+      # No documentation available.
+      #
+      r5_2xlarge = "r5.2xlarge"
+
+      # No documentation available.
+      #
+      r5_4xlarge = "r5.4xlarge"
+
+      # No documentation available.
+      #
+      r5_8xlarge = "r5.8xlarge"
+
+      # No documentation available.
+      #
+      r5_12xlarge = "r5.12xlarge"
+
+      # No documentation available.
+      #
+      r5_16xlarge = "r5.16xlarge"
+
+      # No documentation available.
+      #
+      r5_24xlarge = "r5.24xlarge"
+
+      # No documentation available.
+      #
+      r5_metal = "r5.metal"
+
+      # No documentation available.
+      #
+      r5a_large = "r5a.large"
+
+      # No documentation available.
+      #
+      r5a_xlarge = "r5a.xlarge"
+
+      # No documentation available.
+      #
+      r5a_2xlarge = "r5a.2xlarge"
+
+      # No documentation available.
+      #
+      r5a_4xlarge = "r5a.4xlarge"
+
+      # No documentation available.
+      #
+      r5a_8xlarge = "r5a.8xlarge"
+
+      # No documentation available.
+      #
+      r5a_12xlarge = "r5a.12xlarge"
+
+      # No documentation available.
+      #
+      r5a_16xlarge = "r5a.16xlarge"
+
+      # No documentation available.
+      #
+      r5a_24xlarge = "r5a.24xlarge"
+
+      # No documentation available.
+      #
+      r5ad_large = "r5ad.large"
+
+      # No documentation available.
+      #
+      r5ad_xlarge = "r5ad.xlarge"
+
+      # No documentation available.
+      #
+      r5ad_2xlarge = "r5ad.2xlarge"
+
+      # No documentation available.
+      #
+      r5ad_4xlarge = "r5ad.4xlarge"
+
+      # No documentation available.
+      #
+      r5ad_8xlarge = "r5ad.8xlarge"
+
+      # No documentation available.
+      #
+      r5ad_12xlarge = "r5ad.12xlarge"
+
+      # No documentation available.
+      #
+      r5ad_16xlarge = "r5ad.16xlarge"
+
+      # No documentation available.
+      #
+      r5ad_24xlarge = "r5ad.24xlarge"
+
+      # No documentation available.
+      #
+      r5b_large = "r5b.large"
+
+      # No documentation available.
+      #
+      r5b_xlarge = "r5b.xlarge"
+
+      # No documentation available.
+      #
+      r5b_2xlarge = "r5b.2xlarge"
+
+      # No documentation available.
+      #
+      r5b_4xlarge = "r5b.4xlarge"
+
+      # No documentation available.
+      #
+      r5b_8xlarge = "r5b.8xlarge"
+
+      # No documentation available.
+      #
+      r5b_12xlarge = "r5b.12xlarge"
+
+      # No documentation available.
+      #
+      r5b_16xlarge = "r5b.16xlarge"
+
+      # No documentation available.
+      #
+      r5b_24xlarge = "r5b.24xlarge"
+
+      # No documentation available.
+      #
+      r5b_metal = "r5b.metal"
+
+      # No documentation available.
+      #
+      r5d_large = "r5d.large"
+
+      # No documentation available.
+      #
+      r5d_xlarge = "r5d.xlarge"
+
+      # No documentation available.
+      #
+      r5d_2xlarge = "r5d.2xlarge"
+
+      # No documentation available.
+      #
+      r5d_4xlarge = "r5d.4xlarge"
+
+      # No documentation available.
+      #
+      r5d_8xlarge = "r5d.8xlarge"
+
+      # No documentation available.
+      #
+      r5d_12xlarge = "r5d.12xlarge"
+
+      # No documentation available.
+      #
+      r5d_16xlarge = "r5d.16xlarge"
+
+      # No documentation available.
+      #
+      r5d_24xlarge = "r5d.24xlarge"
+
+      # No documentation available.
+      #
+      r5d_metal = "r5d.metal"
+
+      # No documentation available.
+      #
+      r5dn_large = "r5dn.large"
+
+      # No documentation available.
+      #
+      r5dn_xlarge = "r5dn.xlarge"
+
+      # No documentation available.
+      #
+      r5dn_2xlarge = "r5dn.2xlarge"
+
+      # No documentation available.
+      #
+      r5dn_4xlarge = "r5dn.4xlarge"
+
+      # No documentation available.
+      #
+      r5dn_8xlarge = "r5dn.8xlarge"
+
+      # No documentation available.
+      #
+      r5dn_12xlarge = "r5dn.12xlarge"
+
+      # No documentation available.
+      #
+      r5dn_16xlarge = "r5dn.16xlarge"
+
+      # No documentation available.
+      #
+      r5dn_24xlarge = "r5dn.24xlarge"
+
+      # No documentation available.
+      #
+      r5dn_metal = "r5dn.metal"
+
+      # No documentation available.
+      #
+      r5n_large = "r5n.large"
+
+      # No documentation available.
+      #
+      r5n_xlarge = "r5n.xlarge"
+
+      # No documentation available.
+      #
+      r5n_2xlarge = "r5n.2xlarge"
+
+      # No documentation available.
+      #
+      r5n_4xlarge = "r5n.4xlarge"
+
+      # No documentation available.
+      #
+      r5n_8xlarge = "r5n.8xlarge"
+
+      # No documentation available.
+      #
+      r5n_12xlarge = "r5n.12xlarge"
+
+      # No documentation available.
+      #
+      r5n_16xlarge = "r5n.16xlarge"
+
+      # No documentation available.
+      #
+      r5n_24xlarge = "r5n.24xlarge"
+
+      # No documentation available.
+      #
+      r5n_metal = "r5n.metal"
+
+      # No documentation available.
+      #
+      r6g_medium = "r6g.medium"
+
+      # No documentation available.
+      #
+      r6g_large = "r6g.large"
+
+      # No documentation available.
+      #
+      r6g_xlarge = "r6g.xlarge"
+
+      # No documentation available.
+      #
+      r6g_2xlarge = "r6g.2xlarge"
+
+      # No documentation available.
+      #
+      r6g_4xlarge = "r6g.4xlarge"
+
+      # No documentation available.
+      #
+      r6g_8xlarge = "r6g.8xlarge"
+
+      # No documentation available.
+      #
+      r6g_12xlarge = "r6g.12xlarge"
+
+      # No documentation available.
+      #
+      r6g_16xlarge = "r6g.16xlarge"
+
+      # No documentation available.
+      #
+      r6g_metal = "r6g.metal"
+
+      # No documentation available.
+      #
+      r6gd_medium = "r6gd.medium"
+
+      # No documentation available.
+      #
+      r6gd_large = "r6gd.large"
+
+      # No documentation available.
+      #
+      r6gd_xlarge = "r6gd.xlarge"
+
+      # No documentation available.
+      #
+      r6gd_2xlarge = "r6gd.2xlarge"
+
+      # No documentation available.
+      #
+      r6gd_4xlarge = "r6gd.4xlarge"
+
+      # No documentation available.
+      #
+      r6gd_8xlarge = "r6gd.8xlarge"
+
+      # No documentation available.
+      #
+      r6gd_12xlarge = "r6gd.12xlarge"
+
+      # No documentation available.
+      #
+      r6gd_16xlarge = "r6gd.16xlarge"
+
+      # No documentation available.
+      #
+      r6gd_metal = "r6gd.metal"
+
+      # No documentation available.
+      #
+      t1_micro = "t1.micro"
+
+      # No documentation available.
+      #
+      t2_nano = "t2.nano"
+
+      # No documentation available.
+      #
+      t2_micro = "t2.micro"
+
+      # No documentation available.
+      #
+      t2_small = "t2.small"
+
+      # No documentation available.
+      #
+      t2_medium = "t2.medium"
+
+      # No documentation available.
+      #
+      t2_large = "t2.large"
+
+      # No documentation available.
+      #
+      t2_xlarge = "t2.xlarge"
+
+      # No documentation available.
+      #
+      t2_2xlarge = "t2.2xlarge"
+
+      # No documentation available.
+      #
+      t3_nano = "t3.nano"
+
+      # No documentation available.
+      #
+      t3_micro = "t3.micro"
+
+      # No documentation available.
+      #
+      t3_small = "t3.small"
+
+      # No documentation available.
+      #
+      t3_medium = "t3.medium"
+
+      # No documentation available.
+      #
+      t3_large = "t3.large"
+
+      # No documentation available.
+      #
+      t3_xlarge = "t3.xlarge"
+
+      # No documentation available.
+      #
+      t3_2xlarge = "t3.2xlarge"
+
+      # No documentation available.
+      #
+      t3a_nano = "t3a.nano"
+
+      # No documentation available.
+      #
+      t3a_micro = "t3a.micro"
+
+      # No documentation available.
+      #
+      t3a_small = "t3a.small"
+
+      # No documentation available.
+      #
+      t3a_medium = "t3a.medium"
+
+      # No documentation available.
+      #
+      t3a_large = "t3a.large"
+
+      # No documentation available.
+      #
+      t3a_xlarge = "t3a.xlarge"
+
+      # No documentation available.
+      #
+      t3a_2xlarge = "t3a.2xlarge"
+
+      # No documentation available.
+      #
+      t4g_nano = "t4g.nano"
+
+      # No documentation available.
+      #
+      t4g_micro = "t4g.micro"
+
+      # No documentation available.
+      #
+      t4g_small = "t4g.small"
+
+      # No documentation available.
+      #
+      t4g_medium = "t4g.medium"
+
+      # No documentation available.
+      #
+      t4g_large = "t4g.large"
+
+      # No documentation available.
+      #
+      t4g_xlarge = "t4g.xlarge"
+
+      # No documentation available.
+      #
+      t4g_2xlarge = "t4g.2xlarge"
+
+      # No documentation available.
+      #
+      u_6tb1_56xlarge = "u-6tb1.56xlarge"
+
+      # No documentation available.
+      #
+      u_6tb1_112xlarge = "u-6tb1.112xlarge"
+
+      # No documentation available.
+      #
+      u_9tb1_112xlarge = "u-9tb1.112xlarge"
+
+      # No documentation available.
+      #
+      u_12tb1_112xlarge = "u-12tb1.112xlarge"
+
+      # No documentation available.
+      #
+      u_6tb1_metal = "u-6tb1.metal"
+
+      # No documentation available.
+      #
+      u_9tb1_metal = "u-9tb1.metal"
+
+      # No documentation available.
+      #
+      u_12tb1_metal = "u-12tb1.metal"
+
+      # No documentation available.
+      #
+      u_18tb1_metal = "u-18tb1.metal"
+
+      # No documentation available.
+      #
+      u_24tb1_metal = "u-24tb1.metal"
+
+      # No documentation available.
+      #
+      vt1_3xlarge = "vt1.3xlarge"
+
+      # No documentation available.
+      #
+      vt1_6xlarge = "vt1.6xlarge"
+
+      # No documentation available.
+      #
+      vt1_24xlarge = "vt1.24xlarge"
+
+      # No documentation available.
+      #
+      x1_16xlarge = "x1.16xlarge"
+
+      # No documentation available.
+      #
+      x1_32xlarge = "x1.32xlarge"
+
+      # No documentation available.
+      #
+      x1e_xlarge = "x1e.xlarge"
+
+      # No documentation available.
+      #
+      x1e_2xlarge = "x1e.2xlarge"
+
+      # No documentation available.
+      #
+      x1e_4xlarge = "x1e.4xlarge"
+
+      # No documentation available.
+      #
+      x1e_8xlarge = "x1e.8xlarge"
+
+      # No documentation available.
+      #
+      x1e_16xlarge = "x1e.16xlarge"
+
+      # No documentation available.
+      #
+      x1e_32xlarge = "x1e.32xlarge"
+
+      # No documentation available.
+      #
+      x2gd_medium = "x2gd.medium"
+
+      # No documentation available.
+      #
+      x2gd_large = "x2gd.large"
+
+      # No documentation available.
+      #
+      x2gd_xlarge = "x2gd.xlarge"
+
+      # No documentation available.
+      #
+      x2gd_2xlarge = "x2gd.2xlarge"
+
+      # No documentation available.
+      #
+      x2gd_4xlarge = "x2gd.4xlarge"
+
+      # No documentation available.
+      #
+      x2gd_8xlarge = "x2gd.8xlarge"
+
+      # No documentation available.
+      #
+      x2gd_12xlarge = "x2gd.12xlarge"
+
+      # No documentation available.
+      #
+      x2gd_16xlarge = "x2gd.16xlarge"
+
+      # No documentation available.
+      #
+      x2gd_metal = "x2gd.metal"
+
+      # No documentation available.
+      #
+      z1d_large = "z1d.large"
+
+      # No documentation available.
+      #
+      z1d_xlarge = "z1d.xlarge"
+
+      # No documentation available.
+      #
+      z1d_2xlarge = "z1d.2xlarge"
+
+      # No documentation available.
+      #
+      z1d_3xlarge = "z1d.3xlarge"
+
+      # No documentation available.
+      #
+      z1d_6xlarge = "z1d.6xlarge"
+
+      # No documentation available.
+      #
+      z1d_12xlarge = "z1d.12xlarge"
+
+      # No documentation available.
+      #
+      z1d_metal = "z1d.metal"
+    end
+
+    # Includes enum constants for InstanceTypeHypervisor
+    #
+    module InstanceTypeHypervisor
+      # No documentation available.
+      #
+      NITRO = "nitro"
+
+      # No documentation available.
+      #
+      XEN = "xen"
     end
 
     # <p>Describes the instance type.</p>
     #
     # @!attribute instance_type
     #   <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
+    #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
     #
     #   @return [String]
     #
@@ -36289,6 +43399,8 @@ module AWS::Ec2
     #
     # @!attribute hypervisor
     #   <p>The hypervisor for the instance type.</p>
+    #
+    #   Enum, one of: ["nitro", "xen"]
     #
     #   @return [String]
     #
@@ -36422,10 +43534,14 @@ module AWS::Ec2
     # @!attribute instance_type
     #   <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
     #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
+    #
     #   @return [String]
     #
     # @!attribute location_type
     #   <p>The location type.</p>
+    #
+    #   Enum, one of: ["region", "availability-zone", "availability-zone-id"]
     #
     #   @return [String]
     #
@@ -36462,6 +43578,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.used_instance_count ||= 0
+      end
+
     end
 
     # <p>Describes service integrations with VPC Flow logs.</p>
@@ -36476,6 +43597,30 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for InterfacePermissionType
+    #
+    module InterfacePermissionType
+      # No documentation available.
+      #
+      INSTANCE_ATTACH = "INSTANCE-ATTACH"
+
+      # No documentation available.
+      #
+      EIP_ASSOCIATE = "EIP-ASSOCIATE"
+    end
+
+    # Includes enum constants for InterfaceProtocolType
+    #
+    module InterfaceProtocolType
+      # No documentation available.
+      #
+      VLAN = "VLAN"
+
+      # No documentation available.
+      #
+      GRE = "GRE"
     end
 
     # <p>Describes an internet gateway.</p>
@@ -36517,6 +43662,8 @@ module AWS::Ec2
     #   <p>The current state of the attachment. For an internet gateway, the state is
     #   				<code>available</code> when attached to a VPC; otherwise, this value is not
     #   			returned.</p>
+    #
+    #   Enum, one of: ["attaching", "attached", "detaching", "detached"]
     #
     #   @return [String]
     #
@@ -36592,6 +43739,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.from_port ||= 0
+        self.to_port ||= 0
+      end
+
     end
 
     # <p>Describes an IPv4 range.</p>
@@ -36670,6 +43823,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of the IPAM.</p>
     #
+    #   Enum, one of: ["create-in-progress", "create-complete", "create-failed", "modify-in-progress", "modify-complete", "modify-failed", "delete-in-progress", "delete-complete", "delete-failed"]
+    #
     #   @return [String]
     #
     # @!attribute tags
@@ -36693,6 +43848,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.scope_count ||= 0
+      end
+
     end
 
     # <p>The historical record of a CIDR within an IPAM scope. For more information, see <a href="/vpc/latest/ipam/view-history-cidr-ipam.html">View the history of IP addresses</a> in the <i>Amazon VPC IPAM User Guide</i>.
@@ -36710,6 +43870,8 @@ module AWS::Ec2
     #
     # @!attribute resource_type
     #   <p>The type of the resource.</p>
+    #
+    #   Enum, one of: ["eip", "vpc", "subnet", "network-interface", "instance"]
     #
     #   @return [String]
     #
@@ -36731,10 +43893,14 @@ module AWS::Ec2
     # @!attribute resource_compliance_status
     #   <p>The compliance status of a resource. For more information on compliance statuses, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
     #
+    #   Enum, one of: ["compliant", "noncompliant", "unmanaged", "ignored"]
+    #
     #   @return [String]
     #
     # @!attribute resource_overlap_status
     #   <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+    #
+    #   Enum, one of: ["overlapping", "nonoverlapping", "ignored"]
     #
     #   @return [String]
     #
@@ -36770,6 +43936,30 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for IpamAddressHistoryResourceType
+    #
+    module IpamAddressHistoryResourceType
+      # No documentation available.
+      #
+      eip = "eip"
+
+      # No documentation available.
+      #
+      vpc = "vpc"
+
+      # No documentation available.
+      #
+      subnet = "subnet"
+
+      # No documentation available.
+      #
+      network_interface = "network-interface"
+
+      # No documentation available.
+      #
+      instance = "instance"
+    end
+
     # <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.</p>
     #
     # @!attribute message
@@ -36790,6 +43980,42 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for IpamComplianceStatus
+    #
+    module IpamComplianceStatus
+      # No documentation available.
+      #
+      compliant = "compliant"
+
+      # No documentation available.
+      #
+      noncompliant = "noncompliant"
+
+      # No documentation available.
+      #
+      unmanaged = "unmanaged"
+
+      # No documentation available.
+      #
+      ignored = "ignored"
+    end
+
+    # Includes enum constants for IpamManagementState
+    #
+    module IpamManagementState
+      # No documentation available.
+      #
+      managed = "managed"
+
+      # No documentation available.
+      #
+      unmanaged = "unmanaged"
+
+      # No documentation available.
+      #
+      ignored = "ignored"
+    end
+
     # <p>The operating Regions for an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
     #          discovers and monitors resources in the Amazon Web Services Regions you select as operating Regions.</p>
     #          <p>For more information about operating Regions, see <a href="/vpc/latest/ipam/create-ipam.html">Create an IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
@@ -36804,6 +44030,22 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for IpamOverlapStatus
+    #
+    module IpamOverlapStatus
+      # No documentation available.
+      #
+      overlapping = "overlapping"
+
+      # No documentation available.
+      #
+      nonoverlapping = "nonoverlapping"
+
+      # No documentation available.
+      #
+      ignored = "ignored"
     end
 
     # <p>In IPAM, a pool is a collection of contiguous IP addresses CIDRs. Pools enable you to organize your IP addresses according to your routing and security needs. For example, if you have separate routing and security needs for development and production applications, you can create a pool for each.</p>
@@ -36836,6 +44078,8 @@ module AWS::Ec2
     # @!attribute ipam_scope_type
     #   <p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
     #
+    #   Enum, one of: ["public", "private"]
+    #
     #   @return [String]
     #
     # @!attribute ipam_arn
@@ -36861,6 +44105,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the IPAM pool.</p>
+    #
+    #   Enum, one of: ["create-in-progress", "create-complete", "create-failed", "modify-in-progress", "modify-complete", "modify-failed", "delete-in-progress", "delete-complete", "delete-failed"]
     #
     #   @return [String]
     #
@@ -36894,6 +44140,8 @@ module AWS::Ec2
     # @!attribute address_family
     #   <p>The address family of the pool.</p>
     #
+    #   Enum, one of: ["ipv4", "ipv6"]
+    #
     #   @return [String]
     #
     # @!attribute allocation_min_netmask_length
@@ -36926,6 +44174,8 @@ module AWS::Ec2
     # @!attribute aws_service
     #   <p>Limits which service in Amazon Web Services that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.</p>
     #
+    #   Enum, one of: ["ec2"]
+    #
     #   @return [String]
     #
     IpamPool = ::Struct.new(
@@ -36954,6 +44204,16 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.pool_depth ||= 0
+        self.auto_import ||= false
+        self.publicly_advertisable ||= false
+        self.allocation_min_netmask_length ||= 0
+        self.allocation_max_netmask_length ||= 0
+        self.allocation_default_netmask_length ||= 0
+      end
+
     end
 
     # <p>In IPAM, an allocation is a CIDR assignment from an IPAM pool to another resource or IPAM pool.</p>
@@ -36982,6 +44242,8 @@ module AWS::Ec2
     # @!attribute resource_type
     #   <p>The type of the resource.</p>
     #
+    #   Enum, one of: ["ipam-pool", "vpc", "ec2-public-ipv4-pool", "custom"]
+    #
     #   @return [String]
     #
     # @!attribute resource_region
@@ -37007,6 +44269,34 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for IpamPoolAllocationResourceType
+    #
+    module IpamPoolAllocationResourceType
+      # No documentation available.
+      #
+      ipam_pool = "ipam-pool"
+
+      # No documentation available.
+      #
+      vpc = "vpc"
+
+      # No documentation available.
+      #
+      ec2_public_ipv4_pool = "ec2-public-ipv4-pool"
+
+      # No documentation available.
+      #
+      custom = "custom"
+    end
+
+    # Includes enum constants for IpamPoolAwsService
+    #
+    module IpamPoolAwsService
+      # No documentation available.
+      #
+      ec2 = "ec2"
+    end
+
     # <p>A CIDR provisioned to an IPAM pool.</p>
     #
     # @!attribute cidr
@@ -37017,6 +44307,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the CIDR.</p>
+    #
+    #   Enum, one of: ["pending-provision", "provisioned", "failed-provision", "pending-deprovision", "deprovisioned", "failed-deprovision", "pending-import", "failed-import"]
     #
     #   @return [String]
     #
@@ -37034,10 +44326,20 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for IpamPoolCidrFailureCode
+    #
+    module IpamPoolCidrFailureCode
+      # No documentation available.
+      #
+      cidr_not_available = "cidr-not-available"
+    end
+
     # <p>Details related to why an IPAM pool CIDR failed to be provisioned.</p>
     #
     # @!attribute code
     #   <p>An error code related to why an IPAM pool CIDR failed to be provisioned.</p>
+    #
+    #   Enum, one of: ["cidr-not-available"]
     #
     #   @return [String]
     #
@@ -37052,6 +44354,82 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for IpamPoolCidrState
+    #
+    module IpamPoolCidrState
+      # No documentation available.
+      #
+      pending_provision = "pending-provision"
+
+      # No documentation available.
+      #
+      provisioned = "provisioned"
+
+      # No documentation available.
+      #
+      failed_provision = "failed-provision"
+
+      # No documentation available.
+      #
+      pending_deprovision = "pending-deprovision"
+
+      # No documentation available.
+      #
+      deprovisioned = "deprovisioned"
+
+      # No documentation available.
+      #
+      failed_deprovision = "failed-deprovision"
+
+      # No documentation available.
+      #
+      pending_import = "pending-import"
+
+      # No documentation available.
+      #
+      failed_import = "failed-import"
+    end
+
+    # Includes enum constants for IpamPoolState
+    #
+    module IpamPoolState
+      # No documentation available.
+      #
+      create_in_progress = "create-in-progress"
+
+      # No documentation available.
+      #
+      create_complete = "create-complete"
+
+      # No documentation available.
+      #
+      create_failed = "create-failed"
+
+      # No documentation available.
+      #
+      modify_in_progress = "modify-in-progress"
+
+      # No documentation available.
+      #
+      modify_complete = "modify-complete"
+
+      # No documentation available.
+      #
+      modify_failed = "modify-failed"
+
+      # No documentation available.
+      #
+      delete_in_progress = "delete-in-progress"
+
+      # No documentation available.
+      #
+      delete_complete = "delete-complete"
+
+      # No documentation available.
+      #
+      delete_failed = "delete-failed"
     end
 
     # <p>The CIDR for an IPAM resource.</p>
@@ -37099,6 +44477,8 @@ module AWS::Ec2
     # @!attribute resource_type
     #   <p>The type of IPAM resource.</p>
     #
+    #   Enum, one of: ["vpc", "subnet", "eip", "public-ipv4-pool", "ipv6-pool"]
+    #
     #   @return [String]
     #
     # @!attribute resource_tags
@@ -37114,15 +44494,21 @@ module AWS::Ec2
     # @!attribute compliance_status
     #   <p>The compliance status of the IPAM resource. For more information on compliance statuses, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
     #
+    #   Enum, one of: ["compliant", "noncompliant", "unmanaged", "ignored"]
+    #
     #   @return [String]
     #
     # @!attribute management_state
     #   <p>The management state of the resource. For more information about management states, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
     #
+    #   Enum, one of: ["managed", "unmanaged", "ignored"]
+    #
     #   @return [String]
     #
     # @!attribute overlap_status
     #   <p>The overlap status of an IPAM resource. The overlap status tells you if the CIDR for a resource overlaps with another CIDR in the scope. For more information on overlap statuses, see <a href="/vpc/latest/ipam/monitor-cidr-compliance-ipam.html">Monitor CIDR usage by resource</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+    #
+    #   Enum, one of: ["overlapping", "nonoverlapping", "ignored"]
     #
     #   @return [String]
     #
@@ -37173,6 +44559,30 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for IpamResourceType
+    #
+    module IpamResourceType
+      # No documentation available.
+      #
+      vpc = "vpc"
+
+      # No documentation available.
+      #
+      subnet = "subnet"
+
+      # No documentation available.
+      #
+      eip = "eip"
+
+      # No documentation available.
+      #
+      public_ipv4_pool = "public-ipv4-pool"
+
+      # No documentation available.
+      #
+      ipv6_pool = "ipv6-pool"
+    end
+
     # <p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
     #          <p>For more information, see <a href="/vpc/latest/ipam/how-it-works-ipam.html">How IPAM works</a> in the <i>Amazon VPC IPAM User Guide</i>
     #          </p>
@@ -37205,6 +44615,8 @@ module AWS::Ec2
     # @!attribute ipam_scope_type
     #   <p>The type of the scope.</p>
     #
+    #   Enum, one of: ["public", "private"]
+    #
     #   @return [String]
     #
     # @!attribute is_default
@@ -37224,6 +44636,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the IPAM scope.</p>
+    #
+    #   Enum, one of: ["create-in-progress", "create-complete", "create-failed", "modify-in-progress", "modify-complete", "modify-failed", "delete-in-progress", "delete-complete", "delete-failed"]
     #
     #   @return [String]
     #
@@ -37248,6 +44662,104 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.is_default ||= false
+        self.pool_count ||= 0
+      end
+
+    end
+
+    # Includes enum constants for IpamScopeState
+    #
+    module IpamScopeState
+      # No documentation available.
+      #
+      create_in_progress = "create-in-progress"
+
+      # No documentation available.
+      #
+      create_complete = "create-complete"
+
+      # No documentation available.
+      #
+      create_failed = "create-failed"
+
+      # No documentation available.
+      #
+      modify_in_progress = "modify-in-progress"
+
+      # No documentation available.
+      #
+      modify_complete = "modify-complete"
+
+      # No documentation available.
+      #
+      modify_failed = "modify-failed"
+
+      # No documentation available.
+      #
+      delete_in_progress = "delete-in-progress"
+
+      # No documentation available.
+      #
+      delete_complete = "delete-complete"
+
+      # No documentation available.
+      #
+      delete_failed = "delete-failed"
+    end
+
+    # Includes enum constants for IpamScopeType
+    #
+    module IpamScopeType
+      # No documentation available.
+      #
+      public = "public"
+
+      # No documentation available.
+      #
+      private = "private"
+    end
+
+    # Includes enum constants for IpamState
+    #
+    module IpamState
+      # No documentation available.
+      #
+      create_in_progress = "create-in-progress"
+
+      # No documentation available.
+      #
+      create_complete = "create-complete"
+
+      # No documentation available.
+      #
+      create_failed = "create-failed"
+
+      # No documentation available.
+      #
+      modify_in_progress = "modify-in-progress"
+
+      # No documentation available.
+      #
+      modify_complete = "modify-complete"
+
+      # No documentation available.
+      #
+      modify_failed = "modify-failed"
+
+      # No documentation available.
+      #
+      delete_in_progress = "delete-in-progress"
+
+      # No documentation available.
+      #
+      delete_complete = "delete-complete"
+
+      # No documentation available.
+      #
+      delete_failed = "delete-failed"
     end
 
     # <p>Describes an IPv4 prefix.</p>
@@ -37429,6 +44941,18 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for Ipv6SupportValue
+    #
+    module Ipv6SupportValue
+      # No documentation available.
+      #
+      enable = "enable"
+
+      # No documentation available.
+      #
+      disable = "disable"
+    end
+
     # <p>Describes a key pair.</p>
     #
     # @!attribute key_pair_id
@@ -37469,6 +44993,8 @@ module AWS::Ec2
     # @!attribute key_type
     #   <p>The type of key pair.</p>
     #
+    #   Enum, one of: ["rsa", "ed25519"]
+    #
     #   @return [String]
     #
     # @!attribute tags
@@ -37485,6 +45011,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for KeyType
+    #
+    module KeyType
+      # No documentation available.
+      #
+      rsa = "rsa"
+
+      # No documentation available.
+      #
+      ed25519 = "ed25519"
     end
 
     # <p>The last error that occurred for a VPC endpoint.</p>
@@ -37511,6 +45049,8 @@ module AWS::Ec2
     #
     # @!attribute group
     #   <p>The name of the group.</p>
+    #
+    #   Enum, one of: ["all"]
     #
     #   @return [String]
     #
@@ -37602,6 +45142,8 @@ module AWS::Ec2
     # @!attribute instance_type
     #   <p>The instance type.</p>
     #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
+    #
     #   @return [String]
     #
     # @!attribute kernel_id
@@ -37659,6 +45201,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.ebs_optimized ||= false
+      end
+
     end
 
     # <p>Describes a launch template.</p>
@@ -37709,6 +45256,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.default_version_number ||= 0
+        self.latest_version_number ||= 0
+      end
+
     end
 
     # <p>Describes a launch template and overrides.</p>
@@ -37820,6 +45373,8 @@ module AWS::Ec2
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["open", "none"]
+    #
     #   @return [String]
     #
     # @!attribute capacity_reservation_target
@@ -37851,6 +45406,8 @@ module AWS::Ec2
     #   				runs in On-Demand capacity.</p>
     #               </li>
     #            </ul>
+    #
+    #   Enum, one of: ["open", "none"]
     #
     #   @return [String]
     #
@@ -37906,6 +45463,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.core_count ||= 0
+        self.threads_per_core ||= 0
+      end
+
     end
 
     # <p>The CPU options for the instance. Both the core count and threads per core
@@ -37928,6 +45491,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.core_count ||= 0
+        self.threads_per_core ||= 0
+      end
+
     end
 
     # <p>Describes a block device for an EBS volume.</p>
@@ -37965,6 +45534,8 @@ module AWS::Ec2
     # @!attribute volume_type
     #   <p>The volume type.</p>
     #
+    #   Enum, one of: ["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"]
+    #
     #   @return [String]
     #
     # @!attribute throughput
@@ -37984,6 +45555,15 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.encrypted ||= false
+        self.delete_on_termination ||= false
+        self.iops ||= 0
+        self.volume_size ||= 0
+        self.throughput ||= 0
+      end
+
     end
 
     # <p>The parameters for a block device for an EBS volume.</p>
@@ -38066,6 +45646,8 @@ module AWS::Ec2
     #   <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
     #               <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
     #
+    #   Enum, one of: ["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"]
+    #
     #   @return [String]
     #
     # @!attribute throughput
@@ -38086,6 +45668,15 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.encrypted ||= false
+        self.delete_on_termination ||= false
+        self.iops ||= 0
+        self.volume_size ||= 0
+        self.throughput ||= 0
+      end
+
     end
 
     # <p>
@@ -38113,6 +45704,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.count ||= 0
+      end
+
     end
 
     # <p>
@@ -38140,6 +45736,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.count ||= 0
+      end
+
     end
 
     # <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.</p>
@@ -38155,6 +45756,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enabled ||= false
+      end
+
     end
 
     # <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For more information,
@@ -38171,6 +45777,39 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enabled ||= false
+      end
+
+    end
+
+    # Includes enum constants for LaunchTemplateErrorCode
+    #
+    module LaunchTemplateErrorCode
+      # No documentation available.
+      #
+      LAUNCH_TEMPLATE_ID_DOES_NOT_EXIST = "launchTemplateIdDoesNotExist"
+
+      # No documentation available.
+      #
+      LAUNCH_TEMPLATE_ID_MALFORMED = "launchTemplateIdMalformed"
+
+      # No documentation available.
+      #
+      LAUNCH_TEMPLATE_NAME_DOES_NOT_EXIST = "launchTemplateNameDoesNotExist"
+
+      # No documentation available.
+      #
+      LAUNCH_TEMPLATE_NAME_MALFORMED = "launchTemplateNameMalformed"
+
+      # No documentation available.
+      #
+      LAUNCH_TEMPLATE_VERSION_DOES_NOT_EXIST = "launchTemplateVersionDoesNotExist"
+
+      # No documentation available.
+      #
+      UNEXPECTED_ERROR = "unexpectedError"
     end
 
     # <p>Indicates whether an instance is configured for hibernation.</p>
@@ -38185,6 +45824,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.configured ||= false
+      end
+
     end
 
     # <p>Indicates whether the instance is configured for hibernation. This parameter is valid only
@@ -38203,6 +45847,23 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.configured ||= false
+      end
+
+    end
+
+    # Includes enum constants for LaunchTemplateHttpTokensState
+    #
+    module LaunchTemplateHttpTokensState
+      # No documentation available.
+      #
+      optional = "optional"
+
+      # No documentation available.
+      #
+      required = "required"
     end
 
     # <p>Describes an IAM instance profile.</p>
@@ -38250,6 +45911,8 @@ module AWS::Ec2
     # @!attribute market_type
     #   <p>The market type.</p>
     #
+    #   Enum, one of: ["spot"]
+    #
     #   @return [String]
     #
     # @!attribute spot_options
@@ -38270,6 +45933,8 @@ module AWS::Ec2
     # @!attribute market_type
     #   <p>The market type.</p>
     #
+    #   Enum, one of: ["spot"]
+    #
     #   @return [String]
     #
     # @!attribute spot_options
@@ -38285,6 +45950,18 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for LaunchTemplateInstanceMetadataEndpointState
+    #
+    module LaunchTemplateInstanceMetadataEndpointState
+      # No documentation available.
+      #
+      disabled = "disabled"
+
+      # No documentation available.
+      #
+      enabled = "enabled"
+    end
+
     # <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
     #                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
     #
@@ -38295,12 +45972,16 @@ module AWS::Ec2
     #            <p>
     #               <code>applied</code> - The metadata options have been successfully applied on the instance.</p>
     #
+    #   Enum, one of: ["pending", "applied"]
+    #
     #   @return [String]
     #
     # @!attribute http_tokens
     #   <p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p>
     #           <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p>
     #           <p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>
+    #
+    #   Enum, one of: ["optional", "required"]
     #
     #   @return [String]
     #
@@ -38319,6 +46000,8 @@ module AWS::Ec2
     #               </p>
     #           </note>
     #
+    #   Enum, one of: ["disabled", "enabled"]
+    #
     #   @return [String]
     #
     # @!attribute http_protocol_ipv6
@@ -38326,12 +46009,16 @@ module AWS::Ec2
     #           <p>Default: <code>disabled</code>
     #            </p>
     #
+    #   Enum, one of: ["disabled", "enabled"]
+    #
     #   @return [String]
     #
     # @!attribute instance_metadata_tags
     #   <p>
     #
     #           </p>
+    #
+    #   Enum, one of: ["disabled", "enabled"]
     #
     #   @return [String]
     #
@@ -38345,6 +46032,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.http_put_response_hop_limit ||= 0
+      end
+
     end
 
     # <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the
@@ -38354,6 +46046,8 @@ module AWS::Ec2
     #   <p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p>
     #           <p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p>
     #               <p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>
+    #
+    #   Enum, one of: ["optional", "required"]
     #
     #   @return [String]
     #
@@ -38372,12 +46066,16 @@ module AWS::Ec2
     #   </p>
     #            </note>
     #
+    #   Enum, one of: ["disabled", "enabled"]
+    #
     #   @return [String]
     #
     # @!attribute http_protocol_ipv6
     #   <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
     #           <p>Default: <code>disabled</code>
     #            </p>
+    #
+    #   Enum, one of: ["disabled", "enabled"]
     #
     #   @return [String]
     #
@@ -38388,6 +46086,8 @@ module AWS::Ec2
     #                   instance tags using the instance metadata</a>.</p>
     #               <p>Default: <code>disabled</code>
     #            </p>
+    #
+    #   Enum, one of: ["disabled", "enabled"]
     #
     #   @return [String]
     #
@@ -38400,6 +46100,47 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.http_put_response_hop_limit ||= 0
+      end
+
+    end
+
+    # Includes enum constants for LaunchTemplateInstanceMetadataOptionsState
+    #
+    module LaunchTemplateInstanceMetadataOptionsState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      applied = "applied"
+    end
+
+    # Includes enum constants for LaunchTemplateInstanceMetadataProtocolIpv6
+    #
+    module LaunchTemplateInstanceMetadataProtocolIpv6
+      # No documentation available.
+      #
+      disabled = "disabled"
+
+      # No documentation available.
+      #
+      enabled = "enabled"
+    end
+
+    # Includes enum constants for LaunchTemplateInstanceMetadataTagsState
+    #
+    module LaunchTemplateInstanceMetadataTagsState
+      # No documentation available.
+      #
+      disabled = "disabled"
+
+      # No documentation available.
+      #
+      enabled = "enabled"
     end
 
     # <p>Describes a network interface.</p>
@@ -38528,6 +46269,19 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.associate_carrier_ip_address ||= false
+        self.associate_public_ip_address ||= false
+        self.delete_on_termination ||= false
+        self.device_index ||= 0
+        self.ipv6_address_count ||= 0
+        self.secondary_private_ip_address_count ||= 0
+        self.network_card_index ||= 0
+        self.ipv4_prefix_count ||= 0
+        self.ipv6_prefix_count ||= 0
+      end
+
     end
 
     # <p>The parameters for a network interface.</p>
@@ -38665,6 +46419,19 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.associate_carrier_ip_address ||= false
+        self.associate_public_ip_address ||= false
+        self.delete_on_termination ||= false
+        self.device_index ||= 0
+        self.ipv6_address_count ||= 0
+        self.secondary_private_ip_address_count ||= 0
+        self.network_card_index ||= 0
+        self.ipv4_prefix_count ||= 0
+        self.ipv6_prefix_count ||= 0
+      end
+
     end
 
     # <p>Describes a license configuration.</p>
@@ -38699,6 +46466,8 @@ module AWS::Ec2
     #
     # @!attribute instance_type
     #   <p>The instance type.</p>
+    #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
     #
     #   @return [String]
     #
@@ -38762,6 +46531,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.weighted_capacity ||= 0
+        self.priority ||= 0
+      end
+
     end
 
     # <p>Describes the placement of an instance.</p>
@@ -38788,6 +46563,8 @@ module AWS::Ec2
     #
     # @!attribute tenancy
     #   <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of <code>dedicated</code> runs on single-tenant hardware. </p>
+    #
+    #   Enum, one of: ["default", "dedicated", "host"]
     #
     #   @return [String]
     #
@@ -38819,6 +46596,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.partition_number ||= 0
+      end
+
     end
 
     # <p>Describes the placement of an instance.</p>
@@ -38846,6 +46628,8 @@ module AWS::Ec2
     # @!attribute tenancy
     #   <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy
     #           	of dedicated runs on single-tenant hardware.</p>
+    #
+    #   Enum, one of: ["default", "dedicated", "host"]
     #
     #   @return [String]
     #
@@ -38878,12 +46662,19 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.partition_number ||= 0
+      end
+
     end
 
     # <p>Describes the options for instance hostnames.</p>
     #
     # @!attribute hostname_type
     #   <p>The type of hostname to assign to an instance.</p>
+    #
+    #   Enum, one of: ["ip-name", "resource-name"]
     #
     #   @return [String]
     #
@@ -38904,6 +46695,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enable_resource_name_dns_a_record ||= false
+        self.enable_resource_name_dns_aaaa_record ||= false
+      end
+
     end
 
     # <p>Describes the options for instance hostnames.</p>
@@ -38913,6 +46710,8 @@ module AWS::Ec2
     #               be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must
     #               be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use
     #               the instance IPv4 address or the instance ID.</p>
+    #
+    #   Enum, one of: ["ip-name", "resource-name"]
     #
     #   @return [String]
     #
@@ -38933,6 +46732,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enable_resource_name_dns_a_record ||= false
+        self.enable_resource_name_dns_aaaa_record ||= false
+      end
+
     end
 
     # <p>The launch template to use. You must specify either the launch template ID or
@@ -38973,6 +46778,8 @@ module AWS::Ec2
     # @!attribute spot_instance_type
     #   <p>The Spot Instance request type.</p>
     #
+    #   Enum, one of: ["one-time", "persistent"]
+    #
     #   @return [String]
     #
     # @!attribute block_duration_minutes
@@ -38988,6 +46795,8 @@ module AWS::Ec2
     # @!attribute instance_interruption_behavior
     #   <p>The behavior when a Spot Instance is interrupted.</p>
     #
+    #   Enum, one of: ["hibernate", "stop", "terminate"]
+    #
     #   @return [String]
     #
     LaunchTemplateSpotMarketOptions = ::Struct.new(
@@ -38999,6 +46808,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.block_duration_minutes ||= 0
+      end
+
     end
 
     # <p>The options for Spot Instances.</p>
@@ -39010,6 +46824,8 @@ module AWS::Ec2
     #
     # @!attribute spot_instance_type
     #   <p>The Spot Instance request type.</p>
+    #
+    #   Enum, one of: ["one-time", "persistent"]
     #
     #   @return [String]
     #
@@ -39029,6 +46845,8 @@ module AWS::Ec2
     # @!attribute instance_interruption_behavior
     #   <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
     #
+    #   Enum, one of: ["hibernate", "stop", "terminate"]
+    #
     #   @return [String]
     #
     LaunchTemplateSpotMarketOptionsRequest = ::Struct.new(
@@ -39040,12 +46858,19 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.block_duration_minutes ||= 0
+      end
+
     end
 
     # <p>The tag specification for the launch template.</p>
     #
     # @!attribute resource_type
     #   <p>The type of resource.</p>
+    #
+    #   Enum, one of: ["capacity-reservation", "client-vpn-endpoint", "customer-gateway", "carrier-gateway", "dedicated-host", "dhcp-options", "egress-only-internet-gateway", "elastic-ip", "elastic-gpu", "export-image-task", "export-instance-task", "fleet", "fpga-image", "host-reservation", "image", "import-image-task", "import-snapshot-task", "instance", "instance-event-window", "internet-gateway", "ipam", "ipam-pool", "ipam-scope", "ipv4pool-ec2", "ipv6pool-ec2", "key-pair", "launch-template", "local-gateway", "local-gateway-route-table", "local-gateway-virtual-interface", "local-gateway-virtual-interface-group", "local-gateway-route-table-vpc-association", "local-gateway-route-table-virtual-interface-group-association", "natgateway", "network-acl", "network-interface", "network-insights-analysis", "network-insights-path", "network-insights-access-scope", "network-insights-access-scope-analysis", "placement-group", "prefix-list", "replace-root-volume-task", "reserved-instances", "route-table", "security-group", "security-group-rule", "snapshot", "spot-fleet-request", "spot-instances-request", "subnet", "traffic-mirror-filter", "traffic-mirror-session", "traffic-mirror-target", "transit-gateway", "transit-gateway-attachment", "transit-gateway-connect-peer", "transit-gateway-multicast-domain", "transit-gateway-route-table", "volume", "vpc", "vpc-endpoint", "vpc-endpoint-service", "vpc-peering-connection", "vpn-connection", "vpn-gateway", "vpc-flow-log"]
     #
     #   @return [String]
     #
@@ -39068,6 +46893,8 @@ module AWS::Ec2
     #   <p>The type of resource to tag. Currently, the resource types that support tagging on
     #               creation are <code>instance</code> and <code>volume</code>. To tag a resource after it
     #           	has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+    #
+    #   Enum, one of: ["capacity-reservation", "client-vpn-endpoint", "customer-gateway", "carrier-gateway", "dedicated-host", "dhcp-options", "egress-only-internet-gateway", "elastic-ip", "elastic-gpu", "export-image-task", "export-instance-task", "fleet", "fpga-image", "host-reservation", "image", "import-image-task", "import-snapshot-task", "instance", "instance-event-window", "internet-gateway", "ipam", "ipam-pool", "ipam-scope", "ipv4pool-ec2", "ipv6pool-ec2", "key-pair", "launch-template", "local-gateway", "local-gateway-route-table", "local-gateway-virtual-interface", "local-gateway-virtual-interface-group", "local-gateway-route-table-vpc-association", "local-gateway-route-table-virtual-interface-group-association", "natgateway", "network-acl", "network-interface", "network-insights-analysis", "network-insights-path", "network-insights-access-scope", "network-insights-access-scope-analysis", "placement-group", "prefix-list", "replace-root-volume-task", "reserved-instances", "route-table", "security-group", "security-group-rule", "snapshot", "spot-fleet-request", "spot-instances-request", "subnet", "traffic-mirror-filter", "traffic-mirror-session", "traffic-mirror-target", "transit-gateway", "transit-gateway-attachment", "transit-gateway-connect-peer", "transit-gateway-multicast-domain", "transit-gateway-route-table", "volume", "vpc", "vpc-endpoint", "vpc-endpoint-service", "vpc-peering-connection", "vpn-connection", "vpn-gateway", "vpc-flow-log"]
     #
     #   @return [String]
     #
@@ -39138,6 +46965,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.version_number ||= 0
+        self.default_version ||= false
+      end
+
     end
 
     # <p>Describes the monitoring for the instance.</p>
@@ -39153,6 +46986,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enabled ||= false
+      end
+
     end
 
     # <p>Describes the monitoring for the instance.</p>
@@ -39167,6 +47005,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enabled ||= false
+      end
+
     end
 
     # <p>Describes a license configuration.</p>
@@ -39229,6 +47072,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute snapshots
@@ -39247,6 +47095,46 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ListingState
+    #
+    module ListingState
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      sold = "sold"
+
+      # No documentation available.
+      #
+      cancelled = "cancelled"
+
+      # No documentation available.
+      #
+      pending = "pending"
+    end
+
+    # Includes enum constants for ListingStatus
+    #
+    module ListingStatus
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      cancelled = "cancelled"
+
+      # No documentation available.
+      #
+      closed = "closed"
     end
 
     # <p>Describes the Classic Load Balancers and target groups to attach to a Spot Fleet
@@ -39279,6 +47167,8 @@ module AWS::Ec2
     #
     # @!attribute group
     #   <p>The name of the group.</p>
+    #
+    #   Enum, one of: ["all"]
     #
     #   @return [String]
     #
@@ -39314,6 +47204,8 @@ module AWS::Ec2
     #
     # @!attribute group
     #   <p>The name of the group.</p>
+    #
+    #   Enum, one of: ["all"]
     #
     #   @return [String]
     #
@@ -39383,10 +47275,14 @@ module AWS::Ec2
     # @!attribute type
     #   <p>The route type.</p>
     #
+    #   Enum, one of: ["static", "propagated"]
+    #
     #   @return [String]
     #
     # @!attribute state
     #   <p>The state of the route.</p>
+    #
+    #   Enum, one of: ["pending", "active", "blackhole", "deleting", "deleted"]
     #
     #   @return [String]
     #
@@ -39416,6 +47312,30 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for LocalGatewayRouteState
+    #
+    module LocalGatewayRouteState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      blackhole = "blackhole"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
+
+      # No documentation available.
+      #
+      deleted = "deleted"
     end
 
     # <p>Describes a local gateway route table.</p>
@@ -39580,6 +47500,18 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for LocalGatewayRouteType
+    #
+    module LocalGatewayRouteType
+      # No documentation available.
+      #
+      static = "static"
+
+      # No documentation available.
+      #
+      propagated = "propagated"
+    end
+
     # <p>Describes a local gateway virtual interface.</p>
     #
     # @!attribute local_gateway_virtual_interface_id
@@ -39640,6 +47572,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.vlan ||= 0
+        self.local_bgp_asn ||= 0
+        self.peer_bgp_asn ||= 0
+      end
+
     end
 
     # <p>Describes a local gateway virtual interface group.</p>
@@ -39680,6 +47619,62 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for LocalStorage
+    #
+    module LocalStorage
+      # No documentation available.
+      #
+      INCLUDED = "included"
+
+      # No documentation available.
+      #
+      REQUIRED = "required"
+
+      # No documentation available.
+      #
+      EXCLUDED = "excluded"
+    end
+
+    # Includes enum constants for LocalStorageType
+    #
+    module LocalStorageType
+      # No documentation available.
+      #
+      HDD = "hdd"
+
+      # No documentation available.
+      #
+      SSD = "ssd"
+    end
+
+    # Includes enum constants for LocationType
+    #
+    module LocationType
+      # No documentation available.
+      #
+      region = "region"
+
+      # No documentation available.
+      #
+      availability_zone = "availability-zone"
+
+      # No documentation available.
+      #
+      availability_zone_id = "availability-zone-id"
+    end
+
+    # Includes enum constants for LogDestinationType
+    #
+    module LogDestinationType
+      # No documentation available.
+      #
+      cloud_watch_logs = "cloud-watch-logs"
+
+      # No documentation available.
+      #
+      s3 = "s3"
+    end
+
     # <p>Describes a managed prefix list.</p>
     #
     # @!attribute prefix_list_id
@@ -39694,6 +47689,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The current state of the prefix list.</p>
+    #
+    #   Enum, one of: ["create-in-progress", "create-complete", "create-failed", "modify-in-progress", "modify-complete", "modify-failed", "restore-in-progress", "restore-complete", "restore-failed", "delete-in-progress", "delete-complete", "delete-failed"]
     #
     #   @return [String]
     #
@@ -39746,6 +47743,32 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_entries ||= 0
+        self.version ||= 0
+      end
+
+    end
+
+    # Includes enum constants for MarketType
+    #
+    module MarketType
+      # No documentation available.
+      #
+      spot = "spot"
+    end
+
+    # Includes enum constants for MembershipType
+    #
+    module MembershipType
+      # No documentation available.
+      #
+      static = "static"
+
+      # No documentation available.
+      #
+      igmp = "igmp"
     end
 
     # <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
@@ -39769,6 +47792,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
     end
 
     # <p>The minimum and maximum amount of memory per vCPU, in GiB.</p>
@@ -39791,6 +47820,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
     end
 
     # <p>Describes the memory for the instance type.</p>
@@ -39827,6 +47862,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
     end
 
     # <p>The minimum and maximum amount of memory, in MiB.</p>
@@ -39849,6 +47890,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
     end
 
     # @!attribute allocation_id
@@ -39875,6 +47922,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute address
@@ -39899,6 +47951,8 @@ module AWS::Ec2
     #   <p>Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The
     #         only valid value is <code>opted-in</code>. You must contact <a href="https://console.aws.amazon.com/support/home /case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services">Amazon Web Services Support</a> to opt out of a Local Zone or Wavelength Zone group.</p>
     #
+    #   Enum, one of: ["opted-in", "not-opted-in"]
+    #
     #   @return [String]
     #
     # @!attribute dry_run
@@ -39915,6 +47969,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -39927,6 +47986,23 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
+    end
+
+    # Includes enum constants for ModifyAvailabilityZoneOptInStatus
+    #
+    module ModifyAvailabilityZoneOptInStatus
+      # No documentation available.
+      #
+      opted_in = "opted-in"
+
+      # No documentation available.
+      #
+      not_opted_in = "not-opted-in"
     end
 
     # @!attribute capacity_reservation_fleet_id
@@ -39978,6 +48054,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.total_target_capacity ||= 0
+        self.dry_run ||= false
+        self.remove_end_date ||= false
+      end
+
     end
 
     # @!attribute return
@@ -39990,6 +48073,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute capacity_reservation_id
@@ -40033,6 +48121,8 @@ module AWS::Ec2
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["unlimited", "limited"]
+    #
     #   @return [String]
     #
     # @!attribute accept
@@ -40061,6 +48151,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.instance_count ||= 0
+        self.accept ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -40073,6 +48170,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -40152,6 +48254,8 @@ module AWS::Ec2
     # @!attribute self_service_portal
     #   <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
     #
+    #   Enum, one of: ["enabled", "disabled"]
+    #
     #   @return [String]
     #
     # @!attribute client_connect_options
@@ -40175,6 +48279,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.vpn_port ||= 0
+        self.split_tunnel ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -40187,6 +48298,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -40198,6 +48314,8 @@ module AWS::Ec2
     #
     # @!attribute instance_family
     #   <p>The instance family.</p>
+    #
+    #   Enum, one of: ["t2", "t3", "t3a", "t4g"]
     #
     #   @return [String]
     #
@@ -40215,6 +48333,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_family_credit_specification
@@ -40267,6 +48390,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute kms_key_id
@@ -40291,6 +48419,8 @@ module AWS::Ec2
     # @!attribute excess_capacity_termination_policy
     #   <p>Indicates whether running instances should be terminated if the total target capacity of
     #            the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
+    #
+    #   Enum, one of: ["no-termination", "termination"]
     #
     #   @return [String]
     #
@@ -40324,6 +48454,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -40336,6 +48471,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -40353,10 +48493,14 @@ module AWS::Ec2
     # @!attribute attribute
     #   <p>The name of the attribute.</p>
     #
+    #   Enum, one of: ["description", "name", "loadPermission", "productCodes"]
+    #
     #   @return [String]
     #
     # @!attribute operation_type
     #   <p>The operation type.</p>
+    #
+    #   Enum, one of: ["add", "remove"]
     #
     #   @return [String]
     #
@@ -40405,6 +48549,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute fpga_image_attribute
@@ -40422,6 +48571,8 @@ module AWS::Ec2
     # @!attribute auto_placement
     #   <p>Specify whether to enable or disable auto-placement.</p>
     #
+    #   Enum, one of: ["on", "off"]
+    #
     #   @return [String]
     #
     # @!attribute host_ids
@@ -40433,6 +48584,8 @@ module AWS::Ec2
     #   <p>Indicates whether to enable or disable host recovery for the Dedicated Host. For more information,
     #   			see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html">
     #   				Host recovery</a> in the <i>Amazon EC2 User Guide</i>.</p>
+    #
+    #   Enum, one of: ["on", "off"]
     #
     #   @return [String]
     #
@@ -40516,6 +48669,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.use_long_ids ||= false
+      end
+
     end
 
     ModifyIdFormatOutput = ::Struct.new(
@@ -40560,6 +48718,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.use_long_ids ||= false
+      end
+
     end
 
     ModifyIdentityIdFormatOutput = ::Struct.new(
@@ -40596,6 +48759,8 @@ module AWS::Ec2
     # @!attribute operation_type
     #   <p>The operation type.
     #          This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+    #
+    #   Enum, one of: ["add", "remove"]
     #
     #   @return [String]
     #
@@ -40655,6 +48820,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     ModifyImageAttributeOutput = ::Struct.new(
@@ -40676,6 +48846,8 @@ module AWS::Ec2
     #
     # @!attribute attribute
     #   <p>The name of the attribute.</p>
+    #
+    #   Enum, one of: ["instanceType", "kernel", "ramdisk", "userData", "disableApiTermination", "instanceInitiatedShutdownBehavior", "rootDeviceName", "blockDeviceMapping", "productCodes", "sourceDestCheck", "groupSet", "ebsOptimized", "sriovNetSupport", "enaSupport", "enclaveOptions"]
     #
     #   @return [String]
     #
@@ -40801,6 +48973,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     ModifyInstanceAttributeOutput = ::Struct.new(
@@ -40832,6 +49009,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -40844,6 +49026,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -40872,6 +49059,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute successful_instance_credit_specifications
@@ -40924,6 +49116,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute event
@@ -41002,6 +49199,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_event_window
@@ -41034,6 +49236,8 @@ module AWS::Ec2
     #               always returns the version 2.0 credentials; the version 1.0 credentials are not
     #               available.</p>
     #
+    #   Enum, one of: ["optional", "required"]
+    #
     #   @return [String]
     #
     # @!attribute http_put_response_hop_limit
@@ -41049,6 +49253,8 @@ module AWS::Ec2
     #           <p>If you specify a value of <code>disabled</code>, you cannot access your
     #               instance metadata.</p>
     #
+    #   Enum, one of: ["disabled", "enabled"]
+    #
     #   @return [String]
     #
     # @!attribute dry_run
@@ -41062,6 +49268,8 @@ module AWS::Ec2
     #   <p>Enables or disables the IPv6 endpoint for the instance metadata service. This setting
     #               applies only if you have enabled the HTTP metadata endpoint.</p>
     #
+    #   Enum, one of: ["disabled", "enabled"]
+    #
     #   @return [String]
     #
     # @!attribute instance_metadata_tags
@@ -41071,6 +49279,8 @@ module AWS::Ec2
     #                   instance tags using the instance metadata</a>.</p>
     #           <p>Default: <code>disabled</code>
     #            </p>
+    #
+    #   Enum, one of: ["disabled", "enabled"]
     #
     #   @return [String]
     #
@@ -41085,6 +49295,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.http_put_response_hop_limit ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_id
@@ -41107,6 +49323,8 @@ module AWS::Ec2
 
     # @!attribute affinity
     #   <p>The affinity setting for the instance.</p>
+    #
+    #   Enum, one of: ["default", "host"]
     #
     #   @return [String]
     #
@@ -41140,6 +49358,8 @@ module AWS::Ec2
     #               <code>InvalidTenancy</code> error code.</p>
     #            </note>
     #
+    #   Enum, one of: ["dedicated", "host"]
+    #
     #   @return [String]
     #
     # @!attribute partition_number
@@ -41164,6 +49384,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.partition_number ||= 0
+      end
+
     end
 
     # @!attribute return
@@ -41176,6 +49401,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -41216,6 +49446,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute ipam
@@ -41307,6 +49542,16 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.auto_import ||= false
+        self.allocation_min_netmask_length ||= 0
+        self.allocation_max_netmask_length ||= 0
+        self.allocation_default_netmask_length ||= 0
+        self.clear_allocation_default_netmask_length ||= false
+      end
+
     end
 
     # @!attribute ipam_pool
@@ -41369,6 +49614,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.monitored ||= false
+      end
+
     end
 
     # @!attribute ipam_resource_cidr
@@ -41407,6 +49658,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute ipam_scope
@@ -41463,6 +49719,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute launch_template
@@ -41529,6 +49790,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.current_version ||= 0
+        self.max_entries ||= 0
+      end
+
     end
 
     # @!attribute prefix_list
@@ -41592,6 +49860,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     ModifyNetworkInterfaceAttributeOutput = ::Struct.new(
@@ -41619,6 +49892,8 @@ module AWS::Ec2
     #               on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance
     #               IPv4 address or the instance ID.</p>
     #
+    #   Enum, one of: ["ip-name", "resource-name"]
+    #
     #   @return [String]
     #
     # @!attribute enable_resource_name_dns_a_record
@@ -41640,6 +49915,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.enable_resource_name_dns_a_record ||= false
+        self.enable_resource_name_dns_aaaa_record ||= false
+      end
+
     end
 
     # @!attribute return
@@ -41652,6 +49934,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # <p>Contains the parameters for ModifyReservedInstances.</p>
@@ -41719,6 +50006,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -41731,10 +50023,17 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute attribute
     #   <p>The snapshot attribute to modify. Only volume creation permissions can be modified.</p>
+    #
+    #   Enum, one of: ["productCodes", "createVolumePermission"]
     #
     #   @return [String]
     #
@@ -41750,6 +50049,8 @@ module AWS::Ec2
     #
     # @!attribute operation_type
     #   <p>The type of operation to perform to the attribute.</p>
+    #
+    #   Enum, one of: ["add", "remove"]
     #
     #   @return [String]
     #
@@ -41781,6 +50082,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     ModifySnapshotAttributeOutput = ::Struct.new(
@@ -41798,6 +50104,8 @@ module AWS::Ec2
     # @!attribute storage_tier
     #   <p>The name of the storage tier. You must specify <code>archive</code>.</p>
     #
+    #   Enum, one of: ["archive"]
+    #
     #   @return [String]
     #
     # @!attribute dry_run
@@ -41814,6 +50122,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute snapshot_id
@@ -41839,6 +50152,8 @@ module AWS::Ec2
     # @!attribute excess_capacity_termination_policy
     #   <p>Indicates whether running Spot Instances should be terminated if the target capacity
     #               of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p>
+    #
+    #   Enum, one of: ["noTermination", "default"]
     #
     #   @return [String]
     #
@@ -41880,6 +50195,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.target_capacity ||= 0
+        self.on_demand_target_capacity ||= 0
+      end
+
     end
 
     # <p>Contains the output of ModifySpotFleetRequest.</p>
@@ -41894,6 +50215,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute assign_ipv6_address_on_creation
@@ -41943,6 +50269,8 @@ module AWS::Ec2
     #               DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
     #               names use the instance IPv4 address or the instance ID.</p>
     #
+    #   Enum, one of: ["ip-name", "resource-name"]
+    #
     #   @return [String]
     #
     # @!attribute enable_resource_name_dns_a_record_on_launch
@@ -41988,6 +50316,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enable_lni_at_device_index ||= 0
+      end
+
     end
 
     ModifySubnetAttributeOutput = ::Struct.new(
@@ -42027,6 +50360,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute traffic_mirror_filter
@@ -42049,6 +50387,8 @@ module AWS::Ec2
     # @!attribute traffic_direction
     #   <p>The type of traffic to assign to the rule.</p>
     #
+    #   Enum, one of: ["ingress", "egress"]
+    #
     #   @return [String]
     #
     # @!attribute rule_number
@@ -42059,6 +50399,8 @@ module AWS::Ec2
     #
     # @!attribute rule_action
     #   <p>The action to assign to the rule.</p>
+    #
+    #   Enum, one of: ["accept", "reject"]
     #
     #   @return [String]
     #
@@ -42121,6 +50463,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.rule_number ||= 0
+        self.protocol ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute traffic_mirror_filter_rule
@@ -42197,6 +50546,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.packet_length ||= 0
+        self.session_number ||= 0
+        self.virtual_network_id ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute traffic_mirror_session
@@ -42241,6 +50598,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>The transit gateway options.</p>
@@ -42258,20 +50620,28 @@ module AWS::Ec2
     # @!attribute vpn_ecmp_support
     #   <p>Enable or disable Equal Cost Multipath Protocol support.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute dns_support
     #   <p>Enable or disable DNS support.</p>
+    #
+    #   Enum, one of: ["enable", "disable"]
     #
     #   @return [String]
     #
     # @!attribute auto_accept_shared_attachments
     #   <p>Enable or disable automatic acceptance of attachment requests.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute default_route_table_association
     #   <p>Enable or disable automatic association with the default association route table.</p>
+    #
+    #   Enum, one of: ["enable", "disable"]
     #
     #   @return [String]
     #
@@ -42282,6 +50652,8 @@ module AWS::Ec2
     #
     # @!attribute default_route_table_propagation
     #   <p>Enable or disable automatic propagation of routes to the default propagation route table.</p>
+    #
+    #   Enum, one of: ["enable", "disable"]
     #
     #   @return [String]
     #
@@ -42353,6 +50725,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.blackhole ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_prefix_list_reference
@@ -42403,6 +50781,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -42422,15 +50805,21 @@ module AWS::Ec2
     # @!attribute dns_support
     #   <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute ipv6_support
     #   <p>Enable or disable IPv6 support. The default is <code>enable</code>.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute appliance_mode_support
     #   <p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>
+    #
+    #   Enum, one of: ["enable", "disable"]
     #
     #   @return [String]
     #
@@ -42467,6 +50856,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     ModifyVolumeAttributeOutput = ::Struct.new(
@@ -42517,6 +50911,8 @@ module AWS::Ec2
     # @!attribute volume_type
     #   <p>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
     #            <p>Default: The existing type is retained.</p>
+    #
+    #   Enum, one of: ["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"]
     #
     #   @return [String]
     #
@@ -42572,6 +50968,15 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.size ||= 0
+        self.iops ||= 0
+        self.throughput ||= 0
+        self.multi_attach_enabled ||= false
+      end
+
     end
 
     # @!attribute volume_modification
@@ -42654,6 +51059,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return_value
@@ -42666,6 +51076,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return_value ||= false
+      end
+
     end
 
     # <p>Contains the parameters for ModifyVpcEndpoint.</p>
@@ -42745,6 +51160,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.reset_policy ||= false
+        self.private_dns_enabled ||= false
+      end
+
     end
 
     # @!attribute return
@@ -42757,6 +51179,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -42823,6 +51250,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.remove_private_dns_name ||= false
+        self.acceptance_required ||= false
+      end
+
     end
 
     # @!attribute return
@@ -42835,6 +51269,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -42854,6 +51293,8 @@ module AWS::Ec2
     #               If you set the payer responsibility to the service owner, you cannot set it back to the
     #               endpoint owner.</p>
     #
+    #   Enum, one of: ["ServiceOwner"]
+    #
     #   @return [String]
     #
     ModifyVpcEndpointServicePayerResponsibilityInput = ::Struct.new(
@@ -42863,6 +51304,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return_value
@@ -42875,6 +51321,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return_value ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -42910,6 +51361,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return_value
@@ -42922,6 +51378,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return_value ||= false
+      end
+
     end
 
     # @!attribute accepter_peering_connection_options
@@ -42954,6 +51415,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute accepter_peering_connection_options
@@ -42982,6 +51448,8 @@ module AWS::Ec2
     # @!attribute instance_tenancy
     #   <p>The instance tenancy attribute for the VPC. </p>
     #
+    #   Enum, one of: ["default"]
+    #
     #   @return [String]
     #
     # @!attribute dry_run
@@ -42998,6 +51466,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return_value
@@ -43011,6 +51484,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return_value ||= false
+      end
+
     end
 
     # @!attribute vpn_connection_id
@@ -43051,6 +51529,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute vpn_connection_id
@@ -43101,6 +51584,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute vpn_connection
@@ -43152,6 +51640,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute vpn_connection
@@ -43197,6 +51690,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute vpn_connection
@@ -43435,6 +51933,16 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.phase1_lifetime_seconds ||= 0
+        self.phase2_lifetime_seconds ||= 0
+        self.rekey_margin_time_seconds ||= 0
+        self.rekey_fuzz_percentage ||= 0
+        self.replay_window_size ||= 0
+        self.dpd_timeout_seconds ||= 0
+      end
+
     end
 
     # @!attribute instance_ids
@@ -43455,6 +51963,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_monitorings
@@ -43475,6 +51988,8 @@ module AWS::Ec2
     #   <p>Indicates whether detailed monitoring is enabled. Otherwise, basic monitoring is
     #               enabled.</p>
     #
+    #   Enum, one of: ["disabled", "disabling", "enabled", "pending"]
+    #
     #   @return [String]
     #
     Monitoring = ::Struct.new(
@@ -43482,6 +51997,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for MonitoringState
+    #
+    module MonitoringState
+      # No documentation available.
+      #
+      disabled = "disabled"
+
+      # No documentation available.
+      #
+      disabling = "disabling"
+
+      # No documentation available.
+      #
+      enabled = "enabled"
+
+      # No documentation available.
+      #
+      pending = "pending"
     end
 
     # @!attribute dry_run
@@ -43502,6 +52037,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute allocation_id
@@ -43511,6 +52051,8 @@ module AWS::Ec2
     #
     # @!attribute status
     #   <p>The status of the move of the IP address.</p>
+    #
+    #   Enum, one of: ["MoveInProgress", "InVpc", "InClassic"]
     #
     #   @return [String]
     #
@@ -43552,6 +52094,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute byoip_cidr
@@ -43567,10 +52114,24 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for MoveStatus
+    #
+    module MoveStatus
+      # No documentation available.
+      #
+      movingToVpc = "movingToVpc"
+
+      # No documentation available.
+      #
+      restoringToClassic = "restoringToClassic"
+    end
+
     # <p>Describes the status of a moving Elastic IP address.</p>
     #
     # @!attribute move_status
     #   <p>The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.</p>
+    #
+    #   Enum, one of: ["movingToVpc", "restoringToClassic"]
     #
     #   @return [String]
     #
@@ -43585,6 +52146,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for MulticastSupportValue
+    #
+    module MulticastSupportValue
+      # No documentation available.
+      #
+      enable = "enable"
+
+      # No documentation available.
+      #
+      disable = "disable"
     end
 
     # <p>Describes a NAT gateway.</p>
@@ -43678,6 +52251,8 @@ module AWS::Ec2
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["pending", "failed", "available", "deleting", "deleted"]
+    #
     #   @return [String]
     #
     # @!attribute subnet_id
@@ -43697,6 +52272,8 @@ module AWS::Ec2
     #
     # @!attribute connectivity_type
     #   <p>Indicates whether the NAT gateway supports public or private connectivity.</p>
+    #
+    #   Enum, one of: ["private", "public"]
     #
     #   @return [String]
     #
@@ -43750,6 +52327,30 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for NatGatewayState
+    #
+    module NatGatewayState
+      # No documentation available.
+      #
+      PENDING = "pending"
+
+      # No documentation available.
+      #
+      FAILED = "failed"
+
+      # No documentation available.
+      #
+      AVAILABLE = "available"
+
+      # No documentation available.
+      #
+      DELETING = "deleting"
+
+      # No documentation available.
+      #
+      DELETED = "deleted"
+    end
+
     # <p>Describes a network ACL.</p>
     #
     # @!attribute associations
@@ -43798,6 +52399,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.is_default ||= false
+      end
+
     end
 
     # <p>Describes an association between a network ACL and a subnet.</p>
@@ -43861,6 +52467,8 @@ module AWS::Ec2
     # @!attribute rule_action
     #   <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
     #
+    #   Enum, one of: ["allow", "deny"]
+    #
     #   @return [String]
     #
     # @!attribute rule_number
@@ -43880,6 +52488,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.egress ||= false
+        self.rule_number ||= 0
+      end
+
     end
 
     # <p>Describes the network card support of the instance type.</p>
@@ -43952,6 +52566,8 @@ module AWS::Ec2
     #
     # @!attribute ena_support
     #   <p>Indicates whether Elastic Network Adapter (ENA) is supported.</p>
+    #
+    #   Enum, one of: ["unsupported", "supported", "required"]
     #
     #   @return [String]
     #
@@ -44046,6 +52662,8 @@ module AWS::Ec2
     # @!attribute status
     #   <p>The status.</p>
     #
+    #   Enum, one of: ["running", "succeeded", "failed"]
+    #
     #   @return [String]
     #
     # @!attribute status_message
@@ -44070,6 +52688,8 @@ module AWS::Ec2
     #
     # @!attribute findings_found
     #   <p>Indicates whether there are findings.</p>
+    #
+    #   Enum, one of: ["true", "false", "unknown"]
     #
     #   @return [String]
     #
@@ -44098,6 +52718,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.analyzed_eni_count ||= 0
+      end
+
     end
 
     # <p>Describes the Network Access Scope content.</p>
@@ -44155,6 +52780,8 @@ module AWS::Ec2
     #
     # @!attribute status
     #   <p>The status of the network insights analysis.</p>
+    #
+    #   Enum, one of: ["running", "succeeded", "failed"]
     #
     #   @return [String]
     #
@@ -44216,6 +52843,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.network_path_found ||= false
+      end
+
     end
 
     # <p>Describes a path.</p>
@@ -44258,6 +52890,8 @@ module AWS::Ec2
     # @!attribute protocol
     #   <p>The protocol.</p>
     #
+    #   Enum, one of: ["tcp", "udp"]
+    #
     #   @return [String]
     #
     # @!attribute destination_port
@@ -44284,6 +52918,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.destination_port ||= 0
+      end
+
     end
 
     # <p>Describes a network interface.</p>
@@ -44315,6 +52954,8 @@ module AWS::Ec2
     #
     # @!attribute interface_type
     #   <p>The type of network interface.</p>
+    #
+    #   Enum, one of: ["interface", "natGateway", "efa", "trunk"]
     #
     #   @return [String]
     #
@@ -44386,6 +53027,8 @@ module AWS::Ec2
     # @!attribute status
     #   <p>The status of the network interface.</p>
     #
+    #   Enum, one of: ["available", "associated", "attaching", "in-use", "detaching"]
+    #
     #   @return [String]
     #
     # @!attribute subnet_id
@@ -44452,6 +53095,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.requester_managed ||= false
+        self.source_dest_check ||= false
+        self.deny_all_igw_traffic ||= false
+        self.ipv6_native ||= false
+      end
+
     end
 
     # <p>Describes association information for an Elastic IP address (IPv4 only), or a Carrier
@@ -44548,6 +53199,8 @@ module AWS::Ec2
     # @!attribute status
     #   <p>The attachment state.</p>
     #
+    #   Enum, one of: ["attaching", "attached", "detaching", "detached"]
+    #
     #   @return [String]
     #
     NetworkInterfaceAttachment = ::Struct.new(
@@ -44562,6 +53215,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.delete_on_termination ||= false
+        self.device_index ||= 0
+        self.network_card_index ||= 0
+      end
+
     end
 
     # <p>Describes an attachment change.</p>
@@ -44582,6 +53242,31 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.delete_on_termination ||= false
+      end
+
+    end
+
+    # Includes enum constants for NetworkInterfaceAttribute
+    #
+    module NetworkInterfaceAttribute
+      # No documentation available.
+      #
+      description = "description"
+
+      # No documentation available.
+      #
+      groupSet = "groupSet"
+
+      # No documentation available.
+      #
+      sourceDestCheck = "sourceDestCheck"
+
+      # No documentation available.
+      #
+      attachment = "attachment"
     end
 
     # <p>The minimum and maximum number of network interfaces.</p>
@@ -44604,6 +53289,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
     end
 
     # <p>The minimum and maximum number of network interfaces.</p>
@@ -44626,6 +53317,28 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
+    end
+
+    # Includes enum constants for NetworkInterfaceCreationType
+    #
+    module NetworkInterfaceCreationType
+      # No documentation available.
+      #
+      efa = "efa"
+
+      # No documentation available.
+      #
+      branch = "branch"
+
+      # No documentation available.
+      #
+      trunk = "trunk"
     end
 
     # <p>Describes an IPv6 address associated with a network interface.</p>
@@ -44667,6 +53380,8 @@ module AWS::Ec2
     # @!attribute permission
     #   <p>The type of permission.</p>
     #
+    #   Enum, one of: ["INSTANCE-ATTACH", "EIP-ASSOCIATE"]
+    #
     #   @return [String]
     #
     # @!attribute permission_state
@@ -44691,6 +53406,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of the permission.</p>
     #
+    #   Enum, one of: ["pending", "granted", "revoking", "revoked"]
+    #
     #   @return [String]
     #
     # @!attribute status_message
@@ -44704,6 +53421,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for NetworkInterfacePermissionStateCode
+    #
+    module NetworkInterfacePermissionStateCode
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      granted = "granted"
+
+      # No documentation available.
+      #
+      revoking = "revoking"
+
+      # No documentation available.
+      #
+      revoked = "revoked"
     end
 
     # <p>Describes the private IPv4 address of a network interface.</p>
@@ -44736,6 +53473,55 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.primary ||= false
+      end
+
+    end
+
+    # Includes enum constants for NetworkInterfaceStatus
+    #
+    module NetworkInterfaceStatus
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      associated = "associated"
+
+      # No documentation available.
+      #
+      attaching = "attaching"
+
+      # No documentation available.
+      #
+      in_use = "in-use"
+
+      # No documentation available.
+      #
+      detaching = "detaching"
+    end
+
+    # Includes enum constants for NetworkInterfaceType
+    #
+    module NetworkInterfaceType
+      # No documentation available.
+      #
+      interface = "interface"
+
+      # No documentation available.
+      #
+      natGateway = "natGateway"
+
+      # No documentation available.
+      #
+      efa = "efa"
+
+      # No documentation available.
+      #
+      trunk = "trunk"
     end
 
     # <p>Describes a DHCP configuration option.</p>
@@ -44758,6 +53544,58 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for OfferingClassType
+    #
+    module OfferingClassType
+      # No documentation available.
+      #
+      STANDARD = "standard"
+
+      # No documentation available.
+      #
+      CONVERTIBLE = "convertible"
+    end
+
+    # Includes enum constants for OfferingTypeValues
+    #
+    module OfferingTypeValues
+      # No documentation available.
+      #
+      Heavy_Utilization = "Heavy Utilization"
+
+      # No documentation available.
+      #
+      Medium_Utilization = "Medium Utilization"
+
+      # No documentation available.
+      #
+      Light_Utilization = "Light Utilization"
+
+      # No documentation available.
+      #
+      No_Upfront = "No Upfront"
+
+      # No documentation available.
+      #
+      Partial_Upfront = "Partial Upfront"
+
+      # No documentation available.
+      #
+      All_Upfront = "All Upfront"
+    end
+
+    # Includes enum constants for OnDemandAllocationStrategy
+    #
+    module OnDemandAllocationStrategy
+      # No documentation available.
+      #
+      LOWEST_PRICE = "lowestPrice"
+
+      # No documentation available.
+      #
+      PRIORITIZED = "prioritized"
+    end
+
     # <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
     #
     # @!attribute allocation_strategy
@@ -44771,6 +53609,8 @@ module AWS::Ec2
     #            template override, launching the highest priority first.</p>
     #            <p>Default: <code>lowest-price</code>
     #            </p>
+    #
+    #   Enum, one of: ["lowest-price", "prioritized"]
     #
     #   @return [String]
     #
@@ -44819,6 +53659,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.single_instance_type ||= false
+        self.single_availability_zone ||= false
+        self.min_target_capacity ||= 0
+      end
+
     end
 
     # <p>Describes the configuration of On-Demand Instances in an EC2 Fleet.</p>
@@ -44834,6 +53681,8 @@ module AWS::Ec2
     #            template override, launching the highest priority first.</p>
     #            <p>Default: <code>lowest-price</code>
     #            </p>
+    #
+    #   Enum, one of: ["lowest-price", "prioritized"]
     #
     #   @return [String]
     #
@@ -44882,6 +53731,25 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.single_instance_type ||= false
+        self.single_availability_zone ||= false
+        self.min_target_capacity ||= 0
+      end
+
+    end
+
+    # Includes enum constants for OperationType
+    #
+    module OperationType
+      # No documentation available.
+      #
+      add = "add"
+
+      # No documentation available.
+      #
+      remove = "remove"
     end
 
     # <p>Describes a packet header statement.</p>
@@ -44984,6 +53852,26 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for PartitionLoadFrequency
+    #
+    module PartitionLoadFrequency
+      # No documentation available.
+      #
+      NONE = "none"
+
+      # No documentation available.
+      #
+      DAILY = "daily"
+
+      # No documentation available.
+      #
+      WEEKLY = "weekly"
+
+      # No documentation available.
+      #
+      MONTHLY = "monthly"
+    end
+
     # <p>Describes a path component.</p>
     #
     # @!attribute sequence_number
@@ -45062,6 +53950,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.sequence_number ||= 0
+      end
+
     end
 
     # <p>Describes a path statement.</p>
@@ -45102,6 +53995,30 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for PayerResponsibility
+    #
+    module PayerResponsibility
+      # No documentation available.
+      #
+      ServiceOwner = "ServiceOwner"
+    end
+
+    # Includes enum constants for PaymentOption
+    #
+    module PaymentOption
+      # No documentation available.
+      #
+      ALL_UPFRONT = "AllUpfront"
+
+      # No documentation available.
+      #
+      PARTIAL_UPFRONT = "PartialUpfront"
+
+      # No documentation available.
+      #
+      NO_UPFRONT = "NoUpfront"
     end
 
     # <p>Describes the data that identifies an Amazon FPGA image (AFI) on the PCI bus.</p>
@@ -45183,6 +54100,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.allow_dns_resolution_from_remote_vpc ||= false
+        self.allow_egress_from_local_classic_link_to_remote_vpc ||= false
+        self.allow_egress_from_local_vpc_to_remote_classic_link ||= false
+      end
+
     end
 
     # <p>The VPC peering connection options.</p>
@@ -45211,6 +54135,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.allow_dns_resolution_from_remote_vpc ||= false
+        self.allow_egress_from_local_classic_link_to_remote_vpc ||= false
+        self.allow_egress_from_local_vpc_to_remote_classic_link ||= false
+      end
+
     end
 
     # <p>Information about the transit gateway in the peering attachment.</p>
@@ -45239,6 +54170,14 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for PermissionGroup
+    #
+    module PermissionGroup
+      # No documentation available.
+      #
+      all = "all"
+    end
+
     # <p>The Diffie-Hellmann group number for phase 1 IKE negotiations.</p>
     #
     # @!attribute value
@@ -45251,6 +54190,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.value ||= 0
+      end
+
     end
 
     # <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE
@@ -45266,6 +54210,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.value ||= 0
+      end
+
     end
 
     # <p>The encryption algorithm for phase 1 IKE negotiations.</p>
@@ -45338,6 +54287,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.value ||= 0
+      end
+
     end
 
     # <p>Specifies a Diffie-Hellman group number for the VPN tunnel for phase 2 IKE
@@ -45353,6 +54307,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.value ||= 0
+      end
+
     end
 
     # <p>The encryption algorithm for phase 2 IKE negotiations.</p>
@@ -45457,6 +54416,8 @@ module AWS::Ec2
     #
     #           <p>T3 instances that use the <code>unlimited</code> CPU credit option do not support <code>host</code> tenancy.</p>
     #
+    #   Enum, one of: ["default", "dedicated", "host"]
+    #
     #   @return [String]
     #
     # @!attribute spread_domain
@@ -45485,6 +54446,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.partition_number ||= 0
+      end
+
     end
 
     # <p>Describes a placement group.</p>
@@ -45497,10 +54463,14 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of the placement group.</p>
     #
+    #   Enum, one of: ["pending", "available", "deleting", "deleted"]
+    #
     #   @return [String]
     #
     # @!attribute strategy
     #   <p>The placement strategy.</p>
+    #
+    #   Enum, one of: ["cluster", "spread", "partition"]
     #
     #   @return [String]
     #
@@ -45536,6 +54506,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.partition_count ||= 0
+      end
+
     end
 
     # <p>Describes the placement group support of the instance type.</p>
@@ -45552,6 +54527,42 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for PlacementGroupState
+    #
+    module PlacementGroupState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
+
+      # No documentation available.
+      #
+      deleted = "deleted"
+    end
+
+    # Includes enum constants for PlacementGroupStrategy
+    #
+    module PlacementGroupStrategy
+      # No documentation available.
+      #
+      cluster = "cluster"
+
+      # No documentation available.
+      #
+      partition = "partition"
+
+      # No documentation available.
+      #
+      spread = "spread"
+    end
+
     # <p>Describes the placement of an instance.</p>
     #
     # @!attribute group_name
@@ -45564,6 +54575,30 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for PlacementStrategy
+    #
+    module PlacementStrategy
+      # No documentation available.
+      #
+      cluster = "cluster"
+
+      # No documentation available.
+      #
+      spread = "spread"
+
+      # No documentation available.
+      #
+      partition = "partition"
+    end
+
+    # Includes enum constants for PlatformValues
+    #
+    module PlatformValues
+      # No documentation available.
+      #
+      Windows = "Windows"
     end
 
     # <p>Describes a CIDR block for an address pool.</p>
@@ -45598,6 +54633,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.from ||= 0
+        self.to ||= 0
+      end
+
     end
 
     # <p>Describes prefixes for Amazon Web Services services.</p>
@@ -45688,6 +54729,58 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for PrefixListState
+    #
+    module PrefixListState
+      # No documentation available.
+      #
+      create_in_progress = "create-in-progress"
+
+      # No documentation available.
+      #
+      create_complete = "create-complete"
+
+      # No documentation available.
+      #
+      create_failed = "create-failed"
+
+      # No documentation available.
+      #
+      modify_in_progress = "modify-in-progress"
+
+      # No documentation available.
+      #
+      modify_complete = "modify-complete"
+
+      # No documentation available.
+      #
+      modify_failed = "modify-failed"
+
+      # No documentation available.
+      #
+      restore_in_progress = "restore-in-progress"
+
+      # No documentation available.
+      #
+      restore_complete = "restore-complete"
+
+      # No documentation available.
+      #
+      restore_failed = "restore-failed"
+
+      # No documentation available.
+      #
+      delete_in_progress = "delete-in-progress"
+
+      # No documentation available.
+      #
+      delete_complete = "delete-complete"
+
+      # No documentation available.
+      #
+      delete_failed = "delete-failed"
+    end
+
     # <p>Describes the price for a Reserved Instance.</p>
     #
     # @!attribute active
@@ -45699,6 +54792,8 @@ module AWS::Ec2
     # @!attribute currency_code
     #   <p>The currency for transacting the Reserved Instance resale.
     #   				At this time, the only supported currency is <code>USD</code>.</p>
+    #
+    #   Enum, one of: ["USD"]
     #
     #   @return [String]
     #
@@ -45720,6 +54815,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.active ||= false
+        self.price ||= 0
+        self.term ||= 0
+      end
+
     end
 
     # <p>Describes the price for a Reserved Instance.</p>
@@ -45727,6 +54829,8 @@ module AWS::Ec2
     # @!attribute currency_code
     #   <p>The currency for transacting the Reserved Instance resale.
     #   				At this time, the only supported currency is <code>USD</code>.</p>
+    #
+    #   Enum, one of: ["USD"]
     #
     #   @return [String]
     #
@@ -45747,6 +54851,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.price ||= 0
+        self.term ||= 0
+      end
+
     end
 
     # <p>Describes a Reserved Instance offering.</p>
@@ -45767,6 +54877,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.count ||= 0
+        self.price ||= 0
+      end
+
     end
 
     # <p>PrincipalIdFormat description</p>
@@ -45787,6 +54903,34 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for PrincipalType
+    #
+    module PrincipalType
+      # No documentation available.
+      #
+      All = "All"
+
+      # No documentation available.
+      #
+      Service = "Service"
+
+      # No documentation available.
+      #
+      OrganizationUnit = "OrganizationUnit"
+
+      # No documentation available.
+      #
+      Account = "Account"
+
+      # No documentation available.
+      #
+      User = "User"
+
+      # No documentation available.
+      #
+      Role = "Role"
     end
 
     # <p>Information about the Private DNS name for interface endpoints.</p>
@@ -45813,6 +54957,8 @@ module AWS::Ec2
     #           <p>>Consumers
     #               of the endpoint service can use the private name only when the state is
     #                   <code>verified</code>.</p>
+    #
+    #   Enum, one of: ["pendingVerification", "verified", "failed"]
     #
     #   @return [String]
     #
@@ -45849,6 +54995,8 @@ module AWS::Ec2
     #               on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance
     #               IPv4 address or the instance ID.</p>
     #
+    #   Enum, one of: ["ip-name", "resource-name"]
+    #
     #   @return [String]
     #
     # @!attribute enable_resource_name_dns_a_record
@@ -45868,6 +55016,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enable_resource_name_dns_a_record ||= false
+        self.enable_resource_name_dns_aaaa_record ||= false
+      end
+
     end
 
     # <p>Describes the options for instance hostnames.</p>
@@ -45877,6 +55031,8 @@ module AWS::Ec2
     #               based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name must be based
     #               on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance
     #               IPv4 address or the instance ID.</p>
+    #
+    #   Enum, one of: ["ip-name", "resource-name"]
     #
     #   @return [String]
     #
@@ -45897,12 +55053,20 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enable_resource_name_dns_a_record ||= false
+        self.enable_resource_name_dns_aaaa_record ||= false
+      end
+
     end
 
     # <p>Describes the options for instance hostnames.</p>
     #
     # @!attribute hostname_type
     #   <p>The type of hostname to assign to an instance.</p>
+    #
+    #   Enum, one of: ["ip-name", "resource-name"]
     #
     #   @return [String]
     #
@@ -45923,6 +55087,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enable_resource_name_dns_a_record ||= false
+        self.enable_resource_name_dns_aaaa_record ||= false
+      end
+
     end
 
     # <p>Describes a secondary private IPv4 address for a network interface.</p>
@@ -45944,6 +55114,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.primary ||= false
+      end
+
     end
 
     # <p>Describes the processor used by the instance type.</p>
@@ -45976,6 +55151,8 @@ module AWS::Ec2
     # @!attribute product_code_type
     #   <p>The type of product code.</p>
     #
+    #   Enum, one of: ["devpay", "marketplace"]
+    #
     #   @return [String]
     #
     ProductCode = ::Struct.new(
@@ -45984,6 +55161,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ProductCodeValues
+    #
+    module ProductCodeValues
+      # No documentation available.
+      #
+      devpay = "devpay"
+
+      # No documentation available.
+      #
+      marketplace = "marketplace"
     end
 
     # <p>Describes a virtual private gateway propagating route.</p>
@@ -45998,6 +55187,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for Protocol
+    #
+    module Protocol
+      # No documentation available.
+      #
+      tcp = "tcp"
+
+      # No documentation available.
+      #
+      udp = "udp"
+    end
+
+    # Includes enum constants for ProtocolValue
+    #
+    module ProtocolValue
+      # No documentation available.
+      #
+      gre = "gre"
     end
 
     # @!attribute cidr
@@ -46053,6 +55262,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.publicly_advertisable ||= false
+        self.dry_run ||= false
+        self.multi_region ||= false
+      end
+
     end
 
     # @!attribute byoip_cidr
@@ -46097,6 +55313,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute ipam_pool_cidr
@@ -46141,6 +55362,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.netmask_length ||= 0
+      end
+
     end
 
     # @!attribute pool_id
@@ -46275,6 +55502,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.total_address_count ||= 0
+        self.total_available_address_count ||= 0
+      end
+
     end
 
     # <p>Describes an address range of an IPv4 address pool.</p>
@@ -46307,6 +55540,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.address_count ||= 0
+        self.available_address_count ||= 0
+      end
+
     end
 
     # <p>Describes the result of the purchase.</p>
@@ -46315,6 +55554,8 @@ module AWS::Ec2
     #   <p>The currency in which the <code>UpfrontPrice</code> and <code>HourlyPrice</code>
     #               amounts are specified. At this time, the only supported currency is
     #               <code>USD</code>.</p>
+    #
+    #   Enum, one of: ["USD"]
     #
     #   @return [String]
     #
@@ -46347,6 +55588,8 @@ module AWS::Ec2
     # @!attribute payment_option
     #   <p>The payment option for the reservation.</p>
     #
+    #   Enum, one of: ["AllUpfront", "PartialUpfront", "NoUpfront"]
+    #
     #   @return [String]
     #
     # @!attribute upfront_price
@@ -46366,6 +55609,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.duration ||= 0
+      end
+
     end
 
     # @!attribute client_token
@@ -46377,6 +55625,8 @@ module AWS::Ec2
     #   <p>The currency in which the <code>totalUpfrontPrice</code>, <code>LimitPrice</code>,
     #               and <code>totalHourlyPrice</code> amounts are specified. At this time, the only
     #               supported currency is <code>USD</code>.</p>
+    #
+    #   Enum, one of: ["USD"]
     #
     #   @return [String]
     #
@@ -46427,6 +55677,8 @@ module AWS::Ec2
     #                   <code>totalHourlyPrice</code> amounts are specified. At this time, the only
     #               supported currency is <code>USD</code>.</p>
     #
+    #   Enum, one of: ["USD"]
+    #
     #   @return [String]
     #
     # @!attribute purchase
@@ -46473,6 +55725,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.instance_count ||= 0
+      end
+
     end
 
     # <p>Contains the parameters for PurchaseReservedInstancesOffering.</p>
@@ -46513,6 +55770,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.instance_count ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of PurchaseReservedInstancesOffering.</p>
@@ -46558,6 +55821,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of PurchaseScheduledInstances.</p>
@@ -46592,6 +55860,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     RebootInstancesOutput = ::Struct.new(
@@ -46611,6 +55884,8 @@ module AWS::Ec2
     # @!attribute frequency
     #   <p>The frequency of the recurring charge.</p>
     #
+    #   Enum, one of: ["Hourly"]
+    #
     #   @return [String]
     #
     RecurringCharge = ::Struct.new(
@@ -46619,6 +55894,19 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.amount ||= 0
+      end
+
+    end
+
+    # Includes enum constants for RecurringChargeFrequency
+    #
+    module RecurringChargeFrequency
+      # No documentation available.
+      #
+      Hourly = "Hourly"
     end
 
     # <p> Describes the security group that is referenced in the security group rule.</p>
@@ -46701,6 +55989,8 @@ module AWS::Ec2
     #      	     <p>Default: For Amazon EBS-backed AMIs, <code>i386</code>.
     #           For instance store-backed AMIs, the architecture specified in the manifest file.</p>
     #
+    #   Enum, one of: ["i386", "x86_64", "arm64", "x86_64_mac"]
+    #
     #   @return [String]
     #
     # @!attribute block_device_mappings
@@ -46776,6 +56066,8 @@ module AWS::Ec2
     #   <p>The boot mode of the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
     #           <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
     #
+    #   Enum, one of: ["legacy-bios", "uefi"]
+    #
     #   @return [String]
     #
     RegisterImageInput = ::Struct.new(
@@ -46796,6 +56088,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.ena_support ||= false
+      end
+
     end
 
     # <p>Contains the output of RegisterImage.</p>
@@ -46830,6 +56128,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_tag_attribute
@@ -46865,6 +56168,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.include_all_tags_of_instance ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_multicast_domain_id
@@ -46897,6 +56205,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute registered_multicast_group_members
@@ -46941,6 +56254,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute registered_multicast_group_sources
@@ -46985,6 +56303,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute associations
@@ -47017,6 +56340,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_peering_attachment
@@ -47049,6 +56377,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute transit_gateway_vpc_attachment
@@ -47087,6 +56420,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute unsuccessful
@@ -47119,6 +56457,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -47131,6 +56474,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute allocation_id
@@ -47167,6 +56515,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     ReleaseAddressOutput = ::Struct.new(
@@ -47237,6 +56590,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute success
@@ -47249,6 +56607,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.success ||= false
+      end
+
     end
 
     # <p>Remove an operating Region from an IPAM. Operating Regions are Amazon Web Services Regions where the IPAM is allowed to manage IP address CIDRs. IPAM only
@@ -47336,6 +56699,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute new_association_id
@@ -47405,6 +56773,8 @@ module AWS::Ec2
     # @!attribute rule_action
     #   <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
     #
+    #   Enum, one of: ["allow", "deny"]
+    #
     #   @return [String]
     #
     # @!attribute rule_number
@@ -47426,6 +56796,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.egress ||= false
+        self.rule_number ||= 0
+      end
+
     end
 
     ReplaceNetworkAclEntryOutput = ::Struct.new(
@@ -47485,6 +56862,8 @@ module AWS::Ec2
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["pending", "in-progress", "failing", "succeeded", "failed", "failed-detached"]
+    #
     #   @return [String]
     #
     # @!attribute start_time
@@ -47512,6 +56891,34 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ReplaceRootVolumeTaskState
+    #
+    module ReplaceRootVolumeTaskState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      in_progress = "in-progress"
+
+      # No documentation available.
+      #
+      failing = "failing"
+
+      # No documentation available.
+      #
+      succeeded = "succeeded"
+
+      # No documentation available.
+      #
+      failed = "failed"
+
+      # No documentation available.
+      #
+      failed_detached = "failed-detached"
     end
 
     # @!attribute destination_cidr_block
@@ -47624,6 +57031,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.local_target ||= false
+      end
+
     end
 
     ReplaceRouteOutput = ::Struct.new(
@@ -47657,6 +57070,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute new_association_id
@@ -47713,6 +57131,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.blackhole ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute route
@@ -47725,6 +57149,58 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ReplacementStrategy
+    #
+    module ReplacementStrategy
+      # No documentation available.
+      #
+      LAUNCH = "launch"
+
+      # No documentation available.
+      #
+      LAUNCH_BEFORE_TERMINATE = "launch-before-terminate"
+    end
+
+    # Includes enum constants for ReportInstanceReasonCodes
+    #
+    module ReportInstanceReasonCodes
+      # No documentation available.
+      #
+      instance_stuck_in_state = "instance-stuck-in-state"
+
+      # No documentation available.
+      #
+      unresponsive = "unresponsive"
+
+      # No documentation available.
+      #
+      not_accepting_credentials = "not-accepting-credentials"
+
+      # No documentation available.
+      #
+      password_not_available = "password-not-available"
+
+      # No documentation available.
+      #
+      performance_network = "performance-network"
+
+      # No documentation available.
+      #
+      performance_instance_store = "performance-instance-store"
+
+      # No documentation available.
+      #
+      performance_ebs_volume = "performance-ebs-volume"
+
+      # No documentation available.
+      #
+      performance_other = "performance-other"
+
+      # No documentation available.
+      #
+      other = "other"
     end
 
     # @!attribute description
@@ -47806,6 +57282,8 @@ module AWS::Ec2
     # @!attribute status
     #   <p>The status of all instances listed.</p>
     #
+    #   Enum, one of: ["ok", "impaired"]
+    #
     #   @return [String]
     #
     ReportInstanceStatusInput = ::Struct.new(
@@ -47819,6 +57297,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     ReportInstanceStatusOutput = ::Struct.new(
@@ -47826,6 +57309,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ReportStatusType
+    #
+    module ReportStatusType
+      # No documentation available.
+      #
+      ok = "ok"
+
+      # No documentation available.
+      #
+      impaired = "impaired"
     end
 
     # <p>A tag on an IPAM resource.</p>
@@ -47897,6 +57392,8 @@ module AWS::Ec2
     #           <p>If you specify <code>InstanceTypes</code>, you can't specify
     #                   <code>InstanceRequirements</code>.</p>
     #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
+    #
     #   @return [String]
     #
     # @!attribute key_name
@@ -47944,6 +57441,8 @@ module AWS::Ec2
     #               the instance (using the operating system command for system shutdown).</p>
     #           <p>Default: <code>stop</code>
     #           </p>
+    #
+    #   Enum, one of: ["stop", "terminate"]
     #
     #   @return [String]
     #
@@ -48090,6 +57589,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.ebs_optimized ||= false
+        self.disable_api_termination ||= false
+      end
+
     end
 
     # <p>Contains the parameters for RequestSpotFleet.</p>
@@ -48113,6 +57618,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # <p>Contains the output of RequestSpotFleet.</p>
@@ -48199,6 +57709,8 @@ module AWS::Ec2
     #           <p>Default: <code>one-time</code>
     #           </p>
     #
+    #   Enum, one of: ["one-time", "persistent"]
+    #
     #   @return [String]
     #
     # @!attribute valid_from
@@ -48241,6 +57753,8 @@ module AWS::Ec2
     # @!attribute instance_interruption_behavior
     #   <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
     #
+    #   Enum, one of: ["hibernate", "stop", "terminate"]
+    #
     #   @return [String]
     #
     RequestSpotInstancesInput = ::Struct.new(
@@ -48260,6 +57774,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.block_duration_minutes ||= 0
+        self.dry_run ||= false
+        self.instance_count ||= 0
+      end
+
     end
 
     # <p>Contains the output of RequestSpotInstances.</p>
@@ -48319,6 +57840,8 @@ module AWS::Ec2
     #
     # @!attribute instance_type
     #   <p>The instance type.</p>
+    #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
     #
     #   @return [String]
     #
@@ -48384,6 +57907,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.ebs_optimized ||= false
+      end
+
     end
 
     # <p>Describes a launch request for one or more instances, and includes
@@ -48432,10 +57960,14 @@ module AWS::Ec2
     # @!attribute instance_type
     #   <p>The instance type for which the Capacity Reservation Fleet reserves capacity.</p>
     #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
+    #
     #   @return [String]
     #
     # @!attribute instance_platform
     #   <p>The type of operating system for which the Capacity Reservation Fleet reserves capacity.</p>
+    #
+    #   Enum, one of: ["Linux/UNIX", "Red Hat Enterprise Linux", "SUSE Linux", "Windows", "Windows with SQL Server", "Windows with SQL Server Enterprise", "Windows with SQL Server Standard", "Windows with SQL Server Web", "Linux with SQL Server Standard", "Linux with SQL Server Web", "Linux with SQL Server Enterprise"]
     #
     #   @return [String]
     #
@@ -48489,6 +58021,31 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.ebs_optimized ||= false
+      end
+
+    end
+
+    # Includes enum constants for ReservationState
+    #
+    module ReservationState
+      # No documentation available.
+      #
+      PAYMENT_PENDING = "payment-pending"
+
+      # No documentation available.
+      #
+      PAYMENT_FAILED = "payment-failed"
+
+      # No documentation available.
+      #
+      ACTIVE = "active"
+
+      # No documentation available.
+      #
+      RETIRED = "retired"
     end
 
     # <p>The cost associated with the Reserved Instance.</p>
@@ -48528,6 +58085,8 @@ module AWS::Ec2
     #   <p>The currency in which the <code>limitPrice</code> amount is specified.
     #   				At this time, the only supported currency is <code>USD</code>.</p>
     #
+    #   Enum, one of: ["USD"]
+    #
     #   @return [String]
     #
     ReservedInstanceLimitPrice = ::Struct.new(
@@ -48536,6 +58095,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.amount ||= 0
+      end
+
     end
 
     # <p>The total value of the Convertible Reserved Instance.</p>
@@ -48556,6 +58120,34 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ReservedInstanceState
+    #
+    module ReservedInstanceState
+      # No documentation available.
+      #
+      payment_pending = "payment-pending"
+
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      payment_failed = "payment-failed"
+
+      # No documentation available.
+      #
+      retired = "retired"
+
+      # No documentation available.
+      #
+      queued = "queued"
+
+      # No documentation available.
+      #
+      queued_deleted = "queued-deleted"
     end
 
     # <p>Describes a Reserved Instance.</p>
@@ -48588,10 +58180,14 @@ module AWS::Ec2
     # @!attribute instance_type
     #   <p>The instance type on which the Reserved Instance can be used.</p>
     #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
+    #
     #   @return [String]
     #
     # @!attribute product_description
     #   <p>The Reserved Instance product platform description.</p>
+    #
+    #   Enum, one of: ["Linux/UNIX", "Linux/UNIX (Amazon VPC)", "Windows", "Windows (Amazon VPC)"]
     #
     #   @return [String]
     #
@@ -48608,6 +58204,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of the Reserved Instance purchase.</p>
     #
+    #   Enum, one of: ["payment-pending", "active", "payment-failed", "retired", "queued", "queued-deleted"]
+    #
     #   @return [String]
     #
     # @!attribute usage_price
@@ -48619,20 +58217,28 @@ module AWS::Ec2
     #   <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes.
     #   				At this time, the only supported currency is <code>USD</code>.</p>
     #
+    #   Enum, one of: ["USD"]
+    #
     #   @return [String]
     #
     # @!attribute instance_tenancy
     #   <p>The tenancy of the instance.</p>
+    #
+    #   Enum, one of: ["default", "dedicated", "host"]
     #
     #   @return [String]
     #
     # @!attribute offering_class
     #   <p>The offering class of the Reserved Instance.</p>
     #
+    #   Enum, one of: ["standard", "convertible"]
+    #
     #   @return [String]
     #
     # @!attribute offering_type
     #   <p>The Reserved Instance offering type.</p>
+    #
+    #   Enum, one of: ["Heavy Utilization", "Medium Utilization", "Light Utilization", "No Upfront", "Partial Upfront", "All Upfront"]
     #
     #   @return [String]
     #
@@ -48643,6 +58249,8 @@ module AWS::Ec2
     #
     # @!attribute scope
     #   <p>The scope of the Reserved Instance.</p>
+    #
+    #   Enum, one of: ["Availability Zone", "Region"]
     #
     #   @return [String]
     #
@@ -48673,6 +58281,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.duration ||= 0
+        self.fixed_price ||= 0
+        self.instance_count ||= 0
+        self.usage_price ||= 0
+      end
+
     end
 
     # <p>Describes the configuration settings for the modified Reserved Instances.</p>
@@ -48693,6 +58309,8 @@ module AWS::Ec2
     # @!attribute instance_type
     #   <p>The instance type for the modified Reserved Instances.</p>
     #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
+    #
     #   @return [String]
     #
     # @!attribute platform
@@ -48702,6 +58320,8 @@ module AWS::Ec2
     #
     # @!attribute scope
     #   <p>Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.</p>
+    #
+    #   Enum, one of: ["Availability Zone", "Region"]
     #
     #   @return [String]
     #
@@ -48714,6 +58334,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.instance_count ||= 0
+      end
+
     end
 
     # <p>Describes the ID of a Reserved Instance.</p>
@@ -48765,6 +58390,8 @@ module AWS::Ec2
     #
     # @!attribute status
     #   <p>The status of the Reserved Instance listing.</p>
+    #
+    #   Enum, one of: ["active", "pending", "cancelled", "closed"]
     #
     #   @return [String]
     #
@@ -48903,10 +58530,14 @@ module AWS::Ec2
     # @!attribute instance_type
     #   <p>The instance type on which the Reserved Instance can be used.</p>
     #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
+    #
     #   @return [String]
     #
     # @!attribute product_description
     #   <p>The Reserved Instance product platform description.</p>
+    #
+    #   Enum, one of: ["Linux/UNIX", "Linux/UNIX (Amazon VPC)", "Windows", "Windows (Amazon VPC)"]
     #
     #   @return [String]
     #
@@ -48926,10 +58557,14 @@ module AWS::Ec2
     #   				specified using ISO 4217 standard currency codes. At this time,
     #   				the only supported currency is <code>USD</code>.</p>
     #
+    #   Enum, one of: ["USD"]
+    #
     #   @return [String]
     #
     # @!attribute instance_tenancy
     #   <p>The tenancy of the instance.</p>
+    #
+    #   Enum, one of: ["default", "dedicated", "host"]
     #
     #   @return [String]
     #
@@ -48944,10 +58579,14 @@ module AWS::Ec2
     #         the same or higher monetary value, with different configurations. If <code>standard</code>, it is not
     #         possible to perform an exchange.</p>
     #
+    #   Enum, one of: ["standard", "convertible"]
+    #
     #   @return [String]
     #
     # @!attribute offering_type
     #   <p>The Reserved Instance offering type.</p>
+    #
+    #   Enum, one of: ["Heavy Utilization", "Medium Utilization", "Light Utilization", "No Upfront", "Partial Upfront", "All Upfront"]
     #
     #   @return [String]
     #
@@ -48963,6 +58602,8 @@ module AWS::Ec2
     #
     # @!attribute scope
     #   <p>Whether the Reserved Instance is applied to instances in a Region or an Availability Zone.</p>
+    #
+    #   Enum, one of: ["Availability Zone", "Region"]
     #
     #   @return [String]
     #
@@ -48985,6 +58626,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.duration ||= 0
+        self.fixed_price ||= 0
+        self.usage_price ||= 0
+        self.marketplace ||= false
+      end
+
     end
 
     # @!attribute allocation_id
@@ -48994,6 +58643,8 @@ module AWS::Ec2
     #
     # @!attribute attribute
     #   <p>The attribute of the IP address.</p>
+    #
+    #   Enum, one of: ["domain-name"]
     #
     #   @return [String]
     #
@@ -49011,6 +58662,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute address
@@ -49037,6 +58693,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute kms_key_id
@@ -49066,6 +58727,8 @@ module AWS::Ec2
     # @!attribute attribute
     #   <p>The attribute.</p>
     #
+    #   Enum, one of: ["loadPermission"]
+    #
     #   @return [String]
     #
     ResetFpgaImageAttributeInput = ::Struct.new(
@@ -49075,6 +58738,19 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
+    end
+
+    # Includes enum constants for ResetFpgaImageAttributeName
+    #
+    module ResetFpgaImageAttributeName
+      # No documentation available.
+      #
+      loadPermission = "loadPermission"
     end
 
     # @!attribute return
@@ -49087,12 +58763,19 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # <p>Contains the parameters for ResetImageAttribute.</p>
     #
     # @!attribute attribute
     #   <p>The attribute to reset (currently you can only reset the launch permission attribute).</p>
+    #
+    #   Enum, one of: ["launchPermission"]
     #
     #   @return [String]
     #
@@ -49115,6 +58798,19 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
+    end
+
+    # Includes enum constants for ResetImageAttributeName
+    #
+    module ResetImageAttributeName
+      # No documentation available.
+      #
+      launchPermission = "launchPermission"
     end
 
     ResetImageAttributeOutput = ::Struct.new(
@@ -49131,6 +58827,8 @@ module AWS::Ec2
     #                       <code>ramdisk</code> | <code>sourceDestCheck</code>. To change an instance
     #                   attribute, use <a>ModifyInstanceAttribute</a>.</p>
     #           </important>
+    #
+    #   Enum, one of: ["instanceType", "kernel", "ramdisk", "userData", "disableApiTermination", "instanceInitiatedShutdownBehavior", "rootDeviceName", "blockDeviceMapping", "productCodes", "sourceDestCheck", "groupSet", "ebsOptimized", "sriovNetSupport", "enaSupport", "enclaveOptions"]
     #
     #   @return [String]
     #
@@ -49153,6 +58851,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     ResetInstanceAttributeOutput = ::Struct.new(
@@ -49188,6 +58891,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     ResetNetworkInterfaceAttributeOutput = ::Struct.new(
@@ -49200,6 +58908,8 @@ module AWS::Ec2
     # @!attribute attribute
     #   <p>The attribute to reset. Currently, only the attribute for permission to create volumes can
     #         be reset.</p>
+    #
+    #   Enum, one of: ["productCodes", "createVolumePermission"]
     #
     #   @return [String]
     #
@@ -49222,6 +58932,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     ResetSnapshotAttributeOutput = ::Struct.new(
@@ -49271,11 +58986,285 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for ResourceType
+    #
+    module ResourceType
+      # No documentation available.
+      #
+      capacity_reservation = "capacity-reservation"
+
+      # No documentation available.
+      #
+      client_vpn_endpoint = "client-vpn-endpoint"
+
+      # No documentation available.
+      #
+      customer_gateway = "customer-gateway"
+
+      # No documentation available.
+      #
+      carrier_gateway = "carrier-gateway"
+
+      # No documentation available.
+      #
+      dedicated_host = "dedicated-host"
+
+      # No documentation available.
+      #
+      dhcp_options = "dhcp-options"
+
+      # No documentation available.
+      #
+      egress_only_internet_gateway = "egress-only-internet-gateway"
+
+      # No documentation available.
+      #
+      elastic_ip = "elastic-ip"
+
+      # No documentation available.
+      #
+      elastic_gpu = "elastic-gpu"
+
+      # No documentation available.
+      #
+      export_image_task = "export-image-task"
+
+      # No documentation available.
+      #
+      export_instance_task = "export-instance-task"
+
+      # No documentation available.
+      #
+      fleet = "fleet"
+
+      # No documentation available.
+      #
+      fpga_image = "fpga-image"
+
+      # No documentation available.
+      #
+      host_reservation = "host-reservation"
+
+      # No documentation available.
+      #
+      image = "image"
+
+      # No documentation available.
+      #
+      import_image_task = "import-image-task"
+
+      # No documentation available.
+      #
+      import_snapshot_task = "import-snapshot-task"
+
+      # No documentation available.
+      #
+      instance = "instance"
+
+      # No documentation available.
+      #
+      instance_event_window = "instance-event-window"
+
+      # No documentation available.
+      #
+      internet_gateway = "internet-gateway"
+
+      # No documentation available.
+      #
+      ipam = "ipam"
+
+      # No documentation available.
+      #
+      ipam_pool = "ipam-pool"
+
+      # No documentation available.
+      #
+      ipam_scope = "ipam-scope"
+
+      # No documentation available.
+      #
+      ipv4pool_ec2 = "ipv4pool-ec2"
+
+      # No documentation available.
+      #
+      ipv6pool_ec2 = "ipv6pool-ec2"
+
+      # No documentation available.
+      #
+      key_pair = "key-pair"
+
+      # No documentation available.
+      #
+      launch_template = "launch-template"
+
+      # No documentation available.
+      #
+      local_gateway = "local-gateway"
+
+      # No documentation available.
+      #
+      local_gateway_route_table = "local-gateway-route-table"
+
+      # No documentation available.
+      #
+      local_gateway_virtual_interface = "local-gateway-virtual-interface"
+
+      # No documentation available.
+      #
+      local_gateway_virtual_interface_group = "local-gateway-virtual-interface-group"
+
+      # No documentation available.
+      #
+      local_gateway_route_table_vpc_association = "local-gateway-route-table-vpc-association"
+
+      # No documentation available.
+      #
+      local_gateway_route_table_virtual_interface_group_association = "local-gateway-route-table-virtual-interface-group-association"
+
+      # No documentation available.
+      #
+      natgateway = "natgateway"
+
+      # No documentation available.
+      #
+      network_acl = "network-acl"
+
+      # No documentation available.
+      #
+      network_interface = "network-interface"
+
+      # No documentation available.
+      #
+      network_insights_analysis = "network-insights-analysis"
+
+      # No documentation available.
+      #
+      network_insights_path = "network-insights-path"
+
+      # No documentation available.
+      #
+      network_insights_access_scope = "network-insights-access-scope"
+
+      # No documentation available.
+      #
+      network_insights_access_scope_analysis = "network-insights-access-scope-analysis"
+
+      # No documentation available.
+      #
+      placement_group = "placement-group"
+
+      # No documentation available.
+      #
+      prefix_list = "prefix-list"
+
+      # No documentation available.
+      #
+      replace_root_volume_task = "replace-root-volume-task"
+
+      # No documentation available.
+      #
+      reserved_instances = "reserved-instances"
+
+      # No documentation available.
+      #
+      route_table = "route-table"
+
+      # No documentation available.
+      #
+      security_group = "security-group"
+
+      # No documentation available.
+      #
+      security_group_rule = "security-group-rule"
+
+      # No documentation available.
+      #
+      snapshot = "snapshot"
+
+      # No documentation available.
+      #
+      spot_fleet_request = "spot-fleet-request"
+
+      # No documentation available.
+      #
+      spot_instances_request = "spot-instances-request"
+
+      # No documentation available.
+      #
+      subnet = "subnet"
+
+      # No documentation available.
+      #
+      traffic_mirror_filter = "traffic-mirror-filter"
+
+      # No documentation available.
+      #
+      traffic_mirror_session = "traffic-mirror-session"
+
+      # No documentation available.
+      #
+      traffic_mirror_target = "traffic-mirror-target"
+
+      # No documentation available.
+      #
+      transit_gateway = "transit-gateway"
+
+      # No documentation available.
+      #
+      transit_gateway_attachment = "transit-gateway-attachment"
+
+      # No documentation available.
+      #
+      transit_gateway_connect_peer = "transit-gateway-connect-peer"
+
+      # No documentation available.
+      #
+      transit_gateway_multicast_domain = "transit-gateway-multicast-domain"
+
+      # No documentation available.
+      #
+      transit_gateway_route_table = "transit-gateway-route-table"
+
+      # No documentation available.
+      #
+      volume = "volume"
+
+      # No documentation available.
+      #
+      vpc = "vpc"
+
+      # No documentation available.
+      #
+      vpc_endpoint = "vpc-endpoint"
+
+      # No documentation available.
+      #
+      vpc_endpoint_service = "vpc-endpoint-service"
+
+      # No documentation available.
+      #
+      vpc_peering_connection = "vpc-peering-connection"
+
+      # No documentation available.
+      #
+      vpn_connection = "vpn-connection"
+
+      # No documentation available.
+      #
+      vpn_gateway = "vpn-gateway"
+
+      # No documentation available.
+      #
+      vpc_flow_log = "vpc-flow-log"
+    end
+
     # <p>Describes the error that's returned when you cannot delete a launch template
     #             version.</p>
     #
     # @!attribute code
     #   <p>The error code.</p>
+    #
+    #   Enum, one of: ["launchTemplateIdDoesNotExist", "launchTemplateIdMalformed", "launchTemplateNameDoesNotExist", "launchTemplateNameMalformed", "launchTemplateVersionDoesNotExist", "unexpectedError"]
     #
     #   @return [String]
     #
@@ -49327,6 +59316,8 @@ module AWS::Ec2
     # @!attribute instance_type
     #   <p>The instance type.</p>
     #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
+    #
     #   @return [String]
     #
     # @!attribute key_name
@@ -49358,6 +59349,8 @@ module AWS::Ec2
     # @!attribute instance_initiated_shutdown_behavior
     #   <p>Indicates whether an instance stops or terminates when you initiate shutdown from
     #               the instance (using the operating system command for system shutdown).</p>
+    #
+    #   Enum, one of: ["stop", "terminate"]
     #
     #   @return [String]
     #
@@ -49483,6 +59476,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.ebs_optimized ||= false
+        self.disable_api_termination ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -49503,6 +59502,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute public_ip
@@ -49512,6 +59516,8 @@ module AWS::Ec2
     #
     # @!attribute status
     #   <p>The move status for the IP address.</p>
+    #
+    #   Enum, one of: ["MoveInProgress", "InVpc", "InClassic"]
     #
     #   @return [String]
     #
@@ -49553,6 +59559,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.previous_version ||= 0
+        self.current_version ||= 0
+      end
+
     end
 
     # @!attribute prefix_list
@@ -49585,6 +59598,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute snapshot_id
@@ -49626,6 +59644,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of the snapshot.</p>
     #
+    #   Enum, one of: ["pending", "completed", "error", "recoverable", "recovering"]
+    #
     #   @return [String]
     #
     # @!attribute volume_id
@@ -49652,6 +59672,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.encrypted ||= false
+        self.volume_size ||= 0
+      end
+
     end
 
     # @!attribute snapshot_id
@@ -49691,6 +59717,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.permanent_restore ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute snapshot_id
@@ -49723,6 +59755,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.restore_duration ||= 0
+        self.is_permanent_restore ||= false
+      end
+
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -49759,6 +59797,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.revoke_all_groups ||= false
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute status
@@ -49842,6 +59886,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.from_port ||= 0
+        self.to_port ||= 0
+      end
+
     end
 
     # @!attribute return
@@ -49862,6 +59913,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute cidr_ip
@@ -49943,6 +59999,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.from_port ||= 0
+        self.to_port ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -49963,6 +60026,23 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
+    end
+
+    # Includes enum constants for RootDeviceType
+    #
+    module RootDeviceType
+      # No documentation available.
+      #
+      ebs = "ebs"
+
+      # No documentation available.
+      #
+      instance_store = "instance-store"
     end
 
     # <p>Describes a route in a route table.</p>
@@ -50044,12 +60124,16 @@ module AWS::Ec2
     #               </li>
     #            </ul>
     #
+    #   Enum, one of: ["CreateRouteTable", "CreateRoute", "EnableVgwRoutePropagation"]
+    #
     #   @return [String]
     #
     # @!attribute state
     #   <p>The state of the route. The <code>blackhole</code> state indicates that the
     #   				route's target isn't available (for example, the specified gateway isn't attached to the
     #   				VPC, or the specified NAT instance has been terminated).</p>
+    #
+    #   Enum, one of: ["active", "blackhole"]
     #
     #   @return [String]
     #
@@ -50083,6 +60167,34 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for RouteOrigin
+    #
+    module RouteOrigin
+      # No documentation available.
+      #
+      CreateRouteTable = "CreateRouteTable"
+
+      # No documentation available.
+      #
+      CreateRoute = "CreateRoute"
+
+      # No documentation available.
+      #
+      EnableVgwRoutePropagation = "EnableVgwRoutePropagation"
+    end
+
+    # Includes enum constants for RouteState
+    #
+    module RouteState
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      blackhole = "blackhole"
     end
 
     # <p>Describes a route table.</p>
@@ -50177,12 +60289,19 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.main ||= false
+      end
+
     end
 
     # <p>Describes the state of an association between a route table and a subnet or gateway.</p>
     #
     # @!attribute state
     #   <p>The state of the association.</p>
+    #
+    #   Enum, one of: ["associating", "associated", "disassociating", "disassociated", "failed"]
     #
     #   @return [String]
     #
@@ -50197,6 +60316,42 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for RouteTableAssociationStateCode
+    #
+    module RouteTableAssociationStateCode
+      # No documentation available.
+      #
+      associating = "associating"
+
+      # No documentation available.
+      #
+      associated = "associated"
+
+      # No documentation available.
+      #
+      disassociating = "disassociating"
+
+      # No documentation available.
+      #
+      disassociated = "disassociated"
+
+      # No documentation available.
+      #
+      failed = "failed"
+    end
+
+    # Includes enum constants for RuleAction
+    #
+    module RuleAction
+      # No documentation available.
+      #
+      allow = "allow"
+
+      # No documentation available.
+      #
+      deny = "deny"
     end
 
     # @!attribute block_device_mappings
@@ -50217,6 +60372,8 @@ module AWS::Ec2
     #                   <i>Amazon EC2 User Guide</i>.</p>
     #           <p>Default: <code>m1.small</code>
     #            </p>
+    #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
     #
     #   @return [String]
     #
@@ -50393,6 +60550,8 @@ module AWS::Ec2
     #           <p>Default: <code>stop</code>
     #           </p>
     #
+    #   Enum, one of: ["stop", "terminate"]
+    #
     #   @return [String]
     #
     # @!attribute network_interfaces
@@ -50551,6 +60710,16 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.ipv6_address_count ||= 0
+        self.max_count ||= 0
+        self.min_count ||= 0
+        self.disable_api_termination ||= false
+        self.dry_run ||= false
+        self.ebs_optimized ||= false
+      end
+
     end
 
     # <p>Describes the monitoring of an instance.</p>
@@ -50566,6 +60735,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enabled ||= false
+      end
+
     end
 
     # <p>Describes a launch request for one or more instances, and includes
@@ -50650,6 +60824,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+        self.instance_count ||= 0
+      end
+
     end
 
     # <p>Contains the output of RunScheduledInstances.</p>
@@ -50827,6 +61007,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.instance_count ||= 0
+        self.slot_duration_in_hours ||= 0
+        self.total_scheduled_instance_hours ||= 0
+      end
+
     end
 
     # <p>Describes a schedule that is available for your Scheduled Instances.</p>
@@ -50913,6 +61100,15 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.available_instance_count ||= 0
+        self.max_term_duration_in_days ||= 0
+        self.min_term_duration_in_days ||= 0
+        self.slot_duration_in_hours ||= 0
+        self.total_scheduled_instance_hours ||= 0
+      end
+
     end
 
     # <p>Describes the recurring schedule for a Scheduled Instance.</p>
@@ -50952,6 +61148,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.interval ||= 0
+        self.occurrence_relative_to_end ||= false
+      end
+
     end
 
     # <p>Describes the recurring schedule for a Scheduled Instance.</p>
@@ -50994,6 +61196,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.interval ||= 0
+        self.occurrence_relative_to_end ||= false
+      end
+
     end
 
     # <p>Describes a block device mapping for a Scheduled Instance.</p>
@@ -51088,6 +61296,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.delete_on_termination ||= false
+        self.encrypted ||= false
+        self.iops ||= 0
+        self.volume_size ||= 0
+      end
+
     end
 
     # <p>Describes an IAM instance profile for a Scheduled Instance.</p>
@@ -51218,6 +61434,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.ebs_optimized ||= false
+      end
+
     end
 
     # <p>Describes whether monitoring is enabled for a Scheduled Instance.</p>
@@ -51232,6 +61453,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enabled ||= false
+      end
+
     end
 
     # <p>Describes a network interface for a Scheduled Instance.</p>
@@ -51316,6 +61542,15 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.associate_public_ip_address ||= false
+        self.delete_on_termination ||= false
+        self.device_index ||= 0
+        self.ipv6_address_count ||= 0
+        self.secondary_private_ip_address_count ||= 0
+      end
+
     end
 
     # <p>Describes the placement for a Scheduled Instance.</p>
@@ -51356,6 +61591,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.primary ||= false
+      end
+
     end
 
     # @!attribute local_gateway_route_table_id
@@ -51395,6 +61635,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute routes
@@ -51490,6 +61735,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute multicast_groups
@@ -51585,6 +61836,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.max_results ||= 0
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute routes
@@ -51603,6 +61860,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.additional_routes_available ||= false
+      end
+
     end
 
     # <p>Describes a security group.</p>
@@ -51795,6 +62057,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.is_egress ||= false
+        self.from_port ||= 0
+        self.to_port ||= 0
+      end
+
     end
 
     # <p>Describes the description of a security group rule.</p>
@@ -51892,6 +62161,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.from_port ||= 0
+        self.to_port ||= 0
+      end
+
     end
 
     # <p>Describes an update to a security group rule.</p>
@@ -51914,6 +62189,18 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for SelfServicePortal
+    #
+    module SelfServicePortal
+      # No documentation available.
+      #
+      enabled = "enabled"
+
+      # No documentation available.
+      #
+      disabled = "disabled"
+    end
+
     # @!attribute instance_id
     #   <p>The ID of the instance.</p>
     #
@@ -51932,6 +62219,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     SendDiagnosticInterruptOutput = ::Struct.new(
@@ -51960,6 +62252,8 @@ module AWS::Ec2
     #
     # @!attribute service_state
     #   <p>The service state.</p>
+    #
+    #   Enum, one of: ["Pending", "Available", "Deleting", "Deleted", "Failed"]
     #
     #   @return [String]
     #
@@ -52007,6 +62301,8 @@ module AWS::Ec2
     # @!attribute payer_responsibility
     #   <p>The payer responsibility.</p>
     #
+    #   Enum, one of: ["ServiceOwner"]
+    #
     #   @return [String]
     #
     # @!attribute tags
@@ -52032,6 +62328,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.acceptance_required ||= false
+        self.manages_vpc_endpoints ||= false
+      end
+
     end
 
     # <p>Describes a VPC endpoint service.</p>
@@ -52095,6 +62397,8 @@ module AWS::Ec2
     # @!attribute payer_responsibility
     #   <p>The payer responsibility.</p>
     #
+    #   Enum, one of: ["ServiceOwner"]
+    #
     #   @return [String]
     #
     # @!attribute tags
@@ -52105,6 +62409,8 @@ module AWS::Ec2
     # @!attribute private_dns_name_verification_state
     #   <p>The verification state of the VPC endpoint service.</p>
     #           <p>Consumers of the endpoint service cannot use the private name when the state is not <code>verified</code>.</p>
+    #
+    #   Enum, one of: ["pendingVerification", "verified", "failed"]
     #
     #   @return [String]
     #
@@ -52126,12 +62432,61 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.vpc_endpoint_policy_supported ||= false
+        self.acceptance_required ||= false
+        self.manages_vpc_endpoints ||= false
+      end
+
+    end
+
+    # Includes enum constants for ServiceState
+    #
+    module ServiceState
+      # No documentation available.
+      #
+      Pending = "Pending"
+
+      # No documentation available.
+      #
+      Available = "Available"
+
+      # No documentation available.
+      #
+      Deleting = "Deleting"
+
+      # No documentation available.
+      #
+      Deleted = "Deleted"
+
+      # No documentation available.
+      #
+      Failed = "Failed"
+    end
+
+    # Includes enum constants for ServiceType
+    #
+    module ServiceType
+      # No documentation available.
+      #
+      Interface = "Interface"
+
+      # No documentation available.
+      #
+      Gateway = "Gateway"
+
+      # No documentation available.
+      #
+      GatewayLoadBalancer = "GatewayLoadBalancer"
     end
 
     # <p>Describes the type of service for a VPC endpoint.</p>
     #
     # @!attribute service_type
     #   <p>The type of service.</p>
+    #
+    #   Enum, one of: ["Interface", "Gateway", "GatewayLoadBalancer"]
     #
     #   @return [String]
     #
@@ -52140,6 +62495,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for ShutdownBehavior
+    #
+    module ShutdownBehavior
+      # No documentation available.
+      #
+      stop = "stop"
+
+      # No documentation available.
+      #
+      terminate = "terminate"
     end
 
     # <p>Describes the time period for a Scheduled Instance to start its first schedule. The time period must span less than one day.</p>
@@ -52233,6 +62600,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The snapshot state.</p>
     #
+    #   Enum, one of: ["pending", "completed", "error", "recoverable", "recovering"]
+    #
     #   @return [String]
     #
     # @!attribute state_message
@@ -52277,6 +62646,8 @@ module AWS::Ec2
     #         for use. <code>archive</code> indicates that the snapshot is currently archived and that
     #         it must be restored before it can be used.</p>
     #
+    #   Enum, one of: ["archive", "standard"]
+    #
     #   @return [String]
     #
     # @!attribute restore_expiry_time
@@ -52306,6 +62677,24 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.encrypted ||= false
+        self.volume_size ||= 0
+      end
+
+    end
+
+    # Includes enum constants for SnapshotAttributeName
+    #
+    module SnapshotAttributeName
+      # No documentation available.
+      #
+      productCodes = "productCodes"
+
+      # No documentation available.
+      #
+      createVolumePermission = "createVolumePermission"
     end
 
     # <p>Describes the snapshot created from the imported disk.</p>
@@ -52374,6 +62763,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.disk_image_size ||= 0
+      end
+
     end
 
     # <p>The disk container object for the import snapshot request.</p>
@@ -52437,6 +62831,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>Current state of the snapshot.</p>
     #
+    #   Enum, one of: ["pending", "completed", "error", "recoverable", "recovering"]
+    #
     #   @return [String]
     #
     # @!attribute volume_size
@@ -52486,6 +62882,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.encrypted ||= false
+        self.volume_size ||= 0
+      end
+
     end
 
     # <p>Information about a snapshot that is currently in the Recycle Bin.</p>
@@ -52524,6 +62926,30 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for SnapshotState
+    #
+    module SnapshotState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      completed = "completed"
+
+      # No documentation available.
+      #
+      error = "error"
+
+      # No documentation available.
+      #
+      recoverable = "recoverable"
+
+      # No documentation available.
+      #
+      recovering = "recovering"
     end
 
     # <p>Details about the import snapshot task.</p>
@@ -52598,6 +63024,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.disk_image_size ||= 0
+        self.encrypted ||= false
+      end
+
     end
 
     # <p>Provides information about a snapshot's storage tier.</p>
@@ -52614,6 +63046,8 @@ module AWS::Ec2
     #
     # @!attribute status
     #   <p>The state of the snapshot.</p>
+    #
+    #   Enum, one of: ["pending", "completed", "error", "recoverable", "recovering"]
     #
     #   @return [String]
     #
@@ -52633,6 +63067,8 @@ module AWS::Ec2
     #         for use. <code>archive</code> indicates that the snapshot is currently archived and that
     #         it must be restored before it can be used.</p>
     #
+    #   Enum, one of: ["archive", "standard"]
+    #
     #   @return [String]
     #
     # @!attribute last_tiering_start_time
@@ -52647,6 +63083,8 @@ module AWS::Ec2
     #
     # @!attribute last_tiering_operation_status
     #   <p>The status of the last archive or restore process.</p>
+    #
+    #   Enum, one of: ["archival-in-progress", "archival-completed", "archival-failed", "temporary-restore-in-progress", "temporary-restore-completed", "temporary-restore-failed", "permanent-restore-in-progress", "permanent-restore-completed", "permanent-restore-failed"]
     #
     #   @return [String]
     #
@@ -52682,6 +63120,31 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.last_tiering_progress ||= 0
+      end
+
+    end
+
+    # Includes enum constants for SpotAllocationStrategy
+    #
+    module SpotAllocationStrategy
+      # No documentation available.
+      #
+      LOWEST_PRICE = "lowest-price"
+
+      # No documentation available.
+      #
+      DIVERSIFIED = "diversified"
+
+      # No documentation available.
+      #
+      CAPACITY_OPTIMIZED = "capacity-optimized"
+
+      # No documentation available.
+      #
+      CAPACITY_OPTIMIZED_PRIORITIZED = "capacity-optimized-prioritized"
     end
 
     # <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
@@ -52703,6 +63166,8 @@ module AWS::Ec2
     #               fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
     #               terminates the instances that received a rebalance notification.</p>
     #
+    #   Enum, one of: ["launch", "launch-before-terminate"]
+    #
     #   @return [String]
     #
     # @!attribute termination_delay
@@ -52720,6 +63185,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.termination_delay ||= 0
+      end
+
     end
 
     # <p>Describes the data feed for a Spot Instance.</p>
@@ -52746,6 +63216,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the Spot Instance data feed subscription.</p>
+    #
+    #   Enum, one of: ["Active", "Inactive"]
     #
     #   @return [String]
     #
@@ -52801,6 +63273,8 @@ module AWS::Ec2
     #
     # @!attribute instance_type
     #   <p>The instance type.</p>
+    #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
     #
     #   @return [String]
     #
@@ -52904,6 +63378,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.ebs_optimized ||= false
+        self.weighted_capacity ||= 0
+      end
+
     end
 
     # <p>Describes whether monitoring is enabled.</p>
@@ -52920,6 +63400,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enabled ||= false
+      end
+
     end
 
     # <p>Describes a Spot Fleet request.</p>
@@ -52931,6 +63416,8 @@ module AWS::Ec2
     #             If the size of the fleet is equal to or greater than its target capacity, the status is <code>fulfilled</code>.
     #             If the size of the fleet is decreased, the status is <code>pending_termination</code>
     #             while Spot Instances are terminating.</p>
+    #
+    #   Enum, one of: ["error", "pending_fulfillment", "pending_termination", "fulfilled"]
     #
     #   @return [String]
     #
@@ -52951,6 +63438,8 @@ module AWS::Ec2
     #
     # @!attribute spot_fleet_request_state
     #   <p>The state of the Spot Fleet request.</p>
+    #
+    #   Enum, one of: ["submitted", "active", "cancelled", "failed", "cancelled_running", "cancelled_terminating", "modifying"]
     #
     #   @return [String]
     #
@@ -52992,6 +63481,8 @@ module AWS::Ec2
     #                   <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
     #               capacity.</p>
     #
+    #   Enum, one of: ["lowestPrice", "diversified", "capacityOptimized", "capacityOptimizedPrioritized"]
+    #
     #   @return [String]
     #
     # @!attribute on_demand_allocation_strategy
@@ -53000,6 +63491,8 @@ module AWS::Ec2
     #               the lowest price first. If you specify <code>prioritized</code>, Spot Fleet uses the priority
     #               that you assign to each Spot Fleet launch template override, launching the highest priority
     #               first. If you do not specify a value, Spot Fleet defaults to <code>lowestPrice</code>.</p>
+    #
+    #   Enum, one of: ["lowestPrice", "prioritized"]
     #
     #   @return [String]
     #
@@ -53019,6 +63512,8 @@ module AWS::Ec2
     #   <p>Indicates whether running Spot Instances should be terminated if you decrease the
     #               target capacity of the Spot Fleet request below the current size of the Spot
     #               Fleet.</p>
+    #
+    #   Enum, one of: ["noTermination", "default"]
     #
     #   @return [String]
     #
@@ -53123,6 +63618,8 @@ module AWS::Ec2
     #                   <code>maintain</code>. <code>instant</code> is listed but is not used by Spot
     #               Fleet.</p>
     #
+    #   Enum, one of: ["request", "maintain", "instant"]
+    #
     #   @return [String]
     #
     # @!attribute valid_from
@@ -53149,6 +63646,8 @@ module AWS::Ec2
     # @!attribute instance_interruption_behavior
     #   <p>The behavior when a Spot Instance is interrupted. The default is
     #                   <code>terminate</code>.</p>
+    #
+    #   Enum, one of: ["hibernate", "stop", "terminate"]
     #
     #   @return [String]
     #
@@ -53186,6 +63685,8 @@ module AWS::Ec2
     # @!attribute target_capacity_unit_type
     #   <p>The unit for the target capacity.</p>
     #            <p>Default: <code>units</code> (translates to number of instances)</p>
+    #
+    #   Enum, one of: ["vcpu", "memory-mib", "units"]
     #
     #   @return [String]
     #
@@ -53232,6 +63733,17 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.fulfilled_capacity ||= 0
+        self.on_demand_fulfilled_capacity ||= 0
+        self.target_capacity ||= 0
+        self.on_demand_target_capacity ||= 0
+        self.terminate_instances_with_expiration ||= false
+        self.replace_unhealthy_instances ||= false
+        self.instance_pools_to_use_count ||= 0
+      end
+
     end
 
     # <p>The tags for a Spot Fleet resource.</p>
@@ -53242,6 +63754,8 @@ module AWS::Ec2
     #                   <code>TagSpecifications</code> parameter in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html">
     #                  <code>SpotFleetRequestConfigData</code>
     #               </a>.</p>
+    #
+    #   Enum, one of: ["capacity-reservation", "client-vpn-endpoint", "customer-gateway", "carrier-gateway", "dedicated-host", "dhcp-options", "egress-only-internet-gateway", "elastic-ip", "elastic-gpu", "export-image-task", "export-instance-task", "fleet", "fpga-image", "host-reservation", "image", "import-image-task", "import-snapshot-task", "instance", "instance-event-window", "internet-gateway", "ipam", "ipam-pool", "ipam-scope", "ipv4pool-ec2", "ipv6pool-ec2", "key-pair", "launch-template", "local-gateway", "local-gateway-route-table", "local-gateway-virtual-interface", "local-gateway-virtual-interface-group", "local-gateway-route-table-vpc-association", "local-gateway-route-table-virtual-interface-group-association", "natgateway", "network-acl", "network-interface", "network-insights-analysis", "network-insights-path", "network-insights-access-scope", "network-insights-access-scope-analysis", "placement-group", "prefix-list", "replace-root-volume-task", "reserved-instances", "route-table", "security-group", "security-group-rule", "snapshot", "spot-fleet-request", "spot-instances-request", "subnet", "traffic-mirror-filter", "traffic-mirror-session", "traffic-mirror-target", "transit-gateway", "transit-gateway-attachment", "transit-gateway-connect-peer", "transit-gateway-multicast-domain", "transit-gateway-route-table", "volume", "vpc", "vpc-endpoint", "vpc-endpoint-service", "vpc-peering-connection", "vpn-connection", "vpn-gateway", "vpc-flow-log"]
     #
     #   @return [String]
     #
@@ -53256,6 +63770,22 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for SpotInstanceInterruptionBehavior
+    #
+    module SpotInstanceInterruptionBehavior
+      # No documentation available.
+      #
+      hibernate = "hibernate"
+
+      # No documentation available.
+      #
+      stop = "stop"
+
+      # No documentation available.
+      #
+      terminate = "terminate"
     end
 
     # <p>Describes a Spot Instance request.</p>
@@ -53308,6 +63838,8 @@ module AWS::Ec2
     # @!attribute product_description
     #   <p>The product description associated with the Spot Instance.</p>
     #
+    #   Enum, one of: ["Linux/UNIX", "Linux/UNIX (Amazon VPC)", "Windows", "Windows (Amazon VPC)"]
+    #
     #   @return [String]
     #
     # @!attribute spot_instance_request_id
@@ -53325,6 +63857,8 @@ module AWS::Ec2
     #               Instance requests. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html">Spot status</a> in the
     #                   <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
     #
+    #   Enum, one of: ["open", "active", "closed", "cancelled", "failed"]
+    #
     #   @return [String]
     #
     # @!attribute status
@@ -53339,6 +63873,8 @@ module AWS::Ec2
     #
     # @!attribute type
     #   <p>The Spot Instance request type.</p>
+    #
+    #   Enum, one of: ["one-time", "persistent"]
     #
     #   @return [String]
     #
@@ -53370,6 +63906,8 @@ module AWS::Ec2
     # @!attribute instance_interruption_behavior
     #   <p>The behavior when a Spot Instance is interrupted.</p>
     #
+    #   Enum, one of: ["hibernate", "stop", "terminate"]
+    #
     #   @return [String]
     #
     SpotInstanceRequest = ::Struct.new(
@@ -53395,6 +63933,35 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.block_duration_minutes ||= 0
+      end
+
+    end
+
+    # Includes enum constants for SpotInstanceState
+    #
+    module SpotInstanceState
+      # No documentation available.
+      #
+      open = "open"
+
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      closed = "closed"
+
+      # No documentation available.
+      #
+      cancelled = "cancelled"
+
+      # No documentation available.
+      #
+      failed = "failed"
     end
 
     # <p>Describes a Spot Instance state change.</p>
@@ -53444,6 +64011,18 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for SpotInstanceType
+    #
+    module SpotInstanceType
+      # No documentation available.
+      #
+      one_time = "one-time"
+
+      # No documentation available.
+      #
+      persistent = "persistent"
+    end
+
     # <p>The strategies for managing your Spot Instances that are at an elevated risk of being
     #             interrupted.</p>
     #
@@ -53474,6 +64053,8 @@ module AWS::Ec2
     #               Instance requests are only supported when the instance interruption behavior is either <code>hibernate</code> or
     #                   <code>stop</code>.</p>
     #
+    #   Enum, one of: ["one-time", "persistent"]
+    #
     #   @return [String]
     #
     # @!attribute block_duration_minutes
@@ -53503,6 +64084,8 @@ module AWS::Ec2
     #   <p>The behavior when a Spot Instance is interrupted. The default is
     #                   <code>terminate</code>.</p>
     #
+    #   Enum, one of: ["hibernate", "stop", "terminate"]
+    #
     #   @return [String]
     #
     SpotMarketOptions = ::Struct.new(
@@ -53514,6 +64097,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.block_duration_minutes ||= 0
+      end
+
     end
 
     # <p>Describes the configuration of Spot Instances in an EC2 Fleet.</p>
@@ -53542,6 +64130,8 @@ module AWS::Ec2
     #            <p>Default: <code>lowest-price</code>
     #            </p>
     #
+    #   Enum, one of: ["lowest-price", "diversified", "capacity-optimized", "capacity-optimized-prioritized"]
+    #
     #   @return [String]
     #
     # @!attribute maintenance_strategies
@@ -53554,6 +64144,8 @@ module AWS::Ec2
     #   <p>The behavior when a Spot Instance is interrupted.</p>
     #            <p>Default: <code>terminate</code>
     #            </p>
+    #
+    #   Enum, one of: ["hibernate", "stop", "terminate"]
     #
     #   @return [String]
     #
@@ -53612,6 +64204,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.instance_pools_to_use_count ||= 0
+        self.single_instance_type ||= false
+        self.single_availability_zone ||= false
+        self.min_target_capacity ||= 0
+      end
+
     end
 
     # <p>Describes the configuration of Spot Instances in an EC2 Fleet request.</p>
@@ -53640,6 +64240,8 @@ module AWS::Ec2
     #            <p>Default: <code>lowest-price</code>
     #            </p>
     #
+    #   Enum, one of: ["lowest-price", "diversified", "capacity-optimized", "capacity-optimized-prioritized"]
+    #
     #   @return [String]
     #
     # @!attribute maintenance_strategies
@@ -53652,6 +64254,8 @@ module AWS::Ec2
     #   <p>The behavior when a Spot Instance is interrupted.</p>
     #            <p>Default: <code>terminate</code>
     #            </p>
+    #
+    #   Enum, one of: ["hibernate", "stop", "terminate"]
     #
     #   @return [String]
     #
@@ -53710,6 +64314,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.instance_pools_to_use_count ||= 0
+        self.single_instance_type ||= false
+        self.single_availability_zone ||= false
+        self.min_target_capacity ||= 0
+      end
+
     end
 
     # <p>Describes Spot Instance placement.</p>
@@ -53730,6 +64342,8 @@ module AWS::Ec2
     #   <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
     #               tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
     #               tenancy is not supported for Spot Instances.</p>
+    #
+    #   Enum, one of: ["default", "dedicated", "host"]
     #
     #   @return [String]
     #
@@ -53771,6 +64385,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.score ||= 0
+      end
+
     end
 
     # <p>Describes the maximum price per hour that you are willing to pay for a Spot
@@ -53784,10 +64403,14 @@ module AWS::Ec2
     # @!attribute instance_type
     #   <p>The instance type.</p>
     #
+    #   Enum, one of: ["a1.medium", "a1.large", "a1.xlarge", "a1.2xlarge", "a1.4xlarge", "a1.metal", "c1.medium", "c1.xlarge", "c3.large", "c3.xlarge", "c3.2xlarge", "c3.4xlarge", "c3.8xlarge", "c4.large", "c4.xlarge", "c4.2xlarge", "c4.4xlarge", "c4.8xlarge", "c5.large", "c5.xlarge", "c5.2xlarge", "c5.4xlarge", "c5.9xlarge", "c5.12xlarge", "c5.18xlarge", "c5.24xlarge", "c5.metal", "c5a.large", "c5a.xlarge", "c5a.2xlarge", "c5a.4xlarge", "c5a.8xlarge", "c5a.12xlarge", "c5a.16xlarge", "c5a.24xlarge", "c5ad.large", "c5ad.xlarge", "c5ad.2xlarge", "c5ad.4xlarge", "c5ad.8xlarge", "c5ad.12xlarge", "c5ad.16xlarge", "c5ad.24xlarge", "c5d.large", "c5d.xlarge", "c5d.2xlarge", "c5d.4xlarge", "c5d.9xlarge", "c5d.12xlarge", "c5d.18xlarge", "c5d.24xlarge", "c5d.metal", "c5n.large", "c5n.xlarge", "c5n.2xlarge", "c5n.4xlarge", "c5n.9xlarge", "c5n.18xlarge", "c5n.metal", "c6g.medium", "c6g.large", "c6g.xlarge", "c6g.2xlarge", "c6g.4xlarge", "c6g.8xlarge", "c6g.12xlarge", "c6g.16xlarge", "c6g.metal", "c6gd.medium", "c6gd.large", "c6gd.xlarge", "c6gd.2xlarge", "c6gd.4xlarge", "c6gd.8xlarge", "c6gd.12xlarge", "c6gd.16xlarge", "c6gd.metal", "c6gn.medium", "c6gn.large", "c6gn.xlarge", "c6gn.2xlarge", "c6gn.4xlarge", "c6gn.8xlarge", "c6gn.12xlarge", "c6gn.16xlarge", "c6i.large", "c6i.xlarge", "c6i.2xlarge", "c6i.4xlarge", "c6i.8xlarge", "c6i.12xlarge", "c6i.16xlarge", "c6i.24xlarge", "c6i.32xlarge", "cc1.4xlarge", "cc2.8xlarge", "cg1.4xlarge", "cr1.8xlarge", "d2.xlarge", "d2.2xlarge", "d2.4xlarge", "d2.8xlarge", "d3.xlarge", "d3.2xlarge", "d3.4xlarge", "d3.8xlarge", "d3en.xlarge", "d3en.2xlarge", "d3en.4xlarge", "d3en.6xlarge", "d3en.8xlarge", "d3en.12xlarge", "dl1.24xlarge", "f1.2xlarge", "f1.4xlarge", "f1.16xlarge", "g2.2xlarge", "g2.8xlarge", "g3.4xlarge", "g3.8xlarge", "g3.16xlarge", "g3s.xlarge", "g4ad.xlarge", "g4ad.2xlarge", "g4ad.4xlarge", "g4ad.8xlarge", "g4ad.16xlarge", "g4dn.xlarge", "g4dn.2xlarge", "g4dn.4xlarge", "g4dn.8xlarge", "g4dn.12xlarge", "g4dn.16xlarge", "g4dn.metal", "g5.xlarge", "g5.2xlarge", "g5.4xlarge", "g5.8xlarge", "g5.12xlarge", "g5.16xlarge", "g5.24xlarge", "g5.48xlarge", "g5g.xlarge", "g5g.2xlarge", "g5g.4xlarge", "g5g.8xlarge", "g5g.16xlarge", "g5g.metal", "hi1.4xlarge", "hs1.8xlarge", "h1.2xlarge", "h1.4xlarge", "h1.8xlarge", "h1.16xlarge", "i2.xlarge", "i2.2xlarge", "i2.4xlarge", "i2.8xlarge", "i3.large", "i3.xlarge", "i3.2xlarge", "i3.4xlarge", "i3.8xlarge", "i3.16xlarge", "i3.metal", "i3en.large", "i3en.xlarge", "i3en.2xlarge", "i3en.3xlarge", "i3en.6xlarge", "i3en.12xlarge", "i3en.24xlarge", "i3en.metal", "im4gn.large", "im4gn.xlarge", "im4gn.2xlarge", "im4gn.4xlarge", "im4gn.8xlarge", "im4gn.16xlarge", "inf1.xlarge", "inf1.2xlarge", "inf1.6xlarge", "inf1.24xlarge", "is4gen.medium", "is4gen.large", "is4gen.xlarge", "is4gen.2xlarge", "is4gen.4xlarge", "is4gen.8xlarge", "m1.small", "m1.medium", "m1.large", "m1.xlarge", "m2.xlarge", "m2.2xlarge", "m2.4xlarge", "m3.medium", "m3.large", "m3.xlarge", "m3.2xlarge", "m4.large", "m4.xlarge", "m4.2xlarge", "m4.4xlarge", "m4.10xlarge", "m4.16xlarge", "m5.large", "m5.xlarge", "m5.2xlarge", "m5.4xlarge", "m5.8xlarge", "m5.12xlarge", "m5.16xlarge", "m5.24xlarge", "m5.metal", "m5a.large", "m5a.xlarge", "m5a.2xlarge", "m5a.4xlarge", "m5a.8xlarge", "m5a.12xlarge", "m5a.16xlarge", "m5a.24xlarge", "m5ad.large", "m5ad.xlarge", "m5ad.2xlarge", "m5ad.4xlarge", "m5ad.8xlarge", "m5ad.12xlarge", "m5ad.16xlarge", "m5ad.24xlarge", "m5d.large", "m5d.xlarge", "m5d.2xlarge", "m5d.4xlarge", "m5d.8xlarge", "m5d.12xlarge", "m5d.16xlarge", "m5d.24xlarge", "m5d.metal", "m5dn.large", "m5dn.xlarge", "m5dn.2xlarge", "m5dn.4xlarge", "m5dn.8xlarge", "m5dn.12xlarge", "m5dn.16xlarge", "m5dn.24xlarge", "m5dn.metal", "m5n.large", "m5n.xlarge", "m5n.2xlarge", "m5n.4xlarge", "m5n.8xlarge", "m5n.12xlarge", "m5n.16xlarge", "m5n.24xlarge", "m5n.metal", "m5zn.large", "m5zn.xlarge", "m5zn.2xlarge", "m5zn.3xlarge", "m5zn.6xlarge", "m5zn.12xlarge", "m5zn.metal", "m6a.large", "m6a.xlarge", "m6a.2xlarge", "m6a.4xlarge", "m6a.8xlarge", "m6a.12xlarge", "m6a.16xlarge", "m6a.24xlarge", "m6a.32xlarge", "m6a.48xlarge", "m6g.metal", "m6g.medium", "m6g.large", "m6g.xlarge", "m6g.2xlarge", "m6g.4xlarge", "m6g.8xlarge", "m6g.12xlarge", "m6g.16xlarge", "m6gd.metal", "m6gd.medium", "m6gd.large", "m6gd.xlarge", "m6gd.2xlarge", "m6gd.4xlarge", "m6gd.8xlarge", "m6gd.12xlarge", "m6gd.16xlarge", "m6i.large", "m6i.xlarge", "m6i.2xlarge", "m6i.4xlarge", "m6i.8xlarge", "m6i.12xlarge", "m6i.16xlarge", "m6i.24xlarge", "m6i.32xlarge", "mac1.metal", "p2.xlarge", "p2.8xlarge", "p2.16xlarge", "p3.2xlarge", "p3.8xlarge", "p3.16xlarge", "p3dn.24xlarge", "p4d.24xlarge", "r3.large", "r3.xlarge", "r3.2xlarge", "r3.4xlarge", "r3.8xlarge", "r4.large", "r4.xlarge", "r4.2xlarge", "r4.4xlarge", "r4.8xlarge", "r4.16xlarge", "r5.large", "r5.xlarge", "r5.2xlarge", "r5.4xlarge", "r5.8xlarge", "r5.12xlarge", "r5.16xlarge", "r5.24xlarge", "r5.metal", "r5a.large", "r5a.xlarge", "r5a.2xlarge", "r5a.4xlarge", "r5a.8xlarge", "r5a.12xlarge", "r5a.16xlarge", "r5a.24xlarge", "r5ad.large", "r5ad.xlarge", "r5ad.2xlarge", "r5ad.4xlarge", "r5ad.8xlarge", "r5ad.12xlarge", "r5ad.16xlarge", "r5ad.24xlarge", "r5b.large", "r5b.xlarge", "r5b.2xlarge", "r5b.4xlarge", "r5b.8xlarge", "r5b.12xlarge", "r5b.16xlarge", "r5b.24xlarge", "r5b.metal", "r5d.large", "r5d.xlarge", "r5d.2xlarge", "r5d.4xlarge", "r5d.8xlarge", "r5d.12xlarge", "r5d.16xlarge", "r5d.24xlarge", "r5d.metal", "r5dn.large", "r5dn.xlarge", "r5dn.2xlarge", "r5dn.4xlarge", "r5dn.8xlarge", "r5dn.12xlarge", "r5dn.16xlarge", "r5dn.24xlarge", "r5dn.metal", "r5n.large", "r5n.xlarge", "r5n.2xlarge", "r5n.4xlarge", "r5n.8xlarge", "r5n.12xlarge", "r5n.16xlarge", "r5n.24xlarge", "r5n.metal", "r6g.medium", "r6g.large", "r6g.xlarge", "r6g.2xlarge", "r6g.4xlarge", "r6g.8xlarge", "r6g.12xlarge", "r6g.16xlarge", "r6g.metal", "r6gd.medium", "r6gd.large", "r6gd.xlarge", "r6gd.2xlarge", "r6gd.4xlarge", "r6gd.8xlarge", "r6gd.12xlarge", "r6gd.16xlarge", "r6gd.metal", "t1.micro", "t2.nano", "t2.micro", "t2.small", "t2.medium", "t2.large", "t2.xlarge", "t2.2xlarge", "t3.nano", "t3.micro", "t3.small", "t3.medium", "t3.large", "t3.xlarge", "t3.2xlarge", "t3a.nano", "t3a.micro", "t3a.small", "t3a.medium", "t3a.large", "t3a.xlarge", "t3a.2xlarge", "t4g.nano", "t4g.micro", "t4g.small", "t4g.medium", "t4g.large", "t4g.xlarge", "t4g.2xlarge", "u-6tb1.56xlarge", "u-6tb1.112xlarge", "u-9tb1.112xlarge", "u-12tb1.112xlarge", "u-6tb1.metal", "u-9tb1.metal", "u-12tb1.metal", "u-18tb1.metal", "u-24tb1.metal", "vt1.3xlarge", "vt1.6xlarge", "vt1.24xlarge", "x1.16xlarge", "x1.32xlarge", "x1e.xlarge", "x1e.2xlarge", "x1e.4xlarge", "x1e.8xlarge", "x1e.16xlarge", "x1e.32xlarge", "x2gd.medium", "x2gd.large", "x2gd.xlarge", "x2gd.2xlarge", "x2gd.4xlarge", "x2gd.8xlarge", "x2gd.12xlarge", "x2gd.16xlarge", "x2gd.metal", "z1d.large", "z1d.xlarge", "z1d.2xlarge", "z1d.3xlarge", "z1d.6xlarge", "z1d.12xlarge", "z1d.metal"]
+    #
     #   @return [String]
     #
     # @!attribute product_description
     #   <p>A general description of the AMI.</p>
+    #
+    #   Enum, one of: ["Linux/UNIX", "Linux/UNIX (Amazon VPC)", "Windows", "Windows (Amazon VPC)"]
     #
     #   @return [String]
     #
@@ -53857,6 +64480,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.from_port ||= 0
+        self.to_port ||= 0
+      end
+
     end
 
     # <p>Describes a stale security group (a security group that contains stale rules).</p>
@@ -53927,6 +64556,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute starting_instances
@@ -53972,6 +64606,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_insights_access_scope_analysis
@@ -54023,6 +64662,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute network_insights_analysis
@@ -54055,6 +64699,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return_value
@@ -54067,6 +64716,47 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return_value ||= false
+      end
+
+    end
+
+    # Includes enum constants for State
+    #
+    module State
+      # No documentation available.
+      #
+      PendingAcceptance = "PendingAcceptance"
+
+      # No documentation available.
+      #
+      Pending = "Pending"
+
+      # No documentation available.
+      #
+      Available = "Available"
+
+      # No documentation available.
+      #
+      Deleting = "Deleting"
+
+      # No documentation available.
+      #
+      Deleted = "Deleted"
+
+      # No documentation available.
+      #
+      Rejected = "Rejected"
+
+      # No documentation available.
+      #
+      Failed = "Failed"
+
+      # No documentation available.
+      #
+      Expired = "Expired"
     end
 
     # <p>Describes a state change.</p>
@@ -54156,6 +64846,62 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for StaticSourcesSupportValue
+    #
+    module StaticSourcesSupportValue
+      # No documentation available.
+      #
+      enable = "enable"
+
+      # No documentation available.
+      #
+      disable = "disable"
+    end
+
+    # Includes enum constants for Status
+    #
+    module Status
+      # No documentation available.
+      #
+      moveInProgress = "MoveInProgress"
+
+      # No documentation available.
+      #
+      inVpc = "InVpc"
+
+      # No documentation available.
+      #
+      inClassic = "InClassic"
+    end
+
+    # Includes enum constants for StatusName
+    #
+    module StatusName
+      # No documentation available.
+      #
+      reachability = "reachability"
+    end
+
+    # Includes enum constants for StatusType
+    #
+    module StatusType
+      # No documentation available.
+      #
+      passed = "passed"
+
+      # No documentation available.
+      #
+      failed = "failed"
+
+      # No documentation available.
+      #
+      insufficient_data = "insufficient-data"
+
+      # No documentation available.
+      #
+      initializing = "initializing"
+    end
+
     # @!attribute instance_ids
     #   <p>The IDs of the instances.</p>
     #
@@ -54196,6 +64942,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.hibernate ||= false
+        self.dry_run ||= false
+        self.force ||= false
+      end
+
     end
 
     # @!attribute stopping_instances
@@ -54242,6 +64995,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for StorageTier
+    #
+    module StorageTier
+      # No documentation available.
+      #
+      archive = "archive"
+
+      # No documentation available.
+      #
+      standard = "standard"
     end
 
     # <p>The information about the AMI store task, including the progress of the task.</p>
@@ -54294,6 +65059,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.progress_percentage ||= 0
+      end
+
     end
 
     # <p>Describes a subnet.</p>
@@ -54351,6 +65121,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The current state of the subnet.</p>
+    #
+    #   Enum, one of: ["pending", "available"]
     #
     #   @return [String]
     #
@@ -54437,6 +65209,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.available_ip_address_count ||= 0
+        self.default_for_az ||= false
+        self.enable_lni_at_device_index ||= 0
+        self.map_public_ip_on_launch ||= false
+        self.map_customer_owned_ip_on_launch ||= false
+        self.assign_ipv6_address_on_creation ||= false
+        self.enable_dns64 ||= false
+        self.ipv6_native ||= false
+      end
+
     end
 
     # <p>Describes the subnet association with the transit gateway multicast domain.</p>
@@ -54448,6 +65232,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the subnet association.</p>
+    #
+    #   Enum, one of: ["pendingAcceptance", "associating", "associated", "disassociating", "disassociated", "rejected", "failed"]
     #
     #   @return [String]
     #
@@ -54464,6 +65250,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of a CIDR block.</p>
     #
+    #   Enum, one of: ["associating", "associated", "disassociating", "disassociated", "failing", "failed"]
+    #
     #   @return [String]
     #
     # @!attribute status_message
@@ -54477,6 +65265,34 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for SubnetCidrBlockStateCode
+    #
+    module SubnetCidrBlockStateCode
+      # No documentation available.
+      #
+      associating = "associating"
+
+      # No documentation available.
+      #
+      associated = "associated"
+
+      # No documentation available.
+      #
+      disassociating = "disassociating"
+
+      # No documentation available.
+      #
+      disassociated = "disassociated"
+
+      # No documentation available.
+      #
+      failing = "failing"
+
+      # No documentation available.
+      #
+      failed = "failed"
     end
 
     # <p>Describes a subnet CIDR reservation.</p>
@@ -54498,6 +65314,8 @@ module AWS::Ec2
     #
     # @!attribute reservation_type
     #   <p>The type of reservation. </p>
+    #
+    #   Enum, one of: ["prefix", "explicit"]
     #
     #   @return [String]
     #
@@ -54532,6 +65350,18 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for SubnetCidrReservationType
+    #
+    module SubnetCidrReservationType
+      # No documentation available.
+      #
+      prefix = "prefix"
+
+      # No documentation available.
+      #
+      explicit = "explicit"
+    end
+
     # <p>Describes an association between a subnet and an IPv6 CIDR block.</p>
     #
     # @!attribute association_id
@@ -54556,6 +65386,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for SubnetState
+    #
+    module SubnetState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      available = "available"
     end
 
     # <p>Describes the burstable performance instance whose credit option for CPU usage was
@@ -54585,6 +65427,30 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for SummaryStatus
+    #
+    module SummaryStatus
+      # No documentation available.
+      #
+      ok = "ok"
+
+      # No documentation available.
+      #
+      impaired = "impaired"
+
+      # No documentation available.
+      #
+      insufficient_data = "insufficient-data"
+
+      # No documentation available.
+      #
+      not_applicable = "not-applicable"
+
+      # No documentation available.
+      #
+      initializing = "initializing"
     end
 
     # <p>Describes a tag.</p>
@@ -54625,6 +65491,8 @@ module AWS::Ec2
     # @!attribute resource_type
     #   <p>The resource type.</p>
     #
+    #   Enum, one of: ["capacity-reservation", "client-vpn-endpoint", "customer-gateway", "carrier-gateway", "dedicated-host", "dhcp-options", "egress-only-internet-gateway", "elastic-ip", "elastic-gpu", "export-image-task", "export-instance-task", "fleet", "fpga-image", "host-reservation", "image", "import-image-task", "import-snapshot-task", "instance", "instance-event-window", "internet-gateway", "ipam", "ipam-pool", "ipam-scope", "ipv4pool-ec2", "ipv6pool-ec2", "key-pair", "launch-template", "local-gateway", "local-gateway-route-table", "local-gateway-virtual-interface", "local-gateway-virtual-interface-group", "local-gateway-route-table-vpc-association", "local-gateway-route-table-virtual-interface-group-association", "natgateway", "network-acl", "network-interface", "network-insights-analysis", "network-insights-path", "network-insights-access-scope", "network-insights-access-scope-analysis", "placement-group", "prefix-list", "replace-root-volume-task", "reserved-instances", "route-table", "security-group", "security-group-rule", "snapshot", "spot-fleet-request", "spot-instances-request", "subnet", "traffic-mirror-filter", "traffic-mirror-session", "traffic-mirror-target", "transit-gateway", "transit-gateway-attachment", "transit-gateway-connect-peer", "transit-gateway-multicast-domain", "transit-gateway-route-table", "volume", "vpc", "vpc-endpoint", "vpc-endpoint-service", "vpc-peering-connection", "vpn-connection", "vpn-gateway", "vpc-flow-log"]
+    #
     #   @return [String]
     #
     # @!attribute value
@@ -54646,6 +65514,8 @@ module AWS::Ec2
     #
     # @!attribute resource_type
     #   <p>The type of resource to tag on creation.</p>
+    #
+    #   Enum, one of: ["capacity-reservation", "client-vpn-endpoint", "customer-gateway", "carrier-gateway", "dedicated-host", "dhcp-options", "egress-only-internet-gateway", "elastic-ip", "elastic-gpu", "export-image-task", "export-instance-task", "fleet", "fpga-image", "host-reservation", "image", "import-image-task", "import-snapshot-task", "instance", "instance-event-window", "internet-gateway", "ipam", "ipam-pool", "ipam-scope", "ipv4pool-ec2", "ipv6pool-ec2", "key-pair", "launch-template", "local-gateway", "local-gateway-route-table", "local-gateway-virtual-interface", "local-gateway-virtual-interface-group", "local-gateway-route-table-vpc-association", "local-gateway-route-table-virtual-interface-group-association", "natgateway", "network-acl", "network-interface", "network-insights-analysis", "network-insights-path", "network-insights-access-scope", "network-insights-access-scope-analysis", "placement-group", "prefix-list", "replace-root-volume-task", "reserved-instances", "route-table", "security-group", "security-group-rule", "snapshot", "spot-fleet-request", "spot-instances-request", "subnet", "traffic-mirror-filter", "traffic-mirror-session", "traffic-mirror-target", "transit-gateway", "transit-gateway-attachment", "transit-gateway-connect-peer", "transit-gateway-multicast-domain", "transit-gateway-route-table", "volume", "vpc", "vpc-endpoint", "vpc-endpoint-service", "vpc-peering-connection", "vpn-connection", "vpn-gateway", "vpc-flow-log"]
     #
     #   @return [String]
     #
@@ -54695,11 +65565,15 @@ module AWS::Ec2
     #   <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or
     #               <code>On-Demand</code>.</p>
     #
+    #   Enum, one of: ["spot", "on-demand"]
+    #
     #   @return [String]
     #
     # @!attribute target_capacity_unit_type
     #   <p>The unit for the target capacity.</p>
     #            <p>Default: <code>units</code> (translates to number of instances)</p>
+    #
+    #   Enum, one of: ["vcpu", "memory-mib", "units"]
     #
     #   @return [String]
     #
@@ -54712,6 +65586,13 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.total_target_capacity ||= 0
+        self.on_demand_target_capacity ||= 0
+        self.spot_target_capacity ||= 0
+      end
+
     end
 
     # <p>The number of units to request. You can choose to set the target capacity as the number of
@@ -54747,11 +65628,15 @@ module AWS::Ec2
     #   <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or
     #               <code>On-Demand</code>.</p>
     #
+    #   Enum, one of: ["spot", "on-demand"]
+    #
     #   @return [String]
     #
     # @!attribute target_capacity_unit_type
     #   <p>The unit for the target capacity.</p>
     #            <p>Default: <code>units</code> (translates to number of instances)</p>
+    #
+    #   Enum, one of: ["vcpu", "memory-mib", "units"]
     #
     #   @return [String]
     #
@@ -54764,6 +65649,29 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.total_target_capacity ||= 0
+        self.on_demand_target_capacity ||= 0
+        self.spot_target_capacity ||= 0
+      end
+
+    end
+
+    # Includes enum constants for TargetCapacityUnitType
+    #
+    module TargetCapacityUnitType
+      # No documentation available.
+      #
+      VCPU = "vcpu"
+
+      # No documentation available.
+      #
+      MEMORY_MIB = "memory-mib"
+
+      # No documentation available.
+      #
+      UNITS = "units"
     end
 
     # <p>Information about the Convertible Reserved Instance offering.</p>
@@ -54785,6 +65693,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.instance_count ||= 0
+      end
+
     end
 
     # <p>Details about the target configuration.</p>
@@ -54806,6 +65719,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.instance_count ||= 0
+      end
+
     end
 
     # <p>Describes a load balancer target group.</p>
@@ -54902,6 +65820,42 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for TargetStorageTier
+    #
+    module TargetStorageTier
+      # No documentation available.
+      #
+      archive = "archive"
+    end
+
+    # Includes enum constants for TelemetryStatus
+    #
+    module TelemetryStatus
+      # No documentation available.
+      #
+      UP = "UP"
+
+      # No documentation available.
+      #
+      DOWN = "DOWN"
+    end
+
+    # Includes enum constants for Tenancy
+    #
+    module Tenancy
+      # No documentation available.
+      #
+      default = "default"
+
+      # No documentation available.
+      #
+      dedicated = "dedicated"
+
+      # No documentation available.
+      #
+      host = "host"
+    end
+
     # @!attribute client_vpn_endpoint_id
     #   <p>The ID of the Client VPN endpoint to which the client is connected.</p>
     #
@@ -54931,6 +65885,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute client_vpn_endpoint_id
@@ -55003,6 +65962,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute terminating_instances
@@ -55045,6 +66009,46 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for TieringOperationStatus
+    #
+    module TieringOperationStatus
+      # No documentation available.
+      #
+      archival_in_progress = "archival-in-progress"
+
+      # No documentation available.
+      #
+      archival_completed = "archival-completed"
+
+      # No documentation available.
+      #
+      archival_failed = "archival-failed"
+
+      # No documentation available.
+      #
+      temporary_restore_in_progress = "temporary-restore-in-progress"
+
+      # No documentation available.
+      #
+      temporary_restore_completed = "temporary-restore-completed"
+
+      # No documentation available.
+      #
+      temporary_restore_failed = "temporary-restore-failed"
+
+      # No documentation available.
+      #
+      permanent_restore_in_progress = "permanent-restore-in-progress"
+
+      # No documentation available.
+      #
+      permanent_restore_completed = "permanent-restore-completed"
+
+      # No documentation available.
+      #
+      permanent_restore_failed = "permanent-restore-failed"
+    end
+
     # <p>The minimum and maximum amount of total local storage, in GB.</p>
     #
     # @!attribute min
@@ -55065,6 +66069,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
     end
 
     # <p>The minimum and maximum amount of total local storage, in GB.</p>
@@ -55087,6 +66097,24 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
+    end
+
+    # Includes enum constants for TrafficDirection
+    #
+    module TrafficDirection
+      # No documentation available.
+      #
+      ingress = "ingress"
+
+      # No documentation available.
+      #
+      egress = "egress"
     end
 
     # <p>Describes the Traffic Mirror filter.</p>
@@ -55148,6 +66176,8 @@ module AWS::Ec2
     # @!attribute traffic_direction
     #   <p>The traffic direction assigned to the Traffic Mirror rule.</p>
     #
+    #   Enum, one of: ["ingress", "egress"]
+    #
     #   @return [String]
     #
     # @!attribute rule_number
@@ -55157,6 +66187,8 @@ module AWS::Ec2
     #
     # @!attribute rule_action
     #   <p>The action assigned to the Traffic Mirror rule.</p>
+    #
+    #   Enum, one of: ["accept", "reject"]
     #
     #   @return [String]
     #
@@ -55205,6 +66237,40 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.rule_number ||= 0
+        self.protocol ||= 0
+      end
+
+    end
+
+    # Includes enum constants for TrafficMirrorFilterRuleField
+    #
+    module TrafficMirrorFilterRuleField
+      # No documentation available.
+      #
+      destination_port_range = "destination-port-range"
+
+      # No documentation available.
+      #
+      source_port_range = "source-port-range"
+
+      # No documentation available.
+      #
+      protocol = "protocol"
+
+      # No documentation available.
+      #
+      description = "description"
+    end
+
+    # Includes enum constants for TrafficMirrorNetworkService
+    #
+    module TrafficMirrorNetworkService
+      # No documentation available.
+      #
+      amazon_dns = "amazon-dns"
     end
 
     # <p>Describes the Traffic Mirror port range.</p>
@@ -55225,6 +66291,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.from_port ||= 0
+        self.to_port ||= 0
+      end
+
     end
 
     # <p>Information about the Traffic Mirror filter rule port range.</p>
@@ -55245,6 +66317,24 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.from_port ||= 0
+        self.to_port ||= 0
+      end
+
+    end
+
+    # Includes enum constants for TrafficMirrorRuleAction
+    #
+    module TrafficMirrorRuleAction
+      # No documentation available.
+      #
+      accept = "accept"
+
+      # No documentation available.
+      #
+      reject = "reject"
     end
 
     # <p>Describes a Traffic Mirror session.</p>
@@ -55314,6 +66404,29 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.packet_length ||= 0
+        self.session_number ||= 0
+        self.virtual_network_id ||= 0
+      end
+
+    end
+
+    # Includes enum constants for TrafficMirrorSessionField
+    #
+    module TrafficMirrorSessionField
+      # No documentation available.
+      #
+      packet_length = "packet-length"
+
+      # No documentation available.
+      #
+      description = "description"
+
+      # No documentation available.
+      #
+      virtual_network_id = "virtual-network-id"
     end
 
     # <p>Describes a Traffic Mirror target.</p>
@@ -55335,6 +66448,8 @@ module AWS::Ec2
     #
     # @!attribute type
     #   <p>The type of Traffic Mirror target.</p>
+    #
+    #   Enum, one of: ["network-interface", "network-load-balancer"]
     #
     #   @return [String]
     #
@@ -55366,6 +66481,34 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for TrafficMirrorTargetType
+    #
+    module TrafficMirrorTargetType
+      # No documentation available.
+      #
+      network_interface = "network-interface"
+
+      # No documentation available.
+      #
+      network_load_balancer = "network-load-balancer"
+    end
+
+    # Includes enum constants for TrafficType
+    #
+    module TrafficType
+      # No documentation available.
+      #
+      ACCEPT = "ACCEPT"
+
+      # No documentation available.
+      #
+      REJECT = "REJECT"
+
+      # No documentation available.
+      #
+      ALL = "ALL"
+    end
+
     # <p>Describes a transit gateway.</p>
     #
     # @!attribute transit_gateway_id
@@ -55380,6 +66523,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the transit gateway.</p>
+    #
+    #   Enum, one of: ["pending", "available", "modifying", "deleting", "deleted"]
     #
     #   @return [String]
     #
@@ -55442,10 +66587,14 @@ module AWS::Ec2
     # @!attribute resource_type
     #   <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
     #
+    #   Enum, one of: ["vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"]
+    #
     #   @return [String]
     #
     # @!attribute state
     #   <p>The state of the association.</p>
+    #
+    #   Enum, one of: ["associating", "associated", "disassociating", "disassociated"]
     #
     #   @return [String]
     #
@@ -55458,6 +66607,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for TransitGatewayAssociationState
+    #
+    module TransitGatewayAssociationState
+      # No documentation available.
+      #
+      associating = "associating"
+
+      # No documentation available.
+      #
+      associated = "associated"
+
+      # No documentation available.
+      #
+      disassociating = "disassociating"
+
+      # No documentation available.
+      #
+      disassociated = "disassociated"
     end
 
     # <p>Describes an attachment between a resource and a transit gateway.</p>
@@ -55485,6 +66654,8 @@ module AWS::Ec2
     # @!attribute resource_type
     #   <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
     #
+    #   Enum, one of: ["vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"]
+    #
     #   @return [String]
     #
     # @!attribute resource_id
@@ -55494,6 +66665,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The attachment state. Note that the <code>initiating</code> state has been deprecated.</p>
+    #
+    #   Enum, one of: ["initiating", "initiatingRequest", "pendingAcceptance", "rollingBack", "pending", "available", "modifying", "deleting", "deleted", "failed", "rejected", "rejecting", "failing"]
     #
     #   @return [String]
     #
@@ -55538,6 +66711,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of the association.</p>
     #
+    #   Enum, one of: ["associating", "associated", "disassociating", "disassociated"]
+    #
     #   @return [String]
     #
     TransitGatewayAttachmentAssociation = ::Struct.new(
@@ -55573,6 +66748,8 @@ module AWS::Ec2
     # @!attribute bgp_status
     #   <p>The BGP status.</p>
     #
+    #   Enum, one of: ["up", "down"]
+    #
     #   @return [String]
     #
     TransitGatewayAttachmentBgpConfiguration = ::Struct.new(
@@ -55584,6 +66761,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.transit_gateway_asn ||= 0
+        self.peer_asn ||= 0
+      end
+
     end
 
     # <p>Describes a propagation route table.</p>
@@ -55596,6 +66779,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of the propagation route table.</p>
     #
+    #   Enum, one of: ["enabling", "enabled", "disabling", "disabled"]
+    #
     #   @return [String]
     #
     TransitGatewayAttachmentPropagation = ::Struct.new(
@@ -55604,6 +66789,90 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for TransitGatewayAttachmentResourceType
+    #
+    module TransitGatewayAttachmentResourceType
+      # No documentation available.
+      #
+      vpc = "vpc"
+
+      # No documentation available.
+      #
+      vpn = "vpn"
+
+      # No documentation available.
+      #
+      direct_connect_gateway = "direct-connect-gateway"
+
+      # No documentation available.
+      #
+      connect = "connect"
+
+      # No documentation available.
+      #
+      peering = "peering"
+
+      # No documentation available.
+      #
+      tgw_peering = "tgw-peering"
+    end
+
+    # Includes enum constants for TransitGatewayAttachmentState
+    #
+    module TransitGatewayAttachmentState
+      # No documentation available.
+      #
+      initiating = "initiating"
+
+      # No documentation available.
+      #
+      initiatingRequest = "initiatingRequest"
+
+      # No documentation available.
+      #
+      pendingAcceptance = "pendingAcceptance"
+
+      # No documentation available.
+      #
+      rollingBack = "rollingBack"
+
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      modifying = "modifying"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
+
+      # No documentation available.
+      #
+      deleted = "deleted"
+
+      # No documentation available.
+      #
+      failed = "failed"
+
+      # No documentation available.
+      #
+      rejected = "rejected"
+
+      # No documentation available.
+      #
+      rejecting = "rejecting"
+
+      # No documentation available.
+      #
+      failing = "failing"
     end
 
     # <p>Describes a transit gateway Connect attachment.</p>
@@ -55625,6 +66894,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the attachment.</p>
+    #
+    #   Enum, one of: ["initiating", "initiatingRequest", "pendingAcceptance", "rollingBack", "pending", "available", "modifying", "deleting", "deleted", "failed", "rejected", "rejecting", "failing"]
     #
     #   @return [String]
     #
@@ -55661,6 +66932,8 @@ module AWS::Ec2
     # @!attribute protocol
     #   <p>The tunnel protocol.</p>
     #
+    #   Enum, one of: ["gre"]
+    #
     #   @return [String]
     #
     TransitGatewayConnectOptions = ::Struct.new(
@@ -55684,6 +66957,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the Connect peer.</p>
+    #
+    #   Enum, one of: ["pending", "available", "deleting", "deleted"]
     #
     #   @return [String]
     #
@@ -55734,6 +67009,8 @@ module AWS::Ec2
     # @!attribute protocol
     #   <p>The tunnel protocol.</p>
     #
+    #   Enum, one of: ["gre"]
+    #
     #   @return [String]
     #
     # @!attribute bgp_configurations
@@ -55752,6 +67029,26 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for TransitGatewayConnectPeerState
+    #
+    module TransitGatewayConnectPeerState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
+
+      # No documentation available.
+      #
+      deleted = "deleted"
+    end
+
     # <p>The BGP options for the Connect attachment.</p>
     #
     # @!attribute peer_asn
@@ -55764,6 +67061,43 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.peer_asn ||= 0
+      end
+
+    end
+
+    # Includes enum constants for TransitGatewayMulitcastDomainAssociationState
+    #
+    module TransitGatewayMulitcastDomainAssociationState
+      # No documentation available.
+      #
+      pendingAcceptance = "pendingAcceptance"
+
+      # No documentation available.
+      #
+      associating = "associating"
+
+      # No documentation available.
+      #
+      associated = "associated"
+
+      # No documentation available.
+      #
+      disassociating = "disassociating"
+
+      # No documentation available.
+      #
+      disassociated = "disassociated"
+
+      # No documentation available.
+      #
+      rejected = "rejected"
+
+      # No documentation available.
+      #
+      failed = "failed"
     end
 
     # <p>Describes the deregistered  transit gateway multicast group members.</p>
@@ -55848,6 +67182,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of the transit gateway multicast domain.</p>
     #
+    #   Enum, one of: ["pending", "available", "deleting", "deleted"]
+    #
     #   @return [String]
     #
     # @!attribute creation_time
@@ -55888,6 +67224,8 @@ module AWS::Ec2
     #
     # @!attribute resource_type
     #   <p>The type of resource, for example a VPC attachment.</p>
+    #
+    #   Enum, one of: ["vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"]
     #
     #   @return [String]
     #
@@ -55932,6 +67270,8 @@ module AWS::Ec2
     # @!attribute resource_type
     #   <p>The type of resource, for example a VPC attachment.</p>
     #
+    #   Enum, one of: ["vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"]
+    #
     #   @return [String]
     #
     # @!attribute resource_owner_id
@@ -55961,15 +67301,21 @@ module AWS::Ec2
     # @!attribute igmpv2_support
     #   <p>Indicates whether Internet Group Management Protocol (IGMP) version 2 is turned on for the transit gateway multicast domain.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute static_sources_support
     #   <p>Indicates whether support for statically configuring transit gateway multicast group sources is turned on.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute auto_accept_shared_associations
     #   <p>Indicates whether to automatically cross-account subnet associations that are associated with the transit gateway multicast domain.</p>
+    #
+    #   Enum, one of: ["enable", "disable"]
     #
     #   @return [String]
     #
@@ -55980,6 +67326,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for TransitGatewayMulticastDomainState
+    #
+    module TransitGatewayMulticastDomainState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
+
+      # No documentation available.
+      #
+      deleted = "deleted"
     end
 
     # <p>Describes the  transit gateway multicast group resources.</p>
@@ -56007,6 +67373,8 @@ module AWS::Ec2
     # @!attribute resource_type
     #   <p>The type of resource, for example a VPC attachment.</p>
     #
+    #   Enum, one of: ["vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"]
+    #
     #   @return [String]
     #
     # @!attribute resource_owner_id
@@ -56032,10 +67400,14 @@ module AWS::Ec2
     # @!attribute member_type
     #   <p>The member type (for example, <code>static</code>).</p>
     #
+    #   Enum, one of: ["static", "igmp"]
+    #
     #   @return [String]
     #
     # @!attribute source_type
     #   <p>The source type.</p>
+    #
+    #   Enum, one of: ["static", "igmp"]
     #
     #   @return [String]
     #
@@ -56054,6 +67426,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.group_member ||= false
+        self.group_source ||= false
+      end
+
     end
 
     # <p>Describes the registered  transit gateway multicast group members.</p>
@@ -56124,10 +67502,14 @@ module AWS::Ec2
     # @!attribute auto_accept_shared_attachments
     #   <p>Indicates whether attachment requests are automatically accepted.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute default_route_table_association
     #   <p>Indicates whether resource attachments are automatically associated with the default association route table.</p>
+    #
+    #   Enum, one of: ["enable", "disable"]
     #
     #   @return [String]
     #
@@ -56139,6 +67521,8 @@ module AWS::Ec2
     # @!attribute default_route_table_propagation
     #   <p>Indicates whether resource attachments automatically propagate routes to the default propagation route table.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute propagation_default_route_table_id
@@ -56149,15 +67533,21 @@ module AWS::Ec2
     # @!attribute vpn_ecmp_support
     #   <p>Indicates whether Equal Cost Multipath Protocol support is enabled.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute dns_support
     #   <p>Indicates whether DNS support is enabled.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute multicast_support
     #   <p>Indicates whether multicast is enabled on the transit gateway</p>
+    #
+    #   Enum, one of: ["enable", "disable"]
     #
     #   @return [String]
     #
@@ -56175,6 +67565,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.amazon_side_asn ||= 0
+      end
+
     end
 
     # <p>Describes the transit gateway peering attachment.</p>
@@ -56201,6 +67596,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the transit gateway peering attachment. Note that the <code>initiating</code> state has been deprecated.</p>
+    #
+    #   Enum, one of: ["initiating", "initiatingRequest", "pendingAcceptance", "rollingBack", "pending", "available", "modifying", "deleting", "deleted", "failed", "rejected", "rejecting", "failing"]
     #
     #   @return [String]
     #
@@ -56236,6 +67633,8 @@ module AWS::Ec2
     #
     # @!attribute resource_type
     #   <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+    #
+    #   Enum, one of: ["vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"]
     #
     #   @return [String]
     #
@@ -56273,6 +67672,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of the prefix list reference.</p>
     #
+    #   Enum, one of: ["pending", "available", "modifying", "deleting"]
+    #
     #   @return [String]
     #
     # @!attribute blackhole
@@ -56295,6 +67696,31 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.blackhole ||= false
+      end
+
+    end
+
+    # Includes enum constants for TransitGatewayPrefixListReferenceState
+    #
+    module TransitGatewayPrefixListReferenceState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      modifying = "modifying"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
     end
 
     # <p>Describes route propagation.</p>
@@ -56312,6 +67738,8 @@ module AWS::Ec2
     # @!attribute resource_type
     #   <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
     #
+    #   Enum, one of: ["vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"]
+    #
     #   @return [String]
     #
     # @!attribute transit_gateway_route_table_id
@@ -56321,6 +67749,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state.</p>
+    #
+    #   Enum, one of: ["enabling", "enabled", "disabling", "disabled"]
     #
     #   @return [String]
     #
@@ -56335,6 +67765,26 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for TransitGatewayPropagationState
+    #
+    module TransitGatewayPropagationState
+      # No documentation available.
+      #
+      enabling = "enabling"
+
+      # No documentation available.
+      #
+      enabled = "enabled"
+
+      # No documentation available.
+      #
+      disabling = "disabling"
+
+      # No documentation available.
+      #
+      disabled = "disabled"
+    end
+
     # <p>Describes the options for a transit gateway.</p>
     #
     # @!attribute amazon_side_asn
@@ -56346,30 +67796,42 @@ module AWS::Ec2
     # @!attribute auto_accept_shared_attachments
     #   <p>Enable or disable automatic acceptance of attachment requests. Disabled by default.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute default_route_table_association
     #   <p>Enable or disable automatic association with the default association route table. Enabled by default.</p>
+    #
+    #   Enum, one of: ["enable", "disable"]
     #
     #   @return [String]
     #
     # @!attribute default_route_table_propagation
     #   <p>Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute vpn_ecmp_support
     #   <p>Enable or disable Equal Cost Multipath Protocol support. Enabled by default.</p>
+    #
+    #   Enum, one of: ["enable", "disable"]
     #
     #   @return [String]
     #
     # @!attribute dns_support
     #   <p>Enable or disable DNS support. Enabled by default.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute multicast_support
     #   <p>Indicates whether multicast is enabled on the transit gateway</p>
+    #
+    #   Enum, one of: ["enable", "disable"]
     #
     #   @return [String]
     #
@@ -56390,6 +67852,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.amazon_side_asn ||= 0
+      end
+
     end
 
     # <p>Describes a route for a transit gateway route table.</p>
@@ -56412,10 +67879,14 @@ module AWS::Ec2
     # @!attribute type
     #   <p>The route type.</p>
     #
+    #   Enum, one of: ["static", "propagated"]
+    #
     #   @return [String]
     #
     # @!attribute state
     #   <p>The state of the route.</p>
+    #
+    #   Enum, one of: ["pending", "active", "blackhole", "deleting", "deleted"]
     #
     #   @return [String]
     #
@@ -56445,6 +67916,8 @@ module AWS::Ec2
     # @!attribute resource_type
     #   <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated. </p>
     #
+    #   Enum, one of: ["vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"]
+    #
     #   @return [String]
     #
     TransitGatewayRouteAttachment = ::Struct.new(
@@ -56454,6 +67927,30 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for TransitGatewayRouteState
+    #
+    module TransitGatewayRouteState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      blackhole = "blackhole"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
+
+      # No documentation available.
+      #
+      deleted = "deleted"
     end
 
     # <p>Describes a transit gateway route table.</p>
@@ -56470,6 +67967,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the transit gateway route table.</p>
+    #
+    #   Enum, one of: ["pending", "available", "deleting", "deleted"]
     #
     #   @return [String]
     #
@@ -56504,6 +68003,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.default_association_route_table ||= false
+        self.default_propagation_route_table ||= false
+      end
+
     end
 
     # <p>Describes an association between a route table and a resource attachment.</p>
@@ -56521,10 +68026,14 @@ module AWS::Ec2
     # @!attribute resource_type
     #   <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
     #
+    #   Enum, one of: ["vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"]
+    #
     #   @return [String]
     #
     # @!attribute state
     #   <p>The state of the association.</p>
+    #
+    #   Enum, one of: ["associating", "associated", "disassociating", "disassociated"]
     #
     #   @return [String]
     #
@@ -56553,10 +68062,14 @@ module AWS::Ec2
     # @!attribute resource_type
     #   <p>The type of resource. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
     #
+    #   Enum, one of: ["vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"]
+    #
     #   @return [String]
     #
     # @!attribute state
     #   <p>The state of the resource.</p>
+    #
+    #   Enum, one of: ["enabling", "enabled", "disabling", "disabled"]
     #
     #   @return [String]
     #
@@ -56568,6 +68081,62 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for TransitGatewayRouteTableState
+    #
+    module TransitGatewayRouteTableState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
+
+      # No documentation available.
+      #
+      deleted = "deleted"
+    end
+
+    # Includes enum constants for TransitGatewayRouteType
+    #
+    module TransitGatewayRouteType
+      # No documentation available.
+      #
+      static = "static"
+
+      # No documentation available.
+      #
+      propagated = "propagated"
+    end
+
+    # Includes enum constants for TransitGatewayState
+    #
+    module TransitGatewayState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      modifying = "modifying"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
+
+      # No documentation available.
+      #
+      deleted = "deleted"
     end
 
     # <p>Describes a VPC attachment.</p>
@@ -56594,6 +68163,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the VPC attachment. Note that the <code>initiating</code> state has been deprecated.</p>
+    #
+    #   Enum, one of: ["initiating", "initiatingRequest", "pendingAcceptance", "rollingBack", "pending", "available", "modifying", "deleting", "deleted", "failed", "rejected", "rejecting", "failing"]
     #
     #   @return [String]
     #
@@ -56637,15 +68208,21 @@ module AWS::Ec2
     # @!attribute dns_support
     #   <p>Indicates whether DNS support is enabled.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute ipv6_support
     #   <p>Indicates whether IPv6 support is disabled.</p>
     #
+    #   Enum, one of: ["enable", "disable"]
+    #
     #   @return [String]
     #
     # @!attribute appliance_mode_support
     #   <p>Indicates whether appliance mode support is enabled.</p>
+    #
+    #   Enum, one of: ["enable", "disable"]
     #
     #   @return [String]
     #
@@ -56656,6 +68233,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for TransportProtocol
+    #
+    module TransportProtocol
+      # No documentation available.
+      #
+      tcp = "tcp"
+
+      # No documentation available.
+      #
+      udp = "udp"
     end
 
     # <note>
@@ -56681,6 +68270,8 @@ module AWS::Ec2
     #
     # @!attribute interface_protocol
     #   <p>The interface protocol. Valid values are <code>VLAN</code> and <code>GRE</code>.</p>
+    #
+    #   Enum, one of: ["VLAN", "GRE"]
     #
     #   @return [String]
     #
@@ -56710,6 +68301,24 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.vlan_id ||= 0
+        self.gre_key ||= 0
+      end
+
+    end
+
+    # Includes enum constants for TunnelInsideIpVersion
+    #
+    module TunnelInsideIpVersion
+      # No documentation available.
+      #
+      ipv4 = "ipv4"
+
+      # No documentation available.
+      #
+      ipv6 = "ipv6"
     end
 
     # <p>The VPN tunnel options.</p>
@@ -56841,6 +68450,16 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.phase1_lifetime_seconds ||= 0
+        self.phase2_lifetime_seconds ||= 0
+        self.rekey_margin_time_seconds ||= 0
+        self.rekey_fuzz_percentage ||= 0
+        self.replay_window_size ||= 0
+        self.dpd_timeout_seconds ||= 0
+      end
+
     end
 
     # @!attribute ipv6_addresses
@@ -56924,6 +68543,26 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for UnlimitedSupportedInstanceFamily
+    #
+    module UnlimitedSupportedInstanceFamily
+      # No documentation available.
+      #
+      t2 = "t2"
+
+      # No documentation available.
+      #
+      t3 = "t3"
+
+      # No documentation available.
+      #
+      t3a = "t3a"
+
+      # No documentation available.
+      #
+      t4g = "t4g"
+    end
+
     # @!attribute instance_ids
     #   <p>The IDs of the instances.</p>
     #
@@ -56942,6 +68581,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute instance_monitorings
@@ -56954,6 +68598,26 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for UnsuccessfulInstanceCreditSpecificationErrorCode
+    #
+    module UnsuccessfulInstanceCreditSpecificationErrorCode
+      # No documentation available.
+      #
+      INVALID_INSTANCE_ID = "InvalidInstanceID.Malformed"
+
+      # No documentation available.
+      #
+      INSTANCE_NOT_FOUND = "InvalidInstanceID.NotFound"
+
+      # No documentation available.
+      #
+      INCORRECT_INSTANCE_STATE = "IncorrectInstanceState"
+
+      # No documentation available.
+      #
+      INSTANCE_CREDIT_SPECIFICATION_NOT_SUPPORTED = "InstanceCreditSpecification.NotSupported"
     end
 
     # <p>Describes the burstable performance instance whose credit option for CPU usage was not
@@ -56983,6 +68647,8 @@ module AWS::Ec2
     #
     # @!attribute code
     #   <p>The error code.</p>
+    #
+    #   Enum, one of: ["InvalidInstanceID.Malformed", "InvalidInstanceID.NotFound", "IncorrectInstanceState", "InstanceCreditSpecification.NotSupported"]
     #
     #   @return [String]
     #
@@ -57080,6 +68746,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -57092,6 +68763,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
     end
 
     # @!attribute dry_run
@@ -57135,6 +68811,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute return
@@ -57147,6 +68828,23 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.return ||= false
+      end
+
+    end
+
+    # Includes enum constants for UsageClassType
+    #
+    module UsageClassType
+      # No documentation available.
+      #
+      spot = "spot"
+
+      # No documentation available.
+      #
+      on_demand = "on-demand"
     end
 
     # <p>Describes the Amazon S3 bucket for the disk image.</p>
@@ -57293,6 +68991,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
     end
 
     # <p>The minimum and maximum number of vCPUs.</p>
@@ -57313,6 +69017,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.min ||= 0
+        self.max ||= 0
+      end
+
     end
 
     # <p>Describes the vCPU configurations for the instance type.</p>
@@ -57409,6 +69119,8 @@ module AWS::Ec2
     # @!attribute status
     #   <p>The status of the VPN tunnel.</p>
     #
+    #   Enum, one of: ["UP", "DOWN"]
+    #
     #   @return [String]
     #
     # @!attribute status_message
@@ -57431,6 +69143,23 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.accepted_route_count ||= 0
+      end
+
+    end
+
+    # Includes enum constants for VirtualizationType
+    #
+    module VirtualizationType
+      # No documentation available.
+      #
+      hvm = "hvm"
+
+      # No documentation available.
+      #
+      paravirtual = "paravirtual"
     end
 
     # <p>Describes a volume.</p>
@@ -57479,6 +69208,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The volume state.</p>
     #
+    #   Enum, one of: ["creating", "available", "in-use", "deleting", "deleted", "error"]
+    #
     #   @return [String]
     #
     # @!attribute volume_id
@@ -57500,6 +69231,8 @@ module AWS::Ec2
     #
     # @!attribute volume_type
     #   <p>The volume type.</p>
+    #
+    #   Enum, one of: ["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"]
     #
     #   @return [String]
     #
@@ -57538,6 +69271,16 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.encrypted ||= false
+        self.size ||= 0
+        self.iops ||= 0
+        self.fast_restored ||= false
+        self.multi_attach_enabled ||= false
+        self.throughput ||= 0
+      end
+
     end
 
     # <p>Describes volume attachment details.</p>
@@ -57559,6 +69302,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The attachment state of the volume.</p>
+    #
+    #   Enum, one of: ["attaching", "attached", "detaching", "detached", "busy"]
     #
     #   @return [String]
     #
@@ -57582,6 +69327,47 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.delete_on_termination ||= false
+      end
+
+    end
+
+    # Includes enum constants for VolumeAttachmentState
+    #
+    module VolumeAttachmentState
+      # No documentation available.
+      #
+      attaching = "attaching"
+
+      # No documentation available.
+      #
+      attached = "attached"
+
+      # No documentation available.
+      #
+      detaching = "detaching"
+
+      # No documentation available.
+      #
+      detached = "detached"
+
+      # No documentation available.
+      #
+      busy = "busy"
+    end
+
+    # Includes enum constants for VolumeAttributeName
+    #
+    module VolumeAttributeName
+      # No documentation available.
+      #
+      autoEnableIO = "autoEnableIO"
+
+      # No documentation available.
+      #
+      productCodes = "productCodes"
     end
 
     # <p>Describes an EBS volume.</p>
@@ -57596,6 +69382,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.size ||= 0
+      end
+
     end
 
     # <p>Describes the modification status of an EBS volume.</p>
@@ -57609,6 +69400,8 @@ module AWS::Ec2
     # @!attribute modification_state
     #   <p>The current modification state. The modification state is null for unmodified
     #         volumes.</p>
+    #
+    #   Enum, one of: ["modifying", "optimizing", "completed", "failed"]
     #
     #   @return [String]
     #
@@ -57629,6 +69422,8 @@ module AWS::Ec2
     #
     # @!attribute target_volume_type
     #   <p>The target EBS volume type of the volume.</p>
+    #
+    #   Enum, one of: ["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"]
     #
     #   @return [String]
     #
@@ -57654,6 +69449,8 @@ module AWS::Ec2
     #
     # @!attribute original_volume_type
     #   <p>The original EBS volume type of the volume.</p>
+    #
+    #   Enum, one of: ["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"]
     #
     #   @return [String]
     #
@@ -57702,6 +69499,67 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.target_size ||= 0
+        self.target_iops ||= 0
+        self.target_throughput ||= 0
+        self.target_multi_attach_enabled ||= false
+        self.original_size ||= 0
+        self.original_iops ||= 0
+        self.original_throughput ||= 0
+        self.original_multi_attach_enabled ||= false
+        self.progress ||= 0
+      end
+
+    end
+
+    # Includes enum constants for VolumeModificationState
+    #
+    module VolumeModificationState
+      # No documentation available.
+      #
+      modifying = "modifying"
+
+      # No documentation available.
+      #
+      optimizing = "optimizing"
+
+      # No documentation available.
+      #
+      completed = "completed"
+
+      # No documentation available.
+      #
+      failed = "failed"
+    end
+
+    # Includes enum constants for VolumeState
+    #
+    module VolumeState
+      # No documentation available.
+      #
+      creating = "creating"
+
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      in_use = "in-use"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
+
+      # No documentation available.
+      #
+      deleted = "deleted"
+
+      # No documentation available.
+      #
+      error = "error"
     end
 
     # <p>Describes a volume status operation code.</p>
@@ -57760,6 +69618,8 @@ module AWS::Ec2
     #
     # @!attribute name
     #   <p>The name of the volume status.</p>
+    #
+    #   Enum, one of: ["io-enabled", "io-performance"]
     #
     #   @return [String]
     #
@@ -57830,6 +69690,8 @@ module AWS::Ec2
     # @!attribute status
     #   <p>The status of the volume.</p>
     #
+    #   Enum, one of: ["ok", "impaired", "insufficient-data"]
+    #
     #   @return [String]
     #
     VolumeStatusInfo = ::Struct.new(
@@ -57838,6 +69700,22 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for VolumeStatusInfoStatus
+    #
+    module VolumeStatusInfoStatus
+      # No documentation available.
+      #
+      ok = "ok"
+
+      # No documentation available.
+      #
+      impaired = "impaired"
+
+      # No documentation available.
+      #
+      insufficient_data = "insufficient-data"
     end
 
     # <p>Describes the volume status.</p>
@@ -57890,6 +69768,50 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for VolumeStatusName
+    #
+    module VolumeStatusName
+      # No documentation available.
+      #
+      io_enabled = "io-enabled"
+
+      # No documentation available.
+      #
+      io_performance = "io-performance"
+    end
+
+    # Includes enum constants for VolumeType
+    #
+    module VolumeType
+      # No documentation available.
+      #
+      standard = "standard"
+
+      # No documentation available.
+      #
+      io1 = "io1"
+
+      # No documentation available.
+      #
+      io2 = "io2"
+
+      # No documentation available.
+      #
+      gp2 = "gp2"
+
+      # No documentation available.
+      #
+      sc1 = "sc1"
+
+      # No documentation available.
+      #
+      st1 = "st1"
+
+      # No documentation available.
+      #
+      gp3 = "gp3"
+    end
+
     # <p>Describes a VPC.</p>
     #
     # @!attribute cidr_block
@@ -57905,6 +69827,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The current state of the VPC.</p>
     #
+    #   Enum, one of: ["pending", "available"]
+    #
     #   @return [String]
     #
     # @!attribute vpc_id
@@ -57919,6 +69843,8 @@ module AWS::Ec2
     #
     # @!attribute instance_tenancy
     #   <p>The allowed tenancy of instances launched into the VPC.</p>
+    #
+    #   Enum, one of: ["default", "dedicated", "host"]
     #
     #   @return [String]
     #
@@ -57956,12 +69882,19 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.is_default ||= false
+      end
+
     end
 
     # <p>Describes an attachment between a virtual private gateway and a VPC.</p>
     #
     # @!attribute state
     #   <p>The current state of the attachment.</p>
+    #
+    #   Enum, one of: ["attaching", "attached", "detaching", "detached"]
     #
     #   @return [String]
     #
@@ -57976,6 +69909,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for VpcAttributeName
+    #
+    module VpcAttributeName
+      # No documentation available.
+      #
+      enableDnsSupport = "enableDnsSupport"
+
+      # No documentation available.
+      #
+      enableDnsHostnames = "enableDnsHostnames"
     end
 
     # <p>Describes an IPv4 CIDR block associated with a VPC.</p>
@@ -58009,6 +69954,8 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The state of the CIDR block.</p>
     #
+    #   Enum, one of: ["associating", "associated", "disassociating", "disassociated", "failing", "failed"]
+    #
     #   @return [String]
     #
     # @!attribute status_message
@@ -58022,6 +69969,34 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for VpcCidrBlockStateCode
+    #
+    module VpcCidrBlockStateCode
+      # No documentation available.
+      #
+      associating = "associating"
+
+      # No documentation available.
+      #
+      associated = "associated"
+
+      # No documentation available.
+      #
+      disassociating = "disassociating"
+
+      # No documentation available.
+      #
+      disassociated = "disassociated"
+
+      # No documentation available.
+      #
+      failing = "failing"
+
+      # No documentation available.
+      #
+      failed = "failed"
     end
 
     # <p>Describes whether a VPC is enabled for ClassicLink.</p>
@@ -58048,6 +70023,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.classic_link_enabled ||= false
+      end
+
     end
 
     # <p>Describes a VPC endpoint.</p>
@@ -58059,6 +70039,8 @@ module AWS::Ec2
     #
     # @!attribute vpc_endpoint_type
     #   <p>The type of endpoint.</p>
+    #
+    #   Enum, one of: ["Interface", "Gateway", "GatewayLoadBalancer"]
     #
     #   @return [String]
     #
@@ -58074,6 +70056,8 @@ module AWS::Ec2
     #
     # @!attribute state
     #   <p>The state of the VPC endpoint.</p>
+    #
+    #   Enum, one of: ["PendingAcceptance", "Pending", "Available", "Deleting", "Deleted", "Rejected", "Failed", "Expired"]
     #
     #   @return [String]
     #
@@ -58159,6 +70143,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.private_dns_enabled ||= false
+        self.requester_managed ||= false
+      end
+
     end
 
     # <p>Describes a VPC endpoint connection to a service.</p>
@@ -58180,6 +70170,8 @@ module AWS::Ec2
     #
     # @!attribute vpc_endpoint_state
     #   <p>The state of the VPC endpoint.</p>
+    #
+    #   Enum, one of: ["PendingAcceptance", "Pending", "Available", "Deleting", "Deleted", "Rejected", "Failed", "Expired"]
     #
     #   @return [String]
     #
@@ -58215,6 +70207,22 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for VpcEndpointType
+    #
+    module VpcEndpointType
+      # No documentation available.
+      #
+      Interface = "Interface"
+
+      # No documentation available.
+      #
+      Gateway = "Gateway"
+
+      # No documentation available.
+      #
+      GatewayLoadBalancer = "GatewayLoadBalancer"
     end
 
     # <p>Describes an IPv6 CIDR block associated with a VPC.</p>
@@ -58324,12 +70332,21 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.allow_dns_resolution_from_remote_vpc ||= false
+        self.allow_egress_from_local_classic_link_to_remote_vpc ||= false
+        self.allow_egress_from_local_vpc_to_remote_classic_link ||= false
+      end
+
     end
 
     # <p>Describes the status of a VPC peering connection.</p>
     #
     # @!attribute code
     #   <p>The status of the VPC peering connection.</p>
+    #
+    #   Enum, one of: ["initiating-request", "pending-acceptance", "active", "deleted", "rejected", "failed", "expired", "provisioning", "deleting"]
     #
     #   @return [String]
     #
@@ -58344,6 +70361,46 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for VpcPeeringConnectionStateReasonCode
+    #
+    module VpcPeeringConnectionStateReasonCode
+      # No documentation available.
+      #
+      initiating_request = "initiating-request"
+
+      # No documentation available.
+      #
+      pending_acceptance = "pending-acceptance"
+
+      # No documentation available.
+      #
+      active = "active"
+
+      # No documentation available.
+      #
+      deleted = "deleted"
+
+      # No documentation available.
+      #
+      rejected = "rejected"
+
+      # No documentation available.
+      #
+      failed = "failed"
+
+      # No documentation available.
+      #
+      expired = "expired"
+
+      # No documentation available.
+      #
+      provisioning = "provisioning"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
     end
 
     # <p>Describes a VPC in a VPC peering connection.</p>
@@ -58396,6 +70453,26 @@ module AWS::Ec2
       include Hearth::Structure
     end
 
+    # Includes enum constants for VpcState
+    #
+    module VpcState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      available = "available"
+    end
+
+    # Includes enum constants for VpcTenancy
+    #
+    module VpcTenancy
+      # No documentation available.
+      #
+      default = "default"
+    end
+
     # <p>Describes a VPN connection.</p>
     #
     # @!attribute customer_gateway_configuration
@@ -58420,10 +70497,14 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The current state of the VPN connection.</p>
     #
+    #   Enum, one of: ["pending", "available", "deleting", "deleted"]
+    #
     #   @return [String]
     #
     # @!attribute type
     #   <p>The type of VPN connection.</p>
+    #
+    #   Enum, one of: ["ipsec.1"]
     #
     #   @return [String]
     #
@@ -58455,6 +70536,8 @@ module AWS::Ec2
     #
     # @!attribute gateway_association_state
     #   <p>The current state of the gateway association.</p>
+    #
+    #   Enum, one of: ["associated", "not-associated", "associating", "disassociating"]
     #
     #   @return [String]
     #
@@ -58570,6 +70653,8 @@ module AWS::Ec2
     # @!attribute tunnel_inside_ip_version
     #   <p>Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
     #
+    #   Enum, one of: ["ipv4", "ipv6"]
+    #
     #   @return [String]
     #
     # @!attribute tunnel_options
@@ -58589,6 +70674,12 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enable_acceleration ||= false
+        self.static_routes_only ||= false
+      end
+
     end
 
     # <p>Describes VPN connection options.</p>
@@ -58613,6 +70704,8 @@ module AWS::Ec2
     #   <p>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
     #           <p>Default: <code>ipv4</code>
     #            </p>
+    #
+    #   Enum, one of: ["ipv4", "ipv6"]
     #
     #   @return [String]
     #
@@ -58661,6 +70754,24 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.enable_acceleration ||= false
+        self.static_routes_only ||= false
+      end
+
+    end
+
+    # Includes enum constants for VpnEcmpSupportValue
+    #
+    module VpnEcmpSupportValue
+      # No documentation available.
+      #
+      enable = "enable"
+
+      # No documentation available.
+      #
+      disable = "disable"
     end
 
     # <p>Describes a virtual private gateway.</p>
@@ -58674,10 +70785,14 @@ module AWS::Ec2
     # @!attribute state
     #   <p>The current state of the virtual private gateway.</p>
     #
+    #   Enum, one of: ["pending", "available", "deleting", "deleted"]
+    #
     #   @return [String]
     #
     # @!attribute type
     #   <p>The type of VPN connection the virtual private gateway supports.</p>
+    #
+    #   Enum, one of: ["ipsec.1"]
     #
     #   @return [String]
     #
@@ -58713,6 +70828,39 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.amazon_side_asn ||= 0
+      end
+
+    end
+
+    # Includes enum constants for VpnProtocol
+    #
+    module VpnProtocol
+      # No documentation available.
+      #
+      openvpn = "openvpn"
+    end
+
+    # Includes enum constants for VpnState
+    #
+    module VpnState
+      # No documentation available.
+      #
+      pending = "pending"
+
+      # No documentation available.
+      #
+      available = "available"
+
+      # No documentation available.
+      #
+      deleting = "deleting"
+
+      # No documentation available.
+      #
+      deleted = "deleted"
     end
 
     # <p>Describes a static route for a VPN connection.</p>
@@ -58725,10 +70873,14 @@ module AWS::Ec2
     # @!attribute source
     #   <p>Indicates how the routes were provided.</p>
     #
+    #   Enum, one of: ["Static"]
+    #
     #   @return [String]
     #
     # @!attribute state
     #   <p>The current state of the static route.</p>
+    #
+    #   Enum, one of: ["pending", "available", "deleting", "deleted"]
     #
     #   @return [String]
     #
@@ -58739,6 +70891,14 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for VpnStaticRouteSource
+    #
+    module VpnStaticRouteSource
+      # No documentation available.
+      #
+      Static = "Static"
     end
 
     # <p>The tunnel options for a single VPN tunnel.</p>
@@ -58965,6 +71125,48 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.phase1_lifetime_seconds ||= 0
+        self.phase2_lifetime_seconds ||= 0
+        self.rekey_margin_time_seconds ||= 0
+        self.rekey_fuzz_percentage ||= 0
+        self.replay_window_size ||= 0
+        self.dpd_timeout_seconds ||= 0
+      end
+
+    end
+
+    # Includes enum constants for WeekDay
+    #
+    module WeekDay
+      # No documentation available.
+      #
+      sunday = "sunday"
+
+      # No documentation available.
+      #
+      monday = "monday"
+
+      # No documentation available.
+      #
+      tuesday = "tuesday"
+
+      # No documentation available.
+      #
+      wednesday = "wednesday"
+
+      # No documentation available.
+      #
+      thursday = "thursday"
+
+      # No documentation available.
+      #
+      friday = "friday"
+
+      # No documentation available.
+      #
+      saturday = "saturday"
     end
 
     # @!attribute cidr
@@ -58985,6 +71187,11 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+      def initialize(*)
+        super
+        self.dry_run ||= false
+      end
+
     end
 
     # @!attribute byoip_cidr
@@ -58997,6 +71204,18 @@ module AWS::Ec2
       keyword_init: true
     ) do
       include Hearth::Structure
+    end
+
+    # Includes enum constants for Scope
+    #
+    module Scope
+      # No documentation available.
+      #
+      AVAILABILITY_ZONE = "Availability Zone"
+
+      # No documentation available.
+      #
+      REGIONAL = "Region"
     end
 
   end

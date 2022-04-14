@@ -1148,7 +1148,9 @@ module AWS::Lambda
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::InvokeAsyncInput, context: context)
         Hearth::Validator.validate!(input[:function_name], ::String, context: "#{context}[:function_name]")
-        Hearth::Validator.validate!(input[:invoke_args], ::String, context: "#{context}[:invoke_args]")
+        unless input[:invoke_args].respond_to?(:read) || input[:invoke_args].respond_to?(:readpartial)
+          raise ArgumentError, "Expected #{context} to be an IO like object, got #{input[:invoke_args].class}"
+        end
       end
     end
 

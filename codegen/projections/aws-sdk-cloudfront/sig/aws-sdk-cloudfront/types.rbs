@@ -40,7 +40,23 @@ module AWS::Cloudfront
 
     CachePolicyConfig: untyped
 
+    module CachePolicyCookieBehavior
+      none: ::String
+
+      whitelist: ::String
+
+      allExcept: ::String
+
+      all: ::String
+    end
+
     CachePolicyCookiesConfig: untyped
+
+    module CachePolicyHeaderBehavior
+      none: ::String
+
+      whitelist: ::String
+    end
 
     CachePolicyHeadersConfig: untyped
 
@@ -48,13 +64,37 @@ module AWS::Cloudfront
 
     CachePolicyList: untyped
 
+    module CachePolicyQueryStringBehavior
+      none: ::String
+
+      whitelist: ::String
+
+      allExcept: ::String
+
+      all: ::String
+    end
+
     CachePolicyQueryStringsConfig: untyped
 
     CachePolicySummary: untyped
 
+    module CachePolicyType
+      managed: ::String
+
+      custom: ::String
+    end
+
     CachedMethods: untyped
 
     CannotChangeImmutablePublicKeyFields: untyped
+
+    module CertificateSource
+      cloudfront: ::String
+
+      iam: ::String
+
+      acm: ::String
+    end
 
     CloudFrontOriginAccessIdentity: untyped
 
@@ -234,6 +274,16 @@ module AWS::Cloudfront
 
     EndPoint: untyped
 
+    module EventType
+      viewer_request: ::String
+
+      viewer_response: ::String
+
+      origin_request: ::String
+
+      origin_response: ::String
+    end
+
     FieldLevelEncryption: untyped
 
     FieldLevelEncryptionConfig: untyped
@@ -262,7 +312,17 @@ module AWS::Cloudfront
 
     FieldPatterns: untyped
 
+    module Format
+      URLEncoded: ::String
+    end
+
     ForwardedValues: untyped
+
+    module FrameOptionsList
+      DENY: ::String
+
+      SAMEORIGIN: ::String
+    end
 
     FunctionAlreadyExists: untyped
 
@@ -278,11 +338,29 @@ module AWS::Cloudfront
 
     FunctionMetadata: untyped
 
+    module FunctionRuntime
+      cloudfront_js_1_0: ::String
+    end
+
     FunctionSizeLimitExceeded: untyped
+
+    module FunctionStage
+      DEVELOPMENT: ::String
+
+      LIVE: ::String
+    end
 
     FunctionSummary: untyped
 
     GeoRestriction: untyped
+
+    module GeoRestrictionType
+      blacklist: ::String
+
+      whitelist: ::String
+
+      none: ::String
+    end
 
     GetCachePolicyConfigInput: untyped
 
@@ -382,6 +460,20 @@ module AWS::Cloudfront
 
     Headers: untyped
 
+    module HttpVersion
+      http1_1: ::String
+
+      http2: ::String
+    end
+
+    module ICPRecordalStatus
+      APPROVED: ::String
+
+      SUSPENDED: ::String
+
+      PENDING: ::String
+    end
+
     IllegalDelete: untyped
 
     IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior: untyped
@@ -445,6 +537,14 @@ module AWS::Cloudfront
     InvalidationList: untyped
 
     InvalidationSummary: untyped
+
+    module ItemSelection
+      none: ::String
+
+      whitelist: ::String
+
+      all: ::String
+    end
 
     KGKeyPairIds: untyped
 
@@ -552,6 +652,38 @@ module AWS::Cloudfront
 
     LoggingConfig: untyped
 
+    module Method
+      GET: ::String
+
+      HEAD: ::String
+
+      POST: ::String
+
+      PUT: ::String
+
+      PATCH: ::String
+
+      OPTIONS: ::String
+
+      DELETE: ::String
+    end
+
+    module MinimumProtocolVersion
+      SSLv3: ::String
+
+      TLSv1: ::String
+
+      TLSv1_2016: ::String
+
+      TLSv1_1_2016: ::String
+
+      TLSv1_2_2018: ::String
+
+      TLSv1_2_2019: ::String
+
+      TLSv1_2_2021: ::String
+    end
+
     MissingBody: untyped
 
     MonitoringSubscription: untyped
@@ -598,13 +730,39 @@ module AWS::Cloudfront
 
     OriginGroups: untyped
 
+    module OriginProtocolPolicy
+      http_only: ::String
+
+      match_viewer: ::String
+
+      https_only: ::String
+    end
+
     OriginRequestPolicy: untyped
 
     OriginRequestPolicyAlreadyExists: untyped
 
     OriginRequestPolicyConfig: untyped
 
+    module OriginRequestPolicyCookieBehavior
+      none: ::String
+
+      whitelist: ::String
+
+      all: ::String
+    end
+
     OriginRequestPolicyCookiesConfig: untyped
+
+    module OriginRequestPolicyHeaderBehavior
+      none: ::String
+
+      whitelist: ::String
+
+      allViewer: ::String
+
+      allViewerAndWhitelistCloudFront: ::String
+    end
 
     OriginRequestPolicyHeadersConfig: untyped
 
@@ -612,9 +770,23 @@ module AWS::Cloudfront
 
     OriginRequestPolicyList: untyped
 
+    module OriginRequestPolicyQueryStringBehavior
+      none: ::String
+
+      whitelist: ::String
+
+      all: ::String
+    end
+
     OriginRequestPolicyQueryStringsConfig: untyped
 
     OriginRequestPolicySummary: untyped
+
+    module OriginRequestPolicyType
+      managed: ::String
+
+      custom: ::String
+    end
 
     OriginShield: untyped
 
@@ -627,6 +799,14 @@ module AWS::Cloudfront
     Paths: untyped
 
     PreconditionFailed: untyped
+
+    module PriceClass
+      PriceClass_100: ::String
+
+      PriceClass_200: ::String
+
+      PriceClass_All: ::String
+    end
 
     PublicKey: untyped
 
@@ -668,6 +848,30 @@ module AWS::Cloudfront
 
     RealtimeMetricsSubscriptionConfig: untyped
 
+    module RealtimeMetricsSubscriptionStatus
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    module ReferrerPolicyList
+      no_referrer: ::String
+
+      no_referrer_when_downgrade: ::String
+
+      origin: ::String
+
+      origin_when_cross_origin: ::String
+
+      same_origin: ::String
+
+      strict_origin: ::String
+
+      strict_origin_when_cross_origin: ::String
+
+      unsafe_url: ::String
+    end
+
     ResourceInUse: untyped
 
     ResponseHeadersPolicy: untyped
@@ -675,6 +879,24 @@ module AWS::Cloudfront
     ResponseHeadersPolicyAccessControlAllowHeaders: untyped
 
     ResponseHeadersPolicyAccessControlAllowMethods: untyped
+
+    module ResponseHeadersPolicyAccessControlAllowMethodsValues
+      GET: ::String
+
+      POST: ::String
+
+      OPTIONS: ::String
+
+      PUT: ::String
+
+      DELETE: ::String
+
+      PATCH: ::String
+
+      HEAD: ::String
+
+      ALL: ::String
+    end
 
     ResponseHeadersPolicyAccessControlAllowOrigins: untyped
 
@@ -708,6 +930,12 @@ module AWS::Cloudfront
 
     ResponseHeadersPolicySummary: untyped
 
+    module ResponseHeadersPolicyType
+      managed: ::String
+
+      custom: ::String
+    end
+
     ResponseHeadersPolicyXSSProtection: untyped
 
     Restrictions: untyped
@@ -716,7 +944,25 @@ module AWS::Cloudfront
 
     S3OriginConfig: untyped
 
+    module SSLSupportMethod
+      sni_only: ::String
+
+      vip: ::String
+
+      static_ip: ::String
+    end
+
     Signer: untyped
+
+    module SslProtocol
+      SSLv3: ::String
+
+      TLSv1: ::String
+
+      TLSv1_1: ::String
+
+      TLSv1_2: ::String
+    end
 
     StatusCodes: untyped
 
@@ -911,6 +1157,14 @@ module AWS::Cloudfront
     UpdateStreamingDistributionOutput: untyped
 
     ViewerCertificate: untyped
+
+    module ViewerProtocolPolicy
+      allow_all: ::String
+
+      https_only: ::String
+
+      redirect_to_https: ::String
+    end
 
   end
 end

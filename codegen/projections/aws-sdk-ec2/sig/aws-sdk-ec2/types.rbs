@@ -14,9 +14,43 @@ module AWS::Ec2
 
     AcceleratorCountRequest: untyped
 
+    module AcceleratorManufacturer
+      NVIDIA: ::String
+
+      AMD: ::String
+
+      AMAZON_WEB_SERVICES: ::String
+
+      XILINX: ::String
+    end
+
+    module AcceleratorName
+      A100: ::String
+
+      V100: ::String
+
+      K80: ::String
+
+      T4: ::String
+
+      M60: ::String
+
+      RADEON_PRO_V520: ::String
+
+      VU9P: ::String
+    end
+
     AcceleratorTotalMemoryMiB: untyped
 
     AcceleratorTotalMemoryMiBRequest: untyped
+
+    module AcceleratorType
+      GPU: ::String
+
+      FPGA: ::String
+
+      INFERENCE: ::String
+    end
 
     AcceptReservedInstancesExchangeQuoteInput: untyped
 
@@ -50,9 +84,25 @@ module AWS::Ec2
 
     AccountAttribute: untyped
 
+    module AccountAttributeName
+      supported_platforms: ::String
+
+      default_vpc: ::String
+    end
+
     AccountAttributeValue: untyped
 
     ActiveInstance: untyped
+
+    module ActivityStatus
+      ERROR: ::String
+
+      PENDING_FULFILLMENT: ::String
+
+      PENDING_TERMINATION: ::String
+
+      FULFILLED: ::String
+    end
 
     AddIpamOperatingRegion: untyped
 
@@ -62,9 +112,25 @@ module AWS::Ec2
 
     AddressAttribute: untyped
 
+    module AddressAttributeName
+      domain_name: ::String
+    end
+
+    module AddressFamily
+      ipv4: ::String
+
+      ipv6: ::String
+    end
+
     AdvertiseByoipCidrInput: untyped
 
     AdvertiseByoipCidrOutput: untyped
+
+    module Affinity
+      default: ::String
+
+      host: ::String
+    end
 
     AllocateAddressInput: untyped
 
@@ -78,7 +144,37 @@ module AWS::Ec2
 
     AllocateIpamPoolCidrOutput: untyped
 
+    module AllocationState
+      available: ::String
+
+      under_assessment: ::String
+
+      permanent_failure: ::String
+
+      released: ::String
+
+      released_permanent_failure: ::String
+
+      pending: ::String
+    end
+
+    module AllocationStrategy
+      LOWEST_PRICE: ::String
+
+      DIVERSIFIED: ::String
+
+      CAPACITY_OPTIMIZED: ::String
+
+      CAPACITY_OPTIMIZED_PRIORITIZED: ::String
+    end
+
     AllowedPrincipal: untyped
+
+    module AllowsMultipleInstanceTypes
+      on: ::String
+
+      off: ::String
+    end
 
     AlternatePathHint: untyped
 
@@ -96,9 +192,43 @@ module AWS::Ec2
 
     AnalysisSecurityGroupRule: untyped
 
+    module AnalysisStatus
+      running: ::String
+
+      succeeded: ::String
+
+      failed: ::String
+    end
+
+    module ApplianceModeSupportValue
+      enable: ::String
+
+      disable: ::String
+    end
+
     ApplySecurityGroupsToClientVpnTargetNetworkInput: untyped
 
     ApplySecurityGroupsToClientVpnTargetNetworkOutput: untyped
+
+    module ArchitectureType
+      i386: ::String
+
+      x86_64: ::String
+
+      arm64: ::String
+
+      x86_64_mac: ::String
+    end
+
+    module ArchitectureValues
+      i386: ::String
+
+      x86_64: ::String
+
+      arm64: ::String
+
+      x86_64_mac: ::String
+    end
 
     AssignIpv6AddressesInput: untyped
 
@@ -158,11 +288,27 @@ module AWS::Ec2
 
     AssociateVpcCidrBlockOutput: untyped
 
+    module AssociatedNetworkType
+      vpc: ::String
+    end
+
     AssociatedRole: untyped
 
     AssociatedTargetNetwork: untyped
 
     AssociationStatus: untyped
+
+    module AssociationStatusCode
+      associating: ::String
+
+      associated: ::String
+
+      association_failed: ::String
+
+      disassociating: ::String
+
+      disassociated: ::String
+    end
 
     AthenaIntegration: untyped
 
@@ -186,6 +332,16 @@ module AWS::Ec2
 
     AttachVpnGatewayOutput: untyped
 
+    module AttachmentStatus
+      attaching: ::String
+
+      attached: ::String
+
+      detaching: ::String
+
+      detached: ::String
+    end
+
     AttributeBooleanValue: untyped
 
     AttributeValue: untyped
@@ -204,19 +360,97 @@ module AWS::Ec2
 
     AuthorizeSecurityGroupIngressOutput: untyped
 
+    module AutoAcceptSharedAssociationsValue
+      enable: ::String
+
+      disable: ::String
+    end
+
+    module AutoAcceptSharedAttachmentsValue
+      enable: ::String
+
+      disable: ::String
+    end
+
+    module AutoPlacement
+      on: ::String
+
+      off: ::String
+    end
+
     AvailabilityZone: untyped
 
     AvailabilityZoneMessage: untyped
 
+    module AvailabilityZoneOptInStatus
+      opt_in_not_required: ::String
+
+      opted_in: ::String
+
+      not_opted_in: ::String
+    end
+
+    module AvailabilityZoneState
+      available: ::String
+
+      information: ::String
+
+      impaired: ::String
+
+      unavailable: ::String
+    end
+
     AvailableCapacity: untyped
+
+    module BareMetal
+      INCLUDED: ::String
+
+      REQUIRED: ::String
+
+      EXCLUDED: ::String
+    end
 
     BaselineEbsBandwidthMbps: untyped
 
     BaselineEbsBandwidthMbpsRequest: untyped
 
+    module BatchState
+      SUBMITTED: ::String
+
+      ACTIVE: ::String
+
+      CANCELLED: ::String
+
+      FAILED: ::String
+
+      CANCELLED_RUNNING: ::String
+
+      CANCELLED_TERMINATING_INSTANCES: ::String
+
+      MODIFYING: ::String
+    end
+
+    module BgpStatus
+      up: ::String
+
+      down: ::String
+    end
+
     BlobAttributeValue: untyped
 
     BlockDeviceMapping: untyped
+
+    module BootModeType
+      legacy_bios: ::String
+
+      uefi: ::String
+    end
+
+    module BootModeValues
+      legacy_bios: ::String
+
+      uefi: ::String
+    end
 
     BundleInstanceInput: untyped
 
@@ -226,7 +460,59 @@ module AWS::Ec2
 
     BundleTaskError: untyped
 
+    module BundleTaskState
+      pending: ::String
+
+      waiting_for_shutdown: ::String
+
+      bundling: ::String
+
+      storing: ::String
+
+      cancelling: ::String
+
+      complete: ::String
+
+      failed: ::String
+    end
+
+    module BurstablePerformance
+      INCLUDED: ::String
+
+      REQUIRED: ::String
+
+      EXCLUDED: ::String
+    end
+
     ByoipCidr: untyped
+
+    module ByoipCidrState
+      advertised: ::String
+
+      deprovisioned: ::String
+
+      failed_deprovision: ::String
+
+      failed_provision: ::String
+
+      pending_deprovision: ::String
+
+      pending_provision: ::String
+
+      provisioned: ::String
+
+      provisioned_not_publicly_advertisable: ::String
+    end
+
+    module CancelBatchErrorCode
+      FLEET_REQUEST_ID_DOES_NOT_EXIST: ::String
+
+      FLEET_REQUEST_ID_MALFORMED: ::String
+
+      FLEET_REQUEST_NOT_IN_CANCELLABLE_STATE: ::String
+
+      UNEXPECTED_ERROR: ::String
+    end
 
     CancelBundleTaskInput: untyped
 
@@ -268,6 +554,18 @@ module AWS::Ec2
 
     CancelSpotFleetRequestsSuccessItem: untyped
 
+    module CancelSpotInstanceRequestState
+      active: ::String
+
+      open: ::String
+
+      closed: ::String
+
+      cancelled: ::String
+
+      completed: ::String
+    end
+
     CancelSpotInstanceRequestsInput: untyped
 
     CancelSpotInstanceRequestsOutput: untyped
@@ -280,21 +578,99 @@ module AWS::Ec2
 
     CapacityReservationFleetCancellationState: untyped
 
+    module CapacityReservationFleetState
+      SUBMITTED: ::String
+
+      MODIFYING: ::String
+
+      ACTIVE: ::String
+
+      PARTIALLY_FULFILLED: ::String
+
+      EXPIRING: ::String
+
+      EXPIRED: ::String
+
+      CANCELLING: ::String
+
+      CANCELLED: ::String
+
+      FAILED: ::String
+    end
+
     CapacityReservationGroup: untyped
+
+    module CapacityReservationInstancePlatform
+      LINUX_UNIX: ::String
+
+      RED_HAT_ENTERPRISE_LINUX: ::String
+
+      SUSE_LINUX: ::String
+
+      WINDOWS: ::String
+
+      WINDOWS_WITH_SQL_SERVER: ::String
+
+      WINDOWS_WITH_SQL_SERVER_ENTERPRISE: ::String
+
+      WINDOWS_WITH_SQL_SERVER_STANDARD: ::String
+
+      WINDOWS_WITH_SQL_SERVER_WEB: ::String
+
+      LINUX_WITH_SQL_SERVER_STANDARD: ::String
+
+      LINUX_WITH_SQL_SERVER_WEB: ::String
+
+      LINUX_WITH_SQL_SERVER_ENTERPRISE: ::String
+    end
 
     CapacityReservationOptions: untyped
 
     CapacityReservationOptionsRequest: untyped
 
+    module CapacityReservationPreference
+      open: ::String
+
+      none: ::String
+    end
+
     CapacityReservationSpecification: untyped
 
     CapacityReservationSpecificationResponse: untyped
+
+    module CapacityReservationState
+      active: ::String
+
+      expired: ::String
+
+      cancelled: ::String
+
+      pending: ::String
+
+      failed: ::String
+    end
 
     CapacityReservationTarget: untyped
 
     CapacityReservationTargetResponse: untyped
 
+    module CapacityReservationTenancy
+      default: ::String
+
+      dedicated: ::String
+    end
+
     CarrierGateway: untyped
+
+    module CarrierGatewayState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
 
     CertificateAuthentication: untyped
 
@@ -314,6 +690,12 @@ module AWS::Ec2
 
     ClientCertificateRevocationListStatus: untyped
 
+    module ClientCertificateRevocationListStatusCode
+      pending: ::String
+
+      active: ::String
+    end
+
     ClientConnectOptions: untyped
 
     ClientConnectResponseOptions: untyped
@@ -324,21 +706,75 @@ module AWS::Ec2
 
     ClientVpnAuthenticationRequest: untyped
 
+    module ClientVpnAuthenticationType
+      certificate_authentication: ::String
+
+      directory_service_authentication: ::String
+
+      federated_authentication: ::String
+    end
+
     ClientVpnAuthorizationRuleStatus: untyped
+
+    module ClientVpnAuthorizationRuleStatusCode
+      authorizing: ::String
+
+      active: ::String
+
+      failed: ::String
+
+      revoking: ::String
+    end
 
     ClientVpnConnection: untyped
 
     ClientVpnConnectionStatus: untyped
 
+    module ClientVpnConnectionStatusCode
+      active: ::String
+
+      failed_to_terminate: ::String
+
+      terminating: ::String
+
+      terminated: ::String
+    end
+
     ClientVpnEndpoint: untyped
 
     ClientVpnEndpointAttributeStatus: untyped
 
+    module ClientVpnEndpointAttributeStatusCode
+      applying: ::String
+
+      applied: ::String
+    end
+
     ClientVpnEndpointStatus: untyped
+
+    module ClientVpnEndpointStatusCode
+      pending_associate: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
 
     ClientVpnRoute: untyped
 
     ClientVpnRouteStatus: untyped
+
+    module ClientVpnRouteStatusCode
+      creating: ::String
+
+      active: ::String
+
+      failed: ::String
+
+      deleting: ::String
+    end
 
     CoipAddressUsage: untyped
 
@@ -354,7 +790,37 @@ module AWS::Ec2
 
     ConnectionNotification: untyped
 
+    module ConnectionNotificationState
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    module ConnectionNotificationType
+      Topic: ::String
+    end
+
+    module ConnectivityType
+      PRIVATE: ::String
+
+      PUBLIC: ::String
+    end
+
+    module ContainerFormat
+      ova: ::String
+    end
+
     ConversionTask: untyped
+
+    module ConversionTaskState
+      active: ::String
+
+      cancelling: ::String
+
+      cancelled: ::String
+
+      completed: ::String
+    end
 
     CopyFpgaImageInput: untyped
 
@@ -367,6 +833,18 @@ module AWS::Ec2
     CopySnapshotInput: untyped
 
     CopySnapshotOutput: untyped
+
+    module CopyTagsFromSource
+      volume: ::String
+    end
+
+    module CpuManufacturer
+      INTEL: ::String
+
+      AMD: ::String
+
+      AMAZON_WEB_SERVICES: ::String
+    end
 
     CpuOptions: untyped
 
@@ -670,7 +1148,35 @@ module AWS::Ec2
 
     CreditSpecificationRequest: untyped
 
+    module CurrencyCodeValues
+      USD: ::String
+    end
+
     CustomerGateway: untyped
+
+    module DatafeedSubscriptionState
+      Active: ::String
+
+      Inactive: ::String
+    end
+
+    module DefaultRouteTableAssociationValue
+      enable: ::String
+
+      disable: ::String
+    end
+
+    module DefaultRouteTablePropagationValue
+      enable: ::String
+
+      disable: ::String
+    end
+
+    module DefaultTargetCapacityType
+      SPOT: ::String
+
+      ON_DEMAND: ::String
+    end
 
     DeleteCarrierGatewayInput: untyped
 
@@ -697,6 +1203,16 @@ module AWS::Ec2
     DeleteEgressOnlyInternetGatewayOutput: untyped
 
     DeleteFleetError: untyped
+
+    module DeleteFleetErrorCode
+      FLEET_ID_DOES_NOT_EXIST: ::String
+
+      FLEET_ID_MALFORMED: ::String
+
+      FLEET_NOT_IN_DELETABLE_STATE: ::String
+
+      UNEXPECTED_ERROR: ::String
+    end
 
     DeleteFleetErrorItem: untyped
 
@@ -807,6 +1323,14 @@ module AWS::Ec2
     DeletePublicIpv4PoolOutput: untyped
 
     DeleteQueuedReservedInstancesError: untyped
+
+    module DeleteQueuedReservedInstancesErrorCode
+      RESERVED_INSTANCES_ID_INVALID: ::String
+
+      RESERVED_INSTANCES_NOT_IN_QUEUED_STATE: ::String
+
+      UNEXPECTED_ERROR: ::String
+    end
 
     DeleteQueuedReservedInstancesInput: untyped
 
@@ -1496,6 +2020,12 @@ module AWS::Ec2
 
     DescribeVpnGatewaysOutput: untyped
 
+    module DestinationFileFormat
+      plain_text: ::String
+
+      parquet: ::String
+    end
+
     DestinationOptionsRequest: untyped
 
     DestinationOptionsResponse: untyped
@@ -1519,6 +2049,12 @@ module AWS::Ec2
     DetachVpnGatewayInput: untyped
 
     DetachVpnGatewayOutput: untyped
+
+    module DeviceType
+      ebs: ::String
+
+      instance_store: ::String
+    end
 
     DhcpConfiguration: untyped
 
@@ -1622,15 +2158,55 @@ module AWS::Ec2
 
     DiskImageDetail: untyped
 
+    module DiskImageFormat
+      VMDK: ::String
+
+      RAW: ::String
+
+      VHD: ::String
+    end
+
     DiskImageVolumeDescription: untyped
 
     DiskInfo: untyped
 
+    module DiskType
+      hdd: ::String
+
+      ssd: ::String
+    end
+
     DnsEntry: untyped
+
+    module DnsNameState
+      PendingVerification: ::String
+
+      Verified: ::String
+
+      Failed: ::String
+    end
 
     DnsServersOptionsModifyStructure: untyped
 
+    module DnsSupportValue
+      enable: ::String
+
+      disable: ::String
+    end
+
+    module DomainType
+      vpc: ::String
+
+      standard: ::String
+    end
+
     EbsBlockDevice: untyped
+
+    module EbsEncryptionSupport
+      unsupported: ::String
+
+      supported: ::String
+    end
 
     EbsInfo: untyped
 
@@ -1638,7 +2214,23 @@ module AWS::Ec2
 
     EbsInstanceBlockDeviceSpecification: untyped
 
+    module EbsNvmeSupport
+      UNSUPPORTED: ::String
+
+      SUPPORTED: ::String
+
+      REQUIRED: ::String
+    end
+
     EbsOptimizedInfo: untyped
+
+    module EbsOptimizedSupport
+      unsupported: ::String
+
+      supported: ::String
+
+      default: ::String
+    end
 
     EfaInfo: untyped
 
@@ -1652,11 +2244,29 @@ module AWS::Ec2
 
     ElasticGpuSpecificationResponse: untyped
 
+    module ElasticGpuState
+      Attached: ::String
+    end
+
+    module ElasticGpuStatus
+      Ok: ::String
+
+      Impaired: ::String
+    end
+
     ElasticGpus: untyped
 
     ElasticInferenceAccelerator: untyped
 
     ElasticInferenceAcceleratorAssociation: untyped
+
+    module EnaSupport
+      unsupported: ::String
+
+      supported: ::String
+
+      required: ::String
+    end
 
     EnableEbsEncryptionByDefaultInput: untyped
 
@@ -1710,7 +2320,49 @@ module AWS::Ec2
 
     EnclaveOptionsRequest: untyped
 
+    module EndDateType
+      unlimited: ::String
+
+      limited: ::String
+    end
+
+    module EphemeralNvmeSupport
+      UNSUPPORTED: ::String
+
+      SUPPORTED: ::String
+
+      REQUIRED: ::String
+    end
+
+    module EventCode
+      instance_reboot: ::String
+
+      system_reboot: ::String
+
+      system_maintenance: ::String
+
+      instance_retirement: ::String
+
+      instance_stop: ::String
+    end
+
     EventInformation: untyped
+
+    module EventType
+      INSTANCE_CHANGE: ::String
+
+      BATCH_CHANGE: ::String
+
+      ERROR: ::String
+
+      INFORMATION: ::String
+    end
+
+    module ExcessCapacityTerminationPolicy
+      NO_TERMINATION: ::String
+
+      DEFAULT: ::String
+    end
 
     Explanation: untyped
 
@@ -1721,6 +2373,14 @@ module AWS::Ec2
     ExportClientVpnClientConfigurationInput: untyped
 
     ExportClientVpnClientConfigurationOutput: untyped
+
+    module ExportEnvironment
+      citrix: ::String
+
+      vmware: ::String
+
+      microsoft: ::String
+    end
 
     ExportImageInput: untyped
 
@@ -1734,6 +2394,16 @@ module AWS::Ec2
 
     ExportTaskS3LocationRequest: untyped
 
+    module ExportTaskState
+      active: ::String
+
+      cancelling: ::String
+
+      cancelled: ::String
+
+      completed: ::String
+    end
+
     ExportToS3Task: untyped
 
     ExportToS3TaskSpecification: untyped
@@ -1746,15 +2416,71 @@ module AWS::Ec2
 
     FailedQueuedPurchaseDeletion: untyped
 
+    module FastSnapshotRestoreStateCode
+      enabling: ::String
+
+      optimizing: ::String
+
+      enabled: ::String
+
+      disabling: ::String
+
+      disabled: ::String
+    end
+
     FederatedAuthentication: untyped
 
     FederatedAuthenticationRequest: untyped
 
     Filter: untyped
 
+    module FindingsFound
+      true: ::String
+
+      false: ::String
+
+      unknown: ::String
+    end
+
+    module FleetActivityStatus
+      ERROR: ::String
+
+      PENDING_FULFILLMENT: ::String
+
+      PENDING_TERMINATION: ::String
+
+      FULFILLED: ::String
+    end
+
     FleetCapacityReservation: untyped
 
+    module FleetCapacityReservationTenancy
+      default: ::String
+    end
+
+    module FleetCapacityReservationUsageStrategy
+      USE_CAPACITY_RESERVATIONS_FIRST: ::String
+    end
+
     FleetData: untyped
+
+    module FleetEventType
+      INSTANCE_CHANGE: ::String
+
+      FLEET_CHANGE: ::String
+
+      SERVICE_ERROR: ::String
+    end
+
+    module FleetExcessCapacityTerminationPolicy
+      NO_TERMINATION: ::String
+
+      TERMINATION: ::String
+    end
+
+    module FleetInstanceMatchCriteria
+      open: ::String
+    end
 
     FleetLaunchTemplateConfig: untyped
 
@@ -1768,6 +2494,18 @@ module AWS::Ec2
 
     FleetLaunchTemplateSpecificationRequest: untyped
 
+    module FleetOnDemandAllocationStrategy
+      LOWEST_PRICE: ::String
+
+      PRIORITIZED: ::String
+    end
+
+    module FleetReplacementStrategy
+      LAUNCH: ::String
+
+      LAUNCH_BEFORE_TERMINATE: ::String
+    end
+
     FleetSpotCapacityRebalance: untyped
 
     FleetSpotCapacityRebalanceRequest: untyped
@@ -1776,7 +2514,39 @@ module AWS::Ec2
 
     FleetSpotMaintenanceStrategiesRequest: untyped
 
+    module FleetStateCode
+      SUBMITTED: ::String
+
+      ACTIVE: ::String
+
+      DELETED: ::String
+
+      FAILED: ::String
+
+      DELETED_RUNNING: ::String
+
+      DELETED_TERMINATING_INSTANCES: ::String
+
+      MODIFYING: ::String
+    end
+
+    module FleetType
+      REQUEST: ::String
+
+      MAINTAIN: ::String
+
+      INSTANT: ::String
+    end
+
     FlowLog: untyped
+
+    module FlowLogsResourceType
+      VPC: ::String
+
+      Subnet: ::String
+
+      NetworkInterface: ::String
+    end
 
     FpgaDeviceInfo: untyped
 
@@ -1786,9 +2556,43 @@ module AWS::Ec2
 
     FpgaImageAttribute: untyped
 
+    module FpgaImageAttributeName
+      description: ::String
+
+      name: ::String
+
+      loadPermission: ::String
+
+      productCodes: ::String
+    end
+
     FpgaImageState: untyped
 
+    module FpgaImageStateCode
+      pending: ::String
+
+      failed: ::String
+
+      available: ::String
+
+      unavailable: ::String
+    end
+
     FpgaInfo: untyped
+
+    module GatewayAssociationState
+      associated: ::String
+
+      not_associated: ::String
+
+      associating: ::String
+
+      disassociating: ::String
+    end
+
+    module GatewayType
+      ipsec_1: ::String
+    end
 
     GetAssociatedEnclaveCertificateIamRolesInput: untyped
 
@@ -1950,7 +2754,37 @@ module AWS::Ec2
 
     HostProperties: untyped
 
+    module HostRecovery
+      on: ::String
+
+      off: ::String
+    end
+
     HostReservation: untyped
+
+    module HostTenancy
+      dedicated: ::String
+
+      host: ::String
+    end
+
+    module HostnameType
+      ip_name: ::String
+
+      resource_name: ::String
+    end
+
+    module HttpTokensState
+      optional: ::String
+
+      required: ::String
+    end
+
+    module HypervisorType
+      ovm: ::String
+
+      xen: ::String
+    end
 
     IKEVersionsListValue: untyped
 
@@ -1960,15 +2794,73 @@ module AWS::Ec2
 
     IamInstanceProfileAssociation: untyped
 
+    module IamInstanceProfileAssociationState
+      ASSOCIATING: ::String
+
+      ASSOCIATED: ::String
+
+      DISASSOCIATING: ::String
+
+      DISASSOCIATED: ::String
+    end
+
     IamInstanceProfileSpecification: untyped
 
     IcmpTypeCode: untyped
 
     IdFormat: untyped
 
+    module Igmpv2SupportValue
+      enable: ::String
+
+      disable: ::String
+    end
+
     Image: untyped
 
+    module ImageAttributeName
+      description: ::String
+
+      kernel: ::String
+
+      ramdisk: ::String
+
+      launchPermission: ::String
+
+      productCodes: ::String
+
+      blockDeviceMapping: ::String
+
+      sriovNetSupport: ::String
+
+      bootMode: ::String
+    end
+
     ImageDiskContainer: untyped
+
+    module ImageState
+      pending: ::String
+
+      available: ::String
+
+      invalid: ::String
+
+      deregistered: ::String
+
+      transient: ::String
+
+      failed: ::String
+
+      error: ::String
+    end
+
+    module ImageTypeValues
+      machine: ::String
+
+      kernel: ::String
+
+      ramdisk: ::String
+    end
 
     ImportClientVpnClientCertificateRevocationListInput: untyped
 
@@ -2016,6 +2908,38 @@ module AWS::Ec2
 
     Instance: untyped
 
+    module InstanceAttributeName
+      instanceType: ::String
+
+      kernel: ::String
+
+      ramdisk: ::String
+
+      userData: ::String
+
+      disableApiTermination: ::String
+
+      instanceInitiatedShutdownBehavior: ::String
+
+      rootDeviceName: ::String
+
+      blockDeviceMapping: ::String
+
+      productCodes: ::String
+
+      sourceDestCheck: ::String
+
+      groupSet: ::String
+
+      ebsOptimized: ::String
+
+      sriovNetSupport: ::String
+
+      enaSupport: ::String
+
+      enclaveOptions: ::String
+    end
+
     InstanceBlockDeviceMapping: untyped
 
     InstanceBlockDeviceMappingSpecification: untyped
@@ -2036,6 +2960,16 @@ module AWS::Ec2
 
     InstanceEventWindowDisassociationRequest: untyped
 
+    module InstanceEventWindowState
+      creating: ::String
+
+      deleting: ::String
+
+      active: ::String
+
+      deleted: ::String
+    end
+
     InstanceEventWindowStateChange: untyped
 
     InstanceEventWindowTimeRange: untyped
@@ -2046,6 +2980,26 @@ module AWS::Ec2
 
     InstanceFamilyCreditSpecification: untyped
 
+    module InstanceGeneration
+      CURRENT: ::String
+
+      PREVIOUS: ::String
+    end
+
+    module InstanceHealthStatus
+      HEALTHY_STATUS: ::String
+
+      UNHEALTHY_STATUS: ::String
+    end
+
+    module InstanceInterruptionBehavior
+      hibernate: ::String
+
+      stop: ::String
+
+      terminate: ::String
+    end
+
     InstanceIpv4Prefix: untyped
 
     InstanceIpv6Address: untyped
@@ -2054,11 +3008,53 @@ module AWS::Ec2
 
     InstanceIpv6Prefix: untyped
 
+    module InstanceLifecycle
+      SPOT: ::String
+
+      ON_DEMAND: ::String
+    end
+
+    module InstanceLifecycleType
+      spot: ::String
+
+      scheduled: ::String
+    end
+
     InstanceMarketOptionsRequest: untyped
+
+    module InstanceMatchCriteria
+      open: ::String
+
+      targeted: ::String
+    end
+
+    module InstanceMetadataEndpointState
+      disabled: ::String
+
+      enabled: ::String
+    end
 
     InstanceMetadataOptionsRequest: untyped
 
     InstanceMetadataOptionsResponse: untyped
+
+    module InstanceMetadataOptionsState
+      pending: ::String
+
+      applied: ::String
+    end
+
+    module InstanceMetadataProtocolState
+      disabled: ::String
+
+      enabled: ::String
+    end
+
+    module InstanceMetadataTagsState
+      disabled: ::String
+
+      enabled: ::String
+    end
 
     InstanceMonitoring: untyped
 
@@ -2084,6 +3080,20 @@ module AWS::Ec2
 
     InstanceStateChange: untyped
 
+    module InstanceStateName
+      pending: ::String
+
+      running: ::String
+
+      shutting_down: ::String
+
+      terminated: ::String
+
+      stopping: ::String
+
+      stopped: ::String
+    end
+
     InstanceStatus: untyped
 
     InstanceStatusDetails: untyped
@@ -2092,9 +3102,955 @@ module AWS::Ec2
 
     InstanceStatusSummary: untyped
 
+    module InstanceStorageEncryptionSupport
+      unsupported: ::String
+
+      required: ::String
+    end
+
     InstanceStorageInfo: untyped
 
     InstanceTagNotificationAttribute: untyped
+
+    module InstanceType
+      a1_medium: ::String
+
+      a1_large: ::String
+
+      a1_xlarge: ::String
+
+      a1_2xlarge: ::String
+
+      a1_4xlarge: ::String
+
+      a1_metal: ::String
+
+      c1_medium: ::String
+
+      c1_xlarge: ::String
+
+      c3_large: ::String
+
+      c3_xlarge: ::String
+
+      c3_2xlarge: ::String
+
+      c3_4xlarge: ::String
+
+      c3_8xlarge: ::String
+
+      c4_large: ::String
+
+      c4_xlarge: ::String
+
+      c4_2xlarge: ::String
+
+      c4_4xlarge: ::String
+
+      c4_8xlarge: ::String
+
+      c5_large: ::String
+
+      c5_xlarge: ::String
+
+      c5_2xlarge: ::String
+
+      c5_4xlarge: ::String
+
+      c5_9xlarge: ::String
+
+      c5_12xlarge: ::String
+
+      c5_18xlarge: ::String
+
+      c5_24xlarge: ::String
+
+      c5_metal: ::String
+
+      c5a_large: ::String
+
+      c5a_xlarge: ::String
+
+      c5a_2xlarge: ::String
+
+      c5a_4xlarge: ::String
+
+      c5a_8xlarge: ::String
+
+      c5a_12xlarge: ::String
+
+      c5a_16xlarge: ::String
+
+      c5a_24xlarge: ::String
+
+      c5ad_large: ::String
+
+      c5ad_xlarge: ::String
+
+      c5ad_2xlarge: ::String
+
+      c5ad_4xlarge: ::String
+
+      c5ad_8xlarge: ::String
+
+      c5ad_12xlarge: ::String
+
+      c5ad_16xlarge: ::String
+
+      c5ad_24xlarge: ::String
+
+      c5d_large: ::String
+
+      c5d_xlarge: ::String
+
+      c5d_2xlarge: ::String
+
+      c5d_4xlarge: ::String
+
+      c5d_9xlarge: ::String
+
+      c5d_12xlarge: ::String
+
+      c5d_18xlarge: ::String
+
+      c5d_24xlarge: ::String
+
+      c5d_metal: ::String
+
+      c5n_large: ::String
+
+      c5n_xlarge: ::String
+
+      c5n_2xlarge: ::String
+
+      c5n_4xlarge: ::String
+
+      c5n_9xlarge: ::String
+
+      c5n_18xlarge: ::String
+
+      c5n_metal: ::String
+
+      c6g_medium: ::String
+
+      c6g_large: ::String
+
+      c6g_xlarge: ::String
+
+      c6g_2xlarge: ::String
+
+      c6g_4xlarge: ::String
+
+      c6g_8xlarge: ::String
+
+      c6g_12xlarge: ::String
+
+      c6g_16xlarge: ::String
+
+      c6g_metal: ::String
+
+      c6gd_medium: ::String
+
+      c6gd_large: ::String
+
+      c6gd_xlarge: ::String
+
+      c6gd_2xlarge: ::String
+
+      c6gd_4xlarge: ::String
+
+      c6gd_8xlarge: ::String
+
+      c6gd_12xlarge: ::String
+
+      c6gd_16xlarge: ::String
+
+      c6gd_metal: ::String
+
+      c6gn_medium: ::String
+
+      c6gn_large: ::String
+
+      c6gn_xlarge: ::String
+
+      c6gn_2xlarge: ::String
+
+      c6gn_4xlarge: ::String
+
+      c6gn_8xlarge: ::String
+
+      c6gn_12xlarge: ::String
+
+      c6gn_16xlarge: ::String
+
+      c6i_large: ::String
+
+      c6i_xlarge: ::String
+
+      c6i_2xlarge: ::String
+
+      c6i_4xlarge: ::String
+
+      c6i_8xlarge: ::String
+
+      c6i_12xlarge: ::String
+
+      c6i_16xlarge: ::String
+
+      c6i_24xlarge: ::String
+
+      c6i_32xlarge: ::String
+
+      cc1_4xlarge: ::String
+
+      cc2_8xlarge: ::String
+
+      cg1_4xlarge: ::String
+
+      cr1_8xlarge: ::String
+
+      d2_xlarge: ::String
+
+      d2_2xlarge: ::String
+
+      d2_4xlarge: ::String
+
+      d2_8xlarge: ::String
+
+      d3_xlarge: ::String
+
+      d3_2xlarge: ::String
+
+      d3_4xlarge: ::String
+
+      d3_8xlarge: ::String
+
+      d3en_xlarge: ::String
+
+      d3en_2xlarge: ::String
+
+      d3en_4xlarge: ::String
+
+      d3en_6xlarge: ::String
+
+      d3en_8xlarge: ::String
+
+      d3en_12xlarge: ::String
+
+      dl1_24xlarge: ::String
+
+      f1_2xlarge: ::String
+
+      f1_4xlarge: ::String
+
+      f1_16xlarge: ::String
+
+      g2_2xlarge: ::String
+
+      g2_8xlarge: ::String
+
+      g3_4xlarge: ::String
+
+      g3_8xlarge: ::String
+
+      g3_16xlarge: ::String
+
+      g3s_xlarge: ::String
+
+      g4ad_xlarge: ::String
+
+      g4ad_2xlarge: ::String
+
+      g4ad_4xlarge: ::String
+
+      g4ad_8xlarge: ::String
+
+      g4ad_16xlarge: ::String
+
+      g4dn_xlarge: ::String
+
+      g4dn_2xlarge: ::String
+
+      g4dn_4xlarge: ::String
+
+      g4dn_8xlarge: ::String
+
+      g4dn_12xlarge: ::String
+
+      g4dn_16xlarge: ::String
+
+      g4dn_metal: ::String
+
+      g5_xlarge: ::String
+
+      g5_2xlarge: ::String
+
+      g5_4xlarge: ::String
+
+      g5_8xlarge: ::String
+
+      g5_12xlarge: ::String
+
+      g5_16xlarge: ::String
+
+      g5_24xlarge: ::String
+
+      g5_48xlarge: ::String
+
+      g5g_xlarge: ::String
+
+      g5g_2xlarge: ::String
+
+      g5g_4xlarge: ::String
+
+      g5g_8xlarge: ::String
+
+      g5g_16xlarge: ::String
+
+      g5g_metal: ::String
+
+      hi1_4xlarge: ::String
+
+      hs1_8xlarge: ::String
+
+      h1_2xlarge: ::String
+
+      h1_4xlarge: ::String
+
+      h1_8xlarge: ::String
+
+      h1_16xlarge: ::String
+
+      i2_xlarge: ::String
+
+      i2_2xlarge: ::String
+
+      i2_4xlarge: ::String
+
+      i2_8xlarge: ::String
+
+      i3_large: ::String
+
+      i3_xlarge: ::String
+
+      i3_2xlarge: ::String
+
+      i3_4xlarge: ::String
+
+      i3_8xlarge: ::String
+
+      i3_16xlarge: ::String
+
+      i3_metal: ::String
+
+      i3en_large: ::String
+
+      i3en_xlarge: ::String
+
+      i3en_2xlarge: ::String
+
+      i3en_3xlarge: ::String
+
+      i3en_6xlarge: ::String
+
+      i3en_12xlarge: ::String
+
+      i3en_24xlarge: ::String
+
+      i3en_metal: ::String
+
+      im4gn_large: ::String
+
+      im4gn_xlarge: ::String
+
+      im4gn_2xlarge: ::String
+
+      im4gn_4xlarge: ::String
+
+      im4gn_8xlarge: ::String
+
+      im4gn_16xlarge: ::String
+
+      inf1_xlarge: ::String
+
+      inf1_2xlarge: ::String
+
+      inf1_6xlarge: ::String
+
+      inf1_24xlarge: ::String
+
+      is4gen_medium: ::String
+
+      is4gen_large: ::String
+
+      is4gen_xlarge: ::String
+
+      is4gen_2xlarge: ::String
+
+      is4gen_4xlarge: ::String
+
+      is4gen_8xlarge: ::String
+
+      m1_small: ::String
+
+      m1_medium: ::String
+
+      m1_large: ::String
+
+      m1_xlarge: ::String
+
+      m2_xlarge: ::String
+
+      m2_2xlarge: ::String
+
+      m2_4xlarge: ::String
+
+      m3_medium: ::String
+
+      m3_large: ::String
+
+      m3_xlarge: ::String
+
+      m3_2xlarge: ::String
+
+      m4_large: ::String
+
+      m4_xlarge: ::String
+
+      m4_2xlarge: ::String
+
+      m4_4xlarge: ::String
+
+      m4_10xlarge: ::String
+
+      m4_16xlarge: ::String
+
+      m5_large: ::String
+
+      m5_xlarge: ::String
+
+      m5_2xlarge: ::String
+
+      m5_4xlarge: ::String
+
+      m5_8xlarge: ::String
+
+      m5_12xlarge: ::String
+
+      m5_16xlarge: ::String
+
+      m5_24xlarge: ::String
+
+      m5_metal: ::String
+
+      m5a_large: ::String
+
+      m5a_xlarge: ::String
+
+      m5a_2xlarge: ::String
+
+      m5a_4xlarge: ::String
+
+      m5a_8xlarge: ::String
+
+      m5a_12xlarge: ::String
+
+      m5a_16xlarge: ::String
+
+      m5a_24xlarge: ::String
+
+      m5ad_large: ::String
+
+      m5ad_xlarge: ::String
+
+      m5ad_2xlarge: ::String
+
+      m5ad_4xlarge: ::String
+
+      m5ad_8xlarge: ::String
+
+      m5ad_12xlarge: ::String
+
+      m5ad_16xlarge: ::String
+
+      m5ad_24xlarge: ::String
+
+      m5d_large: ::String
+
+      m5d_xlarge: ::String
+
+      m5d_2xlarge: ::String
+
+      m5d_4xlarge: ::String
+
+      m5d_8xlarge: ::String
+
+      m5d_12xlarge: ::String
+
+      m5d_16xlarge: ::String
+
+      m5d_24xlarge: ::String
+
+      m5d_metal: ::String
+
+      m5dn_large: ::String
+
+      m5dn_xlarge: ::String
+
+      m5dn_2xlarge: ::String
+
+      m5dn_4xlarge: ::String
+
+      m5dn_8xlarge: ::String
+
+      m5dn_12xlarge: ::String
+
+      m5dn_16xlarge: ::String
+
+      m5dn_24xlarge: ::String
+
+      m5dn_metal: ::String
+
+      m5n_large: ::String
+
+      m5n_xlarge: ::String
+
+      m5n_2xlarge: ::String
+
+      m5n_4xlarge: ::String
+
+      m5n_8xlarge: ::String
+
+      m5n_12xlarge: ::String
+
+      m5n_16xlarge: ::String
+
+      m5n_24xlarge: ::String
+
+      m5n_metal: ::String
+
+      m5zn_large: ::String
+
+      m5zn_xlarge: ::String
+
+      m5zn_2xlarge: ::String
+
+      m5zn_3xlarge: ::String
+
+      m5zn_6xlarge: ::String
+
+      m5zn_12xlarge: ::String
+
+      m5zn_metal: ::String
+
+      m6a_large: ::String
+
+      m6a_xlarge: ::String
+
+      m6a_2xlarge: ::String
+
+      m6a_4xlarge: ::String
+
+      m6a_8xlarge: ::String
+
+      m6a_12xlarge: ::String
+
+      m6a_16xlarge: ::String
+
+      m6a_24xlarge: ::String
+
+      m6a_32xlarge: ::String
+
+      m6a_48xlarge: ::String
+
+      m6g_metal: ::String
+
+      m6g_medium: ::String
+
+      m6g_large: ::String
+
+      m6g_xlarge: ::String
+
+      m6g_2xlarge: ::String
+
+      m6g_4xlarge: ::String
+
+      m6g_8xlarge: ::String
+
+      m6g_12xlarge: ::String
+
+      m6g_16xlarge: ::String
+
+      m6gd_metal: ::String
+
+      m6gd_medium: ::String
+
+      m6gd_large: ::String
+
+      m6gd_xlarge: ::String
+
+      m6gd_2xlarge: ::String
+
+      m6gd_4xlarge: ::String
+
+      m6gd_8xlarge: ::String
+
+      m6gd_12xlarge: ::String
+
+      m6gd_16xlarge: ::String
+
+      m6i_large: ::String
+
+      m6i_xlarge: ::String
+
+      m6i_2xlarge: ::String
+
+      m6i_4xlarge: ::String
+
+      m6i_8xlarge: ::String
+
+      m6i_12xlarge: ::String
+
+      m6i_16xlarge: ::String
+
+      m6i_24xlarge: ::String
+
+      m6i_32xlarge: ::String
+
+      mac1_metal: ::String
+
+      p2_xlarge: ::String
+
+      p2_8xlarge: ::String
+
+      p2_16xlarge: ::String
+
+      p3_2xlarge: ::String
+
+      p3_8xlarge: ::String
+
+      p3_16xlarge: ::String
+
+      p3dn_24xlarge: ::String
+
+      p4d_24xlarge: ::String
+
+      r3_large: ::String
+
+      r3_xlarge: ::String
+
+      r3_2xlarge: ::String
+
+      r3_4xlarge: ::String
+
+      r3_8xlarge: ::String
+
+      r4_large: ::String
+
+      r4_xlarge: ::String
+
+      r4_2xlarge: ::String
+
+      r4_4xlarge: ::String
+
+      r4_8xlarge: ::String
+
+      r4_16xlarge: ::String
+
+      r5_large: ::String
+
+      r5_xlarge: ::String
+
+      r5_2xlarge: ::String
+
+      r5_4xlarge: ::String
+
+      r5_8xlarge: ::String
+
+      r5_12xlarge: ::String
+
+      r5_16xlarge: ::String
+
+      r5_24xlarge: ::String
+
+      r5_metal: ::String
+
+      r5a_large: ::String
+
+      r5a_xlarge: ::String
+
+      r5a_2xlarge: ::String
+
+      r5a_4xlarge: ::String
+
+      r5a_8xlarge: ::String
+
+      r5a_12xlarge: ::String
+
+      r5a_16xlarge: ::String
+
+      r5a_24xlarge: ::String
+
+      r5ad_large: ::String
+
+      r5ad_xlarge: ::String
+
+      r5ad_2xlarge: ::String
+
+      r5ad_4xlarge: ::String
+
+      r5ad_8xlarge: ::String
+
+      r5ad_12xlarge: ::String
+
+      r5ad_16xlarge: ::String
+
+      r5ad_24xlarge: ::String
+
+      r5b_large: ::String
+
+      r5b_xlarge: ::String
+
+      r5b_2xlarge: ::String
+
+      r5b_4xlarge: ::String
+
+      r5b_8xlarge: ::String
+
+      r5b_12xlarge: ::String
+
+      r5b_16xlarge: ::String
+
+      r5b_24xlarge: ::String
+
+      r5b_metal: ::String
+
+      r5d_large: ::String
+
+      r5d_xlarge: ::String
+
+      r5d_2xlarge: ::String
+
+      r5d_4xlarge: ::String
+
+      r5d_8xlarge: ::String
+
+      r5d_12xlarge: ::String
+
+      r5d_16xlarge: ::String
+
+      r5d_24xlarge: ::String
+
+      r5d_metal: ::String
+
+      r5dn_large: ::String
+
+      r5dn_xlarge: ::String
+
+      r5dn_2xlarge: ::String
+
+      r5dn_4xlarge: ::String
+
+      r5dn_8xlarge: ::String
+
+      r5dn_12xlarge: ::String
+
+      r5dn_16xlarge: ::String
+
+      r5dn_24xlarge: ::String
+
+      r5dn_metal: ::String
+
+      r5n_large: ::String
+
+      r5n_xlarge: ::String
+
+      r5n_2xlarge: ::String
+
+      r5n_4xlarge: ::String
+
+      r5n_8xlarge: ::String
+
+      r5n_12xlarge: ::String
+
+      r5n_16xlarge: ::String
+
+      r5n_24xlarge: ::String
+
+      r5n_metal: ::String
+
+      r6g_medium: ::String
+
+      r6g_large: ::String
+
+      r6g_xlarge: ::String
+
+      r6g_2xlarge: ::String
+
+      r6g_4xlarge: ::String
+
+      r6g_8xlarge: ::String
+
+      r6g_12xlarge: ::String
+
+      r6g_16xlarge: ::String
+
+      r6g_metal: ::String
+
+      r6gd_medium: ::String
+
+      r6gd_large: ::String
+
+      r6gd_xlarge: ::String
+
+      r6gd_2xlarge: ::String
+
+      r6gd_4xlarge: ::String
+
+      r6gd_8xlarge: ::String
+
+      r6gd_12xlarge: ::String
+
+      r6gd_16xlarge: ::String
+
+      r6gd_metal: ::String
+
+      t1_micro: ::String
+
+      t2_nano: ::String
+
+      t2_micro: ::String
+
+      t2_small: ::String
+
+      t2_medium: ::String
+
+      t2_large: ::String
+
+      t2_xlarge: ::String
+
+      t2_2xlarge: ::String
+
+      t3_nano: ::String
+
+      t3_micro: ::String
+
+      t3_small: ::String
+
+      t3_medium: ::String
+
+      t3_large: ::String
+
+      t3_xlarge: ::String
+
+      t3_2xlarge: ::String
+
+      t3a_nano: ::String
+
+      t3a_micro: ::String
+
+      t3a_small: ::String
+
+      t3a_medium: ::String
+
+      t3a_large: ::String
+
+      t3a_xlarge: ::String
+
+      t3a_2xlarge: ::String
+
+      t4g_nano: ::String
+
+      t4g_micro: ::String
+
+      t4g_small: ::String
+
+      t4g_medium: ::String
+
+      t4g_large: ::String
+
+      t4g_xlarge: ::String
+
+      t4g_2xlarge: ::String
+
+      u_6tb1_56xlarge: ::String
+
+      u_6tb1_112xlarge: ::String
+
+      u_9tb1_112xlarge: ::String
+
+      u_12tb1_112xlarge: ::String
+
+      u_6tb1_metal: ::String
+
+      u_9tb1_metal: ::String
+
+      u_12tb1_metal: ::String
+
+      u_18tb1_metal: ::String
+
+      u_24tb1_metal: ::String
+
+      vt1_3xlarge: ::String
+
+      vt1_6xlarge: ::String
+
+      vt1_24xlarge: ::String
+
+      x1_16xlarge: ::String
+
+      x1_32xlarge: ::String
+
+      x1e_xlarge: ::String
+
+      x1e_2xlarge: ::String
+
+      x1e_4xlarge: ::String
+
+      x1e_8xlarge: ::String
+
+      x1e_16xlarge: ::String
+
+      x1e_32xlarge: ::String
+
+      x2gd_medium: ::String
+
+      x2gd_large: ::String
+
+      x2gd_xlarge: ::String
+
+      x2gd_2xlarge: ::String
+
+      x2gd_4xlarge: ::String
+
+      x2gd_8xlarge: ::String
+
+      x2gd_12xlarge: ::String
+
+      x2gd_16xlarge: ::String
+
+      x2gd_metal: ::String
+
+      z1d_large: ::String
+
+      z1d_xlarge: ::String
+
+      z1d_2xlarge: ::String
+
+      z1d_3xlarge: ::String
+
+      z1d_6xlarge: ::String
+
+      z1d_12xlarge: ::String
+
+      z1d_metal: ::String
+    end
+
+    module InstanceTypeHypervisor
+      NITRO: ::String
+
+      XEN: ::String
+    end
 
     InstanceTypeInfo: untyped
 
@@ -2105,6 +4061,18 @@ module AWS::Ec2
     InstanceUsage: untyped
 
     IntegrateServices: untyped
+
+    module InterfacePermissionType
+      INSTANCE_ATTACH: ::String
+
+      EIP_ASSOCIATE: ::String
+    end
+
+    module InterfaceProtocolType
+      VLAN: ::String
+
+      GRE: ::String
+    end
 
     InternetGateway: untyped
 
@@ -2118,23 +4086,175 @@ module AWS::Ec2
 
     IpamAddressHistoryRecord: untyped
 
+    module IpamAddressHistoryResourceType
+      eip: ::String
+
+      vpc: ::String
+
+      subnet: ::String
+
+      network_interface: ::String
+
+      instance: ::String
+    end
+
     IpamCidrAuthorizationContext: untyped
 
+    module IpamComplianceStatus
+      compliant: ::String
+
+      noncompliant: ::String
+
+      unmanaged: ::String
+
+      ignored: ::String
+    end
+
+    module IpamManagementState
+      managed: ::String
+
+      unmanaged: ::String
+
+      ignored: ::String
+    end
+
     IpamOperatingRegion: untyped
+
+    module IpamOverlapStatus
+      overlapping: ::String
+
+      nonoverlapping: ::String
+
+      ignored: ::String
+    end
 
     IpamPool: untyped
 
     IpamPoolAllocation: untyped
 
+    module IpamPoolAllocationResourceType
+      ipam_pool: ::String
+
+      vpc: ::String
+
+      ec2_public_ipv4_pool: ::String
+
+      custom: ::String
+    end
+
+    module IpamPoolAwsService
+      ec2: ::String
+    end
+
     IpamPoolCidr: untyped
 
+    module IpamPoolCidrFailureCode
+      cidr_not_available: ::String
+    end
+
     IpamPoolCidrFailureReason: untyped
+
+    module IpamPoolCidrState
+      pending_provision: ::String
+
+      provisioned: ::String
+
+      failed_provision: ::String
+
+      pending_deprovision: ::String
+
+      deprovisioned: ::String
+
+      failed_deprovision: ::String
+
+      pending_import: ::String
+
+      failed_import: ::String
+    end
+
+    module IpamPoolState
+      create_in_progress: ::String
+
+      create_complete: ::String
+
+      create_failed: ::String
+
+      modify_in_progress: ::String
+
+      modify_complete: ::String
+
+      modify_failed: ::String
+
+      delete_in_progress: ::String
+
+      delete_complete: ::String
+
+      delete_failed: ::String
+    end
 
     IpamResourceCidr: untyped
 
     IpamResourceTag: untyped
 
+    module IpamResourceType
+      vpc: ::String
+
+      subnet: ::String
+
+      eip: ::String
+
+      public_ipv4_pool: ::String
+
+      ipv6_pool: ::String
+    end
+
     IpamScope: untyped
+
+    module IpamScopeState
+      create_in_progress: ::String
+
+      create_complete: ::String
+
+      create_failed: ::String
+
+      modify_in_progress: ::String
+
+      modify_complete: ::String
+
+      modify_failed: ::String
+
+      delete_in_progress: ::String
+
+      delete_complete: ::String
+
+      delete_failed: ::String
+    end
+
+    module IpamScopeType
+      public: ::String
+
+      private: ::String
+    end
+
+    module IpamState
+      create_in_progress: ::String
+
+      create_complete: ::String
+
+      create_failed: ::String
+
+      modify_in_progress: ::String
+
+      modify_complete: ::String
+
+      modify_failed: ::String
+
+      delete_in_progress: ::String
+
+      delete_complete: ::String
+
+      delete_failed: ::String
+    end
 
     Ipv4PrefixSpecification: untyped
 
@@ -2156,7 +4276,19 @@ module AWS::Ec2
 
     Ipv6Range: untyped
 
+    module Ipv6SupportValue
+      enable: ::String
+
+      disable: ::String
+    end
+
     KeyPairInfo: untyped
+
+    module KeyType
+      rsa: ::String
+
+      ed25519: ::String
+    end
 
     LastError: untyped
 
@@ -2196,9 +4328,29 @@ module AWS::Ec2
 
     LaunchTemplateEnclaveOptionsRequest: untyped
 
+    module LaunchTemplateErrorCode
+      LAUNCH_TEMPLATE_ID_DOES_NOT_EXIST: ::String
+
+      LAUNCH_TEMPLATE_ID_MALFORMED: ::String
+
+      LAUNCH_TEMPLATE_NAME_DOES_NOT_EXIST: ::String
+
+      LAUNCH_TEMPLATE_NAME_MALFORMED: ::String
+
+      LAUNCH_TEMPLATE_VERSION_DOES_NOT_EXIST: ::String
+
+      UNEXPECTED_ERROR: ::String
+    end
+
     LaunchTemplateHibernationOptions: untyped
 
     LaunchTemplateHibernationOptionsRequest: untyped
+
+    module LaunchTemplateHttpTokensState
+      optional: ::String
+
+      required: ::String
+    end
 
     LaunchTemplateIamInstanceProfileSpecification: untyped
 
@@ -2208,9 +4360,33 @@ module AWS::Ec2
 
     LaunchTemplateInstanceMarketOptionsRequest: untyped
 
+    module LaunchTemplateInstanceMetadataEndpointState
+      disabled: ::String
+
+      enabled: ::String
+    end
+
     LaunchTemplateInstanceMetadataOptions: untyped
 
     LaunchTemplateInstanceMetadataOptionsRequest: untyped
+
+    module LaunchTemplateInstanceMetadataOptionsState
+      pending: ::String
+
+      applied: ::String
+    end
+
+    module LaunchTemplateInstanceMetadataProtocolIpv6
+      disabled: ::String
+
+      enabled: ::String
+    end
+
+    module LaunchTemplateInstanceMetadataTagsState
+      disabled: ::String
+
+      enabled: ::String
+    end
 
     LaunchTemplateInstanceNetworkInterfaceSpecification: untyped
 
@@ -2254,6 +4430,26 @@ module AWS::Ec2
 
     ListSnapshotsInRecycleBinOutput: untyped
 
+    module ListingState
+      available: ::String
+
+      sold: ::String
+
+      cancelled: ::String
+
+      pending: ::String
+    end
+
+    module ListingStatus
+      active: ::String
+
+      pending: ::String
+
+      cancelled: ::String
+
+      closed: ::String
+    end
+
     LoadBalancersConfig: untyped
 
     LoadPermission: untyped
@@ -2266,17 +4462,73 @@ module AWS::Ec2
 
     LocalGatewayRoute: untyped
 
+    module LocalGatewayRouteState
+      pending: ::String
+
+      active: ::String
+
+      blackhole: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
+
     LocalGatewayRouteTable: untyped
 
     LocalGatewayRouteTableVirtualInterfaceGroupAssociation: untyped
 
     LocalGatewayRouteTableVpcAssociation: untyped
 
+    module LocalGatewayRouteType
+      static: ::String
+
+      propagated: ::String
+    end
+
     LocalGatewayVirtualInterface: untyped
 
     LocalGatewayVirtualInterfaceGroup: untyped
 
+    module LocalStorage
+      INCLUDED: ::String
+
+      REQUIRED: ::String
+
+      EXCLUDED: ::String
+    end
+
+    module LocalStorageType
+      HDD: ::String
+
+      SSD: ::String
+    end
+
+    module LocationType
+      region: ::String
+
+      availability_zone: ::String
+
+      availability_zone_id: ::String
+    end
+
+    module LogDestinationType
+      cloud_watch_logs: ::String
+
+      s3: ::String
+    end
+
     ManagedPrefixList: untyped
+
+    module MarketType
+      spot: ::String
+    end
+
+    module MembershipType
+      static: ::String
+
+      igmp: ::String
+    end
 
     MemoryGiBPerVCpu: untyped
 
@@ -2295,6 +4547,12 @@ module AWS::Ec2
     ModifyAvailabilityZoneGroupInput: untyped
 
     ModifyAvailabilityZoneGroupOutput: untyped
+
+    module ModifyAvailabilityZoneOptInStatus
+      opted_in: ::String
+
+      not_opted_in: ::String
+    end
 
     ModifyCapacityReservationFleetInput: untyped
 
@@ -2516,6 +4774,16 @@ module AWS::Ec2
 
     Monitoring: untyped
 
+    module MonitoringState
+      disabled: ::String
+
+      disabling: ::String
+
+      enabled: ::String
+
+      pending: ::String
+    end
+
     MoveAddressToVpcInput: untyped
 
     MoveAddressToVpcOutput: untyped
@@ -2524,11 +4792,35 @@ module AWS::Ec2
 
     MoveByoipCidrToIpamOutput: untyped
 
+    module MoveStatus
+      movingToVpc: ::String
+
+      restoringToClassic: ::String
+    end
+
     MovingAddressStatus: untyped
+
+    module MulticastSupportValue
+      enable: ::String
+
+      disable: ::String
+    end
 
     NatGateway: untyped
 
     NatGatewayAddress: untyped
+
+    module NatGatewayState
+      PENDING: ::String
+
+      FAILED: ::String
+
+      AVAILABLE: ::String
+
+      DELETING: ::String
+
+      DELETED: ::String
+    end
 
     NetworkAcl: untyped
 
@@ -2558,9 +4850,27 @@ module AWS::Ec2
 
     NetworkInterfaceAttachmentChanges: untyped
 
+    module NetworkInterfaceAttribute
+      description: ::String
+
+      groupSet: ::String
+
+      sourceDestCheck: ::String
+
+      attachment: ::String
+    end
+
     NetworkInterfaceCount: untyped
 
     NetworkInterfaceCountRequest: untyped
+
+    module NetworkInterfaceCreationType
+      efa: ::String
+
+      branch: ::String
+
+      trunk: ::String
+    end
 
     NetworkInterfaceIpv6Address: untyped
 
@@ -2568,23 +4878,109 @@ module AWS::Ec2
 
     NetworkInterfacePermissionState: untyped
 
+    module NetworkInterfacePermissionStateCode
+      pending: ::String
+
+      granted: ::String
+
+      revoking: ::String
+
+      revoked: ::String
+    end
+
     NetworkInterfacePrivateIpAddress: untyped
 
+    module NetworkInterfaceStatus
+      available: ::String
+
+      associated: ::String
+
+      attaching: ::String
+
+      in_use: ::String
+
+      detaching: ::String
+    end
+
+    module NetworkInterfaceType
+      interface: ::String
+
+      natGateway: ::String
+
+      efa: ::String
+
+      trunk: ::String
+    end
+
     NewDhcpConfiguration: untyped
+
+    module OfferingClassType
+      STANDARD: ::String
+
+      CONVERTIBLE: ::String
+    end
+
+    module OfferingTypeValues
+      Heavy_Utilization: ::String
+
+      Medium_Utilization: ::String
+
+      Light_Utilization: ::String
+
+      No_Upfront: ::String
+
+      Partial_Upfront: ::String
+
+      All_Upfront: ::String
+    end
+
+    module OnDemandAllocationStrategy
+      LOWEST_PRICE: ::String
+
+      PRIORITIZED: ::String
+    end
 
     OnDemandOptions: untyped
 
     OnDemandOptionsRequest: untyped
 
+    module OperationType
+      add: ::String
+
+      remove: ::String
+    end
+
     PacketHeaderStatement: untyped
 
     PacketHeaderStatementRequest: untyped
+
+    module PartitionLoadFrequency
+      NONE: ::String
+
+      DAILY: ::String
+
+      WEEKLY: ::String
+
+      MONTHLY: ::String
+    end
 
     PathComponent: untyped
 
     PathStatement: untyped
 
     PathStatementRequest: untyped
+
+    module PayerResponsibility
+      ServiceOwner: ::String
+    end
+
+    module PaymentOption
+      ALL_UPFRONT: ::String
+
+      PARTIAL_UPFRONT: ::String
+
+      NO_UPFRONT: ::String
+    end
 
     PciId: untyped
 
@@ -2595,6 +4991,10 @@ module AWS::Ec2
     PeeringConnectionOptionsRequest: untyped
 
     PeeringTgwInfo: untyped
+
+    module PermissionGroup
+      all: ::String
+    end
 
     Phase1DHGroupNumbersListValue: untyped
 
@@ -2626,7 +5026,37 @@ module AWS::Ec2
 
     PlacementGroupInfo: untyped
 
+    module PlacementGroupState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
+
+    module PlacementGroupStrategy
+      cluster: ::String
+
+      partition: ::String
+
+      spread: ::String
+    end
+
     PlacementResponse: untyped
+
+    module PlacementStrategy
+      cluster: ::String
+
+      spread: ::String
+
+      partition: ::String
+    end
+
+    module PlatformValues
+      Windows: ::String
+    end
 
     PoolCidrBlock: untyped
 
@@ -2640,6 +5070,32 @@ module AWS::Ec2
 
     PrefixListId: untyped
 
+    module PrefixListState
+      create_in_progress: ::String
+
+      create_complete: ::String
+
+      create_failed: ::String
+
+      modify_in_progress: ::String
+
+      modify_complete: ::String
+
+      modify_failed: ::String
+
+      restore_in_progress: ::String
+
+      restore_complete: ::String
+
+      restore_failed: ::String
+
+      delete_in_progress: ::String
+
+      delete_complete: ::String
+
+      delete_failed: ::String
+    end
+
     PriceSchedule: untyped
 
     PriceScheduleSpecification: untyped
@@ -2647,6 +5103,20 @@ module AWS::Ec2
     PricingDetail: untyped
 
     PrincipalIdFormat: untyped
+
+    module PrincipalType
+      All: ::String
+
+      Service: ::String
+
+      OrganizationUnit: ::String
+
+      Account: ::String
+
+      User: ::String
+
+      Role: ::String
+    end
 
     PrivateDnsDetails: untyped
 
@@ -2664,7 +5134,23 @@ module AWS::Ec2
 
     ProductCode: untyped
 
+    module ProductCodeValues
+      devpay: ::String
+
+      marketplace: ::String
+    end
+
     PropagatingVgw: untyped
+
+    module Protocol
+      tcp: ::String
+
+      udp: ::String
+    end
+
+    module ProtocolValue
+      gre: ::String
+    end
 
     ProvisionByoipCidrInput: untyped
 
@@ -2707,6 +5193,10 @@ module AWS::Ec2
     RebootInstancesOutput: untyped
 
     RecurringCharge: untyped
+
+    module RecurringChargeFrequency
+      Hourly: ::String
+    end
 
     ReferencedSecurityGroup: untyped
 
@@ -2780,6 +5270,20 @@ module AWS::Ec2
 
     ReplaceRootVolumeTask: untyped
 
+    module ReplaceRootVolumeTaskState
+      pending: ::String
+
+      in_progress: ::String
+
+      failing: ::String
+
+      succeeded: ::String
+
+      failed: ::String
+
+      failed_detached: ::String
+    end
+
     ReplaceRouteInput: untyped
 
     ReplaceRouteOutput: untyped
@@ -2792,9 +5296,41 @@ module AWS::Ec2
 
     ReplaceTransitGatewayRouteOutput: untyped
 
+    module ReplacementStrategy
+      LAUNCH: ::String
+
+      LAUNCH_BEFORE_TERMINATE: ::String
+    end
+
+    module ReportInstanceReasonCodes
+      instance_stuck_in_state: ::String
+
+      unresponsive: ::String
+
+      not_accepting_credentials: ::String
+
+      password_not_available: ::String
+
+      performance_network: ::String
+
+      performance_instance_store: ::String
+
+      performance_ebs_volume: ::String
+
+      performance_other: ::String
+
+      other: ::String
+    end
+
     ReportInstanceStatusInput: untyped
 
     ReportInstanceStatusOutput: untyped
+
+    module ReportStatusType
+      ok: ::String
+
+      impaired: ::String
+    end
 
     RequestIpamResourceTag: untyped
 
@@ -2814,11 +5350,35 @@ module AWS::Ec2
 
     ReservationFleetInstanceSpecification: untyped
 
+    module ReservationState
+      PAYMENT_PENDING: ::String
+
+      PAYMENT_FAILED: ::String
+
+      ACTIVE: ::String
+
+      RETIRED: ::String
+    end
+
     ReservationValue: untyped
 
     ReservedInstanceLimitPrice: untyped
 
     ReservedInstanceReservationValue: untyped
+
+    module ReservedInstanceState
+      payment_pending: ::String
+
+      active: ::String
+
+      payment_failed: ::String
+
+      retired: ::String
+
+      queued: ::String
+
+      queued_deleted: ::String
+    end
 
     ReservedInstances: untyped
 
@@ -2844,9 +5404,17 @@ module AWS::Ec2
 
     ResetFpgaImageAttributeInput: untyped
 
+    module ResetFpgaImageAttributeName
+      loadPermission: ::String
+    end
+
     ResetFpgaImageAttributeOutput: untyped
 
     ResetImageAttributeInput: untyped
+
+    module ResetImageAttributeName
+      launchPermission: ::String
+    end
 
     ResetImageAttributeOutput: untyped
 
@@ -2865,6 +5433,142 @@ module AWS::Ec2
     ResourceStatement: untyped
 
     ResourceStatementRequest: untyped
+
+    module ResourceType
+      capacity_reservation: ::String
+
+      client_vpn_endpoint: ::String
+
+      customer_gateway: ::String
+
+      carrier_gateway: ::String
+
+      dedicated_host: ::String
+
+      dhcp_options: ::String
+
+      egress_only_internet_gateway: ::String
+
+      elastic_ip: ::String
+
+      elastic_gpu: ::String
+
+      export_image_task: ::String
+
+      export_instance_task: ::String
+
+      fleet: ::String
+
+      fpga_image: ::String
+
+      host_reservation: ::String
+
+      image: ::String
+
+      import_image_task: ::String
+
+      import_snapshot_task: ::String
+
+      instance: ::String
+
+      instance_event_window: ::String
+
+      internet_gateway: ::String
+
+      ipam: ::String
+
+      ipam_pool: ::String
+
+      ipam_scope: ::String
+
+      ipv4pool_ec2: ::String
+
+      ipv6pool_ec2: ::String
+
+      key_pair: ::String
+
+      launch_template: ::String
+
+      local_gateway: ::String
+
+      local_gateway_route_table: ::String
+
+      local_gateway_virtual_interface: ::String
+
+      local_gateway_virtual_interface_group: ::String
+
+      local_gateway_route_table_vpc_association: ::String
+
+      local_gateway_route_table_virtual_interface_group_association: ::String
+
+      natgateway: ::String
+
+      network_acl: ::String
+
+      network_interface: ::String
+
+      network_insights_analysis: ::String
+
+      network_insights_path: ::String
+
+      network_insights_access_scope: ::String
+
+      network_insights_access_scope_analysis: ::String
+
+      placement_group: ::String
+
+      prefix_list: ::String
+
+      replace_root_volume_task: ::String
+
+      reserved_instances: ::String
+
+      route_table: ::String
+
+      security_group: ::String
+
+      security_group_rule: ::String
+
+      snapshot: ::String
+
+      spot_fleet_request: ::String
+
+      spot_instances_request: ::String
+
+      subnet: ::String
+
+      traffic_mirror_filter: ::String
+
+      traffic_mirror_session: ::String
+
+      traffic_mirror_target: ::String
+
+      transit_gateway: ::String
+
+      transit_gateway_attachment: ::String
+
+      transit_gateway_connect_peer: ::String
+
+      transit_gateway_multicast_domain: ::String
+
+      transit_gateway_route_table: ::String
+
+      volume: ::String
+
+      vpc: ::String
+
+      vpc_endpoint: ::String
+
+      vpc_endpoint_service: ::String
+
+      vpc_peering_connection: ::String
+
+      vpn_connection: ::String
+
+      vpn_gateway: ::String
+
+      vpc_flow_log: ::String
+    end
 
     ResponseError: untyped
 
@@ -2898,13 +5602,51 @@ module AWS::Ec2
 
     RevokeSecurityGroupIngressOutput: untyped
 
+    module RootDeviceType
+      ebs: ::String
+
+      instance_store: ::String
+    end
+
     Route: untyped
+
+    module RouteOrigin
+      CreateRouteTable: ::String
+
+      CreateRoute: ::String
+
+      EnableVgwRoutePropagation: ::String
+    end
+
+    module RouteState
+      active: ::String
+
+      blackhole: ::String
+    end
 
     RouteTable: untyped
 
     RouteTableAssociation: untyped
 
     RouteTableAssociationState: untyped
+
+    module RouteTableAssociationStateCode
+      associating: ::String
+
+      associated: ::String
+
+      disassociating: ::String
+
+      disassociated: ::String
+
+      failed: ::String
+    end
+
+    module RuleAction
+      allow: ::String
+
+      deny: ::String
+    end
 
     RunInstancesInput: untyped
 
@@ -2972,6 +5714,12 @@ module AWS::Ec2
 
     SecurityGroupRuleUpdate: untyped
 
+    module SelfServicePortal
+      enabled: ::String
+
+      disabled: ::String
+    end
+
     SendDiagnosticInterruptInput: untyped
 
     SendDiagnosticInterruptOutput: untyped
@@ -2980,13 +5728,45 @@ module AWS::Ec2
 
     ServiceDetail: untyped
 
+    module ServiceState
+      Pending: ::String
+
+      Available: ::String
+
+      Deleting: ::String
+
+      Deleted: ::String
+
+      Failed: ::String
+    end
+
+    module ServiceType
+      Interface: ::String
+
+      Gateway: ::String
+
+      GatewayLoadBalancer: ::String
+    end
+
     ServiceTypeDetail: untyped
+
+    module ShutdownBehavior
+      stop: ::String
+
+      terminate: ::String
+    end
 
     SlotDateTimeRangeRequest: untyped
 
     SlotStartTimeRangeRequest: untyped
 
     Snapshot: untyped
+
+    module SnapshotAttributeName
+      productCodes: ::String
+
+      createVolumePermission: ::String
+    end
 
     SnapshotDetail: untyped
 
@@ -2996,9 +5776,31 @@ module AWS::Ec2
 
     SnapshotRecycleBinInfo: untyped
 
+    module SnapshotState
+      pending: ::String
+
+      completed: ::String
+
+      error: ::String
+
+      recoverable: ::String
+
+      recovering: ::String
+    end
+
     SnapshotTaskDetail: untyped
 
     SnapshotTierStatus: untyped
+
+    module SpotAllocationStrategy
+      LOWEST_PRICE: ::String
+
+      DIVERSIFIED: ::String
+
+      CAPACITY_OPTIMIZED: ::String
+
+      CAPACITY_OPTIMIZED_PRIORITIZED: ::String
+    end
 
     SpotCapacityRebalance: untyped
 
@@ -3014,11 +5816,37 @@ module AWS::Ec2
 
     SpotFleetTagSpecification: untyped
 
+    module SpotInstanceInterruptionBehavior
+      hibernate: ::String
+
+      stop: ::String
+
+      terminate: ::String
+    end
+
     SpotInstanceRequest: untyped
+
+    module SpotInstanceState
+      open: ::String
+
+      active: ::String
+
+      closed: ::String
+
+      cancelled: ::String
+
+      failed: ::String
+    end
 
     SpotInstanceStateFault: untyped
 
     SpotInstanceStatus: untyped
+
+    module SpotInstanceType
+      one_time: ::String
+
+      persistent: ::String
+    end
 
     SpotMaintenanceStrategies: untyped
 
@@ -3054,7 +5882,53 @@ module AWS::Ec2
 
     StartVpcEndpointServicePrivateDnsVerificationOutput: untyped
 
+    module State
+      PendingAcceptance: ::String
+
+      Pending: ::String
+
+      Available: ::String
+
+      Deleting: ::String
+
+      Deleted: ::String
+
+      Rejected: ::String
+
+      Failed: ::String
+
+      Expired: ::String
+    end
+
     StateReason: untyped
+
+    module StaticSourcesSupportValue
+      enable: ::String
+
+      disable: ::String
+    end
+
+    module Status
+      moveInProgress: ::String
+
+      inVpc: ::String
+
+      inClassic: ::String
+    end
+
+    module StatusName
+      reachability: ::String
+    end
+
+    module StatusType
+      passed: ::String
+
+      failed: ::String
+
+      insufficient_data: ::String
+
+      initializing: ::String
+    end
 
     StopInstancesInput: untyped
 
@@ -3064,6 +5938,12 @@ module AWS::Ec2
 
     StorageLocation: untyped
 
+    module StorageTier
+      archive: ::String
+
+      standard: ::String
+    end
+
     StoreImageTaskResult: untyped
 
     Subnet: untyped
@@ -3072,13 +5952,51 @@ module AWS::Ec2
 
     SubnetCidrBlockState: untyped
 
+    module SubnetCidrBlockStateCode
+      associating: ::String
+
+      associated: ::String
+
+      disassociating: ::String
+
+      disassociated: ::String
+
+      failing: ::String
+
+      failed: ::String
+    end
+
     SubnetCidrReservation: untyped
 
+    module SubnetCidrReservationType
+      prefix: ::String
+
+      explicit: ::String
+    end
+
     SubnetIpv6CidrBlockAssociation: untyped
+
+    module SubnetState
+      pending: ::String
+
+      available: ::String
+    end
 
     SuccessfulInstanceCreditSpecificationItem: untyped
 
     SuccessfulQueuedPurchaseDeletion: untyped
+
+    module SummaryStatus
+      ok: ::String
+
+      impaired: ::String
+
+      insufficient_data: ::String
+
+      not_applicable: ::String
+
+      initializing: ::String
+    end
 
     Tag: untyped
 
@@ -3089,6 +6007,14 @@ module AWS::Ec2
     TargetCapacitySpecification: untyped
 
     TargetCapacitySpecificationRequest: untyped
+
+    module TargetCapacityUnitType
+      VCPU: ::String
+
+      MEMORY_MIB: ::String
+
+      UNITS: ::String
+    end
 
     TargetConfiguration: untyped
 
@@ -3101,6 +6027,24 @@ module AWS::Ec2
     TargetNetwork: untyped
 
     TargetReservationValue: untyped
+
+    module TargetStorageTier
+      archive: ::String
+    end
+
+    module TelemetryStatus
+      UP: ::String
+
+      DOWN: ::String
+    end
+
+    module Tenancy
+      default: ::String
+
+      dedicated: ::String
+
+      host: ::String
+    end
 
     TerminateClientVpnConnectionsInput: untyped
 
@@ -3116,25 +6060,103 @@ module AWS::Ec2
 
     ThroughResourcesStatementRequest: untyped
 
+    module TieringOperationStatus
+      archival_in_progress: ::String
+
+      archival_completed: ::String
+
+      archival_failed: ::String
+
+      temporary_restore_in_progress: ::String
+
+      temporary_restore_completed: ::String
+
+      temporary_restore_failed: ::String
+
+      permanent_restore_in_progress: ::String
+
+      permanent_restore_completed: ::String
+
+      permanent_restore_failed: ::String
+    end
+
     TotalLocalStorageGB: untyped
 
     TotalLocalStorageGBRequest: untyped
+
+    module TrafficDirection
+      ingress: ::String
+
+      egress: ::String
+    end
 
     TrafficMirrorFilter: untyped
 
     TrafficMirrorFilterRule: untyped
 
+    module TrafficMirrorFilterRuleField
+      destination_port_range: ::String
+
+      source_port_range: ::String
+
+      protocol: ::String
+
+      description: ::String
+    end
+
+    module TrafficMirrorNetworkService
+      amazon_dns: ::String
+    end
+
     TrafficMirrorPortRange: untyped
 
     TrafficMirrorPortRangeRequest: untyped
 
+    module TrafficMirrorRuleAction
+      accept: ::String
+
+      reject: ::String
+    end
+
     TrafficMirrorSession: untyped
 
+    module TrafficMirrorSessionField
+      packet_length: ::String
+
+      description: ::String
+
+      virtual_network_id: ::String
+    end
+
     TrafficMirrorTarget: untyped
+
+    module TrafficMirrorTargetType
+      network_interface: ::String
+
+      network_load_balancer: ::String
+    end
+
+    module TrafficType
+      ACCEPT: ::String
+
+      REJECT: ::String
+
+      ALL: ::String
+    end
 
     TransitGateway: untyped
 
     TransitGatewayAssociation: untyped
+
+    module TransitGatewayAssociationState
+      associating: ::String
+
+      associated: ::String
+
+      disassociating: ::String
+
+      disassociated: ::String
+    end
 
     TransitGatewayAttachment: untyped
 
@@ -3144,6 +6166,48 @@ module AWS::Ec2
 
     TransitGatewayAttachmentPropagation: untyped
 
+    module TransitGatewayAttachmentResourceType
+      vpc: ::String
+
+      vpn: ::String
+
+      direct_connect_gateway: ::String
+
+      connect: ::String
+
+      peering: ::String
+
+      tgw_peering: ::String
+    end
+
+    module TransitGatewayAttachmentState
+      initiating: ::String
+
+      initiatingRequest: ::String
+
+      pendingAcceptance: ::String
+
+      rollingBack: ::String
+
+      pending: ::String
+
+      available: ::String
+
+      modifying: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+
+      failed: ::String
+
+      rejected: ::String
+
+      rejecting: ::String
+
+      failing: ::String
+    end
+
     TransitGatewayConnect: untyped
 
     TransitGatewayConnectOptions: untyped
@@ -3152,7 +6216,33 @@ module AWS::Ec2
 
     TransitGatewayConnectPeerConfiguration: untyped
 
+    module TransitGatewayConnectPeerState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
+
     TransitGatewayConnectRequestBgpOptions: untyped
+
+    module TransitGatewayMulitcastDomainAssociationState
+      pendingAcceptance: ::String
+
+      associating: ::String
+
+      associated: ::String
+
+      disassociating: ::String
+
+      disassociated: ::String
+
+      rejected: ::String
+
+      failed: ::String
+    end
 
     TransitGatewayMulticastDeregisteredGroupMembers: untyped
 
@@ -3165,6 +6255,16 @@ module AWS::Ec2
     TransitGatewayMulticastDomainAssociations: untyped
 
     TransitGatewayMulticastDomainOptions: untyped
+
+    module TransitGatewayMulticastDomainState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
 
     TransitGatewayMulticastGroup: untyped
 
@@ -3180,7 +6280,27 @@ module AWS::Ec2
 
     TransitGatewayPrefixListReference: untyped
 
+    module TransitGatewayPrefixListReferenceState
+      pending: ::String
+
+      available: ::String
+
+      modifying: ::String
+
+      deleting: ::String
+    end
+
     TransitGatewayPropagation: untyped
+
+    module TransitGatewayPropagationState
+      enabling: ::String
+
+      enabled: ::String
+
+      disabling: ::String
+
+      disabled: ::String
+    end
 
     TransitGatewayRequestOptions: untyped
 
@@ -3188,17 +6308,69 @@ module AWS::Ec2
 
     TransitGatewayRouteAttachment: untyped
 
+    module TransitGatewayRouteState
+      pending: ::String
+
+      active: ::String
+
+      blackhole: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
+
     TransitGatewayRouteTable: untyped
 
     TransitGatewayRouteTableAssociation: untyped
 
     TransitGatewayRouteTablePropagation: untyped
 
+    module TransitGatewayRouteTableState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
+
+    module TransitGatewayRouteType
+      static: ::String
+
+      propagated: ::String
+    end
+
+    module TransitGatewayState
+      pending: ::String
+
+      available: ::String
+
+      modifying: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
+
     TransitGatewayVpcAttachment: untyped
 
     TransitGatewayVpcAttachmentOptions: untyped
 
+    module TransportProtocol
+      tcp: ::String
+
+      udp: ::String
+    end
+
     TrunkInterfaceAssociation: untyped
+
+    module TunnelInsideIpVersion
+      ipv4: ::String
+
+      ipv6: ::String
+    end
 
     TunnelOption: untyped
 
@@ -3210,9 +6382,29 @@ module AWS::Ec2
 
     UnassignPrivateIpAddressesOutput: untyped
 
+    module UnlimitedSupportedInstanceFamily
+      t2: ::String
+
+      t3: ::String
+
+      t3a: ::String
+
+      t4g: ::String
+    end
+
     UnmonitorInstancesInput: untyped
 
     UnmonitorInstancesOutput: untyped
+
+    module UnsuccessfulInstanceCreditSpecificationErrorCode
+      INVALID_INSTANCE_ID: ::String
+
+      INSTANCE_NOT_FOUND: ::String
+
+      INCORRECT_INSTANCE_STATE: ::String
+
+      INSTANCE_CREDIT_SPECIFICATION_NOT_SUPPORTED: ::String
+    end
 
     UnsuccessfulInstanceCreditSpecificationItem: untyped
 
@@ -3229,6 +6421,12 @@ module AWS::Ec2
     UpdateSecurityGroupRuleDescriptionsIngressInput: untyped
 
     UpdateSecurityGroupRuleDescriptionsIngressOutput: untyped
+
+    module UsageClassType
+      spot: ::String
+
+      on_demand: ::String
+    end
 
     UserBucket: untyped
 
@@ -3250,13 +6448,61 @@ module AWS::Ec2
 
     VgwTelemetry: untyped
 
+    module VirtualizationType
+      hvm: ::String
+
+      paravirtual: ::String
+    end
+
     Volume: untyped
 
     VolumeAttachment: untyped
 
+    module VolumeAttachmentState
+      attaching: ::String
+
+      attached: ::String
+
+      detaching: ::String
+
+      detached: ::String
+
+      busy: ::String
+    end
+
+    module VolumeAttributeName
+      autoEnableIO: ::String
+
+      productCodes: ::String
+    end
+
     VolumeDetail: untyped
 
     VolumeModification: untyped
+
+    module VolumeModificationState
+      modifying: ::String
+
+      optimizing: ::String
+
+      completed: ::String
+
+      failed: ::String
+    end
+
+    module VolumeState
+      creating: ::String
+
+      available: ::String
+
+      in_use: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+
+      error: ::String
+    end
 
     VolumeStatusAction: untyped
 
@@ -3268,21 +6514,79 @@ module AWS::Ec2
 
     VolumeStatusInfo: untyped
 
+    module VolumeStatusInfoStatus
+      ok: ::String
+
+      impaired: ::String
+
+      insufficient_data: ::String
+    end
+
     VolumeStatusItem: untyped
+
+    module VolumeStatusName
+      io_enabled: ::String
+
+      io_performance: ::String
+    end
+
+    module VolumeType
+      standard: ::String
+
+      io1: ::String
+
+      io2: ::String
+
+      gp2: ::String
+
+      sc1: ::String
+
+      st1: ::String
+
+      gp3: ::String
+    end
 
     Vpc: untyped
 
     VpcAttachment: untyped
 
+    module VpcAttributeName
+      enableDnsSupport: ::String
+
+      enableDnsHostnames: ::String
+    end
+
     VpcCidrBlockAssociation: untyped
 
     VpcCidrBlockState: untyped
+
+    module VpcCidrBlockStateCode
+      associating: ::String
+
+      associated: ::String
+
+      disassociating: ::String
+
+      disassociated: ::String
+
+      failing: ::String
+
+      failed: ::String
+    end
 
     VpcClassicLink: untyped
 
     VpcEndpoint: untyped
 
     VpcEndpointConnection: untyped
+
+    module VpcEndpointType
+      Interface: ::String
+
+      Gateway: ::String
+
+      GatewayLoadBalancer: ::String
+    end
 
     VpcIpv6CidrBlockAssociation: untyped
 
@@ -3292,7 +6596,37 @@ module AWS::Ec2
 
     VpcPeeringConnectionStateReason: untyped
 
+    module VpcPeeringConnectionStateReasonCode
+      initiating_request: ::String
+
+      pending_acceptance: ::String
+
+      active: ::String
+
+      deleted: ::String
+
+      rejected: ::String
+
+      failed: ::String
+
+      expired: ::String
+
+      provisioning: ::String
+
+      deleting: ::String
+    end
+
     VpcPeeringConnectionVpcInfo: untyped
+
+    module VpcState
+      pending: ::String
+
+      available: ::String
+    end
+
+    module VpcTenancy
+      default: ::String
+    end
 
     VpnConnection: untyped
 
@@ -3302,15 +6636,61 @@ module AWS::Ec2
 
     VpnConnectionOptionsSpecification: untyped
 
+    module VpnEcmpSupportValue
+      enable: ::String
+
+      disable: ::String
+    end
+
     VpnGateway: untyped
+
+    module VpnProtocol
+      openvpn: ::String
+    end
+
+    module VpnState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
 
     VpnStaticRoute: untyped
 
+    module VpnStaticRouteSource
+      Static: ::String
+    end
+
     VpnTunnelOptionsSpecification: untyped
+
+    module WeekDay
+      sunday: ::String
+
+      monday: ::String
+
+      tuesday: ::String
+
+      wednesday: ::String
+
+      thursday: ::String
+
+      friday: ::String
+
+      saturday: ::String
+    end
 
     WithdrawByoipCidrInput: untyped
 
     WithdrawByoipCidrOutput: untyped
+
+    module Scope
+      AVAILABILITY_ZONE: ::String
+
+      REGIONAL: ::String
+    end
 
   end
 end

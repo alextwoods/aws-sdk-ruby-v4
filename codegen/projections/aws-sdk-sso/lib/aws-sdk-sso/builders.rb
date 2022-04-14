@@ -14,7 +14,7 @@ module AWS::Sso
 
     # Operation Builder for GetRoleCredentials
     class GetRoleCredentials
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/federation/credentials')
         params = Hearth::Query::ParamList.new
@@ -27,7 +27,7 @@ module AWS::Sso
 
     # Operation Builder for ListAccountRoles
     class ListAccountRoles
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/assignment/roles')
         params = Hearth::Query::ParamList.new
@@ -41,7 +41,7 @@ module AWS::Sso
 
     # Operation Builder for ListAccounts
     class ListAccounts
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'GET'
         http_req.append_path('/assignment/accounts')
         params = Hearth::Query::ParamList.new
@@ -54,7 +54,7 @@ module AWS::Sso
 
     # Operation Builder for Logout
     class Logout
-      def self.build(http_req, input:, disable_host_prefix:)
+      def self.build(http_req, input:)
         http_req.http_method = 'POST'
         http_req.append_path('/logout')
         params = Hearth::Query::ParamList.new
