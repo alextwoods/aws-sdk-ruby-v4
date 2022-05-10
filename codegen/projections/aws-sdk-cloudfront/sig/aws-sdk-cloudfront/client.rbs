@@ -13,7 +13,7 @@ module AWS::Cloudfront
 
     def self.middleware: () -> untyped
 
-    def initialize: (?::Hash[untyped, untyped] options) -> void
+    def initialize: (?untyped config, ?::Hash[untyped, untyped] options) -> void
     def associate_alias: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
     def create_cache_policy: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
     def create_cloud_front_origin_access_identity: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped

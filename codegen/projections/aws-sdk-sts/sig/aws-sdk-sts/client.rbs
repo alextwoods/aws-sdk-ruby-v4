@@ -13,7 +13,7 @@ module AWS::Sts
 
     def self.middleware: () -> untyped
 
-    def initialize: (?::Hash[untyped, untyped] options) -> void
+    def initialize: (?untyped config, ?::Hash[untyped, untyped] options) -> void
     def assume_role: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
     def assume_role_with_saml: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
     def assume_role_with_web_identity: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped

@@ -1,0 +1,3 @@
+module AWS::Lambda
+  Config: untyped
+end
