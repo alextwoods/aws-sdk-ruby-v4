@@ -936,7 +936,10 @@ module AWS::Lambda
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:invoke_args] || '')
+        unless input[:invoke_args].respond_to?(:read) || input[:invoke_args].respond_to?(:readpartial)
+          input[:invoke_args] = StringIO.new(input[:invoke_args])
+        end
+        http_req.body = input[:invoke_args]
       end
     end
 

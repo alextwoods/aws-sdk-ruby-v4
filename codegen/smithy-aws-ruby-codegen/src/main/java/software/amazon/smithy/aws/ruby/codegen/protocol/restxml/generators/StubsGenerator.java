@@ -516,10 +516,17 @@ public class StubsGenerator extends RestStubsGeneratorBase {
             if (mediaTypeTrait.isPresent()) {
                 mediaType = mediaTypeTrait.get().getValue();
             }
+            writer.write("http_resp.headers['Content-Type'] = '$L'", mediaType);
 
-            writer
-                    .write("http_resp.headers['Content-Type'] = '$L'", mediaType)
-                    .write("http_resp.body = StringIO.new($L || '')", inputGetter);
+            if (shape.hasTrait(StreamingTrait.class)) {
+                writer
+                        .openBlock("unless $1L.respond_to?(:read) || $1L.respond_to?(:readpartial)", inputGetter)
+                        .write("$1L = StringIO.new($1L)", inputGetter)
+                        .closeBlock("end")
+                        .write("http_resp.body = $L", inputGetter);
+            } else {
+                writer.write("http_resp.body = StringIO.new($L || '')", inputGetter);
+            }
             return null;
         }
 
