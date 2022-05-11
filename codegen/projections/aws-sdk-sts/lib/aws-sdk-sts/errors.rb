@@ -55,12 +55,6 @@ module AWS::Sts
     end
 
     class ExpiredTokenException < ApiClientError
-      # @param [Hearth::HTTP::Response] http_resp
-      #
-      # @param [String] error_code
-      #
-      # @param [String] message
-      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ExpiredTokenException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -74,12 +68,6 @@ module AWS::Sts
     end
 
     class IDPCommunicationErrorException < ApiClientError
-      # @param [Hearth::HTTP::Response] http_resp
-      #
-      # @param [String] error_code
-      #
-      # @param [String] message
-      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::IDPCommunicationErrorException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -93,12 +81,6 @@ module AWS::Sts
     end
 
     class IDPRejectedClaimException < ApiClientError
-      # @param [Hearth::HTTP::Response] http_resp
-      #
-      # @param [String] error_code
-      #
-      # @param [String] message
-      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::IDPRejectedClaimException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -112,12 +94,6 @@ module AWS::Sts
     end
 
     class InvalidAuthorizationMessageException < ApiClientError
-      # @param [Hearth::HTTP::Response] http_resp
-      #
-      # @param [String] error_code
-      #
-      # @param [String] message
-      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidAuthorizationMessageException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -131,12 +107,6 @@ module AWS::Sts
     end
 
     class InvalidIdentityTokenException < ApiClientError
-      # @param [Hearth::HTTP::Response] http_resp
-      #
-      # @param [String] error_code
-      #
-      # @param [String] message
-      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidIdentityTokenException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -150,12 +120,6 @@ module AWS::Sts
     end
 
     class MalformedPolicyDocumentException < ApiClientError
-      # @param [Hearth::HTTP::Response] http_resp
-      #
-      # @param [String] error_code
-      #
-      # @param [String] message
-      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::MalformedPolicyDocumentException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -169,12 +133,6 @@ module AWS::Sts
     end
 
     class PackedPolicyTooLargeException < ApiClientError
-      # @param [Hearth::HTTP::Response] http_resp
-      #
-      # @param [String] error_code
-      #
-      # @param [String] message
-      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::PackedPolicyTooLargeException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -188,12 +146,6 @@ module AWS::Sts
     end
 
     class RegionDisabledException < ApiClientError
-      # @param [Hearth::HTTP::Response] http_resp
-      #
-      # @param [String] error_code
-      #
-      # @param [String] message
-      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::RegionDisabledException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
