@@ -148,6 +148,7 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .write("data = {}")
                 .call(() -> renderMemberStubbers(outputShape))
                 .write("http_resp.body = StringIO.new(Hearth::JSON.dump(data))")
+                .write("http_resp.status = 200")
                 .closeBlock("end");
     }
 
