@@ -67,7 +67,11 @@ public class BuilderGenerator extends RestBuilderGeneratorBase {
     protected void renderPayloadBodyBuilder(OperationShape operation, Shape inputShape, MemberShape payloadMember, Shape target) {
         String symbolName = ":" + symbolProvider.toMemberName(payloadMember);
         String inputGetter = "input[" + symbolName + "]";
-        target.accept(new PayloadMemberSerializer(payloadMember, inputGetter));
+        if (target.hasTrait(StreamingTrait.class)) {
+            renderStreamingBodyBuilder(inputShape);
+        } else {
+            target.accept(new PayloadMemberSerializer(payloadMember, inputGetter));
+        }
     }
 
     @Override

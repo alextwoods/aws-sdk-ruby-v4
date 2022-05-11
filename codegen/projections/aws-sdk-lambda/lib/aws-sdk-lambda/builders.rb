@@ -935,8 +935,9 @@ module AWS::Lambda
         )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
+        http_req.body = input[:invoke_args]
+        http_req.headers['Transfer-Encoding'] = 'chunked'
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:invoke_args] || '')
       end
     end
 

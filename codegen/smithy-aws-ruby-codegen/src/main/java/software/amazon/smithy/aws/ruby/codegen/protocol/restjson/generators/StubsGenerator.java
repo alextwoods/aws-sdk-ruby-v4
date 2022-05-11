@@ -44,8 +44,11 @@ public class StubsGenerator extends RestStubsGeneratorBase {
     protected void renderPayloadBodyStub(OperationShape operation, Shape outputShape, MemberShape payloadMember,
                                          Shape target) {
         String inputGetter = "stub[:" + symbolProvider.toMemberName(payloadMember) + "]";
-        target.accept(new PayloadMemberSerializer(payloadMember, inputGetter));
-    }
+        if (target.hasTrait(StreamingTrait.class)) {
+            renderStreamingStub(outputShape);
+        } else {
+            target.accept(new PayloadMemberSerializer(payloadMember, inputGetter));
+        }    }
 
 
     @Override

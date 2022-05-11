@@ -201,6 +201,7 @@ public class StubsGenerator extends StubsGeneratorBase {
                 .call(() -> renderMemberBuilders(outputShape))
                 .write("response << xml")
                 .write("http_resp.body = StringIO.new(response.to_str)")
+                .write("http_resp.status = 200")
                 .closeBlock("end");
     }
 
