@@ -24,6 +24,7 @@ module AWS::Dynamodb
         data['Responses'] = Stubs::PartiQLBatchResponse.stub(stub[:responses]) unless stub[:responses].nil?
         data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -359,6 +360,7 @@ module AWS::Dynamodb
         data['UnprocessedKeys'] = Stubs::BatchGetRequestMap.stub(stub[:unprocessed_keys]) unless stub[:unprocessed_keys].nil?
         data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -544,6 +546,7 @@ module AWS::Dynamodb
         data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetricsPerTable.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
         data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -775,6 +778,7 @@ module AWS::Dynamodb
         data = {}
         data['BackupDetails'] = Stubs::BackupDetails.stub(stub[:backup_details]) unless stub[:backup_details].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -820,6 +824,7 @@ module AWS::Dynamodb
         data = {}
         data['GlobalTableDescription'] = Stubs::GlobalTableDescription.stub(stub[:global_table_description]) unless stub[:global_table_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -993,6 +998,7 @@ module AWS::Dynamodb
         data = {}
         data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -1426,6 +1432,7 @@ module AWS::Dynamodb
         data = {}
         data['BackupDescription'] = Stubs::BackupDescription.stub(stub[:backup_description]) unless stub[:backup_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -1653,6 +1660,7 @@ module AWS::Dynamodb
         data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
         data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetrics.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -1668,6 +1676,7 @@ module AWS::Dynamodb
         data = {}
         data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -1683,6 +1692,7 @@ module AWS::Dynamodb
         data = {}
         data['BackupDescription'] = Stubs::BackupDescription.stub(stub[:backup_description]) unless stub[:backup_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -1698,6 +1708,7 @@ module AWS::Dynamodb
         data = {}
         data['ContinuousBackupsDescription'] = Stubs::ContinuousBackupsDescription.stub(stub[:continuous_backups_description]) unless stub[:continuous_backups_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -1765,6 +1776,7 @@ module AWS::Dynamodb
         data['LastUpdateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_date_time]).to_i unless stub[:last_update_date_time].nil?
         data['FailureException'] = Stubs::FailureException.stub(stub[:failure_exception]) unless stub[:failure_exception].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -1820,6 +1832,7 @@ module AWS::Dynamodb
         data = {}
         data['Endpoints'] = Stubs::Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -1875,6 +1888,7 @@ module AWS::Dynamodb
         data = {}
         data['ExportDescription'] = Stubs::ExportDescription.stub(stub[:export_description]) unless stub[:export_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -1944,6 +1958,7 @@ module AWS::Dynamodb
         data = {}
         data['GlobalTableDescription'] = Stubs::GlobalTableDescription.stub(stub[:global_table_description]) unless stub[:global_table_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -1961,6 +1976,7 @@ module AWS::Dynamodb
         data['GlobalTableName'] = stub[:global_table_name] unless stub[:global_table_name].nil?
         data['ReplicaSettings'] = Stubs::ReplicaSettingsDescriptionList.stub(stub[:replica_settings]) unless stub[:replica_settings].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2170,6 +2186,7 @@ module AWS::Dynamodb
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['KinesisDataStreamDestinations'] = Stubs::KinesisDataStreamDestinations.stub(stub[:kinesis_data_stream_destinations]) unless stub[:kinesis_data_stream_destinations].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2233,6 +2250,7 @@ module AWS::Dynamodb
         data['TableMaxReadCapacityUnits'] = stub[:table_max_read_capacity_units] unless stub[:table_max_read_capacity_units].nil?
         data['TableMaxWriteCapacityUnits'] = stub[:table_max_write_capacity_units] unless stub[:table_max_write_capacity_units].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2248,6 +2266,7 @@ module AWS::Dynamodb
         data = {}
         data['Table'] = Stubs::TableDescription.stub(stub[:table]) unless stub[:table].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2263,6 +2282,7 @@ module AWS::Dynamodb
         data = {}
         data['TableAutoScalingDescription'] = Stubs::TableAutoScalingDescription.stub(stub[:table_auto_scaling_description]) unless stub[:table_auto_scaling_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2390,6 +2410,7 @@ module AWS::Dynamodb
         data = {}
         data['TimeToLiveDescription'] = Stubs::TimeToLiveDescription.stub(stub[:time_to_live_description]) unless stub[:time_to_live_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2409,6 +2430,7 @@ module AWS::Dynamodb
         data['StreamArn'] = stub[:stream_arn] unless stub[:stream_arn].nil?
         data['DestinationStatus'] = stub[:destination_status] unless stub[:destination_status].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2428,6 +2450,7 @@ module AWS::Dynamodb
         data['StreamArn'] = stub[:stream_arn] unless stub[:stream_arn].nil?
         data['DestinationStatus'] = stub[:destination_status] unless stub[:destination_status].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2447,6 +2470,7 @@ module AWS::Dynamodb
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2464,6 +2488,7 @@ module AWS::Dynamodb
         data['Responses'] = Stubs::ItemResponseList.stub(stub[:responses]) unless stub[:responses].nil?
         data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2517,6 +2542,7 @@ module AWS::Dynamodb
         data = {}
         data['ExportDescription'] = Stubs::ExportDescription.stub(stub[:export_description]) unless stub[:export_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2534,6 +2560,7 @@ module AWS::Dynamodb
         data['Item'] = Stubs::AttributeMap.stub(stub[:item]) unless stub[:item].nil?
         data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2551,6 +2578,7 @@ module AWS::Dynamodb
         data['BackupSummaries'] = Stubs::BackupSummaries.stub(stub[:backup_summaries]) unless stub[:backup_summaries].nil?
         data['LastEvaluatedBackupArn'] = stub[:last_evaluated_backup_arn] unless stub[:last_evaluated_backup_arn].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2624,6 +2652,7 @@ module AWS::Dynamodb
         data['ContributorInsightsSummaries'] = Stubs::ContributorInsightsSummaries.stub(stub[:contributor_insights_summaries]) unless stub[:contributor_insights_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2683,6 +2712,7 @@ module AWS::Dynamodb
         data['ExportSummaries'] = Stubs::ExportSummaries.stub(stub[:export_summaries]) unless stub[:export_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2740,6 +2770,7 @@ module AWS::Dynamodb
         data['GlobalTables'] = Stubs::GlobalTableList.stub(stub[:global_tables]) unless stub[:global_tables].nil?
         data['LastEvaluatedGlobalTableName'] = stub[:last_evaluated_global_table_name] unless stub[:last_evaluated_global_table_name].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2835,6 +2866,7 @@ module AWS::Dynamodb
         data['TableNames'] = Stubs::TableNameList.stub(stub[:table_names]) unless stub[:table_names].nil?
         data['LastEvaluatedTableName'] = stub[:last_evaluated_table_name] unless stub[:last_evaluated_table_name].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2872,6 +2904,7 @@ module AWS::Dynamodb
         data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2931,6 +2964,7 @@ module AWS::Dynamodb
         data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
         data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetrics.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2954,6 +2988,7 @@ module AWS::Dynamodb
         data['LastEvaluatedKey'] = Stubs::Key.stub(stub[:last_evaluated_key]) unless stub[:last_evaluated_key].nil?
         data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2969,6 +3004,7 @@ module AWS::Dynamodb
         data = {}
         data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -2984,6 +3020,7 @@ module AWS::Dynamodb
         data = {}
         data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -3007,6 +3044,7 @@ module AWS::Dynamodb
         data['LastEvaluatedKey'] = Stubs::Key.stub(stub[:last_evaluated_key]) unless stub[:last_evaluated_key].nil?
         data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -3020,6 +3058,7 @@ module AWS::Dynamodb
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -3037,6 +3076,7 @@ module AWS::Dynamodb
         data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
         data['Responses'] = Stubs::ItemResponseList.stub(stub[:responses]) unless stub[:responses].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -3054,6 +3094,7 @@ module AWS::Dynamodb
         data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
         data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetricsPerTable.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -3067,6 +3108,7 @@ module AWS::Dynamodb
       def self.stub(http_resp, stub:)
         data = {}
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -3082,6 +3124,7 @@ module AWS::Dynamodb
         data = {}
         data['ContinuousBackupsDescription'] = Stubs::ContinuousBackupsDescription.stub(stub[:continuous_backups_description]) unless stub[:continuous_backups_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -3101,6 +3144,7 @@ module AWS::Dynamodb
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
         data['ContributorInsightsStatus'] = stub[:contributor_insights_status] unless stub[:contributor_insights_status].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -3116,6 +3160,7 @@ module AWS::Dynamodb
         data = {}
         data['GlobalTableDescription'] = Stubs::GlobalTableDescription.stub(stub[:global_table_description]) unless stub[:global_table_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -3133,6 +3178,7 @@ module AWS::Dynamodb
         data['GlobalTableName'] = stub[:global_table_name] unless stub[:global_table_name].nil?
         data['ReplicaSettings'] = Stubs::ReplicaSettingsDescriptionList.stub(stub[:replica_settings]) unless stub[:replica_settings].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -3152,6 +3198,7 @@ module AWS::Dynamodb
         data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
         data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetrics.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -3167,6 +3214,7 @@ module AWS::Dynamodb
         data = {}
         data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -3182,6 +3230,7 @@ module AWS::Dynamodb
         data = {}
         data['TableAutoScalingDescription'] = Stubs::TableAutoScalingDescription.stub(stub[:table_auto_scaling_description]) unless stub[:table_auto_scaling_description].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
@@ -3197,6 +3246,7 @@ module AWS::Dynamodb
         data = {}
         data['TimeToLiveSpecification'] = Stubs::TimeToLiveSpecification.stub(stub[:time_to_live_specification]) unless stub[:time_to_live_specification].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.status = 200
       end
     end
 
