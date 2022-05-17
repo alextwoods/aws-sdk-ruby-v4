@@ -45,6 +45,6 @@ region = sa-east-1
       expect(parsed['default']['s3']['region']).to eq("us-west-2")
       expect(parsed['other']['s3']['region']).to eq("ap-southeast-1")
     end
-
   end
+  sdf
 end

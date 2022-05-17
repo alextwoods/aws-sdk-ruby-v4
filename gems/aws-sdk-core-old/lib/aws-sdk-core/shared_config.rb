@@ -28,10 +28,6 @@ module Aws
     # specify the shared config file path with the `ENV['AWS_CONFIG_FILE']`
     # environment variable or with the `:config_path` option.
     #
-    # The default profile name is 'default'. You can specify the profile name
-    # with the `ENV['AWS_PROFILE']` environment variable or with the
-    # `:profile_name` option.
-    #
     # @param [Hash] options
     # @option options [String] :credentials_path Path to the shared credentials
     #   file. If not specified, will check `ENV['AWS_SHARED_CREDENTIALS_FILE']`
@@ -39,22 +35,18 @@ module Aws
     # @option options [String] :config_path Path to the shared config file.
     #   If not specified, will check `ENV['AWS_CONFIG_FILE']` before using the
     #   default value of "#{Dir.home}/.aws/config".
-    # @option options [String] :profile_name The credential/config profile name
-    #   to use. If not specified, will check `ENV['AWS_PROFILE']` before using
-    #   the fixed default value of 'default'.
     # @option options [Boolean] :config_enabled If true, loads the shared config
     #   file and enables new config values outside of the old shared credential
     #   spec.
-    def initialize(options = {})
+    def initialize(config_enabled: true, credentials_path:, config_path:)
       @parsed_config = nil
-      @profile_name = determine_profile(options)
-      @config_enabled = options[:config_enabled]
-      @credentials_path = options[:credentials_path] ||
+      @config_enabled = config_enabled
+      @credentials_path = credentials_path ||
                           determine_credentials_path
       @parsed_credentials = {}
       load_credentials_file if loadable?(@credentials_path)
       if @config_enabled
-        @config_path = options[:config_path] || determine_config_path
+        @config_path = config_path || determine_config_path
         load_config_file if loadable?(@config_path)
       end
     end
