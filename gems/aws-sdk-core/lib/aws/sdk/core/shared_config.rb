@@ -5,9 +5,11 @@ require_relative 'ini_parser'
 module AWS
   module SDK
     module Core
+
       # @api private
-      class SharedConfig
-        # Constructs a new SharedConfig provider object. This will load the shared
+      module SharedConfig
+        # Constructs a new SharedConfig. SharedConfig is a hash of profile
+        # to hash of configuration values. This will load the shared
         # credentials file, and optionally the shared configuration file, as ini
         # files which support profiles.
         #
@@ -30,38 +32,24 @@ module AWS
         # @param [Boolean] config_enabled (true) If true, loads the shared config
         #   file and enables new config values outside of the old shared credential
         #   spec.
-        def initialize(credentials_path: nil, config_path: nil, config_enabled: true)
-          @parsed_config = nil
-          @config_enabled = config_enabled
-          @credentials_path = credentials_path ||
-                              determine_credentials_path
-          @parsed_credentials = {}
-          load_credentials_file if loadable?(@credentials_path)
-          return unless @config_enabled
+        def self.load(credentials_path: nil, config_path: nil, config_enabled: true)
+          credentials_path ||= determine_credentials_path
+          parsed_credentials = {}
+          parsed_credentials = load_file(credentials_path) if loadable?(credentials_path)
 
-          @config_path = config_path || determine_config_path
-          load_config_file if loadable?(@config_path)
+          parsed_config = {}
+          if config_enabled
+            config_path ||= determine_config_path
+            parsed_config = load_file(config_path) if loadable?(config_path)
+          end
+
+          # merge config and credentials (preferring credentials values)
+          merged_config = parsed_config
+          parsed_credentials.each_pair do |k, v|
+            merged_config[k] = merged_config.fetch(k, {}).merge(v).freeze
+          end
+          merged_config.freeze
         end
-
-        # @return [String]
-        attr_reader :credentials_path
-
-        # @return [String]
-        attr_reader :config_path
-
-        # Get a config value from from shared credential/config files.
-        # Only loads a value when config_enabled is true
-        # Return a value from credentials preferentially over config
-        #
-        # @param profile The profile to fetch values from.
-        # @param key The configuration key to get a value for.
-        def get_config_value(profile, key)
-          value = @parsed_credentials.fetch(profile, {})[key] if @parsed_credentials
-          value ||= @parsed_config.fetch(profile, {})[key] if @config_enabled && @parsed_config
-          value
-        end
-
-        alias [] get_config_value
 
         private
 
@@ -69,29 +57,23 @@ module AWS
         #   exists and has appropriate read permissions at {#path}.
         # @note This method does not indicate if the file found at {#path}
         #   will be parsable, only if it can be read.
-        def loadable?(path)
+        def self.loadable?(path)
           !path.nil? && File.exist?(path) && File.readable?(path)
         end
 
-        def load_credentials_file
-          @parsed_credentials = IniParser.ini_parse(
-            File.read(@credentials_path)
-          )
+        def self.load_file(file_path)
+          IniParser.ini_parse(File.read(file_path))
         end
 
-        def load_config_file
-          @parsed_config = IniParser.ini_parse(File.read(@config_path))
-        end
-
-        def determine_credentials_path
+        def self.determine_credentials_path
           ENV['AWS_SHARED_CREDENTIALS_FILE'] || default_shared_config_path('credentials')
         end
 
-        def determine_config_path
+        def self.determine_config_path
           ENV['AWS_CONFIG_FILE'] || default_shared_config_path('config')
         end
 
-        def default_shared_config_path(file)
+        def self.default_shared_config_path(file)
           File.join(Dir.home, '.aws', file)
         rescue ArgumentError
           # Dir.home raises ArgumentError when ENV['home'] is not set

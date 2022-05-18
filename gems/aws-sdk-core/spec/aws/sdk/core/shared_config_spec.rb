@@ -15,7 +15,7 @@ module AWS
           File.expand_path(
             File.join(
               File.dirname(__FILE__),
-              '..', 'fixtures', 'credentials', 'mock_shared_credentials'
+              '..', '..', '..', 'fixtures', 'shared_config', 'mock_shared_credentials'
             )
           )
         end
@@ -24,51 +24,48 @@ module AWS
           File.expand_path(
             File.join(
               File.dirname(__FILE__),
-              '..', 'fixtures', 'credentials', 'mock_shared_config'
+              '..', '..', '..', 'fixtures', 'shared_config', 'mock_shared_config'
             )
           )
         end
 
-        describe '#initialize' do
+        describe '.load' do
           before(:each) do
             allow(Dir).to receive(:home).and_return('HOME')
           end
 
-          it 'defaults credentials_path to Dir.home/.aws/credentials' do
-            config = SharedConfig.new
-            expect(config.credentials_path).to eq(
-              File.join('HOME', '.aws', 'credentials')
-            )
+          it 'defaults paths to Dir.home/.aws/' do
+            expect(File).to receive(:exist?)
+                        .with(File.join('HOME', '.aws', 'credentials'))
+                        .and_return(false)
+            expect(File).to receive(:exist?)
+                              .with(File.join('HOME', '.aws', 'config'))
+                              .and_return(false)
+            SharedConfig.load
           end
 
-          it 'defaults config_path to Dir.home/.aws/config' do
-            config = SharedConfig.new(config_enabled: true)
-            expect(config.config_path).to eq(
-              File.join('HOME', '.aws', 'config')
-            )
-          end
-
-          it 'will use the ENV variable AWS_SHARED_CREDENTIALS_FILE if set' do
+          it 'uses the ENV variable AWS_SHARED_CREDENTIALS_FILE if set' do
             expected_credentials_path = '/tmp/aws-test-credentials.ini'
             stub_const('ENV', 'AWS_SHARED_CREDENTIALS_FILE' => expected_credentials_path)
-            config = SharedConfig.new
-            expect(config.credentials_path).to eq(expected_credentials_path)
+            allow(File).to receive(:exist?).and_return(false)
+            expect(File).to receive(:exist?).with(expected_credentials_path)
+            SharedConfig.load
           end
 
-          it 'will use the ENV variable AWS_CONFIG_FILE if set' do
+          it 'uses the ENV variable AWS_CONFIG_FILE if set' do
             expected_config_path = '/tmp/aws-test-config.ini'
             stub_const('ENV', 'AWS_CONFIG_FILE' => expected_config_path)
             config = SharedConfig.new(config_enabled: true)
             expect(config.config_path).to eq(expected_config_path)
           end
 
-          it 'will not load the shared config file if no ENV variable set' do
-            config = SharedConfig.new
-            expect(config.config_path).to be_nil
-          end
-
-          it 'creates the class' do
-            config = SharedConfig.new
+          it 'does not load the config file when config_enabled is false' do
+            expect(File).to receive(:read).with(mock_credential_file).and_call_original
+            expect(File).not_to receive(:read).with(mock_config_file).and_call_original
+            SharedConfig.load(
+              credentials_path: mock_credential_file,
+              config_path: mock_config_file,
+              config_enabled: false)
           end
         end
       end
