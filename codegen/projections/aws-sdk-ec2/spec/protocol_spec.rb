@@ -15,8 +15,7 @@ require 'hearth/query/param_matcher'
 module AWS::Ec2
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }
-    let(:config) { Config.new(stub_responses: true, endpoint: endpoint) }
-    let(:client) { Client.new(config) }
+    let(:client) { Client.new(stub_responses: true, endpoint: endpoint) }
 
     describe '#accept_reserved_instances_exchange_quote' do
 

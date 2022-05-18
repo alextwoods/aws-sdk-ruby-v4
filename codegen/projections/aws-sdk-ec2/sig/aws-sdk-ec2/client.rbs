@@ -13,7 +13,7 @@ module AWS::Ec2
 
     def self.middleware: () -> untyped
 
-    def initialize: (?untyped config, ?::Hash[untyped, untyped] options) -> void
+    def initialize: (?::Hash[untyped, untyped] options) -> void
     def accept_reserved_instances_exchange_quote: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
     def accept_transit_gateway_multicast_domain_associations: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
     def accept_transit_gateway_peering_attachment: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped

@@ -13,7 +13,7 @@ module AWS::Sso
 
     def self.middleware: () -> untyped
 
-    def initialize: (?untyped config, ?::Hash[untyped, untyped] options) -> void
+    def initialize: (?::Hash[untyped, untyped] options) -> void
     def get_role_credentials: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
     def list_account_roles: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
     def list_accounts: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped

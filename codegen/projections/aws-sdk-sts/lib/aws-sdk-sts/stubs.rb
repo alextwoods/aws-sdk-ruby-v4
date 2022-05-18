@@ -32,6 +32,7 @@ module AWS::Sts
         xml << Hearth::XML::Node.new('SourceIdentity', stub[:source_identity].to_s) unless stub[:source_identity].nil?
         response << xml
         http_resp.body = StringIO.new(response.to_str)
+        http_resp.status = 200
       end
     end
 
@@ -111,6 +112,7 @@ module AWS::Sts
         xml << Hearth::XML::Node.new('SourceIdentity', stub[:source_identity].to_s) unless stub[:source_identity].nil?
         response << xml
         http_resp.body = StringIO.new(response.to_str)
+        http_resp.status = 200
       end
     end
 
@@ -142,6 +144,7 @@ module AWS::Sts
         xml << Hearth::XML::Node.new('SourceIdentity', stub[:source_identity].to_s) unless stub[:source_identity].nil?
         response << xml
         http_resp.body = StringIO.new(response.to_str)
+        http_resp.status = 200
       end
     end
 
@@ -161,6 +164,7 @@ module AWS::Sts
         xml << Hearth::XML::Node.new('DecodedMessage', stub[:decoded_message].to_s) unless stub[:decoded_message].nil?
         response << xml
         http_resp.body = StringIO.new(response.to_str)
+        http_resp.status = 200
       end
     end
 
@@ -180,6 +184,7 @@ module AWS::Sts
         xml << Hearth::XML::Node.new('Account', stub[:account].to_s) unless stub[:account].nil?
         response << xml
         http_resp.body = StringIO.new(response.to_str)
+        http_resp.status = 200
       end
     end
 
@@ -203,6 +208,7 @@ module AWS::Sts
         xml << Hearth::XML::Node.new('Arn', stub[:arn].to_s) unless stub[:arn].nil?
         response << xml
         http_resp.body = StringIO.new(response.to_str)
+        http_resp.status = 200
       end
     end
 
@@ -226,6 +232,7 @@ module AWS::Sts
         xml << Hearth::XML::Node.new('PackedPolicySize', stub[:packed_policy_size].to_s) unless stub[:packed_policy_size].nil?
         response << xml
         http_resp.body = StringIO.new(response.to_str)
+        http_resp.status = 200
       end
     end
 
@@ -265,6 +272,7 @@ module AWS::Sts
         xml << Stubs::Credentials.stub('Credentials', stub[:credentials]) unless stub[:credentials].nil?
         response << xml
         http_resp.body = StringIO.new(response.to_str)
+        http_resp.status = 200
       end
     end
   end

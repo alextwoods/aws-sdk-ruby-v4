@@ -249,6 +249,36 @@ public class ParserGenerator extends RestParserGeneratorBase {
         }
 
         @Override
+        public Void booleanShape(BooleanShape shape) {
+            writer.write("$1L$2L == 'true' unless $2L.nil?", dataSetter, valueGetter);
+            return null;
+        }
+
+        @Override
+        public Void integerShape(IntegerShape shape) {
+            writer.write("$1L$2L.to_i unless $2L.nil?", dataSetter, valueGetter);
+            return null;
+        }
+
+        @Override
+        public Void byteShape(ByteShape shape) {
+            writer.write("$1L$2L.to_i unless $2L.nil?", dataSetter, valueGetter);
+            return null;
+        }
+
+        @Override
+        public Void longShape(LongShape shape) {
+            writer.write("$1L$2L.to_i unless $2L.nil?", dataSetter, valueGetter);
+            return null;
+        }
+
+        @Override
+        public Void shortShape(ShortShape shape) {
+            writer.write("$1L$2L.to_i unless $2L.nil?", dataSetter, valueGetter);
+            return null;
+        }
+
+        @Override
         public Void timestampShape(TimestampShape shape) {
             writer.write("$L$L if $L", dataSetter,
                     TimestampFormat.parseTimestamp(
