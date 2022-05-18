@@ -60,6 +60,24 @@ module AWS
             SharedConfig.load
           end
         end
+
+        it 'loads values from the credentials file' do
+          config = SharedConfig.load(config_path: mock_config_file)
+          expect(config['default']['region']).to eq('us-east-1')
+        end
+
+        it 'merges values from config and credentials and prefers credentials' do
+          config = SharedConfig.load(
+            config_path: mock_config_file,
+            credentials_path: mock_credential_file
+          )
+          # defined only in config
+          expect(config['default']['region']).to eq('us-east-1')
+
+          # defined in both
+          credential_value = 'ACCESS_KEY_0'
+          expect(config['default']['aws_access_key_id']).to eq(credential_value)
+        end
       end
     end
   end

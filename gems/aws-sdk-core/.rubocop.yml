@@ -1,0 +1,24 @@
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.0
+
+Metrics:
+  Exclude:
+    - 'spec/**/*.rb'
+    - 'lib/aws/sdk/core/ini_parser.rb'
+
+# For some reason, Metrics disable doesn't cover this
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+Gemspec/RequireMFA:
+  Exclude:
+    - '**/*.gemspec'
+
+Metrics/MethodLength:
+  Max: 15
+
+Naming/FileName:
+  Exclude:
+    - 'lib/aws-sdk-core.rb'

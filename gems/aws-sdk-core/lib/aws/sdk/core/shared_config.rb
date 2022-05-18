@@ -37,12 +37,7 @@ module AWS
           config_path ||= determine_config_path
           parsed_config = load_file(config_path) if loadable?(config_path)
 
-          # merge config and credentials (preferring credentials values)
-          merged_config = parsed_config
-          parsed_credentials.each_pair do |k, v|
-            merged_config[k] = merged_config.fetch(k, {}).merge(v).freeze
-          end
-          merged_config.freeze
+          merge_configs(parsed_config, parsed_credentials)
         end
 
         # @return [Boolean] Returns `true` if a credential file
@@ -55,6 +50,15 @@ module AWS
 
         def self.load_file(file_path)
           IniParser.ini_parse(File.read(file_path))
+        end
+
+        # merge config and credentials (preferring credentials values)
+        def self.merge_configs(parsed_config, parsed_credentials)
+          merged_config = parsed_config
+          parsed_credentials.each_pair do |k, v|
+            merged_config[k] = merged_config.fetch(k, {}).merge(v).freeze
+          end
+          merged_config.freeze
         end
 
         def self.determine_credentials_path
