@@ -47,6 +47,12 @@ module AWS::Cloudfront
     end
 
     class AccessDenied < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::AccessDenied.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -60,6 +66,12 @@ module AWS::Cloudfront
     end
 
     class BatchTooLarge < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::BatchTooLarge.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -73,6 +85,12 @@ module AWS::Cloudfront
     end
 
     class CNAMEAlreadyExists < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::CNAMEAlreadyExists.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -86,6 +104,12 @@ module AWS::Cloudfront
     end
 
     class CachePolicyAlreadyExists < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::CachePolicyAlreadyExists.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -99,6 +123,12 @@ module AWS::Cloudfront
     end
 
     class CachePolicyInUse < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::CachePolicyInUse.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -112,6 +142,12 @@ module AWS::Cloudfront
     end
 
     class CannotChangeImmutablePublicKeyFields < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::CannotChangeImmutablePublicKeyFields.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -125,6 +161,12 @@ module AWS::Cloudfront
     end
 
     class CloudFrontOriginAccessIdentityAlreadyExists < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::CloudFrontOriginAccessIdentityAlreadyExists.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -138,6 +180,12 @@ module AWS::Cloudfront
     end
 
     class CloudFrontOriginAccessIdentityInUse < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::CloudFrontOriginAccessIdentityInUse.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -151,6 +199,12 @@ module AWS::Cloudfront
     end
 
     class DistributionAlreadyExists < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::DistributionAlreadyExists.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -164,6 +218,12 @@ module AWS::Cloudfront
     end
 
     class DistributionNotDisabled < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::DistributionNotDisabled.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -177,6 +237,12 @@ module AWS::Cloudfront
     end
 
     class FieldLevelEncryptionConfigAlreadyExists < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::FieldLevelEncryptionConfigAlreadyExists.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -190,6 +256,12 @@ module AWS::Cloudfront
     end
 
     class FieldLevelEncryptionConfigInUse < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::FieldLevelEncryptionConfigInUse.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -203,6 +275,12 @@ module AWS::Cloudfront
     end
 
     class FieldLevelEncryptionProfileAlreadyExists < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::FieldLevelEncryptionProfileAlreadyExists.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -216,6 +294,12 @@ module AWS::Cloudfront
     end
 
     class FieldLevelEncryptionProfileInUse < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::FieldLevelEncryptionProfileInUse.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -229,6 +313,12 @@ module AWS::Cloudfront
     end
 
     class FieldLevelEncryptionProfileSizeExceeded < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::FieldLevelEncryptionProfileSizeExceeded.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -242,6 +332,12 @@ module AWS::Cloudfront
     end
 
     class FunctionAlreadyExists < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::FunctionAlreadyExists.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -255,6 +351,12 @@ module AWS::Cloudfront
     end
 
     class FunctionInUse < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::FunctionInUse.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -268,6 +370,12 @@ module AWS::Cloudfront
     end
 
     class FunctionSizeLimitExceeded < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::FunctionSizeLimitExceeded.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -281,6 +389,12 @@ module AWS::Cloudfront
     end
 
     class IllegalDelete < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::IllegalDelete.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -294,6 +408,12 @@ module AWS::Cloudfront
     end
 
     class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -307,6 +427,12 @@ module AWS::Cloudfront
     end
 
     class IllegalUpdate < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::IllegalUpdate.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -320,6 +446,12 @@ module AWS::Cloudfront
     end
 
     class InconsistentQuantities < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InconsistentQuantities.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -333,6 +465,12 @@ module AWS::Cloudfront
     end
 
     class InvalidArgument < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidArgument.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -346,6 +484,12 @@ module AWS::Cloudfront
     end
 
     class InvalidDefaultRootObject < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidDefaultRootObject.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -359,6 +503,12 @@ module AWS::Cloudfront
     end
 
     class InvalidErrorCode < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidErrorCode.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -372,6 +522,12 @@ module AWS::Cloudfront
     end
 
     class InvalidForwardCookies < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidForwardCookies.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -385,6 +541,12 @@ module AWS::Cloudfront
     end
 
     class InvalidFunctionAssociation < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidFunctionAssociation.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -398,6 +560,12 @@ module AWS::Cloudfront
     end
 
     class InvalidGeoRestrictionParameter < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidGeoRestrictionParameter.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -411,6 +579,12 @@ module AWS::Cloudfront
     end
 
     class InvalidHeadersForS3Origin < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidHeadersForS3Origin.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -424,6 +598,12 @@ module AWS::Cloudfront
     end
 
     class InvalidIfMatchVersion < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidIfMatchVersion.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -437,6 +617,12 @@ module AWS::Cloudfront
     end
 
     class InvalidLambdaFunctionAssociation < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidLambdaFunctionAssociation.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -450,6 +636,12 @@ module AWS::Cloudfront
     end
 
     class InvalidLocationCode < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidLocationCode.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -463,6 +655,12 @@ module AWS::Cloudfront
     end
 
     class InvalidMinimumProtocolVersion < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidMinimumProtocolVersion.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -476,6 +674,12 @@ module AWS::Cloudfront
     end
 
     class InvalidOrigin < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidOrigin.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -489,6 +693,12 @@ module AWS::Cloudfront
     end
 
     class InvalidOriginAccessIdentity < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidOriginAccessIdentity.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -502,6 +712,12 @@ module AWS::Cloudfront
     end
 
     class InvalidOriginKeepaliveTimeout < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidOriginKeepaliveTimeout.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -515,6 +731,12 @@ module AWS::Cloudfront
     end
 
     class InvalidOriginReadTimeout < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidOriginReadTimeout.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -528,6 +750,12 @@ module AWS::Cloudfront
     end
 
     class InvalidProtocolSettings < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidProtocolSettings.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -541,6 +769,12 @@ module AWS::Cloudfront
     end
 
     class InvalidQueryStringParameters < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidQueryStringParameters.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -554,6 +788,12 @@ module AWS::Cloudfront
     end
 
     class InvalidRelativePath < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidRelativePath.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -567,6 +807,12 @@ module AWS::Cloudfront
     end
 
     class InvalidRequiredProtocol < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidRequiredProtocol.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -580,6 +826,12 @@ module AWS::Cloudfront
     end
 
     class InvalidResponseCode < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidResponseCode.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -593,6 +845,12 @@ module AWS::Cloudfront
     end
 
     class InvalidTTLOrder < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidTTLOrder.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -606,6 +864,12 @@ module AWS::Cloudfront
     end
 
     class InvalidTagging < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidTagging.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -619,6 +883,12 @@ module AWS::Cloudfront
     end
 
     class InvalidViewerCertificate < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidViewerCertificate.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -632,6 +902,12 @@ module AWS::Cloudfront
     end
 
     class InvalidWebACLId < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidWebACLId.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -645,6 +921,12 @@ module AWS::Cloudfront
     end
 
     class KeyGroupAlreadyExists < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::KeyGroupAlreadyExists.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -658,6 +940,12 @@ module AWS::Cloudfront
     end
 
     class MissingBody < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::MissingBody.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -671,6 +959,12 @@ module AWS::Cloudfront
     end
 
     class NoSuchCachePolicy < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::NoSuchCachePolicy.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -684,6 +978,12 @@ module AWS::Cloudfront
     end
 
     class NoSuchCloudFrontOriginAccessIdentity < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::NoSuchCloudFrontOriginAccessIdentity.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -697,6 +997,12 @@ module AWS::Cloudfront
     end
 
     class NoSuchDistribution < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::NoSuchDistribution.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -710,6 +1016,12 @@ module AWS::Cloudfront
     end
 
     class NoSuchFieldLevelEncryptionConfig < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::NoSuchFieldLevelEncryptionConfig.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -723,6 +1035,12 @@ module AWS::Cloudfront
     end
 
     class NoSuchFieldLevelEncryptionProfile < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::NoSuchFieldLevelEncryptionProfile.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -736,6 +1054,12 @@ module AWS::Cloudfront
     end
 
     class NoSuchFunctionExists < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::NoSuchFunctionExists.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -749,6 +1073,12 @@ module AWS::Cloudfront
     end
 
     class NoSuchInvalidation < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::NoSuchInvalidation.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -762,6 +1092,12 @@ module AWS::Cloudfront
     end
 
     class NoSuchOrigin < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::NoSuchOrigin.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -775,6 +1111,12 @@ module AWS::Cloudfront
     end
 
     class NoSuchOriginRequestPolicy < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::NoSuchOriginRequestPolicy.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -788,6 +1130,12 @@ module AWS::Cloudfront
     end
 
     class NoSuchPublicKey < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::NoSuchPublicKey.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -801,6 +1149,12 @@ module AWS::Cloudfront
     end
 
     class NoSuchRealtimeLogConfig < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::NoSuchRealtimeLogConfig.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -814,6 +1168,12 @@ module AWS::Cloudfront
     end
 
     class NoSuchResource < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::NoSuchResource.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -827,6 +1187,12 @@ module AWS::Cloudfront
     end
 
     class NoSuchResponseHeadersPolicy < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::NoSuchResponseHeadersPolicy.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -840,6 +1206,12 @@ module AWS::Cloudfront
     end
 
     class NoSuchStreamingDistribution < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::NoSuchStreamingDistribution.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -853,6 +1225,12 @@ module AWS::Cloudfront
     end
 
     class OriginRequestPolicyAlreadyExists < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::OriginRequestPolicyAlreadyExists.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -866,6 +1244,12 @@ module AWS::Cloudfront
     end
 
     class OriginRequestPolicyInUse < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::OriginRequestPolicyInUse.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -879,6 +1263,12 @@ module AWS::Cloudfront
     end
 
     class PreconditionFailed < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::PreconditionFailed.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -892,6 +1282,12 @@ module AWS::Cloudfront
     end
 
     class PublicKeyAlreadyExists < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::PublicKeyAlreadyExists.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -905,6 +1301,12 @@ module AWS::Cloudfront
     end
 
     class PublicKeyInUse < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::PublicKeyInUse.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -918,6 +1320,12 @@ module AWS::Cloudfront
     end
 
     class QueryArgProfileEmpty < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::QueryArgProfileEmpty.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -931,6 +1339,12 @@ module AWS::Cloudfront
     end
 
     class RealtimeLogConfigAlreadyExists < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::RealtimeLogConfigAlreadyExists.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -944,6 +1358,12 @@ module AWS::Cloudfront
     end
 
     class RealtimeLogConfigInUse < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::RealtimeLogConfigInUse.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -957,6 +1377,12 @@ module AWS::Cloudfront
     end
 
     class RealtimeLogConfigOwnerMismatch < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::RealtimeLogConfigOwnerMismatch.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -970,6 +1396,12 @@ module AWS::Cloudfront
     end
 
     class ResourceInUse < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ResourceInUse.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -983,6 +1415,12 @@ module AWS::Cloudfront
     end
 
     class ResponseHeadersPolicyAlreadyExists < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ResponseHeadersPolicyAlreadyExists.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -996,6 +1434,12 @@ module AWS::Cloudfront
     end
 
     class ResponseHeadersPolicyInUse < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ResponseHeadersPolicyInUse.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1009,6 +1453,12 @@ module AWS::Cloudfront
     end
 
     class StreamingDistributionAlreadyExists < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::StreamingDistributionAlreadyExists.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1022,6 +1472,12 @@ module AWS::Cloudfront
     end
 
     class StreamingDistributionNotDisabled < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::StreamingDistributionNotDisabled.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1035,6 +1491,12 @@ module AWS::Cloudfront
     end
 
     class TestFunctionFailed < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TestFunctionFailed.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1048,6 +1510,12 @@ module AWS::Cloudfront
     end
 
     class TooManyCacheBehaviors < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyCacheBehaviors.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1061,6 +1529,12 @@ module AWS::Cloudfront
     end
 
     class TooManyCachePolicies < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyCachePolicies.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1074,6 +1548,12 @@ module AWS::Cloudfront
     end
 
     class TooManyCertificates < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyCertificates.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1087,6 +1567,12 @@ module AWS::Cloudfront
     end
 
     class TooManyCloudFrontOriginAccessIdentities < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyCloudFrontOriginAccessIdentities.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1100,6 +1586,12 @@ module AWS::Cloudfront
     end
 
     class TooManyCookieNamesInWhiteList < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyCookieNamesInWhiteList.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1113,6 +1605,12 @@ module AWS::Cloudfront
     end
 
     class TooManyCookiesInCachePolicy < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyCookiesInCachePolicy.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1126,6 +1624,12 @@ module AWS::Cloudfront
     end
 
     class TooManyCookiesInOriginRequestPolicy < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyCookiesInOriginRequestPolicy.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1139,6 +1643,12 @@ module AWS::Cloudfront
     end
 
     class TooManyCustomHeadersInResponseHeadersPolicy < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyCustomHeadersInResponseHeadersPolicy.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1152,6 +1662,12 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionCNAMEs < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyDistributionCNAMEs.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1165,6 +1681,12 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributions < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyDistributions.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1178,6 +1700,12 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsAssociatedToCachePolicy < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyDistributionsAssociatedToCachePolicy.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1191,6 +1719,12 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsAssociatedToFieldLevelEncryptionConfig < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1204,6 +1738,12 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsAssociatedToKeyGroup < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyDistributionsAssociatedToKeyGroup.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1217,6 +1757,12 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsAssociatedToOriginRequestPolicy < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyDistributionsAssociatedToOriginRequestPolicy.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1230,6 +1776,12 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsAssociatedToResponseHeadersPolicy < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyDistributionsAssociatedToResponseHeadersPolicy.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1243,6 +1795,12 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsWithFunctionAssociations < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyDistributionsWithFunctionAssociations.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1256,6 +1814,12 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsWithLambdaAssociations < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyDistributionsWithLambdaAssociations.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1269,6 +1833,12 @@ module AWS::Cloudfront
     end
 
     class TooManyDistributionsWithSingleFunctionARN < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyDistributionsWithSingleFunctionARN.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1282,6 +1852,12 @@ module AWS::Cloudfront
     end
 
     class TooManyFieldLevelEncryptionConfigs < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyFieldLevelEncryptionConfigs.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1295,6 +1871,12 @@ module AWS::Cloudfront
     end
 
     class TooManyFieldLevelEncryptionContentTypeProfiles < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyFieldLevelEncryptionContentTypeProfiles.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1308,6 +1890,12 @@ module AWS::Cloudfront
     end
 
     class TooManyFieldLevelEncryptionEncryptionEntities < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyFieldLevelEncryptionEncryptionEntities.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1321,6 +1909,12 @@ module AWS::Cloudfront
     end
 
     class TooManyFieldLevelEncryptionFieldPatterns < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyFieldLevelEncryptionFieldPatterns.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1334,6 +1928,12 @@ module AWS::Cloudfront
     end
 
     class TooManyFieldLevelEncryptionProfiles < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyFieldLevelEncryptionProfiles.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1347,6 +1947,12 @@ module AWS::Cloudfront
     end
 
     class TooManyFieldLevelEncryptionQueryArgProfiles < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyFieldLevelEncryptionQueryArgProfiles.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1360,6 +1966,12 @@ module AWS::Cloudfront
     end
 
     class TooManyFunctionAssociations < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyFunctionAssociations.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1373,6 +1985,12 @@ module AWS::Cloudfront
     end
 
     class TooManyFunctions < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyFunctions.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1386,6 +2004,12 @@ module AWS::Cloudfront
     end
 
     class TooManyHeadersInCachePolicy < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyHeadersInCachePolicy.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1399,6 +2023,12 @@ module AWS::Cloudfront
     end
 
     class TooManyHeadersInForwardedValues < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyHeadersInForwardedValues.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1412,6 +2042,12 @@ module AWS::Cloudfront
     end
 
     class TooManyHeadersInOriginRequestPolicy < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyHeadersInOriginRequestPolicy.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1425,6 +2061,12 @@ module AWS::Cloudfront
     end
 
     class TooManyInvalidationsInProgress < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyInvalidationsInProgress.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1438,6 +2080,12 @@ module AWS::Cloudfront
     end
 
     class TooManyKeyGroups < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyKeyGroups.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1451,6 +2099,12 @@ module AWS::Cloudfront
     end
 
     class TooManyKeyGroupsAssociatedToDistribution < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyKeyGroupsAssociatedToDistribution.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1464,6 +2118,12 @@ module AWS::Cloudfront
     end
 
     class TooManyLambdaFunctionAssociations < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyLambdaFunctionAssociations.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1477,6 +2137,12 @@ module AWS::Cloudfront
     end
 
     class TooManyOriginCustomHeaders < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyOriginCustomHeaders.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1490,6 +2156,12 @@ module AWS::Cloudfront
     end
 
     class TooManyOriginGroupsPerDistribution < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyOriginGroupsPerDistribution.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1503,6 +2175,12 @@ module AWS::Cloudfront
     end
 
     class TooManyOriginRequestPolicies < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyOriginRequestPolicies.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1516,6 +2194,12 @@ module AWS::Cloudfront
     end
 
     class TooManyOrigins < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyOrigins.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1529,6 +2213,12 @@ module AWS::Cloudfront
     end
 
     class TooManyPublicKeys < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyPublicKeys.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1542,6 +2232,12 @@ module AWS::Cloudfront
     end
 
     class TooManyPublicKeysInKeyGroup < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyPublicKeysInKeyGroup.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1555,6 +2251,12 @@ module AWS::Cloudfront
     end
 
     class TooManyQueryStringParameters < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyQueryStringParameters.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1568,6 +2270,12 @@ module AWS::Cloudfront
     end
 
     class TooManyQueryStringsInCachePolicy < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyQueryStringsInCachePolicy.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1581,6 +2289,12 @@ module AWS::Cloudfront
     end
 
     class TooManyQueryStringsInOriginRequestPolicy < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyQueryStringsInOriginRequestPolicy.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1594,6 +2308,12 @@ module AWS::Cloudfront
     end
 
     class TooManyRealtimeLogConfigs < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyRealtimeLogConfigs.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1607,6 +2327,12 @@ module AWS::Cloudfront
     end
 
     class TooManyResponseHeadersPolicies < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyResponseHeadersPolicies.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1620,6 +2346,12 @@ module AWS::Cloudfront
     end
 
     class TooManyStreamingDistributionCNAMEs < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyStreamingDistributionCNAMEs.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1633,6 +2365,12 @@ module AWS::Cloudfront
     end
 
     class TooManyStreamingDistributions < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyStreamingDistributions.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1646,6 +2384,12 @@ module AWS::Cloudfront
     end
 
     class TooManyTrustedSigners < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyTrustedSigners.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1659,6 +2403,12 @@ module AWS::Cloudfront
     end
 
     class TrustedKeyGroupDoesNotExist < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TrustedKeyGroupDoesNotExist.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1672,6 +2422,12 @@ module AWS::Cloudfront
     end
 
     class TrustedSignerDoesNotExist < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TrustedSignerDoesNotExist.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -1685,6 +2441,12 @@ module AWS::Cloudfront
     end
 
     class UnsupportedOperation < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::UnsupportedOperation.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)

@@ -42,15 +42,43 @@ module AWS::Dynamodb
       @middleware
     end
 
-    # @param [Config] config
-    #   An instance of {Config}
+    # @overload initialize(options)
+    # @param [Hash] options
+    # @option options [Boolean] :disable_host_prefix (false)
+    #   When `true`, does not perform host prefix injection using @endpoint's hostPrefix property.
     #
-    def initialize(config = AWS::Dynamodb::Config.new, options = {})
-      @config = config
+    # @option options [string] :endpoint
+    #   Endpoint of the service
+    #
+    # @option options [bool] :http_wire_trace (false)
+    #   Enable debug wire trace on http requests.
+    #
+    # @option options [symbol] :log_level (:info)
+    #   Default log level to use
+    #
+    # @option options [Logger] :logger (stdout)
+    #   Logger to use for output
+    #
+    # @option options [MiddlewareBuilder] :middleware
+    #   Additional Middleware to be applied for every operation
+    #
+    # @option options [Bool] :stub_responses (false)
+    #   Enable response stubbing. See documentation for {#stub_responses}
+    #
+    # @option options [Boolean] :validate_input (true)
+    #   When `true`, request parameters are validated using the modeled shapes.
+    #
+    def initialize(options = {})
+      @disable_host_prefix = options.fetch(:disable_host_prefix, false)
+      @endpoint = options[:endpoint]
+      @http_wire_trace = options.fetch(:http_wire_trace, false)
+      @log_level = options.fetch(:log_level, :info)
+      @logger = options.fetch(:logger, Logger.new($stdout, level: @log_level))
       @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
+      @stub_responses = options.fetch(:stub_responses, false)
       @stubs = Hearth::Stubbing::Stubs.new
-      @retry_quota = Hearth::Retry::RetryQuota.new
-      @client_rate_limiter = Hearth::Retry::ClientRateLimiter.new
+      @validate_input = options.fetch(:validate_input, true)
+
     end
 
     # <p>This operation allows you to perform batch reads or writes on data stored in DynamoDB,
@@ -156,41 +184,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchExecuteStatementInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::BatchExecuteStatement
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::RequestLimitExceeded]),
         data_parser: Parsers::BatchExecuteStatement
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::BatchExecuteStatement,
-        stubs: @stubs,
-        params_class: Params::BatchExecuteStatementOutput
+        params_class: Params::BatchExecuteStatementOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :batch_execute_statement
         )
       )
@@ -455,41 +475,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchGetItemInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::BatchGetItem
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::BatchGetItem
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::BatchGetItem,
-        stubs: @stubs,
-        params_class: Params::BatchGetItemOutput
+        params_class: Params::BatchGetItemOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :batch_get_item
         )
       )
@@ -732,41 +744,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::BatchWriteItemInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::BatchWriteItem
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::BatchWriteItem
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::BatchWriteItem,
-        stubs: @stubs,
-        params_class: Params::BatchWriteItemOutput
+        params_class: Params::BatchWriteItemOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :batch_write_item
         )
       )
@@ -841,41 +845,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateBackupInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateBackup
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]),
         data_parser: Parsers::CreateBackup
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateBackup,
-        stubs: @stubs,
-        params_class: Params::CreateBackupOutput
+        params_class: Params::CreateBackupOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :create_backup
         )
       )
@@ -995,41 +991,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateGlobalTableInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateGlobalTable
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableNotFoundException, Errors::GlobalTableAlreadyExistsException]),
         data_parser: Parsers::CreateGlobalTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateGlobalTable,
-        stubs: @stubs,
-        params_class: Params::CreateGlobalTableOutput
+        params_class: Params::CreateGlobalTableOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :create_global_table
         )
       )
@@ -1456,41 +1444,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateTableInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateTable
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::CreateTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::CreateTable,
-        stubs: @stubs,
-        params_class: Params::CreateTableOutput
+        params_class: Params::CreateTableOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :create_table
         )
       )
@@ -1576,41 +1556,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteBackupInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteBackup
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::BackupInUseException]),
         data_parser: Parsers::DeleteBackup
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteBackup,
-        stubs: @stubs,
-        params_class: Params::DeleteBackupOutput
+        params_class: Params::DeleteBackupOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :delete_backup
         )
       )
@@ -1875,41 +1847,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteItemInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteItem
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::DeleteItem
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteItem,
-        stubs: @stubs,
-        params_class: Params::DeleteItemOutput
+        params_class: Params::DeleteItemOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :delete_item
         )
       )
@@ -2046,41 +2010,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteTableInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteTable
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::DeleteTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DeleteTable,
-        stubs: @stubs,
-        params_class: Params::DeleteTableOutput
+        params_class: Params::DeleteTableOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :delete_table
         )
       )
@@ -2166,41 +2122,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeBackupInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeBackup
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException]),
         data_parser: Parsers::DescribeBackup
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeBackup,
-        stubs: @stubs,
-        params_class: Params::DescribeBackupOutput
+        params_class: Params::DescribeBackupOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :describe_backup
         )
       )
@@ -2252,41 +2200,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContinuousBackupsInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeContinuousBackups
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException]),
         data_parser: Parsers::DescribeContinuousBackups
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeContinuousBackups,
-        stubs: @stubs,
-        params_class: Params::DescribeContinuousBackupsOutput
+        params_class: Params::DescribeContinuousBackupsOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :describe_continuous_backups
         )
       )
@@ -2334,41 +2274,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeContributorInsightsInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeContributorInsights
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeContributorInsights
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeContributorInsights,
-        stubs: @stubs,
-        params_class: Params::DescribeContributorInsightsOutput
+        params_class: Params::DescribeContributorInsightsOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :describe_contributor_insights
         )
       )
@@ -2401,41 +2333,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeEndpointsInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeEndpoints
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeEndpoints
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeEndpoints,
-        stubs: @stubs,
-        params_class: Params::DescribeEndpointsOutput
+        params_class: Params::DescribeEndpointsOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :describe_endpoints
         )
       )
@@ -2489,41 +2413,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeExportInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeExport
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::LimitExceededException, Errors::ExportNotFoundException]),
         data_parser: Parsers::DescribeExport
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeExport,
-        stubs: @stubs,
-        params_class: Params::DescribeExportOutput
+        params_class: Params::DescribeExportOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :describe_export
         )
       )
@@ -2584,41 +2500,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGlobalTableInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeGlobalTable
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]),
         data_parser: Parsers::DescribeGlobalTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeGlobalTable,
-        stubs: @stubs,
-        params_class: Params::DescribeGlobalTableOutput
+        params_class: Params::DescribeGlobalTableOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :describe_global_table
         )
       )
@@ -2691,41 +2599,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeGlobalTableSettingsInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeGlobalTableSettings
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]),
         data_parser: Parsers::DescribeGlobalTableSettings
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeGlobalTableSettings,
-        stubs: @stubs,
-        params_class: Params::DescribeGlobalTableSettingsOutput
+        params_class: Params::DescribeGlobalTableSettingsOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :describe_global_table_settings
         )
       )
@@ -2765,41 +2665,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeKinesisStreamingDestinationInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeKinesisStreamingDestination
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeKinesisStreamingDestination
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeKinesisStreamingDestination,
-        stubs: @stubs,
-        params_class: Params::DescribeKinesisStreamingDestinationOutput
+        params_class: Params::DescribeKinesisStreamingDestinationOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :describe_kinesis_streaming_destination
         )
       )
@@ -2905,41 +2797,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeLimitsInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeLimits
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
         data_parser: Parsers::DescribeLimits
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeLimits,
-        stubs: @stubs,
-        params_class: Params::DescribeLimitsOutput
+        params_class: Params::DescribeLimitsOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :describe_limits
         )
       )
@@ -3067,41 +2951,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeTable
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeTable,
-        stubs: @stubs,
-        params_class: Params::DescribeTableOutput
+        params_class: Params::DescribeTableOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :describe_table
         )
       )
@@ -3166,41 +3042,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTableReplicaAutoScalingInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeTableReplicaAutoScaling
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeTableReplicaAutoScaling
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeTableReplicaAutoScaling,
-        stubs: @stubs,
-        params_class: Params::DescribeTableReplicaAutoScalingOutput
+        params_class: Params::DescribeTableReplicaAutoScalingOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :describe_table_replica_auto_scaling
         )
       )
@@ -3237,41 +3105,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DescribeTimeToLiveInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DescribeTimeToLive
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeTimeToLive
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DescribeTimeToLive,
-        stubs: @stubs,
-        params_class: Params::DescribeTimeToLiveOutput
+        params_class: Params::DescribeTimeToLiveOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :describe_time_to_live
         )
       )
@@ -3313,41 +3173,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DisableKinesisStreamingDestinationInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DisableKinesisStreamingDestination
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::DisableKinesisStreamingDestination
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::DisableKinesisStreamingDestination,
-        stubs: @stubs,
-        params_class: Params::DisableKinesisStreamingDestinationOutput
+        params_class: Params::DisableKinesisStreamingDestinationOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :disable_kinesis_streaming_destination
         )
       )
@@ -3391,41 +3243,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::EnableKinesisStreamingDestinationInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::EnableKinesisStreamingDestination
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::EnableKinesisStreamingDestination
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::EnableKinesisStreamingDestination,
-        stubs: @stubs,
-        params_class: Params::EnableKinesisStreamingDestinationOutput
+        params_class: Params::EnableKinesisStreamingDestinationOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :enable_kinesis_streaming_destination
         )
       )
@@ -3535,41 +3379,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteStatementInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ExecuteStatement
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::DuplicateItemException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::ExecuteStatement
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ExecuteStatement,
-        stubs: @stubs,
-        params_class: Params::ExecuteStatementOutput
+        params_class: Params::ExecuteStatementOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :execute_statement
         )
       )
@@ -3659,41 +3495,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExecuteTransactionInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ExecuteTransaction
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]),
         data_parser: Parsers::ExecuteTransaction
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ExecuteTransaction,
-        stubs: @stubs,
-        params_class: Params::ExecuteTransactionOutput
+        params_class: Params::ExecuteTransactionOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :execute_transaction
         )
       )
@@ -3808,41 +3636,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ExportTableToPointInTimeInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ExportTableToPointInTime
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidExportTimeException, Errors::LimitExceededException, Errors::PointInTimeRecoveryUnavailableException, Errors::ExportConflictException, Errors::TableNotFoundException]),
         data_parser: Parsers::ExportTableToPointInTime
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ExportTableToPointInTime,
-        stubs: @stubs,
-        params_class: Params::ExportTableToPointInTimeOutput
+        params_class: Params::ExportTableToPointInTimeOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :export_table_to_point_in_time
         )
       )
@@ -4031,41 +3851,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetItemInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetItem
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::GetItem
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::GetItem,
-        stubs: @stubs,
-        params_class: Params::GetItemOutput
+        params_class: Params::GetItemOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :get_item
         )
       )
@@ -4160,41 +3972,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListBackupsInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListBackups
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
         data_parser: Parsers::ListBackups
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListBackups,
-        stubs: @stubs,
-        params_class: Params::ListBackupsOutput
+        params_class: Params::ListBackupsOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :list_backups
         )
       )
@@ -4243,41 +4047,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListContributorInsightsInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListContributorInsights
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListContributorInsights
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListContributorInsights,
-        stubs: @stubs,
-        params_class: Params::ListContributorInsightsOutput
+        params_class: Params::ListContributorInsightsOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :list_contributor_insights
         )
       )
@@ -4326,41 +4122,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListExportsInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListExports
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::LimitExceededException]),
         data_parser: Parsers::ListExports
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListExports,
-        stubs: @stubs,
-        params_class: Params::ListExportsOutput
+        params_class: Params::ListExportsOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :list_exports
         )
       )
@@ -4418,41 +4206,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListGlobalTablesInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListGlobalTables
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
         data_parser: Parsers::ListGlobalTables
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListGlobalTables,
-        stubs: @stubs,
-        params_class: Params::ListGlobalTablesOutput
+        params_class: Params::ListGlobalTablesOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :list_global_tables
         )
       )
@@ -4498,41 +4278,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTablesInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListTables
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
         data_parser: Parsers::ListTables
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListTables,
-        stubs: @stubs,
-        params_class: Params::ListTablesOutput
+        params_class: Params::ListTablesOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :list_tables
         )
       )
@@ -4581,41 +4353,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsOfResourceInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListTagsOfResource
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListTagsOfResource
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::ListTagsOfResource,
-        stubs: @stubs,
-        params_class: Params::ListTagsOfResourceOutput
+        params_class: Params::ListTagsOfResourceOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :list_tags_of_resource
         )
       )
@@ -4959,41 +4723,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutItemInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutItem
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::PutItem
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::PutItem,
-        stubs: @stubs,
-        params_class: Params::PutItemOutput
+        params_class: Params::PutItemOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :put_item
         )
       )
@@ -5502,41 +5258,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::QueryInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::Query
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::Query
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::Query,
-        stubs: @stubs,
-        params_class: Params::QueryOutput
+        params_class: Params::QueryOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :query
         )
       )
@@ -5734,41 +5482,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreTableFromBackupInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::RestoreTableFromBackup
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableAlreadyExistsException]),
         data_parser: Parsers::RestoreTableFromBackup
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::RestoreTableFromBackup,
-        stubs: @stubs,
-        params_class: Params::RestoreTableFromBackupOutput
+        params_class: Params::RestoreTableFromBackupOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :restore_table_from_backup
         )
       )
@@ -6006,41 +5746,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RestoreTableToPointInTimeInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::RestoreTableToPointInTime
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::PointInTimeRecoveryUnavailableException, Errors::InvalidRestoreTimeException, Errors::TableAlreadyExistsException, Errors::TableNotFoundException]),
         data_parser: Parsers::RestoreTableToPointInTime
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::RestoreTableToPointInTime,
-        stubs: @stubs,
-        params_class: Params::RestoreTableToPointInTimeOutput
+        params_class: Params::RestoreTableToPointInTimeOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :restore_table_to_point_in_time
         )
       )
@@ -6423,41 +6155,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ScanInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::Scan
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::Scan
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::Scan,
-        stubs: @stubs,
-        params_class: Params::ScanOutput
+        params_class: Params::ScanOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :scan
         )
       )
@@ -6506,41 +6230,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::TagResource
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::TagResource
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::TagResource,
-        stubs: @stubs,
-        params_class: Params::TagResourceOutput
+        params_class: Params::TagResourceOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :tag_resource
         )
       )
@@ -6652,41 +6368,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransactGetItemsInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::TransactGetItems
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::TransactGetItems
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::TransactGetItems,
-        stubs: @stubs,
-        params_class: Params::TransactGetItemsOutput
+        params_class: Params::TransactGetItemsOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :transact_get_items
         )
       )
@@ -6919,41 +6627,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TransactWriteItemsInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::TransactWriteItems
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]),
         data_parser: Parsers::TransactWriteItems
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::TransactWriteItems,
-        stubs: @stubs,
-        params_class: Params::TransactWriteItemsOutput
+        params_class: Params::TransactWriteItemsOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :transact_write_items
         )
       )
@@ -6998,41 +6698,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UntagResource
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::UntagResource
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UntagResource,
-        stubs: @stubs,
-        params_class: Params::UntagResourceOutput
+        params_class: Params::UntagResourceOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :untag_resource
         )
       )
@@ -7089,41 +6781,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContinuousBackupsInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateContinuousBackups
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]),
         data_parser: Parsers::UpdateContinuousBackups
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateContinuousBackups,
-        stubs: @stubs,
-        params_class: Params::UpdateContinuousBackupsOutput
+        params_class: Params::UpdateContinuousBackupsOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :update_continuous_backups
         )
       )
@@ -7173,41 +6857,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateContributorInsightsInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateContributorInsights
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::UpdateContributorInsights
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateContributorInsights,
-        stubs: @stubs,
-        params_class: Params::UpdateContributorInsightsOutput
+        params_class: Params::UpdateContributorInsightsOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :update_contributor_insights
         )
       )
@@ -7299,41 +6975,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGlobalTableInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateGlobalTable
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException, Errors::ReplicaNotFoundException, Errors::TableNotFoundException, Errors::ReplicaAlreadyExistsException]),
         data_parser: Parsers::UpdateGlobalTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateGlobalTable,
-        stubs: @stubs,
-        params_class: Params::UpdateGlobalTableOutput
+        params_class: Params::UpdateGlobalTableOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :update_global_table
         )
       )
@@ -7472,41 +7140,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateGlobalTableSettingsInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateGlobalTableSettings
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::GlobalTableNotFoundException, Errors::IndexNotFoundException, Errors::ReplicaNotFoundException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateGlobalTableSettings
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateGlobalTableSettings,
-        stubs: @stubs,
-        params_class: Params::UpdateGlobalTableSettingsOutput
+        params_class: Params::UpdateGlobalTableSettingsOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :update_global_table_settings
         )
       )
@@ -7899,41 +7559,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateItemInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateItem
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::UpdateItem
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateItem,
-        stubs: @stubs,
-        params_class: Params::UpdateItemOutput
+        params_class: Params::UpdateItemOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :update_item
         )
       )
@@ -8221,41 +7873,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateTable
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateTable
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateTable,
-        stubs: @stubs,
-        params_class: Params::UpdateTableOutput
+        params_class: Params::UpdateTableOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :update_table
         )
       )
@@ -8362,41 +8006,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTableReplicaAutoScalingInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateTableReplicaAutoScaling
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateTableReplicaAutoScaling
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateTableReplicaAutoScaling,
-        stubs: @stubs,
-        params_class: Params::UpdateTableReplicaAutoScalingOutput
+        params_class: Params::UpdateTableReplicaAutoScalingOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :update_table_replica_auto_scaling
         )
       )
@@ -8465,41 +8101,33 @@ module AWS::Dynamodb
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateTimeToLiveInput,
-        validate_input: @config.validate_input
+        validate_input: options.fetch(:validate_input, @validate_input)
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateTimeToLive
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
-      stack.use(Hearth::Middleware::Retry,
-        retry_mode: @config.retry_mode,
-        error_inspector_class: Hearth::Retry::ErrorInspector,
-        retry_quota: @retry_quota,
-        max_attempts: @config.max_attempts,
-        client_rate_limiter: @client_rate_limiter,
-        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateTimeToLive
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: @config.stub_responses,
-        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_responses: options.fetch(:stub_responses, @stub_responses),
+        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
         stub_class: Stubs::UpdateTimeToLive,
-        stubs: @stubs,
-        params_class: Params::UpdateTimeToLiveOutput
+        params_class: Params::UpdateTimeToLiveOutput,
+        stubs: options.fetch(:stubs, @stubs)
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @config.logger,
+          logger: @logger,
           operation_name: :update_time_to_live
         )
       )
@@ -8513,6 +8141,13 @@ module AWS::Dynamodb
       Client.middleware.apply(middleware_stack)
       @middleware.apply(middleware_stack)
       Hearth::MiddlewareBuilder.new(middleware).apply(middleware_stack)
+    end
+
+    def output_stream(options = {}, &block)
+      return options[:output_stream] if options[:output_stream]
+      return Hearth::BlockIO.new(block) if block
+
+      StringIO.new
     end
   end
 end

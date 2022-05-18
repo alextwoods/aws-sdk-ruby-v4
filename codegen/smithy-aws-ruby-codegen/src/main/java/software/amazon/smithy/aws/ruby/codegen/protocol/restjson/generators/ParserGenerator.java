@@ -76,16 +76,18 @@ public class ParserGenerator extends RestParserGeneratorBase {
     protected void renderListParseMethod(ListShape s) {
         writer
                 .openBlock("def self.parse(list)")
+                .write("data = []")
                 .openBlock("list.map do |value|")
                 .call(() -> {
                     Shape memberTarget =
                             model.expectShape(s.getMember().getTarget());
                     memberTarget
                             .accept(new MemberDeserializer(s.getMember(),
-                                    "", "value",
+                                    "data << ", "value",
                                     !s.hasTrait(SparseTrait.class)));
                 })
                 .closeBlock("end")
+                .write("data")
                 .closeBlock("end");
     }
 
@@ -168,6 +170,9 @@ public class ParserGenerator extends RestParserGeneratorBase {
             }
 
             String valueGetter = "map['" + jsonName + "']";
+            if (jsonName.equals("message")) {
+                valueGetter = "map['message'] || map['Message']";
+            }
             target.accept(new MemberDeserializer(member, dataSetter, valueGetter, false));
         });
     }

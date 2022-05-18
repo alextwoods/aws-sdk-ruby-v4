@@ -50,6 +50,9 @@ module AWS::Sso
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
     #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
     #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
+    #
     #   @return [String]
     #
     GetRoleCredentialsInput = ::Struct.new(
@@ -108,6 +111,9 @@ module AWS::Sso
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
     #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
     #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
+    #
     #   @return [String]
     #
     # @!attribute account_id
@@ -165,6 +171,9 @@ module AWS::Sso
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
     #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
     #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
+    #
     #   @return [String]
     #
     ListAccountsInput = ::Struct.new(
@@ -204,6 +213,9 @@ module AWS::Sso
     # @!attribute access_token
     #   <p>The token issued by the <code>CreateToken</code> API call. For more information, see
     #           <a href="https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/API_CreateToken.html">CreateToken</a> in the <i>AWS SSO OIDC API Reference Guide</i>.</p>
+    #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
     #
     #   @return [String]
     #
@@ -252,11 +264,17 @@ module AWS::Sso
     #   <p>The key that is used to sign the request. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
     #           <i>AWS IAM User Guide</i>.</p>
     #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
+    #
     #   @return [String]
     #
     # @!attribute session_token
     #   <p>The token used for temporary credentials. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Using Temporary Security Credentials to Request Access to AWS Resources</a> in the
     #           <i>AWS IAM User Guide</i>.</p>
+    #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
     #
     #   @return [String]
     #

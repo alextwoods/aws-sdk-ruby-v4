@@ -13,7 +13,7 @@ module AWS::Dynamodb
 
     def self.middleware: () -> untyped
 
-    def initialize: (?untyped config, ?::Hash[untyped, untyped] options) -> void
+    def initialize: (?::Hash[untyped, untyped] options) -> void
     def batch_execute_statement: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
     def batch_get_item: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
     def batch_write_item: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
