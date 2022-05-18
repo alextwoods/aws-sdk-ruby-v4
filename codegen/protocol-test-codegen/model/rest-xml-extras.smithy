@@ -16,7 +16,6 @@ service RestXmlExtras {
         AttributeParty,
         XmlMapsFlattenedNestedXmlNamespace,
         EnumKeys,
-        PrimitiveIntOpXml,
         ChecksumRequired,
         StringHeader,
         CreateFoo,
@@ -35,46 +34,6 @@ structure CreateFooRequest {
 
 structure CreateFooInput {}
 
-@httpRequestTests([{
-    id: "RestXmlSerPrimitiveIntUnset",
-    protocol: "aws.protocols#restXml",
-    documentation: "Primitive ints should not be serialized when they are unset",
-    uri: "/primitive-document",
-    method: "POST",
-   body: """
-        <PrimitiveIntDocument>
-            <requiredValue>0</requiredValue>
-        </PrimitiveIntDocument>
-    """,
-    bodyMediaType: "application/xml",
-    params: {}
-}, {
-       id: "RestXmlSerPrimitiveIntSet",
-       protocol: "aws.protocols#restXml",
-       documentation: "Primitive ints should not be serialized when they are unset",
-       uri: "/primitive-document",
-       method: "POST",
-       body: """
-       <PrimitiveIntDocument>
-            <value>1</value>
-            <requiredValue>0</requiredValue>
-        </PrimitiveIntDocument>
-       """,
-       bodyMediaType: "application/xml",
-       params: { value: 1 }
-   }])
-@http(uri: "/primitive-document", method: "POST")
-operation PrimitiveIntOpXml {
-    input: PrimitiveIntDocument,
-    output: PrimitiveIntDocument
-}
-
-structure PrimitiveIntDocument {
-    value: PrimitiveInt,
-    @required
-    requiredValue: PrimitiveInt
-}
-
 @enum([{"value": "enumvalue", "name": "V"}])
 string StringEnum
 
@@ -85,7 +44,7 @@ structure AttributePartyInputOutput {
     enum: StringEnum,
 
     @xmlAttribute
-    @xmlName("prefix:anumber")
+    @xmlName("anumber")
     number: PrimitiveInt,
 
     @xmlAttribute
@@ -134,7 +93,7 @@ operation EnumKeys {
 @httpResponseTests([{
         id: "DeserAttributes",
         code: 200,
-        body: "<AttributePartyInputOutput enum=\"enumvalue\" prefix:anumber=\"5\" ts=\"1985-04-12T23:20:50.00Z\" bool=\"true\"/>",
+        body: "<AttributePartyInputOutput enum=\"enumvalue\" anumber=\"5\" ts=\"1985-04-12T23:20:50.00Z\" bool=\"true\"/>",
         params: {
             enum: "enumvalue",
             number: 5,
@@ -152,7 +111,7 @@ operation AttributeParty {
 @httpResponseTests([{
         id: "DeserFlatNamespaceMaps",
         code: 200,
-        body: "<XmlMapsFlattenedNestedXmlNamespaceInputOutput xmlns=\"http://aoo.com\"><myMap><yek xmlns=\"http://doo.com\">map2</yek><eulav xmlns=\"http://eoo.com\"><entry><K xmlns=\"http://goo.com\">third</K><V xmlns=\"http://hoo.com\">plz</V></entry><entry><K xmlns=\"http://goo.com\">fourth</K><V xmlns=\"http://hoo.com\">onegai</V></entry></eulav></myMap><myMap><yek xmlns=\"http://doo.com\">map1</yek><eulav xmlns=\"http://eoo.com\"><entry><K xmlns=\"http://goo.com\">second</K><V xmlns=\"http://hoo.com\">konnichiwa</V></entry><entry><K xmlns=\"http://goo.com\">first</K><V xmlns=\"http://hoo.com\">hi</V></entry></eulav></myMap></XmlMapsFlattenedNestedXmlNamespaceInput>",
+        body: "<XmlMapsFlattenedNestedXmlNamespaceInputOutput xmlns=\"http://aoo.com\"><myMap><yek xmlns=\"http://doo.com\">map2</yek><eulav xmlns=\"http://eoo.com\"><entry><K xmlns=\"http://goo.com\">third</K><V xmlns=\"http://hoo.com\">plz</V></entry><entry><K xmlns=\"http://goo.com\">fourth</K><V xmlns=\"http://hoo.com\">onegai</V></entry></eulav></myMap><myMap><yek xmlns=\"http://doo.com\">map1</yek><eulav xmlns=\"http://eoo.com\"><entry><K xmlns=\"http://goo.com\">second</K><V xmlns=\"http://hoo.com\">konnichiwa</V></entry><entry><K xmlns=\"http://goo.com\">first</K><V xmlns=\"http://hoo.com\">hi</V></entry></eulav></myMap></XmlMapsFlattenedNestedXmlNamespaceInputOutput>",
         params: {
             "myMap": {
                 "map2": {"fourth": "onegai", "third": "plz" },

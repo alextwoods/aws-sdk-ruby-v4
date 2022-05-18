@@ -11,15 +11,14 @@ require 'hearth'
 
 require_relative 'aws-sdk-sso/builders'
 require_relative 'aws-sdk-sso/client'
-require_relative 'aws-sdk-sso/config'
 require_relative 'aws-sdk-sso/errors'
-require_relative 'aws-sdk-sso/paginators'
-require_relative 'aws-sdk-sso/params'
 require_relative 'aws-sdk-sso/parsers'
-require_relative 'aws-sdk-sso/stubs'
 require_relative 'aws-sdk-sso/types'
+require_relative 'aws-sdk-sso/params'
 require_relative 'aws-sdk-sso/validators'
+require_relative 'aws-sdk-sso/stubs'
 require_relative 'aws-sdk-sso/waiters'
+require_relative 'aws-sdk-sso/paginators'
 
 module AWS::Sso
   GEM_VERSION = '4.0.0.pre'

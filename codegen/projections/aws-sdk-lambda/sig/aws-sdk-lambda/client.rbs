@@ -13,7 +13,7 @@ module AWS::Lambda
 
     def self.middleware: () -> untyped
 
-    def initialize: (?untyped config, ?::Hash[untyped, untyped] options) -> void
+    def initialize: (?::Hash[untyped, untyped] options) -> void
     def add_layer_version_permission: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
     def add_permission: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped
     def create_alias: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options){ () -> untyped } -> untyped

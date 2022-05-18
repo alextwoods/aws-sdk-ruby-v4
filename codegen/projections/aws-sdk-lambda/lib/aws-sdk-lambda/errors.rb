@@ -45,6 +45,12 @@ module AWS::Lambda
     end
 
     class CodeSigningConfigNotFoundException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::CodeSigningConfigNotFoundException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -58,6 +64,12 @@ module AWS::Lambda
     end
 
     class CodeStorageExceededException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::CodeStorageExceededException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -71,6 +83,12 @@ module AWS::Lambda
     end
 
     class CodeVerificationFailedException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::CodeVerificationFailedException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -84,6 +102,12 @@ module AWS::Lambda
     end
 
     class EC2AccessDeniedException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::EC2AccessDeniedException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -97,6 +121,12 @@ module AWS::Lambda
     end
 
     class EC2ThrottledException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::EC2ThrottledException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -110,6 +140,12 @@ module AWS::Lambda
     end
 
     class EC2UnexpectedException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::EC2UnexpectedException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -123,6 +159,12 @@ module AWS::Lambda
     end
 
     class EFSIOException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::EFSIOException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -136,6 +178,12 @@ module AWS::Lambda
     end
 
     class EFSMountConnectivityException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::EFSMountConnectivityException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -149,6 +197,12 @@ module AWS::Lambda
     end
 
     class EFSMountFailureException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::EFSMountFailureException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -162,6 +216,12 @@ module AWS::Lambda
     end
 
     class EFSMountTimeoutException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::EFSMountTimeoutException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -175,6 +235,12 @@ module AWS::Lambda
     end
 
     class ENILimitReachedException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ENILimitReachedException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -188,6 +254,12 @@ module AWS::Lambda
     end
 
     class InvalidCodeSignatureException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidCodeSignatureException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -201,6 +273,12 @@ module AWS::Lambda
     end
 
     class InvalidParameterValueException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidParameterValueException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -214,6 +292,12 @@ module AWS::Lambda
     end
 
     class InvalidRequestContentException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidRequestContentException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -227,6 +311,12 @@ module AWS::Lambda
     end
 
     class InvalidRuntimeException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidRuntimeException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -240,6 +330,12 @@ module AWS::Lambda
     end
 
     class InvalidSecurityGroupIDException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidSecurityGroupIDException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -253,6 +349,12 @@ module AWS::Lambda
     end
 
     class InvalidSubnetIDException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidSubnetIDException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -266,6 +368,12 @@ module AWS::Lambda
     end
 
     class InvalidZipFileException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidZipFileException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -279,6 +387,12 @@ module AWS::Lambda
     end
 
     class KMSAccessDeniedException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::KMSAccessDeniedException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -292,6 +406,12 @@ module AWS::Lambda
     end
 
     class KMSDisabledException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::KMSDisabledException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -305,6 +425,12 @@ module AWS::Lambda
     end
 
     class KMSInvalidStateException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::KMSInvalidStateException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -318,6 +444,12 @@ module AWS::Lambda
     end
 
     class KMSNotFoundException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::KMSNotFoundException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -331,6 +463,12 @@ module AWS::Lambda
     end
 
     class PolicyLengthExceededException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::PolicyLengthExceededException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -344,6 +482,12 @@ module AWS::Lambda
     end
 
     class PreconditionFailedException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::PreconditionFailedException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -357,6 +501,12 @@ module AWS::Lambda
     end
 
     class ProvisionedConcurrencyConfigNotFoundException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ProvisionedConcurrencyConfigNotFoundException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -370,6 +520,12 @@ module AWS::Lambda
     end
 
     class RequestTooLargeException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::RequestTooLargeException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -383,6 +539,12 @@ module AWS::Lambda
     end
 
     class ResourceConflictException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ResourceConflictException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -396,6 +558,12 @@ module AWS::Lambda
     end
 
     class ResourceInUseException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ResourceInUseException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -409,6 +577,12 @@ module AWS::Lambda
     end
 
     class ResourceNotFoundException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ResourceNotFoundException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -422,6 +596,12 @@ module AWS::Lambda
     end
 
     class ResourceNotReadyException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ResourceNotReadyException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -435,6 +615,12 @@ module AWS::Lambda
     end
 
     class ServiceException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ServiceException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -448,6 +634,12 @@ module AWS::Lambda
     end
 
     class SubnetIPAddressLimitReachedException < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::SubnetIPAddressLimitReachedException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -461,6 +653,12 @@ module AWS::Lambda
     end
 
     class TooManyRequestsException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyRequestsException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -474,6 +672,12 @@ module AWS::Lambda
     end
 
     class UnsupportedMediaTypeException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::UnsupportedMediaTypeException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)

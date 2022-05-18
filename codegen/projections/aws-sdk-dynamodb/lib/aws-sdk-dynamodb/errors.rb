@@ -46,6 +46,12 @@ module AWS::Dynamodb
     end
 
     class BackupInUseException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::BackupInUseException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -59,6 +65,12 @@ module AWS::Dynamodb
     end
 
     class BackupNotFoundException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::BackupNotFoundException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -72,6 +84,12 @@ module AWS::Dynamodb
     end
 
     class ConditionalCheckFailedException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ConditionalCheckFailedException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -85,6 +103,12 @@ module AWS::Dynamodb
     end
 
     class ContinuousBackupsUnavailableException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ContinuousBackupsUnavailableException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -98,6 +122,12 @@ module AWS::Dynamodb
     end
 
     class DuplicateItemException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::DuplicateItemException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -111,6 +141,12 @@ module AWS::Dynamodb
     end
 
     class ExportConflictException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ExportConflictException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -124,6 +160,12 @@ module AWS::Dynamodb
     end
 
     class ExportNotFoundException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ExportNotFoundException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -137,6 +179,12 @@ module AWS::Dynamodb
     end
 
     class GlobalTableAlreadyExistsException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::GlobalTableAlreadyExistsException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -150,6 +198,12 @@ module AWS::Dynamodb
     end
 
     class GlobalTableNotFoundException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::GlobalTableNotFoundException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -163,6 +217,12 @@ module AWS::Dynamodb
     end
 
     class IdempotentParameterMismatchException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::IdempotentParameterMismatchException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -176,6 +236,12 @@ module AWS::Dynamodb
     end
 
     class IndexNotFoundException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::IndexNotFoundException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -189,6 +255,12 @@ module AWS::Dynamodb
     end
 
     class InternalServerError < ApiServerError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InternalServerError.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -202,6 +274,12 @@ module AWS::Dynamodb
     end
 
     class InvalidEndpointException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidEndpointException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -215,6 +293,12 @@ module AWS::Dynamodb
     end
 
     class InvalidExportTimeException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidExportTimeException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -228,6 +312,12 @@ module AWS::Dynamodb
     end
 
     class InvalidRestoreTimeException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidRestoreTimeException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -241,6 +331,12 @@ module AWS::Dynamodb
     end
 
     class ItemCollectionSizeLimitExceededException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ItemCollectionSizeLimitExceededException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -254,6 +350,12 @@ module AWS::Dynamodb
     end
 
     class LimitExceededException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::LimitExceededException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -267,6 +369,12 @@ module AWS::Dynamodb
     end
 
     class PointInTimeRecoveryUnavailableException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::PointInTimeRecoveryUnavailableException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -280,6 +388,12 @@ module AWS::Dynamodb
     end
 
     class ProvisionedThroughputExceededException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ProvisionedThroughputExceededException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -293,6 +407,12 @@ module AWS::Dynamodb
     end
 
     class ReplicaAlreadyExistsException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ReplicaAlreadyExistsException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -306,6 +426,12 @@ module AWS::Dynamodb
     end
 
     class ReplicaNotFoundException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ReplicaNotFoundException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -319,6 +445,12 @@ module AWS::Dynamodb
     end
 
     class RequestLimitExceeded < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::RequestLimitExceeded.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -332,6 +464,12 @@ module AWS::Dynamodb
     end
 
     class ResourceInUseException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ResourceInUseException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -345,6 +483,12 @@ module AWS::Dynamodb
     end
 
     class ResourceNotFoundException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ResourceNotFoundException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -358,6 +502,12 @@ module AWS::Dynamodb
     end
 
     class TableAlreadyExistsException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TableAlreadyExistsException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -371,6 +521,12 @@ module AWS::Dynamodb
     end
 
     class TableInUseException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TableInUseException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -384,6 +540,12 @@ module AWS::Dynamodb
     end
 
     class TableNotFoundException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TableNotFoundException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -397,6 +559,12 @@ module AWS::Dynamodb
     end
 
     class TransactionCanceledException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TransactionCanceledException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -410,6 +578,12 @@ module AWS::Dynamodb
     end
 
     class TransactionConflictException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TransactionConflictException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -423,6 +597,12 @@ module AWS::Dynamodb
     end
 
     class TransactionInProgressException < ApiClientError
+      # @param [Hearth::HTTP::Response] http_resp
+      #
+      # @param [String] error_code
+      #
+      # @param [String] message
+      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TransactionInProgressException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)

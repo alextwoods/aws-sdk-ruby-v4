@@ -1989,6 +1989,9 @@ module AWS::Lambda
     # @!attribute variables
     #   <p>Environment variable key-value pairs.</p>
     #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
+    #
     #   @return [Hash<String, String>]
     #
     Environment = ::Struct.new(
@@ -2013,6 +2016,9 @@ module AWS::Lambda
     # @!attribute message
     #   <p>The error message.</p>
     #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
+    #
     #   @return [String]
     #
     EnvironmentError = ::Struct.new(
@@ -2034,6 +2040,9 @@ module AWS::Lambda
     #
     # @!attribute variables
     #   <p>Environment variable key-value pairs.</p>
+    #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
     #
     #   @return [Hash<String, String>]
     #
@@ -2247,6 +2256,9 @@ module AWS::Lambda
     # @!attribute zip_file
     #   <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for
     #     you.</p>
+    #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
     #
     #   @return [String]
     #
@@ -3797,6 +3809,9 @@ module AWS::Lambda
     # @!attribute message
     #   <p>Error message.</p>
     #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
+    #
     #   @return [String]
     #
     ImageConfigError = ::Struct.new(
@@ -4105,6 +4120,9 @@ module AWS::Lambda
     # @!attribute payload
     #   <p>The JSON that you want to provide to your Lambda function as input.</p>
     #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
+    #
     #   @return [String]
     #
     # @!attribute qualifier
@@ -4154,6 +4172,9 @@ module AWS::Lambda
     #
     # @!attribute payload
     #   <p>The response from the function, or an error object.</p>
+    #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
     #
     #   @return [String]
     #
@@ -4383,6 +4404,9 @@ module AWS::Lambda
     # @!attribute zip_file
     #   <p>The base64-encoded contents of the layer archive. AWS SDK and AWS CLI clients handle the encoding for
     #         you.</p>
+    #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
     #
     #   @return [String]
     #
@@ -7128,6 +7152,9 @@ module AWS::Lambda
     # @!attribute zip_file
     #   <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for
     #         you.</p>
+    #
+    #   @note
+    #     This shape is sensitive and must be handled with care.
     #
     #   @return [String]
     #
