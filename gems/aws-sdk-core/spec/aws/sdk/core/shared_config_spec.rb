@@ -36,11 +36,11 @@ module AWS
 
           it 'defaults paths to Dir.home/.aws/' do
             expect(File).to receive(:exist?)
-                        .with(File.join('HOME', '.aws', 'credentials'))
-                        .and_return(false)
+              .with(File.join('HOME', '.aws', 'credentials'))
+              .and_return(false)
             expect(File).to receive(:exist?)
-                              .with(File.join('HOME', '.aws', 'config'))
-                              .and_return(false)
+              .with(File.join('HOME', '.aws', 'config'))
+              .and_return(false)
             SharedConfig.load
           end
 
@@ -55,17 +55,9 @@ module AWS
           it 'uses the ENV variable AWS_CONFIG_FILE if set' do
             expected_config_path = '/tmp/aws-test-config.ini'
             stub_const('ENV', 'AWS_CONFIG_FILE' => expected_config_path)
-            config = SharedConfig.new(config_enabled: true)
-            expect(config.config_path).to eq(expected_config_path)
-          end
-
-          it 'does not load the config file when config_enabled is false' do
-            expect(File).to receive(:read).with(mock_credential_file).and_call_original
-            expect(File).not_to receive(:read).with(mock_config_file).and_call_original
-            SharedConfig.load(
-              credentials_path: mock_credential_file,
-              config_path: mock_config_file,
-              config_enabled: false)
+            allow(File).to receive(:exist?).and_return(false)
+            expect(File).to receive(:exist?).with(expected_config_path)
+            SharedConfig.load
           end
         end
       end
