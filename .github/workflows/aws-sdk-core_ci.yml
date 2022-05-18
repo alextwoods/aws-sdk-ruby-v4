@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: ['3.0', 3.1]
+        ruby: [2.5, 2.6, 2.7, '3.0', 3.1]
 
     steps:
       - name: Setup Ruby
@@ -46,11 +46,11 @@ jobs:
 
       - name: Install gems
         run: bundle install
-        working-directory: hearth
+        working-directory: gems/aws-sdk-core
 
       - name: Type checks
         run: bundle exec steep check
-        working-directory: hearth
+        working-directory: gems/aws-sdk-core
 
   rubocop:
     runs-on: ubuntu-latest
