@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This Gemfile is copied into generated protocol test SDKs
 
 source 'https://rubygems.org'

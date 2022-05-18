@@ -33,25 +33,6 @@ jobs:
         run: bundle exec rspec
         working-directory: gems/aws-sdk-core
 
-  steep:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Set up Ruby 3.1
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.1
-
-      - uses: actions/checkout@v2
-
-      - name: Install gems
-        run: bundle install
-        working-directory: gems/aws-sdk-core
-
-      - name: Type checks
-        run: bundle exec steep check
-        working-directory: gems/aws-sdk-core
-
   rubocop:
     runs-on: ubuntu-latest
 
