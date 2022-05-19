@@ -24,6 +24,8 @@ module AWS::SDK::Core
         s3 =
            region = ap-southeast-1
 
+        # this is a comment
+        # profile name is necessary for shared config but not credentials
         [profile third]
         region = sa-east-1
       FILE
