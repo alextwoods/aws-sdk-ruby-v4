@@ -58,6 +58,11 @@ module AWS::SDK::Core
         SharedConfig.load
       end
 
+      it 'does not raise when Dir.home is undefined' do
+        expect(Dir).to receive(:home).and_raise(ArgumentError)
+        SharedConfig.load
+      end
+
       it 'loads values from the credentials file' do
         config = SharedConfig.load(config_path: mock_config_file)
         expect(config['default']['region']).to eq('us-east-1')
