@@ -7,7 +7,7 @@ class AWS::SDK::Core::StaticCredentialsProvider
   PROFILE = proc do |cfg|
     shared_config = AWS::SDK::Core.shared_config[cfg[:profile]]
     if shared_config[:access_key_id] && shared_config[:secret_access_key]
-      StaticCredentialsProvider.new(
+      new(
         shared_config[:access_key_id],
         shared_config[:secret_access_key],
         shared_config[:session_token]
@@ -17,7 +17,7 @@ class AWS::SDK::Core::StaticCredentialsProvider
 
   ENVIRONMENT = proc do |_cfg|
     if ENV['AWS_ACCESS_KEY_ID'] && ENV['AWS_SECRET_ACCESS_KEY']
-      StaticCredentialsProvider.new(
+      new(
         ENV['AWS_ACCESS_KEY_ID'],
         ENV['AWS_SECRET_ACCESS_KEY'],
         ENV['AWS_SESSION_TOKEN']

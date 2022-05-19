@@ -4,11 +4,6 @@ require_relative '../spec_helper'
 
 module AWS::SDK::Core
   describe SharedConfig do
-    before(:each) do
-      ENV.clear
-      allow(Dir).to receive(:home).and_raise(ArgumentError)
-    end
-
     let(:mock_credential_file) do
       File.expand_path(
         File.join(
@@ -48,6 +43,7 @@ module AWS::SDK::Core
         allow(File).to receive(:exist?).and_return(false)
         expect(File).to receive(:exist?).with(expected_credentials_path)
         SharedConfig.load
+        ENV.delete('AWS_SHARED_CREDENTIALS_FILE')
       end
 
       it 'uses the ENV variable AWS_CONFIG_FILE if set' do
@@ -56,11 +52,7 @@ module AWS::SDK::Core
         allow(File).to receive(:exist?).and_return(false)
         expect(File).to receive(:exist?).with(expected_config_path)
         SharedConfig.load
-      end
-
-      it 'does not raise when Dir.home is undefined' do
-        expect(Dir).to receive(:home).and_raise(ArgumentError)
-        SharedConfig.load
+        ENV.delete('AWS_CONFIG_FILE')
       end
 
       it 'loads values from the credentials file' do
@@ -78,6 +70,17 @@ module AWS::SDK::Core
 
         # defined in both, ACCESS_KEY_0 is in credentials
         expect(config['default']['aws_access_key_id']).to eq('ACCESS_KEY_0')
+      end
+
+      context 'Dir.home is undefined' do
+        before(:each) do
+          allow(Dir).to receive(:home).and_raise(ArgumentError)
+        end
+
+        it 'returns an empty hash' do
+          config = SharedConfig.load
+          expect(config).to eq({})
+        end
       end
     end
   end
