@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'aws/sdk/core/shared_config'
+require_relative 'aws-sdk-core/shared_config'
 
 module AWS
   module SDK

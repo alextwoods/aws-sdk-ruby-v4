@@ -15,7 +15,7 @@ module AWS
           File.expand_path(
             File.join(
               File.dirname(__FILE__),
-              '..', '..', '..', 'fixtures', 'shared_config', 'mock_shared_credentials'
+              '..', 'fixtures', 'shared_config', 'mock_shared_credentials'
             )
           )
         end
@@ -24,7 +24,7 @@ module AWS
           File.expand_path(
             File.join(
               File.dirname(__FILE__),
-              '..', '..', '..', 'fixtures', 'shared_config', 'mock_shared_config'
+              '..', 'fixtures', 'shared_config', 'mock_shared_config'
             )
           )
         end
@@ -62,6 +62,7 @@ module AWS
         end
 
         it 'loads values from the credentials file' do
+          puts mock_config_file
           config = SharedConfig.load(config_path: mock_config_file)
           expect(config['default']['region']).to eq('us-east-1')
         end
