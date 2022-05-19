@@ -2,7 +2,7 @@
 
 # Static credential provider
 class AWS::SDK::Core::StaticCredentialsProvider
-  include CredentialProvider
+  include AWS::SDK::Core::CredentialProvider
 
   PROFILE = proc do |cfg|
     shared_config = AWS::SDK::Core.shared_config[cfg[:profile]]

@@ -50,7 +50,7 @@ class AWS::SDK::Core::SharedConfig
     end
 
     def load_file(file_path)
-      IniParser.ini_parse(File.read(file_path))
+      AWS::SDK::Core::IniParser.ini_parse(File.read(file_path))
     end
 
     # merge config and credentials (preferring credentials values)

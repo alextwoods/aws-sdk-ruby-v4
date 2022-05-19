@@ -3,7 +3,7 @@
 # @api private
 module AWS::SDK::Core::IniParser
   # rubocop:disable Metrics
-  def ini_parse(raw)
+  def self.ini_parse(raw)
     current_profile = nil
     current_prefix = nil
     raw.lines.each_with_object({}) do |line, acc|

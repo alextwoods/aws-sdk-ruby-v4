@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative '../spec_helper'
+
 module AWS::SDK::Core
   describe IniParser do
     let(:mock_config) do
