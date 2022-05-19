@@ -39,60 +39,25 @@ class AWS::SDK::Core::AssumeRoleWebIdentityCredentialsProvider
   #   encoded UUID is generated as the session name.
   # @option options [AWS::SDK::STS::Client] :client
   def initialize(options = {})
-    options[:role_session_name] ||= Base64.strict_encode64(SecureRandom.uuid)
-    @client = options[:client] || AWS::SDK::STS::Client.new
-
+    @client = options.delete(:client) || AWS::SDK::STS::Client.new
     @token_file = options.delete(:web_identity_token_file)
-    options.each_pair do |key, value|
-      if self.class.assume_role_web_identity_options.include?(key)
-        @assume_role_web_identity_params[key] = value
-      elsif !CLIENT_EXCLUDE_OPTIONS.include?(key)
-        client_opts[key] = value
-      end
-    end
-
-    unless @assume_role_web_identity_params[:role_session_name]
-      # not provided, generate encoded UUID as session name
-      @assume_role_web_identity_params[:role_session_name] = Base64.strict_encode64(SecureRandom.uuid)
-    end
-    @client = client_opts[:client] || STS::Client.new(client_opts.merge(credentials: false))
-    super
+    @arwip = options
+    @arwip[:role_session_name] ||= Base64.strict_encode64(SecureRandom.uuid)
   end
-
-  # @return [STS::Client]
-  attr_reader :client
 
   private
 
-  def refresh
-    # read from token file everytime it refreshes
-    @assume_role_web_identity_params[:web_identity_token] = _token_from_file(@token_file)
+  def credentials
+    @arwip[:web_identity_token] = File.read(@token_file)
+    credentials = @client.assume_role_with_web_identity(
+      @assume_role_web_identity_params
+    ).data.credentials
 
-    c = @client.assume_role_with_web_identity(
-      @assume_role_web_identity_params).credentials
     @credentials = Credentials.new(
-      c.access_key_id,
-      c.secret_access_key,
-      c.session_token
+      credentials.access_key_id,
+      credentials.secret_access_key,
+      credentials.session_token
     )
-    @expiration = c.expiration
-  end
-
-  def _token_from_file(path)
-    unless path && File.exist?(path)
-      raise Aws::Errors::MissingWebIdentityTokenFile.new
-    end
-    File.read(path)
-  end
-
-  class << self
-
-    # @api private
-    def assume_role_web_identity_options
-      @arwio ||= begin
-        input = Aws::STS::Client.api.operation(:assume_role_with_web_identity).input
-        Set.new(input.shape.member_names)
-      end
-    end
+    @expiration = credentials.expiration
   end
 end
