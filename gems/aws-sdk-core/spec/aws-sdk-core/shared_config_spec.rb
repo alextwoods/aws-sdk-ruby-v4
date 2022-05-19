@@ -68,12 +68,11 @@ module AWS::SDK::Core
           config_path: mock_config_file,
           credentials_path: mock_credential_file
         )
-        # defined only in config
+        # defined only in credentials
         expect(config['default']['region']).to eq('us-east-1')
 
-        # defined in both
-        credential_value = 'ACCESS_KEY_0'
-        expect(config['default']['aws_access_key_id']).to eq(credential_value)
+        # defined in both, ACCESS_KEY_0 is in credentials
+        expect(config['default']['aws_access_key_id']).to eq('ACCESS_KEY_0')
       end
     end
   end
