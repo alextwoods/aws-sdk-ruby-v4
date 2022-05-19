@@ -20,6 +20,8 @@ require_relative 'aws-sdk-cloudfront/stubs'
 require_relative 'aws-sdk-cloudfront/waiters'
 require_relative 'aws-sdk-cloudfront/paginators'
 
-module AWS::Cloudfront
-  GEM_VERSION = '4.0.0.pre'
+module AWS
+  module Cloudfront
+    GEM_VERSION = '4.0.0.pre'
+  end
 end
