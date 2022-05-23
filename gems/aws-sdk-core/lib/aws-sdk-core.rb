@@ -6,6 +6,18 @@ module AWS
     module Core
       GEM_VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip
 
+      CREDENTIAL_PROVIDER_CHAIN = [
+        AssumeRoleWebIdentityCredentialsProvider::PROFILE,
+        SSOCredentialsProvider::PROFILE,
+        AssumeRoleCredentialsProvider::PROFILE,
+        StaticCredentialsProvider::PROFILE,
+        ProcessCredentialsProvider::PROFILE,
+        StaticCredentialsProvider::ENVIRONMENT,
+        AssumeRoleWebIdentityCredentialsProvider::ENVIRONMENT,
+        ECSCredentialsProvider::ENVIRONMENT,
+        EC2CredentialsProvider::ENVIRONMENT
+      ].freeze
+
       def self.shared_config
         @shared_config ||= SharedConfig.load
       end
