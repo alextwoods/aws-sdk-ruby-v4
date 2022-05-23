@@ -217,7 +217,7 @@ module AWS::Dynamodb
       raise resp.error if resp.error
       resp
     end
-
+    
     # <p>The <code>BatchGetItem</code> operation returns the attributes of one or more items
     #             from one or more tables. You identify requested items by primary key.</p>
     #         <p>A single operation can retrieve up to 16 MB of data, which can contain as many as 100

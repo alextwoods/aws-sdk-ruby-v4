@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
-# Static credential provider
+# TODO
 class AWS::SDK::Core::AssumeRoleWebIdentityCredentialsProvider
   include AWS::SDK::Core::CredentialProvider
 
   PROFILE = proc do |cfg|
+    return unless sts_loaded?
+
     shared_config = AWS::SDK::Core.shared_config[cfg[:profile]]
     if shared_config[:web_identity_token_file] && shared_config[:role_arn]
       opts = {
@@ -18,6 +20,8 @@ class AWS::SDK::Core::AssumeRoleWebIdentityCredentialsProvider
   end
 
   ENVIRONMENT = proc do |cfg|
+    return unless sts_loaded?
+
     if ENV['AWS_ROLE_ARN'] && ENV['AWS_WEB_IDENTITY_TOKEN_FILE']
       opts = {
         role_arn: ENV['AWS_ROLE_ARN'],
@@ -38,26 +42,26 @@ class AWS::SDK::Core::AssumeRoleWebIdentityCredentialsProvider
   #   name used to distinguish session, when not provided, base64
   #   encoded UUID is generated as the session name.
   # @option options [AWS::SDK::STS::Client] :client
+  #
+  # This constructor also takes additional params for
+  # {AWS:SDK::STS::Client#assume_role_with_web_identity}.
   def initialize(options = {})
     @client = options.delete(:client) || AWS::SDK::STS::Client.new
-    @token_file = options.delete(:web_identity_token_file)
+    token_file = options.delete(:web_identity_token_file)
+    options[:web_identity_token] = File.read(token_file)
+    options[:role_session_name] ||= Base64.strict_encode64(SecureRandom.uuid)
     @arwip = options
-    @arwip[:role_session_name] ||= Base64.strict_encode64(SecureRandom.uuid)
   end
 
   private
 
   def credentials
-    @arwip[:web_identity_token] = File.read(@token_file)
-    credentials = @client.assume_role_with_web_identity(
-      @assume_role_web_identity_params
-    ).data.credentials
-
-    @credentials = Credentials.new(
-      credentials.access_key_id,
-      credentials.secret_access_key,
-      credentials.session_token
+    c = @client.assume_role_with_web_identity(@arwip).data.credentials
+    @credentials = AWS::SDK::Core::Credentials.new(
+      access_key_id: c.access_key_id,
+      secret_access_key: c.secret_access_key,
+      session_token: c.session_token
     )
-    @expiration = credentials.expiration
+    @expiration = c.expiration
   end
 end
