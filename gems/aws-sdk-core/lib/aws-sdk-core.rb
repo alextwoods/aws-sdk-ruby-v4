@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+# Namespace for AWS Ruby products
 module AWS
+  # Namespace for AWS SDK gems
   module SDK
     # Namespace for AWS::SDK Core components
     module Core

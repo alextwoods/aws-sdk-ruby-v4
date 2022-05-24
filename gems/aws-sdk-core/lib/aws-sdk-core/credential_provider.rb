@@ -1,22 +1,21 @@
 # frozen_string_literal: true
 
-module AWS::SDK::Core::CredentialProvider
-  # @return [Credentials]
-  attr_reader :credentials
+module AWS::SDK::Core
+  # TODO
+  module CredentialProvider
+    # @return [Credentials]
+    attr_reader :credentials
 
-  private
+    private
 
-  def sts_loaded?
-    begin
+    def sts_loaded?
       require 'aws-sdk-sts'
       true
     rescue LoadError
       false
     end
-  end
 
-  def sso_loaded?
-    begin
+    def sso_loaded?
       require 'aws-sdk-sts'
       true
     rescue LoadError
