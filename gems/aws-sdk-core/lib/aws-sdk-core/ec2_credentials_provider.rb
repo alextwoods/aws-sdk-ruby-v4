@@ -10,7 +10,7 @@ module AWS::SDK::Core
 
       unless ENV['AWS_EC2_METADATA_DISABLED']
         new(
-          client: AWS::SDK::Core::EC2Metadata.new(
+          client: EC2Metadata.new(
             endpoint: ENV['AWS_EC2_METADATA_SERVICE_ENDPOINT'] ||
                       shared_config[:ec2_metadata_service_endpoint] ||
                       nil,
@@ -30,7 +30,6 @@ module AWS::SDK::Core
       @client = options[:client] || EC2Metadata.new
     end
 
-    # TODO -- should we be retrying failed json parsing?...
     def credentials
       metadata = @client.get(METADATA_PATH_BASE)
       profile_name = metadata.lines.first.strip
