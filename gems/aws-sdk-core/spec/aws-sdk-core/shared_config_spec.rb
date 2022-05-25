@@ -67,9 +67,8 @@ module AWS::SDK::Core
         )
         # defined only in config
         expect(config['default']['region']).to eq('us-east-1')
-
-        # defined in both, ACCESS_KEY_0 is in credentials
-        expect(config['default']['aws_access_key_id']).to eq('ACCESS_KEY_0')
+        # defined in both, value in credentials file takes precedence
+        expect(config['default']['some_key']).to eq('precedence')
       end
 
       context 'Dir.home is undefined' do

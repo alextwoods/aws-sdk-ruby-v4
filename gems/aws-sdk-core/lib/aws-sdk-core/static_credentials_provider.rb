@@ -6,12 +6,13 @@ module AWS::SDK::Core
     include CredentialProvider
 
     PROFILE = proc do |cfg|
-      shared_config = AWS::SDK::Core.shared_config[cfg[:profile]]
-      if shared_config[:access_key_id] && shared_config[:secret_access_key]
+      profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
+      if profile_config['aws_access_key_id'] &&
+         profile_config['aws_secret_access_key']
         new(
-          access_key_id: shared_config[:access_key_id],
-          secret_access_key: shared_config[:secret_access_key],
-          session_token: shared_config[:session_token]
+          access_key_id: profile_config['aws_access_key_id'],
+          secret_access_key: profile_config['aws_secret_access_key'],
+          session_token: profile_config['aws_session_token']
         )
       end
     end

@@ -22,6 +22,8 @@ describe AWS::SDK::Core do
       )
     end
 
+    # This shared config instance is shared across all RSpec tests.
+    # It is used to test credential provider procs.
     let(:shared_config) do
       AWS::SDK::Core::SharedConfig.load(
         credentials_path: mock_credential_file,
