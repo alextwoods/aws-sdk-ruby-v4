@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 require_relative '../spec_helper'
+require_relative '../mock_shared_config'
 
 module AWS::SDK::Core
   describe StaticCredentialsProvider do
-    describe StaticCredentialsProvider::PROFILE do
+    describe 'StaticCredentialsProvider::PROFILE' do
+      include_context 'mock_shared_config'
+
       context 'profile has credentials' do
         it 'returns an instance of StaticCredentialsProvider' do
           cfg = { profile: 'static_credentials' }
@@ -22,7 +25,7 @@ module AWS::SDK::Core
       end
     end
 
-    describe StaticCredentialsProvider::ENVIRONMENT do
+    describe 'StaticCredentialsProvider::ENVIRONMENT' do
       context 'environment has credentials' do
         it 'returns an instance of StaticCredentialsProvider' do
           ENV['AWS_ACCESS_KEY_ID'] = 'ACCESS_KEY_1'

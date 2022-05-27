@@ -95,12 +95,15 @@ module AWS::SDK::Core
       cached_token = JSON.parse(File.read(sso_cache_file))
       # validation
       unless cached_token['accessToken'] && cached_token['expiresAt']
-        raise ArgumentError, 'Missing required field(s) accessToken or expiresAt'
+        raise ArgumentError,
+              'Missing required field(s) accessToken or expiresAt'
       end
+
       expires_at = DateTime.parse(cached_token['expiresAt'])
       if expires_at < DateTime.now
         raise ArgumentError, 'Cached SSO Token is expired.'
       end
+
       cached_token
     rescue Errno::ENOENT, JSON::ParserError, ArgumentError
       raise ArgumentError, SSO_LOGIN_GUIDANCE
