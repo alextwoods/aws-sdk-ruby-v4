@@ -20,17 +20,3 @@ describe AWS::SDK::Core do
   end
 end
 
-class TestProvider
-  attr_reader :n_calls
-
-  def initialize(delay = 1)
-    @n_calls = 0
-    @bg = Thread.new do
-      loop do
-        sleep(delay)
-        @n_calls += 1
-        puts "Updated to: #{@n_calls}"
-      end
-    end
-  end
-end

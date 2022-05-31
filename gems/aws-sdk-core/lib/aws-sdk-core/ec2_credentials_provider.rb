@@ -38,9 +38,9 @@ module AWS::SDK::Core
       @credentials = Credentials.new(
         access_key_id: c['AccessKeyId'],
         secret_access_key: c['SecretAccessKey'],
-        session_token: c['Token']
+        session_token: c['Token'],
+        expiration: c['Expiration'] ? Time.iso8601(c['Expiration']) : nil
       )
-      @expiration = c['Expiration'] ? Time.iso8601(c['Expiration']) : nil
     end
   end
 end

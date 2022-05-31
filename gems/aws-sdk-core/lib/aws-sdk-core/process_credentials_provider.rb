@@ -63,11 +63,9 @@ module AWS::SDK::Core
       @credentials = Credentials.new(
         access_key_id: creds_json['AccessKeyId'],
         secret_access_key: creds_json['SecretAccessKey'],
-        session_token: creds_json['SessionToken']
+        session_token: creds_json['SessionToken'],
+        expiration: creds_json['Expiration'] ? Time.iso8601(creds_json['Expiration']) : nil
       )
-      if creds_json['Expiration']
-        @expiration = Time.iso8601(creds_json['Expiration'])
-      end
 
       @credentials
     end

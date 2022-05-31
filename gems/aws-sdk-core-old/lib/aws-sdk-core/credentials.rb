@@ -6,10 +6,12 @@ module Aws
     # @param [String] access_key_id
     # @param [String] secret_access_key
     # @param [String] session_token (nil)
-    def initialize(access_key_id, secret_access_key, session_token = nil)
+    # @param [Time] expiration (nil)
+    def initialize(access_key_id, secret_access_key, session_token = nil, expiration = nil)
       @access_key_id = access_key_id
       @secret_access_key = secret_access_key
       @session_token = session_token
+      @expiration = expiration
     end
 
     # @return [String, nil]
@@ -20,6 +22,9 @@ module Aws
 
     # @return [String, nil]
     attr_reader :session_token
+
+    # @return [Time, nil]
+    attr_reader :expiration
 
     # @return [Credentials]
     def credentials
