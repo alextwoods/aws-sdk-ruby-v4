@@ -27,13 +27,19 @@ module AWS::SDK::Core
 
     describe 'StaticCredentialsProvider::ENVIRONMENT' do
       context 'environment has credentials' do
+        let_env(
+          'AWS_ACCESS_KEY_ID' => 'ACCESS_KEY_1',
+          'AWS_SECRET_ACCESS_KEY' => 'SECRET_KEY_1',
+          'AWS_SESSION_TOKEN' => 'SESSION_TOKEN_1'
+        )
+
         it 'returns an instance of StaticCredentialsProvider' do
-          ENV['AWS_ACCESS_KEY_ID'] = 'ACCESS_KEY_1'
-          ENV['AWS_SECRET_ACCESS_KEY'] = 'SECRET_KEY_1'
           provider = StaticCredentialsProvider::ENVIRONMENT.call({})
           expect(provider).to be_an_instance_of(StaticCredentialsProvider)
-          ENV.delete('AWS_ACCESS_KEY_ID')
-          ENV.delete('AWS_SECRET_ACCESS_KEY')
+          credentials = provider.credentials
+          expect(credentials.access_key_id).to eq('ACCESS_KEY_1')
+          expect(credentials.secret_access_key).to eq('SECRET_KEY_1')
+          expect(credentials.session_token).to eq('SESSION_TOKEN_1')
         end
       end
 

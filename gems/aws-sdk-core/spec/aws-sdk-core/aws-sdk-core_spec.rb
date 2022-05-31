@@ -19,4 +19,3 @@ describe AWS::SDK::Core do
     end
   end
 end
-

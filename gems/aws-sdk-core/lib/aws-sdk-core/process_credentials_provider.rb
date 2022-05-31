@@ -60,11 +60,15 @@ module AWS::SDK::Core
               "#{proc_invocation}."
       end
 
+      expiration = if creds_json['Expiration']
+                     Time.iso8601(creds_json['Expiration'])
+                   end
+
       @credentials = Credentials.new(
         access_key_id: creds_json['AccessKeyId'],
         secret_access_key: creds_json['SecretAccessKey'],
         session_token: creds_json['SessionToken'],
-        expiration: creds_json['Expiration'] ? Time.iso8601(creds_json['Expiration']) : nil
+        expiration: expiration
       )
 
       @credentials
