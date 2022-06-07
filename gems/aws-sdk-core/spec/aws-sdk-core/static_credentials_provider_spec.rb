@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 require_relative '../spec_helper'
-require_relative '../mock_shared_config'
+require_relative '../support/shared_config'
 
 module AWS::SDK::Core
   describe StaticCredentialsProvider do
-    describe 'StaticCredentialsProvider::PROFILE' do
-      include_context 'mock_shared_config'
+    describe StaticCredentialsProvider::PROFILE do
+      include_context 'shared_config'
 
       context 'profile has credentials' do
         it 'returns an instance of StaticCredentialsProvider' do

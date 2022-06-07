@@ -4,20 +4,20 @@ require_relative '../spec_helper'
 
 module AWS::SDK::Core
   describe SharedConfig do
-    let(:mock_credential_file) do
+    let(:credential_file) do
       File.expand_path(
         File.join(
           File.dirname(__FILE__),
-          '..', 'fixtures', 'shared_config', 'mock_shared_credentials'
+          '..', 'fixtures', 'shared_config', 'credentials'
         )
       )
     end
 
-    let(:mock_config_file) do
+    let(:config_file) do
       File.expand_path(
         File.join(
           File.dirname(__FILE__),
-          '..', 'fixtures', 'shared_config', 'mock_shared_config'
+          '..', 'fixtures', 'shared_config', 'config'
         )
       )
     end
@@ -56,14 +56,14 @@ module AWS::SDK::Core
       end
 
       it 'loads values from the credentials file' do
-        config = SharedConfig.load(config_path: mock_config_file)
+        config = SharedConfig.load(config_path: config_file)
         expect(config['default']['region']).to eq('us-east-1')
       end
 
       it 'merges values from config and credentials and prefers credentials' do
         config = SharedConfig.load(
-          config_path: mock_config_file,
-          credentials_path: mock_credential_file
+          config_path: config_file,
+          credentials_path: credential_file
         )
         # defined only in config
         expect(config['default']['region']).to eq('us-east-1')

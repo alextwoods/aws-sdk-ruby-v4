@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
-  # TODO
+  # A class that provides {Credentials} from a static location, either from
+  # shared configuration files or through code implementations.
   class StaticCredentialsProvider
     include CredentialProvider
 

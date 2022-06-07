@@ -5,6 +5,8 @@ require_relative '../spec_helper'
 module AWS::SDK::Core
   describe ProcessCredentialsProvider do
     describe ProcessCredentialsProvider::PROFILE do
+      include_context 'shared_config'
+
       context 'profile has credential_process' do
         it 'returns an instance of ProcessCredentialsProvider' do
           cfg = { profile: 'process_credentials' }

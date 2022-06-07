@@ -20,7 +20,7 @@ module AWS::SDK::Core
       '`aws sso login` with the corresponding profile.'
 
     PROFILE = proc do |cfg|
-      return unless sso_loaded?
+      return unless AWS::SDK::Core.sso_loaded?
 
       shared_config = AWS::SDK::Core.shared_config[cfg[:profile]]
       if shared_config[:sso_start_url] &&

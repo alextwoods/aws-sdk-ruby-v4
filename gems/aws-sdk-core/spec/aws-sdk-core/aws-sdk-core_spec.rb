@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 require_relative '../spec_helper'
-require_relative '../mock_shared_config'
+require_relative '../support/shared_config'
 
 describe AWS::SDK::Core do
   describe '.shared_config' do
-    include_context 'mock_shared_config'
+    include_context 'shared_config'
 
     it 'loads SharedConfig and memoized it' do
+      # shared_config context will set this already, so reset it
       AWS::SDK::Core.instance_variable_set(:@shared_config, nil)
 
       expect(AWS::SDK::Core::SharedConfig)

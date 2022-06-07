@@ -23,6 +23,20 @@ module AWS
       def self.shared_config
         @shared_config ||= SharedConfig.load
       end
+
+      def self.sts_loaded?
+        require 'aws-sdk-sts'
+        true
+      rescue LoadError
+        false
+      end
+
+      def self.sso_loaded?
+        require 'aws-sdk-sso'
+        true
+      rescue LoadError
+        false
+      end
     end
   end
 end

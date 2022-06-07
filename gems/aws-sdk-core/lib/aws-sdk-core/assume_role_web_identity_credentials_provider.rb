@@ -6,7 +6,7 @@ module AWS::SDK::Core
     include CredentialProvider
 
     PROFILE = proc do |cfg|
-      return unless sts_loaded?
+      return unless AWS::SDK::Core.sts_loaded?
 
       shared_config = AWS::SDK::Core.shared_config[cfg[:profile]]
       if shared_config[:web_identity_token_file] && shared_config[:role_arn]
