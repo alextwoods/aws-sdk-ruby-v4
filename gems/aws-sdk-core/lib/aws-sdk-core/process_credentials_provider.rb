@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
-  # TODO
+  # A credential provider that retrieves credentials in JSON format from
+  # a given process.
   class ProcessCredentialsProvider
     include CredentialProvider
+    include RefreshingCredentialsProvider
 
     PROFILE = proc do |cfg|
       profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
       if profile_config && profile_config['credential_process']
-        new(profile_config['credential_process'])
+        new(process: profile_config['credential_process'])
       end
     end
 
@@ -16,15 +18,16 @@ module AWS::SDK::Core
     # external process to be used as a credential provider.
     #
     # @param [String] process Invocation string for the process.
-    def initialize(process)
+    def initialize(process:, **options)
       @process = process
-    end
-
-    def credentials
-      credentials_from_process(@process)
+      super(options)
     end
 
     private
+
+    def fetch
+      @credentials = credentials_from_process(@process)
+    end
 
     def credentials_from_process(proc_invocation)
       begin
@@ -63,15 +66,12 @@ module AWS::SDK::Core
       expiration = if creds_json['Expiration']
                      Time.iso8601(creds_json['Expiration'])
                    end
-
-      @credentials = Credentials.new(
+      Credentials.new(
         access_key_id: creds_json['AccessKeyId'],
         secret_access_key: creds_json['SecretAccessKey'],
         session_token: creds_json['SessionToken'],
         expiration: expiration
       )
-
-      @credentials
     end
   end
 end

@@ -37,7 +37,19 @@ module AWS::SDK::Core
       "echo '#{credential_hash.to_json}'"
     end
 
-    subject { ProcessCredentialsProvider.new(process) }
+    let(:callback) { nil }
+
+    subject do
+      ProcessCredentialsProvider.new(
+        process: process,
+        before_refresh: callback
+      )
+    end
+
+    it 'is refreshable' do
+      expect(subject.respond_to?(:refresh, true)).to be true
+      expect(subject).to be_a(RefreshingCredentialsProvider)
+    end
 
     describe '#credentials' do
       it 'will read valid credentials from a process' do
@@ -104,6 +116,18 @@ module AWS::SDK::Core
         it 'raises an error' do
           expect { subject.credentials }
             .to raise_error(ArgumentError, /Could not find process/)
+        end
+      end
+
+      context 'before_refresh' do
+        let(:callback) do
+          proc {}
+        end
+
+        it 'uses the callback' do
+          expect(callback).to receive(:call)
+            .with(an_instance_of(ProcessCredentialsProvider))
+          subject.refresh
         end
       end
     end

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
-  # TODO
+  # A credential provider that will fetch credentials from EC2 instance
+  # metadata.
   class EC2CredentialsProvider
     include CredentialProvider
 
@@ -33,13 +34,16 @@ module AWS::SDK::Core
     def credentials
       metadata = @client.get(METADATA_PATH_BASE)
       profile_name = metadata.lines.first.strip
-      c = @client.get(METADATA_PATH_BASE + profile_name)
+      creds_json = @client.get(METADATA_PATH_BASE + profile_name)
 
+      expiration = if creds_json['Expiration']
+                     Time.iso8601(creds_json['Expiration'])
+                   end
       @credentials = Credentials.new(
         access_key_id: c['AccessKeyId'],
         secret_access_key: c['SecretAccessKey'],
         session_token: c['Token'],
-        expiration: c['Expiration'] ? Time.iso8601(c['Expiration']) : nil
+        expiration: expiration
       )
     end
   end
