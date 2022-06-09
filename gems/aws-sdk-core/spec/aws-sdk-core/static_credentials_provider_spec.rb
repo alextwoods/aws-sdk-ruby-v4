@@ -4,7 +4,7 @@ require_relative '../spec_helper'
 
 module AWS::SDK::Core
   describe StaticCredentialsProvider do
-    describe StaticCredentialsProvider::PROFILE do
+    describe 'StaticCredentialsProvider::PROFILE' do
       before do
         allow(AWS::SDK::Core).to receive(:shared_config)
           .and_return(shared_config)
@@ -43,7 +43,7 @@ module AWS::SDK::Core
       end
     end
 
-    describe StaticCredentialsProvider::ENVIRONMENT do
+    describe 'StaticCredentialsProvider::ENVIRONMENT' do
       context 'environment has credentials' do
         let_env(
           'AWS_ACCESS_KEY_ID' => 'ACCESS_KEY_1',

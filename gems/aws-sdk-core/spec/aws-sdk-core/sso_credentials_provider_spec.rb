@@ -14,11 +14,11 @@ end
 
 module AWS::SDK::Core
   describe SSOCredentialsProvider do
-    before(:each) do
+    before do
       allow(AWS::SDK::Core).to receive(:sso_loaded?).and_return(true)
     end
 
-    describe SSOCredentialsProvider::PROFILE do
+    describe 'SSOCredentialsProvider::PROFILE' do
       before do
         allow(AWS::SDK::Core).to receive(:shared_config)
           .and_return(shared_config)
@@ -73,7 +73,7 @@ module AWS::SDK::Core
     let(:sso_region) { 'us-west-2' }
     let(:sso_account_id) { '12345' }
 
-    let(:sso_provider_options) do
+    let(:provider_options) do
       {
         sso_start_url: sso_start_url,
         sso_region: sso_region,
@@ -81,12 +81,9 @@ module AWS::SDK::Core
         sso_account_id: sso_account_id
       }
     end
-    let(:callback) { nil }
 
     subject do
-      SSOCredentialsProvider.new(
-        **sso_provider_options.merge(before_refresh: callback)
-      )
+      SSOCredentialsProvider.new(**provider_options.merge(client: client))
     end
 
     let(:config) { double('AWS::SDK::SSO::Config') }
@@ -125,10 +122,20 @@ module AWS::SDK::Core
         .with(path).and_return(JSON.dump(cached_token))
     end
 
-    it 'is refreshable' do
-      mock_token_file(sso_start_url, cached_token)
-      expect(subject.respond_to?(:refresh, true)).to be true
-      expect(subject).to be_a(RefreshingCredentialsProvider)
+    context 'refreshable credentials' do
+      before do
+        mock_token_file(sso_start_url, cached_token)
+      end
+
+      let(:callback) { proc {} }
+
+      subject do
+        SSOCredentialsProvider.new(
+          **provider_options.merge(before_refresh: callback, client: client)
+        )
+      end
+
+      include_examples 'refreshing_credentials_provider'
     end
 
     describe '#initialize' do
@@ -139,7 +146,7 @@ module AWS::SDK::Core
           .with(config).and_return(client)
         mock_token_file(sso_start_url, cached_token)
 
-        provider = SSOCredentialsProvider.new(**sso_provider_options)
+        provider = SSOCredentialsProvider.new(**provider_options)
         expect(provider.client).to be(client)
       end
 
@@ -152,7 +159,7 @@ module AWS::SDK::Core
         allow(File).to receive(:read).with(path).and_raise(Errno::ENOENT)
 
         expect do
-          SSOCredentialsProvider.new(**sso_provider_options)
+          SSOCredentialsProvider.new(**provider_options)
         end.to raise_error(ArgumentError)
       end
 
@@ -160,13 +167,13 @@ module AWS::SDK::Core
         mock_token_file(sso_start_url, { 'accessToken' => access_token })
 
         expect do
-          SSOCredentialsProvider.new(**sso_provider_options)
+          SSOCredentialsProvider.new(**provider_options)
         end.to raise_error(ArgumentError)
 
         mock_token_file(sso_start_url, { 'expiresAt' => expiration })
 
         expect do
-          SSOCredentialsProvider.new(**sso_provider_options)
+          SSOCredentialsProvider.new(**provider_options)
         end.to raise_error(ArgumentError)
       end
 
@@ -177,14 +184,14 @@ module AWS::SDK::Core
         )
 
         expect do
-          SSOCredentialsProvider.new(**sso_provider_options)
+          SSOCredentialsProvider.new(**provider_options)
         end.to raise_error(ArgumentError)
       end
 
       it 'raises when aws-sdk-sso is not available' do
         expect(AWS::SDK::Core).to receive(:sso_loaded?).and_return(false)
         expect do
-          SSOCredentialsProvider.new(**sso_provider_options)
+          SSOCredentialsProvider.new(**provider_options)
         end.to raise_error(RuntimeError, /aws-sdk-sso is required/)
       end
 
@@ -193,28 +200,19 @@ module AWS::SDK::Core
         mock_token_file(sso_start_url, cached_token)
 
         provider = SSOCredentialsProvider.new(
-          **sso_provider_options.merge(client: client)
+          **provider_options.merge(client: client)
         )
         expect(provider.client).to be(client)
       end
+    end
 
-      context 'before_refresh' do
-        let(:callback) do
-          proc {}
-        end
-
-        it 'uses the callback' do
-          expect(AWS::SDK::SSO::Config).to receive(:new)
-            .with(region: sso_region).and_return(config)
-          expect(AWS::SDK::SSO::Client).to receive(:new)
-            .with(config)
-            .and_return(client)
-          mock_token_file(sso_start_url, cached_token)
-          expect(client).to receive(:get_role_credentials)
-          expect(callback).to receive(:call)
-            .with(an_instance_of(SSOCredentialsProvider))
-          subject.refresh
-        end
+    describe '#credentials' do
+      it 'will read valid credentials from get_role_credentials' do
+        mock_token_file(sso_start_url, cached_token)
+        creds = subject.credentials
+        expect(creds.access_key_id).to eq('ACCESS_KEY_1')
+        expect(creds.secret_access_key).to eq('SECRET_KEY_1')
+        expect(creds.session_token).to eq('TOKEN_1')
       end
     end
   end
