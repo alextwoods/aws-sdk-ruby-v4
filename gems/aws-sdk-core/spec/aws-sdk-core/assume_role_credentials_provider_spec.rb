@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative '../spec_helper'
-require_relative '../support/shared_config'
 
 module AWS::SDK::STS
   # Define the required namespace

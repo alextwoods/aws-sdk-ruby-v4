@@ -5,9 +5,19 @@ require_relative '../spec_helper'
 module AWS::SDK::Core
   describe ProcessCredentialsProvider do
     describe ProcessCredentialsProvider::PROFILE do
-      include_context 'shared_config'
+      before do
+        allow(AWS::SDK::Core).to receive(:shared_config)
+          .and_return(shared_config)
+      end
 
       context 'profile has credential_process' do
+        let(:shared_config) do
+          IniParser.ini_parse(<<~CONFIG)
+            [profile process_credentials]
+            credential_process = echo '{ "Version": 1, "AccessKeyId": "PROC_AKID", "SecretAccessKey": "PROC_SECRET_KEY", "SessionToken": "PROC_TOKEN" }'
+          CONFIG
+        end
+
         it 'returns an instance of ProcessCredentialsProvider' do
           cfg = { profile: 'process_credentials' }
           provider = ProcessCredentialsProvider::PROFILE.call(cfg)
@@ -16,6 +26,13 @@ module AWS::SDK::Core
       end
 
       context 'profile does not have credential_process' do
+        let(:shared_config) do
+          IniParser.ini_parse(<<~CONFIG)
+            [profile default]
+            some_key = some_value
+          CONFIG
+        end
+
         it 'returns nil' do
           cfg = { profile: 'default' }
           provider = ProcessCredentialsProvider::PROFILE.call(cfg)
