@@ -47,10 +47,12 @@ require_relative 'aws-sdk-core/credential_provider'
 require_relative 'aws-sdk-core/refreshing_credentials_provider'
 
 require_relative 'aws-sdk-core/assume_role_credentials_provider'
+require_relative 'aws-sdk-core/assume_role_web_identity_credentials_provider'
 require_relative 'aws-sdk-core/process_credentials_provider'
 require_relative 'aws-sdk-core/sso_credentials_provider'
 require_relative 'aws-sdk-core/static_credentials_provider'
-
+require_relative 'aws-sdk-core/ec2_credentials_provider'
+require_relative 'aws-sdk-core/ecs_credentials_provider'
 # Shared Config
 require_relative 'aws-sdk-core/ini_parser'
 require_relative 'aws-sdk-core/shared_config'

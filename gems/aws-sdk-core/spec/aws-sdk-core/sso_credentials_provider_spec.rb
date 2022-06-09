@@ -43,8 +43,8 @@ module AWS::SDK::Core
       )
     end
 
-    let(:in_one_hour) { Time.now + 60 * 60 }
-    let(:one_hour_ago) { Time.now - 60 * 60 }
+    let(:in_one_hour) { Time.now + (60 * 60) }
+    let(:one_hour_ago) { Time.now - (60 * 60) }
     let(:expiration) { in_one_hour }
 
     let(:access_token) { 'token' }

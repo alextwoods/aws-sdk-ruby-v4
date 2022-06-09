@@ -17,8 +17,7 @@ module AWS::SDK::Core
       credential_source = profile_config['credential_source']
 
       if source_profile && credential_source
-        raise Errors::CredentialSourceConflictError,
-              "Profile #{cfg[:profile]} has a source_profile, and "\
+        raise "Profile #{cfg[:profile]} has a source_profile, and "\
               'a credential_source. For assume role credentials, must '\
               'provide only source_profile or credential_source, not both.'
       end
@@ -32,8 +31,7 @@ module AWS::SDK::Core
         )
 
         unless source_credentials_provider
-          raise Errors::NoSourceProfileError,
-                "Profile #{cfg[:profile]} has a role_arn, and source_profile,"\
+          raise "Profile #{cfg[:profile]} has a role_arn, and source_profile,"\
                 'but the source_profile does not have credentials.'
         end
       elsif credential_source
@@ -41,13 +39,11 @@ module AWS::SDK::Core
           credential_source, cfg
         )
         unless credential_source
-          raise Errors::NoSourceCredentialsError,
-                "Profile #{cfg[:profile]} could not get source credentials "\
+          raise "Profile #{cfg[:profile]} could not get source credentials "\
                 "from provider #{credential_source}"
         end
       else
-        raise Errors::NoSourceProfileError,
-              "Profile #{cfg[:profile]} has a role_arn, "\
+        raise "Profile #{cfg[:profile]} has a role_arn, "\
               'but no source_profile or credential_source'
       end
 
@@ -61,25 +57,23 @@ module AWS::SDK::Core
         role_session_name: profile_config['role_session_name'] ||
                            'default_session',
         role_arn: profile_config['role_arn'],
-        duration_seconds: profile_config['duration_seconds'],
+        duration_seconds: profile_config['duration_seconds']&.to_i,
         external_id: profile_config['external_id'],
         serial_number: profile_config['mfa_serial']
       )
     end
-
 
     def self.resolve_source_profile_credentials(profile, visited_profiles, cfg)
       # must defined in method to avoid dependency issues
       profile_credential_chain = [
         AWS::SDK::Core::StaticCredentialsProvider::PROFILE,
         AWS::SDK::Core::AssumeRoleCredentialsProvider::PROFILE,
-        # AWS::SDK::Core::AssumeRoleWebIdentityCredentialsProvider::PROFILE,
+        AWS::SDK::Core::AssumeRoleWebIdentityCredentialsProvider::PROFILE,
         AWS::SDK::Core::ProcessCredentialsProvider::PROFILE,
-        # AWS::SDK::Core::SSOCredentialsProvider::PROFILE
-        # TODO: Renable all once required in core.
+        AWS::SDK::Core::SSOCredentialsProvider::PROFILE
       ]
 
-      if visited_profiles && visited_profiles.include?(profile)
+      if visited_profiles&.include?(profile)
         raise Errors::SourceProfileCircularReferenceError
       end
 
@@ -104,7 +98,7 @@ module AWS::SDK::Core
       when 'EcsContainer'
         ECSCredentialsProvider.new
       when 'Environment'
-        StaticCredentialsProvider.ENVIRONMENT.call(cfg)
+        StaticCredentialsProvider::ENVIRONMENT.call(cfg)
       else
         raise Errors::InvalidCredentialSourceError,
               "Unsupported credential_source: #{credentials_source}"
