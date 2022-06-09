@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative '../spec_helper'
-require_relative '../support/shared_config'
 
 module AWS::SDK::Core
   describe Credentials do
@@ -14,9 +13,9 @@ module AWS::SDK::Core
       )
     end
 
-    let(:access_key_id) { 'akid' }
-    let(:secret_access_key) { 'secret' }
-    let(:session_token) { 'session' }
+    let(:access_key_id) { 'ACCESS_KEY_1' }
+    let(:secret_access_key) { 'SECRET_KEY_1' }
+    let(:session_token) { 'TOKEN_1' }
     let(:expiration) { Time.now }
 
     describe '#initialize' do

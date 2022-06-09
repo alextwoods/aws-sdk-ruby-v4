@@ -1,14 +1,25 @@
 # frozen_string_literal: true
 
 require_relative '../spec_helper'
-require_relative '../support/shared_config'
 
 module AWS::SDK::Core
   describe StaticCredentialsProvider do
     describe StaticCredentialsProvider::PROFILE do
-      include_context 'shared_config'
+      before do
+        allow(AWS::SDK::Core).to receive(:shared_config)
+          .and_return(shared_config)
+      end
 
       context 'profile has credentials' do
+        let(:shared_config) do
+          IniParser.ini_parse(<<~CONFIG)
+            [profile static_credentials]
+            aws_access_key_id = ACCESS_KEY_1
+            aws_secret_access_key = SECRET_KEY_1
+            aws_session_token = TOKEN_1
+          CONFIG
+        end
+
         it 'returns an instance of StaticCredentialsProvider' do
           cfg = { profile: 'static_credentials' }
           provider = StaticCredentialsProvider::PROFILE.call(cfg)
@@ -17,6 +28,13 @@ module AWS::SDK::Core
       end
 
       context 'profile does not have credentials' do
+        let(:shared_config) do
+          IniParser.ini_parse(<<~CONFIG)
+            [profile default]
+            some_key = some_value
+          CONFIG
+        end
+
         it 'returns nil' do
           cfg = { profile: 'default' }
           provider = StaticCredentialsProvider::PROFILE.call(cfg)
