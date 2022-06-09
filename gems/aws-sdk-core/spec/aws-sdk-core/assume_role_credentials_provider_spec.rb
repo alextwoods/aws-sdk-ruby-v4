@@ -15,6 +15,7 @@ module AWS::SDK::Core
   describe AssumeRoleCredentialsProvider do
     before(:each) do
       allow(AWS::SDK::Core).to receive(:sts_loaded?).and_return(true)
+      allow(AWS::SDK::Core).to receive(:sso_loaded?).and_return(false)
     end
 
     describe 'AssumeRoleCredentialsProvider::PROFILE' do
@@ -248,6 +249,247 @@ module AWS::SDK::Core
         end
       end
 
+      context 'No source profile or credential source' do
+        let(:shared_config) do
+          IniParser.ini_parse(<<~CONFIG)
+            [profile A]
+            role_arn = arn:aws:iam::123456789:role/RoleA
+          CONFIG
+        end
+
+        let(:source_credentials) { double }
+        let(:client) { double }
+
+        it 'Raise error due to lack of source_profile or credential_source' do
+          expect do
+            AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+          end.to raise_error(
+                   StandardError,
+                   'Profile A has a role_arn but no source_profile'\
+                   ' or credential_source')
+        end
+      end
+
+      context 'Both source profile and credential source' do
+        let(:shared_config) do
+          IniParser.ini_parse(<<~CONFIG)
+            [profile A]
+            role_arn = arn:aws:iam::123456789:role/RoleA
+            credential_source = Environment
+            source_profile = B
+            
+            [profile B]
+            aws_access_key_id = abc123
+            aws_secret_access_key = def456
+          CONFIG
+        end
+
+        let(:source_credentials) { double }
+        let(:client) { double }
+
+        it 'Raise error due to lack of source_profile or credential_source' do
+          expect do
+            AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+          end.to raise_error(
+                   StandardError,
+                   /Profile A has a source_profile and a credential_source/
+                 )
+        end
+      end
+
+      context 'Source Profile Has Partial Credentials' do
+        let(:shared_config) do
+          IniParser.ini_parse(<<~CONFIG)
+            [profile A]
+            role_arn = arn:aws:iam::123456789:role/RoleA
+            source_profile = B
+            
+            [profile B]
+            aws_access_key_id = abc123
+          CONFIG
+        end
+
+        let(:source_credentials) { double }
+        let(:client) { double }
+
+        it 'Raises error due to lack of complete credentials' do
+          expect do
+            AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+          end.to raise_error(
+                   StandardError,
+                   /source_profile does not have credentials/
+                 )
+        end
+      end
+
+      context "Source Profile Doesn't Exist" do
+        let(:shared_config) do
+          IniParser.ini_parse(<<~CONFIG)
+            [profile A]
+            role_arn = arn:aws:iam::123456789:role/RoleA
+            source_profile = B
+          CONFIG
+        end
+
+        let(:source_credentials) { double }
+        let(:client) { double }
+
+        it 'Raise error due to missing profile' do
+          expect do
+            AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+          end.to raise_error(
+                   StandardError,
+                   /source_profile B does not exist/
+                 )
+        end
+      end
+
+      context "Credential Source Not Supported" do
+        let(:shared_config) do
+          IniParser.ini_parse(<<~CONFIG)
+            [profile A]
+            role_arn = arn:aws:iam::123456789:role/RoleA
+            credential_source = CustomUnsupportedProvider
+          CONFIG
+        end
+
+        let(:source_credentials) { double }
+        let(:client) { double }
+
+        it 'Raise error due to unsupported credential source' do
+          expect do
+            AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+          end.to raise_error(
+                   StandardError,
+                   /Unsupported credential_source/
+                 )
+        end
+      end
+
+      context 'Chained Assume Role Profiles' do
+        let(:shared_config) do
+          IniParser.ini_parse(<<~CONFIG)
+            [profile A]
+            role_arn = arn:aws:iam::123456789:role/RoleA
+            source_profile = B
+            
+            [profile B]
+            role_arn = arn:aws:iam::123456789:role/RoleB
+            source_profile = C
+            
+            [profile C]
+            aws_access_key_id = mno456
+            aws_secret_access_key = pqr789
+          CONFIG
+        end
+
+        let(:credentials_from_b) { double }
+        let(:credentials_from_c) { double }
+        let(:client_b) { double }
+        let(:client_a) { double }
+
+
+        it 'Assumes RoleA using chained credentials from RoleB' do
+          # verify credentials from C
+          expect(AWS::SDK::Core::StaticCredentialsProvider)
+            .to receive(:new)
+                  .with(access_key_id: 'mno456', secret_access_key: 'pqr789',
+                        session_token: nil)
+                  .and_return(credentials_from_c)
+
+          # verify client for B is created with credentials from C
+          expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
+            expect(cfg.credentials_provider).to be(credentials_from_c)
+          end.and_return(client_b)
+
+          # verify client_b is used to assume role b
+          expect(AssumeRoleCredentialsProvider).to receive(:new) do |**kwargs|
+            expect(kwargs[:client]).to be(client_b)
+            expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleB')
+          end.and_return(credentials_from_b)
+
+          # verify client for A  is created with credentials from B
+          expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
+            expect(cfg.credentials_provider).to be(credentials_from_b)
+          end.and_return(client_a)
+
+          # verify client a is used to assume role a
+          expect(AssumeRoleCredentialsProvider).to receive(:new) do |**kwargs|
+            expect(kwargs[:client]).to be(client_a)
+            expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleA')
+          end
+
+          AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+        end
+      end
+
+      context 'Chained Assume Role Profiles With Static Credentials' do
+        let(:shared_config) do
+          IniParser.ini_parse(<<~CONFIG)
+            [profile A]
+            aws_access_key_id = abc123
+            aws_secret_access_key = def456
+            role_arn = arn:aws:iam::123456789:role/RoleA
+            source_profile = B
+            
+            [profile B]
+            aws_access_key_id = ghi890
+            aws_secret_access_key = jkl123
+            role_arn = arn:aws:iam::123456789:role/RoleB
+            source_profile = C
+            
+            [profile C]
+            aws_access_key_id = mno456
+            aws_secret_access_key = pqr789
+          CONFIG
+        end
+
+        let(:credentials_from_b) { double }
+        let(:client_a) { double }
+
+
+        it 'Assumes RoleA using static credentials from Profile B' do
+          # verify credentials from B
+          expect(AWS::SDK::Core::StaticCredentialsProvider)
+            .to receive(:new)
+                  .with(access_key_id: 'ghi890', secret_access_key: 'jkl123',
+                        session_token: nil)
+                  .and_return(credentials_from_b)
+
+          # verify client is created with credentials from B
+          expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
+            expect(cfg.credentials_provider).to be(credentials_from_b)
+          end.and_return(client_a)
+
+          # verify client is used to assume role a
+          expect(AssumeRoleCredentialsProvider).to receive(:new) do |**kwargs|
+            expect(kwargs[:client]).to be(client_a)
+            expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleA')
+          end
+
+          AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+        end
+      end
+
+      context 'Chained Assume Role Profiles Loop Infinitely' do
+        let(:shared_config) do
+          IniParser.ini_parse(<<~CONFIG)
+            [profile A]
+            role_arn = arn:aws:iam::123456789:role/RoleA
+            source_profile = B
+            
+            [profile B]
+            role_arn = arn:aws:iam::123456789:role/RoleB
+            source_profile = A
+          CONFIG
+        end
+
+        it 'Raises an error due to Profile B referencing a visited profile' do
+          expect do
+            AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
+            end.to raise_error(StandardError, /Circular reference/)
+        end
+      end
 
     end
 
