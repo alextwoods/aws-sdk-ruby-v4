@@ -4,7 +4,7 @@ require_relative '../spec_helper'
 
 module AWS::SDK::Core
   describe ProcessCredentialsProvider do
-    describe ProcessCredentialsProvider::PROFILE do
+    describe 'ProcessCredentialsProvider::PROFILE' do
       before do
         allow(AWS::SDK::Core).to receive(:shared_config)
           .and_return(shared_config)
@@ -14,7 +14,7 @@ module AWS::SDK::Core
         let(:shared_config) do
           IniParser.ini_parse(<<~CONFIG)
             [profile process_credentials]
-            credential_process = echo '{ "Version": 1, "AccessKeyId": "PROC_AKID", "SecretAccessKey": "PROC_SECRET_KEY", "SessionToken": "PROC_TOKEN" }'
+            credential_process = echo '{ "Version": 1, "AccessKeyId": "ACCESS_KEY_1", "SecretAccessKey": "SECRET_KEY_1", "SessionToken": "TOKEN_1" }'
           CONFIG
         end
 
@@ -44,9 +44,9 @@ module AWS::SDK::Core
     let(:credential_hash) do
       {
         Version: 1,
-        AccessKeyId: 'PROC_AKID',
-        SecretAccessKey: 'PROC_SECRET_AK',
-        SessionToken: 'PROC_SESSION_TOKEN'
+        AccessKeyId: 'ACCESS_KEY_1',
+        SecretAccessKey: 'SECRET_KEY_1',
+        SessionToken: 'TOKEN_1'
       }
     end
 
@@ -54,26 +54,29 @@ module AWS::SDK::Core
       "echo '#{credential_hash.to_json}'"
     end
 
-    let(:callback) { nil }
+    let(:provider_options) { { process: process } }
 
-    subject do
-      ProcessCredentialsProvider.new(
-        process: process,
-        before_refresh: callback
-      )
-    end
+    subject { ProcessCredentialsProvider.new(process: process) }
 
-    it 'is refreshable' do
-      expect(subject.respond_to?(:fetch, true)).to be true
-      expect(subject).to be_a(RefreshingCredentialsProvider)
+    context 'refreshable credentials' do
+      let(:callback) { proc {} }
+
+      subject do
+        ProcessCredentialsProvider.new(
+          process: process,
+          before_refresh: callback
+        )
+      end
+
+      include_examples 'refreshing_credentials_provider'
     end
 
     describe '#credentials' do
       it 'will read valid credentials from a process' do
         creds = subject.credentials
-        expect(creds.access_key_id).to eq('PROC_AKID')
-        expect(creds.secret_access_key).to eq('PROC_SECRET_AK')
-        expect(creds.session_token).to eq('PROC_SESSION_TOKEN')
+        expect(creds.access_key_id).to eq('ACCESS_KEY_1')
+        expect(creds.secret_access_key).to eq('SECRET_KEY_1')
+        expect(creds.session_token).to eq('TOKEN_1')
       end
 
       context 'missing credential fields' do
@@ -133,20 +136,6 @@ module AWS::SDK::Core
         it 'raises an error' do
           expect { subject.credentials }
             .to raise_error(ArgumentError, /Could not find process/)
-        end
-      end
-    end
-
-    describe '#initialize' do
-      context 'before_refresh' do
-        let(:callback) do
-          proc {}
-        end
-
-        it 'uses the callback' do
-          expect(callback).to receive(:call)
-            .with(an_instance_of(ProcessCredentialsProvider))
-          subject.refresh
         end
       end
     end
