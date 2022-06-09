@@ -2,7 +2,6 @@
 
 module AWS::SDK::Core
   module Errors
-
     # Raised when a client is constructed, where Assume Role credentials are
     # expected, and there is no source profile specified.
     class NoSourceProfileError < RuntimeError; end

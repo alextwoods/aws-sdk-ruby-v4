@@ -17,13 +17,13 @@ module AWS::SDK::Core
     end
 
     describe 'AssumeRoleCredentialsProvider::PROFILE' do
-
       let(:shared_config) do
         {}
       end
 
       before(:each) do
-        allow(AWS::SDK::Core).to receive(:shared_config).and_return(shared_config)
+        allow(AWS::SDK::Core).to receive(:shared_config)
+          .and_return(shared_config)
       end
 
       context 'base case' do
@@ -32,7 +32,7 @@ module AWS::SDK::Core
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             source_profile = B
-            
+
             [profile B]
             aws_access_key_id = abc123
             aws_secret_access_key = def456
@@ -63,7 +63,7 @@ module AWS::SDK::Core
             aws_secret_access_key = def456
             role_arn = arn:aws:iam::123456789:role/RoleA
             source_profile = B
-            
+
             [profile B]
             aws_access_key_id = ghi890
             aws_secret_access_key = jkl123

@@ -25,7 +25,7 @@ module AWS::SDK::Core
       end
     end
 
-    describe 'StaticCredentialsProvider::ENVIRONMENT' do
+    describe StaticCredentialsProvider::ENVIRONMENT do
       context 'environment has credentials' do
         let_env(
           'AWS_ACCESS_KEY_ID' => 'ACCESS_KEY_1',

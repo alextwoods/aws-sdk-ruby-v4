@@ -47,7 +47,7 @@ module AWS::SDK::Core
     end
 
     it 'is refreshable' do
-      expect(subject.respond_to?(:refresh, true)).to be true
+      expect(subject.respond_to?(:fetch, true)).to be true
       expect(subject).to be_a(RefreshingCredentialsProvider)
     end
 
@@ -118,7 +118,9 @@ module AWS::SDK::Core
             .to raise_error(ArgumentError, /Could not find process/)
         end
       end
+    end
 
+    describe '#initialize' do
       context 'before_refresh' do
         let(:callback) do
           proc {}

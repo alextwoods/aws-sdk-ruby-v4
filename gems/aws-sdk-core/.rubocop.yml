@@ -18,6 +18,9 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*.rb'
 
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+
 Naming/FileName:
   Exclude:
     - 'lib/aws-sdk-core.rb'
@@ -29,15 +32,3 @@ Style/ClassAndModuleChildren:
 Style/Documentation:
   Exclude:
     - 'spec/**/*.rb'
-
-#Metrics:
-#  Exclude:
-#    - 'spec/**/*.rb'
-#    - 'lib/aws/sdk/core/ini_parser.rb'
-#
-
-#
-#Metrics/MethodLength:
-#  Max: 15
-#
-

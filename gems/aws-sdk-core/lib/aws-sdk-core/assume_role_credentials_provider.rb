@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
+  # TODO
   class AssumeRoleCredentialsProvider
     include CredentialProvider
     include RefreshingCredentialsProvider
@@ -17,14 +18,13 @@ module AWS::SDK::Core
 
       if source_profile && credential_source
         raise Errors::CredentialSourceConflictError,
-              "Profile #{profile} has a source_profile, and "\
+              "Profile #{cfg[:profile]} has a source_profile, and "\
               'a credential_source. For assume role credentials, must '\
               'provide only source_profile or credential_source, not both.'
       end
 
       # resolve the source provider to use from
       # either source_profile or credential_source
-      source_credentials_provider = nil
       if source_profile
         visited_profiles = cfg[:visited_profiles] || Set.new
         source_credentials_provider = resolve_source_profile_credentials(
@@ -33,21 +33,21 @@ module AWS::SDK::Core
 
         unless source_credentials_provider
           raise Errors::NoSourceProfileError,
-                "Profile #{profile} has a role_arn, and source_profile, but the"\
-              ' source_profile does not have credentials.'
+                "Profile #{cfg[:profile]} has a role_arn, and source_profile,"\
+                'but the source_profile does not have credentials.'
         end
       elsif credential_source
         source_credentials_provider = resolve_credentials_source(
           credential_source, cfg
         )
         unless credential_source
-          raise Errors::NoSourceCredentials,
-                "Profile #{profile} could not get source credentials from"\
-                " provider #{credential_source}"
+          raise Errors::NoSourceCredentialsError,
+                "Profile #{cfg[:profile]} could not get source credentials "\
+                "from provider #{credential_source}"
         end
       else
         raise Errors::NoSourceProfileError,
-              "Profile #{profile} has a role_arn, "\
+              "Profile #{cfg[:profile]} has a role_arn, "\
               'but no source_profile or credential_source'
       end
 
@@ -58,7 +58,8 @@ module AWS::SDK::Core
       sts_client = AWS::SDK::STS::Client.new(sts_config)
       new(
         client: sts_client,
-        role_session_name: profile_config['role_session_name'] || 'default_session',
+        role_session_name: profile_config['role_session_name'] ||
+                           'default_session',
         role_arn: profile_config['role_arn'],
         duration_seconds: profile_config['duration_seconds'],
         external_id: profile_config['external_id'],
@@ -105,10 +106,10 @@ module AWS::SDK::Core
       when 'Environment'
         StaticCredentialsProvider.ENVIRONMENT.call(cfg)
       else
-        raise Errors::InvalidCredentialSourceError, "Unsupported credential_source: #{credential_source}"
+        raise Errors::InvalidCredentialSourceError,
+              "Unsupported credential_source: #{credentials_source}"
       end
     end
-
 
     # @option options [required, String] :role_arn
     # @option options [required, String] :role_session_name
@@ -117,22 +118,13 @@ module AWS::SDK::Core
     # @option options [String] :external_id
     # @option options [String] :serial_number
     # @option options [AWS::SDK::STS::Client] :client
-    # @option options [Callable] before_refresh Proc called before
-    #   credentials are refreshed.  Useful for updating tokens.
-    #   `before_refresh` is called when AWS credentials are
-    #   required and need to be refreshed. Tokens can be refreshed using
-    #   the following example:
-    #
-    #      before_refresh = Proc.new do |assume_role_credentials| do
-    #        assume_role_credentials.assume_role_params['token_code'] = update_token
-    #      end
-    #
-    def initialize(
-      role_arn:, role_session_name:, policy: nil, duration_seconds: nil,
-      external_id: nil, serial_number: nil, client: nil, **options)
+    # @param [Callable] :before_refresh A proc called when AWS
+    #   credentials are required and need to be refreshed.
+    def initialize(role_arn:, role_session_name:, policy: nil,
+                   duration_seconds: nil, external_id: nil, serial_number: nil,
+                   client: nil, **options)
       unless AWS::SDK::Core.sts_loaded?
-        raise StandardError,
-              'aws-sdk-sts is required to create an'\
+        raise 'aws-sdk-sts is required to create an'\
               'AssumeRoleCredentialsProvider.'
       end
       @client = client || AWS::SDK::STS::Client.new

@@ -18,6 +18,8 @@ module AWS::SDK::Core
     # external process to be used as a credential provider.
     #
     # @param [String] process Invocation string for the process.
+    # @param [Callable] :before_refresh A proc called when AWS
+    #   credentials are required and need to be refreshed.
     def initialize(process:, **options)
       @process = process
       super(options)

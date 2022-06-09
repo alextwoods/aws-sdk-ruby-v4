@@ -42,16 +42,16 @@ module AWS::SDK::Core
       # every #refresh_if_near_expiration! call, we check before doing so, and
       # then we check within the mutex to avoid a race condition.
       # See: https://github.com/aws/aws-sdk-ruby/issues/2641 for more info.
-      if near_expiration?(SYNC_EXPIRATION_LENGTH)
+      if should_fetch?(SYNC_EXPIRATION_LENGTH)
         _sync_refresh
-      elsif near_expiration?(ASYNC_EXPIRATION_LENGTH)
+      elsif should_fetch?(ASYNC_EXPIRATION_LENGTH)
         _async_refresh
       end
     end
 
     def _sync_refresh
       @mutex.synchronize do
-        _refresh if near_expiration?(SYNC_EXPIRATION_LENGTH)
+        _refresh if should_fetch?(SYNC_EXPIRATION_LENGTH)
       end
     end
 
@@ -60,12 +60,12 @@ module AWS::SDK::Core
 
       Thread.new do
         @mutex.synchronize do
-          _refresh if near_expiration?(ASYNC_EXPIRATION_LENGTH)
+          _refresh if should_fetch?(ASYNC_EXPIRATION_LENGTH)
         end
       end
     end
 
-    def near_expiration?(expiration_length)
+    def should_fetch?(expiration_length)
       if @credentials
         if @credentials.expiration
           # Are we within expiration?
