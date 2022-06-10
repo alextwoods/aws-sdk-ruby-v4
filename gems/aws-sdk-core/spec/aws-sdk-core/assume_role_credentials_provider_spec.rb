@@ -5,7 +5,7 @@ require_relative '../spec_helper'
 module AWS::SDK::STS
   # Define the required namespace
   class Client
-    def initialize(options={}); end
+    def initialize(options = {}); end
   end
 
   Config = Struct.new(:region, :credentials_provider, keyword_init: true)
@@ -89,9 +89,9 @@ module AWS::SDK::Core
           # verify credentials from B
           expect(AWS::SDK::Core::StaticCredentialsProvider)
             .to receive(:new)
-                  .with(access_key_id: 'ghi890', secret_access_key: 'jkl123',
-                        session_token: nil)
-                  .and_return(credentials_from_b)
+            .with(access_key_id: 'ghi890', secret_access_key: 'jkl123',
+                  session_token: nil)
+            .and_return(credentials_from_b)
 
           # verify client is created with credentials from B
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
@@ -119,7 +119,7 @@ module AWS::SDK::Core
             mfa_serial = arn:aws:iam::123456789012:mfa/user
             duration_seconds = 1234
             source_profile = B
-            
+
             [profile B]
             aws_access_key_id = abc123
             aws_secret_access_key = def456
@@ -133,9 +133,9 @@ module AWS::SDK::Core
           # verify credentials from B
           expect(AWS::SDK::Core::StaticCredentialsProvider)
             .to receive(:new)
-                  .with(access_key_id: 'abc123', secret_access_key: 'def456',
-                        session_token: nil)
-                  .and_return(credentials_from_b)
+            .with(access_key_id: 'abc123', secret_access_key: 'def456',
+                  session_token: nil)
+            .and_return(credentials_from_b)
 
           # verify client is created with credentials from B
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
@@ -169,7 +169,6 @@ module AWS::SDK::Core
         let(:client) { double }
 
         it 'Assumes RoleA using EC2CredentialsProvider' do
-
           expect(EC2CredentialsProvider).to receive(:new).and_return(source_credentials)
 
           # verify client is created with credentials from B
@@ -200,7 +199,6 @@ module AWS::SDK::Core
         let(:client) { double }
 
         it 'Assumes RoleA using credentials from the environment' do
-
           expect(StaticCredentialsProvider::ENVIRONMENT).to receive(:call).and_return(source_credentials)
 
           # verify client is created with credentials from B
@@ -231,7 +229,6 @@ module AWS::SDK::Core
         let(:client) { double }
 
         it 'Assumes RoleA using credentials from the environment' do
-
           expect(ECSCredentialsProvider).to receive(:new).and_return(source_credentials)
 
           # verify client is created with credentials from B
@@ -264,9 +261,10 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-                   StandardError,
-                   'Profile A has a role_arn but no source_profile'\
-                   ' or credential_source')
+            StandardError,
+            'Profile A has a role_arn but no source_profile'\
+            ' or credential_source'
+          )
         end
       end
 
@@ -277,7 +275,7 @@ module AWS::SDK::Core
             role_arn = arn:aws:iam::123456789:role/RoleA
             credential_source = Environment
             source_profile = B
-            
+
             [profile B]
             aws_access_key_id = abc123
             aws_secret_access_key = def456
@@ -291,9 +289,9 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-                   StandardError,
-                   /Profile A has a source_profile and a credential_source/
-                 )
+            StandardError,
+            /Profile A has a source_profile and a credential_source/
+          )
         end
       end
 
@@ -303,7 +301,7 @@ module AWS::SDK::Core
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             source_profile = B
-            
+
             [profile B]
             aws_access_key_id = abc123
           CONFIG
@@ -316,9 +314,9 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-                   StandardError,
-                   /source_profile does not have credentials/
-                 )
+            StandardError,
+            /source_profile does not have credentials/
+          )
         end
       end
 
@@ -338,13 +336,13 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-                   StandardError,
-                   /source_profile B does not exist/
-                 )
+            StandardError,
+            /source_profile B does not exist/
+          )
         end
       end
 
-      context "Credential Source Not Supported" do
+      context 'Credential Source Not Supported' do
         let(:shared_config) do
           IniParser.ini_parse(<<~CONFIG)
             [profile A]
@@ -360,9 +358,9 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-                   StandardError,
-                   /Unsupported credential_source/
-                 )
+            StandardError,
+            /Unsupported credential_source/
+          )
         end
       end
 
@@ -372,11 +370,11 @@ module AWS::SDK::Core
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             source_profile = B
-            
+
             [profile B]
             role_arn = arn:aws:iam::123456789:role/RoleB
             source_profile = C
-            
+
             [profile C]
             aws_access_key_id = mno456
             aws_secret_access_key = pqr789
@@ -388,14 +386,13 @@ module AWS::SDK::Core
         let(:client_b) { double }
         let(:client_a) { double }
 
-
         it 'Assumes RoleA using chained credentials from RoleB' do
           # verify credentials from C
           expect(AWS::SDK::Core::StaticCredentialsProvider)
             .to receive(:new)
-                  .with(access_key_id: 'mno456', secret_access_key: 'pqr789',
-                        session_token: nil)
-                  .and_return(credentials_from_c)
+            .with(access_key_id: 'mno456', secret_access_key: 'pqr789',
+                  session_token: nil)
+            .and_return(credentials_from_c)
 
           # verify client for B is created with credentials from C
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
@@ -431,13 +428,13 @@ module AWS::SDK::Core
             aws_secret_access_key = def456
             role_arn = arn:aws:iam::123456789:role/RoleA
             source_profile = B
-            
+
             [profile B]
             aws_access_key_id = ghi890
             aws_secret_access_key = jkl123
             role_arn = arn:aws:iam::123456789:role/RoleB
             source_profile = C
-            
+
             [profile C]
             aws_access_key_id = mno456
             aws_secret_access_key = pqr789
@@ -447,14 +444,13 @@ module AWS::SDK::Core
         let(:credentials_from_b) { double }
         let(:client_a) { double }
 
-
         it 'Assumes RoleA using static credentials from Profile B' do
           # verify credentials from B
           expect(AWS::SDK::Core::StaticCredentialsProvider)
             .to receive(:new)
-                  .with(access_key_id: 'ghi890', secret_access_key: 'jkl123',
-                        session_token: nil)
-                  .and_return(credentials_from_b)
+            .with(access_key_id: 'ghi890', secret_access_key: 'jkl123',
+                  session_token: nil)
+            .and_return(credentials_from_b)
 
           # verify client is created with credentials from B
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
@@ -477,7 +473,7 @@ module AWS::SDK::Core
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             source_profile = B
-            
+
             [profile B]
             role_arn = arn:aws:iam::123456789:role/RoleB
             source_profile = A
@@ -487,10 +483,9 @@ module AWS::SDK::Core
         it 'Raises an error due to Profile B referencing a visited profile' do
           expect do
             AssumeRoleCredentialsProvider::PROFILE.call({ profile: 'A' })
-            end.to raise_error(StandardError, /Circular reference/)
+          end.to raise_error(StandardError, /Circular reference/)
         end
       end
-
     end
 
     let(:expiration) { Time.now }
@@ -528,6 +523,24 @@ module AWS::SDK::Core
     end
 
     subject { AssumeRoleCredentialsProvider.new(**assume_role_params) }
+
+    context 'refreshable credentials' do
+      let(:callback) { proc {} }
+
+      before(:each) do
+        allow(client).to receive(:assume_role)
+          .with(assume_role_params)
+          .and_return(resp)
+      end
+
+      subject do
+        AssumeRoleCredentialsProvider.new(
+          **assume_role_params.merge(before_refresh: callback, client: client)
+        )
+      end
+
+      include_examples 'refreshing_credentials_provider'
+    end
 
     describe '#initialize' do
       it 'constructs a default client when not given one' do

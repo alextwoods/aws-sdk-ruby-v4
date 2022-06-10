@@ -1,7 +1,20 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
-  # TODO
+  # An auto-refreshing credential provider that assumes a role via
+  # {AWS::SDK::STS::Client#assume_role}.
+  #
+  #     role_credentials = AWS::SDK::Core::AssumeRoleCredentialsProvider.new(
+  #       client: AWS::SDK::STS::Client.new(...),
+  #       role_arn: "linked::account::arn",
+  #       role_session_name: "session-name"
+  #     )
+  #     ec2 = AWS::SDK::EC2::Client.new(credentials_provider: role_credentials)
+  #
+  # If you omit `:client` option, a new {AWS::SDK::STS::Client} object will be
+  # constructed with additional options that were provided.
+  #
+  # @see AWS::SDK::STS::Client#assume_role
   class AssumeRoleCredentialsProvider
     include CredentialProvider
     include RefreshingCredentialsProvider
@@ -25,19 +38,9 @@ module AWS::SDK::Core
       # resolve the source provider to use from
       # either source_profile or credential_source
       if source_profile
-        visited_profiles = cfg[:visited_profiles] || Set.new
-        source_credentials_provider = resolve_source_profile_credentials(
-          source_profile, visited_profiles, cfg
-        )
-
-        unless source_credentials_provider
-          raise "Profile #{cfg[:profile]} has a role_arn and source_profile "\
-                'but the source_profile does not have credentials.'
-        end
+        source_provider = resolve_source_profile(source_profile, cfg)
       elsif credential_source
-        source_credentials_provider = resolve_credentials_source(
-          credential_source, cfg
-        )
+        source_provider = resolve_credentials_source(credential_source, cfg)
         unless credential_source
           raise "Profile #{cfg[:profile]} could not get source credentials "\
                 "from provider #{credential_source}"
@@ -47,66 +50,7 @@ module AWS::SDK::Core
               'but no source_profile or credential_source'
       end
 
-      sts_config = AWS::SDK::STS::Config.new(
-        region: cfg[:region],
-        credentials_provider: source_credentials_provider
-      )
-      sts_client = AWS::SDK::STS::Client.new(sts_config)
-      new(
-        client: sts_client,
-        role_session_name: profile_config['role_session_name'] ||
-                           'default_session',
-        role_arn: profile_config['role_arn'],
-        duration_seconds: profile_config['duration_seconds']&.to_i,
-        external_id: profile_config['external_id'],
-        serial_number: profile_config['mfa_serial']
-      )
-    end
-
-    def self.resolve_source_profile_credentials(profile, visited_profiles, cfg)
-      # must defined in method to avoid dependency issues
-      profile_credential_chain = [
-        AWS::SDK::Core::StaticCredentialsProvider::PROFILE,
-        AWS::SDK::Core::AssumeRoleCredentialsProvider::PROFILE,
-        AWS::SDK::Core::AssumeRoleWebIdentityCredentialsProvider::PROFILE,
-        AWS::SDK::Core::ProcessCredentialsProvider::PROFILE,
-        AWS::SDK::Core::SSOCredentialsProvider::PROFILE
-      ]
-
-      unless AWS::SDK::Core.shared_config.key?(profile)
-        raise "source_profile #{profile} does not exist."
-      end
-
-      if visited_profiles&.include?(profile)
-        raise 'Circular reference in assume role profiles'\
-              ", have already visited: #{profile}"
-      end
-
-      visited_profiles.add(profile)
-      cfg = {
-        profile: profile,
-        visited_profiles: visited_profiles,
-        region: cfg[:region]
-      }
-
-      profile_credential_chain.each do |p|
-        provider = p.call(cfg)
-        return provider unless provider.nil?
-      end
-      nil
-    end
-
-    def self.resolve_credentials_source(credentials_source, cfg)
-      case credentials_source
-      when 'Ec2InstanceMetadata'
-        EC2CredentialsProvider.new # TODO: Arguments?
-      when 'EcsContainer'
-        ECSCredentialsProvider.new
-      when 'Environment'
-        StaticCredentialsProvider::ENVIRONMENT.call(cfg)
-      else
-        raise "Unsupported credential_source: #{credentials_source}"
-      end
+      build_profile_provider(cfg, profile_config, source_provider)
     end
 
     # @option options [required, String] :role_arn
@@ -147,6 +91,78 @@ module AWS::SDK::Core
         session_token: c.session_token,
         expiration: c.expiration
       )
+    end
+
+    class << self
+      private
+
+      def resolve_source_profile(profile, cfg)
+        # must defined in method to avoid dependency issues
+        profile_credential_chain = [
+          AWS::SDK::Core::StaticCredentialsProvider::PROFILE,
+          AWS::SDK::Core::AssumeRoleCredentialsProvider::PROFILE,
+          AWS::SDK::Core::AssumeRoleWebIdentityCredentialsProvider::PROFILE,
+          AWS::SDK::Core::ProcessCredentialsProvider::PROFILE,
+          AWS::SDK::Core::SSOCredentialsProvider::PROFILE
+        ]
+
+        visited_profiles = cfg[:visited_profiles] || Set.new
+
+        unless AWS::SDK::Core.shared_config.key?(profile)
+          raise "source_profile #{profile} does not exist."
+        end
+
+        if visited_profiles&.include?(profile)
+          raise 'Circular reference in assume role profiles'\
+                ", have already visited: #{profile}"
+        end
+
+        visited_profiles.add(profile)
+        cfg = {
+          profile: profile,
+          visited_profiles: visited_profiles,
+          region: cfg[:region]
+        }
+
+        profile_credential_chain.each do |p|
+          provider = p.call(cfg)
+          return provider unless provider.nil?
+        end
+
+        # no provider found
+        raise "Profile #{cfg[:profile]} has a role_arn and source_profile "\
+              'but the source_profile does not have credentials.'
+      end
+
+      def resolve_credentials_source(credentials_source, cfg)
+        case credentials_source
+        when 'Ec2InstanceMetadata'
+          EC2CredentialsProvider.new # TODO: Arguments?
+        when 'EcsContainer'
+          ECSCredentialsProvider.new
+        when 'Environment'
+          StaticCredentialsProvider::ENVIRONMENT.call(cfg)
+        else
+          raise "Unsupported credential_source: #{credentials_source}"
+        end
+      end
+
+      def build_profile_provider(cfg, profile_config, source_provider)
+        sts_config = AWS::SDK::STS::Config.new(
+          region: cfg[:region],
+          credentials_provider: source_provider
+        )
+        sts_client = AWS::SDK::STS::Client.new(sts_config)
+        new(
+          client: sts_client,
+          role_session_name: profile_config['role_session_name'] ||
+            'default_session',
+          role_arn: profile_config['role_arn'],
+          duration_seconds: profile_config['duration_seconds']&.to_i,
+          external_id: profile_config['external_id'],
+          serial_number: profile_config['mfa_serial']
+        )
+      end
     end
   end
 end
