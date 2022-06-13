@@ -122,6 +122,7 @@ module AWS::SDK::Core
         .with(path).and_return(JSON.dump(cached_token))
     end
 
+    include_examples 'credentials_provider'
     context 'refreshable credentials' do
       before do
         mock_token_file(sso_start_url, cached_token)

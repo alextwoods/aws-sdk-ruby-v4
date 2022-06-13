@@ -32,7 +32,7 @@ module AWS::SDK::Core
   # @see AWS::SDK::SSO::Client#get_role_credentials
   # @see https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html
   class SSOCredentialsProvider
-    include CredentialProvider
+    include CredentialsProvider
     include RefreshingCredentialsProvider
 
     # @api private

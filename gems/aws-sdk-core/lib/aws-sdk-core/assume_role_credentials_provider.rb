@@ -16,7 +16,7 @@ module AWS::SDK::Core
   #
   # @see AWS::SDK::STS::Client#assume_role
   class AssumeRoleCredentialsProvider
-    include CredentialProvider
+    include CredentialsProvider
     include RefreshingCredentialsProvider
 
     PROFILE = proc do |cfg|

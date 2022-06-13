@@ -58,6 +58,7 @@ module AWS::SDK::Core
 
     subject { ProcessCredentialsProvider.new(process: process) }
 
+    include_examples 'credentials_provider'
     context 'refreshable credentials' do
       let(:callback) { proc {} }
 

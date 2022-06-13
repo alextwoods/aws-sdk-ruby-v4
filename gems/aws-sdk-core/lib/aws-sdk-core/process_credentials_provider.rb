@@ -4,7 +4,7 @@ module AWS::SDK::Core
   # A credential provider that retrieves credentials in JSON format from
   # a given process.
   class ProcessCredentialsProvider
-    include CredentialProvider
+    include CredentialsProvider
     include RefreshingCredentialsProvider
 
     PROFILE = proc do |cfg|

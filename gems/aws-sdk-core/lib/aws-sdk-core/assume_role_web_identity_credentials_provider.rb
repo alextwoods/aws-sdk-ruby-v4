@@ -1,9 +1,24 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
-  # TODO
+  # An auto-refreshing credential provider that assumes a role via
+  # {AWS::SDK::STS::Client#assume_role_with_web_identity}.
+  #
+  #     provider = AWS::SDK::Core::AssumeRoleWebIdentityCredentialsProvider.new(
+  #       client: AWS::SDK::STS::Client.new(...),
+  #       role_arn: "linked::account::arn",
+  #       web_identity_token_file: "/path/to/token/file",
+  #       role_session_name: "session-name"
+  #     )
+  #     ec2 = AWS::SDK::EC2::Client.new(credential_provider: role_credentials)
+  #
+  # If you omit `:client` option, a new {Aws::STS::Client} object will be
+  # constructed with additional options that were provided.
+  #
+  # @see Aws::STS::Client#assume_role_with_web_identity
   class AssumeRoleWebIdentityCredentialsProvider
-    include CredentialProvider
+    include CredentialsProvider
+    include RefreshingCredentialsProvider
 
     PROFILE = proc do |cfg|
       return unless AWS::SDK::Core.sts_loaded?
@@ -56,7 +71,7 @@ module AWS::SDK::Core
 
     private
 
-    def credentials
+    def fetch
       c = @client.assume_role_with_web_identity(@arwip).data.credentials
       @credentials = Credentials.new(
         access_key_id: c.access_key_id,

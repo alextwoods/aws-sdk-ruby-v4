@@ -4,7 +4,7 @@ module AWS::SDK::Core
   # A class that provides {Credentials} from a static location, either from
   # shared configuration files or through code implementations.
   class StaticCredentialsProvider
-    include CredentialProvider
+    include CredentialsProvider
 
     PROFILE = proc do |cfg|
       profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]

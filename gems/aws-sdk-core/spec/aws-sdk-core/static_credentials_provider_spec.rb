@@ -79,6 +79,8 @@ module AWS::SDK::Core
 
     subject { StaticCredentialsProvider.new(credential_hash) }
 
+    include_examples 'credentials_provider'
+
     describe '#credentials' do
       it 'returns the credentials' do
         creds = subject.credentials

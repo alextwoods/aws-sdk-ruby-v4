@@ -43,7 +43,7 @@ end
 
 # Credential Providers
 require_relative 'aws-sdk-core/credentials'
-require_relative 'aws-sdk-core/credential_provider'
+require_relative 'aws-sdk-core/credentials_provider'
 require_relative 'aws-sdk-core/refreshing_credentials_provider'
 
 require_relative 'aws-sdk-core/assume_role_credentials_provider'

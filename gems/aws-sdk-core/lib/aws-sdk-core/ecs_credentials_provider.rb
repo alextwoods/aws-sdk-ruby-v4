@@ -2,7 +2,7 @@
 
 module AWS::SDK::Core
   class ECSCredentialsProvider
-    include CredentialProvider
+    include CredentialsProvider
 
     ENVIRONMENT = proc do |_cfg|
       new if ENV['AWS_CONTAINER_CREDENTIALS_RELATIVE_URI']
