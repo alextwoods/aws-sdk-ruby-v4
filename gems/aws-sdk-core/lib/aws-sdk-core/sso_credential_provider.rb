@@ -9,7 +9,7 @@ module AWS::SDK::Core
   # must generated and refreshed separately by running `aws login` from the
   # AWS CLI with the correct profile.
   #
-  # The `SSOCredentialsProvider` will auto-refresh the AWS credentials from SSO.
+  # The `SSOCredentialProvider` will auto-refresh the AWS credentials from SSO.
   # In addition to AWS credentials expiring after a given amount of time, the
   # access token generated and cached from `aws login` will also expire.
   # Once this token expires, it will not be usable to refresh AWS credentials,
@@ -18,7 +18,7 @@ module AWS::SDK::Core
   # correct profile.
   #
   #     # You must first run aws sso login --profile your-sso-profile
-  #     provider = AWS::SDK::Core::SSOCredentialsProvider.new(
+  #     provider = AWS::SDK::Core::SSOCredentialProvider.new(
   #       sso_account_id: '123456789',
   #       sso_role_name: "role_name",
   #       sso_region: "us-east-1",
@@ -31,9 +31,9 @@ module AWS::SDK::Core
   #
   # @see AWS::SDK::SSO::Client#get_role_credentials
   # @see https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html
-  class SSOCredentialsProvider
-    include CredentialsProvider
-    include RefreshingCredentialsProvider
+  class SSOCredentialProvider
+    include CredentialProvider
+    include RefreshingCredentialProvider
 
     # @api private
     SSO_LOGIN_GUIDANCE =
@@ -81,8 +81,7 @@ module AWS::SDK::Core
     def initialize(sso_account_id:, sso_region:, sso_role_name:, sso_start_url:,
                    client: nil, **options)
       unless AWS::SDK::Core.sso_loaded?
-        raise 'aws-sdk-sso is required to create a '\
-              'SSOCredentialsProvider.'
+        raise 'aws-sdk-sso is required to create a SSOCredentialProvider.'
       end
       @sso_start_url = sso_start_url.encode('utf-8')
       @sso_region = sso_region

@@ -7,7 +7,7 @@ module AWS::SDK::Core
   # the @credentials instance variable.
   #
   # @api private
-  module RefreshingCredentialsProvider
+  module RefreshingCredentialProvider
     SYNC_EXPIRATION_LENGTH = 60 # 1 minute
     ASYNC_EXPIRATION_LENGTH = 600 # 5 minutes
 

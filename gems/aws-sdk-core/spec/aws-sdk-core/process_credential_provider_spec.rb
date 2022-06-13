@@ -3,8 +3,8 @@
 require_relative '../spec_helper'
 
 module AWS::SDK::Core
-  describe ProcessCredentialsProvider do
-    describe 'ProcessCredentialsProvider::PROFILE' do
+  describe ProcessCredentialProvider do
+    describe 'ProcessCredentialProvider::PROFILE' do
       before do
         allow(AWS::SDK::Core).to receive(:shared_config)
           .and_return(shared_config)
@@ -18,10 +18,10 @@ module AWS::SDK::Core
           CONFIG
         end
 
-        it 'returns an instance of ProcessCredentialsProvider' do
+        it 'returns an instance of ProcessCredentialProvider' do
           cfg = { profile: 'process_credentials' }
-          provider = ProcessCredentialsProvider::PROFILE.call(cfg)
-          expect(provider).to be_an_instance_of(ProcessCredentialsProvider)
+          provider = ProcessCredentialProvider::PROFILE.call(cfg)
+          expect(provider).to be_an_instance_of(ProcessCredentialProvider)
         end
       end
 
@@ -35,7 +35,7 @@ module AWS::SDK::Core
 
         it 'returns nil' do
           cfg = { profile: 'default' }
-          provider = ProcessCredentialsProvider::PROFILE.call(cfg)
+          provider = ProcessCredentialProvider::PROFILE.call(cfg)
           expect(provider).to be_nil
         end
       end
@@ -56,20 +56,23 @@ module AWS::SDK::Core
 
     let(:provider_options) { { process: process } }
 
-    subject { ProcessCredentialsProvider.new(process: process) }
+    subject { ProcessCredentialProvider.new(process: process) }
 
-    include_examples 'credentials_provider'
+    context 'credential provider' do
+      include_examples 'credential_provider'
+    end
+
     context 'refreshable credentials' do
       let(:callback) { proc {} }
 
       subject do
-        ProcessCredentialsProvider.new(
+        ProcessCredentialProvider.new(
           process: process,
           before_refresh: callback
         )
       end
 
-      include_examples 'refreshing_credentials_provider'
+      include_examples 'refreshing_credential_provider'
     end
 
     describe '#credentials' do

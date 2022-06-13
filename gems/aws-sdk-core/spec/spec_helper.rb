@@ -6,8 +6,8 @@ SimpleCov.start do
 end
 
 require 'aws-sdk-core'
-require_relative 'support/credentials_provider'
-require_relative 'support/refreshing_credentials_provider'
+require_relative 'support/credential_provider'
+require_relative 'support/refreshing_credential_provider'
 
 # Use in a context block to set the ENV for the duration of a test.
 # Preserves contents of ENV outside of the test.

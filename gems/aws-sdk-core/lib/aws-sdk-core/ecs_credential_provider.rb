@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
-  class ECSCredentialsProvider
-    include CredentialsProvider
+  class ECSCredentialProvider
+    include CredentialProvider
 
     ENVIRONMENT = proc do |_cfg|
       new if ENV['AWS_CONTAINER_CREDENTIALS_RELATIVE_URI']

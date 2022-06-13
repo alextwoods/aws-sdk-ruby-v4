@@ -3,8 +3,8 @@
 module AWS::SDK::Core
   # A credential provider that will fetch credentials from EC2 instance
   # metadata.
-  class EC2CredentialsProvider
-    include CredentialsProvider
+  class EC2CredentialProvider
+    include CredentialProvider
 
     ENVIRONMENT = proc do |cfg|
       shared_config = AWS::SDK::Core.shared_config[cfg[:profile]]

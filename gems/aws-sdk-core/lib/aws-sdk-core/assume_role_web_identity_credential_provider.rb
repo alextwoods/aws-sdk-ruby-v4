@@ -4,7 +4,7 @@ module AWS::SDK::Core
   # An auto-refreshing credential provider that assumes a role via
   # {AWS::SDK::STS::Client#assume_role_with_web_identity}.
   #
-  #     provider = AWS::SDK::Core::AssumeRoleWebIdentityCredentialsProvider.new(
+  #     provider = AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider.new(
   #       client: AWS::SDK::STS::Client.new(...),
   #       role_arn: "linked::account::arn",
   #       web_identity_token_file: "/path/to/token/file",
@@ -16,9 +16,9 @@ module AWS::SDK::Core
   # constructed with additional options that were provided.
   #
   # @see Aws::STS::Client#assume_role_with_web_identity
-  class AssumeRoleWebIdentityCredentialsProvider
-    include CredentialsProvider
-    include RefreshingCredentialsProvider
+  class AssumeRoleWebIdentityCredentialProvider
+    include CredentialProvider
+    include RefreshingCredentialProvider
 
     PROFILE = proc do |cfg|
       return unless AWS::SDK::Core.sts_loaded?

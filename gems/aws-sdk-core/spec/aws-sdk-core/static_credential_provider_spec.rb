@@ -3,8 +3,8 @@
 require_relative '../spec_helper'
 
 module AWS::SDK::Core
-  describe StaticCredentialsProvider do
-    describe 'StaticCredentialsProvider::PROFILE' do
+  describe StaticCredentialProvider do
+    describe 'StaticCredentialProvider::PROFILE' do
       before do
         allow(AWS::SDK::Core).to receive(:shared_config)
           .and_return(shared_config)
@@ -20,10 +20,10 @@ module AWS::SDK::Core
           CONFIG
         end
 
-        it 'returns an instance of StaticCredentialsProvider' do
+        it 'returns an instance of StaticCredentialProvider' do
           cfg = { profile: 'static_credentials' }
-          provider = StaticCredentialsProvider::PROFILE.call(cfg)
-          expect(provider).to be_an_instance_of(StaticCredentialsProvider)
+          provider = StaticCredentialProvider::PROFILE.call(cfg)
+          expect(provider).to be_an_instance_of(StaticCredentialProvider)
         end
       end
 
@@ -37,13 +37,13 @@ module AWS::SDK::Core
 
         it 'returns nil' do
           cfg = { profile: 'default' }
-          provider = StaticCredentialsProvider::PROFILE.call(cfg)
+          provider = StaticCredentialProvider::PROFILE.call(cfg)
           expect(provider).to be_nil
         end
       end
     end
 
-    describe 'StaticCredentialsProvider::ENVIRONMENT' do
+    describe 'StaticCredentialProvider::ENVIRONMENT' do
       context 'environment has credentials' do
         let_env(
           'AWS_ACCESS_KEY_ID' => 'ACCESS_KEY_1',
@@ -51,9 +51,9 @@ module AWS::SDK::Core
           'AWS_SESSION_TOKEN' => 'SESSION_TOKEN_1'
         )
 
-        it 'returns an instance of StaticCredentialsProvider' do
-          provider = StaticCredentialsProvider::ENVIRONMENT.call({})
-          expect(provider).to be_an_instance_of(StaticCredentialsProvider)
+        it 'returns an instance of StaticCredentialProvider' do
+          provider = StaticCredentialProvider::ENVIRONMENT.call({})
+          expect(provider).to be_an_instance_of(StaticCredentialProvider)
           credentials = provider.credentials
           expect(credentials.access_key_id).to eq('ACCESS_KEY_1')
           expect(credentials.secret_access_key).to eq('SECRET_KEY_1')
@@ -63,7 +63,7 @@ module AWS::SDK::Core
 
       context 'environment does not have credentials' do
         it 'returns nil' do
-          provider = StaticCredentialsProvider::ENVIRONMENT.call({})
+          provider = StaticCredentialProvider::ENVIRONMENT.call({})
           expect(provider).to be_nil
         end
       end
@@ -77,9 +77,11 @@ module AWS::SDK::Core
       }
     end
 
-    subject { StaticCredentialsProvider.new(credential_hash) }
+    subject { StaticCredentialProvider.new(credential_hash) }
 
-    include_examples 'credentials_provider'
+    context 'credential provider' do
+      include_examples 'credential_provider'
+    end
 
     describe '#credentials' do
       it 'returns the credentials' do
