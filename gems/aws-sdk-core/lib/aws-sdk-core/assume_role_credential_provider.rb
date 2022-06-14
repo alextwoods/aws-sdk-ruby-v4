@@ -19,6 +19,31 @@ module AWS::SDK::Core
     include CredentialProvider
     include RefreshingCredentialProvider
 
+    # Raised when a client is constructed and the specified shared
+    # credentials profile does not exist.
+    class NoSuchProfileError < RuntimeError; end
+
+    # Raised when a client is constructed, where Assume Role credentials are
+    # expected, and there is no source profile specified.
+    class NoSourceProfileError < RuntimeError; end
+
+    # Raised when a client is constructed with Assume Role credentials using
+    # a credential_source, and that source type is unsupported.
+    class InvalidCredentialSourceError < RuntimeError; end
+
+    # Raised when a client is constructed with Assume Role credentials, but
+    # the profile has both source_profile and credential_source.
+    class CredentialSourceConflictError < RuntimeError; end
+
+    # Raised when there is a circular reference in chained
+    # source_profiles
+    class SourceProfileCircularReferenceError < RuntimeError; end
+
+    # Raised when a client is constructed with Assume Role credentials using
+    # a credential_source, and that source doesn't provide credentials.
+    class NoSourceCredentialsError < RuntimeError; end
+
+
     PROFILE = proc do |cfg|
       next unless AWS::SDK::Core.sts_loaded?
 
@@ -30,7 +55,8 @@ module AWS::SDK::Core
       credential_source = profile_config['credential_source']
 
       if source_profile && credential_source
-        raise "Profile #{cfg[:profile]} has a source_profile and "\
+        raise CredentialSourceConflictError,
+              "Profile #{cfg[:profile]} has a source_profile and "\
               'a credential_source. For assume role credentials, must '\
               'provide only source_profile or credential_source, not both.'
       end
@@ -42,11 +68,13 @@ module AWS::SDK::Core
       elsif credential_source
         source_provider = resolve_credentials_source(credential_source, cfg)
         unless credential_source
-          raise "Profile #{cfg[:profile]} could not get source credentials "\
+          raise NoSourceCredentials,
+                "Profile #{cfg[:profile]} could not get source credentials "\
                 "from provider #{credential_source}"
         end
       else
-        raise "Profile #{cfg[:profile]} has a role_arn "\
+        raise NoSourceProfileError,
+              "Profile #{cfg[:profile]} has a role_arn "\
               'but no source_profile or credential_source'
       end
 
@@ -55,14 +83,13 @@ module AWS::SDK::Core
 
     # @option options [required, String] :role_arn
     # @option options [required, String] :role_session_name
-    # @option options [String] :policy
     # @option options [Integer] :duration_seconds
     # @option options [String] :external_id
     # @option options [String] :serial_number
     # @option options [AWS::SDK::STS::Client] :client
     # @param [Callable] :before_refresh A proc called when AWS
     #   credentials are required and need to be refreshed.
-    def initialize(role_arn:, role_session_name:, policy: nil,
+    def initialize(role_arn:, role_session_name:,
                    duration_seconds: nil, external_id: nil, serial_number: nil,
                    client: nil, **options)
       unless AWS::SDK::Core.sts_loaded?
@@ -73,13 +100,15 @@ module AWS::SDK::Core
       @assume_role_params = {
         role_arn: role_arn,
         role_session_name: role_session_name,
-        policy: policy,
         duration_seconds: duration_seconds,
         external_id: external_id,
         serial_number: serial_number
       }
       super(options)
     end
+
+    # @return [Hash]
+    attr_reader :assume_role_params
 
     private
 
@@ -109,11 +138,13 @@ module AWS::SDK::Core
         visited_profiles = cfg[:visited_profiles] || Set.new
 
         unless AWS::SDK::Core.shared_config.key?(profile)
-          raise "source_profile #{profile} does not exist."
+          raise NoSuchProfileError,
+                "source_profile #{profile} does not exist."
         end
 
         if visited_profiles&.include?(profile)
-          raise 'Circular reference in assume role profiles'\
+          raise SourceProfileCircularReferenceError,
+                'Circular reference in assume role profiles'\
                 ", have already visited: #{profile}"
         end
 
@@ -130,7 +161,8 @@ module AWS::SDK::Core
         end
 
         # no provider found
-        raise "Profile #{cfg[:profile]} has a role_arn and source_profile "\
+        raise NoSourceCredentialsError,
+              "Profile #{cfg[:profile]} has a role_arn and source_profile "\
               'but the source_profile does not have credentials.'
       end
 
@@ -143,7 +175,8 @@ module AWS::SDK::Core
         when 'Environment'
           StaticCredentialProvider::ENVIRONMENT.call(cfg)
         else
-          raise "Unsupported credential_source: #{credentials_source}"
+          raise InvalidCredentialSourceError,
+                "Unsupported credential_source: #{credentials_source}"
         end
       end
 

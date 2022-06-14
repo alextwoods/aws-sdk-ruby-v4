@@ -252,7 +252,7 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-            StandardError,
+            AssumeRoleCredentialProvider::NoSourceProfileError,
             'Profile A has a role_arn but no source_profile'\
             ' or credential_source'
           )
@@ -280,7 +280,7 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-            StandardError,
+             AssumeRoleCredentialProvider::CredentialSourceConflictError,
             /Profile A has a source_profile and a credential_source/
           )
         end
@@ -305,7 +305,7 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-            StandardError,
+             AssumeRoleCredentialProvider::NoSourceCredentialsError,
             /source_profile does not have credentials/
           )
         end
@@ -327,7 +327,7 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-            StandardError,
+             AssumeRoleCredentialProvider::NoSuchProfileError,
             /source_profile B does not exist/
           )
         end
@@ -349,7 +349,7 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-            StandardError,
+             AssumeRoleCredentialProvider::InvalidCredentialSourceError,
             /Unsupported credential_source/
           )
         end
@@ -474,7 +474,10 @@ module AWS::SDK::Core
         it 'Raises an error due to Profile B referencing a visited profile' do
           expect do
             AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
-          end.to raise_error(StandardError, /Circular reference/)
+          end.to raise_error(
+             AssumeRoleCredentialProvider::SourceProfileCircularReferenceError,
+             /Circular reference/
+           )
         end
       end
     end
@@ -506,7 +509,6 @@ module AWS::SDK::Core
       {
         role_arn: 'role_arn',
         role_session_name: 'role_session_name',
-        policy: 'policy',
         duration_seconds: 'duration_seconds',
         external_id: 'external_id',
         serial_number: 'serial_number'
