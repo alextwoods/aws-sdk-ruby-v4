@@ -2,19 +2,10 @@
 
 require_relative '../spec_helper'
 
-# Define the required namespace and classes
-module AWS::SDK::SSO
-  class Client
-    def initialize(_config, _options = {})
-      nil
-    end
-  end
-  Config = Struct.new(:region, keyword_init: true)
-end
-
 module AWS::SDK::Core
   describe SSOCredentialProvider do
     before do
+      allow(AWS::SDK::Core).to receive(:sts_loaded?).and_return(false)
       allow(AWS::SDK::Core).to receive(:sso_loaded?).and_return(true)
     end
 
@@ -221,6 +212,7 @@ module AWS::SDK::Core
         expect(creds.access_key_id).to eq('ACCESS_KEY_1')
         expect(creds.secret_access_key).to eq('SECRET_KEY_1')
         expect(creds.session_token).to eq('TOKEN_1')
+        expect(creds.expiration).to eq(expiration)
       end
     end
   end

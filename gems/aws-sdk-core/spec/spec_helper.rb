@@ -9,6 +9,26 @@ require 'aws-sdk-core'
 require_relative 'support/credential_provider'
 require_relative 'support/refreshing_credential_provider'
 
+module AWS::SDK::STS
+  class Client
+    def initialize(_config = Config.new, _options = {})
+      nil
+    end
+  end
+  Config = Struct.new(
+    :region, :profile, :credential_provider, keyword_init: true
+  )
+end
+
+module AWS::SDK::SSO
+  class Client
+    def initialize(_config, _options = {})
+      nil
+    end
+  end
+  Config = Struct.new(:region, keyword_init: true)
+end
+
 # Use in a context block to set the ENV for the duration of a test.
 # Preserves contents of ENV outside of the test.
 # and ensures that no other ENV variables are set for the duration.

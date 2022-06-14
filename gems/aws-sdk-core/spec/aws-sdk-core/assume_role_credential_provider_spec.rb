@@ -2,15 +2,6 @@
 
 require_relative '../spec_helper'
 
-module AWS::SDK::STS
-  # Define the required namespace
-  class Client
-    def initialize(options = {}); end
-  end
-
-  Config = Struct.new(:region, :credential_provider, keyword_init: true)
-end
-
 module AWS::SDK::Core
   describe AssumeRoleCredentialProvider do
     before(:each) do

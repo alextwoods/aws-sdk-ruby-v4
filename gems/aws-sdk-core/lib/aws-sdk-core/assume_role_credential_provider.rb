@@ -66,7 +66,7 @@ module AWS::SDK::Core
                    duration_seconds: nil, external_id: nil, serial_number: nil,
                    client: nil, **options)
       unless AWS::SDK::Core.sts_loaded?
-        raise 'aws-sdk-sts is required to create an'\
+        raise 'aws-sdk-sts is required to create an '\
               'AssumeRoleCredentialProvider.'
       end
       @client = client || AWS::SDK::STS::Client.new
