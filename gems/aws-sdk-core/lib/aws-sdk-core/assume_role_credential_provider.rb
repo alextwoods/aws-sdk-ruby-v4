@@ -68,7 +68,7 @@ module AWS::SDK::Core
       elsif credential_source
         source_provider = resolve_credentials_source(credential_source, cfg)
         unless credential_source
-          raise NoSourceCredentials,
+          raise NoSourceCredentialsError,
                 "Profile #{cfg[:profile]} could not get source credentials "\
                 "from provider #{credential_source}"
         end

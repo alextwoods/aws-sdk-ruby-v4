@@ -143,7 +143,7 @@ module AWS::SDK::Core
 
     def http_get(connection, path, token)
       headers = {
-        'User-Agent' => "aws-sdk-ruby3/#{CORE_GEM_VERSION}",
+        'User-Agent' => "aws-sdk-ruby4/#{GEM_VERSION}",
         'x-aws-ec2-metadata-token' => token
       }
       request = Net::HTTP::Get.new(path, headers)
@@ -161,7 +161,7 @@ module AWS::SDK::Core
 
     def http_put(connection, ttl)
       headers = {
-        'User-Agent' => "aws-sdk-ruby3/#{CORE_GEM_VERSION}",
+        'User-Agent' => "aws-sdk-ruby4/#{GEM_VERSION}",
         'x-aws-ec2-metadata-token-ttl-seconds' => ttl.to_s
       }
       request = Net::HTTP::Put.new(METADATA_TOKEN_PATH, headers)

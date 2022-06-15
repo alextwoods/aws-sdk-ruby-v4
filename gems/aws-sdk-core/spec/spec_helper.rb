@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'webmock/rspec'
+
 require 'simplecov'
 SimpleCov.start do
   add_filter %r{^/spec/}
@@ -22,7 +24,7 @@ end
 
 module AWS::SDK::SSO
   class Client
-    def initialize(_config, _options = {})
+    def initialize(_config = Config.new, _options = {})
       nil
     end
   end
