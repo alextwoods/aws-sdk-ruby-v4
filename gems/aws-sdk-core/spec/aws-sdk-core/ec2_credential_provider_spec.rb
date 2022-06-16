@@ -69,7 +69,7 @@ module AWS::SDK::Core
 
     let(:client) { double('EC2Metadata', get: nil) }
     let(:metadata_resp) { 'ec2-metadata-profile' }
-    let(:expiration) { Time.parse('2022-07-04') }
+    let(:expiration) { Time.parse('2022-07-04').utc }
     let(:credential_json) do
       {
         'AccessKeyId' => 'ACCESS_KEY_1',

@@ -3,6 +3,7 @@
 module AWS::SDK::Core
   class ECSCredentialProvider
     include CredentialProvider
+    include RefreshingCredentialProvider
 
     ENVIRONMENT = proc do |_cfg|
       new if ENV['AWS_CONTAINER_CREDENTIALS_RELATIVE_URI']
@@ -39,30 +40,32 @@ module AWS::SDK::Core
       @http_read_timeout = options[:http_read_timeout] || 5
       @http_debug_output = options[:http_debug_output]
       @backoff = backoff(options[:backoff])
+      super
     end
 
-    def credentials
+    private
+
+    def fetch
       retry_errors do
         open_connection do |conn|
-          c = http_get(conn, path)
+          c = http_get(conn)
+          expiration = Time.iso8601(c['Expiration']) if c['Expiration']
           @credentials = Credentials.new(
             access_key_id: c['AccessKeyId'],
             secret_access_key: c['SecretAccessKey'],
             session_token: c['Token'],
-            expiration: c['Expiration'] ? Time.iso8601(c['Expiration']) : nil
+            expiration: expiration
           )
         end
       end
     end
 
-    private
-
-    def http_get(connection, path)
-      request = Net::HTTP::Get.new(path)
+    def http_get(connection)
+      request = Net::HTTP::Get.new(@credential_path)
       response = connection.request(request)
       case response.code.to_i
       when 200
-        response.body
+        JSON.parse(response.body)
       when 404
         # Should be "404 page not found", not a JSON payload
         raise Non200Response, response.body
