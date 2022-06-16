@@ -15,7 +15,7 @@ module AWS::SDK::Core
           .and_return(shared_config)
       end
 
-      context 'profile has assume role web identity information' do
+      context 'profile has assume role web identity' do
         let(:shared_config) do
           IniParser.ini_parse(<<~CONFIG)
             [profile assume_role_web_identity_credentials]
@@ -25,42 +25,26 @@ module AWS::SDK::Core
           CONFIG
         end
 
+        let(:cfg) { { profile: 'assume_role_web_identity_credentials' } }
+
         it 'returns an instance of AssumeRoleWebIdentityCredentialProvider' do
-          cfg = { profile: 'assume_role_web_identity_credentials' }
           provider = AssumeRoleWebIdentityCredentialProvider::PROFILE.call(cfg)
           expect(provider)
             .to be_an_instance_of(AssumeRoleWebIdentityCredentialProvider)
         end
-      end
 
-      context 'profile has assume role web identity information and a region' do
-        let(:shared_config) do
-          IniParser.ini_parse(<<~CONFIG)
-            [profile assume_role_web_identity_credentials_with_region]
-            web_identity_token_file = my-token.jwt
-            role_arn = arn:aws:iam::123456789012:role/foo
-            role_session_name = my-session
-            region = us-peccy-1
-          CONFIG
-        end
-
-        it 'returns an instance of AssumeRoleWebIdentityCredentialProvider '\
-           'with a client using the profile' do
-          cfg = { profile: 'assume_role_web_identity_credentials_with_region' }
+        it 'forwards profile to the STS client' do
           expect(AWS::SDK::STS::Config).to receive(:new)
-            .with(profile: 'assume_role_web_identity_credentials_with_region')
+            .with(profile: 'assume_role_web_identity_credentials')
             .and_return(config)
           expect(AWS::SDK::STS::Client).to receive(:new)
             .with(config).and_return(client)
           provider = AssumeRoleWebIdentityCredentialProvider::PROFILE.call(cfg)
-
-          expect(provider)
-            .to be_an_instance_of(AssumeRoleWebIdentityCredentialProvider)
           expect(provider.client).to be(client)
         end
       end
 
-      context 'profile does not have assume role web identity information' do
+      context 'profile does not have assume role web identity' do
         let(:shared_config) do
           IniParser.ini_parse(<<~CONFIG)
             [profile default]
@@ -71,6 +55,31 @@ module AWS::SDK::Core
         it 'returns nil' do
           cfg = { profile: 'default' }
           provider = AssumeRoleWebIdentityCredentialProvider::PROFILE.call(cfg)
+          expect(provider).to be_nil
+        end
+      end
+    end
+
+    describe 'AssumeRoleWebIdentityCredentialProvider::ENVIRONMENT' do
+      context 'environment has assume role web identity' do
+        let_env(
+          'AWS_ROLE_ARN' => 'arn:aws:iam::123456789012:role/foo',
+          'AWS_WEB_IDENTITY_TOKEN_FILE' => 'my-token.jwt',
+          'AWS_ROLE_SESSION_NAME' => 'my-session'
+        )
+
+        it 'returns an instance of AssumeRoleWebIdentityCredentialProvider' do
+          provider = AssumeRoleWebIdentityCredentialProvider::
+              ENVIRONMENT.call({})
+          expect(provider)
+            .to be_an_instance_of(AssumeRoleWebIdentityCredentialProvider)
+        end
+      end
+
+      context 'environment does not have assume role web identity' do
+        it 'returns nil' do
+          provider = AssumeRoleWebIdentityCredentialProvider::
+              ENVIRONMENT.call({})
           expect(provider).to be_nil
         end
       end

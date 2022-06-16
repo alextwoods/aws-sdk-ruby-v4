@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'securerandom'
+
 module AWS::SDK::Core
   # An auto-refreshing credential provider that assumes a role via
   # {AWS::SDK::STS::Client#assume_role_with_web_identity}.
@@ -78,7 +80,7 @@ module AWS::SDK::Core
       @assume_role_with_web_identity_params = {
         role_arn: role_arn,
         role_session_name: role_session_name ||
-                           Base64.strict_encode64(SecureRandom.uuid)
+                           ::Base64.strict_encode64(::SecureRandom.uuid)
       }
       super(options)
     end
