@@ -86,17 +86,22 @@ module AWS::SDK::Core
     # @option options [Integer] :duration_seconds
     # @option options [String] :external_id
     # @option options [String] :serial_number
+    # @option options [String|Callable] :token_code If a proc
+    #   is provided, it will be called and the result used
+    #   when credentials are required and need to be
+    #   refreshed.
     # @option options [AWS::SDK::STS::Client] :client
     # @param [Callable] :before_refresh A proc called when AWS
     #   credentials are required and need to be refreshed.
     def initialize(role_arn:, role_session_name:,
                    duration_seconds: nil, external_id: nil, serial_number: nil,
-                   client: nil, **options)
+                   token_code: nil, client: nil, **options)
       unless AWS::SDK::Core.sts_loaded?
         raise 'aws-sdk-sts is required to create an '\
               'AssumeRoleCredentialProvider.'
       end
       @client = client || AWS::SDK::STS::Client.new
+      @token_code = token_code
       @assume_role_params = {
         role_arn: role_arn,
         role_session_name: role_session_name,
@@ -107,13 +112,13 @@ module AWS::SDK::Core
       super(options)
     end
 
-    # @return [Hash]
-    attr_reader :assume_role_params
-
     private
 
     def fetch
-      c = @client.assume_role(@assume_role_params).data.credentials
+      token_code = @token_code&.respond_to?(:call) ? @token_code.call : @token_code
+      c = @client.assume_role(
+        @assume_role_params.merge(token_code: token_code)
+      ).data.credentials
       @credentials = Credentials.new(
         access_key_id: c.access_key_id,
         secret_access_key: c.secret_access_key,

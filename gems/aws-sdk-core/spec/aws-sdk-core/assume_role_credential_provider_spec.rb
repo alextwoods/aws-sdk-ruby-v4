@@ -505,13 +505,16 @@ module AWS::SDK::Core
       allow(AWS::SDK::STS::Client).to receive(:new).and_return(client)
     end
 
+    let(:token_code) { nil }
+
     let(:assume_role_params) do
       {
         role_arn: 'role_arn',
         role_session_name: 'role_session_name',
         duration_seconds: 'duration_seconds',
         external_id: 'external_id',
-        serial_number: 'serial_number'
+        serial_number: 'serial_number',
+        token_code: token_code
       }
     end
 
@@ -567,6 +570,33 @@ module AWS::SDK::Core
         expect(credentials.access_key_id).to eq(credential_hash[:access_key_id])
         expect(credentials.session_token).to eq(credential_hash[:session_token])
         expect(credentials.expiration).to eq(credential_hash[:expiration])
+      end
+
+      context 'token_code is a string' do
+        let(:token_code) { 'token_code' }
+
+        it 'calls assume_role with the provided token_code' do
+
+          expect(client).to receive(:assume_role)
+                              .with(assume_role_params)
+                              .and_return(resp)
+
+          subject.credentials
+        end
+      end
+
+      context 'token_code is callable' do
+        let(:token_code) do
+          proc { 'dynamic_token_code' }
+        end
+
+        it 'calls token_code and then calls assume_role with the result' do
+          expect(token_code).to receive(:call).and_call_original
+          expect(client).to receive(:assume_role) do |args|
+            expect(args[:token_code]).to eq('dynamic_token_code')
+          end.and_return(resp)
+          subject.credentials
+        end
       end
     end
   end
