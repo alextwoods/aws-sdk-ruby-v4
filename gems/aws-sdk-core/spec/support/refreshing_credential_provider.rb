@@ -8,10 +8,4 @@ RSpec.shared_examples 'refreshing_credential_provider' do
   it 'implements refreshable interface' do
     expect(subject.respond_to?(:fetch, true)).to be true
   end
-
-  it 'plumbs before_callback to RefreshingCredentialProvider' do
-    expect(callback).to receive(:call)
-      .with(an_instance_of(subject.class))
-    subject.refresh
-  end
 end

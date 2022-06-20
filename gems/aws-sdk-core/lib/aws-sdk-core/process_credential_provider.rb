@@ -1,8 +1,18 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
-  # A credential provider that retrieves credentials in JSON format from
-  # a given process.
+  # A credential provider that executes a given process and attempts
+  # to read its stdout to parse a JSON payload containing the credentials.
+  #
+  #     provider = AWS::SDK::Core::ProcessCredentials.new(
+  #       '/usr/bin/credential_proc'
+  #     )
+  #     ec2 = AWS::SDK::EC2::Client.new(credential_provider: provider)
+  #
+  # Automatically handles refreshing credentials if an Expiration time is
+  # provided in the credentials payload.
+  #
+  # @see https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#sourcing-credentials-from-external-processes
   class ProcessCredentialProvider
     include CredentialProvider
     include RefreshingCredentialProvider
@@ -18,11 +28,9 @@ module AWS::SDK::Core
     # external process to be used as a credential provider.
     #
     # @param [String] process Invocation string for the process.
-    # @param [Callable] :before_refresh A proc called when AWS
-    #   credentials are required and need to be refreshed.
-    def initialize(process:, **options)
+    def initialize(process:)
       @process = process
-      super(options)
+      super()
     end
 
     private

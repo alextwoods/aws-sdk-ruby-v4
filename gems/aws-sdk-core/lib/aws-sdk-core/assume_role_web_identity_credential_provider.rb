@@ -22,24 +22,25 @@ module AWS::SDK::Core
     include CredentialProvider
     include RefreshingCredentialProvider
 
-    # Raised when :web_identity_token_file doesn't exist when
-    # fetching credentials.
+    # Raised when :web_identity_token_file parameter is not
+    # provided or the file doesn't exist when initializing
+    # or fetching credentials.
     class MissingWebIdentityTokenFile < RuntimeError; end
 
     PROFILE = proc do |cfg|
       return unless AWS::SDK::Core.sts_loaded?
 
-      shared_config = AWS::SDK::Core.shared_config[cfg[:profile]]
-      if shared_config['web_identity_token_file'] && shared_config['role_arn']
+      profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
+      if profile_config['web_identity_token_file'] && profile_config['role_arn']
         client = AWS::SDK::STS::Client.new(
           AWS::SDK::STS::Config.new(profile: cfg[:profile])
         )
 
         new(
           client: client,
-          web_identity_token_file: shared_config['web_identity_token_file'],
-          role_arn: shared_config['role_arn'],
-          role_session_name: shared_config['role_session_name']
+          web_identity_token_file: profile_config['web_identity_token_file'],
+          role_arn: profile_config['role_arn'],
+          role_session_name: profile_config['role_session_name']
         )
       end
     end
@@ -56,49 +57,35 @@ module AWS::SDK::Core
       end
     end
 
-    # @param [required, String] :web_identity_token_file
+    # @option options [required, String] :web_identity_token_file
     #   The absolute path to the file on disk containing the OIDC token.
-    #
-    # @param [required, String] :role_arn The IAM role to be assumed.
-    #
-    # @param [String] :role_session_name The IAM session name used to
+    # @option options [required, String] :role_arn The IAM role to be assumed.
+    # @option options [String] :role_session_name The IAM session name used to
     #   distinguish session. By default, a base64 encoded UUID is generated.
+    # @option options [AWS::SDK::STS::Client] :client
     #
-    # @param [AWS::SDK::STS::Client] :client
+    # Creates a new AssumeRoleWebIdentityCredentialProvider. Takes additional
+    # parameters for {AWS::SDK::STS::Client#assume_role_with_web_identity}.
     #
-    # @param [Callable] :before_refresh A proc called when AWS
-    #   credentials are required and need to be refreshed.
-    def initialize(web_identity_token_file:, role_arn:, role_session_name: nil,
-                   client: nil, **options)
+    # @see AWS::SDK::STS::Client#assume_role_with_web_identity
+    def initialize(options = {})
       unless AWS::SDK::Core.sts_loaded?
         raise 'aws-sdk-sts is required to create an '\
               'AssumeRoleWebIdentityCredentialProvider.'
       end
 
-      @client = client || AWS::SDK::STS::Client.new
-      @web_identity_token_file = web_identity_token_file
-      @assume_role_with_web_identity_params = {
-        role_arn: role_arn,
-        role_session_name: role_session_name ||
-                           ::Base64.strict_encode64(::SecureRandom.uuid)
-      }
-      super(options)
+      @client = options.delete(:client) || AWS::SDK::STS::Client.new
+      @web_identity_token_file = options.delete(:web_identity_token_file)
+      @assume_role_with_web_identity_params = options
+      @assume_role_with_web_identity_params[:role_session_name] ||=
+        ::Base64.strict_encode64(::SecureRandom.uuid)
+      super()
     end
 
     # @return [AWS::SDK::STS::Client]
     attr_reader :client
 
     private
-
-    def _token_from_file
-      unless File.exist?(@web_identity_token_file)
-        raise MissingWebIdentityTokenFile,
-              "Web identity token file #{@web_identity_token_file} "\
-              'does not exist.'
-      end
-
-      File.read(@web_identity_token_file)
-    end
 
     def fetch
       # read from token file everytime it refreshes
@@ -114,6 +101,16 @@ module AWS::SDK::Core
         session_token: c.session_token,
         expiration: c.expiration
       )
+    end
+
+    def _token_from_file
+      unless File.exist?(@web_identity_token_file)
+        raise MissingWebIdentityTokenFile,
+              "Web identity token file #{@web_identity_token_file} "\
+              'does not exist.'
+      end
+
+      File.read(@web_identity_token_file)
     end
   end
 end

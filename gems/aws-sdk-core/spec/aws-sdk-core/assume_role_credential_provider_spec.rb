@@ -4,7 +4,7 @@ require_relative '../spec_helper'
 
 module AWS::SDK::Core
   describe AssumeRoleCredentialProvider do
-    before(:each) do
+    before do
       allow(AWS::SDK::Core).to receive(:sts_loaded?).and_return(true)
       allow(AWS::SDK::Core).to receive(:sso_loaded?).and_return(false)
     end
@@ -14,7 +14,7 @@ module AWS::SDK::Core
         {}
       end
 
-      before(:each) do
+      before do
         allow(AWS::SDK::Core).to receive(:shared_config)
           .and_return(shared_config)
       end
@@ -501,7 +501,7 @@ module AWS::SDK::Core
       )
     end
 
-    before(:each) do
+    before do
       allow(AWS::SDK::STS::Client).to receive(:new).and_return(client)
     end
 
@@ -523,7 +523,7 @@ module AWS::SDK::Core
     context 'refreshable credentials' do
       let(:callback) { proc {} }
 
-      before(:each) do
+      before do
         allow(client).to receive(:assume_role)
           .with(assume_role_params)
           .and_return(resp)

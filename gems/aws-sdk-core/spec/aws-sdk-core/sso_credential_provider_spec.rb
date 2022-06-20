@@ -113,29 +113,12 @@ module AWS::SDK::Core
         .with(path).and_return(JSON.dump(cached_token))
     end
 
-    context 'credential provider' do
-      before do
-        mock_token_file(sso_start_url, cached_token)
-      end
-
-      include_examples 'credential_provider'
+    before do
+      mock_token_file(sso_start_url, cached_token)
     end
 
-    context 'refreshable credentials' do
-      before do
-        mock_token_file(sso_start_url, cached_token)
-      end
-
-      let(:callback) { proc {} }
-
-      subject do
-        SSOCredentialProvider.new(
-          **provider_options.merge(before_refresh: callback, client: client)
-        )
-      end
-
-      include_examples 'refreshing_credential_provider'
-    end
+    include_examples 'credential_provider'
+    include_examples 'refreshing_credential_provider'
 
     describe '#initialize' do
       it 'constructs an client with sso_region if not provided' do
@@ -202,6 +185,17 @@ module AWS::SDK::Core
           **provider_options.merge(client: client)
         )
         expect(provider.client).to be(client)
+      end
+
+      context 'Dir.home is undefined' do
+        before do
+          allow(Dir).to receive(:home).and_raise(ArgumentError)
+        end
+
+        it 'raises a runtime error' do
+          expect { SSOCredentialProvider.new(**provider_options) }
+            .to raise_error(RuntimeError, /Unable to load sso_cache_file/)
+        end
       end
     end
 

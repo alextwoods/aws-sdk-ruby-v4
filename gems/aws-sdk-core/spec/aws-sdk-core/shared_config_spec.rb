@@ -23,7 +23,7 @@ module AWS::SDK::Core
     end
 
     describe '.load' do
-      before(:each) do
+      before do
         allow(Dir).to receive(:home).and_return('HOME')
       end
 
@@ -72,7 +72,7 @@ module AWS::SDK::Core
       end
 
       context 'Dir.home is undefined' do
-        before(:each) do
+        before do
           allow(Dir).to receive(:home).and_raise(ArgumentError)
         end
 

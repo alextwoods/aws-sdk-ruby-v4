@@ -11,11 +11,8 @@ module AWS::SDK::Core
     SYNC_EXPIRATION_LENGTH = 60 # 1 minute
     ASYNC_EXPIRATION_LENGTH = 600 # 5 minutes
 
-    # @option options [Callable] before_refresh A proc called when AWS
-    #   credentials are required and need to be refreshed.
-    def initialize(options = {})
+    def initialize
       @mutex = Mutex.new
-      @before_refresh = options.delete(:before_refresh)
     end
 
     # @return [Credentials]
@@ -27,7 +24,7 @@ module AWS::SDK::Core
     # Refresh credentials.
     # @return [nil]
     def refresh
-      @mutex.synchronize { _refresh }
+      @mutex.synchronize { fetch }
       nil
     end
 
@@ -51,7 +48,7 @@ module AWS::SDK::Core
 
     def _sync_refresh
       @mutex.synchronize do
-        _refresh if should_fetch?(SYNC_EXPIRATION_LENGTH)
+        fetch if should_fetch?(SYNC_EXPIRATION_LENGTH)
       end
     end
 
@@ -60,7 +57,7 @@ module AWS::SDK::Core
 
       Thread.new do
         @mutex.synchronize do
-          _refresh if should_fetch?(ASYNC_EXPIRATION_LENGTH)
+          fetch if should_fetch?(ASYNC_EXPIRATION_LENGTH)
         end
       end
     end
@@ -77,11 +74,6 @@ module AWS::SDK::Core
         # If no credentials, we need to fetch them
         true
       end
-    end
-
-    def _refresh
-      @before_refresh&.call(self)
-      fetch
     end
   end
 end

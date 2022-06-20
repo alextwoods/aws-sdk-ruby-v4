@@ -44,42 +44,35 @@ module AWS::SDK::Core
     PROFILE = proc do |cfg|
       next unless AWS::SDK::Core.sso_loaded?
 
-      shared_config = AWS::SDK::Core.shared_config[cfg[:profile]]
-      if shared_config['sso_start_url'] &&
-         shared_config['sso_region'] &&
-         shared_config['sso_account_id'] &&
-         shared_config['sso_role_name']
+      profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
+      if profile_config['sso_start_url'] &&
+         profile_config['sso_region'] &&
+         profile_config['sso_account_id'] &&
+         profile_config['sso_role_name']
         new(
-          sso_start_url: shared_config['sso_start_url'],
-          sso_region: shared_config['sso_region'],
-          sso_account_id: shared_config['sso_account_id'],
-          sso_role_name: shared_config['sso_role_name']
+          sso_start_url: profile_config['sso_start_url'],
+          sso_region: profile_config['sso_region'],
+          sso_account_id: profile_config['sso_account_id'],
+          sso_role_name: profile_config['sso_role_name']
         )
       end
     end
 
     # @param [required, String] :sso_account_id The AWS account ID
     #   that temporary AWS credentials will be resolved for
-    #
     # @param [required, String] :sso_region The AWS region where the
     #   SSO directory for the given sso_start_url is hosted.
-    #
     # @param [required, String] :sso_role_name The corresponding
     #   IAM role in the AWS account that temporary AWS credentials
     #   will be resolved for.
-    #
     # @param [required, String] :sso_start_url The start URL is
     #   provided by the SSO service via the console and is the URL used to
     #   login to the SSO directory. This is also sometimes referred to as
     #   the "User Portal URL"
-    #
     # @param [AWS::SDK::SSO::Client] :client Optional `AWS::SDK::SSO::Client`.
     #   If not provided, a client will be constructed.
-    #
-    # @param [Callable] :before_refresh A proc called when AWS
-    #   credentials are required and need to be refreshed.
     def initialize(sso_account_id:, sso_region:, sso_role_name:, sso_start_url:,
-                   client: nil, **options)
+                   client: nil)
       unless AWS::SDK::Core.sso_loaded?
         raise 'aws-sdk-sso is required to create a SSOCredentialProvider.'
       end
@@ -93,7 +86,7 @@ module AWS::SDK::Core
 
       sso_config = AWS::SDK::SSO::Config.new(region: sso_region)
       @client = client || AWS::SDK::SSO::Client.new(sso_config)
-      super(options)
+      super()
     end
 
     # @return [AWS::SDK::SSO::Client]

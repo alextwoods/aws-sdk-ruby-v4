@@ -41,12 +41,14 @@ module AWS::SDK::Core
       end
     end
 
+    let(:expiration) { Time.parse('2022-07-04').utc }
     let(:credential_hash) do
       {
         Version: 1,
         AccessKeyId: 'ACCESS_KEY_1',
         SecretAccessKey: 'SECRET_KEY_1',
-        SessionToken: 'TOKEN_1'
+        SessionToken: 'TOKEN_1',
+        Expiration: expiration.iso8601
       }
     end
 
@@ -58,22 +60,8 @@ module AWS::SDK::Core
 
     subject { ProcessCredentialProvider.new(process: process) }
 
-    context 'credential provider' do
-      include_examples 'credential_provider'
-    end
-
-    context 'refreshable credentials' do
-      let(:callback) { proc {} }
-
-      subject do
-        ProcessCredentialProvider.new(
-          process: process,
-          before_refresh: callback
-        )
-      end
-
-      include_examples 'refreshing_credential_provider'
-    end
+    include_examples 'credential_provider'
+    include_examples 'refreshing_credential_provider'
 
     describe '#credentials' do
       it 'will read valid credentials from a process' do
@@ -81,6 +69,7 @@ module AWS::SDK::Core
         expect(creds.access_key_id).to eq('ACCESS_KEY_1')
         expect(creds.secret_access_key).to eq('SECRET_KEY_1')
         expect(creds.session_token).to eq('TOKEN_1')
+        expect(creds.expiration).to eq(expiration)
       end
 
       context 'missing credential fields' do

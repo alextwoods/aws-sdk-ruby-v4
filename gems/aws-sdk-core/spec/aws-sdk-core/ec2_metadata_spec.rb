@@ -8,19 +8,19 @@ module AWS::SDK::Core
 
     let(:endpoint) { 'http://169.254.169.254' }
     let(:metadata_path) { '/latest/meta-data/foo' }
-    let(:metadata_endpoint) { "#{endpoint}/latest/meta-data/foo" }
+    let(:metadata_endpoint) { "#{endpoint}#{metadata_path}" }
 
-    def stub_get_token(token_value = 'my-token')
+    def stub_get_token(token_value = 'my-token', expiration = 21_600)
       stub_request(
         :put, "#{endpoint}/latest/api/token"
       ).to_return(
         status: 200, body: token_value,
-        headers: { 'x-aws-ec2-metadata-token-ttl-seconds' => '21600' }
+        headers: { 'x-aws-ec2-metadata-token-ttl-seconds' => expiration.to_s }
       )
       token_value
     end
 
-    context 'endpoint configuration' do
+    describe '#initialize' do
       it 'can be configured without a scheme' do
         client = EC2Metadata.new(endpoint: '123.123.123.123')
         expect(client.instance_variable_get(:@endpoint))
@@ -33,7 +33,7 @@ module AWS::SDK::Core
           .to eq('http://123.123.123.123')
       end
 
-      it 'takes precedence over endpoint mode' do
+      it 'endpoint takes precedence over endpoint mode' do
         client = EC2Metadata.new(
           endpoint_mode: 'IPv6',
           endpoint: '123.123.123.123'
@@ -41,10 +41,8 @@ module AWS::SDK::Core
         expect(client.instance_variable_get(:@endpoint))
           .to eq('123.123.123.123')
       end
-    end
 
-    context 'endpoint mode configuration' do
-      it 'defaults to ipv4' do
+      it 'defaults to ipv4 mode' do
         client = EC2Metadata.new
         expect(client.instance_variable_get(:@endpoint))
           .to eq('http://169.254.169.254')
@@ -63,6 +61,31 @@ module AWS::SDK::Core
     end
 
     describe '#get' do
+      it 'should fetch a new token if the original token is expired' do
+        # stub get token, first expires quickly
+        stub_request(
+          :put, "#{endpoint}/latest/api/token"
+        ).to_return(
+          {
+            status: 200, body: 'expired-token',
+            headers: { 'x-aws-ec2-metadata-token-ttl-seconds' => '0' }
+          },
+          {
+            status: 200, body: 'my-token',
+            headers: { 'x-aws-ec2-metadata-token-ttl-seconds' => '21600' }
+          }
+        )
+        # expect re-fetch of token then the metadata
+        stub_request(
+          :get, metadata_endpoint
+        ).to_return(
+          { status: 401 },
+          { status: 200, body: "foo\n" }
+        )
+        expect(Kernel).to receive(:sleep)
+        expect(client.get(metadata_path)).to eq "foo\n"
+      end
+
       it 'fetches a token before getting metadata' do
         token = stub_get_token
         stub_request(
@@ -75,27 +98,41 @@ module AWS::SDK::Core
         expect(client.get(metadata_path)).to eq "foo\n"
       end
 
-      it 'should fetch a new token if the original token is expired' do
+      it 'raises TokenRetrievalError when the token cannot be retrieved' do
+        stub_request(
+          :put, "#{endpoint}/latest/api/token"
+        ).to_return(
+          status: 400
+        )
+        expect { client.get(metadata_path) }
+          .to raise_error(EC2Metadata::TokenRetrievalError)
+      end
+
+      it 'raises RequestForbiddenError when metadata service is disabled' do
+        stub_request(
+          :put, "#{endpoint}/latest/api/token"
+        ).to_return(
+          status: 403
+        )
+        expect { client.get(metadata_path) }
+          .to raise_error(EC2Metadata::RequestForbiddenError)
+      end
+
+      it 'raises MetadataNotFoundError when metadata does not exist' do
         token = stub_get_token
-        # 401 token expired
         stub_request(
           :get, metadata_endpoint
         ).with(
           headers: { 'x-aws-ec2-metadata-token' => token }
-        ).to_return(status: 401)
-        new_token = stub_get_token('new-token')
-        stub_request(
-          :get, metadata_endpoint
-        ).with(
-          headers: { 'x-aws-ec2-metadata-token' => new_token }
         ).to_return(
-          status: 200, body: "foo\n"
+          status: 404
         )
-        expect(client.get(metadata_path)).to eq "foo\n"
+        expect { client.get(metadata_path) }
+          .to raise_error(EC2Metadata::MetadataNotFoundError)
       end
 
       context 'when retryable' do
-        before(:each) do
+        before do
           token = stub_get_token
           stub_request(:get, metadata_endpoint)
             .with(headers: { 'x-aws-ec2-metadata-token' => token })

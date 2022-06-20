@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 module AWS::SDK::Core
+  # An auto-refreshing credential provider that loads credentials from
+  # instances running in ECS.
+  #
+  #     provider = AWS::SDK::Core::ECSCredentialProvider.new(
+  #       credential_path: '/path/to/credentials.json'
+  #     )
+  #     ec2 = AWS::SDK::EC2::Client.new(credential_provider: provider)
   class ECSCredentialProvider
     include CredentialProvider
     include RefreshingCredentialProvider
@@ -20,9 +27,8 @@ module AWS::SDK::Core
     #   AWS_CONTAINER_CREDENTIALS_RELATIVE_URI environment variable.
     # @option options [Float] :http_open_timeout (2)
     # @option options [Float] :http_read_timeout (5)
-    # @option options [IO] :http_debug_output (nil) HTTP wire
-    #   traces are sent to this object.  You can specify something
-    #   like $stdout.
+    # @option options [IO] :http_debug_output (nil) IO object for HTTP wire
+    #   traces, typically $stdout.
     # @option options [Numeric, Proc] :backoff By default, failures are retried
     #   with exponential back-off, i.e. `sleep(1.2 ** num_failures)`. You can
     #   pass a number of seconds to sleep between failed attempts, or
@@ -40,7 +46,7 @@ module AWS::SDK::Core
       @http_read_timeout = options[:http_read_timeout] || 5
       @http_debug_output = options[:http_debug_output]
       @backoff = backoff(options[:backoff])
-      super
+      super()
     end
 
     private

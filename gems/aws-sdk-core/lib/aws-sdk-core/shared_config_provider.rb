@@ -9,8 +9,8 @@ module AWS::SDK::Core
     end
 
     def call(cfg)
-      profile = AWS::SDK::Core.shared_config[cfg[:profile]]
-      return unless profile && (value = profile[key])
+      profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
+      return unless profile_config && (value = profile_config[@key])
 
       case @type
       when 'Float' then parse_float(value)

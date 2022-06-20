@@ -57,6 +57,7 @@ require_relative 'aws-sdk-core/ecs_credential_provider'
 # Shared Config
 require_relative 'aws-sdk-core/ini_parser'
 require_relative 'aws-sdk-core/shared_config'
+require_relative 'aws-sdk-core/shared_config_provider'
 
 # Utilities
 require_relative 'aws-sdk-core/ec2_metadata'

@@ -72,7 +72,7 @@ module AWS::SDK::Core
     #
     # @example Fetching the instance ID
     #
-    #   ec2_metadata = Aws::EC2Metadata.new
+    #   ec2_metadata = AWS::SDK::Core::EC2Metadata.new
     #   ec2_metadata.get('/latest/meta-data/instance-id')
     #   => "i-023a25f10a73a0f79"
     #

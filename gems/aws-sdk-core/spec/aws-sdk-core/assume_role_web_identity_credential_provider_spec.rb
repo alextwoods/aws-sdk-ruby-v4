@@ -4,7 +4,7 @@ require_relative '../spec_helper'
 
 module AWS::SDK::Core
   describe AssumeRoleWebIdentityCredentialProvider do
-    before(:each) do
+    before do
       allow(AWS::SDK::Core).to receive(:sts_loaded?).and_return(true)
       allow(AWS::SDK::Core).to receive(:sso_loaded?).and_return(false)
     end
@@ -111,7 +111,7 @@ module AWS::SDK::Core
       double(
         'Hearth::Output',
         data: double(
-          'AWS::SDK::SSO::Types::GetRoleCredentialsOutput',
+          'AWS::SDK::SSO::Types::AssumeRoleWithWebIdentityResponse',
           credentials: double(**credential_hash)
         )
       )
@@ -132,25 +132,8 @@ module AWS::SDK::Core
         .with(token_file).and_return('web-identity-token')
     end
 
-    context 'credential provider' do
-      include_examples 'credential_provider'
-    end
-
-    context 'refreshable credentials' do
-      before do
-        mock_token_file(web_identity_token_file)
-      end
-
-      let(:callback) { proc {} }
-
-      subject do
-        AssumeRoleWebIdentityCredentialProvider.new(
-          **provider_options.merge(before_refresh: callback, client: client)
-        )
-      end
-
-      include_examples 'refreshing_credential_provider'
-    end
+    include_examples 'credential_provider'
+    include_examples 'refreshing_credential_provider'
 
     describe '#initialize' do
       it 'constructs an client if not provided' do

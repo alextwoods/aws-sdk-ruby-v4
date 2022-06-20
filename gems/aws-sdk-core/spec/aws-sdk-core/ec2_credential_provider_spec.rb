@@ -5,7 +5,7 @@ require_relative '../spec_helper'
 module AWS::SDK::Core
   describe EC2CredentialProvider do
     describe 'EC2CredentialProvider::ENVIRONMENT' do
-      context 'environment has ec2 disabled' do
+      context 'environment has ec2 metadata disabled' do
         let_env(
           'AWS_EC2_METADATA_DISABLED' => 'true'
         )
@@ -16,7 +16,7 @@ module AWS::SDK::Core
         end
       end
 
-      context 'environment does not have ec2 disabled' do
+      context 'environment does not have ec2 metadata disabled' do
         before do
           allow(AWS::SDK::Core).to receive(:shared_config)
             .and_return(shared_config)
@@ -81,33 +81,11 @@ module AWS::SDK::Core
 
     subject { EC2CredentialProvider.new(client: client) }
 
-    context 'credential provider' do
-      include_examples 'credential_provider'
-    end
-
-    context 'refreshable credentials' do
-      before do
-        allow(client).to receive(:get)
-          .with(EC2CredentialProvider::METADATA_PATH_BASE)
-          .and_return(metadata_resp)
-        allow(client).to receive(:get)
-          .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
-          .and_return(credential_json)
-      end
-
-      let(:callback) { proc {} }
-
-      subject do
-        EC2CredentialProvider.new(
-          before_refresh: callback, client: client
-        )
-      end
-
-      include_examples 'refreshing_credential_provider'
-    end
+    include_examples 'credential_provider'
+    include_examples 'refreshing_credential_provider'
 
     describe '#initialize' do
-      it 'constructs an client if not provided' do
+      it 'constructs an EC2Metadata client if not provided' do
         expect(EC2Metadata).to receive(:new).and_return(client)
         provider = EC2CredentialProvider.new
         expect(provider.client).to be(client)
