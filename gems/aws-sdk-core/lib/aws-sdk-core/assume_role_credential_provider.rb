@@ -67,7 +67,7 @@ module AWS::SDK::Core
         source_provider = resolve_source_profile(source_profile, cfg)
       elsif credential_source
         source_provider = resolve_credentials_source(credential_source, cfg)
-        unless credential_source
+        unless source_provider
           raise NoSourceCredentialsError,
                 "Profile #{cfg[:profile]} could not get source credentials "\
                 "from provider #{credential_source}"
@@ -91,25 +91,20 @@ module AWS::SDK::Core
     #   when credentials are required and need to be
     #   refreshed.
     # @option options [AWS::SDK::STS::Client] :client
-    # @param [Callable] :before_refresh A proc called when AWS
-    #   credentials are required and need to be refreshed.
-    def initialize(role_arn:, role_session_name:,
-                   duration_seconds: nil, external_id: nil, serial_number: nil,
-                   token_code: nil, client: nil, **options)
+    #
+    # Takes additional parameters
+    # for {AWS::SDK::STS::Client#assume_role}.
+    #
+    # @see AWS::SDK::STS::Client#assume_role
+    def initialize(options)
       unless AWS::SDK::Core.sts_loaded?
         raise 'aws-sdk-sts is required to create an '\
               'AssumeRoleCredentialProvider.'
       end
-      @client = client || AWS::SDK::STS::Client.new
-      @token_code = token_code
-      @assume_role_params = {
-        role_arn: role_arn,
-        role_session_name: role_session_name,
-        duration_seconds: duration_seconds,
-        external_id: external_id,
-        serial_number: serial_number
-      }
-      super(options)
+      @client = options.delete(:client) || AWS::SDK::STS::Client.new
+      @token_code = options.delete(:token_code)
+      @assume_role_params = options
+      super()
     end
 
     private

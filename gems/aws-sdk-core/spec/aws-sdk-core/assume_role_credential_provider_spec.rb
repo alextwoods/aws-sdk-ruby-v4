@@ -205,6 +205,17 @@ module AWS::SDK::Core
 
           AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
         end
+
+        it 'raises when missing' do
+          expect(StaticCredentialProvider::ENVIRONMENT).to receive(:call).and_return(nil)
+
+          expect do
+            AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
+          end.to raise_error(
+            AssumeRoleCredentialProvider::NoSourceCredentialsError,
+            /could not get source credentials/
+          )
+        end
       end
 
       context 'Credential Source:  ECS Container' do
