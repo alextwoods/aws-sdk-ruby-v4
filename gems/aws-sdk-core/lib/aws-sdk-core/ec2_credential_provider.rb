@@ -49,56 +49,51 @@ module AWS::SDK::Core
         warn_expired_credentials
         return
       end
-      new_creds = begin
-                    metadata = @client.get(METADATA_PATH_BASE)
-                    profile_name = metadata.lines.first.strip
-                    ::JSON.load(
-                      @client.get(METADATA_PATH_BASE + profile_name)
-                    )
-                  rescue
-                    {}
-                  end
+      new_creds = fetch_credentials
+
+      if !empty_credentials?(@credentials) &&
+         (!new_creds['AccessKeyId'] || new_creds['AccessKeyId'].empty?)
+        # credentials are already set
+        # error getting new credentials
+        # don't update the credentials
+        @no_refresh_until = Time.now + refresh_offset
+        warn_expired_credentials
+      else
+        update_credentials(new_creds)
+      end
+    end
+
+    def update_credentials(new_creds)
       expiration = if new_creds['Expiration']
                      Time.iso8601(new_creds['Expiration'])
                    end
 
-      if empty_credentials?(@credentials)
-        @credentials = Credentials.new(
-          access_key_id: new_creds['AccessKeyId'],
-          secret_access_key: new_creds['SecretAccessKey'],
-          session_token: new_creds['Token'],
-          expiration: expiration
-        )
-        if expiration && expiration < Time.now
-          @no_refresh_until = Time.now + refresh_offset
-          warn_expired_credentials
-        end
-      else
-        # credentials are already set
-        # update them only if the new ones are not empty
-        if !new_creds['AccessKeyId'] || new_creds['AccessKeyId'].empty?
-          # error getting new credentials
-          @no_refresh_until = Time.now + refresh_offset
-          warn_expired_credentials
-        else
-          @credentials = Credentials.new(
-            access_key_id: new_creds['AccessKeyId'],
-            secret_access_key: new_creds['SecretAccessKey'],
-            session_token: new_creds['Token'],
-            expiration: expiration
-          )
-          if expiration && expiration < Time.now
-            @no_refresh_until = Time.now + refresh_offset
-            warn_expired_credentials
-          end
-        end
-      end
+      @credentials = Credentials.new(
+        access_key_id: new_creds['AccessKeyId'],
+        secret_access_key: new_creds['SecretAccessKey'],
+        session_token: new_creds['Token'],
+        expiration: expiration
+      )
+      return unless expiration && expiration < Time.now
+
+      @no_refresh_until = Time.now + refresh_offset
+      warn_expired_credentials
+    end
+
+    def fetch_credentials
+      metadata = @client.get(METADATA_PATH_BASE)
+      profile_name = metadata.lines.first.strip
+      ::JSON.parse(
+        @client.get(METADATA_PATH_BASE + profile_name)
+      )
+    rescue StandardError
+      {}
     end
 
     def warn_expired_credentials
-      warn("Attempting credential expiration extension due to a credential "\
-        "service availability issue. A refresh of these credentials "\
-        "will be attempted again in 5 minutes.")
+      warn('Attempting credential expiration extension due to a credential '\
+           'service availability issue. A refresh of these credentials '\
+           'will be attempted again in 5 minutes.')
     end
 
     def refresh_offset

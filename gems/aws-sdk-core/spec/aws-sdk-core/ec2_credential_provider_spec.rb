@@ -72,11 +72,11 @@ module AWS::SDK::Core
     let(:expiration) { Time.parse('2022-07-04').utc }
     let(:credential_json) do
       ::JSON.dump({
-        'AccessKeyId' => 'ACCESS_KEY_1',
-        'SecretAccessKey' => 'SECRET_KEY_1',
-        'Token' => 'TOKEN_1',
-        'Expiration' => expiration.iso8601
-      })
+                    'AccessKeyId' => 'ACCESS_KEY_1',
+                    'SecretAccessKey' => 'SECRET_KEY_1',
+                    'Token' => 'TOKEN_1',
+                    'Expiration' => expiration.iso8601
+                  })
     end
 
     subject { EC2CredentialProvider.new(client: client) }
@@ -142,7 +142,7 @@ module AWS::SDK::Core
             .and_return(metadata_resp)
         end
 
-        it 'provides credentials when the first call returns expired credentials' do
+        it 'provides credentials when the first call is expired credentials' do
           expect_any_instance_of(EC2CredentialProvider)
             .to receive(:warn).at_least(:once)
 
@@ -161,7 +161,6 @@ module AWS::SDK::Core
         end
 
         it 'provides credentials after a read timeout during a refresh' do
-
           # seed with valid credentials that will trigger a refresh on next call
           expect(client).to receive(:get)
             .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
@@ -177,17 +176,17 @@ module AWS::SDK::Core
           expect(creds.access_key_id).to eq('akid-2')
         end
 
-        it 'uses expired credentials when returned during a refresh and warns' do
+        it 'uses expired credentials during a refresh and warns' do
           # seed with valid credentials that will trigger a refresh on next call
           expect(client).to receive(:get)
-                              .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
-                              .and_return(near_expiration_resp)
+            .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
+            .and_return(near_expiration_resp)
           subject.credentials
 
           # expired response
           expect(client).to receive(:get)
-                              .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
-                              .and_return(expired_resp)
+            .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
+            .and_return(expired_resp)
           expect(subject).to receive(:warn)
 
           creds = subject.credentials
