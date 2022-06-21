@@ -4,12 +4,12 @@ module AWS::SDK::Core
   # An auto-refreshing credential provider that assumes a role via
   # {AWS::SDK::STS::Client#assume_role}.
   #
-  #     role_credentials = AWS::SDK::Core::AssumeRoleCredentialProvider.new(
+  #     provider = AWS::SDK::Core::AssumeRoleCredentialProvider.new(
   #       client: AWS::SDK::STS::Client.new(...),
   #       role_arn: "linked::account::arn",
   #       role_session_name: "session-name"
   #     )
-  #     ec2 = AWS::SDK::EC2::Client.new(credential_provider: role_credentials)
+  #     ec2 = AWS::SDK::EC2::Client.new(credential_provider: provider)
   #
   # If you omit `:client` option, a new {AWS::SDK::STS::Client} object will be
   # constructed with additional options that were provided.
@@ -42,7 +42,6 @@ module AWS::SDK::Core
     # Raised when a client is constructed with Assume Role credentials using
     # a credential_source, and that source doesn't provide credentials.
     class NoSourceCredentialsError < RuntimeError; end
-
 
     PROFILE = proc do |cfg|
       next unless AWS::SDK::Core.sts_loaded?
@@ -82,7 +81,7 @@ module AWS::SDK::Core
     end
 
     # @option options [required, String] :role_arn
-    # @option options [required, String] :role_session_name
+    # @option options [String] :role_session_name
     # @option options [Integer] :duration_seconds
     # @option options [String] :external_id
     # @option options [String] :serial_number
@@ -92,8 +91,7 @@ module AWS::SDK::Core
     #   refreshed.
     # @option options [AWS::SDK::STS::Client] :client
     #
-    # Takes additional parameters
-    # for {AWS::SDK::STS::Client#assume_role}.
+    # Takes additional parameters for {AWS::SDK::STS::Client#assume_role}.
     #
     # @see AWS::SDK::STS::Client#assume_role
     def initialize(options)
@@ -104,16 +102,22 @@ module AWS::SDK::Core
       @client = options.delete(:client) || AWS::SDK::STS::Client.new
       @token_code = options.delete(:token_code)
       @assume_role_params = options
+      @assume_role_params[:role_session_name] ||= 'default_session'
       super()
     end
 
     private
 
     def fetch
-      token_code = @token_code&.respond_to?(:call) ? @token_code.call : @token_code
+      token_code = if @token_code.respond_to?(:call)
+                     @token_code.call
+                   else
+                     @token_code
+                   end
       c = @client.assume_role(
         @assume_role_params.merge(token_code: token_code)
       ).data.credentials
+
       @credentials = Credentials.new(
         access_key_id: c.access_key_id,
         secret_access_key: c.secret_access_key,
@@ -126,7 +130,7 @@ module AWS::SDK::Core
       private
 
       def resolve_source_profile(profile, cfg)
-        # must defined in method to avoid dependency issues
+        # must be defined in method to avoid dependency issues
         profile_credential_chain = [
           AWS::SDK::Core::StaticCredentialProvider::PROFILE,
           AWS::SDK::Core::AssumeRoleCredentialProvider::PROFILE,
@@ -169,7 +173,14 @@ module AWS::SDK::Core
       def resolve_credentials_source(credentials_source, cfg)
         case credentials_source
         when 'Ec2InstanceMetadata'
-          EC2CredentialProvider.new # TODO: Arguments?
+          profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
+          client = EC2Metadata.new(
+            endpoint: ENV['AWS_EC2_METADATA_SERVICE_ENDPOINT'] ||
+                      profile_config['ec2_metadata_service_endpoint'],
+            endpoint_mode: ENV['AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE'] ||
+                           profile_config['ec2_metadata_service_endpoint_mode']
+          )
+          EC2CredentialProvider.new(client: client)
         when 'EcsContainer'
           ECSCredentialProvider.new
         when 'Environment'
@@ -188,8 +199,7 @@ module AWS::SDK::Core
         sts_client = AWS::SDK::STS::Client.new(sts_config)
         new(
           client: sts_client,
-          role_session_name: profile_config['role_session_name'] ||
-            'default_session',
+          role_session_name: profile_config['role_session_name'],
           role_arn: profile_config['role_arn'],
           duration_seconds: profile_config['duration_seconds']&.to_i,
           external_id: profile_config['external_id'],

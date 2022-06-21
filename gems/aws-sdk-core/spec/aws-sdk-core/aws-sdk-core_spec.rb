@@ -40,4 +40,52 @@ describe AWS::SDK::Core do
       AWS::SDK::Core.shared_config
     end
   end
+
+  describe '#sts_loaded?' do
+    context 'sts loaded' do
+      before do
+        expect(AWS::SDK::Core)
+          .to receive(:require).with('aws-sdk-sts').and_return(true)
+      end
+
+      it 'returns true' do
+        expect(AWS::SDK::Core.sts_loaded?).to eq(true)
+      end
+    end
+
+    context 'sts not loaded' do
+      before do
+        expect(AWS::SDK::Core)
+          .to receive(:require).with('aws-sdk-sts').and_raise(LoadError)
+      end
+
+      it 'returns false' do
+        expect(AWS::SDK::Core.sts_loaded?).to eq(false)
+      end
+    end
+  end
+
+  describe '#sso_loaded?' do
+    context 'sso loaded' do
+      before do
+        expect(AWS::SDK::Core)
+          .to receive(:require).with('aws-sdk-sso').and_return(true)
+      end
+
+      it 'returns true' do
+        expect(AWS::SDK::Core.sso_loaded?).to eq(true)
+      end
+    end
+
+    context 'sso not loaded' do
+      before do
+        expect(AWS::SDK::Core)
+          .to receive(:require).with('aws-sdk-sso').and_raise(LoadError)
+      end
+
+      it 'returns false' do
+        expect(AWS::SDK::Core.sso_loaded?).to eq(false)
+      end
+    end
+  end
 end

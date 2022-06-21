@@ -6,7 +6,6 @@ module AWS::SDK::Core
   describe AssumeRoleWebIdentityCredentialProvider do
     before do
       allow(AWS::SDK::Core).to receive(:sts_loaded?).and_return(true)
-      allow(AWS::SDK::Core).to receive(:sso_loaded?).and_return(false)
     end
 
     describe 'AssumeRoleWebIdentityCredentialProvider::PROFILE' do

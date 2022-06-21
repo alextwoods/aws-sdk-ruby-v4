@@ -20,11 +20,9 @@ module AWS::SDK::Core
       unless ENV['AWS_EC2_METADATA_DISABLED']
         client = EC2Metadata.new(
           endpoint: ENV['AWS_EC2_METADATA_SERVICE_ENDPOINT'] ||
-                    profile_config['ec2_metadata_service_endpoint'] ||
-                    nil,
+                    profile_config['ec2_metadata_service_endpoint'],
           endpoint_mode: ENV['AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE'] ||
-                         profile_config['ec2_metadata_service_endpoint_mode'] ||
-                         'IPv4'
+                         profile_config['ec2_metadata_service_endpoint_mode']
         )
         new(client: client)
       end

@@ -120,7 +120,8 @@ module AWS::SDK::Core
         let(:credentials_from_b) { double }
         let(:client) { double }
 
-        it 'Assumes RoleA using static credentials from Profile B with all assume role parameters' do
+        it 'Assumes RoleA using static credentials from Profile B with all '\
+           'assume role parameters' do
           # verify credentials from B
           expect(AWS::SDK::Core::StaticCredentialProvider)
             .to receive(:new)
@@ -139,7 +140,8 @@ module AWS::SDK::Core
             expect(kwargs[:role_arn]).to eq('arn:aws:iam::123456789:role/RoleA')
             expect(kwargs[:role_session_name]).to eq('my_session_name')
             expect(kwargs[:external_id]).to eq('my_external_id')
-            expect(kwargs[:serial_number]).to eq('arn:aws:iam::123456789012:mfa/user')
+            expect(kwargs[:serial_number])
+              .to eq('arn:aws:iam::123456789012:mfa/user')
             expect(kwargs[:duration_seconds]).to eq(1234)
           end
 
@@ -153,6 +155,8 @@ module AWS::SDK::Core
             [profile A]
             role_arn = arn:aws:iam::123456789:role/RoleA
             credential_source = Ec2InstanceMetadata
+            ec2_metadata_service_endpoint_mode = IPv4
+            ec2_metadata_service_endpoint = http://169.254.169.254
           CONFIG
         end
 
@@ -160,7 +164,12 @@ module AWS::SDK::Core
         let(:client) { double }
 
         it 'Assumes RoleA using EC2CredentialProvider' do
-          expect(EC2CredentialProvider).to receive(:new).and_return(source_credentials)
+          ec2_metadata = double('EC2Metadata')
+          expect(EC2Metadata).to receive(:new)
+            .with(endpoint_mode: 'IPv4', endpoint: 'http://169.254.169.254')
+            .and_return(ec2_metadata)
+          expect(EC2CredentialProvider).to receive(:new)
+            .with(client: ec2_metadata).and_return(source_credentials)
 
           # verify client is created with credentials from B
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
@@ -190,7 +199,8 @@ module AWS::SDK::Core
         let(:client) { double }
 
         it 'Assumes RoleA using credentials from the environment' do
-          expect(StaticCredentialProvider::ENVIRONMENT).to receive(:call).and_return(source_credentials)
+          expect(StaticCredentialProvider::ENVIRONMENT)
+            .to receive(:call).and_return(source_credentials)
 
           # verify client is created with credentials from B
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
@@ -207,7 +217,8 @@ module AWS::SDK::Core
         end
 
         it 'raises when missing' do
-          expect(StaticCredentialProvider::ENVIRONMENT).to receive(:call).and_return(nil)
+          expect(StaticCredentialProvider::ENVIRONMENT)
+            .to receive(:call).and_return(nil)
 
           expect do
             AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
@@ -218,7 +229,7 @@ module AWS::SDK::Core
         end
       end
 
-      context 'Credential Source:  ECS Container' do
+      context 'Credential Source: ECS Container' do
         let(:shared_config) do
           IniParser.ini_parse(<<~CONFIG)
             [profile A]
@@ -231,7 +242,8 @@ module AWS::SDK::Core
         let(:client) { double }
 
         it 'Assumes RoleA using credentials from the environment' do
-          expect(ECSCredentialProvider).to receive(:new).and_return(source_credentials)
+          expect(ECSCredentialProvider)
+            .to receive(:new).and_return(source_credentials)
 
           # verify client is created with credentials from B
           expect(AWS::SDK::STS::Client).to receive(:new) do |cfg|
@@ -531,23 +543,8 @@ module AWS::SDK::Core
 
     subject { AssumeRoleCredentialProvider.new(**assume_role_params) }
 
-    context 'refreshable credentials' do
-      let(:callback) { proc {} }
-
-      before do
-        allow(client).to receive(:assume_role)
-          .with(assume_role_params)
-          .and_return(resp)
-      end
-
-      subject do
-        AssumeRoleCredentialProvider.new(
-          **assume_role_params.merge(before_refresh: callback, client: client)
-        )
-      end
-
-      include_examples 'refreshing_credential_provider'
-    end
+    include_examples 'credential_provider'
+    include_examples 'refreshing_credential_provider'
 
     describe '#initialize' do
       it 'constructs a default client when not given one' do
@@ -557,7 +554,9 @@ module AWS::SDK::Core
 
       it 'uses the client when given' do
         expect(AWS::SDK::STS::Client).not_to receive(:new)
-        AssumeRoleCredentialProvider.new(**assume_role_params.merge(client: client))
+        AssumeRoleCredentialProvider.new(
+          **assume_role_params.merge(client: client)
+        )
       end
 
       context 'aws-sdk-sts not available' do
@@ -571,7 +570,8 @@ module AWS::SDK::Core
     end
 
     describe '#credentials' do
-      it 'calls assume_role with the provided parameters and sets the credentials' do
+      it 'calls assume_role with the provided parameters and sets the '\
+         'credentials' do
         expect(client).to receive(:assume_role)
           .with(assume_role_params)
           .and_return(resp)
@@ -587,10 +587,8 @@ module AWS::SDK::Core
         let(:token_code) { 'token_code' }
 
         it 'calls assume_role with the provided token_code' do
-
           expect(client).to receive(:assume_role)
-                              .with(assume_role_params)
-                              .and_return(resp)
+            .with(assume_role_params).and_return(resp)
 
           subject.credentials
         end

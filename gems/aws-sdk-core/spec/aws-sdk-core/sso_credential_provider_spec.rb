@@ -5,7 +5,6 @@ require_relative '../spec_helper'
 module AWS::SDK::Core
   describe SSOCredentialProvider do
     before do
-      allow(AWS::SDK::Core).to receive(:sts_loaded?).and_return(false)
       allow(AWS::SDK::Core).to receive(:sso_loaded?).and_return(true)
     end
 
