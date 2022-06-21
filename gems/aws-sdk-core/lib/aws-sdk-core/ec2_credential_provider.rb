@@ -35,6 +35,7 @@ module AWS::SDK::Core
     # @param [EC2Metadata] client
     def initialize(client: nil)
       @client = client || EC2Metadata.new
+      @no_refresh_until = nil
       super()
     end
 
@@ -44,19 +45,68 @@ module AWS::SDK::Core
     private
 
     def fetch
-      metadata = @client.get(METADATA_PATH_BASE)
-      profile_name = metadata.lines.first.strip
-      creds_json = @client.get(METADATA_PATH_BASE + profile_name)
-
-      expiration = if creds_json['Expiration']
-                     Time.iso8601(creds_json['Expiration'])
+      if @no_refresh_until && @no_refresh_until > Time.now
+        warn_expired_credentials
+        return
+      end
+      new_creds = begin
+                    metadata = @client.get(METADATA_PATH_BASE)
+                    profile_name = metadata.lines.first.strip
+                    ::JSON.load(
+                      @client.get(METADATA_PATH_BASE + profile_name)
+                    )
+                  rescue
+                    {}
+                  end
+      expiration = if new_creds['Expiration']
+                     Time.iso8601(new_creds['Expiration'])
                    end
-      @credentials = Credentials.new(
-        access_key_id: creds_json['AccessKeyId'],
-        secret_access_key: creds_json['SecretAccessKey'],
-        session_token: creds_json['Token'],
-        expiration: expiration
-      )
+
+      if empty_credentials?(@credentials)
+        @credentials = Credentials.new(
+          access_key_id: new_creds['AccessKeyId'],
+          secret_access_key: new_creds['SecretAccessKey'],
+          session_token: new_creds['Token'],
+          expiration: expiration
+        )
+        if expiration && expiration < Time.now
+          @no_refresh_until = Time.now + refresh_offset
+          warn_expired_credentials
+        end
+      else
+        # credentials are already set
+        # update them only if the new ones are not empty
+        if !new_creds['AccessKeyId'] || new_creds['AccessKeyId'].empty?
+          # error getting new credentials
+          @no_refresh_until = Time.now + refresh_offset
+          warn_expired_credentials
+        else
+          @credentials = Credentials.new(
+            access_key_id: new_creds['AccessKeyId'],
+            secret_access_key: new_creds['SecretAccessKey'],
+            session_token: new_creds['Token'],
+            expiration: expiration
+          )
+          if expiration && expiration < Time.now
+            @no_refresh_until = Time.now + refresh_offset
+            warn_expired_credentials
+          end
+        end
+      end
+    end
+
+    def warn_expired_credentials
+      warn("Attempting credential expiration extension due to a credential "\
+        "service availability issue. A refresh of these credentials "\
+        "will be attempted again in 5 minutes.")
+    end
+
+    def refresh_offset
+      rand(300..360)
+    end
+
+    def empty_credentials?(creds)
+      !creds || !creds.access_key_id || creds.access_key_id.empty?
     end
   end
 end

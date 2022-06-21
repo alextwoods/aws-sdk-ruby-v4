@@ -71,12 +71,12 @@ module AWS::SDK::Core
     let(:metadata_resp) { 'ec2-metadata-profile' }
     let(:expiration) { Time.parse('2022-07-04').utc }
     let(:credential_json) do
-      {
+      ::JSON.dump({
         'AccessKeyId' => 'ACCESS_KEY_1',
         'SecretAccessKey' => 'SECRET_KEY_1',
         'Token' => 'TOKEN_1',
         'Expiration' => expiration.iso8601
-      }
+      })
     end
 
     subject { EC2CredentialProvider.new(client: client) }
@@ -106,6 +106,93 @@ module AWS::SDK::Core
         expect(creds.secret_access_key).to eq('SECRET_KEY_1')
         expect(creds.session_token).to eq('TOKEN_1')
         expect(creds.expiration).to eq(expiration)
+      end
+
+      describe 'static stability' do
+        let(:expired) { Time.now.utc - 3600 }
+        let(:near_expiration) { Time.now.utc + 10 }
+
+        let(:expired_resp) { <<-JSON.strip }
+        {
+          "Code" : "Success",
+          "LastUpdated" : "2013-11-22T20:03:48Z",
+          "Type" : "AWS-HMAC",
+          "AccessKeyId" : "akid",
+          "SecretAccessKey" : "secret",
+          "Token" : "session-token",
+          "Expiration" : "#{expired.strftime('%Y-%m-%dT%H:%M:%SZ')}"
+        }
+        JSON
+
+        let(:near_expiration_resp) { <<-JSON.strip }
+        {
+          "Code" : "Success",
+          "LastUpdated" : "2013-11-22T20:03:48Z",
+          "Type" : "AWS-HMAC",
+          "AccessKeyId" : "akid-2",
+          "SecretAccessKey" : "secret-2",
+          "Token" : "session-token-2",
+          "Expiration" : "#{near_expiration.strftime('%Y-%m-%dT%H:%M:%SZ')}"
+        }
+        JSON
+
+        before(:each) do
+          allow(client).to receive(:get)
+            .with(EC2CredentialProvider::METADATA_PATH_BASE)
+            .and_return(metadata_resp)
+        end
+
+        it 'provides credentials when the first call returns expired credentials' do
+          expect_any_instance_of(EC2CredentialProvider)
+            .to receive(:warn).at_least(:once)
+
+          expect(client).to receive(:get)
+            .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
+            .once
+            .and_return(expired_resp)
+
+          creds = subject.credentials
+          expect(creds.access_key_id).to eq('akid')
+
+          # successive requests/credential gets don't result in more calls
+          subject.credentials
+          subject.credentials
+          subject.credentials
+        end
+
+        it 'provides credentials after a read timeout during a refresh' do
+
+          # seed with valid credentials that will trigger a refresh on next call
+          expect(client).to receive(:get)
+            .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
+            .and_return(near_expiration_resp)
+          subject.credentials
+
+          # failed response
+          expect(client).to receive(:get)
+            .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
+            .and_raise(Timeout::Error)
+          expect(subject).to receive(:warn)
+          creds = subject.credentials
+          expect(creds.access_key_id).to eq('akid-2')
+        end
+
+        it 'uses expired credentials when returned during a refresh and warns' do
+          # seed with valid credentials that will trigger a refresh on next call
+          expect(client).to receive(:get)
+                              .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
+                              .and_return(near_expiration_resp)
+          subject.credentials
+
+          # expired response
+          expect(client).to receive(:get)
+                              .with(EC2CredentialProvider::METADATA_PATH_BASE + metadata_resp)
+                              .and_return(expired_resp)
+          expect(subject).to receive(:warn)
+
+          creds = subject.credentials
+          expect(creds.access_key_id).to eq('akid')
+        end
       end
     end
   end
