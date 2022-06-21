@@ -303,7 +303,7 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-             AssumeRoleCredentialProvider::CredentialSourceConflictError,
+            AssumeRoleCredentialProvider::CredentialSourceConflictError,
             /Profile A has a source_profile and a credential_source/
           )
         end
@@ -328,7 +328,7 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-             AssumeRoleCredentialProvider::NoSourceCredentialsError,
+            AssumeRoleCredentialProvider::NoSourceCredentialsError,
             /source_profile does not have credentials/
           )
         end
@@ -350,7 +350,7 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-             AssumeRoleCredentialProvider::NoSuchProfileError,
+            AssumeRoleCredentialProvider::NoSuchProfileError,
             /source_profile B does not exist/
           )
         end
@@ -372,7 +372,7 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-             AssumeRoleCredentialProvider::InvalidCredentialSourceError,
+            AssumeRoleCredentialProvider::InvalidCredentialSourceError,
             /Unsupported credential_source/
           )
         end
@@ -498,9 +498,9 @@ module AWS::SDK::Core
           expect do
             AssumeRoleCredentialProvider::PROFILE.call({ profile: 'A' })
           end.to raise_error(
-             AssumeRoleCredentialProvider::SourceProfileCircularReferenceError,
-             /Circular reference/
-           )
+            AssumeRoleCredentialProvider::SourceProfileCircularReferenceError,
+            /Circular reference/
+          )
         end
       end
     end

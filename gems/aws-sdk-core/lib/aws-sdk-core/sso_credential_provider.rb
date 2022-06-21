@@ -76,6 +76,7 @@ module AWS::SDK::Core
       unless AWS::SDK::Core.sso_loaded?
         raise 'aws-sdk-sso is required to create a SSOCredentialProvider.'
       end
+
       @sso_start_url = sso_start_url.encode('utf-8')
       @sso_region = sso_region
       @sso_role_name = sso_role_name

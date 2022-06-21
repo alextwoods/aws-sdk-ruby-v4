@@ -60,31 +60,15 @@ module AWS::SDK::Core
               'provide only source_profile or credential_source, not both.'
       end
 
-      # resolve the source provider to use from
-      # either source_profile or credential_source
-      if source_profile
-        source_provider = resolve_source_profile(source_profile, cfg)
-      elsif credential_source
-        source_provider = resolve_credentials_source(credential_source, cfg)
-        unless source_provider
-          raise NoSourceCredentialsError,
-                "Profile #{cfg[:profile]} could not get source credentials "\
-                "from provider #{credential_source}"
-        end
-      else
-        raise NoSourceProfileError,
-              "Profile #{cfg[:profile]} has a role_arn "\
-              'but no source_profile or credential_source'
-      end
+      source_provider = resolve_source_provider(
+        cfg, source_profile, credential_source
+      )
 
       build_profile_provider(cfg, profile_config, source_provider)
     end
 
     # @option options [required, String] :role_arn
     # @option options [String] :role_session_name
-    # @option options [Integer] :duration_seconds
-    # @option options [String] :external_id
-    # @option options [String] :serial_number
     # @option options [String|Callable] :token_code If a proc
     #   is provided, it will be called and the result used
     #   when credentials are required and need to be
@@ -138,7 +122,6 @@ module AWS::SDK::Core
           AWS::SDK::Core::ProcessCredentialProvider::PROFILE,
           AWS::SDK::Core::SSOCredentialProvider::PROFILE
         ]
-
         visited_profiles = cfg[:visited_profiles] || Set.new
 
         unless AWS::SDK::Core.shared_config.key?(profile)
@@ -146,18 +129,7 @@ module AWS::SDK::Core
                 "source_profile #{profile} does not exist."
         end
 
-        if visited_profiles&.include?(profile)
-          raise SourceProfileCircularReferenceError,
-                'Circular reference in assume role profiles'\
-                ", have already visited: #{profile}"
-        end
-
-        visited_profiles.add(profile)
-        cfg = {
-          profile: profile,
-          visited_profiles: visited_profiles,
-          region: cfg[:region]
-        }
+        cfg = visit_source_profile(visited_profiles, cfg, profile)
 
         profile_credential_chain.each do |p|
           provider = p.call(cfg)
@@ -168,6 +140,39 @@ module AWS::SDK::Core
         raise NoSourceCredentialsError,
               "Profile #{cfg[:profile]} has a role_arn and source_profile "\
               'but the source_profile does not have credentials.'
+      end
+
+      def visit_source_profile(visited_profiles, cfg, profile)
+        if visited_profiles&.include?(profile)
+          raise SourceProfileCircularReferenceError,
+                'Circular reference in assume role profiles'\
+                ", have already visited: #{profile}"
+        end
+
+        visited_profiles.add(profile)
+        {
+          profile: profile,
+          visited_profiles: visited_profiles,
+          region: cfg[:region]
+        }
+      end
+
+      def resolve_source_provider(cfg, source_profile, credential_source)
+        if source_profile
+          resolve_source_profile(source_profile, cfg)
+        elsif credential_source
+          source_provider = resolve_credentials_source(credential_source, cfg)
+          unless source_provider
+            raise NoSourceCredentialsError,
+                  "Profile #{cfg[:profile]} could not get source credentials "\
+                  "from provider #{credential_source}"
+          end
+          source_provider
+        else
+          raise NoSourceProfileError,
+                "Profile #{cfg[:profile]} has a role_arn "\
+                'but no source_profile or credential_source'
+        end
       end
 
       def resolve_credentials_source(credentials_source, cfg)

@@ -26,7 +26,7 @@ module AWS::SDK::Core
 
     let(:mutex) { subject.instance_variable_get(:@mutex) }
 
-    let(:expiration) { Time.now + 60 * 15 }
+    let(:expiration) { Time.now + (60 * 15) }
     let(:credentials) do
       Credentials.new(
         access_key_id: 'ACCESS_KEY_1',
@@ -46,7 +46,7 @@ module AWS::SDK::Core
       end
 
       context 'credentials expire in less than five minutes' do
-        let(:expiration) { Time.now + 60 * 5 - 1 }
+        let(:expiration) { Time.now + (60 * 5) - 1 }
 
         it 'refreshes asynchronously' do
           expect(mutex).to receive(:locked?).and_call_original
