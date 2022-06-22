@@ -131,7 +131,6 @@ module AWS::SDK::Core
         .with(token_file).and_return('web-identity-token')
     end
 
-    include_examples 'credential_provider'
     include_examples 'refreshing_credential_provider'
 
     describe '#initialize' do

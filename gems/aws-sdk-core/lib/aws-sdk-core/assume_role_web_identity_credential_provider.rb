@@ -20,7 +20,6 @@ module AWS::SDK::Core
   #
   # @see AWS::SDK::STS::Client#assume_role_with_web_identity
   class AssumeRoleWebIdentityCredentialProvider
-    include CredentialProvider
     include RefreshingCredentialProvider
 
     # Raised when :web_identity_token_file parameter is not

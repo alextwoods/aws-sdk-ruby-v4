@@ -81,7 +81,6 @@ module AWS::SDK::Core
 
     subject { EC2CredentialProvider.new(client: client) }
 
-    include_examples 'credential_provider'
     include_examples 'refreshing_credential_provider'
 
     describe '#initialize' do

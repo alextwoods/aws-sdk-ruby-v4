@@ -15,7 +15,6 @@ module AWS::SDK::Core
   #
   # @see https://docs.aws.amazon.com/cli/latest/topic/config-vars.html#sourcing-credentials-from-external-processes
   class ProcessCredentialProvider
-    include CredentialProvider
     include RefreshingCredentialProvider
 
     # Initializes an instance of ProcessCredentialProvider using

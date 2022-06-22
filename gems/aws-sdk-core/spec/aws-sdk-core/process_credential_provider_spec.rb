@@ -60,7 +60,6 @@ module AWS::SDK::Core
 
     subject { ProcessCredentialProvider.new(process: process) }
 
-    include_examples 'credential_provider'
     include_examples 'refreshing_credential_provider'
 
     describe '#credentials' do

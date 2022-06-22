@@ -116,7 +116,6 @@ module AWS::SDK::Core
       mock_token_file(sso_start_url, cached_token)
     end
 
-    include_examples 'credential_provider'
     include_examples 'refreshing_credential_provider'
 
     describe '#initialize' do

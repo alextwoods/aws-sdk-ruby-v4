@@ -10,7 +10,6 @@ module AWS::SDK::Core
   #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
   #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   class ECSCredentialProvider
-    include CredentialProvider
     include RefreshingCredentialProvider
 
     # Initializes an instance of ECSCredentialProvider using ENV.
@@ -30,8 +29,8 @@ module AWS::SDK::Core
     #   AWS_CONTAINER_CREDENTIALS_RELATIVE_URI environment variable.
     # @option options [Float] :http_open_timeout (2)
     # @option options [Float] :http_read_timeout (5)
-    # @option options [IO] :http_debug_output (nil) IO object for HTTP wire
-    #   traces, typically $stdout.
+    # @option options [IO] :http_debug_output An output stream for debugging. Do
+    #   not use this in production.
     # @option options [Numeric, Proc] :backoff By default, failures are retried
     #   with exponential back-off, i.e. `sleep(1.2 ** num_failures)`. You can
     #   pass a number of seconds to sleep between failed attempts, or

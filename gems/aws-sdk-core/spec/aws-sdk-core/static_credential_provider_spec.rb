@@ -79,9 +79,7 @@ module AWS::SDK::Core
 
     subject { StaticCredentialProvider.new(credential_hash) }
 
-    context 'credential provider' do
-      include_examples 'credential_provider'
-    end
+    include_examples 'credential_provider'
 
     describe '#credentials' do
       it 'returns the credentials' do

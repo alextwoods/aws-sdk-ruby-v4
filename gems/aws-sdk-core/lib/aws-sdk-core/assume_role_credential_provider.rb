@@ -17,7 +17,6 @@ module AWS::SDK::Core
   #
   # @see AWS::SDK::STS::Client#assume_role
   class AssumeRoleCredentialProvider
-    include CredentialProvider
     include RefreshingCredentialProvider
 
     # Raised when a client is constructed and the specified shared

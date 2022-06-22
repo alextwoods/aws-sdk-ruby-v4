@@ -8,6 +8,8 @@ module AWS::SDK::Core
   #
   # @api private
   module RefreshingCredentialProvider
+    include CredentialProvider
+
     SYNC_EXPIRATION_LENGTH = 60 # 1 minute
     ASYNC_EXPIRATION_LENGTH = 600 # 5 minutes
 

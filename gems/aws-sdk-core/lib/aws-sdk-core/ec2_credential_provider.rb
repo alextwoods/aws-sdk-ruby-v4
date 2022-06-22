@@ -13,7 +13,6 @@ module AWS::SDK::Core
   # If you omit the `:client` option, a new {AWS::SDK::Core::EC2Metadata} will
   # be created.
   class EC2CredentialProvider
-    include CredentialProvider
     include RefreshingCredentialProvider
 
     # Initializes an instance of EC2CredentialProvider using

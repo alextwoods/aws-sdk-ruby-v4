@@ -53,11 +53,11 @@ module AWS::SDK::Core
   # from that source profile.
   # @api private
   ASSUME_ROLE_PROFILE_CREDENTIAL_PROVIDER_CHAIN = [
-    AWS::SDK::Core::StaticCredentialProvider::PROFILE,
-    AWS::SDK::Core::AssumeRoleCredentialProvider::PROFILE,
-    AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider::PROFILE,
-    AWS::SDK::Core::ProcessCredentialProvider::PROFILE,
-    AWS::SDK::Core::SSOCredentialProvider::PROFILE
+    StaticCredentialProvider::PROFILE,
+    AssumeRoleCredentialProvider::PROFILE,
+    AssumeRoleWebIdentityCredentialProvider::PROFILE,
+    ProcessCredentialProvider::PROFILE,
+    SSOCredentialProvider::PROFILE
   ].freeze
 
   def self.shared_config
