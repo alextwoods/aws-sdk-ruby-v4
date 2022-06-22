@@ -27,43 +27,15 @@ module AWS::Sts
       @middleware
     end
 
-    # @overload initialize(options)
-    # @param [Hash] options
-    # @option options [Boolean] :disable_host_prefix (false)
-    #   When `true`, does not perform host prefix injection using @endpoint's hostPrefix property.
+    # @param [Config] config
+    #   An instance of {Config}
     #
-    # @option options [string] :endpoint
-    #   Endpoint of the service
-    #
-    # @option options [bool] :http_wire_trace (false)
-    #   Enable debug wire trace on http requests.
-    #
-    # @option options [symbol] :log_level (:info)
-    #   Default log level to use
-    #
-    # @option options [Logger] :logger (stdout)
-    #   Logger to use for output
-    #
-    # @option options [MiddlewareBuilder] :middleware
-    #   Additional Middleware to be applied for every operation
-    #
-    # @option options [Bool] :stub_responses (false)
-    #   Enable response stubbing. See documentation for {#stub_responses}
-    #
-    # @option options [Boolean] :validate_input (true)
-    #   When `true`, request parameters are validated using the modeled shapes.
-    #
-    def initialize(options = {})
-      @disable_host_prefix = options.fetch(:disable_host_prefix, false)
-      @endpoint = options[:endpoint]
-      @http_wire_trace = options.fetch(:http_wire_trace, false)
-      @log_level = options.fetch(:log_level, :info)
-      @logger = options.fetch(:logger, Logger.new($stdout, level: @log_level))
+    def initialize(config = AWS::Sts::Config.new, options = {})
+      @config = config
       @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
-      @stub_responses = options.fetch(:stub_responses, false)
       @stubs = Hearth::Stubbing::Stubs.new
-      @validate_input = options.fetch(:validate_input, true)
-
+      @retry_quota = Hearth::Retry::RetryQuota.new
+      @client_rate_limiter = Hearth::Retry::ClientRateLimiter.new
     end
 
     # <p>Returns a set of temporary security credentials that you can use to access Amazon Web Services
@@ -394,33 +366,45 @@ module AWS::Sts
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssumeRoleInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::AssumeRole
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
         data_parser: Parsers::AssumeRole
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::AssumeRole,
-        params_class: Params::AssumeRoleOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::AssumeRoleOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :assume_role
         )
       )
@@ -692,33 +676,45 @@ module AWS::Sts
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssumeRoleWithSAMLInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::AssumeRoleWithSAML
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IDPRejectedClaimException, Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::InvalidIdentityTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
         data_parser: Parsers::AssumeRoleWithSAML
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::AssumeRoleWithSAML,
-        params_class: Params::AssumeRoleWithSAMLOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::AssumeRoleWithSAMLOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :assume_role_with_saml
         )
       )
@@ -1005,33 +1001,45 @@ module AWS::Sts
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AssumeRoleWithWebIdentityInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::AssumeRoleWithWebIdentity
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::IDPRejectedClaimException, Errors::MalformedPolicyDocumentException, Errors::ExpiredTokenException, Errors::InvalidIdentityTokenException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException, Errors::IDPCommunicationErrorException]),
         data_parser: Parsers::AssumeRoleWithWebIdentity
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::AssumeRoleWithWebIdentity,
-        params_class: Params::AssumeRoleWithWebIdentityOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::AssumeRoleWithWebIdentityOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :assume_role_with_web_identity
         )
       )
@@ -1101,33 +1109,45 @@ module AWS::Sts
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DecodeAuthorizationMessageInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DecodeAuthorizationMessage
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidAuthorizationMessageException]),
         data_parser: Parsers::DecodeAuthorizationMessage
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::DecodeAuthorizationMessage,
-        params_class: Params::DecodeAuthorizationMessageOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::DecodeAuthorizationMessageOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :decode_authorization_message
         )
       )
@@ -1181,33 +1201,45 @@ module AWS::Sts
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccessKeyInfoInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetAccessKeyInfo
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetAccessKeyInfo
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetAccessKeyInfo,
-        params_class: Params::GetAccessKeyInfoOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetAccessKeyInfoOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_access_key_info
         )
       )
@@ -1248,33 +1280,45 @@ module AWS::Sts
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCallerIdentityInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetCallerIdentity
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetCallerIdentity
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetCallerIdentity,
-        params_class: Params::GetCallerIdentityOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetCallerIdentityOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_caller_identity
         )
       )
@@ -1524,33 +1568,45 @@ module AWS::Sts
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFederationTokenInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFederationToken
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MalformedPolicyDocumentException, Errors::RegionDisabledException, Errors::PackedPolicyTooLargeException]),
         data_parser: Parsers::GetFederationToken
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetFederationToken,
-        params_class: Params::GetFederationTokenOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetFederationTokenOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_federation_token
         )
       )
@@ -1667,33 +1723,45 @@ module AWS::Sts
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetSessionTokenInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetSessionToken
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::RegionDisabledException]),
         data_parser: Parsers::GetSessionToken
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetSessionToken,
-        params_class: Params::GetSessionTokenOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetSessionTokenOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_session_token
         )
       )
@@ -1707,13 +1775,6 @@ module AWS::Sts
       Client.middleware.apply(middleware_stack)
       @middleware.apply(middleware_stack)
       Hearth::MiddlewareBuilder.new(middleware).apply(middleware_stack)
-    end
-
-    def output_stream(options = {}, &block)
-      return options[:output_stream] if options[:output_stream]
-      return Hearth::BlockIO.new(block) if block
-
-      StringIO.new
     end
   end
 end

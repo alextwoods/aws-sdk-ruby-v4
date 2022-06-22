@@ -40,7 +40,7 @@ module AWS::Lambda
         data = Types::PreconditionFailedException.new
         map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -52,7 +52,7 @@ module AWS::Lambda
         data.retry_after_seconds = http_resp.headers['Retry-After']
         map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data.reason = map['Reason']
         data
       end
@@ -75,7 +75,7 @@ module AWS::Lambda
         data = Types::InvalidParameterValueException.new
         map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -86,7 +86,7 @@ module AWS::Lambda
         data = Types::PolicyLengthExceededException.new
         map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -97,7 +97,7 @@ module AWS::Lambda
         data = Types::ResourceConflictException.new
         map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -186,9 +186,11 @@ module AWS::Lambda
 
     class SigningProfileVersionArns
       def self.parse(list)
+        data = []
         list.map do |value|
-          value unless value.nil?
+          data << value unless value.nil?
         end
+        data
       end
     end
 
@@ -225,9 +227,11 @@ module AWS::Lambda
 
     class FunctionResponseTypeList
       def self.parse(list)
+        data = []
         list.map do |value|
-          value unless value.nil?
+          data << value unless value.nil?
         end
+        data
       end
     end
 
@@ -251,17 +255,21 @@ module AWS::Lambda
 
     class EndpointLists
       def self.parse(list)
+        data = []
         list.map do |value|
-          value unless value.nil?
+          data << value unless value.nil?
         end
+        data
       end
     end
 
     class SourceAccessConfigurations
       def self.parse(list)
+        data = []
         list.map do |value|
-          Parsers::SourceAccessConfiguration.parse(value) unless value.nil?
+          data << Parsers::SourceAccessConfiguration.parse(value) unless value.nil?
         end
+        data
       end
     end
 
@@ -276,17 +284,21 @@ module AWS::Lambda
 
     class Queues
       def self.parse(list)
+        data = []
         list.map do |value|
-          value unless value.nil?
+          data << value unless value.nil?
         end
+        data
       end
     end
 
     class Topics
       def self.parse(list)
+        data = []
         list.map do |value|
-          value unless value.nil?
+          data << value unless value.nil?
         end
+        data
       end
     end
 
@@ -385,17 +397,21 @@ module AWS::Lambda
 
     class StringList
       def self.parse(list)
+        data = []
         list.map do |value|
-          value unless value.nil?
+          data << value unless value.nil?
         end
+        data
       end
     end
 
     class FileSystemConfigList
       def self.parse(list)
+        data = []
         list.map do |value|
-          Parsers::FileSystemConfig.parse(value) unless value.nil?
+          data << Parsers::FileSystemConfig.parse(value) unless value.nil?
         end
+        data
       end
     end
 
@@ -410,9 +426,11 @@ module AWS::Lambda
 
     class LayersReferenceList
       def self.parse(list)
+        data = []
         list.map do |value|
-          Parsers::Layer.parse(value) unless value.nil?
+          data << Parsers::Layer.parse(value) unless value.nil?
         end
+        data
       end
     end
 
@@ -483,17 +501,21 @@ module AWS::Lambda
 
     class SecurityGroupIds
       def self.parse(list)
+        data = []
         list.map do |value|
-          value unless value.nil?
+          data << value unless value.nil?
         end
+        data
       end
     end
 
     class SubnetIds
       def self.parse(list)
+        data = []
         list.map do |value|
-          value unless value.nil?
+          data << value unless value.nil?
         end
+        data
       end
     end
 
@@ -536,7 +558,7 @@ module AWS::Lambda
         data = Types::CodeStorageExceededException.new
         map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -917,9 +939,11 @@ module AWS::Lambda
 
     class CompatibleRuntimes
       def self.parse(list)
+        data = []
         list.map do |value|
-          value unless value.nil?
+          data << value unless value.nil?
         end
+        data
       end
     end
 
@@ -995,7 +1019,7 @@ module AWS::Lambda
         data = Types::ProvisionedConcurrencyConfigNotFoundException.new
         map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -1086,7 +1110,7 @@ module AWS::Lambda
         data = Types::ResourceNotReadyException.new
         map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -1108,7 +1132,7 @@ module AWS::Lambda
         data = Types::InvalidRequestContentException.new
         map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -1152,7 +1176,7 @@ module AWS::Lambda
         data = Types::RequestTooLargeException.new
         map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -1163,7 +1187,7 @@ module AWS::Lambda
         data = Types::UnsupportedMediaTypeException.new
         map = Hearth::JSON.load(http_resp.body)
         data.type = map['Type']
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -1269,9 +1293,11 @@ module AWS::Lambda
 
     class AliasList
       def self.parse(list)
+        data = []
         list.map do |value|
-          Parsers::AliasConfiguration.parse(value) unless value.nil?
+          data << Parsers::AliasConfiguration.parse(value) unless value.nil?
         end
+        data
       end
     end
 
@@ -1301,9 +1327,11 @@ module AWS::Lambda
 
     class CodeSigningConfigList
       def self.parse(list)
+        data = []
         list.map do |value|
-          Parsers::CodeSigningConfig.parse(value) unless value.nil?
+          data << Parsers::CodeSigningConfig.parse(value) unless value.nil?
         end
+        data
       end
     end
 
@@ -1320,9 +1348,11 @@ module AWS::Lambda
 
     class EventSourceMappingsList
       def self.parse(list)
+        data = []
         list.map do |value|
-          Parsers::EventSourceMappingConfiguration.parse(value) unless value.nil?
+          data << Parsers::EventSourceMappingConfiguration.parse(value) unless value.nil?
         end
+        data
       end
     end
 
@@ -1368,9 +1398,11 @@ module AWS::Lambda
 
     class FunctionEventInvokeConfigList
       def self.parse(list)
+        data = []
         list.map do |value|
-          Parsers::FunctionEventInvokeConfig.parse(value) unless value.nil?
+          data << Parsers::FunctionEventInvokeConfig.parse(value) unless value.nil?
         end
+        data
       end
     end
 
@@ -1399,9 +1431,11 @@ module AWS::Lambda
 
     class FunctionList
       def self.parse(list)
+        data = []
         list.map do |value|
-          Parsers::FunctionConfiguration.parse(value) unless value.nil?
+          data << Parsers::FunctionConfiguration.parse(value) unless value.nil?
         end
+        data
       end
     end
 
@@ -1418,9 +1452,11 @@ module AWS::Lambda
 
     class FunctionArnList
       def self.parse(list)
+        data = []
         list.map do |value|
-          value unless value.nil?
+          data << value unless value.nil?
         end
+        data
       end
     end
 
@@ -1437,9 +1473,11 @@ module AWS::Lambda
 
     class LayerVersionsList
       def self.parse(list)
+        data = []
         list.map do |value|
-          Parsers::LayerVersionsListItem.parse(value) unless value.nil?
+          data << Parsers::LayerVersionsListItem.parse(value) unless value.nil?
         end
+        data
       end
     end
 
@@ -1469,9 +1507,11 @@ module AWS::Lambda
 
     class LayersList
       def self.parse(list)
+        data = []
         list.map do |value|
-          Parsers::LayersListItem.parse(value) unless value.nil?
+          data << Parsers::LayersListItem.parse(value) unless value.nil?
         end
+        data
       end
     end
 
@@ -1498,9 +1538,11 @@ module AWS::Lambda
 
     class ProvisionedConcurrencyConfigList
       def self.parse(list)
+        data = []
         list.map do |value|
-          Parsers::ProvisionedConcurrencyConfigListItem.parse(value) unless value.nil?
+          data << Parsers::ProvisionedConcurrencyConfigListItem.parse(value) unless value.nil?
         end
+        data
       end
     end
 

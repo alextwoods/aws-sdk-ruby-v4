@@ -38,7 +38,7 @@ module AWS::Sso
       def self.parse(http_resp)
         data = Types::ResourceNotFoundException.new
         map = Hearth::JSON.load(http_resp.body)
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -48,7 +48,7 @@ module AWS::Sso
       def self.parse(http_resp)
         data = Types::InvalidRequestException.new
         map = Hearth::JSON.load(http_resp.body)
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -58,7 +58,7 @@ module AWS::Sso
       def self.parse(http_resp)
         data = Types::UnauthorizedException.new
         map = Hearth::JSON.load(http_resp.body)
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -68,7 +68,7 @@ module AWS::Sso
       def self.parse(http_resp)
         data = Types::TooManyRequestsException.new
         map = Hearth::JSON.load(http_resp.body)
-        data.message = map['message']
+        data.message = map['message'] || map['Message']
         data
       end
     end
@@ -86,9 +86,11 @@ module AWS::Sso
 
     class RoleListType
       def self.parse(list)
+        data = []
         list.map do |value|
-          Parsers::RoleInfo.parse(value) unless value.nil?
+          data << Parsers::RoleInfo.parse(value) unless value.nil?
         end
+        data
       end
     end
 
@@ -114,9 +116,11 @@ module AWS::Sso
 
     class AccountListType
       def self.parse(list)
+        data = []
         list.map do |value|
-          Parsers::AccountInfo.parse(value) unless value.nil?
+          data << Parsers::AccountInfo.parse(value) unless value.nil?
         end
+        data
       end
     end
 

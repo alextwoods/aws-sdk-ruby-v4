@@ -1721,9 +1721,6 @@ module AWS::Cloudfront
     #   <p>The function code. For more information about writing a CloudFront function, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html">Writing function
     #   			code for CloudFront Functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
     #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
-    #
     #   @return [String]
     #
     CreateFunctionInput = ::Struct.new(
@@ -3211,9 +3208,6 @@ module AWS::Cloudfront
     # @!attribute comment
     #   <p>An optional comment to describe the distribution. The comment cannot be longer than 128
     #   			characters.</p>
-    #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
     #
     #   @return [String]
     #
@@ -4882,9 +4876,6 @@ module AWS::Cloudfront
 
     # @!attribute function_code
     #   <p>The function code of a CloudFront function.</p>
-    #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
     #
     #   @return [String]
     #
@@ -7489,9 +7480,6 @@ module AWS::Cloudfront
     # @!attribute header_value
     #   <p>The value for the header that you specified in the <code>HeaderName</code>
     #   			field.</p>
-    #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
     #
     #   @return [String]
     #
@@ -10205,9 +10193,6 @@ module AWS::Cloudfront
     #   <p>The event object to test the function with. For more information about the structure of the
     #   			event object, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html test-function">Testing functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
     #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
-    #
     #   @return [String]
     #
     TestFunctionInput = ::Struct.new(
@@ -10259,17 +10244,11 @@ module AWS::Cloudfront
     # @!attribute function_execution_logs
     #   <p>Contains the log lines that the function wrote (if any) when running the test.</p>
     #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
-    #
     #   @return [Array<String>]
     #
     # @!attribute function_error_message
     #   <p>If the result of testing the function was an error, this field contains the error
     #   			message.</p>
-    #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
     #
     #   @return [String]
     #
@@ -10277,9 +10256,6 @@ module AWS::Cloudfront
     #   <p>The event object returned by the function. For more information about the structure of the
     #   			event object, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/functions-event-structure.html">Event object
     #   			structure</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-    #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
     #
     #   @return [String]
     #
@@ -11332,9 +11308,6 @@ module AWS::Cloudfront
     # @!attribute function_code
     #   <p>The function code. For more information about writing a CloudFront function, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html">Writing function
     #   			code for CloudFront Functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-    #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
     #
     #   @return [String]
     #

@@ -45,12 +45,6 @@ module AWS::Sso
     end
 
     class InvalidRequestException < ApiClientError
-      # @param [Hearth::HTTP::Response] http_resp
-      #
-      # @param [String] error_code
-      #
-      # @param [String] message
-      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::InvalidRequestException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -64,12 +58,6 @@ module AWS::Sso
     end
 
     class ResourceNotFoundException < ApiClientError
-      # @param [Hearth::HTTP::Response] http_resp
-      #
-      # @param [String] error_code
-      #
-      # @param [String] message
-      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::ResourceNotFoundException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -83,12 +71,6 @@ module AWS::Sso
     end
 
     class TooManyRequestsException < ApiClientError
-      # @param [Hearth::HTTP::Response] http_resp
-      #
-      # @param [String] error_code
-      #
-      # @param [String] message
-      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::TooManyRequestsException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
@@ -102,12 +84,6 @@ module AWS::Sso
     end
 
     class UnauthorizedException < ApiClientError
-      # @param [Hearth::HTTP::Response] http_resp
-      #
-      # @param [String] error_code
-      #
-      # @param [String] message
-      #
       def initialize(http_resp:, **kwargs)
         @data = Parsers::UnauthorizedException.parse(http_resp)
         kwargs[:message] = @data.message if @data.respond_to?(:message)
