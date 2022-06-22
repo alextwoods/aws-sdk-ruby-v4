@@ -119,14 +119,6 @@ module AWS::SDK::Core
       private
 
       def resolve_source_profile(profile, cfg)
-        # must be defined in method to avoid dependency issues
-        profile_credential_chain = [
-          AWS::SDK::Core::StaticCredentialProvider::PROFILE,
-          AWS::SDK::Core::AssumeRoleCredentialProvider::PROFILE,
-          AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider::PROFILE,
-          AWS::SDK::Core::ProcessCredentialProvider::PROFILE,
-          AWS::SDK::Core::SSOCredentialProvider::PROFILE
-        ]
         visited_profiles = cfg[:visited_profiles] || Set.new
 
         unless AWS::SDK::Core.shared_config.key?(profile)
@@ -136,7 +128,7 @@ module AWS::SDK::Core
 
         cfg = visit_source_profile(visited_profiles, cfg, profile)
 
-        profile_credential_chain.each do |p|
+        ASSUME_ROLE_PROFILE_CREDENTIAL_PROVIDER_CHAIN.each do |p|
           provider = p.call(cfg)
           return provider unless provider.nil?
         end
