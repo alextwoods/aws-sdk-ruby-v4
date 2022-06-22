@@ -35,6 +35,7 @@ module AWS::SDK::Core
   GEM_VERSION = File.read(File.expand_path('../VERSION', __dir__)).strip
 
   # This chain is the order in which Credential Providers are loaded.
+  # @api private
   CREDENTIAL_PROVIDER_CHAIN = [
     AssumeRoleWebIdentityCredentialProvider::PROFILE,
     SSOCredentialProvider::PROFILE,
@@ -45,6 +46,18 @@ module AWS::SDK::Core
     AssumeRoleWebIdentityCredentialProvider::ENVIRONMENT,
     ECSCredentialProvider::ENVIRONMENT,
     EC2CredentialProvider::ENVIRONMENT
+  ].freeze
+
+  # This chain is the used by the AssumeRoleCredentialProvider
+  # when a source_profile is specified to resolve the credentials
+  # from that source profile.
+  # @api private
+  ASSUME_ROLE_PROFILE_CREDENTIAL_PROVIDER_CHAIN = [
+    AWS::SDK::Core::StaticCredentialProvider::PROFILE,
+    AWS::SDK::Core::AssumeRoleCredentialProvider::PROFILE,
+    AWS::SDK::Core::AssumeRoleWebIdentityCredentialProvider::PROFILE,
+    AWS::SDK::Core::ProcessCredentialProvider::PROFILE,
+    AWS::SDK::Core::SSOCredentialProvider::PROFILE
   ].freeze
 
   def self.shared_config
