@@ -91,10 +91,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::IllegalUpdate, Errors::NoSuchDistribution, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs]),
         data_parser: Parsers::AssociateAlias
@@ -252,10 +248,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyCookiesInCachePolicy, Errors::TooManyHeadersInCachePolicy, Errors::InconsistentQuantities, Errors::TooManyCachePolicies, Errors::TooManyQueryStringsInCachePolicy, Errors::CachePolicyAlreadyExists, Errors::InvalidArgument]),
         data_parser: Parsers::CreateCachePolicy
@@ -337,10 +329,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::MissingBody, Errors::CloudFrontOriginAccessIdentityAlreadyExists, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::TooManyCloudFrontOriginAccessIdentities]),
@@ -834,10 +822,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributions, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::InvalidOriginAccessIdentity, Errors::DistributionAlreadyExists, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidProtocolSettings, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::InvalidOrigin, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
         data_parser: Parsers::CreateDistribution
@@ -1328,10 +1312,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidTagging, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributions, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::InvalidOriginAccessIdentity, Errors::DistributionAlreadyExists, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidProtocolSettings, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::InvalidOrigin, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
         data_parser: Parsers::CreateDistributionWithTags
@@ -1453,10 +1433,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::QueryArgProfileEmpty, Errors::FieldLevelEncryptionConfigAlreadyExists, Errors::TooManyFieldLevelEncryptionContentTypeProfiles, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::TooManyFieldLevelEncryptionConfigs, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionQueryArgProfiles]),
         data_parser: Parsers::CreateFieldLevelEncryptionConfig
@@ -1563,10 +1539,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::FieldLevelEncryptionProfileAlreadyExists, Errors::TooManyFieldLevelEncryptionFieldPatterns, Errors::NoSuchPublicKey, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionEncryptionEntities, Errors::TooManyFieldLevelEncryptionProfiles, Errors::FieldLevelEncryptionProfileSizeExceeded]),
         data_parser: Parsers::CreateFieldLevelEncryptionProfile
@@ -1671,10 +1643,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::UnsupportedOperation, Errors::TooManyFunctions, Errors::FunctionAlreadyExists, Errors::InvalidArgument, Errors::FunctionSizeLimitExceeded]),
         data_parser: Parsers::CreateFunction
@@ -1765,10 +1733,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::AccessDenied, Errors::MissingBody, Errors::TooManyInvalidationsInProgress, Errors::InconsistentQuantities, Errors::NoSuchDistribution, Errors::InvalidArgument, Errors::BatchTooLarge]),
@@ -1861,10 +1825,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::KeyGroupAlreadyExists, Errors::TooManyKeyGroups, Errors::TooManyPublicKeysInKeyGroup, Errors::InvalidArgument]),
         data_parser: Parsers::CreateKeyGroup
@@ -1947,10 +1907,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
@@ -2100,10 +2056,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyHeadersInOriginRequestPolicy, Errors::TooManyOriginRequestPolicies, Errors::TooManyQueryStringsInOriginRequestPolicy, Errors::InconsistentQuantities, Errors::OriginRequestPolicyAlreadyExists, Errors::InvalidArgument, Errors::TooManyCookiesInOriginRequestPolicy]),
         data_parser: Parsers::CreateOriginRequestPolicy
@@ -2186,10 +2138,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::InvalidArgument, Errors::TooManyPublicKeys, Errors::PublicKeyAlreadyExists]),
@@ -2300,10 +2248,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::TooManyRealtimeLogConfigs, Errors::RealtimeLogConfigAlreadyExists]),
@@ -2509,10 +2453,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyCustomHeadersInResponseHeadersPolicy, Errors::InconsistentQuantities, Errors::TooManyResponseHeadersPolicies, Errors::InvalidArgument, Errors::ResponseHeadersPolicyAlreadyExists]),
         data_parser: Parsers::CreateResponseHeadersPolicy
@@ -2648,10 +2588,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::MissingBody, Errors::TooManyStreamingDistributions, Errors::InconsistentQuantities, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::AccessDenied, Errors::TooManyTrustedSigners, Errors::StreamingDistributionAlreadyExists, Errors::InvalidOriginAccessIdentity, Errors::InvalidOrigin, Errors::TooManyStreamingDistributionCNAMEs]),
@@ -2799,10 +2735,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::MissingBody, Errors::TooManyStreamingDistributions, Errors::InconsistentQuantities, Errors::InvalidTagging, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::AccessDenied, Errors::TooManyTrustedSigners, Errors::StreamingDistributionAlreadyExists, Errors::InvalidOriginAccessIdentity, Errors::InvalidOrigin, Errors::TooManyStreamingDistributionCNAMEs]),
         data_parser: Parsers::CreateStreamingDistributionWithTags
@@ -2885,10 +2817,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalDelete, Errors::NoSuchCachePolicy, Errors::CachePolicyInUse]),
         data_parser: Parsers::DeleteCachePolicy
@@ -2961,10 +2889,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::CloudFrontOriginAccessIdentityInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchCloudFrontOriginAccessIdentity]),
@@ -3039,10 +2963,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchDistribution, Errors::DistributionNotDisabled]),
         data_parser: Parsers::DeleteDistribution
@@ -3116,10 +3036,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::FieldLevelEncryptionConfigInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchFieldLevelEncryptionConfig]),
         data_parser: Parsers::DeleteFieldLevelEncryptionConfig
@@ -3192,10 +3108,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::FieldLevelEncryptionProfileInUse, Errors::NoSuchFieldLevelEncryptionProfile]),
@@ -3275,10 +3187,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::FunctionInUse]),
@@ -3361,10 +3269,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchResource, Errors::ResourceInUse]),
         data_parser: Parsers::DeleteKeyGroup
@@ -3432,10 +3336,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
@@ -3519,10 +3419,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::OriginRequestPolicyInUse, Errors::IllegalDelete, Errors::NoSuchOriginRequestPolicy]),
         data_parser: Parsers::DeleteOriginRequestPolicy
@@ -3595,10 +3491,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey, Errors::PublicKeyInUse]),
@@ -3677,10 +3569,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::RealtimeLogConfigInUse, Errors::InvalidArgument]),
@@ -3764,10 +3652,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::ResponseHeadersPolicyInUse, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalDelete, Errors::NoSuchResponseHeadersPolicy]),
@@ -3889,10 +3773,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::StreamingDistributionNotDisabled, Errors::NoSuchStreamingDistribution]),
         data_parser: Parsers::DeleteStreamingDistribution
@@ -3980,10 +3860,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperation, Errors::NoSuchFunctionExists]),
@@ -4101,10 +3977,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy]),
         data_parser: Parsers::GetCachePolicy
@@ -4210,10 +4082,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy]),
         data_parser: Parsers::GetCachePolicyConfig
@@ -4289,10 +4157,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCloudFrontOriginAccessIdentity]),
         data_parser: Parsers::GetCloudFrontOriginAccessIdentity
@@ -4364,10 +4228,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCloudFrontOriginAccessIdentity]),
@@ -4633,10 +4493,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution]),
         data_parser: Parsers::GetDistribution
@@ -4873,10 +4729,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution]),
         data_parser: Parsers::GetDistributionConfig
@@ -4969,10 +4821,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionConfig]),
         data_parser: Parsers::GetFieldLevelEncryption
@@ -5062,10 +4910,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionConfig]),
         data_parser: Parsers::GetFieldLevelEncryptionConfig
@@ -5152,10 +4996,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionProfile]),
         data_parser: Parsers::GetFieldLevelEncryptionProfile
@@ -5239,10 +5079,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchFieldLevelEncryptionProfile]),
         data_parser: Parsers::GetFieldLevelEncryptionProfileConfig
@@ -5320,10 +5156,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperation, Errors::NoSuchFunctionExists]),
@@ -5408,10 +5240,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchInvalidation, Errors::NoSuchDistribution]),
         data_parser: Parsers::GetInvalidation
@@ -5495,10 +5323,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchResource]),
         data_parser: Parsers::GetKeyGroup
@@ -5579,10 +5403,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchResource]),
         data_parser: Parsers::GetKeyGroupConfig
@@ -5654,10 +5474,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::UnsupportedOperation, Errors::NoSuchDistribution]),
@@ -5769,10 +5585,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchOriginRequestPolicy]),
         data_parser: Parsers::GetOriginRequestPolicy
@@ -5873,10 +5685,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchOriginRequestPolicy]),
         data_parser: Parsers::GetOriginRequestPolicyConfig
@@ -5954,10 +5762,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchPublicKey]),
         data_parser: Parsers::GetPublicKey
@@ -6031,10 +5835,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchPublicKey]),
@@ -6122,10 +5922,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
@@ -6263,10 +6059,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy]),
         data_parser: Parsers::GetResponseHeadersPolicy
@@ -6399,10 +6191,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy]),
         data_parser: Parsers::GetResponseHeadersPolicyConfig
@@ -6509,10 +6297,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchStreamingDistribution]),
         data_parser: Parsers::GetStreamingDistribution
@@ -6602,10 +6386,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchStreamingDistribution]),
@@ -6741,10 +6521,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy, Errors::InvalidArgument]),
         data_parser: Parsers::ListCachePolicies
@@ -6832,10 +6608,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
@@ -6951,10 +6723,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchDistribution, Errors::InvalidArgument]),
@@ -7208,10 +6976,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributions
@@ -7304,10 +7068,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchCachePolicy, Errors::InvalidArgument]),
@@ -7402,10 +7162,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::NoSuchResource, Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributionsByKeyGroup
@@ -7499,10 +7255,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy]),
@@ -7774,10 +7526,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributionsByRealtimeLogConfig
@@ -7871,10 +7619,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidArgument]),
@@ -8135,10 +7879,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidWebACLId, Errors::InvalidArgument]),
         data_parser: Parsers::ListDistributionsByWebACLId
@@ -8239,10 +7979,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListFieldLevelEncryptionConfigs
@@ -8336,10 +8072,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
@@ -8444,10 +8176,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::UnsupportedOperation, Errors::InvalidArgument]),
         data_parser: Parsers::ListFunctions
@@ -8540,10 +8268,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchDistribution, Errors::InvalidArgument]),
@@ -8638,10 +8362,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
@@ -8771,10 +8491,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy]),
         data_parser: Parsers::ListOriginRequestPolicies
@@ -8859,10 +8575,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
@@ -8961,10 +8673,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
@@ -9126,10 +8834,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidArgument]),
         data_parser: Parsers::ListResponseHeadersPolicies
@@ -9230,10 +8934,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidArgument]),
         data_parser: Parsers::ListStreamingDistributions
@@ -9306,10 +9006,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
@@ -9403,10 +9099,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument]),
         data_parser: Parsers::PublishFunction
@@ -9485,10 +9177,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
@@ -9599,10 +9287,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TestFunctionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument]),
         data_parser: Parsers::TestFunction
@@ -9678,10 +9362,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::AccessDenied, Errors::InvalidTagging, Errors::NoSuchResource, Errors::InvalidArgument]),
@@ -9848,10 +9528,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::TooManyCookiesInCachePolicy, Errors::IllegalUpdate, Errors::TooManyHeadersInCachePolicy, Errors::InconsistentQuantities, Errors::NoSuchCachePolicy, Errors::TooManyQueryStringsInCachePolicy, Errors::CachePolicyAlreadyExists, Errors::InvalidArgument]),
         data_parser: Parsers::UpdateCachePolicy
@@ -9938,10 +9614,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::MissingBody, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::NoSuchCloudFrontOriginAccessIdentity, Errors::InconsistentQuantities, Errors::InvalidArgument]),
@@ -10509,10 +10181,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyDistributionsAssociatedToOriginRequestPolicy, Errors::InvalidRelativePath, Errors::TooManyQueryStringParameters, Errors::TooManyLambdaFunctionAssociations, Errors::InconsistentQuantities, Errors::InvalidWebACLId, Errors::InvalidTTLOrder, Errors::TooManyDistributionsWithFunctionAssociations, Errors::TooManyHeadersInForwardedValues, Errors::InvalidIfMatchVersion, Errors::TooManyDistributionsAssociatedToFieldLevelEncryptionConfig, Errors::NoSuchDistribution, Errors::InvalidOriginAccessIdentity, Errors::PreconditionFailed, Errors::RealtimeLogConfigOwnerMismatch, Errors::TooManyCacheBehaviors, Errors::NoSuchOrigin, Errors::TooManyDistributionsAssociatedToCachePolicy, Errors::InvalidViewerCertificate, Errors::InvalidFunctionAssociation, Errors::NoSuchResponseHeadersPolicy, Errors::InvalidDefaultRootObject, Errors::NoSuchCachePolicy, Errors::InvalidMinimumProtocolVersion, Errors::InvalidLambdaFunctionAssociation, Errors::InvalidResponseCode, Errors::NoSuchOriginRequestPolicy, Errors::NoSuchFieldLevelEncryptionConfig, Errors::InvalidHeadersForS3Origin, Errors::TrustedSignerDoesNotExist, Errors::TooManyCookieNamesInWhiteList, Errors::TooManyDistributionsAssociatedToKeyGroup, Errors::AccessDenied, Errors::TooManyOrigins, Errors::TooManyTrustedSigners, Errors::TooManyDistributionsWithSingleFunctionARN, Errors::MissingBody, Errors::InvalidGeoRestrictionParameter, Errors::IllegalUpdate, Errors::NoSuchRealtimeLogConfig, Errors::InvalidOriginReadTimeout, Errors::TooManyCertificates, Errors::InvalidLocationCode, Errors::InvalidQueryStringParameters, Errors::CNAMEAlreadyExists, Errors::IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior, Errors::InvalidArgument, Errors::TooManyDistributionCNAMEs, Errors::InvalidErrorCode, Errors::TooManyKeyGroupsAssociatedToDistribution, Errors::TooManyDistributionsWithLambdaAssociations, Errors::TooManyOriginCustomHeaders, Errors::TrustedKeyGroupDoesNotExist, Errors::InvalidOriginKeepaliveTimeout, Errors::InvalidForwardCookies, Errors::TooManyDistributionsAssociatedToResponseHeadersPolicy, Errors::TooManyOriginGroupsPerDistribution, Errors::InvalidRequiredProtocol, Errors::TooManyFunctionAssociations]),
         data_parser: Parsers::UpdateDistribution
@@ -10642,10 +10310,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::QueryArgProfileEmpty, Errors::IllegalUpdate, Errors::TooManyFieldLevelEncryptionContentTypeProfiles, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionQueryArgProfiles, Errors::NoSuchFieldLevelEncryptionConfig]),
         data_parser: Parsers::UpdateFieldLevelEncryptionConfig
@@ -10760,10 +10424,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PreconditionFailed, Errors::IllegalUpdate, Errors::InconsistentQuantities, Errors::NoSuchFieldLevelEncryptionProfile, Errors::InvalidArgument, Errors::TooManyFieldLevelEncryptionEncryptionEntities, Errors::FieldLevelEncryptionProfileSizeExceeded, Errors::AccessDenied, Errors::FieldLevelEncryptionProfileAlreadyExists, Errors::TooManyFieldLevelEncryptionFieldPatterns, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey]),
         data_parser: Parsers::UpdateFieldLevelEncryptionProfile
@@ -10865,10 +10525,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PreconditionFailed, Errors::UnsupportedOperation, Errors::InvalidIfMatchVersion, Errors::NoSuchFunctionExists, Errors::InvalidArgument, Errors::FunctionSizeLimitExceeded]),
@@ -10978,10 +10634,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::KeyGroupAlreadyExists, Errors::NoSuchResource, Errors::TooManyPublicKeysInKeyGroup, Errors::InvalidArgument]),
@@ -11135,10 +10787,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::TooManyHeadersInOriginRequestPolicy, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::TooManyQueryStringsInOriginRequestPolicy, Errors::InconsistentQuantities, Errors::OriginRequestPolicyAlreadyExists, Errors::InvalidArgument, Errors::NoSuchOriginRequestPolicy, Errors::TooManyCookiesInOriginRequestPolicy]),
         data_parser: Parsers::UpdateOriginRequestPolicy
@@ -11229,10 +10877,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::InvalidIfMatchVersion, Errors::NoSuchPublicKey, Errors::IllegalUpdate, Errors::CannotChangeImmutablePublicKeyFields, Errors::InvalidArgument]),
@@ -11364,10 +11008,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::NoSuchRealtimeLogConfig, Errors::InvalidArgument]),
@@ -11592,10 +11232,6 @@ module AWS::Cloudfront
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::TooManyCustomHeadersInResponseHeadersPolicy, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::NoSuchResponseHeadersPolicy, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::ResponseHeadersPolicyAlreadyExists]),
         data_parser: Parsers::UpdateResponseHeadersPolicy
@@ -11737,10 +11373,6 @@ module AWS::Cloudfront
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::MissingBody, Errors::PreconditionFailed, Errors::IllegalUpdate, Errors::InconsistentQuantities, Errors::TrustedSignerDoesNotExist, Errors::CNAMEAlreadyExists, Errors::InvalidArgument, Errors::NoSuchStreamingDistribution, Errors::AccessDenied, Errors::InvalidIfMatchVersion, Errors::TooManyTrustedSigners, Errors::InvalidOriginAccessIdentity, Errors::TooManyStreamingDistributionCNAMEs]),

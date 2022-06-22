@@ -103,10 +103,6 @@ module AWS::Sso
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::GetRoleCredentials
@@ -192,10 +188,6 @@ module AWS::Sso
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListAccountRoles
@@ -280,10 +272,6 @@ module AWS::Sso
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),
         data_parser: Parsers::ListAccounts
@@ -351,10 +339,6 @@ module AWS::Sso
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InvalidRequestException, Errors::UnauthorizedException, Errors::TooManyRequestsException]),

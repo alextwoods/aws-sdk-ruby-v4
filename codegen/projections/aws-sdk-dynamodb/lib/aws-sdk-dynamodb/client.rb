@@ -170,10 +170,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::RequestLimitExceeded]),
         data_parser: Parsers::BatchExecuteStatement
@@ -473,10 +469,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::BatchGetItem
@@ -754,10 +746,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::BatchWriteItem
@@ -866,10 +854,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]),
@@ -1024,10 +1008,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableNotFoundException, Errors::GlobalTableAlreadyExistsException]),
@@ -1490,10 +1470,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::CreateTable
@@ -1613,10 +1589,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::BackupInUseException]),
@@ -1917,10 +1889,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::DeleteItem
@@ -2092,10 +2060,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::DeleteTable
@@ -2216,10 +2180,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException]),
         data_parser: Parsers::DescribeBackup
@@ -2306,10 +2266,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException]),
         data_parser: Parsers::DescribeContinuousBackups
@@ -2392,10 +2348,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeContributorInsights
@@ -2462,10 +2414,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -2554,10 +2502,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::LimitExceededException, Errors::ExportNotFoundException]),
@@ -2653,10 +2597,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]),
@@ -2765,10 +2705,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException]),
         data_parser: Parsers::DescribeGlobalTableSettings
@@ -2842,10 +2778,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
@@ -2986,10 +2918,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
@@ -3153,10 +3081,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeTable
@@ -3256,10 +3180,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::DescribeTableReplicaAutoScaling
@@ -3330,10 +3250,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
@@ -3410,10 +3326,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
@@ -3492,10 +3404,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
@@ -3641,10 +3549,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::DuplicateItemException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::ExecuteStatement
@@ -3768,10 +3672,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]),
@@ -3921,10 +3821,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidExportTimeException, Errors::LimitExceededException, Errors::PointInTimeRecoveryUnavailableException, Errors::ExportConflictException, Errors::TableNotFoundException]),
@@ -4149,10 +4045,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::GetItem
@@ -4282,10 +4174,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
         data_parser: Parsers::ListBackups
@@ -4369,10 +4257,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
         data_parser: Parsers::ListContributorInsights
@@ -4455,10 +4339,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::LimitExceededException]),
@@ -4552,10 +4432,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
         data_parser: Parsers::ListGlobalTables
@@ -4635,10 +4511,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException]),
@@ -4722,10 +4594,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException]),
@@ -5104,10 +4972,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
@@ -5652,10 +5516,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::Query
@@ -5887,10 +5747,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::BackupNotFoundException, Errors::LimitExceededException, Errors::TableInUseException, Errors::BackupInUseException, Errors::TableAlreadyExistsException]),
@@ -6163,10 +6019,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::TableInUseException, Errors::PointInTimeRecoveryUnavailableException, Errors::InvalidRestoreTimeException, Errors::TableAlreadyExistsException, Errors::TableNotFoundException]),
@@ -6585,10 +6437,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::Scan
@@ -6671,10 +6519,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
@@ -6821,10 +6665,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException]),
@@ -7093,10 +6933,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::IdempotentParameterMismatchException, Errors::TransactionCanceledException, Errors::RequestLimitExceeded, Errors::ProvisionedThroughputExceededException, Errors::TransactionInProgressException]),
         data_parser: Parsers::TransactWriteItems
@@ -7175,10 +7011,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
@@ -7271,10 +7103,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::TableNotFoundException, Errors::ContinuousBackupsUnavailableException]),
         data_parser: Parsers::UpdateContinuousBackups
@@ -7358,10 +7186,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException]),
@@ -7488,10 +7312,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::GlobalTableNotFoundException, Errors::ReplicaNotFoundException, Errors::TableNotFoundException, Errors::ReplicaAlreadyExistsException]),
@@ -7665,10 +7485,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::LimitExceededException, Errors::GlobalTableNotFoundException, Errors::IndexNotFoundException, Errors::ReplicaNotFoundException, Errors::ResourceInUseException]),
@@ -8097,10 +7913,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::RequestLimitExceeded, Errors::TransactionConflictException, Errors::ConditionalCheckFailedException, Errors::ItemCollectionSizeLimitExceededException, Errors::ProvisionedThroughputExceededException]),
         data_parser: Parsers::UpdateItem
@@ -8423,10 +8235,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateTable
@@ -8568,10 +8376,6 @@ module AWS::Dynamodb
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),
         data_parser: Parsers::UpdateTableReplicaAutoScaling
@@ -8674,10 +8478,6 @@ module AWS::Dynamodb
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::InternalServerError, Errors::InvalidEndpointException, Errors::ResourceNotFoundException, Errors::LimitExceededException, Errors::ResourceInUseException]),

@@ -54,7 +54,7 @@ public class Signers implements RubyIntegration {
                 .name("credential_provider")
                 .type("AWS::SDK::Core::CredentialProvider")
                 .documentation(credentialProviderDocumentation)
-                .defaultValue("*::AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN")
+                .defaultValue("*AWS::SDK::Core::CREDENTIAL_PROVIDER_CHAIN")
                 .build();
 
         String regionDocumentation = """
@@ -81,9 +81,9 @@ public class Signers implements RubyIntegration {
         Middleware signer = (new Middleware.Builder())
                 .klass("Middleware::Signer")
                 .step(MiddlewareStackStep.FINALIZE)
-                .addConfig(credentialProvider)
+                // .addConfig(credentialProvider)
                 .addConfig(region)
                 .build();
-        middlewareBuilder.register(signer);
+        // middlewareBuilder.register(signer);
     }
 }
