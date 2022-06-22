@@ -9,22 +9,21 @@
 
 require 'base64'
 
-module AWS
-  module Cloudfront
+module AWS::Cloudfront
   module Builders
+
     # Operation Builder for AssociateAlias
     class AssociateAlias
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:target_distribution_id].to_s.empty?
-          raise ArgumentError, 'HTTP label :target_distribution_id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :target_distribution_id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distribution/%<TargetDistributionId>s/associate-alias',
+            '/2020-05-31/distribution/%<TargetDistributionId>s/associate-alias',
             TargetDistributionId: Hearth::HTTP.uri_escape(input[:target_distribution_id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         params['Alias'] = input[:alias].to_s unless input[:alias].nil?
         http_req.append_query_params(params)
@@ -39,8 +38,7 @@ module AWS
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::CachePolicyConfig.build('CachePolicyConfig', 
-input[:cache_policy_config]) unless input[:cache_policy_config].nil?
+        xml = Builders::CachePolicyConfig.build('CachePolicyConfig', input[:cache_policy_config]) unless input[:cache_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -54,8 +52,7 @@ input[:cache_policy_config]) unless input[:cache_policy_config].nil?
         xml << Hearth::XML::Node.new('DefaultTTL', input[:default_ttl].to_s) unless input[:default_ttl].nil?
         xml << Hearth::XML::Node.new('MaxTTL', input[:max_ttl].to_s) unless input[:max_ttl].nil?
         xml << Hearth::XML::Node.new('MinTTL', input[:min_ttl].to_s) unless input[:min_ttl].nil?
-        xml << Builders::ParametersInCacheKeyAndForwardedToOrigin.build('ParametersInCacheKeyAndForwardedToOrigin', 
-input[:parameters_in_cache_key_and_forwarded_to_origin]) unless input[:parameters_in_cache_key_and_forwarded_to_origin].nil?
+        xml << Builders::ParametersInCacheKeyAndForwardedToOrigin.build('ParametersInCacheKeyAndForwardedToOrigin', input[:parameters_in_cache_key_and_forwarded_to_origin]) unless input[:parameters_in_cache_key_and_forwarded_to_origin].nil?
         xml
       end
     end
@@ -64,16 +61,11 @@ input[:parameters_in_cache_key_and_forwarded_to_origin]) unless input[:parameter
     class ParametersInCacheKeyAndForwardedToOrigin
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('EnableAcceptEncodingGzip', 
-input[:enable_accept_encoding_gzip].to_s) unless input[:enable_accept_encoding_gzip].nil?
-        xml << Hearth::XML::Node.new('EnableAcceptEncodingBrotli', 
-input[:enable_accept_encoding_brotli].to_s) unless input[:enable_accept_encoding_brotli].nil?
-        xml << Builders::CachePolicyHeadersConfig.build('HeadersConfig', 
-input[:headers_config]) unless input[:headers_config].nil?
-        xml << Builders::CachePolicyCookiesConfig.build('CookiesConfig', 
-input[:cookies_config]) unless input[:cookies_config].nil?
-        xml << Builders::CachePolicyQueryStringsConfig.build('QueryStringsConfig', 
-input[:query_strings_config]) unless input[:query_strings_config].nil?
+        xml << Hearth::XML::Node.new('EnableAcceptEncodingGzip', input[:enable_accept_encoding_gzip].to_s) unless input[:enable_accept_encoding_gzip].nil?
+        xml << Hearth::XML::Node.new('EnableAcceptEncodingBrotli', input[:enable_accept_encoding_brotli].to_s) unless input[:enable_accept_encoding_brotli].nil?
+        xml << Builders::CachePolicyHeadersConfig.build('HeadersConfig', input[:headers_config]) unless input[:headers_config].nil?
+        xml << Builders::CachePolicyCookiesConfig.build('CookiesConfig', input[:cookies_config]) unless input[:cookies_config].nil?
+        xml << Builders::CachePolicyQueryStringsConfig.build('QueryStringsConfig', input[:query_strings_config]) unless input[:query_strings_config].nil?
         xml
       end
     end
@@ -82,8 +74,7 @@ input[:query_strings_config]) unless input[:query_strings_config].nil?
     class CachePolicyQueryStringsConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('QueryStringBehavior', 
-input[:query_string_behavior].to_s) unless input[:query_string_behavior].nil?
+        xml << Hearth::XML::Node.new('QueryStringBehavior', input[:query_string_behavior].to_s) unless input[:query_string_behavior].nil?
         xml << Builders::QueryStringNames.build('QueryStrings', input[:query_strings]) unless input[:query_strings].nil?
         xml
       end
@@ -94,8 +85,7 @@ input[:query_string_behavior].to_s) unless input[:query_string_behavior].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::QueryStringNamesList.build('Name', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::QueryStringNamesList.build('Name', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -126,8 +116,7 @@ Builders::QueryStringNamesList.build('Name', input[:items])) unless input[:items
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::CookieNameList.build('Name', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::CookieNameList.build('Name', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -158,8 +147,7 @@ Builders::CookieNameList.build('Name', input[:items])) unless input[:items].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::HeaderList.build('Name', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::HeaderList.build('Name', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -183,8 +171,7 @@ Builders::HeaderList.build('Name', input[:items])) unless input[:items].nil?
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::CloudFrontOriginAccessIdentityConfig.build('CloudFrontOriginAccessIdentityConfig', 
-input[:cloud_front_origin_access_identity_config]) unless input[:cloud_front_origin_access_identity_config].nil?
+        xml = Builders::CloudFrontOriginAccessIdentityConfig.build('CloudFrontOriginAccessIdentityConfig', input[:cloud_front_origin_access_identity_config]) unless input[:cloud_front_origin_access_identity_config].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -193,8 +180,7 @@ input[:cloud_front_origin_access_identity_config]) unless input[:cloud_front_ori
     class CloudFrontOriginAccessIdentityConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('CallerReference', 
-input[:caller_reference].to_s) unless input[:caller_reference].nil?
+        xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
         xml
       end
@@ -208,8 +194,7 @@ input[:caller_reference].to_s) unless input[:caller_reference].nil?
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::DistributionConfig.build('DistributionConfig', 
-input[:distribution_config]) unless input[:distribution_config].nil?
+        xml = Builders::DistributionConfig.build('DistributionConfig', input[:distribution_config]) unless input[:distribution_config].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -218,25 +203,19 @@ input[:distribution_config]) unless input[:distribution_config].nil?
     class DistributionConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('CallerReference', 
-input[:caller_reference].to_s) unless input[:caller_reference].nil?
+        xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
         xml << Builders::Aliases.build('Aliases', input[:aliases]) unless input[:aliases].nil?
-        xml << Hearth::XML::Node.new('DefaultRootObject', 
-input[:default_root_object].to_s) unless input[:default_root_object].nil?
+        xml << Hearth::XML::Node.new('DefaultRootObject', input[:default_root_object].to_s) unless input[:default_root_object].nil?
         xml << Builders::Origins.build('Origins', input[:origins]) unless input[:origins].nil?
         xml << Builders::OriginGroups.build('OriginGroups', input[:origin_groups]) unless input[:origin_groups].nil?
-        xml << Builders::DefaultCacheBehavior.build('DefaultCacheBehavior', 
-input[:default_cache_behavior]) unless input[:default_cache_behavior].nil?
-        xml << Builders::CacheBehaviors.build('CacheBehaviors', 
-input[:cache_behaviors]) unless input[:cache_behaviors].nil?
-        xml << Builders::CustomErrorResponses.build('CustomErrorResponses', 
-input[:custom_error_responses]) unless input[:custom_error_responses].nil?
+        xml << Builders::DefaultCacheBehavior.build('DefaultCacheBehavior', input[:default_cache_behavior]) unless input[:default_cache_behavior].nil?
+        xml << Builders::CacheBehaviors.build('CacheBehaviors', input[:cache_behaviors]) unless input[:cache_behaviors].nil?
+        xml << Builders::CustomErrorResponses.build('CustomErrorResponses', input[:custom_error_responses]) unless input[:custom_error_responses].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
         xml << Builders::LoggingConfig.build('Logging', input[:logging]) unless input[:logging].nil?
         xml << Hearth::XML::Node.new('PriceClass', input[:price_class].to_s) unless input[:price_class].nil?
         xml << Hearth::XML::Node.new('Enabled', input[:enabled].to_s) unless input[:enabled].nil?
-        xml << Builders::ViewerCertificate.build('ViewerCertificate', 
-input[:viewer_certificate]) unless input[:viewer_certificate].nil?
+        xml << Builders::ViewerCertificate.build('ViewerCertificate', input[:viewer_certificate]) unless input[:viewer_certificate].nil?
         xml << Builders::Restrictions.build('Restrictions', input[:restrictions]) unless input[:restrictions].nil?
         xml << Hearth::XML::Node.new('WebACLId', input[:web_acl_id].to_s) unless input[:web_acl_id].nil?
         xml << Hearth::XML::Node.new('HttpVersion', input[:http_version].to_s) unless input[:http_version].nil?
@@ -249,8 +228,7 @@ input[:viewer_certificate]) unless input[:viewer_certificate].nil?
     class Restrictions
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::GeoRestriction.build('GeoRestriction', 
-input[:geo_restriction]) unless input[:geo_restriction].nil?
+        xml << Builders::GeoRestriction.build('GeoRestriction', input[:geo_restriction]) unless input[:geo_restriction].nil?
         xml
       end
     end
@@ -259,11 +237,9 @@ input[:geo_restriction]) unless input[:geo_restriction].nil?
     class GeoRestriction
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('RestrictionType', 
-input[:restriction_type].to_s) unless input[:restriction_type].nil?
+        xml << Hearth::XML::Node.new('RestrictionType', input[:restriction_type].to_s) unless input[:restriction_type].nil?
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::LocationList.build('Location', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::LocationList.build('Location', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -283,19 +259,13 @@ Builders::LocationList.build('Location', input[:items])) unless input[:items].ni
     class ViewerCertificate
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('CloudFrontDefaultCertificate', 
-input[:cloud_front_default_certificate].to_s) unless input[:cloud_front_default_certificate].nil?
-        xml << Hearth::XML::Node.new('IAMCertificateId', 
-input[:iam_certificate_id].to_s) unless input[:iam_certificate_id].nil?
-        xml << Hearth::XML::Node.new('ACMCertificateArn', 
-input[:acm_certificate_arn].to_s) unless input[:acm_certificate_arn].nil?
-        xml << Hearth::XML::Node.new('SSLSupportMethod', 
-input[:ssl_support_method].to_s) unless input[:ssl_support_method].nil?
-        xml << Hearth::XML::Node.new('MinimumProtocolVersion', 
-input[:minimum_protocol_version].to_s) unless input[:minimum_protocol_version].nil?
+        xml << Hearth::XML::Node.new('CloudFrontDefaultCertificate', input[:cloud_front_default_certificate].to_s) unless input[:cloud_front_default_certificate].nil?
+        xml << Hearth::XML::Node.new('IAMCertificateId', input[:iam_certificate_id].to_s) unless input[:iam_certificate_id].nil?
+        xml << Hearth::XML::Node.new('ACMCertificateArn', input[:acm_certificate_arn].to_s) unless input[:acm_certificate_arn].nil?
+        xml << Hearth::XML::Node.new('SSLSupportMethod', input[:ssl_support_method].to_s) unless input[:ssl_support_method].nil?
+        xml << Hearth::XML::Node.new('MinimumProtocolVersion', input[:minimum_protocol_version].to_s) unless input[:minimum_protocol_version].nil?
         xml << Hearth::XML::Node.new('Certificate', input[:certificate].to_s) unless input[:certificate].nil?
-        xml << Hearth::XML::Node.new('CertificateSource', 
-input[:certificate_source].to_s) unless input[:certificate_source].nil?
+        xml << Hearth::XML::Node.new('CertificateSource', input[:certificate_source].to_s) unless input[:certificate_source].nil?
         xml
       end
     end
@@ -317,8 +287,7 @@ input[:certificate_source].to_s) unless input[:certificate_source].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::CustomErrorResponseList.build('CustomErrorResponse', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::CustomErrorResponseList.build('CustomErrorResponse', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -339,11 +308,9 @@ Builders::CustomErrorResponseList.build('CustomErrorResponse', input[:items])) u
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ErrorCode', input[:error_code].to_s) unless input[:error_code].nil?
-        xml << Hearth::XML::Node.new('ResponsePagePath', 
-input[:response_page_path].to_s) unless input[:response_page_path].nil?
+        xml << Hearth::XML::Node.new('ResponsePagePath', input[:response_page_path].to_s) unless input[:response_page_path].nil?
         xml << Hearth::XML::Node.new('ResponseCode', input[:response_code].to_s) unless input[:response_code].nil?
-        xml << Hearth::XML::Node.new('ErrorCachingMinTTL', 
-input[:error_caching_min_ttl].to_s) unless input[:error_caching_min_ttl].nil?
+        xml << Hearth::XML::Node.new('ErrorCachingMinTTL', input[:error_caching_min_ttl].to_s) unless input[:error_caching_min_ttl].nil?
         xml
       end
     end
@@ -353,8 +320,7 @@ input[:error_caching_min_ttl].to_s) unless input[:error_caching_min_ttl].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::CacheBehaviorList.build('CacheBehavior', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::CacheBehaviorList.build('CacheBehavior', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -375,34 +341,21 @@ Builders::CacheBehaviorList.build('CacheBehavior', input[:items])) unless input[
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('PathPattern', input[:path_pattern].to_s) unless input[:path_pattern].nil?
-        xml << Hearth::XML::Node.new('TargetOriginId', 
-input[:target_origin_id].to_s) unless input[:target_origin_id].nil?
-        xml << Builders::TrustedSigners.build('TrustedSigners', 
-input[:trusted_signers]) unless input[:trusted_signers].nil?
-        xml << Builders::TrustedKeyGroups.build('TrustedKeyGroups', 
-input[:trusted_key_groups]) unless input[:trusted_key_groups].nil?
-        xml << Hearth::XML::Node.new('ViewerProtocolPolicy', 
-input[:viewer_protocol_policy].to_s) unless input[:viewer_protocol_policy].nil?
-        xml << Builders::AllowedMethods.build('AllowedMethods', 
-input[:allowed_methods]) unless input[:allowed_methods].nil?
-        xml << Hearth::XML::Node.new('SmoothStreaming', 
-input[:smooth_streaming].to_s) unless input[:smooth_streaming].nil?
+        xml << Hearth::XML::Node.new('TargetOriginId', input[:target_origin_id].to_s) unless input[:target_origin_id].nil?
+        xml << Builders::TrustedSigners.build('TrustedSigners', input[:trusted_signers]) unless input[:trusted_signers].nil?
+        xml << Builders::TrustedKeyGroups.build('TrustedKeyGroups', input[:trusted_key_groups]) unless input[:trusted_key_groups].nil?
+        xml << Hearth::XML::Node.new('ViewerProtocolPolicy', input[:viewer_protocol_policy].to_s) unless input[:viewer_protocol_policy].nil?
+        xml << Builders::AllowedMethods.build('AllowedMethods', input[:allowed_methods]) unless input[:allowed_methods].nil?
+        xml << Hearth::XML::Node.new('SmoothStreaming', input[:smooth_streaming].to_s) unless input[:smooth_streaming].nil?
         xml << Hearth::XML::Node.new('Compress', input[:compress].to_s) unless input[:compress].nil?
-        xml << Builders::LambdaFunctionAssociations.build('LambdaFunctionAssociations', 
-input[:lambda_function_associations]) unless input[:lambda_function_associations].nil?
-        xml << Builders::FunctionAssociations.build('FunctionAssociations', 
-input[:function_associations]) unless input[:function_associations].nil?
-        xml << Hearth::XML::Node.new('FieldLevelEncryptionId', 
-input[:field_level_encryption_id].to_s) unless input[:field_level_encryption_id].nil?
-        xml << Hearth::XML::Node.new('RealtimeLogConfigArn', 
-input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil?
+        xml << Builders::LambdaFunctionAssociations.build('LambdaFunctionAssociations', input[:lambda_function_associations]) unless input[:lambda_function_associations].nil?
+        xml << Builders::FunctionAssociations.build('FunctionAssociations', input[:function_associations]) unless input[:function_associations].nil?
+        xml << Hearth::XML::Node.new('FieldLevelEncryptionId', input[:field_level_encryption_id].to_s) unless input[:field_level_encryption_id].nil?
+        xml << Hearth::XML::Node.new('RealtimeLogConfigArn', input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil?
         xml << Hearth::XML::Node.new('CachePolicyId', input[:cache_policy_id].to_s) unless input[:cache_policy_id].nil?
-        xml << Hearth::XML::Node.new('OriginRequestPolicyId', 
-input[:origin_request_policy_id].to_s) unless input[:origin_request_policy_id].nil?
-        xml << Hearth::XML::Node.new('ResponseHeadersPolicyId', 
-input[:response_headers_policy_id].to_s) unless input[:response_headers_policy_id].nil?
-        xml << Builders::ForwardedValues.build('ForwardedValues', 
-input[:forwarded_values]) unless input[:forwarded_values].nil?
+        xml << Hearth::XML::Node.new('OriginRequestPolicyId', input[:origin_request_policy_id].to_s) unless input[:origin_request_policy_id].nil?
+        xml << Hearth::XML::Node.new('ResponseHeadersPolicyId', input[:response_headers_policy_id].to_s) unless input[:response_headers_policy_id].nil?
+        xml << Builders::ForwardedValues.build('ForwardedValues', input[:forwarded_values]) unless input[:forwarded_values].nil?
         xml << Hearth::XML::Node.new('MinTTL', input[:min_ttl].to_s) unless input[:min_ttl].nil?
         xml << Hearth::XML::Node.new('DefaultTTL', input[:default_ttl].to_s) unless input[:default_ttl].nil?
         xml << Hearth::XML::Node.new('MaxTTL', input[:max_ttl].to_s) unless input[:max_ttl].nil?
@@ -417,8 +370,7 @@ input[:forwarded_values]) unless input[:forwarded_values].nil?
         xml << Hearth::XML::Node.new('QueryString', input[:query_string].to_s) unless input[:query_string].nil?
         xml << Builders::CookiePreference.build('Cookies', input[:cookies]) unless input[:cookies].nil?
         xml << Builders::Headers.build('Headers', input[:headers]) unless input[:headers].nil?
-        xml << Builders::QueryStringCacheKeys.build('QueryStringCacheKeys', 
-input[:query_string_cache_keys]) unless input[:query_string_cache_keys].nil?
+        xml << Builders::QueryStringCacheKeys.build('QueryStringCacheKeys', input[:query_string_cache_keys]) unless input[:query_string_cache_keys].nil?
         xml
       end
     end
@@ -428,8 +380,7 @@ input[:query_string_cache_keys]) unless input[:query_string_cache_keys].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::QueryStringCacheKeysList.build('Name', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::QueryStringCacheKeysList.build('Name', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -450,8 +401,7 @@ Builders::QueryStringCacheKeysList.build('Name', input[:items])) unless input[:i
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Forward', input[:forward].to_s) unless input[:forward].nil?
-        xml << Builders::CookieNames.build('WhitelistedNames', 
-input[:whitelisted_names]) unless input[:whitelisted_names].nil?
+        xml << Builders::CookieNames.build('WhitelistedNames', input[:whitelisted_names]) unless input[:whitelisted_names].nil?
         xml
       end
     end
@@ -461,8 +411,7 @@ input[:whitelisted_names]) unless input[:whitelisted_names].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::FunctionAssociationList.build('FunctionAssociation', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::FunctionAssociationList.build('FunctionAssociation', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -493,8 +442,7 @@ Builders::FunctionAssociationList.build('FunctionAssociation', input[:items])) u
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::LambdaFunctionAssociationList.build('LambdaFunctionAssociation', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::LambdaFunctionAssociationList.build('LambdaFunctionAssociation', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -514,8 +462,7 @@ Builders::LambdaFunctionAssociationList.build('LambdaFunctionAssociation', input
     class LambdaFunctionAssociation
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('LambdaFunctionARN', 
-input[:lambda_function_arn].to_s) unless input[:lambda_function_arn].nil?
+        xml << Hearth::XML::Node.new('LambdaFunctionARN', input[:lambda_function_arn].to_s) unless input[:lambda_function_arn].nil?
         xml << Hearth::XML::Node.new('EventType', input[:event_type].to_s) unless input[:event_type].nil?
         xml << Hearth::XML::Node.new('IncludeBody', input[:include_body].to_s) unless input[:include_body].nil?
         xml
@@ -527,8 +474,7 @@ input[:lambda_function_arn].to_s) unless input[:lambda_function_arn].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::MethodsList.build('Method', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::MethodsList.build('Method', input[:items])) unless input[:items].nil?
         xml << Builders::CachedMethods.build('CachedMethods', input[:cached_methods]) unless input[:cached_methods].nil?
         xml
       end
@@ -539,8 +485,7 @@ Builders::MethodsList.build('Method', input[:items])) unless input[:items].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::MethodsList.build('Method', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::MethodsList.build('Method', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -562,8 +507,7 @@ Builders::MethodsList.build('Method', input[:items])) unless input[:items].nil?
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Enabled', input[:enabled].to_s) unless input[:enabled].nil?
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::TrustedKeyGroupIdList.build('KeyGroup', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::TrustedKeyGroupIdList.build('KeyGroup', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -585,8 +529,7 @@ Builders::TrustedKeyGroupIdList.build('KeyGroup', input[:items])) unless input[:
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Enabled', input[:enabled].to_s) unless input[:enabled].nil?
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::AwsAccountNumberList.build('AwsAccountNumber', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::AwsAccountNumberList.build('AwsAccountNumber', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -606,34 +549,21 @@ Builders::AwsAccountNumberList.build('AwsAccountNumber', input[:items])) unless 
     class DefaultCacheBehavior
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('TargetOriginId', 
-input[:target_origin_id].to_s) unless input[:target_origin_id].nil?
-        xml << Builders::TrustedSigners.build('TrustedSigners', 
-input[:trusted_signers]) unless input[:trusted_signers].nil?
-        xml << Builders::TrustedKeyGroups.build('TrustedKeyGroups', 
-input[:trusted_key_groups]) unless input[:trusted_key_groups].nil?
-        xml << Hearth::XML::Node.new('ViewerProtocolPolicy', 
-input[:viewer_protocol_policy].to_s) unless input[:viewer_protocol_policy].nil?
-        xml << Builders::AllowedMethods.build('AllowedMethods', 
-input[:allowed_methods]) unless input[:allowed_methods].nil?
-        xml << Hearth::XML::Node.new('SmoothStreaming', 
-input[:smooth_streaming].to_s) unless input[:smooth_streaming].nil?
+        xml << Hearth::XML::Node.new('TargetOriginId', input[:target_origin_id].to_s) unless input[:target_origin_id].nil?
+        xml << Builders::TrustedSigners.build('TrustedSigners', input[:trusted_signers]) unless input[:trusted_signers].nil?
+        xml << Builders::TrustedKeyGroups.build('TrustedKeyGroups', input[:trusted_key_groups]) unless input[:trusted_key_groups].nil?
+        xml << Hearth::XML::Node.new('ViewerProtocolPolicy', input[:viewer_protocol_policy].to_s) unless input[:viewer_protocol_policy].nil?
+        xml << Builders::AllowedMethods.build('AllowedMethods', input[:allowed_methods]) unless input[:allowed_methods].nil?
+        xml << Hearth::XML::Node.new('SmoothStreaming', input[:smooth_streaming].to_s) unless input[:smooth_streaming].nil?
         xml << Hearth::XML::Node.new('Compress', input[:compress].to_s) unless input[:compress].nil?
-        xml << Builders::LambdaFunctionAssociations.build('LambdaFunctionAssociations', 
-input[:lambda_function_associations]) unless input[:lambda_function_associations].nil?
-        xml << Builders::FunctionAssociations.build('FunctionAssociations', 
-input[:function_associations]) unless input[:function_associations].nil?
-        xml << Hearth::XML::Node.new('FieldLevelEncryptionId', 
-input[:field_level_encryption_id].to_s) unless input[:field_level_encryption_id].nil?
-        xml << Hearth::XML::Node.new('RealtimeLogConfigArn', 
-input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil?
+        xml << Builders::LambdaFunctionAssociations.build('LambdaFunctionAssociations', input[:lambda_function_associations]) unless input[:lambda_function_associations].nil?
+        xml << Builders::FunctionAssociations.build('FunctionAssociations', input[:function_associations]) unless input[:function_associations].nil?
+        xml << Hearth::XML::Node.new('FieldLevelEncryptionId', input[:field_level_encryption_id].to_s) unless input[:field_level_encryption_id].nil?
+        xml << Hearth::XML::Node.new('RealtimeLogConfigArn', input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil?
         xml << Hearth::XML::Node.new('CachePolicyId', input[:cache_policy_id].to_s) unless input[:cache_policy_id].nil?
-        xml << Hearth::XML::Node.new('OriginRequestPolicyId', 
-input[:origin_request_policy_id].to_s) unless input[:origin_request_policy_id].nil?
-        xml << Hearth::XML::Node.new('ResponseHeadersPolicyId', 
-input[:response_headers_policy_id].to_s) unless input[:response_headers_policy_id].nil?
-        xml << Builders::ForwardedValues.build('ForwardedValues', 
-input[:forwarded_values]) unless input[:forwarded_values].nil?
+        xml << Hearth::XML::Node.new('OriginRequestPolicyId', input[:origin_request_policy_id].to_s) unless input[:origin_request_policy_id].nil?
+        xml << Hearth::XML::Node.new('ResponseHeadersPolicyId', input[:response_headers_policy_id].to_s) unless input[:response_headers_policy_id].nil?
+        xml << Builders::ForwardedValues.build('ForwardedValues', input[:forwarded_values]) unless input[:forwarded_values].nil?
         xml << Hearth::XML::Node.new('MinTTL', input[:min_ttl].to_s) unless input[:min_ttl].nil?
         xml << Hearth::XML::Node.new('DefaultTTL', input[:default_ttl].to_s) unless input[:default_ttl].nil?
         xml << Hearth::XML::Node.new('MaxTTL', input[:max_ttl].to_s) unless input[:max_ttl].nil?
@@ -646,8 +576,7 @@ input[:forwarded_values]) unless input[:forwarded_values].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::OriginGroupList.build('OriginGroup', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::OriginGroupList.build('OriginGroup', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -668,8 +597,7 @@ Builders::OriginGroupList.build('OriginGroup', input[:items])) unless input[:ite
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', input[:id].to_s) unless input[:id].nil?
-        xml << Builders::OriginGroupFailoverCriteria.build('FailoverCriteria', 
-input[:failover_criteria]) unless input[:failover_criteria].nil?
+        xml << Builders::OriginGroupFailoverCriteria.build('FailoverCriteria', input[:failover_criteria]) unless input[:failover_criteria].nil?
         xml << Builders::OriginGroupMembers.build('Members', input[:members]) unless input[:members].nil?
         xml
       end
@@ -680,8 +608,7 @@ input[:failover_criteria]) unless input[:failover_criteria].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::OriginGroupMemberList.build('OriginGroupMember', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::OriginGroupMemberList.build('OriginGroupMember', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -720,8 +647,7 @@ Builders::OriginGroupMemberList.build('OriginGroupMember', input[:items])) unles
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::StatusCodeList.build('StatusCode', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::StatusCodeList.build('StatusCode', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -742,8 +668,7 @@ Builders::StatusCodeList.build('StatusCode', input[:items])) unless input[:items
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::OriginList.build('Origin', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::OriginList.build('Origin', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -767,14 +692,10 @@ Builders::OriginList.build('Origin', input[:items])) unless input[:items].nil?
         xml << Hearth::XML::Node.new('DomainName', input[:domain_name].to_s) unless input[:domain_name].nil?
         xml << Hearth::XML::Node.new('OriginPath', input[:origin_path].to_s) unless input[:origin_path].nil?
         xml << Builders::CustomHeaders.build('CustomHeaders', input[:custom_headers]) unless input[:custom_headers].nil?
-        xml << Builders::S3OriginConfig.build('S3OriginConfig', 
-input[:s3_origin_config]) unless input[:s3_origin_config].nil?
-        xml << Builders::CustomOriginConfig.build('CustomOriginConfig', 
-input[:custom_origin_config]) unless input[:custom_origin_config].nil?
-        xml << Hearth::XML::Node.new('ConnectionAttempts', 
-input[:connection_attempts].to_s) unless input[:connection_attempts].nil?
-        xml << Hearth::XML::Node.new('ConnectionTimeout', 
-input[:connection_timeout].to_s) unless input[:connection_timeout].nil?
+        xml << Builders::S3OriginConfig.build('S3OriginConfig', input[:s3_origin_config]) unless input[:s3_origin_config].nil?
+        xml << Builders::CustomOriginConfig.build('CustomOriginConfig', input[:custom_origin_config]) unless input[:custom_origin_config].nil?
+        xml << Hearth::XML::Node.new('ConnectionAttempts', input[:connection_attempts].to_s) unless input[:connection_attempts].nil?
+        xml << Hearth::XML::Node.new('ConnectionTimeout', input[:connection_timeout].to_s) unless input[:connection_timeout].nil?
         xml << Builders::OriginShield.build('OriginShield', input[:origin_shield]) unless input[:origin_shield].nil?
         xml
       end
@@ -785,8 +706,7 @@ input[:connection_timeout].to_s) unless input[:connection_timeout].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Enabled', input[:enabled].to_s) unless input[:enabled].nil?
-        xml << Hearth::XML::Node.new('OriginShieldRegion', 
-input[:origin_shield_region].to_s) unless input[:origin_shield_region].nil?
+        xml << Hearth::XML::Node.new('OriginShieldRegion', input[:origin_shield_region].to_s) unless input[:origin_shield_region].nil?
         xml
       end
     end
@@ -797,14 +717,10 @@ input[:origin_shield_region].to_s) unless input[:origin_shield_region].nil?
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('HTTPPort', input[:http_port].to_s) unless input[:http_port].nil?
         xml << Hearth::XML::Node.new('HTTPSPort', input[:https_port].to_s) unless input[:https_port].nil?
-        xml << Hearth::XML::Node.new('OriginProtocolPolicy', 
-input[:origin_protocol_policy].to_s) unless input[:origin_protocol_policy].nil?
-        xml << Builders::OriginSslProtocols.build('OriginSslProtocols', 
-input[:origin_ssl_protocols]) unless input[:origin_ssl_protocols].nil?
-        xml << Hearth::XML::Node.new('OriginReadTimeout', 
-input[:origin_read_timeout].to_s) unless input[:origin_read_timeout].nil?
-        xml << Hearth::XML::Node.new('OriginKeepaliveTimeout', 
-input[:origin_keepalive_timeout].to_s) unless input[:origin_keepalive_timeout].nil?
+        xml << Hearth::XML::Node.new('OriginProtocolPolicy', input[:origin_protocol_policy].to_s) unless input[:origin_protocol_policy].nil?
+        xml << Builders::OriginSslProtocols.build('OriginSslProtocols', input[:origin_ssl_protocols]) unless input[:origin_ssl_protocols].nil?
+        xml << Hearth::XML::Node.new('OriginReadTimeout', input[:origin_read_timeout].to_s) unless input[:origin_read_timeout].nil?
+        xml << Hearth::XML::Node.new('OriginKeepaliveTimeout', input[:origin_keepalive_timeout].to_s) unless input[:origin_keepalive_timeout].nil?
         xml
       end
     end
@@ -814,8 +730,7 @@ input[:origin_keepalive_timeout].to_s) unless input[:origin_keepalive_timeout].n
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::SslProtocolsList.build('SslProtocol', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::SslProtocolsList.build('SslProtocol', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -835,8 +750,7 @@ Builders::SslProtocolsList.build('SslProtocol', input[:items])) unless input[:it
     class S3OriginConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('OriginAccessIdentity', 
-input[:origin_access_identity].to_s) unless input[:origin_access_identity].nil?
+        xml << Hearth::XML::Node.new('OriginAccessIdentity', input[:origin_access_identity].to_s) unless input[:origin_access_identity].nil?
         xml
       end
     end
@@ -846,8 +760,7 @@ input[:origin_access_identity].to_s) unless input[:origin_access_identity].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::OriginCustomHeadersList.build('OriginCustomHeader', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::OriginCustomHeadersList.build('OriginCustomHeader', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -878,8 +791,7 @@ Builders::OriginCustomHeadersList.build('OriginCustomHeader', input[:items])) un
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::AliasList.build('CNAME', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::AliasList.build('CNAME', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -899,15 +811,14 @@ Builders::AliasList.build('CNAME', input[:items])) unless input[:items].nil?
     class CreateDistributionWithTags
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
-        CGI.parse('WithTags').each do |k, v|
+        CGI.parse('WithTags').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2020-05-31/distribution')
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::DistributionConfigWithTags.build('DistributionConfigWithTags', 
-input[:distribution_config_with_tags]) unless input[:distribution_config_with_tags].nil?
+        xml = Builders::DistributionConfigWithTags.build('DistributionConfigWithTags', input[:distribution_config_with_tags]) unless input[:distribution_config_with_tags].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -916,8 +827,7 @@ input[:distribution_config_with_tags]) unless input[:distribution_config_with_ta
     class DistributionConfigWithTags
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::DistributionConfig.build('DistributionConfig', 
-input[:distribution_config]) unless input[:distribution_config].nil?
+        xml << Builders::DistributionConfig.build('DistributionConfig', input[:distribution_config]) unless input[:distribution_config].nil?
         xml << Builders::Tags.build('Tags', input[:tags]) unless input[:tags].nil?
         xml
       end
@@ -961,8 +871,7 @@ input[:distribution_config]) unless input[:distribution_config].nil?
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::FieldLevelEncryptionConfig.build('FieldLevelEncryptionConfig', 
-input[:field_level_encryption_config]) unless input[:field_level_encryption_config].nil?
+        xml = Builders::FieldLevelEncryptionConfig.build('FieldLevelEncryptionConfig', input[:field_level_encryption_config]) unless input[:field_level_encryption_config].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -971,13 +880,10 @@ input[:field_level_encryption_config]) unless input[:field_level_encryption_conf
     class FieldLevelEncryptionConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('CallerReference', 
-input[:caller_reference].to_s) unless input[:caller_reference].nil?
+        xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        xml << Builders::QueryArgProfileConfig.build('QueryArgProfileConfig', 
-input[:query_arg_profile_config]) unless input[:query_arg_profile_config].nil?
-        xml << Builders::ContentTypeProfileConfig.build('ContentTypeProfileConfig', 
-input[:content_type_profile_config]) unless input[:content_type_profile_config].nil?
+        xml << Builders::QueryArgProfileConfig.build('QueryArgProfileConfig', input[:query_arg_profile_config]) unless input[:query_arg_profile_config].nil?
+        xml << Builders::ContentTypeProfileConfig.build('ContentTypeProfileConfig', input[:content_type_profile_config]) unless input[:content_type_profile_config].nil?
         xml
       end
     end
@@ -986,10 +892,8 @@ input[:content_type_profile_config]) unless input[:content_type_profile_config].
     class ContentTypeProfileConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('ForwardWhenContentTypeIsUnknown', 
-input[:forward_when_content_type_is_unknown].to_s) unless input[:forward_when_content_type_is_unknown].nil?
-        xml << Builders::ContentTypeProfiles.build('ContentTypeProfiles', 
-input[:content_type_profiles]) unless input[:content_type_profiles].nil?
+        xml << Hearth::XML::Node.new('ForwardWhenContentTypeIsUnknown', input[:forward_when_content_type_is_unknown].to_s) unless input[:forward_when_content_type_is_unknown].nil?
+        xml << Builders::ContentTypeProfiles.build('ContentTypeProfiles', input[:content_type_profiles]) unless input[:content_type_profiles].nil?
         xml
       end
     end
@@ -999,8 +903,7 @@ input[:content_type_profiles]) unless input[:content_type_profiles].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::ContentTypeProfileList.build('ContentTypeProfile', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::ContentTypeProfileList.build('ContentTypeProfile', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1031,10 +934,8 @@ Builders::ContentTypeProfileList.build('ContentTypeProfile', input[:items])) unl
     class QueryArgProfileConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('ForwardWhenQueryArgProfileIsUnknown', 
-input[:forward_when_query_arg_profile_is_unknown].to_s) unless input[:forward_when_query_arg_profile_is_unknown].nil?
-        xml << Builders::QueryArgProfiles.build('QueryArgProfiles', 
-input[:query_arg_profiles]) unless input[:query_arg_profiles].nil?
+        xml << Hearth::XML::Node.new('ForwardWhenQueryArgProfileIsUnknown', input[:forward_when_query_arg_profile_is_unknown].to_s) unless input[:forward_when_query_arg_profile_is_unknown].nil?
+        xml << Builders::QueryArgProfiles.build('QueryArgProfiles', input[:query_arg_profiles]) unless input[:query_arg_profiles].nil?
         xml
       end
     end
@@ -1044,8 +945,7 @@ input[:query_arg_profiles]) unless input[:query_arg_profiles].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::QueryArgProfileList.build('QueryArgProfile', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::QueryArgProfileList.build('QueryArgProfile', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1079,8 +979,7 @@ Builders::QueryArgProfileList.build('QueryArgProfile', input[:items])) unless in
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::FieldLevelEncryptionProfileConfig.build('FieldLevelEncryptionProfileConfig', 
-input[:field_level_encryption_profile_config]) unless input[:field_level_encryption_profile_config].nil?
+        xml = Builders::FieldLevelEncryptionProfileConfig.build('FieldLevelEncryptionProfileConfig', input[:field_level_encryption_profile_config]) unless input[:field_level_encryption_profile_config].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -1090,11 +989,9 @@ input[:field_level_encryption_profile_config]) unless input[:field_level_encrypt
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
-        xml << Hearth::XML::Node.new('CallerReference', 
-input[:caller_reference].to_s) unless input[:caller_reference].nil?
+        xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        xml << Builders::EncryptionEntities.build('EncryptionEntities', 
-input[:encryption_entities]) unless input[:encryption_entities].nil?
+        xml << Builders::EncryptionEntities.build('EncryptionEntities', input[:encryption_entities]) unless input[:encryption_entities].nil?
         xml
       end
     end
@@ -1104,8 +1001,7 @@ input[:encryption_entities]) unless input[:encryption_entities].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::EncryptionEntityList.build('EncryptionEntity', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::EncryptionEntityList.build('EncryptionEntity', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1137,8 +1033,7 @@ Builders::EncryptionEntityList.build('EncryptionEntity', input[:items])) unless 
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::FieldPatternList.build('FieldPattern', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::FieldPatternList.build('FieldPattern', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1166,10 +1061,8 @@ Builders::FieldPatternList.build('FieldPattern', input[:items])) unless input[:i
         xml = Hearth::XML::Node.new('CreateFunctionRequest')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
-        xml << Builders::FunctionConfig.build('FunctionConfig', 
-input[:function_config]) unless input[:function_config].nil?
-        xml << Hearth::XML::Node.new('FunctionCode', 
-Base64.encode64(input[:function_code]).strip) unless input[:function_code].nil?
+        xml << Builders::FunctionConfig.build('FunctionConfig', input[:function_config]) unless input[:function_config].nil?
+        xml << Hearth::XML::Node.new('FunctionCode', Base64::encode64(input[:function_code]).strip) unless input[:function_code].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -1189,19 +1082,17 @@ Base64.encode64(input[:function_code]).strip) unless input[:function_code].nil?
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         if input[:distribution_id].to_s.empty?
-          raise ArgumentError, 'HTTP label :distribution_id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :distribution_id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distribution/%<DistributionId>s/invalidation',
+            '/2020-05-31/distribution/%<DistributionId>s/invalidation',
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::InvalidationBatch.build('InvalidationBatch', 
-input[:invalidation_batch]) unless input[:invalidation_batch].nil?
+        xml = Builders::InvalidationBatch.build('InvalidationBatch', input[:invalidation_batch]) unless input[:invalidation_batch].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -1211,8 +1102,7 @@ input[:invalidation_batch]) unless input[:invalidation_batch].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Builders::Paths.build('Paths', input[:paths]) unless input[:paths].nil?
-        xml << Hearth::XML::Node.new('CallerReference', 
-input[:caller_reference].to_s) unless input[:caller_reference].nil?
+        xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
         xml
       end
     end
@@ -1246,8 +1136,7 @@ input[:caller_reference].to_s) unless input[:caller_reference].nil?
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::KeyGroupConfig.build('KeyGroupConfig', 
-input[:key_group_config]) unless input[:key_group_config].nil?
+        xml = Builders::KeyGroupConfig.build('KeyGroupConfig', input[:key_group_config]) unless input[:key_group_config].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -1257,8 +1146,7 @@ input[:key_group_config]) unless input[:key_group_config].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::PublicKeyIdList.build('PublicKey', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::PublicKeyIdList.build('PublicKey', input[:items])) unless input[:items].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
         xml
       end
@@ -1280,19 +1168,17 @@ Builders::PublicKeyIdList.build('PublicKey', input[:items])) unless input[:items
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         if input[:distribution_id].to_s.empty?
-          raise ArgumentError, 'HTTP label :distribution_id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :distribution_id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distributions/%<DistributionId>s/monitoring-subscription',
+            '/2020-05-31/distributions/%<DistributionId>s/monitoring-subscription',
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::MonitoringSubscription.build('MonitoringSubscription', 
-input[:monitoring_subscription]) unless input[:monitoring_subscription].nil?
+        xml = Builders::MonitoringSubscription.build('MonitoringSubscription', input[:monitoring_subscription]) unless input[:monitoring_subscription].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -1301,8 +1187,7 @@ input[:monitoring_subscription]) unless input[:monitoring_subscription].nil?
     class MonitoringSubscription
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::RealtimeMetricsSubscriptionConfig.build('RealtimeMetricsSubscriptionConfig', 
-input[:realtime_metrics_subscription_config]) unless input[:realtime_metrics_subscription_config].nil?
+        xml << Builders::RealtimeMetricsSubscriptionConfig.build('RealtimeMetricsSubscriptionConfig', input[:realtime_metrics_subscription_config]) unless input[:realtime_metrics_subscription_config].nil?
         xml
       end
     end
@@ -1311,8 +1196,7 @@ input[:realtime_metrics_subscription_config]) unless input[:realtime_metrics_sub
     class RealtimeMetricsSubscriptionConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('RealtimeMetricsSubscriptionStatus', 
-input[:realtime_metrics_subscription_status].to_s) unless input[:realtime_metrics_subscription_status].nil?
+        xml << Hearth::XML::Node.new('RealtimeMetricsSubscriptionStatus', input[:realtime_metrics_subscription_status].to_s) unless input[:realtime_metrics_subscription_status].nil?
         xml
       end
     end
@@ -1325,8 +1209,7 @@ input[:realtime_metrics_subscription_status].to_s) unless input[:realtime_metric
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::OriginRequestPolicyConfig.build('OriginRequestPolicyConfig', 
-input[:origin_request_policy_config]) unless input[:origin_request_policy_config].nil?
+        xml = Builders::OriginRequestPolicyConfig.build('OriginRequestPolicyConfig', input[:origin_request_policy_config]) unless input[:origin_request_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -1337,12 +1220,9 @@ input[:origin_request_policy_config]) unless input[:origin_request_policy_config
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
-        xml << Builders::OriginRequestPolicyHeadersConfig.build('HeadersConfig', 
-input[:headers_config]) unless input[:headers_config].nil?
-        xml << Builders::OriginRequestPolicyCookiesConfig.build('CookiesConfig', 
-input[:cookies_config]) unless input[:cookies_config].nil?
-        xml << Builders::OriginRequestPolicyQueryStringsConfig.build('QueryStringsConfig', 
-input[:query_strings_config]) unless input[:query_strings_config].nil?
+        xml << Builders::OriginRequestPolicyHeadersConfig.build('HeadersConfig', input[:headers_config]) unless input[:headers_config].nil?
+        xml << Builders::OriginRequestPolicyCookiesConfig.build('CookiesConfig', input[:cookies_config]) unless input[:cookies_config].nil?
+        xml << Builders::OriginRequestPolicyQueryStringsConfig.build('QueryStringsConfig', input[:query_strings_config]) unless input[:query_strings_config].nil?
         xml
       end
     end
@@ -1351,8 +1231,7 @@ input[:query_strings_config]) unless input[:query_strings_config].nil?
     class OriginRequestPolicyQueryStringsConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('QueryStringBehavior', 
-input[:query_string_behavior].to_s) unless input[:query_string_behavior].nil?
+        xml << Hearth::XML::Node.new('QueryStringBehavior', input[:query_string_behavior].to_s) unless input[:query_string_behavior].nil?
         xml << Builders::QueryStringNames.build('QueryStrings', input[:query_strings]) unless input[:query_strings].nil?
         xml
       end
@@ -1386,8 +1265,7 @@ input[:query_string_behavior].to_s) unless input[:query_string_behavior].nil?
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::PublicKeyConfig.build('PublicKeyConfig', 
-input[:public_key_config]) unless input[:public_key_config].nil?
+        xml = Builders::PublicKeyConfig.build('PublicKeyConfig', input[:public_key_config]) unless input[:public_key_config].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -1396,8 +1274,7 @@ input[:public_key_config]) unless input[:public_key_config].nil?
     class PublicKeyConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('CallerReference', 
-input[:caller_reference].to_s) unless input[:caller_reference].nil?
+        xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('EncodedKey', input[:encoded_key].to_s) unless input[:encoded_key].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
@@ -1416,10 +1293,8 @@ input[:caller_reference].to_s) unless input[:caller_reference].nil?
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateRealtimeLogConfigRequest')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml << Hearth::XML::Node.new('EndPoints', 
-Builders::EndPointList.build('member', input[:end_points])) unless input[:end_points].nil?
-        xml << Hearth::XML::Node.new('Fields', 
-Builders::FieldList.build('Field', input[:fields])) unless input[:fields].nil?
+        xml << Hearth::XML::Node.new('EndPoints', Builders::EndPointList.build('member', input[:end_points])) unless input[:end_points].nil?
+        xml << Hearth::XML::Node.new('Fields', Builders::FieldList.build('Field', input[:fields])) unless input[:fields].nil?
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('SamplingRate', input[:sampling_rate].to_s) unless input[:sampling_rate].nil?
         http_req.body = StringIO.new(xml.to_str)
@@ -1453,8 +1328,7 @@ Builders::FieldList.build('Field', input[:fields])) unless input[:fields].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('StreamType', input[:stream_type].to_s) unless input[:stream_type].nil?
-        xml << Builders::KinesisStreamConfig.build('KinesisStreamConfig', 
-input[:kinesis_stream_config]) unless input[:kinesis_stream_config].nil?
+        xml << Builders::KinesisStreamConfig.build('KinesisStreamConfig', input[:kinesis_stream_config]) unless input[:kinesis_stream_config].nil?
         xml
       end
     end
@@ -1477,8 +1351,7 @@ input[:kinesis_stream_config]) unless input[:kinesis_stream_config].nil?
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::ResponseHeadersPolicyConfig.build('ResponseHeadersPolicyConfig', 
-input[:response_headers_policy_config]) unless input[:response_headers_policy_config].nil?
+        xml = Builders::ResponseHeadersPolicyConfig.build('ResponseHeadersPolicyConfig', input[:response_headers_policy_config]) unless input[:response_headers_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -1489,12 +1362,9 @@ input[:response_headers_policy_config]) unless input[:response_headers_policy_co
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
-        xml << Builders::ResponseHeadersPolicyCorsConfig.build('CorsConfig', 
-input[:cors_config]) unless input[:cors_config].nil?
-        xml << Builders::ResponseHeadersPolicySecurityHeadersConfig.build('SecurityHeadersConfig', 
-input[:security_headers_config]) unless input[:security_headers_config].nil?
-        xml << Builders::ResponseHeadersPolicyCustomHeadersConfig.build('CustomHeadersConfig', 
-input[:custom_headers_config]) unless input[:custom_headers_config].nil?
+        xml << Builders::ResponseHeadersPolicyCorsConfig.build('CorsConfig', input[:cors_config]) unless input[:cors_config].nil?
+        xml << Builders::ResponseHeadersPolicySecurityHeadersConfig.build('SecurityHeadersConfig', input[:security_headers_config]) unless input[:security_headers_config].nil?
+        xml << Builders::ResponseHeadersPolicyCustomHeadersConfig.build('CustomHeadersConfig', input[:custom_headers_config]) unless input[:custom_headers_config].nil?
         xml
       end
     end
@@ -1504,8 +1374,7 @@ input[:custom_headers_config]) unless input[:custom_headers_config].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::ResponseHeadersPolicyCustomHeaderList.build('ResponseHeadersPolicyCustomHeader', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::ResponseHeadersPolicyCustomHeaderList.build('ResponseHeadersPolicyCustomHeader', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1536,18 +1405,12 @@ Builders::ResponseHeadersPolicyCustomHeaderList.build('ResponseHeadersPolicyCust
     class ResponseHeadersPolicySecurityHeadersConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::ResponseHeadersPolicyXSSProtection.build('XSSProtection', 
-input[:xss_protection]) unless input[:xss_protection].nil?
-        xml << Builders::ResponseHeadersPolicyFrameOptions.build('FrameOptions', 
-input[:frame_options]) unless input[:frame_options].nil?
-        xml << Builders::ResponseHeadersPolicyReferrerPolicy.build('ReferrerPolicy', 
-input[:referrer_policy]) unless input[:referrer_policy].nil?
-        xml << Builders::ResponseHeadersPolicyContentSecurityPolicy.build('ContentSecurityPolicy', 
-input[:content_security_policy]) unless input[:content_security_policy].nil?
-        xml << Builders::ResponseHeadersPolicyContentTypeOptions.build('ContentTypeOptions', 
-input[:content_type_options]) unless input[:content_type_options].nil?
-        xml << Builders::ResponseHeadersPolicyStrictTransportSecurity.build('StrictTransportSecurity', 
-input[:strict_transport_security]) unless input[:strict_transport_security].nil?
+        xml << Builders::ResponseHeadersPolicyXSSProtection.build('XSSProtection', input[:xss_protection]) unless input[:xss_protection].nil?
+        xml << Builders::ResponseHeadersPolicyFrameOptions.build('FrameOptions', input[:frame_options]) unless input[:frame_options].nil?
+        xml << Builders::ResponseHeadersPolicyReferrerPolicy.build('ReferrerPolicy', input[:referrer_policy]) unless input[:referrer_policy].nil?
+        xml << Builders::ResponseHeadersPolicyContentSecurityPolicy.build('ContentSecurityPolicy', input[:content_security_policy]) unless input[:content_security_policy].nil?
+        xml << Builders::ResponseHeadersPolicyContentTypeOptions.build('ContentTypeOptions', input[:content_type_options]) unless input[:content_type_options].nil?
+        xml << Builders::ResponseHeadersPolicyStrictTransportSecurity.build('StrictTransportSecurity', input[:strict_transport_security]) unless input[:strict_transport_security].nil?
         xml
       end
     end
@@ -1557,11 +1420,9 @@ input[:strict_transport_security]) unless input[:strict_transport_security].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Override', input[:override].to_s) unless input[:override].nil?
-        xml << Hearth::XML::Node.new('IncludeSubdomains', 
-input[:include_subdomains].to_s) unless input[:include_subdomains].nil?
+        xml << Hearth::XML::Node.new('IncludeSubdomains', input[:include_subdomains].to_s) unless input[:include_subdomains].nil?
         xml << Hearth::XML::Node.new('Preload', input[:preload].to_s) unless input[:preload].nil?
-        xml << Hearth::XML::Node.new('AccessControlMaxAgeSec', 
-input[:access_control_max_age_sec].to_s) unless input[:access_control_max_age_sec].nil?
+        xml << Hearth::XML::Node.new('AccessControlMaxAgeSec', input[:access_control_max_age_sec].to_s) unless input[:access_control_max_age_sec].nil?
         xml
       end
     end
@@ -1580,8 +1441,7 @@ input[:access_control_max_age_sec].to_s) unless input[:access_control_max_age_se
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Override', input[:override].to_s) unless input[:override].nil?
-        xml << Hearth::XML::Node.new('ContentSecurityPolicy', 
-input[:content_security_policy].to_s) unless input[:content_security_policy].nil?
+        xml << Hearth::XML::Node.new('ContentSecurityPolicy', input[:content_security_policy].to_s) unless input[:content_security_policy].nil?
         xml
       end
     end
@@ -1622,18 +1482,12 @@ input[:content_security_policy].to_s) unless input[:content_security_policy].nil
     class ResponseHeadersPolicyCorsConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::ResponseHeadersPolicyAccessControlAllowOrigins.build('AccessControlAllowOrigins', 
-input[:access_control_allow_origins]) unless input[:access_control_allow_origins].nil?
-        xml << Builders::ResponseHeadersPolicyAccessControlAllowHeaders.build('AccessControlAllowHeaders', 
-input[:access_control_allow_headers]) unless input[:access_control_allow_headers].nil?
-        xml << Builders::ResponseHeadersPolicyAccessControlAllowMethods.build('AccessControlAllowMethods', 
-input[:access_control_allow_methods]) unless input[:access_control_allow_methods].nil?
-        xml << Hearth::XML::Node.new('AccessControlAllowCredentials', 
-input[:access_control_allow_credentials].to_s) unless input[:access_control_allow_credentials].nil?
-        xml << Builders::ResponseHeadersPolicyAccessControlExposeHeaders.build('AccessControlExposeHeaders', 
-input[:access_control_expose_headers]) unless input[:access_control_expose_headers].nil?
-        xml << Hearth::XML::Node.new('AccessControlMaxAgeSec', 
-input[:access_control_max_age_sec].to_s) unless input[:access_control_max_age_sec].nil?
+        xml << Builders::ResponseHeadersPolicyAccessControlAllowOrigins.build('AccessControlAllowOrigins', input[:access_control_allow_origins]) unless input[:access_control_allow_origins].nil?
+        xml << Builders::ResponseHeadersPolicyAccessControlAllowHeaders.build('AccessControlAllowHeaders', input[:access_control_allow_headers]) unless input[:access_control_allow_headers].nil?
+        xml << Builders::ResponseHeadersPolicyAccessControlAllowMethods.build('AccessControlAllowMethods', input[:access_control_allow_methods]) unless input[:access_control_allow_methods].nil?
+        xml << Hearth::XML::Node.new('AccessControlAllowCredentials', input[:access_control_allow_credentials].to_s) unless input[:access_control_allow_credentials].nil?
+        xml << Builders::ResponseHeadersPolicyAccessControlExposeHeaders.build('AccessControlExposeHeaders', input[:access_control_expose_headers]) unless input[:access_control_expose_headers].nil?
+        xml << Hearth::XML::Node.new('AccessControlMaxAgeSec', input[:access_control_max_age_sec].to_s) unless input[:access_control_max_age_sec].nil?
         xml << Hearth::XML::Node.new('OriginOverride', input[:origin_override].to_s) unless input[:origin_override].nil?
         xml
       end
@@ -1644,8 +1498,7 @@ input[:access_control_max_age_sec].to_s) unless input[:access_control_max_age_se
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::AccessControlExposeHeadersList.build('Header', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::AccessControlExposeHeadersList.build('Header', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1666,8 +1519,7 @@ Builders::AccessControlExposeHeadersList.build('Header', input[:items])) unless 
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::AccessControlAllowMethodsList.build('Method', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::AccessControlAllowMethodsList.build('Method', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1688,8 +1540,7 @@ Builders::AccessControlAllowMethodsList.build('Method', input[:items])) unless i
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::AccessControlAllowHeadersList.build('Header', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::AccessControlAllowHeadersList.build('Header', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1710,8 +1561,7 @@ Builders::AccessControlAllowHeadersList.build('Header', input[:items])) unless i
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', 
-Builders::AccessControlAllowOriginsList.build('Origin', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::AccessControlAllowOriginsList.build('Origin', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1735,8 +1585,7 @@ Builders::AccessControlAllowOriginsList.build('Origin', input[:items])) unless i
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', 
-input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
+        xml = Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -1745,14 +1594,12 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
     class StreamingDistributionConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('CallerReference', 
-input[:caller_reference].to_s) unless input[:caller_reference].nil?
+        xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
         xml << Builders::S3Origin.build('S3Origin', input[:s3_origin]) unless input[:s3_origin].nil?
         xml << Builders::Aliases.build('Aliases', input[:aliases]) unless input[:aliases].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
         xml << Builders::StreamingLoggingConfig.build('Logging', input[:logging]) unless input[:logging].nil?
-        xml << Builders::TrustedSigners.build('TrustedSigners', 
-input[:trusted_signers]) unless input[:trusted_signers].nil?
+        xml << Builders::TrustedSigners.build('TrustedSigners', input[:trusted_signers]) unless input[:trusted_signers].nil?
         xml << Hearth::XML::Node.new('PriceClass', input[:price_class].to_s) unless input[:price_class].nil?
         xml << Hearth::XML::Node.new('Enabled', input[:enabled].to_s) unless input[:enabled].nil?
         xml
@@ -1775,8 +1622,7 @@ input[:trusted_signers]) unless input[:trusted_signers].nil?
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('DomainName', input[:domain_name].to_s) unless input[:domain_name].nil?
-        xml << Hearth::XML::Node.new('OriginAccessIdentity', 
-input[:origin_access_identity].to_s) unless input[:origin_access_identity].nil?
+        xml << Hearth::XML::Node.new('OriginAccessIdentity', input[:origin_access_identity].to_s) unless input[:origin_access_identity].nil?
         xml
       end
     end
@@ -1785,15 +1631,14 @@ input[:origin_access_identity].to_s) unless input[:origin_access_identity].nil?
     class CreateStreamingDistributionWithTags
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
-        CGI.parse('WithTags').each do |k, v|
+        CGI.parse('WithTags').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2020-05-31/streaming-distribution')
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::StreamingDistributionConfigWithTags.build('StreamingDistributionConfigWithTags', 
-input[:streaming_distribution_config_with_tags]) unless input[:streaming_distribution_config_with_tags].nil?
+        xml = Builders::StreamingDistributionConfigWithTags.build('StreamingDistributionConfigWithTags', input[:streaming_distribution_config_with_tags]) unless input[:streaming_distribution_config_with_tags].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -1802,8 +1647,7 @@ input[:streaming_distribution_config_with_tags]) unless input[:streaming_distrib
     class StreamingDistributionConfigWithTags
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', 
-input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
+        xml << Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
         xml << Builders::Tags.build('Tags', input[:tags]) unless input[:tags].nil?
         xml
       end
@@ -1814,14 +1658,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/cache-policy/%<Id>s',
+            '/2020-05-31/cache-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
@@ -1833,14 +1676,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/origin-access-identity/cloudfront/%<Id>s',
+            '/2020-05-31/origin-access-identity/cloudfront/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
@@ -1852,14 +1694,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distribution/%<Id>s',
+            '/2020-05-31/distribution/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
@@ -1871,14 +1712,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/field-level-encryption/%<Id>s',
+            '/2020-05-31/field-level-encryption/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
@@ -1890,14 +1730,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/field-level-encryption-profile/%<Id>s',
+            '/2020-05-31/field-level-encryption-profile/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
@@ -1909,14 +1748,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:name].to_s.empty?
-          raise ArgumentError, 'HTTP label :name cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :name cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/function/%<Name>s',
+            '/2020-05-31/function/%<Name>s',
             Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
@@ -1928,14 +1766,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/key-group/%<Id>s',
+            '/2020-05-31/key-group/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
@@ -1947,14 +1784,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:distribution_id].to_s.empty?
-          raise ArgumentError, 'HTTP label :distribution_id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :distribution_id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distributions/%<DistributionId>s/monitoring-subscription',
+            '/2020-05-31/distributions/%<DistributionId>s/monitoring-subscription',
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -1965,14 +1801,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/origin-request-policy/%<Id>s',
+            '/2020-05-31/origin-request-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
@@ -1984,14 +1819,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/public-key/%<Id>s',
+            '/2020-05-31/public-key/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
@@ -2020,14 +1854,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/response-headers-policy/%<Id>s',
+            '/2020-05-31/response-headers-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
@@ -2039,14 +1872,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'DELETE'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/streaming-distribution/%<Id>s',
+            '/2020-05-31/streaming-distribution/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
@@ -2058,14 +1890,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:name].to_s.empty?
-          raise ArgumentError, 'HTTP label :name cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :name cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/function/%<Name>s/describe',
+            '/2020-05-31/function/%<Name>s/describe',
             Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         params['Stage'] = input[:stage].to_s unless input[:stage].nil?
         http_req.append_query_params(params)
@@ -2077,14 +1908,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/cache-policy/%<Id>s',
+            '/2020-05-31/cache-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2095,14 +1925,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/cache-policy/%<Id>s/config',
+            '/2020-05-31/cache-policy/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2113,14 +1942,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/origin-access-identity/cloudfront/%<Id>s',
+            '/2020-05-31/origin-access-identity/cloudfront/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2131,14 +1959,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/origin-access-identity/cloudfront/%<Id>s/config',
+            '/2020-05-31/origin-access-identity/cloudfront/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2149,14 +1976,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distribution/%<Id>s',
+            '/2020-05-31/distribution/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2167,14 +1993,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distribution/%<Id>s/config',
+            '/2020-05-31/distribution/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2185,14 +2010,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/field-level-encryption/%<Id>s',
+            '/2020-05-31/field-level-encryption/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2203,14 +2027,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/field-level-encryption/%<Id>s/config',
+            '/2020-05-31/field-level-encryption/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2221,14 +2044,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/field-level-encryption-profile/%<Id>s',
+            '/2020-05-31/field-level-encryption-profile/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2239,14 +2061,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/field-level-encryption-profile/%<Id>s/config',
+            '/2020-05-31/field-level-encryption-profile/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2257,14 +2078,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:name].to_s.empty?
-          raise ArgumentError, 'HTTP label :name cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :name cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/function/%<Name>s',
+            '/2020-05-31/function/%<Name>s',
             Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         params['Stage'] = input[:stage].to_s unless input[:stage].nil?
         http_req.append_query_params(params)
@@ -2276,18 +2096,17 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:distribution_id].to_s.empty?
-          raise ArgumentError, 'HTTP label :distribution_id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :distribution_id cannot be nil or empty."
         end
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distribution/%<DistributionId>s/invalidation/%<Id>s',
+            '/2020-05-31/distribution/%<DistributionId>s/invalidation/%<Id>s',
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s),
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2298,14 +2117,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/key-group/%<Id>s',
+            '/2020-05-31/key-group/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2316,14 +2134,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/key-group/%<Id>s/config',
+            '/2020-05-31/key-group/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2334,14 +2151,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:distribution_id].to_s.empty?
-          raise ArgumentError, 'HTTP label :distribution_id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :distribution_id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distributions/%<DistributionId>s/monitoring-subscription',
+            '/2020-05-31/distributions/%<DistributionId>s/monitoring-subscription',
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2352,14 +2168,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/origin-request-policy/%<Id>s',
+            '/2020-05-31/origin-request-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2370,14 +2185,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/origin-request-policy/%<Id>s/config',
+            '/2020-05-31/origin-request-policy/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2388,14 +2202,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/public-key/%<Id>s',
+            '/2020-05-31/public-key/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2406,14 +2219,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/public-key/%<Id>s/config',
+            '/2020-05-31/public-key/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2441,14 +2253,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/response-headers-policy/%<Id>s',
+            '/2020-05-31/response-headers-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2459,14 +2270,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/response-headers-policy/%<Id>s/config',
+            '/2020-05-31/response-headers-policy/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2477,14 +2287,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/streaming-distribution/%<Id>s',
+            '/2020-05-31/streaming-distribution/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2495,14 +2304,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/streaming-distribution/%<Id>s/config',
+            '/2020-05-31/streaming-distribution/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
       end
@@ -2564,14 +2372,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:cache_policy_id].to_s.empty?
-          raise ArgumentError, 'HTTP label :cache_policy_id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :cache_policy_id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distributionsByCachePolicyId/%<CachePolicyId>s',
+            '/2020-05-31/distributionsByCachePolicyId/%<CachePolicyId>s',
             CachePolicyId: Hearth::HTTP.uri_escape(input[:cache_policy_id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
@@ -2584,14 +2391,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:key_group_id].to_s.empty?
-          raise ArgumentError, 'HTTP label :key_group_id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :key_group_id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distributionsByKeyGroupId/%<KeyGroupId>s',
+            '/2020-05-31/distributionsByKeyGroupId/%<KeyGroupId>s',
             KeyGroupId: Hearth::HTTP.uri_escape(input[:key_group_id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
@@ -2604,14 +2410,13 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:origin_request_policy_id].to_s.empty?
-          raise ArgumentError, 'HTTP label :origin_request_policy_id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :origin_request_policy_id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distributionsByOriginRequestPolicyId/%<OriginRequestPolicyId>s',
+            '/2020-05-31/distributionsByOriginRequestPolicyId/%<OriginRequestPolicyId>s',
             OriginRequestPolicyId: Hearth::HTTP.uri_escape(input[:origin_request_policy_id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
@@ -2632,10 +2437,8 @@ input[:streaming_distribution_config]) unless input[:streaming_distribution_conf
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('Marker', input[:marker].to_s) unless input[:marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
-        xml << Hearth::XML::Node.new('RealtimeLogConfigName', 
-input[:realtime_log_config_name].to_s) unless input[:realtime_log_config_name].nil?
-        xml << Hearth::XML::Node.new('RealtimeLogConfigArn', 
-input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil?
+        xml << Hearth::XML::Node.new('RealtimeLogConfigName', input[:realtime_log_config_name].to_s) unless input[:realtime_log_config_name].nil?
+        xml << Hearth::XML::Node.new('RealtimeLogConfigArn', input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil?
         http_req.body = StringIO.new(xml.to_str)
       end
     end
@@ -2645,14 +2448,13 @@ input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:response_headers_policy_id].to_s.empty?
-          raise ArgumentError, 'HTTP label :response_headers_policy_id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :response_headers_policy_id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distributionsByResponseHeadersPolicyId/%<ResponseHeadersPolicyId>s',
+            '/2020-05-31/distributionsByResponseHeadersPolicyId/%<ResponseHeadersPolicyId>s',
             ResponseHeadersPolicyId: Hearth::HTTP.uri_escape(input[:response_headers_policy_id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
@@ -2665,14 +2467,13 @@ input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:web_acl_id].to_s.empty?
-          raise ArgumentError, 'HTTP label :web_acl_id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :web_acl_id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distributionsByWebACLId/%<WebACLId>s',
+            '/2020-05-31/distributionsByWebACLId/%<WebACLId>s',
             WebACLId: Hearth::HTTP.uri_escape(input[:web_acl_id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
@@ -2722,14 +2523,13 @@ input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil
       def self.build(http_req, input:)
         http_req.http_method = 'GET'
         if input[:distribution_id].to_s.empty?
-          raise ArgumentError, 'HTTP label :distribution_id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :distribution_id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distribution/%<DistributionId>s/invalidation',
+            '/2020-05-31/distribution/%<DistributionId>s/invalidation',
             DistributionId: Hearth::HTTP.uri_escape(input[:distribution_id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
@@ -2827,14 +2627,13 @@ input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         if input[:name].to_s.empty?
-          raise ArgumentError, 'HTTP label :name cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :name cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/function/%<Name>s/publish',
+            '/2020-05-31/function/%<Name>s/publish',
             Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
@@ -2845,7 +2644,7 @@ input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil
     class TagResource
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
-        CGI.parse('Operation=Tag').each do |k, v|
+        CGI.parse('Operation=Tag').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2020-05-31/tagging')
@@ -2863,14 +2662,13 @@ input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
         if input[:name].to_s.empty?
-          raise ArgumentError, 'HTTP label :name cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :name cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/function/%<Name>s/test',
+            '/2020-05-31/function/%<Name>s/test',
             Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
 
@@ -2878,8 +2676,7 @@ input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil
         xml = Hearth::XML::Node.new('TestFunctionRequest')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('Stage', input[:stage].to_s) unless input[:stage].nil?
-        xml << Hearth::XML::Node.new('EventObject', 
-Base64.encode64(input[:event_object]).strip) unless input[:event_object].nil?
+        xml << Hearth::XML::Node.new('EventObject', Base64::encode64(input[:event_object]).strip) unless input[:event_object].nil?
         http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
@@ -2889,7 +2686,7 @@ Base64.encode64(input[:event_object]).strip) unless input[:event_object].nil?
     class UntagResource
       def self.build(http_req, input:)
         http_req.http_method = 'POST'
-        CGI.parse('Operation=Untag').each do |k, v|
+        CGI.parse('Operation=Untag').each do |k,v|
           v.each { |q_v| http_req.append_query_param(k, q_v) }
         end
         http_req.append_path('/2020-05-31/tagging')
@@ -2906,8 +2703,7 @@ Base64.encode64(input[:event_object]).strip) unless input[:event_object].nil?
     class TagKeys
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Items', 
-Builders::TagKeyList.build('Key', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', Builders::TagKeyList.build('Key', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -2928,19 +2724,17 @@ Builders::TagKeyList.build('Key', input[:items])) unless input[:items].nil?
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/cache-policy/%<Id>s',
+            '/2020-05-31/cache-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::CachePolicyConfig.build('CachePolicyConfig', 
-input[:cache_policy_config]) unless input[:cache_policy_config].nil?
+        xml = Builders::CachePolicyConfig.build('CachePolicyConfig', input[:cache_policy_config]) unless input[:cache_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
@@ -2951,19 +2745,17 @@ input[:cache_policy_config]) unless input[:cache_policy_config].nil?
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/origin-access-identity/cloudfront/%<Id>s/config',
+            '/2020-05-31/origin-access-identity/cloudfront/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::CloudFrontOriginAccessIdentityConfig.build('CloudFrontOriginAccessIdentityConfig', 
-input[:cloud_front_origin_access_identity_config]) unless input[:cloud_front_origin_access_identity_config].nil?
+        xml = Builders::CloudFrontOriginAccessIdentityConfig.build('CloudFrontOriginAccessIdentityConfig', input[:cloud_front_origin_access_identity_config]) unless input[:cloud_front_origin_access_identity_config].nil?
         http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
@@ -2974,19 +2766,17 @@ input[:cloud_front_origin_access_identity_config]) unless input[:cloud_front_ori
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/distribution/%<Id>s/config',
+            '/2020-05-31/distribution/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::DistributionConfig.build('DistributionConfig', 
-input[:distribution_config]) unless input[:distribution_config].nil?
+        xml = Builders::DistributionConfig.build('DistributionConfig', input[:distribution_config]) unless input[:distribution_config].nil?
         http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
@@ -2997,19 +2787,17 @@ input[:distribution_config]) unless input[:distribution_config].nil?
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/field-level-encryption/%<Id>s/config',
+            '/2020-05-31/field-level-encryption/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::FieldLevelEncryptionConfig.build('FieldLevelEncryptionConfig', 
-input[:field_level_encryption_config]) unless input[:field_level_encryption_config].nil?
+        xml = Builders::FieldLevelEncryptionConfig.build('FieldLevelEncryptionConfig', input[:field_level_encryption_config]) unless input[:field_level_encryption_config].nil?
         http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
@@ -3020,19 +2808,17 @@ input[:field_level_encryption_config]) unless input[:field_level_encryption_conf
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/field-level-encryption-profile/%<Id>s/config',
+            '/2020-05-31/field-level-encryption-profile/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::FieldLevelEncryptionProfileConfig.build('FieldLevelEncryptionProfileConfig', 
-input[:field_level_encryption_profile_config]) unless input[:field_level_encryption_profile_config].nil?
+        xml = Builders::FieldLevelEncryptionProfileConfig.build('FieldLevelEncryptionProfileConfig', input[:field_level_encryption_profile_config]) unless input[:field_level_encryption_profile_config].nil?
         http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
@@ -3043,24 +2829,21 @@ input[:field_level_encryption_profile_config]) unless input[:field_level_encrypt
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:name].to_s.empty?
-          raise ArgumentError, 'HTTP label :name cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :name cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/function/%<Name>s',
+            '/2020-05-31/function/%<Name>s',
             Name: Hearth::HTTP.uri_escape(input[:name].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
 
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('UpdateFunctionRequest')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml << Builders::FunctionConfig.build('FunctionConfig', 
-input[:function_config]) unless input[:function_config].nil?
-        xml << Hearth::XML::Node.new('FunctionCode', 
-Base64.encode64(input[:function_code]).strip) unless input[:function_code].nil?
+        xml << Builders::FunctionConfig.build('FunctionConfig', input[:function_config]) unless input[:function_config].nil?
+        xml << Hearth::XML::Node.new('FunctionCode', Base64::encode64(input[:function_code]).strip) unless input[:function_code].nil?
         http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
@@ -3071,19 +2854,17 @@ Base64.encode64(input[:function_code]).strip) unless input[:function_code].nil?
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/key-group/%<Id>s',
+            '/2020-05-31/key-group/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::KeyGroupConfig.build('KeyGroupConfig', 
-input[:key_group_config]) unless input[:key_group_config].nil?
+        xml = Builders::KeyGroupConfig.build('KeyGroupConfig', input[:key_group_config]) unless input[:key_group_config].nil?
         http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
@@ -3094,19 +2875,17 @@ input[:key_group_config]) unless input[:key_group_config].nil?
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/origin-request-policy/%<Id>s',
+            '/2020-05-31/origin-request-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::OriginRequestPolicyConfig.build('OriginRequestPolicyConfig', 
-input[:origin_request_policy_config]) unless input[:origin_request_policy_config].nil?
+        xml = Builders::OriginRequestPolicyConfig.build('OriginRequestPolicyConfig', input[:origin_request_policy_config]) unless input[:origin_request_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
@@ -3117,19 +2896,17 @@ input[:origin_request_policy_config]) unless input[:origin_request_policy_config
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/public-key/%<Id>s/config',
+            '/2020-05-31/public-key/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::PublicKeyConfig.build('PublicKeyConfig', 
-input[:public_key_config]) unless input[:public_key_config].nil?
+        xml = Builders::PublicKeyConfig.build('PublicKeyConfig', input[:public_key_config]) unless input[:public_key_config].nil?
         http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
@@ -3146,10 +2923,8 @@ input[:public_key_config]) unless input[:public_key_config].nil?
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('UpdateRealtimeLogConfigRequest')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml << Hearth::XML::Node.new('EndPoints', 
-Builders::EndPointList.build('member', input[:end_points])) unless input[:end_points].nil?
-        xml << Hearth::XML::Node.new('Fields', 
-Builders::FieldList.build('Field', input[:fields])) unless input[:fields].nil?
+        xml << Hearth::XML::Node.new('EndPoints', Builders::EndPointList.build('member', input[:end_points])) unless input[:end_points].nil?
+        xml << Hearth::XML::Node.new('Fields', Builders::FieldList.build('Field', input[:fields])) unless input[:fields].nil?
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('ARN', input[:arn].to_s) unless input[:arn].nil?
         xml << Hearth::XML::Node.new('SamplingRate', input[:sampling_rate].to_s) unless input[:sampling_rate].nil?
@@ -3162,19 +2937,17 @@ Builders::FieldList.build('Field', input[:fields])) unless input[:fields].nil?
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/response-headers-policy/%<Id>s',
+            '/2020-05-31/response-headers-policy/%<Id>s',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::ResponseHeadersPolicyConfig.build('ResponseHeadersPolicyConfig', 
-input[:response_headers_policy_config]) unless input[:response_headers_policy_config].nil?
+        xml = Builders::ResponseHeadersPolicyConfig.build('ResponseHeadersPolicyConfig', input[:response_headers_policy_config]) unless input[:response_headers_policy_config].nil?
         http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
@@ -3185,23 +2958,20 @@ input[:response_headers_policy_config]) unless input[:response_headers_policy_co
       def self.build(http_req, input:)
         http_req.http_method = 'PUT'
         if input[:id].to_s.empty?
-          raise ArgumentError, 'HTTP label :id cannot be nil or empty.'
+          raise ArgumentError, "HTTP label :id cannot be nil or empty."
         end
-
         http_req.append_path(format(
-                               '/2020-05-31/streaming-distribution/%<Id>s/config',
+            '/2020-05-31/streaming-distribution/%<Id>s/config',
             Id: Hearth::HTTP.uri_escape(input[:id].to_s)
           )
-                            )
+        )
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
-        xml = Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', 
-input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
+        xml = Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
         http_req.body = StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
-  end
   end
 end

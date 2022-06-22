@@ -9003,9 +9003,6 @@ module AWS::Ec2
     # @!attribute key_material
     #   <p>An unencrypted PEM encoded RSA or ED25519 private key.</p>
     #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
-    #
     #   @return [String]
     #
     # @!attribute key_name
@@ -36386,9 +36383,6 @@ module AWS::Ec2
     # @!attribute vpn_connection_device_sample_configuration
     #   <p>Sample configuration file for the specified customer gateway device.</p>
     #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
-    #
     #   @return [String]
     #
     GetVpnConnectionDeviceSampleConfigurationOutput = ::Struct.new(
@@ -38214,9 +38208,6 @@ module AWS::Ec2
     #
     # @!attribute user_data
     #   <p>The Base64-encoded user data to make available to the instance.</p>
-    #
-    #   @note
-    #     This shape is sensitive and must be handled with care.
     #
     #   @return [UserData]
     #

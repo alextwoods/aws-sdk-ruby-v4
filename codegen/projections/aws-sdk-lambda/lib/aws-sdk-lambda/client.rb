@@ -29,43 +29,15 @@ module AWS::Lambda
       @middleware
     end
 
-    # @overload initialize(options)
-    # @param [Hash] options
-    # @option options [Boolean] :disable_host_prefix (false)
-    #   When `true`, does not perform host prefix injection using @endpoint's hostPrefix property.
+    # @param [Config] config
+    #   An instance of {Config}
     #
-    # @option options [string] :endpoint
-    #   Endpoint of the service
-    #
-    # @option options [bool] :http_wire_trace (false)
-    #   Enable debug wire trace on http requests.
-    #
-    # @option options [symbol] :log_level (:info)
-    #   Default log level to use
-    #
-    # @option options [Logger] :logger (stdout)
-    #   Logger to use for output
-    #
-    # @option options [MiddlewareBuilder] :middleware
-    #   Additional Middleware to be applied for every operation
-    #
-    # @option options [Bool] :stub_responses (false)
-    #   Enable response stubbing. See documentation for {#stub_responses}
-    #
-    # @option options [Boolean] :validate_input (true)
-    #   When `true`, request parameters are validated using the modeled shapes.
-    #
-    def initialize(options = {})
-      @disable_host_prefix = options.fetch(:disable_host_prefix, false)
-      @endpoint = options[:endpoint]
-      @http_wire_trace = options.fetch(:http_wire_trace, false)
-      @log_level = options.fetch(:log_level, :info)
-      @logger = options.fetch(:logger, Logger.new($stdout, level: @log_level))
+    def initialize(config = AWS::Lambda::Config.new, options = {})
+      @config = config
       @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
-      @stub_responses = options.fetch(:stub_responses, false)
       @stubs = Hearth::Stubbing::Stubs.new
-      @validate_input = options.fetch(:validate_input, true)
-
+      @retry_quota = Hearth::Retry::RetryQuota.new
+      @client_rate_limiter = Hearth::Retry::ClientRateLimiter.new
     end
 
     # <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
@@ -127,33 +99,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddLayerVersionPermissionInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::AddLayerVersionPermission
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::PolicyLengthExceededException, Errors::ResourceConflictException]),
         data_parser: Parsers::AddLayerVersionPermission
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::AddLayerVersionPermission,
-        params_class: Params::AddLayerVersionPermissionOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::AddLayerVersionPermissionOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :add_layer_version_permission
         )
       )
@@ -256,33 +240,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::AddPermissionInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::AddPermission
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::PolicyLengthExceededException, Errors::ResourceConflictException]),
         data_parser: Parsers::AddPermission
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::AddPermission,
-        params_class: Params::AddPermissionOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::AddPermissionOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :add_permission
         )
       )
@@ -369,33 +365,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateAliasInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateAlias
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::CreateAlias
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::CreateAlias,
-        params_class: Params::CreateAliasOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::CreateAliasOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :create_alias
         )
       )
@@ -455,33 +463,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateCodeSigningConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateCodeSigningConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::CreateCodeSigningConfig
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::CreateCodeSigningConfig,
-        params_class: Params::CreateCodeSigningConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::CreateCodeSigningConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :create_code_signing_config
         )
       )
@@ -770,33 +790,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateEventSourceMappingInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateEventSourceMapping
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::CreateEventSourceMapping
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::CreateEventSourceMapping,
-        params_class: Params::CreateEventSourceMappingOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::CreateEventSourceMappingOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :create_event_source_mapping
         )
       )
@@ -1067,33 +1099,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::CreateFunctionInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::CreateFunction
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::CodeVerificationFailedException, Errors::ServiceException, Errors::InvalidCodeSignatureException, Errors::CodeSigningConfigNotFoundException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::CreateFunction
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::CreateFunction,
-        params_class: Params::CreateFunctionOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::CreateFunctionOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :create_function
         )
       )
@@ -1150,10 +1194,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteAliasInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteAlias
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -1161,21 +1217,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::DeleteAlias,
-        params_class: Params::DeleteAliasOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::DeleteAliasOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :delete_alias
         )
       )
@@ -1210,10 +1266,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteCodeSigningConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteCodeSigningConfig
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -1221,21 +1289,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::DeleteCodeSigningConfig,
-        params_class: Params::DeleteCodeSigningConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::DeleteCodeSigningConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :delete_code_signing_config
         )
       )
@@ -1306,10 +1374,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteEventSourceMappingInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteEventSourceMapping
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ResourceInUseException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -1317,21 +1397,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::DeleteEventSourceMapping,
-        params_class: Params::DeleteEventSourceMappingOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::DeleteEventSourceMappingOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :delete_event_source_mapping
         )
       )
@@ -1393,10 +1473,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteFunction
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -1404,21 +1496,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::DeleteFunction,
-        params_class: Params::DeleteFunctionOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::DeleteFunctionOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :delete_function
         )
       )
@@ -1471,10 +1563,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionCodeSigningConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteFunctionCodeSigningConfig
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -1482,21 +1586,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::DeleteFunctionCodeSigningConfig,
-        params_class: Params::DeleteFunctionCodeSigningConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::DeleteFunctionCodeSigningConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :delete_function_code_signing_config
         )
       )
@@ -1549,10 +1653,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionConcurrencyInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteFunctionConcurrency
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -1560,21 +1676,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::DeleteFunctionConcurrency,
-        params_class: Params::DeleteFunctionConcurrencyOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::DeleteFunctionConcurrencyOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :delete_function_concurrency
         )
       )
@@ -1632,10 +1748,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteFunctionEventInvokeConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteFunctionEventInvokeConfig
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -1643,21 +1771,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::DeleteFunctionEventInvokeConfig,
-        params_class: Params::DeleteFunctionEventInvokeConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::DeleteFunctionEventInvokeConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :delete_function_event_invoke_config
         )
       )
@@ -1697,10 +1825,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteLayerVersionInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteLayerVersion
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::TooManyRequestsException, Errors::ServiceException]),
@@ -1708,21 +1848,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::DeleteLayerVersion,
-        params_class: Params::DeleteLayerVersionOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::DeleteLayerVersionOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :delete_layer_version
         )
       )
@@ -1779,10 +1919,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::DeleteProvisionedConcurrencyConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::DeleteProvisionedConcurrencyConfig
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -1790,21 +1942,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::DeleteProvisionedConcurrencyConfig,
-        params_class: Params::DeleteProvisionedConcurrencyConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::DeleteProvisionedConcurrencyConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :delete_provisioned_concurrency_config
         )
       )
@@ -1842,10 +1994,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAccountSettingsInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetAccountSettings
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException]),
@@ -1853,21 +2017,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetAccountSettings,
-        params_class: Params::GetAccountSettingsOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetAccountSettingsOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_account_settings
         )
       )
@@ -1932,10 +2096,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetAliasInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetAlias
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -1943,21 +2119,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetAlias,
-        params_class: Params::GetAliasOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetAliasOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_alias
         )
       )
@@ -2001,10 +2177,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetCodeSigningConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetCodeSigningConfig
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2012,21 +2200,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetCodeSigningConfig,
-        params_class: Params::GetCodeSigningConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetCodeSigningConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_code_signing_config
         )
       )
@@ -2095,10 +2283,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetEventSourceMappingInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetEventSourceMapping
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2106,21 +2306,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetEventSourceMapping,
-        params_class: Params::GetEventSourceMappingOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetEventSourceMappingOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_event_source_mapping
         )
       )
@@ -2248,10 +2448,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFunction
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2259,21 +2471,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetFunction,
-        params_class: Params::GetFunctionOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetFunctionOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_function
         )
       )
@@ -2328,10 +2540,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionCodeSigningConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFunctionCodeSigningConfig
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2339,21 +2563,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetFunctionCodeSigningConfig,
-        params_class: Params::GetFunctionCodeSigningConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetFunctionCodeSigningConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_function_code_signing_config
         )
       )
@@ -2408,10 +2632,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionConcurrencyInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFunctionConcurrency
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2419,21 +2655,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetFunctionConcurrency,
-        params_class: Params::GetFunctionConcurrencyOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetFunctionConcurrencyOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_function_concurrency
         )
       )
@@ -2551,10 +2787,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionConfigurationInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFunctionConfiguration
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2562,21 +2810,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetFunctionConfiguration,
-        params_class: Params::GetFunctionConfigurationOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetFunctionConfigurationOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_function_configuration
         )
       )
@@ -2643,10 +2891,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetFunctionEventInvokeConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetFunctionEventInvokeConfig
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2654,21 +2914,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetFunctionEventInvokeConfig,
-        params_class: Params::GetFunctionEventInvokeConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetFunctionEventInvokeConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_function_event_invoke_config
         )
       )
@@ -2722,10 +2982,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLayerVersionInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetLayerVersion
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2733,21 +3005,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetLayerVersion,
-        params_class: Params::GetLayerVersionOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetLayerVersionOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_layer_version
         )
       )
@@ -2797,10 +3069,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLayerVersionByArnInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetLayerVersionByArn
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2808,21 +3092,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetLayerVersionByArn,
-        params_class: Params::GetLayerVersionByArnOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetLayerVersionByArnOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_layer_version_by_arn
         )
       )
@@ -2863,10 +3147,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetLayerVersionPolicyInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetLayerVersionPolicy
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2874,21 +3170,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetLayerVersionPolicy,
-        params_class: Params::GetLayerVersionPolicyOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetLayerVersionPolicyOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_layer_version_policy
         )
       )
@@ -2947,10 +3243,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetPolicyInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetPolicy
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2958,21 +3266,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetPolicy,
-        params_class: Params::GetPolicyOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetPolicyOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_policy
         )
       )
@@ -3035,10 +3343,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::GetProvisionedConcurrencyConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::GetProvisionedConcurrencyConfig
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ProvisionedConcurrencyConfigNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3046,21 +3366,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::GetProvisionedConcurrencyConfig,
-        params_class: Params::GetProvisionedConcurrencyConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::GetProvisionedConcurrencyConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :get_provisioned_concurrency_config
         )
       )
@@ -3183,33 +3503,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InvokeInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::Invoke
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::KMSNotFoundException, Errors::InvalidSubnetIDException, Errors::ServiceException, Errors::KMSDisabledException, Errors::EFSIOException, Errors::EFSMountConnectivityException, Errors::EFSMountFailureException, Errors::TooManyRequestsException, Errors::ResourceNotReadyException, Errors::InvalidZipFileException, Errors::InvalidParameterValueException, Errors::InvalidRequestContentException, Errors::EC2ThrottledException, Errors::SubnetIPAddressLimitReachedException, Errors::InvalidSecurityGroupIDException, Errors::RequestTooLargeException, Errors::UnsupportedMediaTypeException, Errors::EFSMountTimeoutException, Errors::ENILimitReachedException, Errors::EC2UnexpectedException, Errors::EC2AccessDeniedException, Errors::InvalidRuntimeException, Errors::KMSAccessDeniedException, Errors::KMSInvalidStateException, Errors::ResourceConflictException]),
         data_parser: Parsers::Invoke
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::Invoke,
-        params_class: Params::InvokeOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::InvokeOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :invoke
         )
       )
@@ -3272,33 +3604,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::InvokeAsyncInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::InvokeAsync
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::InvalidRuntimeException, Errors::ServiceException, Errors::InvalidRequestContentException, Errors::ResourceConflictException]),
         data_parser: Parsers::InvokeAsync
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::InvokeAsync,
-        params_class: Params::InvokeAsyncOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::InvokeAsyncOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :invoke_async
         )
       )
@@ -3375,10 +3719,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListAliasesInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListAliases
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3386,21 +3742,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::ListAliases,
-        params_class: Params::ListAliasesOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::ListAliasesOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :list_aliases
         )
       )
@@ -3452,10 +3808,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListCodeSigningConfigsInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListCodeSigningConfigs
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3463,21 +3831,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::ListCodeSigningConfigs,
-        params_class: Params::ListCodeSigningConfigsOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::ListCodeSigningConfigsOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :list_code_signing_configs
         )
       )
@@ -3603,10 +3971,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListEventSourceMappingsInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListEventSourceMappings
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3614,21 +3994,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::ListEventSourceMappings,
-        params_class: Params::ListEventSourceMappingsOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::ListEventSourceMappingsOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :list_event_source_mappings
         )
       )
@@ -3702,10 +4082,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionEventInvokeConfigsInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListFunctionEventInvokeConfigs
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3713,21 +4105,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::ListFunctionEventInvokeConfigs,
-        params_class: Params::ListFunctionEventInvokeConfigsOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::ListFunctionEventInvokeConfigsOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :list_function_event_invoke_configs
         )
       )
@@ -3846,10 +4238,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionsInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListFunctions
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3857,21 +4261,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::ListFunctions,
-        params_class: Params::ListFunctionsOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::ListFunctionsOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :list_functions
         )
       )
@@ -3917,10 +4321,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListFunctionsByCodeSigningConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListFunctionsByCodeSigningConfig
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3928,21 +4344,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::ListFunctionsByCodeSigningConfig,
-        params_class: Params::ListFunctionsByCodeSigningConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::ListFunctionsByCodeSigningConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :list_functions_by_code_signing_config
         )
       )
@@ -4000,10 +4416,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLayerVersionsInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListLayerVersions
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -4011,21 +4439,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::ListLayerVersions,
-        params_class: Params::ListLayerVersionsOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::ListLayerVersionsOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :list_layer_versions
         )
       )
@@ -4082,10 +4510,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListLayersInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListLayers
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -4093,21 +4533,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::ListLayers,
-        params_class: Params::ListLayersOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::ListLayersOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :list_layers
         )
       )
@@ -4178,10 +4618,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListProvisionedConcurrencyConfigsInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListProvisionedConcurrencyConfigs
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -4189,21 +4641,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::ListProvisionedConcurrencyConfigs,
-        params_class: Params::ListProvisionedConcurrencyConfigsOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::ListProvisionedConcurrencyConfigsOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :list_provisioned_concurrency_configs
         )
       )
@@ -4240,10 +4692,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListTagsInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListTags
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -4251,21 +4715,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::ListTags,
-        params_class: Params::ListTagsOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::ListTagsOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :list_tags
         )
       )
@@ -4389,10 +4853,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::ListVersionsByFunctionInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::ListVersionsByFunction
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -4400,21 +4876,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::ListVersionsByFunction,
-        params_class: Params::ListVersionsByFunctionOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::ListVersionsByFunctionOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :list_versions_by_function
         )
       )
@@ -4502,33 +4978,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishLayerVersionInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PublishLayerVersion
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::PublishLayerVersion
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::PublishLayerVersion,
-        params_class: Params::PublishLayerVersionOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::PublishLayerVersionOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :publish_layer_version
         )
       )
@@ -4663,33 +5151,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PublishVersionInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PublishVersion
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::PublishVersion
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::PublishVersion,
-        params_class: Params::PublishVersionOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::PublishVersionOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :publish_version
         )
       )
@@ -4749,33 +5249,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFunctionCodeSigningConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutFunctionCodeSigningConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::PutFunctionCodeSigningConfig
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::PutFunctionCodeSigningConfig,
-        params_class: Params::PutFunctionCodeSigningConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::PutFunctionCodeSigningConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :put_function_code_signing_config
         )
       )
@@ -4841,33 +5353,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFunctionConcurrencyInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutFunctionConcurrency
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::PutFunctionConcurrency
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::PutFunctionConcurrency,
-        params_class: Params::PutFunctionConcurrencyOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::PutFunctionConcurrencyOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :put_function_concurrency
         )
       )
@@ -4983,33 +5507,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutFunctionEventInvokeConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutFunctionEventInvokeConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::PutFunctionEventInvokeConfig
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::PutFunctionEventInvokeConfig,
-        params_class: Params::PutFunctionEventInvokeConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::PutFunctionEventInvokeConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :put_function_event_invoke_config
         )
       )
@@ -5076,33 +5612,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::PutProvisionedConcurrencyConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::PutProvisionedConcurrencyConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::PutProvisionedConcurrencyConfig
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::PutProvisionedConcurrencyConfig,
-        params_class: Params::PutProvisionedConcurrencyConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::PutProvisionedConcurrencyConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :put_provisioned_concurrency_config
         )
       )
@@ -5151,10 +5699,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemoveLayerVersionPermissionInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::RemoveLayerVersionPermission
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -5162,21 +5722,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::RemoveLayerVersionPermission,
-        params_class: Params::RemoveLayerVersionPermissionOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::RemoveLayerVersionPermissionOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :remove_layer_version_permission
         )
       )
@@ -5243,10 +5803,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::RemovePermissionInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::RemovePermission
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -5254,21 +5826,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::RemovePermission,
-        params_class: Params::RemovePermissionOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::RemovePermissionOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :remove_permission
         )
       )
@@ -5308,33 +5880,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::TagResourceInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::TagResource
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::TagResource
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::TagResource,
-        params_class: Params::TagResourceOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::TagResourceOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :tag_resource
         )
       )
@@ -5374,10 +5958,22 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UntagResourceInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UntagResource
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -5385,21 +5981,21 @@ module AWS::Lambda
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::UntagResource,
-        params_class: Params::UntagResourceOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::UntagResourceOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :untag_resource
         )
       )
@@ -5486,33 +6082,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateAliasInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateAlias
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::UpdateAlias
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::UpdateAlias,
-        params_class: Params::UpdateAliasOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::UpdateAliasOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :update_alias
         )
       )
@@ -5575,33 +6183,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateCodeSigningConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateCodeSigningConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::UpdateCodeSigningConfig
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::UpdateCodeSigningConfig,
-        params_class: Params::UpdateCodeSigningConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::UpdateCodeSigningConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :update_code_signing_config
         )
       )
@@ -5800,33 +6420,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateEventSourceMappingInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateEventSourceMapping
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ResourceInUseException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::UpdateEventSourceMapping
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::UpdateEventSourceMapping,
-        params_class: Params::UpdateEventSourceMappingOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::UpdateEventSourceMappingOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :update_event_source_mapping
         )
       )
@@ -5982,33 +6614,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionCodeInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateFunctionCode
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::CodeVerificationFailedException, Errors::ServiceException, Errors::InvalidCodeSignatureException, Errors::CodeSigningConfigNotFoundException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::UpdateFunctionCode
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::UpdateFunctionCode,
-        params_class: Params::UpdateFunctionCodeOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::UpdateFunctionCodeOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :update_function_code
         )
       )
@@ -6234,33 +6878,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionConfigurationInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateFunctionConfiguration
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::CodeVerificationFailedException, Errors::ServiceException, Errors::InvalidCodeSignatureException, Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::UpdateFunctionConfiguration
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::UpdateFunctionConfiguration,
-        params_class: Params::UpdateFunctionConfigurationOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::UpdateFunctionConfigurationOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :update_function_configuration
         )
       )
@@ -6367,33 +7023,45 @@ module AWS::Lambda
       response_body = StringIO.new
       stack.use(Hearth::Middleware::Validate,
         validator: Validators::UpdateFunctionEventInvokeConfigInput,
-        validate_input: options.fetch(:validate_input, @validate_input)
+        validate_input: @config.validate_input
       )
       stack.use(Hearth::Middleware::Build,
         builder: Builders::UpdateFunctionEventInvokeConfig
       )
       stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Middleware::Signer,
+        credential_provider: @config.credential_provider,
+        region: @config.region
+      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::UpdateFunctionEventInvokeConfig
       )
       stack.use(Middleware::RequestId)
       stack.use(Hearth::Middleware::Send,
-        stub_responses: options.fetch(:stub_responses, @stub_responses),
-        client: Hearth::HTTP::Client.new(logger: @logger, http_wire_trace: options.fetch(:http_wire_trace, @http_wire_trace)),
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
         stub_class: Stubs::UpdateFunctionEventInvokeConfig,
-        params_class: Params::UpdateFunctionEventInvokeConfigOutput,
-        stubs: options.fetch(:stubs, @stubs)
+        stubs: @stubs,
+        params_class: Params::UpdateFunctionEventInvokeConfigOutput
       )
       apply_middleware(stack, options[:middleware])
 
       resp = stack.run(
         input: input,
         context: Hearth::Context.new(
-          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @endpoint)),
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
           response: Hearth::HTTP::Response.new(body: response_body),
           params: params,
-          logger: @logger,
+          logger: @config.logger,
           operation_name: :update_function_event_invoke_config
         )
       )
@@ -6407,13 +7075,6 @@ module AWS::Lambda
       Client.middleware.apply(middleware_stack)
       @middleware.apply(middleware_stack)
       Hearth::MiddlewareBuilder.new(middleware).apply(middleware_stack)
-    end
-
-    def output_stream(options = {}, &block)
-      return options[:output_stream] if options[:output_stream]
-      return Hearth::BlockIO.new(block) if block
-
-      StringIO.new
     end
   end
 end
