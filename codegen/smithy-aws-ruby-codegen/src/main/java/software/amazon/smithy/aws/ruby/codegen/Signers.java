@@ -73,6 +73,7 @@ public class Signers implements RubyIntegration {
                 .defaults(new ConfigProviderChain.Builder()
                         .envProvider("AWS_REGION", "String")
                         .sharedConfigProvider("region", "String")
+                        .staticProvider("nil")
                         .build())
                 .defaultValue("nil")
                 .build();
