@@ -2,7 +2,7 @@
 
 module AWS::SDK::Core
   # A Credentials data object that stores AWS credentials. This object may be
-  # populated from various different Credential Providers.
+  # populated from various different {CredentialProvider}s.
   class Credentials
     # @param [String] access_key_id
     # @param [String] secret_access_key

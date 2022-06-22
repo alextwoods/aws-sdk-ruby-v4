@@ -71,12 +71,12 @@ module AWS::SDK::Core
     let(:metadata_resp) { 'ec2-metadata-profile' }
     let(:expiration) { Time.parse('2022-07-04').utc }
     let(:credential_json) do
-      ::JSON.dump({
-                    'AccessKeyId' => 'ACCESS_KEY_1',
-                    'SecretAccessKey' => 'SECRET_KEY_1',
-                    'Token' => 'TOKEN_1',
-                    'Expiration' => expiration.iso8601
-                  })
+      {
+        'AccessKeyId' => 'ACCESS_KEY_1',
+        'SecretAccessKey' => 'SECRET_KEY_1',
+        'Token' => 'TOKEN_1',
+        'Expiration' => expiration.iso8601
+      }.to_json
     end
 
     subject { EC2CredentialProvider.new(client: client) }

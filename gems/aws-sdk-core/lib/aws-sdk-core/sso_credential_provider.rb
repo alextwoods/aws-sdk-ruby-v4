@@ -24,7 +24,8 @@ module AWS::SDK::Core
   #       sso_region: "us-east-1",
   #       sso_start_url: 'https://your-start-url.awsapps.com/start'
   #     )
-  #     ec2 = AWS::SDK::EC2::Client.new(credential_provider: provider)
+  #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
+  #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   #
   # If you omit the `:client` option, a new {AWS::SDK::SSO::Client} object
   # will be constructed.
@@ -41,6 +42,9 @@ module AWS::SDK::Core
       'expired or is otherwise invalid. To refresh this SSO session run '\
       '`aws sso login` with the corresponding profile.'
 
+    # Initializes an instance of SSOCredentialProvider using
+    # shared config profile.
+    # @api private
     PROFILE = proc do |cfg|
       next unless AWS::SDK::Core.sso_loaded?
 

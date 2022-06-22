@@ -12,7 +12,8 @@ module AWS::SDK::Core
   #       role_arn: "linked::account::arn",
   #       role_session_name: "session-name"
   #     )
-  #     ec2 = AWS::SDK::EC2::Client.new(credential_provider: provider)
+  #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
+  #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   #
   # If you omit the `:client` option, a new {AWS::SDK::STS::Client} will be
   # created.
@@ -27,6 +28,9 @@ module AWS::SDK::Core
     # or fetching credentials.
     class MissingWebIdentityTokenFile < RuntimeError; end
 
+    # Initializes an instance of AssumeRoleWebIdentityCredentialProvider using
+    # shared config profile.
+    # @api private
     PROFILE = proc do |cfg|
       return unless AWS::SDK::Core.sts_loaded?
 
@@ -90,7 +94,7 @@ module AWS::SDK::Core
     def fetch
       # read from token file everytime it refreshes
       @assume_role_with_web_identity_params[:web_identity_token] =
-        _token_from_file
+        token_from_file
 
       c = @client.assume_role_with_web_identity(
         @assume_role_with_web_identity_params
@@ -103,7 +107,7 @@ module AWS::SDK::Core
       )
     end
 
-    def _token_from_file
+    def token_from_file
       unless File.exist?(@web_identity_token_file)
         raise MissingWebIdentityTokenFile,
               "Web identity token file #{@web_identity_token_file} "\

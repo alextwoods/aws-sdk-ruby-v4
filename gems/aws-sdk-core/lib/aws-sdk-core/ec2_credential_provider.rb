@@ -2,12 +2,13 @@
 
 module AWS::SDK::Core
   # An auto-refreshing credential provider that loads credentials from
-  # EC2 instances.
+  # EC2 instances using IMDSv2.
   #
-  #     provider = AWS::SDK::Core::InstanceProfileCredentials.new(
+  #     provider = AWS::SDK::Core::EC2CredentialProvider.new(
   #       client: AWS::SDK::Core::EC2Metadata.new(...)
   #     )
-  #     ec2 = Aws::EC2::Client.new(credential_provider: provider)
+  #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
+  #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   #
   # If you omit the `:client` option, a new {AWS::SDK::Core::EC2Metadata} will
   # be created.
@@ -15,6 +16,9 @@ module AWS::SDK::Core
     include CredentialProvider
     include RefreshingCredentialProvider
 
+    # Initializes an instance of EC2CredentialProvider using
+    # ENV and shared config values.
+    # @api private
     ENVIRONMENT = proc do |cfg|
       profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
       unless ENV['AWS_EC2_METADATA_DISABLED']

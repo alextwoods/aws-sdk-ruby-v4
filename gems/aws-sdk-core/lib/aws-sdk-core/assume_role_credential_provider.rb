@@ -9,7 +9,8 @@ module AWS::SDK::Core
   #       role_arn: "linked::account::arn",
   #       role_session_name: "session-name"
   #     )
-  #     ec2 = AWS::SDK::EC2::Client.new(credential_provider: provider)
+  #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
+  #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   #
   # If you omit `:client` option, a new {AWS::SDK::STS::Client} object will be
   # constructed with additional options that were provided.
@@ -43,6 +44,9 @@ module AWS::SDK::Core
     # a credential_source, and that source doesn't provide credentials.
     class NoSourceCredentialsError < RuntimeError; end
 
+    # Initializes an instance of AssumeRoleCredentialProvider using
+    # shared config profile.
+    # @api private
     PROFILE = proc do |cfg|
       next unless AWS::SDK::Core.sts_loaded?
 
@@ -86,7 +90,8 @@ module AWS::SDK::Core
       @client = options.delete(:client) || AWS::SDK::STS::Client.new
       @token_code = options.delete(:token_code)
       @assume_role_params = options
-      @assume_role_params[:role_session_name] ||= 'default_session'
+      @assume_role_params[:role_session_name] ||=
+        ::Base64.strict_encode64(::SecureRandom.uuid)
       super()
     end
 

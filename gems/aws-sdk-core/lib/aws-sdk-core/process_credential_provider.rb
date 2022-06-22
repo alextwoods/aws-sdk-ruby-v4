@@ -7,7 +7,8 @@ module AWS::SDK::Core
   #     provider = AWS::SDK::Core::ProcessCredentials.new(
   #       '/usr/bin/credential_proc'
   #     )
-  #     ec2 = AWS::SDK::EC2::Client.new(credential_provider: provider)
+  #     ec2_config = AWS::SDK::EC2::Config.new(credential_provider: provider)
+  #     ec2 = AWS::SDK::EC2::Client.new(ec2_config)
   #
   # Automatically handles refreshing credentials if an Expiration time is
   # provided in the credentials payload.
@@ -17,6 +18,9 @@ module AWS::SDK::Core
     include CredentialProvider
     include RefreshingCredentialProvider
 
+    # Initializes an instance of ProcessCredentialProvider using
+    # shared config profile.
+    # @api private
     PROFILE = proc do |cfg|
       profile_config = AWS::SDK::Core.shared_config[cfg[:profile]]
       if profile_config && profile_config['credential_process']
