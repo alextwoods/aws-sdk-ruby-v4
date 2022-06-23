@@ -11,3 +11,5 @@ build/
 /codegen/sdk-codegen/smithy-build.json
 *.iml
 .DS_Store
+coverage/
+.byebug_history

@@ -113,10 +113,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::PolicyLengthExceededException, Errors::ResourceConflictException]),
         data_parser: Parsers::AddLayerVersionPermission
@@ -254,10 +250,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::PolicyLengthExceededException, Errors::ResourceConflictException]),
         data_parser: Parsers::AddPermission
@@ -379,10 +371,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::CreateAlias
@@ -476,10 +464,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -804,10 +788,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::CreateEventSourceMapping
@@ -1113,10 +1093,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::CodeVerificationFailedException, Errors::ServiceException, Errors::InvalidCodeSignatureException, Errors::CodeSigningConfigNotFoundException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::CreateFunction
@@ -1207,10 +1183,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteAlias
@@ -1278,10 +1250,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -1387,10 +1355,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ResourceInUseException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::DeleteEventSourceMapping
@@ -1486,10 +1450,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteFunction
@@ -1576,10 +1536,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteFunctionCodeSigningConfig
@@ -1665,10 +1621,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -1761,10 +1713,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::DeleteFunctionEventInvokeConfig
@@ -1837,10 +1785,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::TooManyRequestsException, Errors::ServiceException]),
@@ -1932,10 +1876,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteProvisionedConcurrencyConfig
@@ -2006,10 +1946,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException]),
@@ -2109,10 +2045,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetAlias
@@ -2189,10 +2121,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2295,10 +2223,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2461,10 +2385,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetFunction
@@ -2553,10 +2473,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetFunctionCodeSigningConfig
@@ -2644,10 +2560,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -2800,10 +2712,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetFunctionConfiguration
@@ -2904,10 +2812,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetFunctionEventInvokeConfig
@@ -2995,10 +2899,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetLayerVersion
@@ -3082,10 +2982,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::GetLayerVersionByArn
@@ -3159,10 +3055,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3255,10 +3147,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3355,10 +3243,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ProvisionedConcurrencyConfigNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3517,10 +3401,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::KMSNotFoundException, Errors::InvalidSubnetIDException, Errors::ServiceException, Errors::KMSDisabledException, Errors::EFSIOException, Errors::EFSMountConnectivityException, Errors::EFSMountFailureException, Errors::TooManyRequestsException, Errors::ResourceNotReadyException, Errors::InvalidZipFileException, Errors::InvalidParameterValueException, Errors::InvalidRequestContentException, Errors::EC2ThrottledException, Errors::SubnetIPAddressLimitReachedException, Errors::InvalidSecurityGroupIDException, Errors::RequestTooLargeException, Errors::UnsupportedMediaTypeException, Errors::EFSMountTimeoutException, Errors::ENILimitReachedException, Errors::EC2UnexpectedException, Errors::EC2AccessDeniedException, Errors::InvalidRuntimeException, Errors::KMSAccessDeniedException, Errors::KMSInvalidStateException, Errors::ResourceConflictException]),
         data_parser: Parsers::Invoke
@@ -3617,10 +3497,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::InvalidRuntimeException, Errors::ServiceException, Errors::InvalidRequestContentException, Errors::ResourceConflictException]),
@@ -3732,10 +3608,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListAliases
@@ -3820,10 +3692,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -3984,10 +3852,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListEventSourceMappings
@@ -4094,10 +3958,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -4251,10 +4111,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListFunctions
@@ -4333,10 +4189,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -4429,10 +4281,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListLayerVersions
@@ -4522,10 +4370,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -4631,10 +4475,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListProvisionedConcurrencyConfigs
@@ -4704,10 +4544,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -4866,10 +4702,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::ListVersionsByFunction
@@ -4991,10 +4823,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException]),
@@ -5165,10 +4993,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::PublishVersion
@@ -5262,10 +5086,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -5366,10 +5186,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -5521,10 +5337,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::PutFunctionEventInvokeConfig
@@ -5626,10 +5438,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::PutProvisionedConcurrencyConfig
@@ -5711,10 +5519,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -5816,10 +5620,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
         data_parser: Parsers::RemovePermission
@@ -5894,10 +5694,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::TagResource
@@ -5970,10 +5766,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -6096,10 +5888,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::UpdateAlias
@@ -6196,10 +5984,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::ServiceException, Errors::InvalidParameterValueException]),
@@ -6434,10 +6218,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 202, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ResourceInUseException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::UpdateEventSourceMapping
@@ -6627,10 +6407,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::CodeVerificationFailedException, Errors::ServiceException, Errors::InvalidCodeSignatureException, Errors::CodeSigningConfigNotFoundException, Errors::CodeStorageExceededException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
@@ -6892,10 +6668,6 @@ module AWS::Lambda
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::PreconditionFailedException, Errors::TooManyRequestsException, Errors::CodeVerificationFailedException, Errors::ServiceException, Errors::InvalidCodeSignatureException, Errors::CodeSigningConfigNotFoundException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::UpdateFunctionConfiguration
@@ -7036,10 +6808,6 @@ module AWS::Lambda
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),

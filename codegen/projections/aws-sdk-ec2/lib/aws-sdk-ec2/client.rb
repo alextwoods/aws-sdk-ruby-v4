@@ -119,10 +119,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AcceptReservedInstancesExchangeQuote
@@ -217,10 +213,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AcceptTransitGatewayMulticastDomainAssociations
@@ -311,10 +303,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -410,10 +398,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AcceptTransitGatewayVpcAttachment
@@ -500,10 +484,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -611,10 +591,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AcceptVpcPeeringConnection
@@ -704,10 +680,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -843,10 +815,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -984,10 +952,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AllocateHosts
@@ -1115,10 +1079,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AllocateIpamPoolCidr
@@ -1204,10 +1164,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -1317,10 +1273,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -1436,10 +1388,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -1565,10 +1513,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AssociateAddress
@@ -1654,10 +1598,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AssociateClientVpnTargetNetwork
@@ -1739,10 +1679,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -1838,10 +1774,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AssociateEnclaveCertificateIamRole
@@ -1925,10 +1857,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -2045,10 +1973,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AssociateInstanceEventWindow
@@ -2141,10 +2065,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AssociateRouteTable
@@ -2225,10 +2145,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -2326,10 +2242,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AssociateTransitGatewayMulticastDomain
@@ -2414,10 +2326,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -2529,10 +2437,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -2664,10 +2568,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AssociateVpcCidrBlock
@@ -2759,10 +2659,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AttachClassicLinkVpc
@@ -2841,10 +2737,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -2935,10 +2827,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3053,10 +2941,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AttachVolume
@@ -3141,10 +3025,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3244,10 +3124,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3435,10 +3311,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -3653,10 +3525,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::AuthorizeSecurityGroupIngress
@@ -3767,10 +3635,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::BundleInstance
@@ -3862,10 +3726,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CancelBundleTask
@@ -3943,10 +3803,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4047,10 +3903,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CancelCapacityReservationFleets
@@ -4133,10 +3985,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CancelConversionTask
@@ -4206,10 +4054,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4291,10 +4135,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4389,10 +4229,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4493,10 +4329,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CancelSpotFleetRequests
@@ -4582,10 +4414,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CancelSpotInstanceRequests
@@ -4667,10 +4495,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4763,10 +4587,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -4925,10 +4745,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -5121,10 +4937,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -5365,10 +5177,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateCapacityReservation
@@ -5552,10 +5360,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateCapacityReservationFleet
@@ -5658,10 +5462,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -5862,10 +5662,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateClientVpnEndpoint
@@ -5974,10 +5770,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -6135,10 +5927,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateCustomerGateway
@@ -6255,10 +6043,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateDefaultSubnet
@@ -6365,10 +6149,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -6530,10 +6310,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateDhcpOptions
@@ -6641,10 +6417,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -7010,10 +6782,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateFleet
@@ -7207,10 +6975,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateFlowLogs
@@ -7324,10 +7088,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -7482,10 +7242,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -7665,10 +7421,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateInstanceEventWindow
@@ -7788,10 +7540,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateInstanceExportTask
@@ -7888,10 +7636,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -8015,10 +7759,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -8204,10 +7944,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateIpamPool
@@ -8321,10 +8057,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateIpamScope
@@ -8436,10 +8168,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -8777,10 +8505,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -9290,10 +9014,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateLaunchTemplateVersion
@@ -9384,10 +9104,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -9492,10 +9208,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -9626,10 +9338,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -9773,10 +9481,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateNatGateway
@@ -9894,10 +9598,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -10027,10 +9727,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -10182,10 +9878,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateNetworkInsightsAccessScope
@@ -10315,10 +10007,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -10558,10 +10246,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateNetworkInterface
@@ -10658,10 +10342,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -10782,10 +10462,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreatePlacementGroup
@@ -10871,10 +10547,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -10988,10 +10660,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -11119,10 +10787,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateReservedInstancesListing
@@ -11237,10 +10901,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -11395,10 +11055,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateRoute
@@ -11528,10 +11184,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateRouteTable
@@ -11653,10 +11305,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -11819,10 +11467,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateSnapshot
@@ -11971,10 +11615,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateSnapshots
@@ -12066,10 +11706,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -12164,10 +11800,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -12345,10 +11977,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateSubnet
@@ -12481,10 +12109,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateSubnetCidrReservation
@@ -12580,10 +12204,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -12705,10 +12325,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -12844,10 +12460,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -12995,10 +12607,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateTrafficMirrorSession
@@ -13115,10 +12723,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -13258,10 +12862,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateTransitGateway
@@ -13368,10 +12968,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -13512,10 +13108,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateTransitGatewayConnectPeer
@@ -13627,10 +13219,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -13753,10 +13341,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateTransitGatewayPeeringAttachment
@@ -13852,10 +13436,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -13953,10 +13533,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -14056,10 +13632,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -14188,10 +13760,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -14462,10 +14030,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateVolume
@@ -14641,10 +14205,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -14838,10 +14398,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateVpcEndpoint
@@ -14951,10 +14507,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -15110,10 +14662,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateVpcEndpointServiceConfiguration
@@ -15256,10 +14804,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -15514,10 +15058,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateVpnConnection
@@ -15593,10 +15133,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -15716,10 +15252,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::CreateVpnGateway
@@ -15808,10 +15340,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteCarrierGateway
@@ -15887,10 +15415,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -15978,10 +15502,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteClientVpnRoute
@@ -16058,10 +15578,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteCustomerGateway
@@ -16135,10 +15651,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -16214,10 +15726,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -16342,10 +15850,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteFleets
@@ -16429,10 +15933,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteFlowLogs
@@ -16507,10 +16007,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -16596,10 +16092,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteInstanceEventWindow
@@ -16674,10 +16166,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -16776,10 +16264,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -16891,10 +16375,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteIpamPool
@@ -16986,10 +16466,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteIpamScope
@@ -17067,10 +16543,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -17163,10 +16635,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -17271,10 +16739,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteLaunchTemplateVersions
@@ -17361,10 +16825,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteLocalGatewayRoute
@@ -17450,10 +16910,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -17543,10 +16999,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteManagedPrefixList
@@ -17624,10 +17076,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteNatGateway
@@ -17701,10 +17149,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -17788,10 +17232,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteNetworkAclEntry
@@ -17866,10 +17306,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -17946,10 +17382,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteNetworkInsightsAccessScopeAnalysis
@@ -18024,10 +17456,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -18104,10 +17532,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteNetworkInsightsPath
@@ -18181,10 +17605,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -18269,10 +17689,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteNetworkInterfacePermission
@@ -18349,10 +17765,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeletePlacementGroup
@@ -18427,10 +17839,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -18516,10 +17924,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -18607,10 +18011,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteRoute
@@ -18684,10 +18084,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -18770,10 +18166,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -18858,10 +18250,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteSnapshot
@@ -18932,10 +18320,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -19010,10 +18394,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -19099,10 +18479,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -19200,10 +18576,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteTags
@@ -19280,10 +18652,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteTrafficMirrorFilter
@@ -19358,10 +18726,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -19438,10 +18802,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteTrafficMirrorSession
@@ -19517,10 +18877,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -19619,10 +18975,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteTransitGateway
@@ -19709,10 +19061,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -19810,10 +19158,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteTransitGatewayConnectPeer
@@ -19902,10 +19246,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -19997,10 +19337,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteTransitGatewayPeeringAttachment
@@ -20088,10 +19424,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -20181,10 +19513,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteTransitGatewayRoute
@@ -20270,10 +19598,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -20366,10 +19690,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteTransitGatewayVpcAttachment
@@ -20448,10 +19768,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteVolume
@@ -20525,10 +19841,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -20611,10 +19923,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -20700,10 +20008,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -20811,10 +20115,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteVpcEndpoints
@@ -20893,10 +20193,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -20983,10 +20279,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeleteVpnConnection
@@ -21061,10 +20353,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -21143,10 +20431,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -21230,10 +20514,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -21319,10 +20599,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeprovisionIpamPoolCidr
@@ -21404,10 +20680,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeprovisionPublicIpv4PoolCidr
@@ -21488,10 +20760,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -21577,10 +20845,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -21671,10 +20935,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DeregisterTransitGatewayMulticastGroupMembers
@@ -21763,10 +21023,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -21883,10 +21139,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -22052,10 +21304,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeAddresses
@@ -22154,10 +21402,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeAddressesAttribute
@@ -22250,10 +21494,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -22433,10 +21673,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeAvailabilityZones
@@ -22589,10 +21825,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeBundleTasks
@@ -22680,10 +21912,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -22827,10 +22055,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -23062,10 +22286,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeCapacityReservations
@@ -23200,10 +22420,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -23346,10 +22562,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeClassicLinkInstances
@@ -23466,10 +22678,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -23593,10 +22801,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -23753,10 +22957,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeClientVpnEndpoints
@@ -23873,10 +23073,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -23997,10 +23193,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -24124,10 +23316,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeCoipPools
@@ -24240,10 +23428,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -24384,10 +23568,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -24530,10 +23710,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeDhcpOptions
@@ -24652,10 +23828,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -24797,10 +23969,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeElasticGpus
@@ -24913,10 +24081,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeExportImageTasks
@@ -25015,10 +24179,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -25147,10 +24307,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeFastSnapshotRestores
@@ -25261,10 +24417,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeFleetHistory
@@ -25374,10 +24526,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -25632,10 +24780,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeFleets
@@ -25798,10 +24942,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeFlowLogs
@@ -25891,10 +25031,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -26078,10 +25214,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeFpgaImages
@@ -26210,10 +25342,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -26352,10 +25480,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -26527,10 +25651,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeHosts
@@ -26642,10 +25762,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeIamInstanceProfileAssociations
@@ -26750,10 +25866,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -26862,10 +25974,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -26980,10 +26088,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -27319,10 +26423,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeImages
@@ -27457,10 +26557,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeImportImageTasks
@@ -27580,10 +26676,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeImportSnapshotTasks
@@ -27701,10 +26793,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -27836,10 +26924,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeInstanceCreditSpecifications
@@ -27914,10 +26998,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -28099,10 +27179,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -28339,10 +27415,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeInstanceStatus
@@ -28455,10 +27527,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -28874,10 +27942,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -29615,10 +28679,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeInstances
@@ -29757,10 +28817,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeInternetGateways
@@ -29884,10 +28940,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeIpamPools
@@ -29996,10 +29048,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -30113,10 +29161,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -30236,10 +29280,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -30369,10 +29409,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -30747,10 +29783,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeLaunchTemplateVersions
@@ -30887,10 +29919,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeLaunchTemplates
@@ -31022,10 +30050,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -31159,10 +30183,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeLocalGatewayRouteTableVpcAssociations
@@ -31291,10 +30311,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeLocalGatewayRouteTables
@@ -31417,10 +30433,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeLocalGatewayVirtualInterfaceGroups
@@ -31531,10 +30543,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -31670,10 +30678,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeLocalGateways
@@ -31798,10 +30802,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeManagedPrefixLists
@@ -31909,10 +30909,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -32065,10 +31061,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -32275,10 +31267,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeNetworkAcls
@@ -32404,10 +31392,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeNetworkInsightsAccessScopeAnalyses
@@ -32514,10 +31498,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -32759,10 +31739,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeNetworkInsightsAnalyses
@@ -32892,10 +31868,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeNetworkInsightsPaths
@@ -32991,10 +31963,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -33122,10 +32090,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -33440,10 +32404,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeNetworkInterfaces
@@ -33584,10 +32544,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribePlacementGroups
@@ -33702,10 +32658,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -33831,10 +32783,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribePrincipalIdFormat
@@ -33954,10 +32902,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribePublicIpv4Pools
@@ -34071,10 +33015,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -34190,10 +33130,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -34387,10 +33323,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeReservedInstances
@@ -34520,10 +33452,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -34687,10 +33615,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -34927,10 +33851,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -35174,10 +34094,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeRouteTables
@@ -35341,10 +34257,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeScheduledInstanceAvailability
@@ -35492,10 +34404,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeScheduledInstances
@@ -35576,10 +34484,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -35717,10 +34621,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -35997,10 +34897,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeSecurityGroups
@@ -36089,10 +34985,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -36217,10 +35109,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -36475,10 +35363,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeSnapshots
@@ -36558,10 +35442,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -36655,10 +35535,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -36771,10 +35647,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -37050,10 +35922,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -37460,10 +36328,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeSpotInstanceRequests
@@ -37630,10 +36494,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeSpotPriceHistory
@@ -37744,10 +36604,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -37879,10 +36735,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -38101,10 +36953,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeSubnets
@@ -38228,10 +37076,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -38365,10 +37209,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -38520,10 +37360,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeTrafficMirrorSessions
@@ -38654,10 +37490,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -38815,10 +37647,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeTransitGatewayAttachments
@@ -38954,10 +37782,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -39097,10 +37921,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeTransitGatewayConnects
@@ -39227,10 +38047,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -39377,10 +38193,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeTransitGatewayPeeringAttachments
@@ -39515,10 +38327,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeTransitGatewayRouteTables
@@ -39652,10 +38460,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -39827,10 +38631,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeTransitGateways
@@ -39954,10 +38754,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeTrunkInterfaceAssociations
@@ -40044,10 +38840,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -40279,10 +39071,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeVolumeStatus
@@ -40510,10 +39298,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeVolumes
@@ -40684,10 +39468,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeVolumesModifications
@@ -40769,10 +39549,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -40885,10 +39661,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeVpcClassicLink
@@ -40976,10 +39748,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -41117,10 +39885,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeVpcEndpointConnectionNotifications
@@ -41251,10 +40015,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -41406,10 +40166,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeVpcEndpointServiceConfigurations
@@ -41524,10 +40280,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -41673,10 +40425,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -41838,10 +40586,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -42028,10 +40772,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -42229,10 +40969,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -42460,10 +41196,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeVpnConnections
@@ -42616,10 +41348,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DescribeVpnGateways
@@ -42698,10 +41426,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -42782,10 +41506,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -42881,10 +41601,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -42993,10 +41709,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DetachVolume
@@ -43081,10 +41793,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DetachVpnGateway
@@ -43161,10 +41869,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -43270,10 +41974,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisableFastSnapshotRestores
@@ -43351,10 +42051,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisableImageDeprecation
@@ -43431,10 +42127,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisableIpamOrganizationAdminAccount
@@ -43506,10 +42198,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -43596,10 +42284,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisableTransitGatewayRouteTablePropagation
@@ -43680,10 +42364,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisableVgwRoutePropagation
@@ -43759,10 +42439,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisableVpcClassicLink
@@ -43835,10 +42511,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -43921,10 +42593,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -44022,10 +42690,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisassociateClientVpnTargetNetwork
@@ -44107,10 +42771,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisassociateEnclaveCertificateIamRole
@@ -44188,10 +42848,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -44307,10 +42963,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisassociateInstanceEventWindow
@@ -44389,10 +43041,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisassociateRouteTable
@@ -44467,10 +43115,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -44566,10 +43210,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisassociateTransitGatewayMulticastDomain
@@ -44653,10 +43293,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -44744,10 +43380,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisassociateTrunkInterface
@@ -44834,10 +43466,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::DisassociateVpcCidrBlock
@@ -44919,10 +43547,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -45034,10 +43658,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::EnableFastSnapshotRestores
@@ -45123,10 +43743,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::EnableImageDeprecation
@@ -45203,10 +43819,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::EnableIpamOrganizationAdminAccount
@@ -45277,10 +43889,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -45367,10 +43975,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::EnableTransitGatewayRouteTablePropagation
@@ -45454,10 +44058,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::EnableVgwRoutePropagation
@@ -45532,10 +44132,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -45618,10 +44214,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::EnableVpcClassicLink
@@ -45696,10 +44288,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -45777,10 +44365,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ExportClientVpnClientCertificateRevocationList
@@ -45855,10 +44439,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -45989,10 +44569,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -46127,10 +44703,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ExportTransitGatewayRoutes
@@ -46212,10 +44784,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -46304,10 +44872,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -46401,10 +44965,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -46536,10 +45096,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetCoipPoolUsage
@@ -46634,10 +45190,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetConsoleOutput
@@ -46721,10 +45273,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetConsoleScreenshot
@@ -46804,10 +45352,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetDefaultCreditSpecification
@@ -46883,10 +45427,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetEbsDefaultKmsKeyId
@@ -46960,10 +45500,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -47074,10 +45610,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetFlowLogsIntegrationTemplate
@@ -47162,10 +45694,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -47258,10 +45786,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -47432,10 +45956,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetInstanceTypesFromInstanceRequirements
@@ -47549,10 +46069,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetIpamAddressHistory
@@ -47660,10 +46176,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetIpamPoolAllocations
@@ -47764,10 +46276,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -47905,10 +46413,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -48156,10 +46660,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetLaunchTemplateData
@@ -48247,10 +46747,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -48343,10 +46839,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -48486,10 +46978,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetNetworkInsightsAccessScopeAnalysisFindings
@@ -48587,10 +47075,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetNetworkInsightsAccessScopeContent
@@ -48679,10 +47163,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -48792,10 +47272,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetReservedInstancesExchangeQuote
@@ -48867,10 +47343,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -49074,10 +47546,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetSpotPlacementScores
@@ -49206,10 +47674,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetSubnetCidrReservations
@@ -49314,10 +47778,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -49448,10 +47908,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -49591,10 +48047,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetTransitGatewayPrefixListReferences
@@ -49711,10 +48163,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -49833,10 +48281,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetTransitGatewayRouteTablePropagations
@@ -49924,10 +48368,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -50029,10 +48469,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::GetVpnConnectionDeviceTypes
@@ -50111,10 +48547,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -50349,10 +48781,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ImportImage
@@ -50518,10 +48946,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ImportInstance
@@ -50625,10 +49049,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -50801,10 +49221,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ImportSnapshot
@@ -50937,10 +49353,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ImportVolume
@@ -51035,10 +49447,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ListSnapshotsInRecycleBin
@@ -51125,10 +49533,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyAddressAttribute
@@ -51212,10 +49616,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -51337,10 +49737,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyCapacityReservation
@@ -51444,10 +49840,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -51600,10 +49992,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyClientVpnEndpoint
@@ -51698,10 +50086,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -51804,10 +50188,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -52017,10 +50397,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyFleet
@@ -52153,10 +50529,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyFpgaImageAttribute
@@ -52273,10 +50645,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyHosts
@@ -52382,10 +50750,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -52496,10 +50860,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -52646,10 +51006,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -52836,10 +51192,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyInstanceAttribute
@@ -52924,10 +51276,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -53027,10 +51375,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyInstanceCreditSpecification
@@ -53119,10 +51463,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -53273,10 +51613,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyInstanceEventWindow
@@ -53405,10 +51741,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -53541,10 +51873,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyInstancePlacement
@@ -53658,10 +51986,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -53815,10 +52139,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyIpamPool
@@ -53933,10 +52253,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyIpamResourceCidr
@@ -54029,10 +52345,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -54138,10 +52450,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -54268,10 +52576,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyManagedPrefixList
@@ -54378,10 +52682,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyNetworkInterfaceAttribute
@@ -54471,10 +52771,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -54569,10 +52865,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyReservedInstances
@@ -54665,10 +52957,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -54782,10 +53070,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifySnapshotAttribute
@@ -54869,10 +53153,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -55070,10 +53350,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifySpotFleetRequest
@@ -55230,10 +53506,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifySubnetAttribute
@@ -55344,10 +53616,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -55486,10 +53754,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyTrafficMirrorFilterRule
@@ -55610,10 +53874,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyTrafficMirrorSession
@@ -55730,10 +53990,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyTransitGateway
@@ -55829,10 +54085,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -55941,10 +54193,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -56120,10 +54368,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyVolume
@@ -56210,10 +54454,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyVolumeAttribute
@@ -56296,10 +54536,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -56421,10 +54657,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyVpcEndpoint
@@ -56511,10 +54743,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -56629,10 +54857,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyVpcEndpointServiceConfiguration
@@ -56713,10 +54937,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -56808,10 +55028,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -56924,10 +55140,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyVpcPeeringConnectionOptions
@@ -57013,10 +55225,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -57215,10 +55423,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyVpnConnection
@@ -57391,10 +55595,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyVpnConnectionOptions
@@ -57545,10 +55745,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -57755,10 +55951,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ModifyVpnTunnelOptions
@@ -57843,10 +56035,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::MonitorInstances
@@ -57927,10 +56115,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -58018,10 +56202,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -58151,10 +56331,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ProvisionByoipCidr
@@ -58248,10 +56424,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ProvisionIpamPoolCidr
@@ -58341,10 +56513,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -58471,10 +56639,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PurchaseHostReservation
@@ -58573,10 +56737,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -58690,10 +56850,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::PurchaseScheduledInstances
@@ -58776,10 +56932,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -58990,10 +57142,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::RegisterImage
@@ -59078,10 +57226,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -59177,10 +57321,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::RegisterTransitGatewayMulticastGroupMembers
@@ -59274,10 +57414,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -59373,10 +57509,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::RejectTransitGatewayMulticastDomainAssociations
@@ -59466,10 +57598,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -59565,10 +57693,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::RejectTransitGatewayVpcAttachment
@@ -59656,10 +57780,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::RejectVpcEndpointConnections
@@ -59737,10 +57857,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -59839,10 +57955,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ReleaseAddress
@@ -59929,10 +58041,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ReleaseHosts
@@ -60016,10 +58124,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -60108,10 +58212,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ReplaceIamInstanceProfileAssociation
@@ -60194,10 +58294,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -60321,10 +58417,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -60467,10 +58559,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ReplaceRoute
@@ -60556,10 +58644,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -60656,10 +58740,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -60806,10 +58886,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -61138,10 +59214,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -61503,10 +59575,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::RequestSpotInstances
@@ -61593,10 +59661,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ResetAddressAttribute
@@ -61672,10 +59736,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -61757,10 +59817,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ResetFpgaImageAttribute
@@ -61838,10 +59894,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -61934,10 +59986,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ResetInstanceAttribute
@@ -62015,10 +60063,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -62101,10 +60145,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::ResetSnapshotAttribute
@@ -62180,10 +60220,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -62281,10 +60317,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::RestoreManagedPrefixListVersion
@@ -62369,10 +60401,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -62472,10 +60500,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::RestoreSnapshotTier
@@ -62562,10 +60586,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -62754,10 +60774,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -62952,10 +60968,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -63643,10 +61655,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::RunInstances
@@ -63805,10 +61813,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::RunScheduledInstances
@@ -63912,10 +61916,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -64063,10 +62063,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::SearchTransitGatewayMulticastGroups
@@ -64213,10 +62209,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::SearchTransitGatewayRoutes
@@ -64305,10 +62297,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -64415,10 +62403,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -64527,10 +62511,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -64754,10 +62734,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::StartNetworkInsightsAnalysis
@@ -64835,10 +62811,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -64969,10 +62941,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::StopInstances
@@ -65062,10 +63030,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -65213,10 +63177,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::TerminateInstances
@@ -65302,10 +63262,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::UnassignIpv6Addresses
@@ -65385,10 +63341,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -65471,10 +63423,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
@@ -65611,10 +63559,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::UpdateSecurityGroupRuleDescriptionsEgress
@@ -65750,10 +63694,6 @@ module AWS::Ec2
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
-      )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),
         data_parser: Parsers::UpdateSecurityGroupRuleDescriptionsIngress
@@ -65836,10 +63776,6 @@ module AWS::Ec2
         max_attempts: @config.max_attempts,
         client_rate_limiter: @client_rate_limiter,
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
-      )
-      stack.use(Middleware::Signer,
-        credential_provider: @config.credential_provider,
-        region: @config.region
       )
       stack.use(Hearth::Middleware::Parse,
         error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: []),

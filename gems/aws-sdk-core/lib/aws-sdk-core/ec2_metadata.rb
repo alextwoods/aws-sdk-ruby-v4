@@ -1,14 +1,11 @@
 # frozen_string_literal: true
 
-require 'time'
-require 'net/http'
-
-module Aws
+module AWS::SDK::Core
   # A client that can query version 2 of the EC2 Instance Metadata
   class EC2Metadata
     # Path for PUT request for token
     # @api private
-    METADATA_TOKEN_PATH = '/latest/api/token'.freeze
+    METADATA_TOKEN_PATH = '/latest/api/token'
 
     # Raised when the PUT request is not valid. This would be thrown if
     # `token_ttl` is not an Integer.
@@ -44,7 +41,6 @@ module Aws
     # @option options [String] :endpoint_mode ('IPv4') The endpoint mode for
     #   the instance metadata service. This is either 'IPv4'
     #   ('http://169.254.169.254') or 'IPv6' ('http://[fd00:ec2::254]').
-    # @option options [Integer] :port (80) The IMDS endpoint port.
     # @option options [Integer] :http_open_timeout (1) The number of seconds to
     #   wait for the connection to open.
     # @option options [Integer] :http_read_timeout (1) The number of seconds for
@@ -61,7 +57,6 @@ module Aws
 
       endpoint_mode = options[:endpoint_mode] || 'IPv4'
       @endpoint = resolve_endpoint(options[:endpoint], endpoint_mode)
-      @port = options[:port] || 80
 
       @http_open_timeout = options[:http_open_timeout] || 1
       @http_read_timeout = options[:http_read_timeout] || 1
@@ -77,7 +72,7 @@ module Aws
     #
     # @example Fetching the instance ID
     #
-    #   ec2_metadata = Aws::EC2Metadata.new
+    #   ec2_metadata = AWS::SDK::Core::EC2Metadata.new
     #   ec2_metadata.get('/latest/meta-data/instance-id')
     #   => "i-023a25f10a73a0f79"
     #
@@ -108,7 +103,7 @@ module Aws
     # @see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-identity-documents.html
     # @param [String] path The full path to the metadata.
     def get(path)
-      retry_errors(max_retries: @retries) do
+      retry_errors do
         @mutex.synchronize do
           fetch_token unless @token && !@token.expired?
         end
@@ -138,13 +133,17 @@ module Aws
       open_connection do |conn|
         created_time = Time.now
         token_value, token_ttl = http_put(conn, @token_ttl)
-        @token = Token.new(value: token_value, ttl: token_ttl, created_time: created_time)
+        @token = Token.new(
+          value: token_value,
+          ttl: token_ttl,
+          created_time: created_time
+        )
       end
     end
 
     def http_get(connection, path, token)
       headers = {
-        'User-Agent' => "aws-sdk-ruby3/#{CORE_GEM_VERSION}",
+        'User-Agent' => "aws-sdk-ruby4/#{GEM_VERSION}",
         'x-aws-ec2-metadata-token' => token
       }
       request = Net::HTTP::Get.new(path, headers)
@@ -162,7 +161,7 @@ module Aws
 
     def http_put(connection, ttl)
       headers = {
-        'User-Agent' => "aws-sdk-ruby3/#{CORE_GEM_VERSION}",
+        'User-Agent' => "aws-sdk-ruby4/#{GEM_VERSION}",
         'x-aws-ec2-metadata-token-ttl-seconds' => ttl.to_s
       }
       request = Net::HTTP::Put.new(METADATA_TOKEN_PATH, headers)
@@ -183,7 +182,7 @@ module Aws
 
     def open_connection
       uri = URI.parse(@endpoint)
-      http = Net::HTTP.new(uri.hostname || @endpoint, @port || uri.port)
+      http = Net::HTTP.new(uri.hostname, uri.port)
       http.open_timeout = @http_open_timeout
       http.read_timeout = @http_read_timeout
       http.set_debug_output(@http_debug_output) if @http_debug_output
@@ -191,8 +190,7 @@ module Aws
       yield(http).tap { http.finish }
     end
 
-    def retry_errors(options = {}, &_block)
-      max_retries = options[:max_retries]
+    def retry_errors(&_block)
       retries = 0
       begin
         yield
@@ -202,7 +200,7 @@ module Aws
       # StandardError is not ideal but it covers Net::HTTP errors.
       # https://gist.github.com/tenderlove/245188
       rescue StandardError, TokenExpiredError
-        raise unless retries < max_retries
+        raise unless retries < @retries
 
         @backoff.call(retries)
         retries += 1

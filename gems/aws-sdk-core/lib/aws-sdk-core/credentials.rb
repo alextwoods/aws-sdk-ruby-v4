@@ -1,15 +1,19 @@
 # frozen_string_literal: true
 
-module Aws
+module AWS::SDK::Core
+  # A Credentials data object that stores AWS credentials. This object may be
+  # populated from various different {CredentialProvider}s.
   class Credentials
-
     # @param [String] access_key_id
     # @param [String] secret_access_key
     # @param [String] session_token (nil)
-    def initialize(access_key_id, secret_access_key, session_token = nil)
+    # @param [Time] expiration (nil)
+    def initialize(access_key_id:, secret_access_key:,
+                   session_token: nil, expiration: nil)
       @access_key_id = access_key_id
       @secret_access_key = secret_access_key
       @session_token = session_token
+      @expiration = expiration
     end
 
     # @return [String, nil]
@@ -21,25 +25,13 @@ module Aws
     # @return [String, nil]
     attr_reader :session_token
 
-    # @return [Credentials]
-    def credentials
-      self
-    end
-
-    # @return [Boolean] Returns `true` if the access key id and secret
-    #   access key are both set.
-    def set?
-      !access_key_id.nil? &&
-      !access_key_id.empty? &&
-      !secret_access_key.nil? &&
-      !secret_access_key.empty?
-    end
+    # @return [Time, nil]
+    attr_reader :expiration
 
     # Removing the secret access key from the default inspect string.
     # @api private
     def inspect
       "#<#{self.class.name} access_key_id=#{access_key_id.inspect}>"
     end
-
   end
 end
