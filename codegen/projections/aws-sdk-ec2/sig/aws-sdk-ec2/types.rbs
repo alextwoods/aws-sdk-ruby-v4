@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::Ec2
+module AWS::SDK::Ec2
   module Types
 
     AcceleratorCount: untyped

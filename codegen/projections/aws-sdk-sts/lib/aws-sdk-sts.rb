@@ -21,6 +21,6 @@ require_relative 'aws-sdk-sts/types'
 require_relative 'aws-sdk-sts/validators'
 require_relative 'aws-sdk-sts/waiters'
 
-module AWS::Sts
+module AWS::SDK::Sts
   GEM_VERSION = '4.0.0.pre'
 end

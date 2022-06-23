@@ -21,6 +21,6 @@ require_relative 'aws-sdk-cloudfront/types'
 require_relative 'aws-sdk-cloudfront/validators'
 require_relative 'aws-sdk-cloudfront/waiters'
 
-module AWS::Cloudfront
+module AWS::SDK::Cloudfront
   GEM_VERSION = '4.0.0.pre'
 end

@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::Ec2
+module AWS::SDK::Ec2
   module Errors
     def self.error_code(resp)
       if !(200..299).cover?(resp.status)

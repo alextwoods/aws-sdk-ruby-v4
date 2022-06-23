@@ -1,3 +1,3 @@
-module AWS::Cloudfront
+module AWS::SDK::Cloudfront
   Config: untyped
 end

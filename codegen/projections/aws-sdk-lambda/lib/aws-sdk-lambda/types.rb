@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::Lambda
+module AWS::SDK::Lambda
   module Types
 
     # <p>Limits that are related to concurrency and storage. All file and storage sizes are in bytes.</p>
@@ -1998,7 +1998,7 @@ module AWS::Lambda
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Lambda::Types::Environment "\
+        "#<struct AWS::SDK::Lambda::Types::Environment "\
           "variables=\"[SENSITIVE]\">"
       end
     end
@@ -2023,7 +2023,7 @@ module AWS::Lambda
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Lambda::Types::EnvironmentError "\
+        "#<struct AWS::SDK::Lambda::Types::EnvironmentError "\
           "error_code=#{error_code || 'nil'}, "\
           "message=\"[SENSITIVE]\">"
       end
@@ -2050,7 +2050,7 @@ module AWS::Lambda
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Lambda::Types::EnvironmentResponse "\
+        "#<struct AWS::SDK::Lambda::Types::EnvironmentResponse "\
           "variables=\"[SENSITIVE]\", "\
           "error=#{error || 'nil'}>"
       end
@@ -2281,7 +2281,7 @@ module AWS::Lambda
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Lambda::Types::FunctionCode "\
+        "#<struct AWS::SDK::Lambda::Types::FunctionCode "\
           "zip_file=\"[SENSITIVE]\", "\
           "s3_bucket=#{s3_bucket || 'nil'}, "\
           "s3_key=#{s3_key || 'nil'}, "\
@@ -3807,7 +3807,7 @@ module AWS::Lambda
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Lambda::Types::ImageConfigError "\
+        "#<struct AWS::SDK::Lambda::Types::ImageConfigError "\
           "error_code=#{error_code || 'nil'}, "\
           "message=\"[SENSITIVE]\">"
       end
@@ -4124,7 +4124,7 @@ module AWS::Lambda
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Lambda::Types::InvokeInput "\
+        "#<struct AWS::SDK::Lambda::Types::InvokeInput "\
           "function_name=#{function_name || 'nil'}, "\
           "invocation_type=#{invocation_type || 'nil'}, "\
           "log_type=#{log_type || 'nil'}, "\
@@ -4178,7 +4178,7 @@ module AWS::Lambda
       end
 
       def to_s
-        "#<struct AWS::Lambda::Types::InvokeOutput "\
+        "#<struct AWS::SDK::Lambda::Types::InvokeOutput "\
           "status_code=#{status_code || 'nil'}, "\
           "function_error=#{function_error || 'nil'}, "\
           "log_result=#{log_result || 'nil'}, "\
@@ -4396,7 +4396,7 @@ module AWS::Lambda
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Lambda::Types::LayerVersionContentInput "\
+        "#<struct AWS::SDK::Lambda::Types::LayerVersionContentInput "\
           "s3_bucket=#{s3_bucket || 'nil'}, "\
           "s3_key=#{s3_key || 'nil'}, "\
           "s3_object_version=#{s3_object_version || 'nil'}, "\
@@ -7189,7 +7189,7 @@ module AWS::Lambda
       end
 
       def to_s
-        "#<struct AWS::Lambda::Types::UpdateFunctionCodeInput "\
+        "#<struct AWS::SDK::Lambda::Types::UpdateFunctionCodeInput "\
           "function_name=#{function_name || 'nil'}, "\
           "zip_file=\"[SENSITIVE]\", "\
           "s3_bucket=#{s3_bucket || 'nil'}, "\

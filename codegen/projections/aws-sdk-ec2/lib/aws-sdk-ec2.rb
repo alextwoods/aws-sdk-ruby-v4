@@ -21,6 +21,6 @@ require_relative 'aws-sdk-ec2/types'
 require_relative 'aws-sdk-ec2/validators'
 require_relative 'aws-sdk-ec2/waiters'
 
-module AWS::Ec2
+module AWS::SDK::Ec2
   GEM_VERSION = '4.0.0.pre'
 end

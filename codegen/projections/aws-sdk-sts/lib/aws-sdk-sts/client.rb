@@ -9,7 +9,7 @@
 
 require_relative 'middleware/request_id'
 
-module AWS::Sts
+module AWS::SDK::Sts
   # An API client for AWSSecurityTokenServiceV20110615
   # See {#initialize} for a full list of supported configuration options
   # <fullname>Security Token Service</fullname>
@@ -30,7 +30,7 @@ module AWS::Sts
     # @param [Config] config
     #   An instance of {Config}
     #
-    def initialize(config = AWS::Sts::Config.new, options = {})
+    def initialize(config = AWS::SDK::Sts::Config.new, options = {})
       @config = config
       @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
       @stubs = Hearth::Stubbing::Stubs.new

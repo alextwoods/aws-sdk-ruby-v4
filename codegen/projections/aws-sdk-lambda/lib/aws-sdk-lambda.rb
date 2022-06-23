@@ -21,6 +21,6 @@ require_relative 'aws-sdk-lambda/types'
 require_relative 'aws-sdk-lambda/validators'
 require_relative 'aws-sdk-lambda/waiters'
 
-module AWS::Lambda
+module AWS::SDK::Lambda
   GEM_VERSION = '4.0.0.pre'
 end

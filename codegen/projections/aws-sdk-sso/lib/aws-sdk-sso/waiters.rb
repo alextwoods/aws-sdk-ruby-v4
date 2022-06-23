@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::Sso
+module AWS::SDK::Sso
   module Waiters
 
   end

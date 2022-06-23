@@ -9,7 +9,7 @@
 
 require 'base64'
 
-module AWS::Cloudfront
+module AWS::SDK::Cloudfront
   module Parsers
 
     # Operation Parser for AssociateAlias

@@ -9,7 +9,7 @@
 
 require 'base64'
 
-module AWS::Sso
+module AWS::SDK::Sso
   module Builders
 
     # Operation Builder for GetRoleCredentials

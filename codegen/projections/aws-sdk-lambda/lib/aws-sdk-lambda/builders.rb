@@ -9,7 +9,7 @@
 
 require 'base64'
 
-module AWS::Lambda
+module AWS::SDK::Lambda
   module Builders
 
     # Operation Builder for AddLayerVersionPermission

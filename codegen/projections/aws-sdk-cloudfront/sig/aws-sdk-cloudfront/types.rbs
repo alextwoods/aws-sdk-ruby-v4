@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::Cloudfront
+module AWS::SDK::Cloudfront
   module Types
 
     AccessDenied: untyped

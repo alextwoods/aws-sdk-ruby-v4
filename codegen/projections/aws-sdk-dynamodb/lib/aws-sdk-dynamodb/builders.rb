@@ -9,7 +9,7 @@
 
 require 'base64'
 
-module AWS::Dynamodb
+module AWS::SDK::Dynamodb
   module Builders
 
     # Operation Builder for BatchExecuteStatement

@@ -9,7 +9,7 @@
 
 require_relative 'middleware/request_id'
 
-module AWS::Lambda
+module AWS::SDK::Lambda
   # An API client for AWSGirApiService
   # See {#initialize} for a full list of supported configuration options
   # <fullname>AWS Lambda</fullname>
@@ -32,7 +32,7 @@ module AWS::Lambda
     # @param [Config] config
     #   An instance of {Config}
     #
-    def initialize(config = AWS::Lambda::Config.new, options = {})
+    def initialize(config = AWS::SDK::Lambda::Config.new, options = {})
       @config = config
       @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
       @stubs = Hearth::Stubbing::Stubs.new

@@ -9,7 +9,7 @@
 
 require 'securerandom'
 
-module AWS::Lambda
+module AWS::SDK::Lambda
   module Params
 
     module AccountLimit

@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::Cloudfront
+module AWS::SDK::Cloudfront
   module Types
 
     # <p>Access denied.</p>
@@ -1732,7 +1732,7 @@ module AWS::Cloudfront
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Cloudfront::Types::CreateFunctionInput "\
+        "#<struct AWS::SDK::Cloudfront::Types::CreateFunctionInput "\
           "name=#{name || 'nil'}, "\
           "function_config=#{function_config || 'nil'}, "\
           "function_code=\"[SENSITIVE]\">"
@@ -3341,7 +3341,7 @@ module AWS::Cloudfront
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Cloudfront::Types::DistributionConfig "\
+        "#<struct AWS::SDK::Cloudfront::Types::DistributionConfig "\
           "caller_reference=#{caller_reference || 'nil'}, "\
           "aliases=#{aliases || 'nil'}, "\
           "default_root_object=#{default_root_object || 'nil'}, "\
@@ -4898,7 +4898,7 @@ module AWS::Cloudfront
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Cloudfront::Types::GetFunctionOutput "\
+        "#<struct AWS::SDK::Cloudfront::Types::GetFunctionOutput "\
           "function_code=\"[SENSITIVE]\", "\
           "e_tag=#{e_tag || 'nil'}, "\
           "content_type=#{content_type || 'nil'}>"
@@ -7491,7 +7491,7 @@ module AWS::Cloudfront
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Cloudfront::Types::OriginCustomHeader "\
+        "#<struct AWS::SDK::Cloudfront::Types::OriginCustomHeader "\
           "header_name=#{header_name || 'nil'}, "\
           "header_value=\"[SENSITIVE]\">"
       end
@@ -10205,7 +10205,7 @@ module AWS::Cloudfront
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Cloudfront::Types::TestFunctionInput "\
+        "#<struct AWS::SDK::Cloudfront::Types::TestFunctionInput "\
           "name=#{name || 'nil'}, "\
           "if_match=#{if_match || 'nil'}, "\
           "stage=#{stage || 'nil'}, "\
@@ -10270,7 +10270,7 @@ module AWS::Cloudfront
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Cloudfront::Types::TestResult "\
+        "#<struct AWS::SDK::Cloudfront::Types::TestResult "\
           "function_summary=#{function_summary || 'nil'}, "\
           "compute_utilization=#{compute_utilization || 'nil'}, "\
           "function_execution_logs=\"[SENSITIVE]\", "\
@@ -11321,7 +11321,7 @@ module AWS::Cloudfront
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Cloudfront::Types::UpdateFunctionInput "\
+        "#<struct AWS::SDK::Cloudfront::Types::UpdateFunctionInput "\
           "name=#{name || 'nil'}, "\
           "if_match=#{if_match || 'nil'}, "\
           "function_config=#{function_config || 'nil'}, "\

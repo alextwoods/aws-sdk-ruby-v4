@@ -21,6 +21,6 @@ require_relative 'aws-sdk-sso/types'
 require_relative 'aws-sdk-sso/validators'
 require_relative 'aws-sdk-sso/waiters'
 
-module AWS::Sso
+module AWS::SDK::Sso
   GEM_VERSION = '4.0.0.pre'
 end

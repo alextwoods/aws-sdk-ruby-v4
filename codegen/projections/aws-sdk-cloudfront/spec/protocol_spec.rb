@@ -12,7 +12,7 @@ require 'aws-sdk-cloudfront'
 require 'hearth/xml/node_matcher'
 require 'hearth/query/param_matcher'
 
-module AWS::Cloudfront
+module AWS::SDK::Cloudfront
   describe Client do
     let(:endpoint) { 'http://127.0.0.1' }
     let(:config) { Config.new(stub_responses: true, endpoint: endpoint) }

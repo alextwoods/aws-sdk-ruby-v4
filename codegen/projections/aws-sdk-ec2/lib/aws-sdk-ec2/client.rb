@@ -9,7 +9,7 @@
 
 require_relative 'middleware/request_id'
 
-module AWS::Ec2
+module AWS::SDK::Ec2
   # An API client for AmazonEC2
   # See {#initialize} for a full list of supported configuration options
   # <fullname>Amazon Elastic Compute Cloud</fullname>
@@ -51,7 +51,7 @@ module AWS::Ec2
     # @param [Config] config
     #   An instance of {Config}
     #
-    def initialize(config = AWS::Ec2::Config.new, options = {})
+    def initialize(config = AWS::SDK::Ec2::Config.new, options = {})
       @config = config
       @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
       @stubs = Hearth::Stubbing::Stubs.new

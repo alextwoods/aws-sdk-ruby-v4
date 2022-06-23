@@ -9,7 +9,7 @@
 
 require 'securerandom'
 
-module AWS::Cloudfront
+module AWS::SDK::Cloudfront
   module Params
 
     module AccessControlAllowHeadersList
