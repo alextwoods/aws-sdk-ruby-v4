@@ -43,12 +43,12 @@ module AWS::SDK::Core
     end
 
     def credentials_from_process(proc_invocation)
-      raw_out, process_status = _execute_command(proc_invocation)
+      raw_out, process_status = execute_command(proc_invocation)
       if process_status.success?
-        creds_json = _parse_payload(raw_out, proc_invocation)
+        creds_json = parse_payload(raw_out, proc_invocation)
         payload_version = creds_json['Version']
         if payload_version == 1
-          _parse_payload_format_v1(creds_json, proc_invocation)
+          parse_payload_format_v1(creds_json, proc_invocation)
         else
           raise "Invalid version (#{payload_version}) for credentials payload "\
                 "from: #{proc_invocation}."
@@ -59,20 +59,20 @@ module AWS::SDK::Core
       end
     end
 
-    def _execute_command(proc_invocation)
+    def execute_command(proc_invocation)
       [`#{proc_invocation}`, $CHILD_STATUS]
     rescue Errno::ENOENT
       raise ArgumentError,
             "Could not find process: #{proc_invocation}."
     end
 
-    def _parse_payload(raw_out, proc_invocation)
+    def parse_payload(raw_out, proc_invocation)
       JSON.parse(raw_out)
     rescue JSON::ParserError
       raise "Malformed JSON payload from: #{proc_invocation}."
     end
 
-    def _parse_payload_format_v1(creds_json, proc_invocation)
+    def parse_payload_format_v1(creds_json, proc_invocation)
       unless creds_json['AccessKeyId'] && creds_json['SecretAccessKey']
         raise 'Invalid JSON payload for credentials from: '\
               "#{proc_invocation}."

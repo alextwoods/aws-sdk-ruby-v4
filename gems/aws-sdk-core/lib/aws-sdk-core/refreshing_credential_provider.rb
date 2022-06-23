@@ -42,19 +42,19 @@ module AWS::SDK::Core
       # then we check within the mutex to avoid a race condition.
       # See: https://github.com/aws/aws-sdk-ruby/issues/2641 for more info.
       if should_fetch?(SYNC_EXPIRATION_LENGTH)
-        _sync_refresh
+        sync_refresh
       elsif should_fetch?(ASYNC_EXPIRATION_LENGTH)
-        _async_refresh
+        async_refresh
       end
     end
 
-    def _sync_refresh
+    def sync_refresh
       @mutex.synchronize do
         fetch if should_fetch?(SYNC_EXPIRATION_LENGTH)
       end
     end
 
-    def _async_refresh
+    def async_refresh
       return if @mutex.locked?
 
       Thread.new do
