@@ -9,7 +9,7 @@
 
 require_relative 'middleware/request_id'
 
-module AWS::Cloudfront
+module AWS::SDK::Cloudfront
   # An API client for Cloudfront2020_05_31
   # See {#initialize} for a full list of supported configuration options
   # <fullname>Amazon CloudFront</fullname>
@@ -29,7 +29,7 @@ module AWS::Cloudfront
     # @param [Config] config
     #   An instance of {Config}
     #
-    def initialize(config = AWS::Cloudfront::Config.new, options = {})
+    def initialize(config = AWS::SDK::Cloudfront::Config.new, options = {})
       @config = config
       @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
       @stubs = Hearth::Stubbing::Stubs.new

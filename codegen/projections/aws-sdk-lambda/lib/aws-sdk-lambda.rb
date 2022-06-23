@@ -7,6 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'aws-sdk-core'
 require 'hearth'
 
 require_relative 'aws-sdk-lambda/builders'
@@ -21,6 +22,6 @@ require_relative 'aws-sdk-lambda/types'
 require_relative 'aws-sdk-lambda/validators'
 require_relative 'aws-sdk-lambda/waiters'
 
-module AWS::Lambda
+module AWS::SDK::Lambda
   GEM_VERSION = '4.0.0.pre'
 end

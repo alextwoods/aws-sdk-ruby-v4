@@ -1,4 +1,4 @@
-module AWS::Ec2
+module AWS::SDK::Ec2
   module Middleware
     # A middleware that extracts a request id from a response and sets it
     # on output's metadata.

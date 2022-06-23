@@ -1,4 +1,4 @@
-module AWS::Cloudfront
+module AWS::SDK::Cloudfront
   module Middleware
     # A middleware that extracts a request id from a response and sets it
     # on output's metadata.

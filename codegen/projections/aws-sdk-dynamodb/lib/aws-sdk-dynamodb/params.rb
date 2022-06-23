@@ -9,7 +9,7 @@
 
 require 'securerandom'
 
-module AWS::Dynamodb
+module AWS::SDK::Dynamodb
   module Params
 
     module ArchivalSummary

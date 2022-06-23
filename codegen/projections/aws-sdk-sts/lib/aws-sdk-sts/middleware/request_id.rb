@@ -1,4 +1,4 @@
-module AWS::Sts
+module AWS::SDK::Sts
   module Middleware
     # A middleware that extracts a request id from a response and sets it
     # on output's metadata.

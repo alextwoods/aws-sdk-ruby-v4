@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::Dynamodb
+module AWS::SDK::Dynamodb
   module Paginators
 
     class ListContributorInsights

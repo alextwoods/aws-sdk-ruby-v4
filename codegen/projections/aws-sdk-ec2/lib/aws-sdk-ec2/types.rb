@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::Ec2
+module AWS::SDK::Ec2
   module Types
 
     # <p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips)
@@ -9031,7 +9031,7 @@ module AWS::Ec2
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Ec2::Types::CreateKeyPairOutput "\
+        "#<struct AWS::SDK::Ec2::Types::CreateKeyPairOutput "\
           "key_fingerprint=#{key_fingerprint || 'nil'}, "\
           "key_material=\"[SENSITIVE]\", "\
           "key_name=#{key_name || 'nil'}, "\
@@ -36392,7 +36392,7 @@ module AWS::Ec2
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Ec2::Types::GetVpnConnectionDeviceSampleConfigurationOutput "\
+        "#<struct AWS::SDK::Ec2::Types::GetVpnConnectionDeviceSampleConfigurationOutput "\
           "vpn_connection_device_sample_configuration=\"[SENSITIVE]\">"
       end
     end
@@ -38232,7 +38232,7 @@ module AWS::Ec2
       end
 
       def to_s
-        "#<struct AWS::Ec2::Types::ImportInstanceLaunchSpecification "\
+        "#<struct AWS::SDK::Ec2::Types::ImportInstanceLaunchSpecification "\
           "additional_info=#{additional_info || 'nil'}, "\
           "architecture=#{architecture || 'nil'}, "\
           "group_ids=#{group_ids || 'nil'}, "\
@@ -68905,7 +68905,7 @@ module AWS::Ec2
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::Ec2::Types::UserData [SENSITIVE]>"
+        "#<struct AWS::SDK::Ec2::Types::UserData [SENSITIVE]>"
       end
     end
 

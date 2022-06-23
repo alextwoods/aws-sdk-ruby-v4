@@ -9,7 +9,7 @@
 
 require 'base64'
 
-module AWS::Ec2
+module AWS::SDK::Ec2
   module Parsers
 
     # Operation Parser for AcceptReservedInstancesExchangeQuote

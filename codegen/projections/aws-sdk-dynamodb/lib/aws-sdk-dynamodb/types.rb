@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::Dynamodb
+module AWS::SDK::Dynamodb
   module Types
 
     # <p>Contains details of a table archival operation.</p>
@@ -119,7 +119,7 @@ module AWS::Dynamodb
         end
 
         def to_s
-          "#<AWS::Dynamodb::Types::S #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::Dynamodb::Types::S #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -137,7 +137,7 @@ module AWS::Dynamodb
         end
 
         def to_s
-          "#<AWS::Dynamodb::Types::N #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::Dynamodb::Types::N #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -152,7 +152,7 @@ module AWS::Dynamodb
         end
 
         def to_s
-          "#<AWS::Dynamodb::Types::B #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::Dynamodb::Types::B #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -167,7 +167,7 @@ module AWS::Dynamodb
         end
 
         def to_s
-          "#<AWS::Dynamodb::Types::Ss #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::Dynamodb::Types::Ss #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -185,7 +185,7 @@ module AWS::Dynamodb
         end
 
         def to_s
-          "#<AWS::Dynamodb::Types::Ns #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::Dynamodb::Types::Ns #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -200,7 +200,7 @@ module AWS::Dynamodb
         end
 
         def to_s
-          "#<AWS::Dynamodb::Types::Bs #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::Dynamodb::Types::Bs #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -215,7 +215,7 @@ module AWS::Dynamodb
         end
 
         def to_s
-          "#<AWS::Dynamodb::Types::M #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::Dynamodb::Types::M #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -230,7 +230,7 @@ module AWS::Dynamodb
         end
 
         def to_s
-          "#<AWS::Dynamodb::Types::L #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::Dynamodb::Types::L #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -245,7 +245,7 @@ module AWS::Dynamodb
         end
 
         def to_s
-          "#<AWS::Dynamodb::Types::Null #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::Dynamodb::Types::Null #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -260,7 +260,7 @@ module AWS::Dynamodb
         end
 
         def to_s
-          "#<AWS::Dynamodb::Types::Bool #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::Dynamodb::Types::Bool #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -272,7 +272,7 @@ module AWS::Dynamodb
         end
 
         def to_s
-          "#<AWS::Dynamodb::Types::Unknown #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::Dynamodb::Types::Unknown #{__getobj__ || 'nil'}>"
         end
       end
     end

@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::Sts
+module AWS::SDK::Sts
   module Paginators
 
   end

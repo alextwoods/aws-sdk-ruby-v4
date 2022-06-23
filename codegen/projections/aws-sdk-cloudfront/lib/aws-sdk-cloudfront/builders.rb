@@ -9,7 +9,7 @@
 
 require 'base64'
 
-module AWS::Cloudfront
+module AWS::SDK::Cloudfront
   module Builders
 
     # Operation Builder for AssociateAlias

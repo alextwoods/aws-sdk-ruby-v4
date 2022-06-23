@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::Lambda
+module AWS::SDK::Lambda
   module Waiters
 
     class FunctionExists

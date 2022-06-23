@@ -9,7 +9,7 @@
 
 require 'securerandom'
 
-module AWS::Ec2
+module AWS::SDK::Ec2
   module Params
 
     module AcceleratorCount

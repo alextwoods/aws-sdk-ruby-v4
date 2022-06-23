@@ -9,7 +9,7 @@
 
 require_relative 'middleware/request_id'
 
-module AWS::Dynamodb
+module AWS::SDK::Dynamodb
   # An API client for DynamoDB_20120810
   # See {#initialize} for a full list of supported configuration options
   # <fullname>Amazon DynamoDB</fullname>
@@ -45,7 +45,7 @@ module AWS::Dynamodb
     # @param [Config] config
     #   An instance of {Config}
     #
-    def initialize(config = AWS::Dynamodb::Config.new, options = {})
+    def initialize(config = AWS::SDK::Dynamodb::Config.new, options = {})
       @config = config
       @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
       @stubs = Hearth::Stubbing::Stubs.new

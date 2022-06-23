@@ -9,7 +9,7 @@
 
 require 'base64'
 
-module AWS::Lambda
+module AWS::SDK::Lambda
   module Parsers
 
     # Operation Parser for AddLayerVersionPermission

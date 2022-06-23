@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::Cloudfront
+module AWS::SDK::Cloudfront
   module Errors
     def self.error_code(resp)
       if !(200..299).cover?(resp.status)

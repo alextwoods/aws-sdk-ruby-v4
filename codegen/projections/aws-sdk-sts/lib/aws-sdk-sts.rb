@@ -7,6 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'aws-sdk-core'
 require 'hearth'
 
 require_relative 'aws-sdk-sts/builders'
@@ -21,6 +22,6 @@ require_relative 'aws-sdk-sts/types'
 require_relative 'aws-sdk-sts/validators'
 require_relative 'aws-sdk-sts/waiters'
 
-module AWS::Sts
+module AWS::SDK::Sts
   GEM_VERSION = '4.0.0.pre'
 end
