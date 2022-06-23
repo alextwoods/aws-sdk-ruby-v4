@@ -7,6 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'aws-sdk-core'
 require 'hearth'
 
 require_relative 'aws-sdk-sts/builders'
