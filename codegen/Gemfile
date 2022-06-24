@@ -7,7 +7,6 @@ source 'https://rubygems.org'
 # Use the latest hearth from Github
 gem 'hearth', git: 'https://github.com/awslabs/smithy-ruby', glob: 'hearth/hearth.gemspec'
 gem 'aws-sdk-core'
-# gem 'aws-sdk-core', "~> 4", path: 'TODO'
 
 gem 'jmespath'
 gem 'rexml'

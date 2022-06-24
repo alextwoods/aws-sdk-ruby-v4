@@ -39,7 +39,7 @@ public class AWSProtocols implements RubyIntegration {
                 .type(RubyDependency.Type.DEPENDENCY)
                 .gemName("aws-sdk-core")
                 .importPath("aws-sdk-core")
-                .version("~> 4")
+                .version("~> 4.0.0.pre1")
                 .build());
     }
 }
