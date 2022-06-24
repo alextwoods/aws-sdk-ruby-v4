@@ -41,7 +41,7 @@ module AWS::SDK::Core
     end
 
     def initialize(options = {})
-      @credentials = Credentials.new(
+      @credentials = Aws::Sigv4::Credentials.new(
         access_key_id: options[:access_key_id],
         secret_access_key: options[:secret_access_key],
         session_token: options[:session_token]

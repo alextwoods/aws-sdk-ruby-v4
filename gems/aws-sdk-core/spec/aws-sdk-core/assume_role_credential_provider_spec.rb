@@ -576,8 +576,9 @@ module AWS::SDK::Core
           .and_return(resp)
 
         credentials = subject.credentials
-        expect(credentials).to be_an_instance_of(Credentials)
         expect(credentials.access_key_id).to eq(credential_hash[:access_key_id])
+        expect(credentials.secret_access_key)
+          .to eq(credential_hash[:secret_access_key])
         expect(credentials.session_token).to eq(credential_hash[:session_token])
         expect(credentials.expiration).to eq(credential_hash[:expiration])
       end

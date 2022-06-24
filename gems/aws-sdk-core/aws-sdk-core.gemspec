@@ -13,6 +13,8 @@ Gem::Specification.new do |spec|
     'LICENSE.txt', 'CHANGELOG.md', 'VERSION', 'lib/**/*.rb'
   ]
 
+  spec.add_dependency('aws-sigv4', '~> 2.0.0.pre1')
+
   spec.metadata = {
     'source_code_uri' => 'https://github.com/aws/aws-sdk-ruby/tree/version-4/gems/aws-sdk-core',
     'changelog_uri' => 'https://github.com/aws/aws-sdk-ruby/tree/version-4/gems/aws-sdk-core/CHANGELOG.md'

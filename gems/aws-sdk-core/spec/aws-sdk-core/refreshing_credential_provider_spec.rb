@@ -14,7 +14,7 @@ module AWS::SDK::Core
     private
 
     def fetch
-      @credentials = Credentials.new(
+      @credentials = Aws::Sigv4::Credentials.new(
         access_key_id: 'ACCESS_KEY_2',
         secret_access_key: 'SECRET_KEY_2'
       )
@@ -28,7 +28,7 @@ module AWS::SDK::Core
 
     let(:expiration) { Time.now + (60 * 15) }
     let(:credentials) do
-      Credentials.new(
+      Aws::Sigv4::Credentials.new(
         access_key_id: 'ACCESS_KEY_1',
         secret_access_key: 'SECRET_KEY_1',
         expiration: expiration

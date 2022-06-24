@@ -15,7 +15,7 @@ module AWS::SDK::Core
     subject { TestCredentialProvider.new(credentials) }
 
     let(:credentials) do
-      Credentials.new(
+      Aws::Sigv4::Credentials.new(
         access_key_id: 'ACCESS_KEY_1',
         secret_access_key: 'SECRET_KEY_1'
       )

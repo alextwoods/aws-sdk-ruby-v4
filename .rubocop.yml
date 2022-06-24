@@ -29,8 +29,8 @@ Metrics/ParameterLists:
 
 Naming/FileName:
   Exclude:
-    - 'aws-sdk-core/lib/aws-sdk-core.rb'
-    - 'aws-sdk-core/spec/aws-sdk-core/aws-sdk-core_spec.rb'
+    - 'gems/aws-sdk-core/lib/aws-sdk-core.rb'
+    - 'gems/aws-sdk-core/spec/aws-sdk-core/aws-sdk-core_spec.rb'
 
 Style/ClassAndModuleChildren:
   Enabled: false

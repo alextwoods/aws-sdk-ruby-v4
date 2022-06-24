@@ -106,7 +106,7 @@ module AWS::SDK::Core
         access_token: cached_token['accessToken']
       ).data.role_credentials
 
-      @credentials = Credentials.new(
+      @credentials = Aws::Sigv4::Credentials.new(
         access_key_id: c.access_key_id,
         secret_access_key: c.secret_access_key,
         session_token: c.session_token,

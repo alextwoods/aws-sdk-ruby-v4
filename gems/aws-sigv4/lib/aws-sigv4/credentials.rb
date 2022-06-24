@@ -1,68 +1,37 @@
 # frozen_string_literal: true
 
-module Aws
-  module Sigv4
-    # Users that wish to configure static credentials can use the
-    # `:access_key_id` and `:secret_access_key` constructor options.
-    # @api private
-    class Credentials
-
-      # @option options [required, String] :access_key_id
-      # @option options [required, String] :secret_access_key
-      # @option options [String, nil] :session_token (nil)
-      def initialize(options = {})
-        if options[:access_key_id] && options[:secret_access_key]
-          @access_key_id = options[:access_key_id]
-          @secret_access_key = options[:secret_access_key]
-          @session_token = options[:session_token]
-        else
-          msg = "expected both :access_key_id and :secret_access_key options"
-          raise ArgumentError, msg
-        end
-      end
-
-      # @return [String]
-      attr_reader :access_key_id
-
-      # @return [String]
-      attr_reader :secret_access_key
-
-      # @return [String, nil]
-      attr_reader :session_token
-
-      # @return [Boolean] Returns `true` if the access key id and secret
-      #   access key are both set.
-      def set?
-        !access_key_id.nil? &&
-          !access_key_id.empty? &&
-          !secret_access_key.nil? &&
-          !secret_access_key.empty?
-      end
+module Aws::Sigv4
+  # A Credentials data object that stores AWS credentials. This object may be
+  # populated from various different {CredentialProvider}s.
+  class Credentials
+    # @param [String] access_key_id
+    # @param [String] secret_access_key
+    # @param [String] session_token (nil)
+    # @param [Time] expiration (nil)
+    def initialize(access_key_id:, secret_access_key:,
+                   session_token: nil, expiration: nil)
+      @access_key_id = access_key_id
+      @secret_access_key = secret_access_key
+      @session_token = session_token
+      @expiration = expiration
     end
 
-    # Users that wish to configure static credentials can use the
-    # `:access_key_id` and `:secret_access_key` constructor options.
+    # @return [String, nil]
+    attr_reader :access_key_id
+
+    # @return [String, nil]
+    attr_reader :secret_access_key
+
+    # @return [String, nil]
+    attr_reader :session_token
+
+    # @return [Time, nil]
+    attr_reader :expiration
+
+    # Removing the secret access key from the default inspect string.
     # @api private
-    class StaticCredentialsProvider
-
-      # @option options [Credentials] :credentials
-      # @option options [String] :access_key_id
-      # @option options [String] :secret_access_key
-      # @option options [String] :session_token (nil)
-      def initialize(options = {})
-        @credentials = options[:credentials] ?
-          options[:credentials] :
-          Credentials.new(options)
-      end
-
-      # @return [Credentials]
-      attr_reader :credentials
-
-      # @return [Boolean]
-      def set?
-        !!credentials && credentials.set?
-      end
+    def inspect
+      "#<#{self.class.name} access_key_id=#{access_key_id.inspect}>"
     end
-
   end
 end

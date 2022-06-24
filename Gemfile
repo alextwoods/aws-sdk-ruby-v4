@@ -7,8 +7,6 @@ source 'https://rubygems.org'
 #     git: 'https://github.com/awslabs/smithy-ruby',
 #     glob: 'hearth/hearth.gemspec'
 
-gemspec
-
 gem 'rexml', '~> 3.2', '>= 3.2.4'
 
 group :test do
