@@ -107,6 +107,12 @@ jobs:
 
       - uses: actions/checkout@v2
 
+      - name: Build and install aws-sigv4
+        run: |
+          gem build aws-sigv4.gemspec
+          gem install aws-sigv4-$(<VERSION).gem
+        working-directory: ./gems/aws-sigv4
+
       - name: Build and install aws-sdk-core
         run: |
           gem build aws-sdk-core.gemspec
