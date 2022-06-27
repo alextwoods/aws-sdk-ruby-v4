@@ -204,9 +204,9 @@
           "service": "aws.protocoltests.query#AwsQueryExtras",
           "module": "AwsQueryExtras",
           "gemspec": {
-            "gemName": "query_extras",
+            "gemName": "aws_query_extras",
             "gemVersion": "0.0.1",
-            "gemSummary": "Query Protocol Extras Test Service"
+            "gemSummary": "Aws Query Protocol Extras Test Service"
           }
         }
       }
