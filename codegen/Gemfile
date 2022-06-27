@@ -9,7 +9,7 @@ gem 'hearth',
     git: 'https://github.com/awslabs/smithy-ruby',
     glob: 'hearth/hearth.gemspec'
 
-# gem 'aws-sdk-core'
+gem 'aws-sdk-core'
 
 # gem 'jmespath'
 # gem 'rexml'
