@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-
 require 'webmock/rspec'
 
 require 'simplecov'
@@ -10,6 +8,7 @@ SimpleCov.start do
 end
 
 require 'aws-sdk-core'
+
 require_relative 'support/credential_provider'
 require_relative 'support/refreshing_credential_provider'
 

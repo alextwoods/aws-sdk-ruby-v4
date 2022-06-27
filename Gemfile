@@ -20,3 +20,7 @@ group :development do
   gem 'rubocop', '<= 1.27.0'
   gem 'steep'
 end
+
+group :repl do
+  gem 'pry'
+end

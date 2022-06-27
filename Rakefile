@@ -8,7 +8,6 @@ $LOAD_PATH.unshift("#{GEMS_DIR}/aws-sigv4/lib")
 
 require 'aws-sdk-core'
 
-desc 'Execute aws-sdk-core specs'
-task 'test' do
-  sh("bundle exec rspec #{GEMS_DIR}/aws-sdk-core")
+Dir.glob("#{ROOT}/tasks/*.rake").each do |task_file|
+  load(task_file)
 end
