@@ -49,17 +49,17 @@ module AWS
     #       secret_access_key: 'secret'
     #     )
     #
-    # You can also provide refreshing credentials via the `:credentials_provider`.
+    # You can also provide refreshing credentials via the `:credential_provider`.
     # If you are using the AWS SDK for Ruby, you can use any of the credential
     # classes:
     #
     #     signer = AWS::Sigv4::Signer.new(
     #       service: 's3',
     #       region: 'us-east-1',
-    #       credentials_provider: AWS::InstanceProfileCredentials.new
+    #       credential_provider: Aws::InstanceProfileCredentials.new
     #     )
     #
-    # Other AWS SDK for Ruby classes that can be provided via `:credentials_provider`:
+    # Other AWS SDK for Ruby classes that can be provided via `:credential_provider`:
     #
     # * `AWS::Credentials`
     # * `AWS::SharedCredentials`
@@ -91,10 +91,10 @@ module AWS
       #     * `#session_token` => String, nil
       #     * `#set?` => Boolean
       #
-      # @overload initialize(service:, region:, credentials_provider:, **options)
+      # @overload initialize(service:, region:, credential_provider:, **options)
       #   @param [String] :service The service signing name, e.g. 's3'.
       #   @param [String] :region The region name, e.g. 'us-east-1'.
-      #   @param [#credentials] :credentials_provider An object that responds
+      #   @param [#credentials] :credential_provider An object that responds
       #     to `#credentials`, returning an object that responds to the following
       #     methods:
       #
@@ -132,7 +132,7 @@ module AWS
       def initialize(options = {})
         @service = extract_service(options)
         @region = extract_region(options)
-        @credentials_provider = extract_credentials_provider(options)
+        @credential_provider = extract_credential_provider(options)
         @unsigned_headers = Set.new((options.fetch(:unsigned_headers, [])).map(&:downcase))
         @unsigned_headers << 'authorization'
         @unsigned_headers << 'x-amzn-trace-id'
@@ -165,7 +165,7 @@ module AWS
       #   * `#session_token` => String, nil
       #   * `#set?` => Boolean
       #
-      attr_reader :credentials_provider
+      attr_reader :credential_provider
 
       # @return [Set<String>] Returns a set of header names that should not be signed.
       #   All header names have been downcased.
@@ -636,9 +636,9 @@ module AWS
         end
       end
 
-      def extract_credentials_provider(options)
-        if options[:credentials_provider]
-          options[:credentials_provider]
+      def extract_credential_provider(options)
+        if options[:credential_provider]
+          options[:credential_provider]
         elsif options.key?(:credentials) || options.key?(:access_key_id)
           StaticCredentialsProvider.new(options)
         else
@@ -691,7 +691,7 @@ module AWS
 
 
       def fetch_credentials
-        credentials = @credentials_provider.credentials
+        credentials = @credential_provider.credentials
         if credentials_set?(credentials)
           credentials
         else
