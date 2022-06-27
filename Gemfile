@@ -8,6 +8,7 @@ source 'https://rubygems.org'
 #     glob: 'hearth/hearth.gemspec'
 
 gem 'rexml', '~> 3.2', '>= 3.2.4'
+gem 'rake'
 
 group :test do
   gem 'rspec'
