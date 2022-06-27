@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative '../../aws-sdk-core/spec/spec_helper'
+require_relative 'spec_helper'
 
-module AWS::SDK::Core
+module AWS::Sigv4
   describe Credentials do
     subject do
       Credentials.new(

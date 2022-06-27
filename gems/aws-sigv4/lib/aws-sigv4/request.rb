@@ -2,7 +2,7 @@
 
 require 'uri'
 
-module Aws
+module AWS
   module Sigv4
     class Request
 

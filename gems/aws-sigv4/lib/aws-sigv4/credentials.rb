@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
-module Aws::Sigv4
+module AWS::Sigv4
   # A Credentials data object that stores AWS credentials. This object may be
   # populated from various different {CredentialProvider}s.
   class Credentials
+    puts "Okay, and loaded credentials...."
     # @param [String] access_key_id
     # @param [String] secret_access_key
     # @param [String] session_token (nil)

@@ -58,7 +58,7 @@ module AWS::SDK::Core
         open_connection do |conn|
           c = JSON.parse(http_get(conn))
           expiration = Time.iso8601(c['Expiration']) if c['Expiration']
-          @credentials = Aws::Sigv4::Credentials.new(
+          @credentials = AWS::Sigv4::Credentials.new(
             access_key_id: c['AccessKeyId'],
             secret_access_key: c['SecretAccessKey'],
             session_token: c['Token'],

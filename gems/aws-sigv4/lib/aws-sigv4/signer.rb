@@ -6,9 +6,8 @@ require 'time'
 require 'uri'
 require 'set'
 require 'cgi'
-require 'aws-eventstream'
 
-module Aws
+module AWS
   module Sigv4
 
     # Utility class for creating AWS signature version 4 signature. This class
@@ -42,7 +41,7 @@ module Aws
     # The signer requires credentials. You can configure the signer
     # with static credentials:
     #
-    #     signer = Aws::Sigv4::Signer.new(
+    #     signer = AWS::Sigv4::Signer.new(
     #       service: 's3',
     #       region: 'us-east-1',
     #       # static credentials
@@ -54,19 +53,19 @@ module Aws
     # If you are using the AWS SDK for Ruby, you can use any of the credential
     # classes:
     #
-    #     signer = Aws::Sigv4::Signer.new(
+    #     signer = AWS::Sigv4::Signer.new(
     #       service: 's3',
     #       region: 'us-east-1',
-    #       credentials_provider: Aws::InstanceProfileCredentials.new
+    #       credentials_provider: AWS::InstanceProfileCredentials.new
     #     )
     #
     # Other AWS SDK for Ruby classes that can be provided via `:credentials_provider`:
     #
-    # * `Aws::Credentials`
-    # * `Aws::SharedCredentials`
-    # * `Aws::InstanceProfileCredentials`
-    # * `Aws::AssumeRoleCredentials`
-    # * `Aws::ECSCredentials`
+    # * `AWS::Credentials`
+    # * `AWS::SharedCredentials`
+    # * `AWS::InstanceProfileCredentials`
+    # * `AWS::AssumeRoleCredentials`
+    # * `AWS::ECSCredentials`
     #
     # A credential provider is any object that responds to `#credentials`
     # returning another object that responds to `#access_key_id`, `#secret_access_key`,
@@ -286,7 +285,7 @@ module Aws
       #     headers_0, signature_0 = signer.sign_event(
       #       prior_signature, # hex-encoded string
       #       payload_0, # binary string (eventstream encoded event 0)
-      #       encoder, # Aws::EventStreamEncoder
+      #       encoder, # AWS::EventStreamEncoder
       #     )
       #
       #     headers_1, signature_1 = signer.sign_event(
@@ -312,12 +311,12 @@ module Aws
 
         datetime = time.utc.strftime("%Y%m%dT%H%M%SZ")
         date = datetime[0,8]
-        headers[':date'] = Aws::EventStream::HeaderValue.new(value: time.to_i * 1000, type: 'timestamp')
+        headers[':date'] = AWS::EventStream::HeaderValue.new(value: time.to_i * 1000, type: 'timestamp')
 
         sts = event_string_to_sign(datetime, headers, payload, prior_signature, encoder)
         sig = event_signature(creds.secret_access_key, date, sts)
 
-        headers[':chunk-signature'] = Aws::EventStream::HeaderValue.new(value: sig, type: 'bytes')
+        headers[':chunk-signature'] = AWS::EventStream::HeaderValue.new(value: sig, type: 'bytes')
 
         # Returning signed headers and signature value in hex-encoded string
         [headers, sig.unpack('H*').first]
@@ -468,7 +467,7 @@ module Aws
       #   thus no extra encoding is needed.
       def event_string_to_sign(datetime, headers, payload, prior_signature, encoder)
         encoded_headers = encoder.encode_headers(
-          Aws::EventStream::Message.new(headers: headers, payload: payload)
+          AWS::EventStream::Message.new(headers: headers, payload: payload)
         )
         [
           "AWS4-HMAC-SHA256-PAYLOAD",
@@ -718,7 +717,7 @@ module Aws
       # CRT StaticCredentialsProvider object
       def crt_fetch_credentials
         creds = fetch_credentials
-        Aws::Crt::Auth::StaticCredentialsProvider.new(
+        AWS::Crt::Auth::StaticCredentialsProvider.new(
           creds.access_key_id,
           creds.secret_access_key,
           creds.session_token
@@ -745,13 +744,13 @@ module Aws
         # Modify the user-agent to add usage of crt-signer
         # This should be temporary during developer preview only
         if headers.include? 'user-agent'
-          headers['user-agent'] = "#{headers['user-agent']} crt-signer/#{@signing_algorithm}/#{Aws::Sigv4::VERSION}"
+          headers['user-agent'] = "#{headers['user-agent']} crt-signer/#{@signing_algorithm}/#{AWS::Sigv4::VERSION}"
           sigv4_headers['user-agent'] = headers['user-agent']
         end
 
         headers = headers.merge(sigv4_headers) # merge so we do not modify given headers hash
 
-        config = Aws::Crt::Auth::SigningConfig.new(
+        config = AWS::Crt::Auth::SigningConfig.new(
           algorithm: @signing_algorithm,
           signature_type: :http_request_headers,
           region: @region,
@@ -766,12 +765,12 @@ module Aws
           should_normalize_uri_path: @normalize_path,
           omit_session_token: @omit_session_token
         )
-        http_request = Aws::Crt::Http::Message.new(
+        http_request = AWS::Crt::Http::Message.new(
           http_method, url.to_s, headers
         )
-        signable = Aws::Crt::Auth::Signable.new(http_request)
+        signable = AWS::Crt::Auth::Signable.new(http_request)
 
-        signing_result = Aws::Crt::Auth::Signer.sign_request(config, signable)
+        signing_result = AWS::Crt::Auth::Signer.sign_request(config, signable)
 
         Signature.new(
           headers: sigv4_headers.merge(
@@ -799,7 +798,7 @@ module Aws
         content_sha256 ||= options[:body_digest]
         content_sha256 ||= sha256_hexdigest(options[:body] || '')
 
-        config = Aws::Crt::Auth::SigningConfig.new(
+        config = AWS::Crt::Auth::SigningConfig.new(
           algorithm: @signing_algorithm,
           signature_type: :http_request_query_params,
           region: @region,
@@ -815,12 +814,12 @@ module Aws
           omit_session_token: @omit_session_token,
           expiration_in_seconds: options.fetch(:expires_in, 900)
         )
-        http_request = Aws::Crt::Http::Message.new(
+        http_request = AWS::Crt::Http::Message.new(
           http_method, url.to_s, headers
         )
-        signable = Aws::Crt::Auth::Signable.new(http_request)
+        signable = AWS::Crt::Auth::Signable.new(http_request)
 
-        signing_result = Aws::Crt::Auth::Signer.sign_request(config, signable, http_method, url.to_s)
+        signing_result = AWS::Crt::Auth::Signer.sign_request(config, signable, http_method, url.to_s)
         url = URI.parse(signing_result[:path])
 
         if options[:extra] && options[:extra].is_a?(Hash)

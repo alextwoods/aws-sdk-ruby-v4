@@ -1,12 +1,10 @@
 # encoding: UTF-8
 # frozen_string_literal: true
 
-$:.unshift(File.expand_path('../../lib', __FILE__))
-$LOAD_PATH.unshift(File.expand_path('../../../aws-eventstream/lib',  __FILE__))
+$LOAD_PATH.unshift(File.expand_path('../../lib', __FILE__))
 
 require 'rspec'
 require 'aws-sigv4'
-require 'aws-eventstream'
 
 module SpecHelper
   class << self
@@ -27,13 +25,13 @@ module SpecHelper
       if querystring
         querystring = querystring.split('&').map do |key_value|
           key, value = key_value.split('=')
-          key = Aws::Sigv4::Signer.uri_escape(key)
-          value = Aws::Sigv4::Signer.uri_escape(value.to_s)
+          key = AWS::Sigv4::Signer.uri_escape(key)
+          value = AWS::Sigv4::Signer.uri_escape(value.to_s)
           "#{key}=#{value}"
         end.join('&')
       end
 
-      request_uri = Aws::Sigv4::Signer.uri_escape_path(uri_path)
+      request_uri = AWS::Sigv4::Signer.uri_escape_path(uri_path)
       request_uri += '?' + querystring if querystring
 
       # extract headers
