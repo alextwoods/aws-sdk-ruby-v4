@@ -1,4 +1,4 @@
-name: aws-sdk-core CI
+name: Gems CI
 
 on:
   push:
@@ -27,11 +27,9 @@ jobs:
 
       - name: Install gems
         run: bundle install
-        working-directory: gems/aws-sdk-core
 
       - name: Unit tests
-        run: bundle exec rspec
-        working-directory: gems/aws-sdk-core
+        run: bundle exec rake test:spec
 
   rubocop:
     runs-on: ubuntu-latest
