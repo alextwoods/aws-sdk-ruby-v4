@@ -9,6 +9,10 @@ source 'https://rubygems.org'
 
 gem 'rexml', '~> 3.2', '>= 3.2.4'
 gem 'rake'
+gem 'jmespath'
+
+# Use the latest hearth from Github
+gem 'hearth', git: 'https://github.com/awslabs/smithy-ruby', glob: 'hearth/hearth.gemspec'
 
 group :test do
   gem 'rspec'
