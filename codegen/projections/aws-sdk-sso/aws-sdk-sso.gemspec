@@ -9,7 +9,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = 'aws-sdk-sso'
-  spec.version       = '4.0.0.pre'
+  spec.version       = '2.0.0.pre'
   spec.author        = 'Amazon Web Services'
   spec.summary       = 'TEST SERVICE'
   spec.files         = Dir['lib/**/*.rb']

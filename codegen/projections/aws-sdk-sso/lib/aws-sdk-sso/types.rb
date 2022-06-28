@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Sso
+module AWS::SDK::SSO
   module Types
 
     # <p>Provides information about your AWS account.</p>
@@ -61,7 +61,7 @@ module AWS::SDK::Sso
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::SDK::Sso::Types::GetRoleCredentialsInput "\
+        "#<struct AWS::SDK::SSO::Types::GetRoleCredentialsInput "\
           "role_name=#{role_name || 'nil'}, "\
           "account_id=#{account_id || 'nil'}, "\
           "access_token=\"[SENSITIVE]\">"
@@ -125,7 +125,7 @@ module AWS::SDK::Sso
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::SDK::Sso::Types::ListAccountRolesInput "\
+        "#<struct AWS::SDK::SSO::Types::ListAccountRolesInput "\
           "next_token=#{next_token || 'nil'}, "\
           "max_results=#{max_results || 'nil'}, "\
           "access_token=\"[SENSITIVE]\", "\
@@ -176,7 +176,7 @@ module AWS::SDK::Sso
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::SDK::Sso::Types::ListAccountsInput "\
+        "#<struct AWS::SDK::SSO::Types::ListAccountsInput "\
           "next_token=#{next_token || 'nil'}, "\
           "max_results=#{max_results || 'nil'}, "\
           "access_token=\"[SENSITIVE]\">"
@@ -214,7 +214,7 @@ module AWS::SDK::Sso
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::SDK::Sso::Types::LogoutInput "\
+        "#<struct AWS::SDK::SSO::Types::LogoutInput "\
           "access_token=\"[SENSITIVE]\">"
       end
     end
@@ -279,7 +279,7 @@ module AWS::SDK::Sso
       end
 
       def to_s
-        "#<struct AWS::SDK::Sso::Types::RoleCredentials "\
+        "#<struct AWS::SDK::SSO::Types::RoleCredentials "\
           "access_key_id=#{access_key_id || 'nil'}, "\
           "secret_access_key=\"[SENSITIVE]\", "\
           "session_token=\"[SENSITIVE]\", "\

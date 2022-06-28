@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Cloudfront
+module AWS::SDK::CloudFront
   module Waiters
 
     # Wait until a distribution is deployed.

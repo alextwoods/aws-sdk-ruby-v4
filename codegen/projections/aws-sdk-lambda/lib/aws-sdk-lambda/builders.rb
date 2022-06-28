@@ -67,6 +67,8 @@ module AWS::SDK::Lambda
         data['SourceAccount'] = input[:source_account] unless input[:source_account].nil?
         data['EventSourceToken'] = input[:event_source_token] unless input[:event_source_token].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
+        data['PrincipalOrgID'] = input[:principal_org_id] unless input[:principal_org_id].nil?
+        data['FunctionUrlAuthType'] = input[:function_url_auth_type] unless input[:function_url_auth_type].nil?
         http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -176,6 +178,7 @@ module AWS::SDK::Lambda
         data['FunctionName'] = input[:function_name] unless input[:function_name].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
         data['BatchSize'] = input[:batch_size] unless input[:batch_size].nil?
+        data['FilterCriteria'] = Builders::FilterCriteria.build(input[:filter_criteria]) unless input[:filter_criteria].nil?
         data['MaximumBatchingWindowInSeconds'] = input[:maximum_batching_window_in_seconds] unless input[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = input[:parallelization_factor] unless input[:parallelization_factor].nil?
         data['StartingPosition'] = input[:starting_position] unless input[:starting_position].nil?
@@ -307,6 +310,35 @@ module AWS::SDK::Lambda
       end
     end
 
+    # Structure Builder for FilterCriteria
+    class FilterCriteria
+      def self.build(input)
+        data = {}
+        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data
+      end
+    end
+
+    # List Builder for FilterList
+    class FilterList
+      def self.build(input)
+        data = []
+        input.each do |element|
+          data << Builders::Filter.build(element) unless element.nil?
+        end
+        data
+      end
+    end
+
+    # Structure Builder for Filter
+    class Filter
+      def self.build(input)
+        data = {}
+        data['Pattern'] = input[:pattern] unless input[:pattern].nil?
+        data
+      end
+    end
+
     # Operation Builder for CreateFunction
     class CreateFunction
       def self.build(http_req, input:)
@@ -337,7 +369,29 @@ module AWS::SDK::Lambda
         data['FileSystemConfigs'] = Builders::FileSystemConfigList.build(input[:file_system_configs]) unless input[:file_system_configs].nil?
         data['ImageConfig'] = Builders::ImageConfig.build(input[:image_config]) unless input[:image_config].nil?
         data['CodeSigningConfigArn'] = input[:code_signing_config_arn] unless input[:code_signing_config_arn].nil?
+        data['Architectures'] = Builders::ArchitecturesList.build(input[:architectures]) unless input[:architectures].nil?
+        data['EphemeralStorage'] = Builders::EphemeralStorage.build(input[:ephemeral_storage]) unless input[:ephemeral_storage].nil?
         http_req.body = StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    # Structure Builder for EphemeralStorage
+    class EphemeralStorage
+      def self.build(input)
+        data = {}
+        data['Size'] = input[:size] unless input[:size].nil?
+        data
+      end
+    end
+
+    # List Builder for ArchitecturesList
+    class ArchitecturesList
+      def self.build(input)
+        data = []
+        input.each do |element|
+          data << element unless element.nil?
+        end
+        data
       end
     end
 
@@ -489,6 +543,77 @@ module AWS::SDK::Lambda
       end
     end
 
+    # Operation Builder for CreateFunctionUrlConfig
+    class CreateFunctionUrlConfig
+      def self.build(http_req, input:)
+        http_req.http_method = 'POST'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
+        http_req.append_path(format(
+            '/2021-10-31/functions/%<FunctionName>s/url',
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
+          )
+        )
+        params = Hearth::Query::ParamList.new
+        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
+        http_req.append_query_params(params)
+
+        http_req.headers['Content-Type'] = 'application/json'
+        data = {}
+        data['AuthType'] = input[:auth_type] unless input[:auth_type].nil?
+        data['Cors'] = Builders::Cors.build(input[:cors]) unless input[:cors].nil?
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    # Structure Builder for Cors
+    class Cors
+      def self.build(input)
+        data = {}
+        data['AllowCredentials'] = input[:allow_credentials] unless input[:allow_credentials].nil?
+        data['AllowHeaders'] = Builders::HeadersList.build(input[:allow_headers]) unless input[:allow_headers].nil?
+        data['AllowMethods'] = Builders::AllowMethodsList.build(input[:allow_methods]) unless input[:allow_methods].nil?
+        data['AllowOrigins'] = Builders::AllowOriginsList.build(input[:allow_origins]) unless input[:allow_origins].nil?
+        data['ExposeHeaders'] = Builders::HeadersList.build(input[:expose_headers]) unless input[:expose_headers].nil?
+        data['MaxAge'] = input[:max_age] unless input[:max_age].nil?
+        data
+      end
+    end
+
+    # List Builder for HeadersList
+    class HeadersList
+      def self.build(input)
+        data = []
+        input.each do |element|
+          data << element unless element.nil?
+        end
+        data
+      end
+    end
+
+    # List Builder for AllowOriginsList
+    class AllowOriginsList
+      def self.build(input)
+        data = []
+        input.each do |element|
+          data << element unless element.nil?
+        end
+        data
+      end
+    end
+
+    # List Builder for AllowMethodsList
+    class AllowMethodsList
+      def self.build(input)
+        data = []
+        input.each do |element|
+          data << element unless element.nil?
+        end
+        data
+      end
+    end
+
     # Operation Builder for DeleteAlias
     class DeleteAlias
       def self.build(http_req, input:)
@@ -605,6 +730,24 @@ module AWS::SDK::Lambda
         end
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
+          )
+        )
+        params = Hearth::Query::ParamList.new
+        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
+        http_req.append_query_params(params)
+      end
+    end
+
+    # Operation Builder for DeleteFunctionUrlConfig
+    class DeleteFunctionUrlConfig
+      def self.build(http_req, input:)
+        http_req.http_method = 'DELETE'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
+        http_req.append_path(format(
+            '/2021-10-31/functions/%<FunctionName>s/url',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
@@ -797,6 +940,24 @@ module AWS::SDK::Lambda
         end
         http_req.append_path(format(
             '/2019-09-25/functions/%<FunctionName>s/event-invoke-config',
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
+          )
+        )
+        params = Hearth::Query::ParamList.new
+        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
+        http_req.append_query_params(params)
+      end
+    end
+
+    # Operation Builder for GetFunctionUrlConfig
+    class GetFunctionUrlConfig
+      def self.build(http_req, input:)
+        http_req.http_method = 'GET'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
+        http_req.append_path(format(
+            '/2021-10-31/functions/%<FunctionName>s/url',
             FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
           )
         )
@@ -1006,6 +1167,25 @@ module AWS::SDK::Lambda
       end
     end
 
+    # Operation Builder for ListFunctionUrlConfigs
+    class ListFunctionUrlConfigs
+      def self.build(http_req, input:)
+        http_req.http_method = 'GET'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
+        http_req.append_path(format(
+            '/2021-10-31/functions/%<FunctionName>s/urls',
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
+          )
+        )
+        params = Hearth::Query::ParamList.new
+        params['Marker'] = input[:marker].to_s unless input[:marker].nil?
+        params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        http_req.append_query_params(params)
+      end
+    end
+
     # Operation Builder for ListFunctions
     class ListFunctions
       def self.build(http_req, input:)
@@ -1055,6 +1235,7 @@ module AWS::SDK::Lambda
         params['CompatibleRuntime'] = input[:compatible_runtime].to_s unless input[:compatible_runtime].nil?
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        params['CompatibleArchitecture'] = input[:compatible_architecture].to_s unless input[:compatible_architecture].nil?
         http_req.append_query_params(params)
       end
     end
@@ -1068,6 +1249,7 @@ module AWS::SDK::Lambda
         params['CompatibleRuntime'] = input[:compatible_runtime].to_s unless input[:compatible_runtime].nil?
         params['Marker'] = input[:marker].to_s unless input[:marker].nil?
         params['MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
+        params['CompatibleArchitecture'] = input[:compatible_architecture].to_s unless input[:compatible_architecture].nil?
         http_req.append_query_params(params)
       end
     end
@@ -1151,7 +1333,19 @@ module AWS::SDK::Lambda
         data['Content'] = Builders::LayerVersionContentInput.build(input[:content]) unless input[:content].nil?
         data['CompatibleRuntimes'] = Builders::CompatibleRuntimes.build(input[:compatible_runtimes]) unless input[:compatible_runtimes].nil?
         data['LicenseInfo'] = input[:license_info] unless input[:license_info].nil?
+        data['CompatibleArchitectures'] = Builders::CompatibleArchitectures.build(input[:compatible_architectures]) unless input[:compatible_architectures].nil?
         http_req.body = StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    # List Builder for CompatibleArchitectures
+    class CompatibleArchitectures
+      def self.build(input)
+        data = []
+        input.each do |element|
+          data << element unless element.nil?
+        end
+        data
       end
     end
 
@@ -1471,6 +1665,7 @@ module AWS::SDK::Lambda
         data['FunctionName'] = input[:function_name] unless input[:function_name].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
         data['BatchSize'] = input[:batch_size] unless input[:batch_size].nil?
+        data['FilterCriteria'] = Builders::FilterCriteria.build(input[:filter_criteria]) unless input[:filter_criteria].nil?
         data['MaximumBatchingWindowInSeconds'] = input[:maximum_batching_window_in_seconds] unless input[:maximum_batching_window_in_seconds].nil?
         data['DestinationConfig'] = Builders::DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
         data['MaximumRecordAgeInSeconds'] = input[:maximum_record_age_in_seconds] unless input[:maximum_record_age_in_seconds].nil?
@@ -1509,6 +1704,7 @@ module AWS::SDK::Lambda
         data['Publish'] = input[:publish] unless input[:publish].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
+        data['Architectures'] = Builders::ArchitecturesList.build(input[:architectures]) unless input[:architectures].nil?
         http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1545,6 +1741,7 @@ module AWS::SDK::Lambda
         data['Layers'] = Builders::LayerList.build(input[:layers]) unless input[:layers].nil?
         data['FileSystemConfigs'] = Builders::FileSystemConfigList.build(input[:file_system_configs]) unless input[:file_system_configs].nil?
         data['ImageConfig'] = Builders::ImageConfig.build(input[:image_config]) unless input[:image_config].nil?
+        data['EphemeralStorage'] = Builders::EphemeralStorage.build(input[:ephemeral_storage]) unless input[:ephemeral_storage].nil?
         http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1570,6 +1767,30 @@ module AWS::SDK::Lambda
         data['MaximumRetryAttempts'] = input[:maximum_retry_attempts] unless input[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = input[:maximum_event_age_in_seconds] unless input[:maximum_event_age_in_seconds].nil?
         data['DestinationConfig'] = Builders::DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
+        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    # Operation Builder for UpdateFunctionUrlConfig
+    class UpdateFunctionUrlConfig
+      def self.build(http_req, input:)
+        http_req.http_method = 'PUT'
+        if input[:function_name].to_s.empty?
+          raise ArgumentError, "HTTP label :function_name cannot be nil or empty."
+        end
+        http_req.append_path(format(
+            '/2021-10-31/functions/%<FunctionName>s/url',
+            FunctionName: Hearth::HTTP.uri_escape(input[:function_name].to_s)
+          )
+        )
+        params = Hearth::Query::ParamList.new
+        params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
+        http_req.append_query_params(params)
+
+        http_req.headers['Content-Type'] = 'application/json'
+        data = {}
+        data['AuthType'] = input[:auth_type] unless input[:auth_type].nil?
+        data['Cors'] = Builders::Cors.build(input[:cors]) unless input[:cors].nil?
         http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end

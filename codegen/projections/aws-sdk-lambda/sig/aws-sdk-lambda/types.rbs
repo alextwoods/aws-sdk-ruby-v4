@@ -28,6 +28,12 @@ module AWS::SDK::Lambda
 
     AllowedPublishers: untyped
 
+    module Architecture
+      x86_64: ::String
+
+      arm64: ::String
+    end
+
     CodeSigningConfig: untyped
 
     CodeSigningConfigNotFoundException: untyped
@@ -46,6 +52,8 @@ module AWS::SDK::Lambda
 
     Concurrency: untyped
 
+    Cors: untyped
+
     CreateAliasInput: untyped
 
     CreateAliasOutput: untyped
@@ -61,6 +69,10 @@ module AWS::SDK::Lambda
     CreateFunctionInput: untyped
 
     CreateFunctionOutput: untyped
+
+    CreateFunctionUrlConfigInput: untyped
+
+    CreateFunctionUrlConfigOutput: untyped
 
     DeadLetterConfig: untyped
 
@@ -91,6 +103,10 @@ module AWS::SDK::Lambda
     DeleteFunctionInput: untyped
 
     DeleteFunctionOutput: untyped
+
+    DeleteFunctionUrlConfigInput: untyped
+
+    DeleteFunctionUrlConfigOutput: untyped
 
     DeleteLayerVersionInput: untyped
 
@@ -128,6 +144,8 @@ module AWS::SDK::Lambda
 
     EnvironmentResponse: untyped
 
+    EphemeralStorage: untyped
+
     EventSourceMappingConfiguration: untyped
 
     module EventSourcePosition
@@ -140,6 +158,10 @@ module AWS::SDK::Lambda
 
     FileSystemConfig: untyped
 
+    Filter: untyped
+
+    FilterCriteria: untyped
+
     FunctionCode: untyped
 
     FunctionCodeLocation: untyped
@@ -151,6 +173,14 @@ module AWS::SDK::Lambda
     module FunctionResponseType
       ReportBatchItemFailures: ::String
     end
+
+    module FunctionUrlAuthType
+      NONE: ::String
+
+      AWS_IAM: ::String
+    end
+
+    FunctionUrlConfig: untyped
 
     module FunctionVersion
       ALL: ::String
@@ -191,6 +221,10 @@ module AWS::SDK::Lambda
     GetFunctionInput: untyped
 
     GetFunctionOutput: untyped
+
+    GetFunctionUrlConfigInput: untyped
+
+    GetFunctionUrlConfigOutput: untyped
 
     GetLayerVersionByArnInput: untyped
 
@@ -312,6 +346,10 @@ module AWS::SDK::Lambda
 
     ListFunctionEventInvokeConfigsOutput: untyped
 
+    ListFunctionUrlConfigsInput: untyped
+
+    ListFunctionUrlConfigsOutput: untyped
+
     ListFunctionsByCodeSigningConfigInput: untyped
 
     ListFunctionsByCodeSigningConfigOutput: untyped
@@ -429,6 +467,8 @@ module AWS::SDK::Lambda
 
       nodejs14x: ::String
 
+      nodejs16x: ::String
+
       java8: ::String
 
       java8al2: ::String
@@ -443,6 +483,8 @@ module AWS::SDK::Lambda
 
       python38: ::String
 
+      python39: ::String
+
       dotnetcore10: ::String
 
       dotnetcore20: ::String
@@ -450,6 +492,8 @@ module AWS::SDK::Lambda
       dotnetcore21: ::String
 
       dotnetcore31: ::String
+
+      dotnet6: ::String
 
       nodejs43edge: ::String
 
@@ -480,6 +524,12 @@ module AWS::SDK::Lambda
       SASL_SCRAM_512_AUTH: ::String
 
       SASL_SCRAM_256_AUTH: ::String
+
+      VIRTUAL_HOST: ::String
+
+      CLIENT_CERTIFICATE_TLS_AUTH: ::String
+
+      SERVER_ROOT_CA_CERTIFICATE: ::String
     end
 
     module State
@@ -579,6 +629,10 @@ module AWS::SDK::Lambda
     UpdateFunctionEventInvokeConfigInput: untyped
 
     UpdateFunctionEventInvokeConfigOutput: untyped
+
+    UpdateFunctionUrlConfigInput: untyped
+
+    UpdateFunctionUrlConfigOutput: untyped
 
     VpcConfig: untyped
 

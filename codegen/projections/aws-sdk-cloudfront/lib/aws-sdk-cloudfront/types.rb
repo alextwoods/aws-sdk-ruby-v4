@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Cloudfront
+module AWS::SDK::CloudFront
   module Types
 
     # <p>Access denied.</p>
@@ -1732,7 +1732,7 @@ module AWS::SDK::Cloudfront
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::SDK::Cloudfront::Types::CreateFunctionInput "\
+        "#<struct AWS::SDK::CloudFront::Types::CreateFunctionInput "\
           "name=#{name || 'nil'}, "\
           "function_config=#{function_config || 'nil'}, "\
           "function_code=\"[SENSITIVE]\">"
@@ -3298,7 +3298,7 @@ module AWS::SDK::Cloudfront
     #   			content (or restrict access but not by IP address), you can create two distributions. For more
     #   			information, see
     #   			<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-creating-signed-url-custom-policy.html">Creating a Signed URL Using a Custom Policy</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-    #   		       <p>If you're using an Route 53 Amazon Web Services Integration alias resource record set to route traffic to your CloudFront
+    #   		       <p>If you're using an Route 53 Amazon Web Services Integration alias resource record set to route traffic to your CloudFront
     #   			distribution, you need to create a second alias resource record set when both of the following
     #   			are true:</p>
     #   		       <ul>
@@ -3310,9 +3310,9 @@ module AWS::SDK::Cloudfront
     #   			         </li>
     #            </ul>
     #   		       <p>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-to-cloudfront-distribution.html">Routing Traffic
-    #   				to an Amazon CloudFront Web Distribution by Using Your Domain Name</a> in the <i>Route 53 Amazon Web Services Integration
+    #   				to an Amazon CloudFront Web Distribution by Using Your Domain Name</a> in the <i>Route 53 Amazon Web Services Integration
     #   				Developer Guide</i>.</p>
-    #   		       <p>If you created a CNAME resource record set, either with Route 53 Amazon Web Services Integration or with another DNS
+    #   		       <p>If you created a CNAME resource record set, either with Route 53 Amazon Web Services Integration or with another DNS
     #   			service, you don't need to make any changes. A CNAME record will route traffic to your
     #   			distribution regardless of the IP address format of the viewer request.</p>
     #
@@ -3341,7 +3341,7 @@ module AWS::SDK::Cloudfront
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::SDK::Cloudfront::Types::DistributionConfig "\
+        "#<struct AWS::SDK::CloudFront::Types::DistributionConfig "\
           "caller_reference=#{caller_reference || 'nil'}, "\
           "aliases=#{aliases || 'nil'}, "\
           "default_root_object=#{default_root_object || 'nil'}, "\
@@ -4898,7 +4898,7 @@ module AWS::SDK::Cloudfront
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::SDK::Cloudfront::Types::GetFunctionOutput "\
+        "#<struct AWS::SDK::CloudFront::Types::GetFunctionOutput "\
           "function_code=\"[SENSITIVE]\", "\
           "e_tag=#{e_tag || 'nil'}, "\
           "content_type=#{content_type || 'nil'}>"
@@ -7491,7 +7491,7 @@ module AWS::SDK::Cloudfront
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::SDK::Cloudfront::Types::OriginCustomHeader "\
+        "#<struct AWS::SDK::CloudFront::Types::OriginCustomHeader "\
           "header_name=#{header_name || 'nil'}, "\
           "header_value=\"[SENSITIVE]\">"
       end
@@ -9032,12 +9032,19 @@ module AWS::SDK::Cloudfront
     #
     #   @return [ResponseHeadersPolicyCustomHeadersConfig]
     #
+    # @!attribute server_timing_headers_config
+    #   <p>A configuration for enabling the <code>Server-Timing</code> header in HTTP responses
+    #   			sent from CloudFront.</p>
+    #
+    #   @return [ResponseHeadersPolicyServerTimingHeadersConfig]
+    #
     ResponseHeadersPolicyConfig = ::Struct.new(
       :comment,
       :name,
       :cors_config,
       :security_headers_config,
       :custom_headers_config,
+      :server_timing_headers_config,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -9420,6 +9427,43 @@ module AWS::SDK::Cloudfront
       :content_security_policy,
       :content_type_options,
       :strict_transport_security,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>A configuration for enabling the <code>Server-Timing</code> header in HTTP responses sent
+    # 			from CloudFront. CloudFront adds this header to HTTP responses that it sends in response to requests
+    # 			that match a cache behavior that's associated with this response headers policy.</p>
+    # 		       <p>You can use the <code>Server-Timing</code> header to view metrics that can help you gain
+    # 			insights about the behavior and performance of CloudFront. For example, you can see which
+    # 			cache layer served a cache hit, or the first byte latency from the origin when there was
+    # 			a cache miss. You can use the metrics in the <code>Server-Timing</code> header to
+    # 			troubleshoot issues or test the efficiency of your CloudFront configuration. For more
+    # 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#server-timing-header">Server-Timing header</a> in the
+    # 			<i>Amazon CloudFront Developer Guide</i>.</p>
+    #
+    # @!attribute enabled
+    #   <p>A Boolean that determines whether CloudFront adds the <code>Server-Timing</code> header to HTTP
+    #   			responses that it sends in response to requests that match a cache behavior that's
+    #   			associated with this response headers policy.</p>
+    #
+    #   @return [Boolean]
+    #
+    # @!attribute sampling_rate
+    #   <p>A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to
+    #   			add the <code>Server-Timing</code> header to. When you set the sampling rate to 100,
+    #   			CloudFront adds the <code>Server-Timing</code> header to the HTTP response for every request
+    #   			that matches the cache behavior that this response headers policy is attached to. When
+    #   			you set it to 50, CloudFront adds the header to 50% of the responses for requests that match
+    #   			the cache behavior. You can set the sampling rate to any number 0–100 with up to four
+    #   			decimal places.</p>
+    #
+    #   @return [Float]
+    #
+    ResponseHeadersPolicyServerTimingHeadersConfig = ::Struct.new(
+      :enabled,
+      :sampling_rate,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -10205,7 +10249,7 @@ module AWS::SDK::Cloudfront
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::SDK::Cloudfront::Types::TestFunctionInput "\
+        "#<struct AWS::SDK::CloudFront::Types::TestFunctionInput "\
           "name=#{name || 'nil'}, "\
           "if_match=#{if_match || 'nil'}, "\
           "stage=#{stage || 'nil'}, "\
@@ -10270,13 +10314,29 @@ module AWS::SDK::Cloudfront
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::SDK::Cloudfront::Types::TestResult "\
+        "#<struct AWS::SDK::CloudFront::Types::TestResult "\
           "function_summary=#{function_summary || 'nil'}, "\
           "compute_utilization=#{compute_utilization || 'nil'}, "\
           "function_execution_logs=\"[SENSITIVE]\", "\
           "function_error_message=\"[SENSITIVE]\", "\
           "function_output=\"[SENSITIVE]\">"
       end
+    end
+
+    # <p>The length of the <code>Content-Security-Policy</code> header value in the response headers
+    # 			policy exceeds the maximum.</p>
+    # 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+    # 				<i>Amazon CloudFront Developer Guide</i>.</p>
+    #
+    # @!attribute message
+    #
+    #   @return [String]
+    #
+    TooLongCSPInResponseHeadersPolicy = ::Struct.new(
+      :message,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
     end
 
     # <p>You cannot create more cache behaviors for the distribution.</p>
@@ -11321,7 +11381,7 @@ module AWS::SDK::Cloudfront
       include Hearth::Structure
 
       def to_s
-        "#<struct AWS::SDK::Cloudfront::Types::UpdateFunctionInput "\
+        "#<struct AWS::SDK::CloudFront::Types::UpdateFunctionInput "\
           "name=#{name || 'nil'}, "\
           "if_match=#{if_match || 'nil'}, "\
           "function_config=#{function_config || 'nil'}, "\

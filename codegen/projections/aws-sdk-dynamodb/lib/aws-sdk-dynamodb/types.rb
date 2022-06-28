@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Dynamodb
+module AWS::SDK::DynamoDB
   module Types
 
     # <p>Contains details of a table archival operation.</p>
@@ -119,7 +119,7 @@ module AWS::SDK::Dynamodb
         end
 
         def to_s
-          "#<AWS::SDK::Dynamodb::Types::S #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::DynamoDB::Types::S #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -137,7 +137,7 @@ module AWS::SDK::Dynamodb
         end
 
         def to_s
-          "#<AWS::SDK::Dynamodb::Types::N #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::DynamoDB::Types::N #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -152,7 +152,7 @@ module AWS::SDK::Dynamodb
         end
 
         def to_s
-          "#<AWS::SDK::Dynamodb::Types::B #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::DynamoDB::Types::B #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -167,7 +167,7 @@ module AWS::SDK::Dynamodb
         end
 
         def to_s
-          "#<AWS::SDK::Dynamodb::Types::Ss #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::DynamoDB::Types::Ss #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -185,7 +185,7 @@ module AWS::SDK::Dynamodb
         end
 
         def to_s
-          "#<AWS::SDK::Dynamodb::Types::Ns #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::DynamoDB::Types::Ns #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -200,7 +200,7 @@ module AWS::SDK::Dynamodb
         end
 
         def to_s
-          "#<AWS::SDK::Dynamodb::Types::Bs #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::DynamoDB::Types::Bs #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -215,7 +215,7 @@ module AWS::SDK::Dynamodb
         end
 
         def to_s
-          "#<AWS::SDK::Dynamodb::Types::M #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::DynamoDB::Types::M #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -230,7 +230,7 @@ module AWS::SDK::Dynamodb
         end
 
         def to_s
-          "#<AWS::SDK::Dynamodb::Types::L #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::DynamoDB::Types::L #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -245,7 +245,7 @@ module AWS::SDK::Dynamodb
         end
 
         def to_s
-          "#<AWS::SDK::Dynamodb::Types::Null #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::DynamoDB::Types::Null #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -260,7 +260,7 @@ module AWS::SDK::Dynamodb
         end
 
         def to_s
-          "#<AWS::SDK::Dynamodb::Types::Bool #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::DynamoDB::Types::Bool #{__getobj__ || 'nil'}>"
         end
       end
 
@@ -272,7 +272,7 @@ module AWS::SDK::Dynamodb
         end
 
         def to_s
-          "#<AWS::SDK::Dynamodb::Types::Unknown #{__getobj__ || 'nil'}>"
+          "#<AWS::SDK::DynamoDB::Types::Unknown #{__getobj__ || 'nil'}>"
         end
       end
     end
@@ -3632,12 +3632,25 @@ module AWS::SDK::Dynamodb
     #
     #   @return [String]
     #
+    # @!attribute limit
+    #   <p>The maximum number of items to evaluate (not necessarily the number of matching
+    #               items). If DynamoDB processes the number of items up to the limit while processing the
+    #               results, it stops the operation and returns the matching values up to that point, along
+    #               with a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation so you
+    #               can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before
+    #               DynamoDB reaches this limit, it stops the operation and returns the matching values up
+    #               to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent
+    #               operation to continue the operation. </p>
+    #
+    #   @return [Integer]
+    #
     ExecuteStatementInput = ::Struct.new(
       :statement,
       :parameters,
       :consistent_read,
       :next_token,
       :return_consumed_capacity,
+      :limit,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -3666,10 +3679,22 @@ module AWS::SDK::Dynamodb
     #
     #   @return [ConsumedCapacity]
     #
+    # @!attribute last_evaluated_key
+    #   <p>The primary key of the item where the operation stopped, inclusive of the previous
+    #               result set. Use this value to start a new operation, excluding this value in the new
+    #               request. If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has
+    #               been processed and there is no more data to be retrieved. If
+    #                   <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there
+    #               is more data in the result set. The only way to know when you have reached the end of
+    #               the result set is when <code>LastEvaluatedKey</code> is empty. </p>
+    #
+    #   @return [Hash<String, AttributeValue>]
+    #
     ExecuteStatementOutput = ::Struct.new(
       :items,
       :next_token,
       :consumed_capacity,
+      :last_evaluated_key,
       keyword_init: true
     ) do
       include Hearth::Structure
@@ -5959,10 +5984,6 @@ module AWS::SDK::Dynamodb
     # @!attribute point_in_time_recovery_status
     #   <p>The current state of point in time recovery:</p>
     #           <ul>
-    #               <li>
-    #                   <p>
-    #                       <code>ENABLING</code> - Point in time recovery is being enabled.</p>
-    #               </li>
     #               <li>
     #                   <p>
     #                       <code>ENABLED</code> - Point in time recovery is enabled.</p>

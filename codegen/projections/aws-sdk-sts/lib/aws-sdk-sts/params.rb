@@ -9,7 +9,7 @@
 
 require 'securerandom'
 
-module AWS::SDK::Sts
+module AWS::SDK::STS
   module Params
 
     module AssumeRoleInput

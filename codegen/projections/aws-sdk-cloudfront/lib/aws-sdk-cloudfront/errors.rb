@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Cloudfront
+module AWS::SDK::CloudFront
   module Errors
     def self.error_code(resp)
       if !(200..299).cover?(resp.status)
@@ -1043,6 +1043,19 @@ module AWS::SDK::Cloudfront
       end
 
       # @return [Types::TestFunctionFailed]
+      #
+      attr_reader :data
+    end
+
+    class TooLongCSPInResponseHeadersPolicy < ApiClientError
+      def initialize(http_resp:, **kwargs)
+        @data = Parsers::TooLongCSPInResponseHeadersPolicy.parse(http_resp)
+        kwargs[:message] = @data.message if @data.respond_to?(:message)
+
+        super(http_resp: http_resp, **kwargs)
+      end
+
+      # @return [Types::TooLongCSPInResponseHeadersPolicy]
       #
       attr_reader :data
     end

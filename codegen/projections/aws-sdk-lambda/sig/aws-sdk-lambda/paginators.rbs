@@ -52,6 +52,13 @@ module AWS::SDK::Lambda
       def items: () -> untyped
     end
 
+    class ListFunctionUrlConfigs
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+      def items: () -> untyped
+    end
+
     class ListLayers
       def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
 

@@ -9,7 +9,7 @@
 
 require 'base64'
 
-module AWS::SDK::Sts
+module AWS::SDK::STS
   module Parsers
 
     # Operation Parser for AssumeRole

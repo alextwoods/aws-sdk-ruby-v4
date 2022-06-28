@@ -223,6 +223,7 @@ module AWS::SDK::Lambda
           maximum_batching_window_in_seconds: 1,
           parallelization_factor: 1,
           event_source_arn: 'event_source_arn',
+          filter_criteria: Stubs::FilterCriteria.default(visited),
           function_arn: 'function_arn',
           last_modified: Time.now,
           last_processing_result: 'last_processing_result',
@@ -252,6 +253,7 @@ module AWS::SDK::Lambda
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
+        data['FilterCriteria'] = Stubs::FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]).to_i unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
@@ -485,6 +487,62 @@ module AWS::SDK::Lambda
       end
     end
 
+    # Structure Stubber for FilterCriteria
+    class FilterCriteria
+      def self.default(visited=[])
+        return nil if visited.include?('FilterCriteria')
+        visited = visited + ['FilterCriteria']
+        {
+          filters: Stubs::FilterList.default(visited),
+        }
+      end
+
+      def self.stub(stub)
+        stub ||= Types::FilterCriteria.new
+        data = {}
+        data['Filters'] = Stubs::FilterList.stub(stub[:filters]) unless stub[:filters].nil?
+        data
+      end
+    end
+
+    # List Stubber for FilterList
+    class FilterList
+      def self.default(visited=[])
+        return nil if visited.include?('FilterList')
+        visited = visited + ['FilterList']
+        [
+          Stubs::Filter.default(visited)
+        ]
+      end
+
+      def self.stub(stub)
+        stub ||= []
+        data = []
+        stub.each do |element|
+          data << Stubs::Filter.stub(element) unless element.nil?
+        end
+        data
+      end
+    end
+
+    # Structure Stubber for Filter
+    class Filter
+      def self.default(visited=[])
+        return nil if visited.include?('Filter')
+        visited = visited + ['Filter']
+        {
+          pattern: 'pattern',
+        }
+      end
+
+      def self.stub(stub)
+        stub ||= Types::Filter.new
+        data = {}
+        data['Pattern'] = stub[:pattern] unless stub[:pattern].nil?
+        data
+      end
+    end
+
     # Operation Stubber for CreateFunction
     class CreateFunction
       def self.default(visited=[])
@@ -520,6 +578,8 @@ module AWS::SDK::Lambda
           image_config_response: Stubs::ImageConfigResponse.default(visited),
           signing_profile_version_arn: 'signing_profile_version_arn',
           signing_job_arn: 'signing_job_arn',
+          architectures: Stubs::ArchitecturesList.default(visited),
+          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
         }
       end
 
@@ -558,7 +618,47 @@ module AWS::SDK::Lambda
         data['ImageConfigResponse'] = Stubs::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
+        data['Architectures'] = Stubs::ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
+        data['EphemeralStorage'] = Stubs::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    # Structure Stubber for EphemeralStorage
+    class EphemeralStorage
+      def self.default(visited=[])
+        return nil if visited.include?('EphemeralStorage')
+        visited = visited + ['EphemeralStorage']
+        {
+          size: 1,
+        }
+      end
+
+      def self.stub(stub)
+        stub ||= Types::EphemeralStorage.new
+        data = {}
+        data['Size'] = stub[:size] unless stub[:size].nil?
+        data
+      end
+    end
+
+    # List Stubber for ArchitecturesList
+    class ArchitecturesList
+      def self.default(visited=[])
+        return nil if visited.include?('ArchitecturesList')
+        visited = visited + ['ArchitecturesList']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(stub)
+        stub ||= []
+        data = []
+        stub.each do |element|
+          data << element unless element.nil?
+        end
+        data
       end
     end
 
@@ -886,6 +986,119 @@ module AWS::SDK::Lambda
       end
     end
 
+    # Operation Stubber for CreateFunctionUrlConfig
+    class CreateFunctionUrlConfig
+      def self.default(visited=[])
+        {
+          function_url: 'function_url',
+          function_arn: 'function_arn',
+          auth_type: 'auth_type',
+          cors: Stubs::Cors.default(visited),
+          creation_time: 'creation_time',
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 201
+        http_resp.headers['Content-Type'] = 'application/json'
+        data['FunctionUrl'] = stub[:function_url] unless stub[:function_url].nil?
+        data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
+        data['AuthType'] = stub[:auth_type] unless stub[:auth_type].nil?
+        data['Cors'] = Stubs::Cors.stub(stub[:cors]) unless stub[:cors].nil?
+        data['CreationTime'] = stub[:creation_time] unless stub[:creation_time].nil?
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    # Structure Stubber for Cors
+    class Cors
+      def self.default(visited=[])
+        return nil if visited.include?('Cors')
+        visited = visited + ['Cors']
+        {
+          allow_credentials: false,
+          allow_headers: Stubs::HeadersList.default(visited),
+          allow_methods: Stubs::AllowMethodsList.default(visited),
+          allow_origins: Stubs::AllowOriginsList.default(visited),
+          expose_headers: Stubs::HeadersList.default(visited),
+          max_age: 1,
+        }
+      end
+
+      def self.stub(stub)
+        stub ||= Types::Cors.new
+        data = {}
+        data['AllowCredentials'] = stub[:allow_credentials] unless stub[:allow_credentials].nil?
+        data['AllowHeaders'] = Stubs::HeadersList.stub(stub[:allow_headers]) unless stub[:allow_headers].nil?
+        data['AllowMethods'] = Stubs::AllowMethodsList.stub(stub[:allow_methods]) unless stub[:allow_methods].nil?
+        data['AllowOrigins'] = Stubs::AllowOriginsList.stub(stub[:allow_origins]) unless stub[:allow_origins].nil?
+        data['ExposeHeaders'] = Stubs::HeadersList.stub(stub[:expose_headers]) unless stub[:expose_headers].nil?
+        data['MaxAge'] = stub[:max_age] unless stub[:max_age].nil?
+        data
+      end
+    end
+
+    # List Stubber for HeadersList
+    class HeadersList
+      def self.default(visited=[])
+        return nil if visited.include?('HeadersList')
+        visited = visited + ['HeadersList']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(stub)
+        stub ||= []
+        data = []
+        stub.each do |element|
+          data << element unless element.nil?
+        end
+        data
+      end
+    end
+
+    # List Stubber for AllowOriginsList
+    class AllowOriginsList
+      def self.default(visited=[])
+        return nil if visited.include?('AllowOriginsList')
+        visited = visited + ['AllowOriginsList']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(stub)
+        stub ||= []
+        data = []
+        stub.each do |element|
+          data << element unless element.nil?
+        end
+        data
+      end
+    end
+
+    # List Stubber for AllowMethodsList
+    class AllowMethodsList
+      def self.default(visited=[])
+        return nil if visited.include?('AllowMethodsList')
+        visited = visited + ['AllowMethodsList']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(stub)
+        stub ||= []
+        data = []
+        stub.each do |element|
+          data << element unless element.nil?
+        end
+        data
+      end
+    end
+
     # Operation Stubber for DeleteAlias
     class DeleteAlias
       def self.default(visited=[])
@@ -923,6 +1136,7 @@ module AWS::SDK::Lambda
           maximum_batching_window_in_seconds: 1,
           parallelization_factor: 1,
           event_source_arn: 'event_source_arn',
+          filter_criteria: Stubs::FilterCriteria.default(visited),
           function_arn: 'function_arn',
           last_modified: Time.now,
           last_processing_result: 'last_processing_result',
@@ -952,6 +1166,7 @@ module AWS::SDK::Lambda
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
+        data['FilterCriteria'] = Stubs::FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]).to_i unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
@@ -1012,6 +1227,19 @@ module AWS::SDK::Lambda
 
     # Operation Stubber for DeleteFunctionEventInvokeConfig
     class DeleteFunctionEventInvokeConfig
+      def self.default(visited=[])
+        {
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 204
+      end
+    end
+
+    # Operation Stubber for DeleteFunctionUrlConfig
+    class DeleteFunctionUrlConfig
       def self.default(visited=[])
         {
         }
@@ -1169,6 +1397,7 @@ module AWS::SDK::Lambda
           maximum_batching_window_in_seconds: 1,
           parallelization_factor: 1,
           event_source_arn: 'event_source_arn',
+          filter_criteria: Stubs::FilterCriteria.default(visited),
           function_arn: 'function_arn',
           last_modified: Time.now,
           last_processing_result: 'last_processing_result',
@@ -1198,6 +1427,7 @@ module AWS::SDK::Lambda
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
+        data['FilterCriteria'] = Stubs::FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]).to_i unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
@@ -1339,6 +1569,8 @@ module AWS::SDK::Lambda
           image_config_response: Stubs::ImageConfigResponse.default(visited),
           signing_profile_version_arn: 'signing_profile_version_arn',
           signing_job_arn: 'signing_job_arn',
+          architectures: Stubs::ArchitecturesList.default(visited),
+          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
         }
       end
 
@@ -1376,6 +1608,8 @@ module AWS::SDK::Lambda
         data['ImageConfigResponse'] = Stubs::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
+        data['Architectures'] = Stubs::ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
+        data['EphemeralStorage'] = Stubs::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
         data
       end
     end
@@ -1451,6 +1685,8 @@ module AWS::SDK::Lambda
           image_config_response: Stubs::ImageConfigResponse.default(visited),
           signing_profile_version_arn: 'signing_profile_version_arn',
           signing_job_arn: 'signing_job_arn',
+          architectures: Stubs::ArchitecturesList.default(visited),
+          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
         }
       end
 
@@ -1489,6 +1725,8 @@ module AWS::SDK::Lambda
         data['ImageConfigResponse'] = Stubs::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
+        data['Architectures'] = Stubs::ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
+        data['EphemeralStorage'] = Stubs::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1518,6 +1756,33 @@ module AWS::SDK::Lambda
       end
     end
 
+    # Operation Stubber for GetFunctionUrlConfig
+    class GetFunctionUrlConfig
+      def self.default(visited=[])
+        {
+          function_url: 'function_url',
+          function_arn: 'function_arn',
+          auth_type: 'auth_type',
+          cors: Stubs::Cors.default(visited),
+          creation_time: 'creation_time',
+          last_modified_time: 'last_modified_time',
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['Content-Type'] = 'application/json'
+        data['FunctionUrl'] = stub[:function_url] unless stub[:function_url].nil?
+        data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
+        data['AuthType'] = stub[:auth_type] unless stub[:auth_type].nil?
+        data['Cors'] = Stubs::Cors.stub(stub[:cors]) unless stub[:cors].nil?
+        data['CreationTime'] = stub[:creation_time] unless stub[:creation_time].nil?
+        data['LastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
     # Operation Stubber for GetLayerVersion
     class GetLayerVersion
       def self.default(visited=[])
@@ -1530,6 +1795,7 @@ module AWS::SDK::Lambda
           version: 1,
           compatible_runtimes: Stubs::CompatibleRuntimes.default(visited),
           license_info: 'license_info',
+          compatible_architectures: Stubs::CompatibleArchitectures.default(visited),
         }
       end
 
@@ -1545,7 +1811,28 @@ module AWS::SDK::Lambda
         data['Version'] = stub[:version] unless stub[:version].nil?
         data['CompatibleRuntimes'] = Stubs::CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
         data['LicenseInfo'] = stub[:license_info] unless stub[:license_info].nil?
+        data['CompatibleArchitectures'] = Stubs::CompatibleArchitectures.stub(stub[:compatible_architectures]) unless stub[:compatible_architectures].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    # List Stubber for CompatibleArchitectures
+    class CompatibleArchitectures
+      def self.default(visited=[])
+        return nil if visited.include?('CompatibleArchitectures')
+        visited = visited + ['CompatibleArchitectures']
+        [
+          'member'
+        ]
+      end
+
+      def self.stub(stub)
+        stub ||= []
+        data = []
+        stub.each do |element|
+          data << element unless element.nil?
+        end
+        data
       end
     end
 
@@ -1607,6 +1894,7 @@ module AWS::SDK::Lambda
           version: 1,
           compatible_runtimes: Stubs::CompatibleRuntimes.default(visited),
           license_info: 'license_info',
+          compatible_architectures: Stubs::CompatibleArchitectures.default(visited),
         }
       end
 
@@ -1622,6 +1910,7 @@ module AWS::SDK::Lambda
         data['Version'] = stub[:version] unless stub[:version].nil?
         data['CompatibleRuntimes'] = Stubs::CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
         data['LicenseInfo'] = stub[:license_info] unless stub[:license_info].nil?
+        data['CompatibleArchitectures'] = Stubs::CompatibleArchitectures.stub(stub[:compatible_architectures]) unless stub[:compatible_architectures].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -1888,6 +2177,7 @@ module AWS::SDK::Lambda
           maximum_batching_window_in_seconds: 1,
           parallelization_factor: 1,
           event_source_arn: 'event_source_arn',
+          filter_criteria: Stubs::FilterCriteria.default(visited),
           function_arn: 'function_arn',
           last_modified: Time.now,
           last_processing_result: 'last_processing_result',
@@ -1916,6 +2206,7 @@ module AWS::SDK::Lambda
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
+        data['FilterCriteria'] = Stubs::FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]).to_i unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
@@ -1996,6 +2287,73 @@ module AWS::SDK::Lambda
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = stub[:maximum_event_age_in_seconds] unless stub[:maximum_event_age_in_seconds].nil?
         data['DestinationConfig'] = Stubs::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
+        data
+      end
+    end
+
+    # Operation Stubber for ListFunctionUrlConfigs
+    class ListFunctionUrlConfigs
+      def self.default(visited=[])
+        {
+          function_url_configs: Stubs::FunctionUrlConfigList.default(visited),
+          next_marker: 'next_marker',
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['Content-Type'] = 'application/json'
+        data['FunctionUrlConfigs'] = Stubs::FunctionUrlConfigList.stub(stub[:function_url_configs]) unless stub[:function_url_configs].nil?
+        data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    # List Stubber for FunctionUrlConfigList
+    class FunctionUrlConfigList
+      def self.default(visited=[])
+        return nil if visited.include?('FunctionUrlConfigList')
+        visited = visited + ['FunctionUrlConfigList']
+        [
+          Stubs::FunctionUrlConfig.default(visited)
+        ]
+      end
+
+      def self.stub(stub)
+        stub ||= []
+        data = []
+        stub.each do |element|
+          data << Stubs::FunctionUrlConfig.stub(element) unless element.nil?
+        end
+        data
+      end
+    end
+
+    # Structure Stubber for FunctionUrlConfig
+    class FunctionUrlConfig
+      def self.default(visited=[])
+        return nil if visited.include?('FunctionUrlConfig')
+        visited = visited + ['FunctionUrlConfig']
+        {
+          function_url: 'function_url',
+          function_arn: 'function_arn',
+          creation_time: 'creation_time',
+          last_modified_time: 'last_modified_time',
+          cors: Stubs::Cors.default(visited),
+          auth_type: 'auth_type',
+        }
+      end
+
+      def self.stub(stub)
+        stub ||= Types::FunctionUrlConfig.new
+        data = {}
+        data['FunctionUrl'] = stub[:function_url] unless stub[:function_url].nil?
+        data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
+        data['CreationTime'] = stub[:creation_time] unless stub[:creation_time].nil?
+        data['LastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
+        data['Cors'] = Stubs::Cors.stub(stub[:cors]) unless stub[:cors].nil?
+        data['AuthType'] = stub[:auth_type] unless stub[:auth_type].nil?
         data
       end
     end
@@ -2129,6 +2487,7 @@ module AWS::SDK::Lambda
           created_date: 'created_date',
           compatible_runtimes: Stubs::CompatibleRuntimes.default(visited),
           license_info: 'license_info',
+          compatible_architectures: Stubs::CompatibleArchitectures.default(visited),
         }
       end
 
@@ -2141,6 +2500,7 @@ module AWS::SDK::Lambda
         data['CreatedDate'] = stub[:created_date] unless stub[:created_date].nil?
         data['CompatibleRuntimes'] = Stubs::CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
         data['LicenseInfo'] = stub[:license_info] unless stub[:license_info].nil?
+        data['CompatibleArchitectures'] = Stubs::CompatibleArchitectures.stub(stub[:compatible_architectures]) unless stub[:compatible_architectures].nil?
         data
       end
     end
@@ -2323,6 +2683,7 @@ module AWS::SDK::Lambda
           version: 1,
           compatible_runtimes: Stubs::CompatibleRuntimes.default(visited),
           license_info: 'license_info',
+          compatible_architectures: Stubs::CompatibleArchitectures.default(visited),
         }
       end
 
@@ -2338,6 +2699,7 @@ module AWS::SDK::Lambda
         data['Version'] = stub[:version] unless stub[:version].nil?
         data['CompatibleRuntimes'] = Stubs::CompatibleRuntimes.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
         data['LicenseInfo'] = stub[:license_info] unless stub[:license_info].nil?
+        data['CompatibleArchitectures'] = Stubs::CompatibleArchitectures.stub(stub[:compatible_architectures]) unless stub[:compatible_architectures].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2377,6 +2739,8 @@ module AWS::SDK::Lambda
           image_config_response: Stubs::ImageConfigResponse.default(visited),
           signing_profile_version_arn: 'signing_profile_version_arn',
           signing_job_arn: 'signing_job_arn',
+          architectures: Stubs::ArchitecturesList.default(visited),
+          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
         }
       end
 
@@ -2415,6 +2779,8 @@ module AWS::SDK::Lambda
         data['ImageConfigResponse'] = Stubs::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
+        data['Architectures'] = Stubs::ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
+        data['EphemeralStorage'] = Stubs::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2614,6 +2980,7 @@ module AWS::SDK::Lambda
           maximum_batching_window_in_seconds: 1,
           parallelization_factor: 1,
           event_source_arn: 'event_source_arn',
+          filter_criteria: Stubs::FilterCriteria.default(visited),
           function_arn: 'function_arn',
           last_modified: Time.now,
           last_processing_result: 'last_processing_result',
@@ -2643,6 +3010,7 @@ module AWS::SDK::Lambda
         data['MaximumBatchingWindowInSeconds'] = stub[:maximum_batching_window_in_seconds] unless stub[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = stub[:parallelization_factor] unless stub[:parallelization_factor].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
+        data['FilterCriteria'] = Stubs::FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
         data['LastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]).to_i unless stub[:last_modified].nil?
         data['LastProcessingResult'] = stub[:last_processing_result] unless stub[:last_processing_result].nil?
@@ -2697,6 +3065,8 @@ module AWS::SDK::Lambda
           image_config_response: Stubs::ImageConfigResponse.default(visited),
           signing_profile_version_arn: 'signing_profile_version_arn',
           signing_job_arn: 'signing_job_arn',
+          architectures: Stubs::ArchitecturesList.default(visited),
+          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
         }
       end
 
@@ -2735,6 +3105,8 @@ module AWS::SDK::Lambda
         data['ImageConfigResponse'] = Stubs::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
+        data['Architectures'] = Stubs::ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
+        data['EphemeralStorage'] = Stubs::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2774,6 +3146,8 @@ module AWS::SDK::Lambda
           image_config_response: Stubs::ImageConfigResponse.default(visited),
           signing_profile_version_arn: 'signing_profile_version_arn',
           signing_job_arn: 'signing_job_arn',
+          architectures: Stubs::ArchitecturesList.default(visited),
+          ephemeral_storage: Stubs::EphemeralStorage.default(visited),
         }
       end
 
@@ -2812,6 +3186,8 @@ module AWS::SDK::Lambda
         data['ImageConfigResponse'] = Stubs::ImageConfigResponse.stub(stub[:image_config_response]) unless stub[:image_config_response].nil?
         data['SigningProfileVersionArn'] = stub[:signing_profile_version_arn] unless stub[:signing_profile_version_arn].nil?
         data['SigningJobArn'] = stub[:signing_job_arn] unless stub[:signing_job_arn].nil?
+        data['Architectures'] = Stubs::ArchitecturesList.stub(stub[:architectures]) unless stub[:architectures].nil?
+        data['EphemeralStorage'] = Stubs::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end
@@ -2837,6 +3213,33 @@ module AWS::SDK::Lambda
         data['MaximumRetryAttempts'] = stub[:maximum_retry_attempts] unless stub[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = stub[:maximum_event_age_in_seconds] unless stub[:maximum_event_age_in_seconds].nil?
         data['DestinationConfig'] = Stubs::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
+        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+      end
+    end
+
+    # Operation Stubber for UpdateFunctionUrlConfig
+    class UpdateFunctionUrlConfig
+      def self.default(visited=[])
+        {
+          function_url: 'function_url',
+          function_arn: 'function_arn',
+          auth_type: 'auth_type',
+          cors: Stubs::Cors.default(visited),
+          creation_time: 'creation_time',
+          last_modified_time: 'last_modified_time',
+        }
+      end
+
+      def self.stub(http_resp, stub:)
+        data = {}
+        http_resp.status = 200
+        http_resp.headers['Content-Type'] = 'application/json'
+        data['FunctionUrl'] = stub[:function_url] unless stub[:function_url].nil?
+        data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
+        data['AuthType'] = stub[:auth_type] unless stub[:auth_type].nil?
+        data['Cors'] = Stubs::Cors.stub(stub[:cors]) unless stub[:cors].nil?
+        data['CreationTime'] = stub[:creation_time] unless stub[:creation_time].nil?
+        data['LastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end

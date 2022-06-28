@@ -9,7 +9,7 @@
 
 require 'base64'
 
-module AWS::SDK::Cloudfront
+module AWS::SDK::CloudFront
   module Parsers
 
     # Operation Parser for AssociateAlias
@@ -3553,6 +3553,22 @@ module AWS::SDK::Cloudfront
         xml.at('CustomHeadersConfig') do |node|
           data.custom_headers_config = Parsers::ResponseHeadersPolicyCustomHeadersConfig.parse(node)
         end
+        xml.at('ServerTimingHeadersConfig') do |node|
+          data.server_timing_headers_config = Parsers::ResponseHeadersPolicyServerTimingHeadersConfig.parse(node)
+        end
+        return data
+      end
+    end
+
+    class ResponseHeadersPolicyServerTimingHeadersConfig
+      def self.parse(xml)
+        data = Types::ResponseHeadersPolicyServerTimingHeadersConfig.new
+        xml.at('Enabled') do |node|
+          data.enabled = (node.text == 'true')
+        end
+        xml.at('SamplingRate') do |node|
+          data.sampling_rate = Hearth::NumberHelper.deserialize(node.text)
+        end
         return data
       end
     end
@@ -3837,6 +3853,21 @@ module AWS::SDK::Cloudfront
     class TooManyCustomHeadersInResponseHeadersPolicy
       def self.parse(http_resp)
         data = Types::TooManyCustomHeadersInResponseHeadersPolicy.new
+        body = http_resp.body.read
+        return data if body.empty?
+        xml = Hearth::XML.parse(body)
+        xml = xml.at('Error')
+        xml.at('Message') do |node|
+          data.message = (node.text || '')
+        end
+        data
+      end
+    end
+
+    # Error Parser for TooLongCSPInResponseHeadersPolicy
+    class TooLongCSPInResponseHeadersPolicy
+      def self.parse(http_resp)
+        data = Types::TooLongCSPInResponseHeadersPolicy.new
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)

@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Cloudfront
+module AWS::SDK::CloudFront
   module Validators
 
     class AccessControlAllowHeadersList
@@ -3154,6 +3154,7 @@ module AWS::SDK::Cloudfront
         Validators::ResponseHeadersPolicyCorsConfig.validate!(input[:cors_config], context: "#{context}[:cors_config]") unless input[:cors_config].nil?
         Validators::ResponseHeadersPolicySecurityHeadersConfig.validate!(input[:security_headers_config], context: "#{context}[:security_headers_config]") unless input[:security_headers_config].nil?
         Validators::ResponseHeadersPolicyCustomHeadersConfig.validate!(input[:custom_headers_config], context: "#{context}[:custom_headers_config]") unless input[:custom_headers_config].nil?
+        Validators::ResponseHeadersPolicyServerTimingHeadersConfig.validate!(input[:server_timing_headers_config], context: "#{context}[:server_timing_headers_config]") unless input[:server_timing_headers_config].nil?
       end
     end
 
@@ -3253,6 +3254,14 @@ module AWS::SDK::Cloudfront
         Validators::ResponseHeadersPolicyContentSecurityPolicy.validate!(input[:content_security_policy], context: "#{context}[:content_security_policy]") unless input[:content_security_policy].nil?
         Validators::ResponseHeadersPolicyContentTypeOptions.validate!(input[:content_type_options], context: "#{context}[:content_type_options]") unless input[:content_type_options].nil?
         Validators::ResponseHeadersPolicyStrictTransportSecurity.validate!(input[:strict_transport_security], context: "#{context}[:strict_transport_security]") unless input[:strict_transport_security].nil?
+      end
+    end
+
+    class ResponseHeadersPolicyServerTimingHeadersConfig
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::ResponseHeadersPolicyServerTimingHeadersConfig, context: context)
+        Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
+        Hearth::Validator.validate!(input[:sampling_rate], ::Float, context: "#{context}[:sampling_rate]")
       end
     end
 
@@ -3540,6 +3549,13 @@ module AWS::SDK::Cloudfront
         Validators::FunctionExecutionLogList.validate!(input[:function_execution_logs], context: "#{context}[:function_execution_logs]") unless input[:function_execution_logs].nil?
         Hearth::Validator.validate!(input[:function_error_message], ::String, context: "#{context}[:function_error_message]")
         Hearth::Validator.validate!(input[:function_output], ::String, context: "#{context}[:function_output]")
+      end
+    end
+
+    class TooLongCSPInResponseHeadersPolicy
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::TooLongCSPInResponseHeadersPolicy, context: context)
+        Hearth::Validator.validate!(input[:message], ::String, context: "#{context}[:message]")
       end
     end
 

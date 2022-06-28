@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Sso
+module AWS::SDK::SSO
   module Paginators
 
     class ListAccountRoles

@@ -9,7 +9,7 @@
 
 require 'securerandom'
 
-module AWS::SDK::Sso
+module AWS::SDK::SSO
   module Params
 
     module AccountInfo

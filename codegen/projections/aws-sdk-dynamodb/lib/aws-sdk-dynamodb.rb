@@ -22,6 +22,6 @@ require_relative 'aws-sdk-dynamodb/types'
 require_relative 'aws-sdk-dynamodb/validators'
 require_relative 'aws-sdk-dynamodb/waiters'
 
-module AWS::SDK::Dynamodb
-  GEM_VERSION = '4.0.0.pre'
+module AWS::SDK::DynamoDB
+  GEM_VERSION = '2.0.0.pre'
 end

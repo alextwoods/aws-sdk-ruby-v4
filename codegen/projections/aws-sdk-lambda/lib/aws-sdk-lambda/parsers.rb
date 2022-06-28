@@ -206,6 +206,7 @@ module AWS::SDK::Lambda
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
+        data.filter_criteria = (Parsers::FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
         data.function_arn = map['FunctionArn']
         data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
@@ -327,6 +328,32 @@ module AWS::SDK::Lambda
       end
     end
 
+    class FilterCriteria
+      def self.parse(map)
+        data = Types::FilterCriteria.new
+        data.filters = (Parsers::FilterList.parse(map['Filters']) unless map['Filters'].nil?)
+        return data
+      end
+    end
+
+    class FilterList
+      def self.parse(list)
+        data = []
+        list.map do |value|
+          data << Parsers::Filter.parse(value) unless value.nil?
+        end
+        data
+      end
+    end
+
+    class Filter
+      def self.parse(map)
+        data = Types::Filter.new
+        data.pattern = map['Pattern']
+        return data
+      end
+    end
+
     # Operation Parser for CreateFunction
     class CreateFunction
       def self.parse(http_resp)
@@ -363,6 +390,26 @@ module AWS::SDK::Lambda
         data.image_config_response = (Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
+        data.architectures = (Parsers::ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
+        data.ephemeral_storage = (Parsers::EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
+        data
+      end
+    end
+
+    class EphemeralStorage
+      def self.parse(map)
+        data = Types::EphemeralStorage.new
+        data.size = map['Size']
+        return data
+      end
+    end
+
+    class ArchitecturesList
+      def self.parse(list)
+        data = []
+        list.map do |value|
+          data << value unless value.nil?
+        end
         data
       end
     end
@@ -563,6 +610,63 @@ module AWS::SDK::Lambda
       end
     end
 
+    # Operation Parser for CreateFunctionUrlConfig
+    class CreateFunctionUrlConfig
+      def self.parse(http_resp)
+        data = Types::CreateFunctionUrlConfigOutput.new
+        map = Hearth::JSON.load(http_resp.body)
+        data.function_url = map['FunctionUrl']
+        data.function_arn = map['FunctionArn']
+        data.auth_type = map['AuthType']
+        data.cors = (Parsers::Cors.parse(map['Cors']) unless map['Cors'].nil?)
+        data.creation_time = map['CreationTime']
+        data
+      end
+    end
+
+    class Cors
+      def self.parse(map)
+        data = Types::Cors.new
+        data.allow_credentials = map['AllowCredentials']
+        data.allow_headers = (Parsers::HeadersList.parse(map['AllowHeaders']) unless map['AllowHeaders'].nil?)
+        data.allow_methods = (Parsers::AllowMethodsList.parse(map['AllowMethods']) unless map['AllowMethods'].nil?)
+        data.allow_origins = (Parsers::AllowOriginsList.parse(map['AllowOrigins']) unless map['AllowOrigins'].nil?)
+        data.expose_headers = (Parsers::HeadersList.parse(map['ExposeHeaders']) unless map['ExposeHeaders'].nil?)
+        data.max_age = map['MaxAge']
+        return data
+      end
+    end
+
+    class HeadersList
+      def self.parse(list)
+        data = []
+        list.map do |value|
+          data << value unless value.nil?
+        end
+        data
+      end
+    end
+
+    class AllowOriginsList
+      def self.parse(list)
+        data = []
+        list.map do |value|
+          data << value unless value.nil?
+        end
+        data
+      end
+    end
+
+    class AllowMethodsList
+      def self.parse(list)
+        data = []
+        list.map do |value|
+          data << value unless value.nil?
+        end
+        data
+      end
+    end
+
     # Operation Parser for DeleteAlias
     class DeleteAlias
       def self.parse(http_resp)
@@ -593,6 +697,7 @@ module AWS::SDK::Lambda
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
+        data.filter_criteria = (Parsers::FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
         data.function_arn = map['FunctionArn']
         data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
@@ -654,6 +759,15 @@ module AWS::SDK::Lambda
     class DeleteFunctionEventInvokeConfig
       def self.parse(http_resp)
         data = Types::DeleteFunctionEventInvokeConfigOutput.new
+        map = Hearth::JSON.load(http_resp.body)
+        data
+      end
+    end
+
+    # Operation Parser for DeleteFunctionUrlConfig
+    class DeleteFunctionUrlConfig
+      def self.parse(http_resp)
+        data = Types::DeleteFunctionUrlConfigOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data
       end
@@ -746,6 +860,7 @@ module AWS::SDK::Lambda
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
+        data.filter_criteria = (Parsers::FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
         data.function_arn = map['FunctionArn']
         data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
@@ -841,6 +956,8 @@ module AWS::SDK::Lambda
         data.image_config_response = (Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
+        data.architectures = (Parsers::ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
+        data.ephemeral_storage = (Parsers::EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
         return data
       end
     end
@@ -902,6 +1019,8 @@ module AWS::SDK::Lambda
         data.image_config_response = (Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
+        data.architectures = (Parsers::ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
+        data.ephemeral_storage = (Parsers::EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
         data
       end
     end
@@ -920,6 +1039,21 @@ module AWS::SDK::Lambda
       end
     end
 
+    # Operation Parser for GetFunctionUrlConfig
+    class GetFunctionUrlConfig
+      def self.parse(http_resp)
+        data = Types::GetFunctionUrlConfigOutput.new
+        map = Hearth::JSON.load(http_resp.body)
+        data.function_url = map['FunctionUrl']
+        data.function_arn = map['FunctionArn']
+        data.auth_type = map['AuthType']
+        data.cors = (Parsers::Cors.parse(map['Cors']) unless map['Cors'].nil?)
+        data.creation_time = map['CreationTime']
+        data.last_modified_time = map['LastModifiedTime']
+        data
+      end
+    end
+
     # Operation Parser for GetLayerVersion
     class GetLayerVersion
       def self.parse(http_resp)
@@ -933,6 +1067,17 @@ module AWS::SDK::Lambda
         data.version = map['Version']
         data.compatible_runtimes = (Parsers::CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
         data.license_info = map['LicenseInfo']
+        data.compatible_architectures = (Parsers::CompatibleArchitectures.parse(map['CompatibleArchitectures']) unless map['CompatibleArchitectures'].nil?)
+        data
+      end
+    end
+
+    class CompatibleArchitectures
+      def self.parse(list)
+        data = []
+        list.map do |value|
+          data << value unless value.nil?
+        end
         data
       end
     end
@@ -972,6 +1117,7 @@ module AWS::SDK::Lambda
         data.version = map['Version']
         data.compatible_runtimes = (Parsers::CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
         data.license_info = map['LicenseInfo']
+        data.compatible_architectures = (Parsers::CompatibleArchitectures.parse(map['CompatibleArchitectures']) unless map['CompatibleArchitectures'].nil?)
         data
       end
     end
@@ -1366,6 +1512,7 @@ module AWS::SDK::Lambda
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
+        data.filter_criteria = (Parsers::FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
         data.function_arn = map['FunctionArn']
         data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
@@ -1414,6 +1561,40 @@ module AWS::SDK::Lambda
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.maximum_event_age_in_seconds = map['MaximumEventAgeInSeconds']
         data.destination_config = (Parsers::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        return data
+      end
+    end
+
+    # Operation Parser for ListFunctionUrlConfigs
+    class ListFunctionUrlConfigs
+      def self.parse(http_resp)
+        data = Types::ListFunctionUrlConfigsOutput.new
+        map = Hearth::JSON.load(http_resp.body)
+        data.function_url_configs = (Parsers::FunctionUrlConfigList.parse(map['FunctionUrlConfigs']) unless map['FunctionUrlConfigs'].nil?)
+        data.next_marker = map['NextMarker']
+        data
+      end
+    end
+
+    class FunctionUrlConfigList
+      def self.parse(list)
+        data = []
+        list.map do |value|
+          data << Parsers::FunctionUrlConfig.parse(value) unless value.nil?
+        end
+        data
+      end
+    end
+
+    class FunctionUrlConfig
+      def self.parse(map)
+        data = Types::FunctionUrlConfig.new
+        data.function_url = map['FunctionUrl']
+        data.function_arn = map['FunctionArn']
+        data.creation_time = map['CreationTime']
+        data.last_modified_time = map['LastModifiedTime']
+        data.cors = (Parsers::Cors.parse(map['Cors']) unless map['Cors'].nil?)
+        data.auth_type = map['AuthType']
         return data
       end
     end
@@ -1490,6 +1671,7 @@ module AWS::SDK::Lambda
         data.created_date = map['CreatedDate']
         data.compatible_runtimes = (Parsers::CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
         data.license_info = map['LicenseInfo']
+        data.compatible_architectures = (Parsers::CompatibleArchitectures.parse(map['CompatibleArchitectures']) unless map['CompatibleArchitectures'].nil?)
         return data
       end
     end
@@ -1594,6 +1776,7 @@ module AWS::SDK::Lambda
         data.version = map['Version']
         data.compatible_runtimes = (Parsers::CompatibleRuntimes.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
         data.license_info = map['LicenseInfo']
+        data.compatible_architectures = (Parsers::CompatibleArchitectures.parse(map['CompatibleArchitectures']) unless map['CompatibleArchitectures'].nil?)
         data
       end
     end
@@ -1634,6 +1817,8 @@ module AWS::SDK::Lambda
         data.image_config_response = (Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
+        data.architectures = (Parsers::ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
+        data.ephemeral_storage = (Parsers::EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
         data
       end
     end
@@ -1761,6 +1946,7 @@ module AWS::SDK::Lambda
         data.maximum_batching_window_in_seconds = map['MaximumBatchingWindowInSeconds']
         data.parallelization_factor = map['ParallelizationFactor']
         data.event_source_arn = map['EventSourceArn']
+        data.filter_criteria = (Parsers::FilterCriteria.parse(map['FilterCriteria']) unless map['FilterCriteria'].nil?)
         data.function_arn = map['FunctionArn']
         data.last_modified = Time.at(map['LastModified'].to_i) if map['LastModified']
         data.last_processing_result = map['LastProcessingResult']
@@ -1816,6 +2002,8 @@ module AWS::SDK::Lambda
         data.image_config_response = (Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
+        data.architectures = (Parsers::ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
+        data.ephemeral_storage = (Parsers::EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
         data
       end
     end
@@ -1856,6 +2044,8 @@ module AWS::SDK::Lambda
         data.image_config_response = (Parsers::ImageConfigResponse.parse(map['ImageConfigResponse']) unless map['ImageConfigResponse'].nil?)
         data.signing_profile_version_arn = map['SigningProfileVersionArn']
         data.signing_job_arn = map['SigningJobArn']
+        data.architectures = (Parsers::ArchitecturesList.parse(map['Architectures']) unless map['Architectures'].nil?)
+        data.ephemeral_storage = (Parsers::EphemeralStorage.parse(map['EphemeralStorage']) unless map['EphemeralStorage'].nil?)
         data
       end
     end
@@ -1870,6 +2060,21 @@ module AWS::SDK::Lambda
         data.maximum_retry_attempts = map['MaximumRetryAttempts']
         data.maximum_event_age_in_seconds = map['MaximumEventAgeInSeconds']
         data.destination_config = (Parsers::DestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data
+      end
+    end
+
+    # Operation Parser for UpdateFunctionUrlConfig
+    class UpdateFunctionUrlConfig
+      def self.parse(http_resp)
+        data = Types::UpdateFunctionUrlConfigOutput.new
+        map = Hearth::JSON.load(http_resp.body)
+        data.function_url = map['FunctionUrl']
+        data.function_arn = map['FunctionArn']
+        data.auth_type = map['AuthType']
+        data.cors = (Parsers::Cors.parse(map['Cors']) unless map['Cors'].nil?)
+        data.creation_time = map['CreationTime']
+        data.last_modified_time = map['LastModifiedTime']
         data
       end
     end

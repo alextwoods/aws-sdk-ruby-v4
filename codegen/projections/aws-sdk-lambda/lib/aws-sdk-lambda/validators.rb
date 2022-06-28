@@ -62,6 +62,8 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:event_source_token], ::String, context: "#{context}[:event_source_token]")
         Hearth::Validator.validate!(input[:qualifier], ::String, context: "#{context}[:qualifier]")
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
+        Hearth::Validator.validate!(input[:principal_org_id], ::String, context: "#{context}[:principal_org_id]")
+        Hearth::Validator.validate!(input[:function_url_auth_type], ::String, context: "#{context}[:function_url_auth_type]")
       end
     end
 
@@ -110,10 +112,37 @@ module AWS::SDK::Lambda
       end
     end
 
+    class AllowMethodsList
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          Hearth::Validator.validate!(element, ::String, context: "#{context}[#{index}]")
+        end
+      end
+    end
+
+    class AllowOriginsList
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          Hearth::Validator.validate!(element, ::String, context: "#{context}[#{index}]")
+        end
+      end
+    end
+
     class AllowedPublishers
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::AllowedPublishers, context: context)
         Validators::SigningProfileVersionArns.validate!(input[:signing_profile_version_arns], context: "#{context}[:signing_profile_version_arns]") unless input[:signing_profile_version_arns].nil?
+      end
+    end
+
+    class ArchitecturesList
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          Hearth::Validator.validate!(element, ::String, context: "#{context}[#{index}]")
+        end
       end
     end
 
@@ -169,6 +198,15 @@ module AWS::SDK::Lambda
       end
     end
 
+    class CompatibleArchitectures
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          Hearth::Validator.validate!(element, ::String, context: "#{context}[#{index}]")
+        end
+      end
+    end
+
     class CompatibleRuntimes
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, ::Array, context: context)
@@ -182,6 +220,18 @@ module AWS::SDK::Lambda
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::Concurrency, context: context)
         Hearth::Validator.validate!(input[:reserved_concurrent_executions], ::Integer, context: "#{context}[:reserved_concurrent_executions]")
+      end
+    end
+
+    class Cors
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::Cors, context: context)
+        Hearth::Validator.validate!(input[:allow_credentials], ::TrueClass, ::FalseClass, context: "#{context}[:allow_credentials]")
+        Validators::HeadersList.validate!(input[:allow_headers], context: "#{context}[:allow_headers]") unless input[:allow_headers].nil?
+        Validators::AllowMethodsList.validate!(input[:allow_methods], context: "#{context}[:allow_methods]") unless input[:allow_methods].nil?
+        Validators::AllowOriginsList.validate!(input[:allow_origins], context: "#{context}[:allow_origins]") unless input[:allow_origins].nil?
+        Validators::HeadersList.validate!(input[:expose_headers], context: "#{context}[:expose_headers]") unless input[:expose_headers].nil?
+        Hearth::Validator.validate!(input[:max_age], ::Integer, context: "#{context}[:max_age]")
       end
     end
 
@@ -231,6 +281,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:function_name], ::String, context: "#{context}[:function_name]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:batch_size], ::Integer, context: "#{context}[:batch_size]")
+        Validators::FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
         Hearth::Validator.validate!(input[:maximum_batching_window_in_seconds], ::Integer, context: "#{context}[:maximum_batching_window_in_seconds]")
         Hearth::Validator.validate!(input[:parallelization_factor], ::Integer, context: "#{context}[:parallelization_factor]")
         Hearth::Validator.validate!(input[:starting_position], ::String, context: "#{context}[:starting_position]")
@@ -258,6 +309,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:maximum_batching_window_in_seconds], ::Integer, context: "#{context}[:maximum_batching_window_in_seconds]")
         Hearth::Validator.validate!(input[:parallelization_factor], ::Integer, context: "#{context}[:parallelization_factor]")
         Hearth::Validator.validate!(input[:event_source_arn], ::String, context: "#{context}[:event_source_arn]")
+        Validators::FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
         Hearth::Validator.validate!(input[:function_arn], ::String, context: "#{context}[:function_arn]")
         Hearth::Validator.validate!(input[:last_modified], ::Time, context: "#{context}[:last_modified]")
         Hearth::Validator.validate!(input[:last_processing_result], ::String, context: "#{context}[:last_processing_result]")
@@ -299,6 +351,8 @@ module AWS::SDK::Lambda
         Validators::FileSystemConfigList.validate!(input[:file_system_configs], context: "#{context}[:file_system_configs]") unless input[:file_system_configs].nil?
         Validators::ImageConfig.validate!(input[:image_config], context: "#{context}[:image_config]") unless input[:image_config].nil?
         Hearth::Validator.validate!(input[:code_signing_config_arn], ::String, context: "#{context}[:code_signing_config_arn]")
+        Validators::ArchitecturesList.validate!(input[:architectures], context: "#{context}[:architectures]") unless input[:architectures].nil?
+        Validators::EphemeralStorage.validate!(input[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless input[:ephemeral_storage].nil?
       end
     end
 
@@ -336,6 +390,29 @@ module AWS::SDK::Lambda
         Validators::ImageConfigResponse.validate!(input[:image_config_response], context: "#{context}[:image_config_response]") unless input[:image_config_response].nil?
         Hearth::Validator.validate!(input[:signing_profile_version_arn], ::String, context: "#{context}[:signing_profile_version_arn]")
         Hearth::Validator.validate!(input[:signing_job_arn], ::String, context: "#{context}[:signing_job_arn]")
+        Validators::ArchitecturesList.validate!(input[:architectures], context: "#{context}[:architectures]") unless input[:architectures].nil?
+        Validators::EphemeralStorage.validate!(input[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless input[:ephemeral_storage].nil?
+      end
+    end
+
+    class CreateFunctionUrlConfigInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::CreateFunctionUrlConfigInput, context: context)
+        Hearth::Validator.validate!(input[:function_name], ::String, context: "#{context}[:function_name]")
+        Hearth::Validator.validate!(input[:qualifier], ::String, context: "#{context}[:qualifier]")
+        Hearth::Validator.validate!(input[:auth_type], ::String, context: "#{context}[:auth_type]")
+        Validators::Cors.validate!(input[:cors], context: "#{context}[:cors]") unless input[:cors].nil?
+      end
+    end
+
+    class CreateFunctionUrlConfigOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::CreateFunctionUrlConfigOutput, context: context)
+        Hearth::Validator.validate!(input[:function_url], ::String, context: "#{context}[:function_url]")
+        Hearth::Validator.validate!(input[:function_arn], ::String, context: "#{context}[:function_arn]")
+        Hearth::Validator.validate!(input[:auth_type], ::String, context: "#{context}[:auth_type]")
+        Validators::Cors.validate!(input[:cors], context: "#{context}[:cors]") unless input[:cors].nil?
+        Hearth::Validator.validate!(input[:creation_time], ::String, context: "#{context}[:creation_time]")
       end
     end
 
@@ -390,6 +467,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:maximum_batching_window_in_seconds], ::Integer, context: "#{context}[:maximum_batching_window_in_seconds]")
         Hearth::Validator.validate!(input[:parallelization_factor], ::Integer, context: "#{context}[:parallelization_factor]")
         Hearth::Validator.validate!(input[:event_source_arn], ::String, context: "#{context}[:event_source_arn]")
+        Validators::FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
         Hearth::Validator.validate!(input[:function_arn], ::String, context: "#{context}[:function_arn]")
         Hearth::Validator.validate!(input[:last_modified], ::Time, context: "#{context}[:last_modified]")
         Hearth::Validator.validate!(input[:last_processing_result], ::String, context: "#{context}[:last_processing_result]")
@@ -459,6 +537,20 @@ module AWS::SDK::Lambda
     class DeleteFunctionOutput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::DeleteFunctionOutput, context: context)
+      end
+    end
+
+    class DeleteFunctionUrlConfigInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::DeleteFunctionUrlConfigInput, context: context)
+        Hearth::Validator.validate!(input[:function_name], ::String, context: "#{context}[:function_name]")
+        Hearth::Validator.validate!(input[:qualifier], ::String, context: "#{context}[:qualifier]")
+      end
+    end
+
+    class DeleteFunctionUrlConfigOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::DeleteFunctionUrlConfigOutput, context: context)
       end
     end
 
@@ -615,6 +707,13 @@ module AWS::SDK::Lambda
       end
     end
 
+    class EphemeralStorage
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::EphemeralStorage, context: context)
+        Hearth::Validator.validate!(input[:size], ::Integer, context: "#{context}[:size]")
+      end
+    end
+
     class EventSourceMappingConfiguration
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::EventSourceMappingConfiguration, context: context)
@@ -625,6 +724,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:maximum_batching_window_in_seconds], ::Integer, context: "#{context}[:maximum_batching_window_in_seconds]")
         Hearth::Validator.validate!(input[:parallelization_factor], ::Integer, context: "#{context}[:parallelization_factor]")
         Hearth::Validator.validate!(input[:event_source_arn], ::String, context: "#{context}[:event_source_arn]")
+        Validators::FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
         Hearth::Validator.validate!(input[:function_arn], ::String, context: "#{context}[:function_arn]")
         Hearth::Validator.validate!(input[:last_modified], ::Time, context: "#{context}[:last_modified]")
         Hearth::Validator.validate!(input[:last_processing_result], ::String, context: "#{context}[:last_processing_result]")
@@ -665,6 +765,29 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
           Validators::FileSystemConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+      end
+    end
+
+    class Filter
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::Filter, context: context)
+        Hearth::Validator.validate!(input[:pattern], ::String, context: "#{context}[:pattern]")
+      end
+    end
+
+    class FilterCriteria
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::FilterCriteria, context: context)
+        Validators::FilterList.validate!(input[:filters], context: "#{context}[:filters]") unless input[:filters].nil?
+      end
+    end
+
+    class FilterList
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          Validators::Filter.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -733,6 +856,8 @@ module AWS::SDK::Lambda
         Validators::ImageConfigResponse.validate!(input[:image_config_response], context: "#{context}[:image_config_response]") unless input[:image_config_response].nil?
         Hearth::Validator.validate!(input[:signing_profile_version_arn], ::String, context: "#{context}[:signing_profile_version_arn]")
         Hearth::Validator.validate!(input[:signing_job_arn], ::String, context: "#{context}[:signing_job_arn]")
+        Validators::ArchitecturesList.validate!(input[:architectures], context: "#{context}[:architectures]") unless input[:architectures].nil?
+        Validators::EphemeralStorage.validate!(input[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless input[:ephemeral_storage].nil?
       end
     end
 
@@ -770,6 +895,27 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input, ::Array, context: context)
         input.each_with_index do |element, index|
           Hearth::Validator.validate!(element, ::String, context: "#{context}[#{index}]")
+        end
+      end
+    end
+
+    class FunctionUrlConfig
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::FunctionUrlConfig, context: context)
+        Hearth::Validator.validate!(input[:function_url], ::String, context: "#{context}[:function_url]")
+        Hearth::Validator.validate!(input[:function_arn], ::String, context: "#{context}[:function_arn]")
+        Hearth::Validator.validate!(input[:creation_time], ::String, context: "#{context}[:creation_time]")
+        Hearth::Validator.validate!(input[:last_modified_time], ::String, context: "#{context}[:last_modified_time]")
+        Validators::Cors.validate!(input[:cors], context: "#{context}[:cors]") unless input[:cors].nil?
+        Hearth::Validator.validate!(input[:auth_type], ::String, context: "#{context}[:auth_type]")
+      end
+    end
+
+    class FunctionUrlConfigList
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          Validators::FunctionUrlConfig.validate!(element, context: "#{context}[#{index}]") unless element.nil?
         end
       end
     end
@@ -839,6 +985,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:maximum_batching_window_in_seconds], ::Integer, context: "#{context}[:maximum_batching_window_in_seconds]")
         Hearth::Validator.validate!(input[:parallelization_factor], ::Integer, context: "#{context}[:parallelization_factor]")
         Hearth::Validator.validate!(input[:event_source_arn], ::String, context: "#{context}[:event_source_arn]")
+        Validators::FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
         Hearth::Validator.validate!(input[:function_arn], ::String, context: "#{context}[:function_arn]")
         Hearth::Validator.validate!(input[:last_modified], ::Time, context: "#{context}[:last_modified]")
         Hearth::Validator.validate!(input[:last_processing_result], ::String, context: "#{context}[:last_processing_result]")
@@ -928,6 +1075,8 @@ module AWS::SDK::Lambda
         Validators::ImageConfigResponse.validate!(input[:image_config_response], context: "#{context}[:image_config_response]") unless input[:image_config_response].nil?
         Hearth::Validator.validate!(input[:signing_profile_version_arn], ::String, context: "#{context}[:signing_profile_version_arn]")
         Hearth::Validator.validate!(input[:signing_job_arn], ::String, context: "#{context}[:signing_job_arn]")
+        Validators::ArchitecturesList.validate!(input[:architectures], context: "#{context}[:architectures]") unless input[:architectures].nil?
+        Validators::EphemeralStorage.validate!(input[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless input[:ephemeral_storage].nil?
       end
     end
 
@@ -968,6 +1117,26 @@ module AWS::SDK::Lambda
       end
     end
 
+    class GetFunctionUrlConfigInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::GetFunctionUrlConfigInput, context: context)
+        Hearth::Validator.validate!(input[:function_name], ::String, context: "#{context}[:function_name]")
+        Hearth::Validator.validate!(input[:qualifier], ::String, context: "#{context}[:qualifier]")
+      end
+    end
+
+    class GetFunctionUrlConfigOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::GetFunctionUrlConfigOutput, context: context)
+        Hearth::Validator.validate!(input[:function_url], ::String, context: "#{context}[:function_url]")
+        Hearth::Validator.validate!(input[:function_arn], ::String, context: "#{context}[:function_arn]")
+        Hearth::Validator.validate!(input[:auth_type], ::String, context: "#{context}[:auth_type]")
+        Validators::Cors.validate!(input[:cors], context: "#{context}[:cors]") unless input[:cors].nil?
+        Hearth::Validator.validate!(input[:creation_time], ::String, context: "#{context}[:creation_time]")
+        Hearth::Validator.validate!(input[:last_modified_time], ::String, context: "#{context}[:last_modified_time]")
+      end
+    end
+
     class GetLayerVersionByArnInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::GetLayerVersionByArnInput, context: context)
@@ -986,6 +1155,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:version], ::Integer, context: "#{context}[:version]")
         Validators::CompatibleRuntimes.validate!(input[:compatible_runtimes], context: "#{context}[:compatible_runtimes]") unless input[:compatible_runtimes].nil?
         Hearth::Validator.validate!(input[:license_info], ::String, context: "#{context}[:license_info]")
+        Validators::CompatibleArchitectures.validate!(input[:compatible_architectures], context: "#{context}[:compatible_architectures]") unless input[:compatible_architectures].nil?
       end
     end
 
@@ -1008,6 +1178,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:version], ::Integer, context: "#{context}[:version]")
         Validators::CompatibleRuntimes.validate!(input[:compatible_runtimes], context: "#{context}[:compatible_runtimes]") unless input[:compatible_runtimes].nil?
         Hearth::Validator.validate!(input[:license_info], ::String, context: "#{context}[:license_info]")
+        Validators::CompatibleArchitectures.validate!(input[:compatible_architectures], context: "#{context}[:compatible_architectures]") unless input[:compatible_architectures].nil?
       end
     end
 
@@ -1060,6 +1231,15 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:status], ::String, context: "#{context}[:status]")
         Hearth::Validator.validate!(input[:status_reason], ::String, context: "#{context}[:status_reason]")
         Hearth::Validator.validate!(input[:last_modified], ::String, context: "#{context}[:last_modified]")
+      end
+    end
+
+    class HeadersList
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, ::Array, context: context)
+        input.each_with_index do |element, index|
+          Hearth::Validator.validate!(element, ::String, context: "#{context}[#{index}]")
+        end
       end
     end
 
@@ -1274,6 +1454,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:created_date], ::String, context: "#{context}[:created_date]")
         Validators::CompatibleRuntimes.validate!(input[:compatible_runtimes], context: "#{context}[:compatible_runtimes]") unless input[:compatible_runtimes].nil?
         Hearth::Validator.validate!(input[:license_info], ::String, context: "#{context}[:license_info]")
+        Validators::CompatibleArchitectures.validate!(input[:compatible_architectures], context: "#{context}[:compatible_architectures]") unless input[:compatible_architectures].nil?
       end
     end
 
@@ -1373,6 +1554,23 @@ module AWS::SDK::Lambda
       end
     end
 
+    class ListFunctionUrlConfigsInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::ListFunctionUrlConfigsInput, context: context)
+        Hearth::Validator.validate!(input[:function_name], ::String, context: "#{context}[:function_name]")
+        Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
+        Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
+      end
+    end
+
+    class ListFunctionUrlConfigsOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::ListFunctionUrlConfigsOutput, context: context)
+        Validators::FunctionUrlConfigList.validate!(input[:function_url_configs], context: "#{context}[:function_url_configs]") unless input[:function_url_configs].nil?
+        Hearth::Validator.validate!(input[:next_marker], ::String, context: "#{context}[:next_marker]")
+      end
+    end
+
     class ListFunctionsByCodeSigningConfigInput
       def self.validate!(input, context:)
         Hearth::Validator.validate!(input, Types::ListFunctionsByCodeSigningConfigInput, context: context)
@@ -1415,6 +1613,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:layer_name], ::String, context: "#{context}[:layer_name]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
+        Hearth::Validator.validate!(input[:compatible_architecture], ::String, context: "#{context}[:compatible_architecture]")
       end
     end
 
@@ -1432,6 +1631,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:compatible_runtime], ::String, context: "#{context}[:compatible_runtime]")
         Hearth::Validator.validate!(input[:marker], ::String, context: "#{context}[:marker]")
         Hearth::Validator.validate!(input[:max_items], ::Integer, context: "#{context}[:max_items]")
+        Hearth::Validator.validate!(input[:compatible_architecture], ::String, context: "#{context}[:compatible_architecture]")
       end
     end
 
@@ -1559,6 +1759,7 @@ module AWS::SDK::Lambda
         Validators::LayerVersionContentInput.validate!(input[:content], context: "#{context}[:content]") unless input[:content].nil?
         Validators::CompatibleRuntimes.validate!(input[:compatible_runtimes], context: "#{context}[:compatible_runtimes]") unless input[:compatible_runtimes].nil?
         Hearth::Validator.validate!(input[:license_info], ::String, context: "#{context}[:license_info]")
+        Validators::CompatibleArchitectures.validate!(input[:compatible_architectures], context: "#{context}[:compatible_architectures]") unless input[:compatible_architectures].nil?
       end
     end
 
@@ -1573,6 +1774,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:version], ::Integer, context: "#{context}[:version]")
         Validators::CompatibleRuntimes.validate!(input[:compatible_runtimes], context: "#{context}[:compatible_runtimes]") unless input[:compatible_runtimes].nil?
         Hearth::Validator.validate!(input[:license_info], ::String, context: "#{context}[:license_info]")
+        Validators::CompatibleArchitectures.validate!(input[:compatible_architectures], context: "#{context}[:compatible_architectures]") unless input[:compatible_architectures].nil?
       end
     end
 
@@ -1620,6 +1822,8 @@ module AWS::SDK::Lambda
         Validators::ImageConfigResponse.validate!(input[:image_config_response], context: "#{context}[:image_config_response]") unless input[:image_config_response].nil?
         Hearth::Validator.validate!(input[:signing_profile_version_arn], ::String, context: "#{context}[:signing_profile_version_arn]")
         Hearth::Validator.validate!(input[:signing_job_arn], ::String, context: "#{context}[:signing_job_arn]")
+        Validators::ArchitecturesList.validate!(input[:architectures], context: "#{context}[:architectures]") unless input[:architectures].nil?
+        Validators::EphemeralStorage.validate!(input[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless input[:ephemeral_storage].nil?
       end
     end
 
@@ -1990,6 +2194,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:function_name], ::String, context: "#{context}[:function_name]")
         Hearth::Validator.validate!(input[:enabled], ::TrueClass, ::FalseClass, context: "#{context}[:enabled]")
         Hearth::Validator.validate!(input[:batch_size], ::Integer, context: "#{context}[:batch_size]")
+        Validators::FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
         Hearth::Validator.validate!(input[:maximum_batching_window_in_seconds], ::Integer, context: "#{context}[:maximum_batching_window_in_seconds]")
         Validators::DestinationConfig.validate!(input[:destination_config], context: "#{context}[:destination_config]") unless input[:destination_config].nil?
         Hearth::Validator.validate!(input[:maximum_record_age_in_seconds], ::Integer, context: "#{context}[:maximum_record_age_in_seconds]")
@@ -2012,6 +2217,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:maximum_batching_window_in_seconds], ::Integer, context: "#{context}[:maximum_batching_window_in_seconds]")
         Hearth::Validator.validate!(input[:parallelization_factor], ::Integer, context: "#{context}[:parallelization_factor]")
         Hearth::Validator.validate!(input[:event_source_arn], ::String, context: "#{context}[:event_source_arn]")
+        Validators::FilterCriteria.validate!(input[:filter_criteria], context: "#{context}[:filter_criteria]") unless input[:filter_criteria].nil?
         Hearth::Validator.validate!(input[:function_arn], ::String, context: "#{context}[:function_arn]")
         Hearth::Validator.validate!(input[:last_modified], ::Time, context: "#{context}[:last_modified]")
         Hearth::Validator.validate!(input[:last_processing_result], ::String, context: "#{context}[:last_processing_result]")
@@ -2042,6 +2248,7 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:publish], ::TrueClass, ::FalseClass, context: "#{context}[:publish]")
         Hearth::Validator.validate!(input[:dry_run], ::TrueClass, ::FalseClass, context: "#{context}[:dry_run]")
         Hearth::Validator.validate!(input[:revision_id], ::String, context: "#{context}[:revision_id]")
+        Validators::ArchitecturesList.validate!(input[:architectures], context: "#{context}[:architectures]") unless input[:architectures].nil?
       end
     end
 
@@ -2079,6 +2286,8 @@ module AWS::SDK::Lambda
         Validators::ImageConfigResponse.validate!(input[:image_config_response], context: "#{context}[:image_config_response]") unless input[:image_config_response].nil?
         Hearth::Validator.validate!(input[:signing_profile_version_arn], ::String, context: "#{context}[:signing_profile_version_arn]")
         Hearth::Validator.validate!(input[:signing_job_arn], ::String, context: "#{context}[:signing_job_arn]")
+        Validators::ArchitecturesList.validate!(input[:architectures], context: "#{context}[:architectures]") unless input[:architectures].nil?
+        Validators::EphemeralStorage.validate!(input[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless input[:ephemeral_storage].nil?
       end
     end
 
@@ -2101,6 +2310,7 @@ module AWS::SDK::Lambda
         Validators::LayerList.validate!(input[:layers], context: "#{context}[:layers]") unless input[:layers].nil?
         Validators::FileSystemConfigList.validate!(input[:file_system_configs], context: "#{context}[:file_system_configs]") unless input[:file_system_configs].nil?
         Validators::ImageConfig.validate!(input[:image_config], context: "#{context}[:image_config]") unless input[:image_config].nil?
+        Validators::EphemeralStorage.validate!(input[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless input[:ephemeral_storage].nil?
       end
     end
 
@@ -2138,6 +2348,8 @@ module AWS::SDK::Lambda
         Validators::ImageConfigResponse.validate!(input[:image_config_response], context: "#{context}[:image_config_response]") unless input[:image_config_response].nil?
         Hearth::Validator.validate!(input[:signing_profile_version_arn], ::String, context: "#{context}[:signing_profile_version_arn]")
         Hearth::Validator.validate!(input[:signing_job_arn], ::String, context: "#{context}[:signing_job_arn]")
+        Validators::ArchitecturesList.validate!(input[:architectures], context: "#{context}[:architectures]") unless input[:architectures].nil?
+        Validators::EphemeralStorage.validate!(input[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless input[:ephemeral_storage].nil?
       end
     end
 
@@ -2160,6 +2372,28 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(input[:maximum_retry_attempts], ::Integer, context: "#{context}[:maximum_retry_attempts]")
         Hearth::Validator.validate!(input[:maximum_event_age_in_seconds], ::Integer, context: "#{context}[:maximum_event_age_in_seconds]")
         Validators::DestinationConfig.validate!(input[:destination_config], context: "#{context}[:destination_config]") unless input[:destination_config].nil?
+      end
+    end
+
+    class UpdateFunctionUrlConfigInput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::UpdateFunctionUrlConfigInput, context: context)
+        Hearth::Validator.validate!(input[:function_name], ::String, context: "#{context}[:function_name]")
+        Hearth::Validator.validate!(input[:qualifier], ::String, context: "#{context}[:qualifier]")
+        Hearth::Validator.validate!(input[:auth_type], ::String, context: "#{context}[:auth_type]")
+        Validators::Cors.validate!(input[:cors], context: "#{context}[:cors]") unless input[:cors].nil?
+      end
+    end
+
+    class UpdateFunctionUrlConfigOutput
+      def self.validate!(input, context:)
+        Hearth::Validator.validate!(input, Types::UpdateFunctionUrlConfigOutput, context: context)
+        Hearth::Validator.validate!(input[:function_url], ::String, context: "#{context}[:function_url]")
+        Hearth::Validator.validate!(input[:function_arn], ::String, context: "#{context}[:function_arn]")
+        Hearth::Validator.validate!(input[:auth_type], ::String, context: "#{context}[:auth_type]")
+        Validators::Cors.validate!(input[:cors], context: "#{context}[:cors]") unless input[:cors].nil?
+        Hearth::Validator.validate!(input[:creation_time], ::String, context: "#{context}[:creation_time]")
+        Hearth::Validator.validate!(input[:last_modified_time], ::String, context: "#{context}[:last_modified_time]")
       end
     end
 

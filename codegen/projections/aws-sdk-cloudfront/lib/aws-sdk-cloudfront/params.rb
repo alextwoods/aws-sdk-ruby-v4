@@ -9,7 +9,7 @@
 
 require 'securerandom'
 
-module AWS::SDK::Cloudfront
+module AWS::SDK::CloudFront
   module Params
 
     module AccessControlAllowHeadersList
@@ -3919,6 +3919,7 @@ module AWS::SDK::Cloudfront
         type.cors_config = ResponseHeadersPolicyCorsConfig.build(params[:cors_config], context: "#{context}[:cors_config]") unless params[:cors_config].nil?
         type.security_headers_config = ResponseHeadersPolicySecurityHeadersConfig.build(params[:security_headers_config], context: "#{context}[:security_headers_config]") unless params[:security_headers_config].nil?
         type.custom_headers_config = ResponseHeadersPolicyCustomHeadersConfig.build(params[:custom_headers_config], context: "#{context}[:custom_headers_config]") unless params[:custom_headers_config].nil?
+        type.server_timing_headers_config = ResponseHeadersPolicyServerTimingHeadersConfig.build(params[:server_timing_headers_config], context: "#{context}[:server_timing_headers_config]") unless params[:server_timing_headers_config].nil?
         type
       end
     end
@@ -4040,6 +4041,16 @@ module AWS::SDK::Cloudfront
         type.content_security_policy = ResponseHeadersPolicyContentSecurityPolicy.build(params[:content_security_policy], context: "#{context}[:content_security_policy]") unless params[:content_security_policy].nil?
         type.content_type_options = ResponseHeadersPolicyContentTypeOptions.build(params[:content_type_options], context: "#{context}[:content_type_options]") unless params[:content_type_options].nil?
         type.strict_transport_security = ResponseHeadersPolicyStrictTransportSecurity.build(params[:strict_transport_security], context: "#{context}[:strict_transport_security]") unless params[:strict_transport_security].nil?
+        type
+      end
+    end
+
+    module ResponseHeadersPolicyServerTimingHeadersConfig
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ResponseHeadersPolicyServerTimingHeadersConfig, context: context)
+        type = Types::ResponseHeadersPolicyServerTimingHeadersConfig.new
+        type.enabled = params[:enabled]
+        type.sampling_rate = params[:sampling_rate]
         type
       end
     end
@@ -4391,6 +4402,15 @@ module AWS::SDK::Cloudfront
         type.function_execution_logs = FunctionExecutionLogList.build(params[:function_execution_logs], context: "#{context}[:function_execution_logs]") unless params[:function_execution_logs].nil?
         type.function_error_message = params[:function_error_message]
         type.function_output = params[:function_output]
+        type
+      end
+    end
+
+    module TooLongCSPInResponseHeadersPolicy
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::TooLongCSPInResponseHeadersPolicy, context: context)
+        type = Types::TooLongCSPInResponseHeadersPolicy.new
+        type.message = params[:message]
         type
       end
     end

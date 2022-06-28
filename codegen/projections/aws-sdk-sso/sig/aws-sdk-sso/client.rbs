@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Sso
+module AWS::SDK::SSO
   class Client
     include Hearth::ClientStubs
 

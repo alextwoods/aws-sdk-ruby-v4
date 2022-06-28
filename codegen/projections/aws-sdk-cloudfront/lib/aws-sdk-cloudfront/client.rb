@@ -9,7 +9,7 @@
 
 require_relative 'middleware/request_id'
 
-module AWS::SDK::Cloudfront
+module AWS::SDK::CloudFront
   # An API client for Cloudfront2020_05_31
   # See {#initialize} for a full list of supported configuration options
   # <fullname>Amazon CloudFront</fullname>
@@ -29,7 +29,7 @@ module AWS::SDK::Cloudfront
     # @param [Config] config
     #   An instance of {Config}
     #
-    def initialize(config = AWS::SDK::Cloudfront::Config.new, options = {})
+    def initialize(config = AWS::SDK::CloudFront::Config.new, options = {})
       @config = config
       @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
       @stubs = Hearth::Stubbing::Stubs.new
@@ -2368,6 +2368,10 @@ module AWS::SDK::Cloudfront
     #             override: false # required
     #           }
     #         ]
+    #       },
+    #       server_timing_headers_config: {
+    #         enabled: false, # required
+    #         sampling_rate: 1.0
     #       }
     #     } # required
     #   )
@@ -2430,6 +2434,9 @@ module AWS::SDK::Cloudfront
     #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].header #=> String
     #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].value #=> String
     #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.server_timing_headers_config #=> Types::ResponseHeadersPolicyServerTimingHeadersConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.server_timing_headers_config.enabled #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.server_timing_headers_config.sampling_rate #=> Float
     #   resp.data.location #=> String
     #   resp.data.e_tag #=> String
     #
@@ -2454,7 +2461,7 @@ module AWS::SDK::Cloudfront
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyCustomHeadersInResponseHeadersPolicy, Errors::InconsistentQuantities, Errors::TooManyResponseHeadersPolicies, Errors::InvalidArgument, Errors::ResponseHeadersPolicyAlreadyExists]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::AccessDenied, Errors::TooManyCustomHeadersInResponseHeadersPolicy, Errors::InconsistentQuantities, Errors::TooLongCSPInResponseHeadersPolicy, Errors::TooManyResponseHeadersPolicies, Errors::InvalidArgument, Errors::ResponseHeadersPolicyAlreadyExists]),
         data_parser: Parsers::CreateResponseHeadersPolicy
       )
       stack.use(Middleware::RequestId)
@@ -6037,6 +6044,9 @@ module AWS::SDK::Cloudfront
     #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].header #=> String
     #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].value #=> String
     #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.server_timing_headers_config #=> Types::ResponseHeadersPolicyServerTimingHeadersConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.server_timing_headers_config.enabled #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.server_timing_headers_config.sampling_rate #=> Float
     #   resp.data.e_tag #=> String
     #
     def get_response_headers_policy(params = {}, options = {}, &block)
@@ -6169,6 +6179,9 @@ module AWS::SDK::Cloudfront
     #   resp.data.response_headers_policy_config.custom_headers_config.items[0].header #=> String
     #   resp.data.response_headers_policy_config.custom_headers_config.items[0].value #=> String
     #   resp.data.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
+    #   resp.data.response_headers_policy_config.server_timing_headers_config #=> Types::ResponseHeadersPolicyServerTimingHeadersConfig
+    #   resp.data.response_headers_policy_config.server_timing_headers_config.enabled #=> Boolean
+    #   resp.data.response_headers_policy_config.server_timing_headers_config.sampling_rate #=> Float
     #   resp.data.e_tag #=> String
     #
     def get_response_headers_policy_config(params = {}, options = {}, &block)
@@ -8813,6 +8826,9 @@ module AWS::SDK::Cloudfront
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].header #=> String
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].value #=> String
     #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.server_timing_headers_config #=> Types::ResponseHeadersPolicyServerTimingHeadersConfig
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.server_timing_headers_config.enabled #=> Boolean
+    #   resp.data.response_headers_policy_list.items[0].response_headers_policy.response_headers_policy_config.server_timing_headers_config.sampling_rate #=> Float
     #
     def list_response_headers_policies(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -11146,6 +11162,10 @@ module AWS::SDK::Cloudfront
     #             override: false # required
     #           }
     #         ]
+    #       },
+    #       server_timing_headers_config: {
+    #         enabled: false, # required
+    #         sampling_rate: 1.0
     #       }
     #     }, # required
     #     id: 'Id', # required
@@ -11210,6 +11230,9 @@ module AWS::SDK::Cloudfront
     #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].header #=> String
     #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].value #=> String
     #   resp.data.response_headers_policy.response_headers_policy_config.custom_headers_config.items[0].override #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.server_timing_headers_config #=> Types::ResponseHeadersPolicyServerTimingHeadersConfig
+    #   resp.data.response_headers_policy.response_headers_policy_config.server_timing_headers_config.enabled #=> Boolean
+    #   resp.data.response_headers_policy.response_headers_policy_config.server_timing_headers_config.sampling_rate #=> Float
     #   resp.data.e_tag #=> String
     #
     def update_response_headers_policy(params = {}, options = {}, &block)
@@ -11233,7 +11256,7 @@ module AWS::SDK::Cloudfront
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::TooManyCustomHeadersInResponseHeadersPolicy, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::NoSuchResponseHeadersPolicy, Errors::InconsistentQuantities, Errors::InvalidArgument, Errors::ResponseHeadersPolicyAlreadyExists]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::AccessDenied, Errors::PreconditionFailed, Errors::TooManyCustomHeadersInResponseHeadersPolicy, Errors::InvalidIfMatchVersion, Errors::IllegalUpdate, Errors::NoSuchResponseHeadersPolicy, Errors::InconsistentQuantities, Errors::TooLongCSPInResponseHeadersPolicy, Errors::InvalidArgument, Errors::ResponseHeadersPolicyAlreadyExists]),
         data_parser: Parsers::UpdateResponseHeadersPolicy
       )
       stack.use(Middleware::RequestId)

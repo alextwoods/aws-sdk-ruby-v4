@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Sso
+module AWS::SDK::SSO
   module Errors
     def self.error_code(resp)
       if !(200..299).cover?(resp.status)

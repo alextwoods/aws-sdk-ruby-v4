@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Cloudfront
+module AWS::SDK::CloudFront
   module Stubs
 
     # Operation Stubber for AssociateAlias
@@ -2933,6 +2933,7 @@ module AWS::SDK::Cloudfront
           cors_config: Stubs::ResponseHeadersPolicyCorsConfig.default(visited),
           security_headers_config: Stubs::ResponseHeadersPolicySecurityHeadersConfig.default(visited),
           custom_headers_config: Stubs::ResponseHeadersPolicyCustomHeadersConfig.default(visited),
+          server_timing_headers_config: Stubs::ResponseHeadersPolicyServerTimingHeadersConfig.default(visited),
         }
       end
 
@@ -2944,6 +2945,27 @@ module AWS::SDK::Cloudfront
         xml << Stubs::ResponseHeadersPolicyCorsConfig.stub('CorsConfig', stub[:cors_config]) unless stub[:cors_config].nil?
         xml << Stubs::ResponseHeadersPolicySecurityHeadersConfig.stub('SecurityHeadersConfig', stub[:security_headers_config]) unless stub[:security_headers_config].nil?
         xml << Stubs::ResponseHeadersPolicyCustomHeadersConfig.stub('CustomHeadersConfig', stub[:custom_headers_config]) unless stub[:custom_headers_config].nil?
+        xml << Stubs::ResponseHeadersPolicyServerTimingHeadersConfig.stub('ServerTimingHeadersConfig', stub[:server_timing_headers_config]) unless stub[:server_timing_headers_config].nil?
+        xml
+      end
+    end
+
+    # Structure Stubber for ResponseHeadersPolicyServerTimingHeadersConfig
+    class ResponseHeadersPolicyServerTimingHeadersConfig
+      def self.default(visited=[])
+        return nil if visited.include?('ResponseHeadersPolicyServerTimingHeadersConfig')
+        visited = visited + ['ResponseHeadersPolicyServerTimingHeadersConfig']
+        {
+          enabled: false,
+          sampling_rate: 1.0,
+        }
+      end
+
+      def self.stub(node_name, stub)
+        stub ||= Types::ResponseHeadersPolicyServerTimingHeadersConfig.new
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
+        xml << Hearth::XML::Node.new('SamplingRate', Hearth::NumberHelper.serialize(stub[:sampling_rate]).to_s) unless stub[:sampling_rate].nil?
         xml
       end
     end

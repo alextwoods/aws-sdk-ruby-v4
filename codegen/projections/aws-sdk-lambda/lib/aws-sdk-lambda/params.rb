@@ -73,6 +73,8 @@ module AWS::SDK::Lambda
         type.event_source_token = params[:event_source_token]
         type.qualifier = params[:qualifier]
         type.revision_id = params[:revision_id]
+        type.principal_org_id = params[:principal_org_id]
+        type.function_url_auth_type = params[:function_url_auth_type]
         type
       end
     end
@@ -131,12 +133,45 @@ module AWS::SDK::Lambda
       end
     end
 
+    module AllowMethodsList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each do |element|
+          data << element
+        end
+        data
+      end
+    end
+
+    module AllowOriginsList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each do |element|
+          data << element
+        end
+        data
+      end
+    end
+
     module AllowedPublishers
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::AllowedPublishers, context: context)
         type = Types::AllowedPublishers.new
         type.signing_profile_version_arns = SigningProfileVersionArns.build(params[:signing_profile_version_arns], context: "#{context}[:signing_profile_version_arns]") unless params[:signing_profile_version_arns].nil?
         type
+      end
+    end
+
+    module ArchitecturesList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each do |element|
+          data << element
+        end
+        data
       end
     end
 
@@ -204,6 +239,17 @@ module AWS::SDK::Lambda
       end
     end
 
+    module CompatibleArchitectures
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each do |element|
+          data << element
+        end
+        data
+      end
+    end
+
     module CompatibleRuntimes
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Array, context: context)
@@ -220,6 +266,20 @@ module AWS::SDK::Lambda
         Hearth::Validator.validate!(params, ::Hash, Types::Concurrency, context: context)
         type = Types::Concurrency.new
         type.reserved_concurrent_executions = params[:reserved_concurrent_executions]
+        type
+      end
+    end
+
+    module Cors
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::Cors, context: context)
+        type = Types::Cors.new
+        type.allow_credentials = params[:allow_credentials]
+        type.allow_headers = HeadersList.build(params[:allow_headers], context: "#{context}[:allow_headers]") unless params[:allow_headers].nil?
+        type.allow_methods = AllowMethodsList.build(params[:allow_methods], context: "#{context}[:allow_methods]") unless params[:allow_methods].nil?
+        type.allow_origins = AllowOriginsList.build(params[:allow_origins], context: "#{context}[:allow_origins]") unless params[:allow_origins].nil?
+        type.expose_headers = HeadersList.build(params[:expose_headers], context: "#{context}[:expose_headers]") unless params[:expose_headers].nil?
+        type.max_age = params[:max_age]
         type
       end
     end
@@ -279,6 +339,7 @@ module AWS::SDK::Lambda
         type.function_name = params[:function_name]
         type.enabled = params[:enabled]
         type.batch_size = params[:batch_size]
+        type.filter_criteria = FilterCriteria.build(params[:filter_criteria], context: "#{context}[:filter_criteria]") unless params[:filter_criteria].nil?
         type.maximum_batching_window_in_seconds = params[:maximum_batching_window_in_seconds]
         type.parallelization_factor = params[:parallelization_factor]
         type.starting_position = params[:starting_position]
@@ -308,6 +369,7 @@ module AWS::SDK::Lambda
         type.maximum_batching_window_in_seconds = params[:maximum_batching_window_in_seconds]
         type.parallelization_factor = params[:parallelization_factor]
         type.event_source_arn = params[:event_source_arn]
+        type.filter_criteria = FilterCriteria.build(params[:filter_criteria], context: "#{context}[:filter_criteria]") unless params[:filter_criteria].nil?
         type.function_arn = params[:function_arn]
         type.last_modified = params[:last_modified]
         type.last_processing_result = params[:last_processing_result]
@@ -351,6 +413,8 @@ module AWS::SDK::Lambda
         type.file_system_configs = FileSystemConfigList.build(params[:file_system_configs], context: "#{context}[:file_system_configs]") unless params[:file_system_configs].nil?
         type.image_config = ImageConfig.build(params[:image_config], context: "#{context}[:image_config]") unless params[:image_config].nil?
         type.code_signing_config_arn = params[:code_signing_config_arn]
+        type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
+        type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
         type
       end
     end
@@ -390,6 +454,33 @@ module AWS::SDK::Lambda
         type.image_config_response = ImageConfigResponse.build(params[:image_config_response], context: "#{context}[:image_config_response]") unless params[:image_config_response].nil?
         type.signing_profile_version_arn = params[:signing_profile_version_arn]
         type.signing_job_arn = params[:signing_job_arn]
+        type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
+        type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
+        type
+      end
+    end
+
+    module CreateFunctionUrlConfigInput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateFunctionUrlConfigInput, context: context)
+        type = Types::CreateFunctionUrlConfigInput.new
+        type.function_name = params[:function_name]
+        type.qualifier = params[:qualifier]
+        type.auth_type = params[:auth_type]
+        type.cors = Cors.build(params[:cors], context: "#{context}[:cors]") unless params[:cors].nil?
+        type
+      end
+    end
+
+    module CreateFunctionUrlConfigOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::CreateFunctionUrlConfigOutput, context: context)
+        type = Types::CreateFunctionUrlConfigOutput.new
+        type.function_url = params[:function_url]
+        type.function_arn = params[:function_arn]
+        type.auth_type = params[:auth_type]
+        type.cors = Cors.build(params[:cors], context: "#{context}[:cors]") unless params[:cors].nil?
+        type.creation_time = params[:creation_time]
         type
       end
     end
@@ -458,6 +549,7 @@ module AWS::SDK::Lambda
         type.maximum_batching_window_in_seconds = params[:maximum_batching_window_in_seconds]
         type.parallelization_factor = params[:parallelization_factor]
         type.event_source_arn = params[:event_source_arn]
+        type.filter_criteria = FilterCriteria.build(params[:filter_criteria], context: "#{context}[:filter_criteria]") unless params[:filter_criteria].nil?
         type.function_arn = params[:function_arn]
         type.last_modified = params[:last_modified]
         type.last_processing_result = params[:last_processing_result]
@@ -543,6 +635,24 @@ module AWS::SDK::Lambda
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionOutput, context: context)
         type = Types::DeleteFunctionOutput.new
+        type
+      end
+    end
+
+    module DeleteFunctionUrlConfigInput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionUrlConfigInput, context: context)
+        type = Types::DeleteFunctionUrlConfigInput.new
+        type.function_name = params[:function_name]
+        type.qualifier = params[:qualifier]
+        type
+      end
+    end
+
+    module DeleteFunctionUrlConfigOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::DeleteFunctionUrlConfigOutput, context: context)
+        type = Types::DeleteFunctionUrlConfigOutput.new
         type
       end
     end
@@ -736,6 +846,15 @@ module AWS::SDK::Lambda
       end
     end
 
+    module EphemeralStorage
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::EphemeralStorage, context: context)
+        type = Types::EphemeralStorage.new
+        type.size = params[:size]
+        type
+      end
+    end
+
     module EventSourceMappingConfiguration
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::EventSourceMappingConfiguration, context: context)
@@ -747,6 +866,7 @@ module AWS::SDK::Lambda
         type.maximum_batching_window_in_seconds = params[:maximum_batching_window_in_seconds]
         type.parallelization_factor = params[:parallelization_factor]
         type.event_source_arn = params[:event_source_arn]
+        type.filter_criteria = FilterCriteria.build(params[:filter_criteria], context: "#{context}[:filter_criteria]") unless params[:filter_criteria].nil?
         type.function_arn = params[:function_arn]
         type.last_modified = params[:last_modified]
         type.last_processing_result = params[:last_processing_result]
@@ -793,6 +913,35 @@ module AWS::SDK::Lambda
         data = []
         params.each_with_index do |element, index|
           data << FileSystemConfig.build(element, context: "#{context}[#{index}]") unless element.nil?
+        end
+        data
+      end
+    end
+
+    module Filter
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::Filter, context: context)
+        type = Types::Filter.new
+        type.pattern = params[:pattern]
+        type
+      end
+    end
+
+    module FilterCriteria
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::FilterCriteria, context: context)
+        type = Types::FilterCriteria.new
+        type.filters = FilterList.build(params[:filters], context: "#{context}[:filters]") unless params[:filters].nil?
+        type
+      end
+    end
+
+    module FilterList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << Filter.build(element, context: "#{context}[#{index}]") unless element.nil?
         end
         data
       end
@@ -869,6 +1018,8 @@ module AWS::SDK::Lambda
         type.image_config_response = ImageConfigResponse.build(params[:image_config_response], context: "#{context}[:image_config_response]") unless params[:image_config_response].nil?
         type.signing_profile_version_arn = params[:signing_profile_version_arn]
         type.signing_job_arn = params[:signing_job_arn]
+        type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
+        type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
         type
       end
     end
@@ -914,6 +1065,31 @@ module AWS::SDK::Lambda
         data = []
         params.each do |element|
           data << element
+        end
+        data
+      end
+    end
+
+    module FunctionUrlConfig
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::FunctionUrlConfig, context: context)
+        type = Types::FunctionUrlConfig.new
+        type.function_url = params[:function_url]
+        type.function_arn = params[:function_arn]
+        type.creation_time = params[:creation_time]
+        type.last_modified_time = params[:last_modified_time]
+        type.cors = Cors.build(params[:cors], context: "#{context}[:cors]") unless params[:cors].nil?
+        type.auth_type = params[:auth_type]
+        type
+      end
+    end
+
+    module FunctionUrlConfigList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each_with_index do |element, index|
+          data << FunctionUrlConfig.build(element, context: "#{context}[#{index}]") unless element.nil?
         end
         data
       end
@@ -999,6 +1175,7 @@ module AWS::SDK::Lambda
         type.maximum_batching_window_in_seconds = params[:maximum_batching_window_in_seconds]
         type.parallelization_factor = params[:parallelization_factor]
         type.event_source_arn = params[:event_source_arn]
+        type.filter_criteria = FilterCriteria.build(params[:filter_criteria], context: "#{context}[:filter_criteria]") unless params[:filter_criteria].nil?
         type.function_arn = params[:function_arn]
         type.last_modified = params[:last_modified]
         type.last_processing_result = params[:last_processing_result]
@@ -1100,6 +1277,8 @@ module AWS::SDK::Lambda
         type.image_config_response = ImageConfigResponse.build(params[:image_config_response], context: "#{context}[:image_config_response]") unless params[:image_config_response].nil?
         type.signing_profile_version_arn = params[:signing_profile_version_arn]
         type.signing_job_arn = params[:signing_job_arn]
+        type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
+        type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
         type
       end
     end
@@ -1149,6 +1328,30 @@ module AWS::SDK::Lambda
       end
     end
 
+    module GetFunctionUrlConfigInput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionUrlConfigInput, context: context)
+        type = Types::GetFunctionUrlConfigInput.new
+        type.function_name = params[:function_name]
+        type.qualifier = params[:qualifier]
+        type
+      end
+    end
+
+    module GetFunctionUrlConfigOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::GetFunctionUrlConfigOutput, context: context)
+        type = Types::GetFunctionUrlConfigOutput.new
+        type.function_url = params[:function_url]
+        type.function_arn = params[:function_arn]
+        type.auth_type = params[:auth_type]
+        type.cors = Cors.build(params[:cors], context: "#{context}[:cors]") unless params[:cors].nil?
+        type.creation_time = params[:creation_time]
+        type.last_modified_time = params[:last_modified_time]
+        type
+      end
+    end
+
     module GetLayerVersionByArnInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::GetLayerVersionByArnInput, context: context)
@@ -1170,6 +1373,7 @@ module AWS::SDK::Lambda
         type.version = params[:version]
         type.compatible_runtimes = CompatibleRuntimes.build(params[:compatible_runtimes], context: "#{context}[:compatible_runtimes]") unless params[:compatible_runtimes].nil?
         type.license_info = params[:license_info]
+        type.compatible_architectures = CompatibleArchitectures.build(params[:compatible_architectures], context: "#{context}[:compatible_architectures]") unless params[:compatible_architectures].nil?
         type
       end
     end
@@ -1196,6 +1400,7 @@ module AWS::SDK::Lambda
         type.version = params[:version]
         type.compatible_runtimes = CompatibleRuntimes.build(params[:compatible_runtimes], context: "#{context}[:compatible_runtimes]") unless params[:compatible_runtimes].nil?
         type.license_info = params[:license_info]
+        type.compatible_architectures = CompatibleArchitectures.build(params[:compatible_architectures], context: "#{context}[:compatible_architectures]") unless params[:compatible_architectures].nil?
         type
       end
     end
@@ -1261,6 +1466,17 @@ module AWS::SDK::Lambda
         type.status_reason = params[:status_reason]
         type.last_modified = params[:last_modified]
         type
+      end
+    end
+
+    module HeadersList
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Array, context: context)
+        data = []
+        params.each do |element|
+          data << element
+        end
+        data
       end
     end
 
@@ -1524,6 +1740,7 @@ module AWS::SDK::Lambda
         type.created_date = params[:created_date]
         type.compatible_runtimes = CompatibleRuntimes.build(params[:compatible_runtimes], context: "#{context}[:compatible_runtimes]") unless params[:compatible_runtimes].nil?
         type.license_info = params[:license_info]
+        type.compatible_architectures = CompatibleArchitectures.build(params[:compatible_architectures], context: "#{context}[:compatible_architectures]") unless params[:compatible_architectures].nil?
         type
       end
     end
@@ -1646,6 +1863,27 @@ module AWS::SDK::Lambda
       end
     end
 
+    module ListFunctionUrlConfigsInput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ListFunctionUrlConfigsInput, context: context)
+        type = Types::ListFunctionUrlConfigsInput.new
+        type.function_name = params[:function_name]
+        type.marker = params[:marker]
+        type.max_items = params[:max_items]
+        type
+      end
+    end
+
+    module ListFunctionUrlConfigsOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::ListFunctionUrlConfigsOutput, context: context)
+        type = Types::ListFunctionUrlConfigsOutput.new
+        type.function_url_configs = FunctionUrlConfigList.build(params[:function_url_configs], context: "#{context}[:function_url_configs]") unless params[:function_url_configs].nil?
+        type.next_marker = params[:next_marker]
+        type
+      end
+    end
+
     module ListFunctionsByCodeSigningConfigInput
       def self.build(params, context: '')
         Hearth::Validator.validate!(params, ::Hash, Types::ListFunctionsByCodeSigningConfigInput, context: context)
@@ -1697,6 +1935,7 @@ module AWS::SDK::Lambda
         type.layer_name = params[:layer_name]
         type.marker = params[:marker]
         type.max_items = params[:max_items]
+        type.compatible_architecture = params[:compatible_architecture]
         type
       end
     end
@@ -1718,6 +1957,7 @@ module AWS::SDK::Lambda
         type.compatible_runtime = params[:compatible_runtime]
         type.marker = params[:marker]
         type.max_items = params[:max_items]
+        type.compatible_architecture = params[:compatible_architecture]
         type
       end
     end
@@ -1875,6 +2115,7 @@ module AWS::SDK::Lambda
         type.content = LayerVersionContentInput.build(params[:content], context: "#{context}[:content]") unless params[:content].nil?
         type.compatible_runtimes = CompatibleRuntimes.build(params[:compatible_runtimes], context: "#{context}[:compatible_runtimes]") unless params[:compatible_runtimes].nil?
         type.license_info = params[:license_info]
+        type.compatible_architectures = CompatibleArchitectures.build(params[:compatible_architectures], context: "#{context}[:compatible_architectures]") unless params[:compatible_architectures].nil?
         type
       end
     end
@@ -1891,6 +2132,7 @@ module AWS::SDK::Lambda
         type.version = params[:version]
         type.compatible_runtimes = CompatibleRuntimes.build(params[:compatible_runtimes], context: "#{context}[:compatible_runtimes]") unless params[:compatible_runtimes].nil?
         type.license_info = params[:license_info]
+        type.compatible_architectures = CompatibleArchitectures.build(params[:compatible_architectures], context: "#{context}[:compatible_architectures]") unless params[:compatible_architectures].nil?
         type
       end
     end
@@ -1942,6 +2184,8 @@ module AWS::SDK::Lambda
         type.image_config_response = ImageConfigResponse.build(params[:image_config_response], context: "#{context}[:image_config_response]") unless params[:image_config_response].nil?
         type.signing_profile_version_arn = params[:signing_profile_version_arn]
         type.signing_job_arn = params[:signing_job_arn]
+        type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
+        type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
         type
       end
     end
@@ -2397,6 +2641,7 @@ module AWS::SDK::Lambda
         type.function_name = params[:function_name]
         type.enabled = params[:enabled]
         type.batch_size = params[:batch_size]
+        type.filter_criteria = FilterCriteria.build(params[:filter_criteria], context: "#{context}[:filter_criteria]") unless params[:filter_criteria].nil?
         type.maximum_batching_window_in_seconds = params[:maximum_batching_window_in_seconds]
         type.destination_config = DestinationConfig.build(params[:destination_config], context: "#{context}[:destination_config]") unless params[:destination_config].nil?
         type.maximum_record_age_in_seconds = params[:maximum_record_age_in_seconds]
@@ -2421,6 +2666,7 @@ module AWS::SDK::Lambda
         type.maximum_batching_window_in_seconds = params[:maximum_batching_window_in_seconds]
         type.parallelization_factor = params[:parallelization_factor]
         type.event_source_arn = params[:event_source_arn]
+        type.filter_criteria = FilterCriteria.build(params[:filter_criteria], context: "#{context}[:filter_criteria]") unless params[:filter_criteria].nil?
         type.function_arn = params[:function_arn]
         type.last_modified = params[:last_modified]
         type.last_processing_result = params[:last_processing_result]
@@ -2453,6 +2699,7 @@ module AWS::SDK::Lambda
         type.publish = params[:publish]
         type.dry_run = params[:dry_run]
         type.revision_id = params[:revision_id]
+        type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
         type
       end
     end
@@ -2492,6 +2739,8 @@ module AWS::SDK::Lambda
         type.image_config_response = ImageConfigResponse.build(params[:image_config_response], context: "#{context}[:image_config_response]") unless params[:image_config_response].nil?
         type.signing_profile_version_arn = params[:signing_profile_version_arn]
         type.signing_job_arn = params[:signing_job_arn]
+        type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
+        type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
         type
       end
     end
@@ -2516,6 +2765,7 @@ module AWS::SDK::Lambda
         type.layers = LayerList.build(params[:layers], context: "#{context}[:layers]") unless params[:layers].nil?
         type.file_system_configs = FileSystemConfigList.build(params[:file_system_configs], context: "#{context}[:file_system_configs]") unless params[:file_system_configs].nil?
         type.image_config = ImageConfig.build(params[:image_config], context: "#{context}[:image_config]") unless params[:image_config].nil?
+        type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
         type
       end
     end
@@ -2555,6 +2805,8 @@ module AWS::SDK::Lambda
         type.image_config_response = ImageConfigResponse.build(params[:image_config_response], context: "#{context}[:image_config_response]") unless params[:image_config_response].nil?
         type.signing_profile_version_arn = params[:signing_profile_version_arn]
         type.signing_job_arn = params[:signing_job_arn]
+        type.architectures = ArchitecturesList.build(params[:architectures], context: "#{context}[:architectures]") unless params[:architectures].nil?
+        type.ephemeral_storage = EphemeralStorage.build(params[:ephemeral_storage], context: "#{context}[:ephemeral_storage]") unless params[:ephemeral_storage].nil?
         type
       end
     end
@@ -2581,6 +2833,32 @@ module AWS::SDK::Lambda
         type.maximum_retry_attempts = params[:maximum_retry_attempts]
         type.maximum_event_age_in_seconds = params[:maximum_event_age_in_seconds]
         type.destination_config = DestinationConfig.build(params[:destination_config], context: "#{context}[:destination_config]") unless params[:destination_config].nil?
+        type
+      end
+    end
+
+    module UpdateFunctionUrlConfigInput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateFunctionUrlConfigInput, context: context)
+        type = Types::UpdateFunctionUrlConfigInput.new
+        type.function_name = params[:function_name]
+        type.qualifier = params[:qualifier]
+        type.auth_type = params[:auth_type]
+        type.cors = Cors.build(params[:cors], context: "#{context}[:cors]") unless params[:cors].nil?
+        type
+      end
+    end
+
+    module UpdateFunctionUrlConfigOutput
+      def self.build(params, context: '')
+        Hearth::Validator.validate!(params, ::Hash, Types::UpdateFunctionUrlConfigOutput, context: context)
+        type = Types::UpdateFunctionUrlConfigOutput.new
+        type.function_url = params[:function_url]
+        type.function_arn = params[:function_arn]
+        type.auth_type = params[:auth_type]
+        type.cors = Cors.build(params[:cors], context: "#{context}[:cors]") unless params[:cors].nil?
+        type.creation_time = params[:creation_time]
+        type.last_modified_time = params[:last_modified_time]
         type
       end
     end

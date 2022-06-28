@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Sts
+module AWS::SDK::STS
   module Waiters
 
   end

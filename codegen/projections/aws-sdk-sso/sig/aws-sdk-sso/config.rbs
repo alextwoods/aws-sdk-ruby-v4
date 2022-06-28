@@ -1,3 +1,3 @@
-module AWS::SDK::Sso
+module AWS::SDK::SSO
   Config: untyped
 end

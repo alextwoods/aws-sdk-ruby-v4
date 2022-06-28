@@ -9,7 +9,7 @@
 
 require_relative 'middleware/request_id'
 
-module AWS::SDK::Sso
+module AWS::SDK::SSO
   # An API client for SWBPortalService
   # See {#initialize} for a full list of supported configuration options
   # <p>AWS Single Sign-On Portal is a web service that makes it easy for you to assign user
@@ -41,7 +41,7 @@ module AWS::SDK::Sso
     # @param [Config] config
     #   An instance of {Config}
     #
-    def initialize(config = AWS::SDK::Sso::Config.new, options = {})
+    def initialize(config = AWS::SDK::SSO::Config.new, options = {})
       @config = config
       @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
       @stubs = Hearth::Stubbing::Stubs.new

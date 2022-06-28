@@ -9,7 +9,7 @@
 
 require 'base64'
 
-module AWS::SDK::Dynamodb
+module AWS::SDK::DynamoDB
   module Parsers
 
     # Operation Parser for BatchExecuteStatement
@@ -1465,6 +1465,7 @@ module AWS::SDK::Dynamodb
         data.items = (Parsers::ItemList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data.consumed_capacity = (Parsers::ConsumedCapacity.parse(map['ConsumedCapacity']) unless map['ConsumedCapacity'].nil?)
+        data.last_evaluated_key = (Parsers::Key.parse(map['LastEvaluatedKey']) unless map['LastEvaluatedKey'].nil?)
         data
       end
     end

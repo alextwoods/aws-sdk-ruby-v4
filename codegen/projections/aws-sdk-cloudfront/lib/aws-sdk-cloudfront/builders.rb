@@ -9,7 +9,7 @@
 
 require 'base64'
 
-module AWS::SDK::Cloudfront
+module AWS::SDK::CloudFront
   module Builders
 
     # Operation Builder for AssociateAlias
@@ -1365,6 +1365,17 @@ module AWS::SDK::Cloudfront
         xml << Builders::ResponseHeadersPolicyCorsConfig.build('CorsConfig', input[:cors_config]) unless input[:cors_config].nil?
         xml << Builders::ResponseHeadersPolicySecurityHeadersConfig.build('SecurityHeadersConfig', input[:security_headers_config]) unless input[:security_headers_config].nil?
         xml << Builders::ResponseHeadersPolicyCustomHeadersConfig.build('CustomHeadersConfig', input[:custom_headers_config]) unless input[:custom_headers_config].nil?
+        xml << Builders::ResponseHeadersPolicyServerTimingHeadersConfig.build('ServerTimingHeadersConfig', input[:server_timing_headers_config]) unless input[:server_timing_headers_config].nil?
+        xml
+      end
+    end
+
+    # Structure Builder for ResponseHeadersPolicyServerTimingHeadersConfig
+    class ResponseHeadersPolicyServerTimingHeadersConfig
+      def self.build(node_name, input)
+        xml = Hearth::XML::Node.new(node_name)
+        xml << Hearth::XML::Node.new('Enabled', input[:enabled].to_s) unless input[:enabled].nil?
+        xml << Hearth::XML::Node.new('SamplingRate', Hearth::NumberHelper.serialize(input[:sampling_rate]).to_s) unless input[:sampling_rate].nil?
         xml
       end
     end

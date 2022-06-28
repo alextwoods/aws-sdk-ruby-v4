@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Dynamodb
+module AWS::SDK::DynamoDB
   module Stubs
 
     # Operation Stubber for BatchExecuteStatement
@@ -2461,6 +2461,7 @@ module AWS::SDK::Dynamodb
           items: Stubs::ItemList.default(visited),
           next_token: 'next_token',
           consumed_capacity: Stubs::ConsumedCapacity.default(visited),
+          last_evaluated_key: Stubs::Key.default(visited),
         }
       end
 
@@ -2469,6 +2470,7 @@ module AWS::SDK::Dynamodb
         data['Items'] = Stubs::ItemList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
+        data['LastEvaluatedKey'] = Stubs::Key.stub(stub[:last_evaluated_key]) unless stub[:last_evaluated_key].nil?
         http_resp.body = StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end

@@ -10,7 +10,23 @@
 module AWS::SDK::Lambda
   module Waiters
 
+    class FunctionActiveV2
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
     class FunctionExists
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class FunctionUpdatedV2
       def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
 
       attr_reader tags: untyped

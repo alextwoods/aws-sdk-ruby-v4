@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Dynamodb
+module AWS::SDK::DynamoDB
   class Client
     include Hearth::ClientStubs
 

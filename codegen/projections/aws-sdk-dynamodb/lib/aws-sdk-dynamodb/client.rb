@@ -9,7 +9,7 @@
 
 require_relative 'middleware/request_id'
 
-module AWS::SDK::Dynamodb
+module AWS::SDK::DynamoDB
   # An API client for DynamoDB_20120810
   # See {#initialize} for a full list of supported configuration options
   # <fullname>Amazon DynamoDB</fullname>
@@ -45,7 +45,7 @@ module AWS::SDK::Dynamodb
     # @param [Config] config
     #   An instance of {Config}
     #
-    def initialize(config = AWS::SDK::Dynamodb::Config.new, options = {})
+    def initialize(config = AWS::SDK::DynamoDB::Config.new, options = {})
       @config = config
       @middleware = Hearth::MiddlewareBuilder.new(options[:middleware])
       @stubs = Hearth::Stubbing::Stubs.new
@@ -498,9 +498,11 @@ module AWS::SDK::Dynamodb
     end
 
     # <p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or
-    #             more tables. A single call to <code>BatchWriteItem</code> can write up to 16 MB of data,
-    #             which can comprise as many as 25 put or delete requests. Individual items to be written
-    #             can be as large as 400 KB.</p>
+    #             more tables. A single call to <code>BatchWriteItem</code> can transmit up to 16MB of
+    #             data over the network, consisting of up to 25 item put or delete operations. While
+    #             individual items can be up to 400 KB once stored, it's important to
+    #             note that an item's representation might be greater than 400KB while being sent in
+    #             DynamoDB's JSON format for the API call. For more details on this distinction, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html">Naming Rules and Data Types</a>.</p>
     #         <note>
     #             <p>
     #                 <code>BatchWriteItem</code> cannot update items. To update items, use the
@@ -3435,6 +3437,16 @@ module AWS::SDK::Dynamodb
 
     # <p>This operation allows you to perform reads and singleton writes on data stored in
     #             DynamoDB, using PartiQL.</p>
+    #         <p>For PartiQL reads (<code>SELECT</code> statement), if the total number of processed
+    #             items exceeds the maximum dataset size limit of 1 MB, the read stops and results are
+    #             returned to the user as a <code>LastEvaluatedKey</code> value to continue the read in a
+    #             subsequent operation. If the filter criteria in <code>WHERE</code> clause does not match
+    #             any data, the read will return an empty result set.</p>
+    #         <p>A single <code>SELECT</code> statement response can return up to the maximum number of
+    #             items (if using the Limit parameter) or a maximum of 1 MB of data (and then apply any
+    #             filtering to the results using <code>WHERE</code> clause). If
+    #                 <code>LastEvaluatedKey</code> is present in the response, you need to paginate the
+    #             result set.</p>
     #
     # @param [Hash] params
     #   See {Types::ExecuteStatementInput}.
@@ -3480,6 +3492,16 @@ module AWS::SDK::Dynamodb
     #               </li>
     #            </ul>
     #
+    # @option params [Integer] :limit
+    #   <p>The maximum number of items to evaluate (not necessarily the number of matching
+    #               items). If DynamoDB processes the number of items up to the limit while processing the
+    #               results, it stops the operation and returns the matching values up to that point, along
+    #               with a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation so you
+    #               can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before
+    #               DynamoDB reaches this limit, it stops the operation and returns the matching values up
+    #               to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent
+    #               operation to continue the operation. </p>
+    #
     # @return [Types::ExecuteStatementOutput]
     #
     # @example Request syntax with placeholder values
@@ -3507,7 +3529,8 @@ module AWS::SDK::Dynamodb
     #     ],
     #     consistent_read: false,
     #     next_token: 'NextToken',
-    #     return_consumed_capacity: 'INDEXES' # accepts ["INDEXES", "TOTAL", "NONE"]
+    #     return_consumed_capacity: 'INDEXES', # accepts ["INDEXES", "TOTAL", "NONE"]
+    #     limit: 1
     #   )
     #
     # @example Response structure
@@ -3528,6 +3551,7 @@ module AWS::SDK::Dynamodb
     #   resp.data.consumed_capacity.table.capacity_units #=> Float
     #   resp.data.consumed_capacity.local_secondary_indexes #=> Hash<String, Capacity>
     #   resp.data.consumed_capacity.global_secondary_indexes #=> Hash<String, Capacity>
+    #   resp.data.last_evaluated_key #=> Hash<String, AttributeValue>
     #
     def execute_statement(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6708,7 +6732,7 @@ module AWS::SDK::Dynamodb
     #         <ul>
     #             <li>
     #                 <p>
-    #                   <code>Put</code>  —   Initiates a <code>PutItem</code>
+    #                   <code>Put</code>  —   Initiates a <code>PutItem</code>
     #                     operation to write a new item. This structure specifies the primary key of the
     #                     item to be written, the name of the table to write it in, an optional condition
     #                     expression that must be satisfied for the write to succeed, a list of the item's
@@ -6717,7 +6741,7 @@ module AWS::SDK::Dynamodb
     #             </li>
     #             <li>
     #                 <p>
-    #                   <code>Update</code>  —   Initiates an <code>UpdateItem</code>
+    #                   <code>Update</code>  —   Initiates an <code>UpdateItem</code>
     #                     operation to update an existing item. This structure specifies the primary key
     #                     of the item to be updated, the name of the table where it resides, an optional
     #                     condition expression that must be satisfied for the update to succeed, an
@@ -6727,7 +6751,7 @@ module AWS::SDK::Dynamodb
     #             </li>
     #             <li>
     #                 <p>
-    #                   <code>Delete</code>  —   Initiates a <code>DeleteItem</code>
+    #                   <code>Delete</code>  —   Initiates a <code>DeleteItem</code>
     #                     operation to delete an existing item. This structure specifies the primary key
     #                     of the item to be deleted, the name of the table where it resides, an optional
     #                     condition expression that must be satisfied for the deletion to succeed, and a
@@ -6736,7 +6760,7 @@ module AWS::SDK::Dynamodb
     #             </li>
     #             <li>
     #                 <p>
-    #                   <code>ConditionCheck</code>  —   Applies a condition to an item
+    #                   <code>ConditionCheck</code>  —   Applies a condition to an item
     #                     that is not being modified by the transaction. This structure specifies the
     #                     primary key of the item to be checked, the name of the table where it resides, a
     #                     condition expression that must be satisfied for the transaction to succeed, and
@@ -7134,8 +7158,8 @@ module AWS::SDK::Dynamodb
     # <p>Updates the status for contributor insights for a specific table or index. CloudWatch
     #             Contributor Insights for DynamoDB graphs display the partition key and (if applicable)
     #             sort key of frequently accessed items and frequently throttled items in plaintext. If
-    #             you require the use of AWS Key Management Service (KMS) to encrypt this table’s
-    #             partition key and sort key data with an AWS managed key or customer managed key, you
+    #             you require the use of Amazon Web Services Key Management Service (KMS) to encrypt this table’s
+    #             partition key and sort key data with an Amazon Web Services managed key or customer managed key, you
     #             should not enable CloudWatch Contributor Insights for DynamoDB for this table.</p>
     #
     # @param [Hash] params

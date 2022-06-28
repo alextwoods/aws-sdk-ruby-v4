@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Sts
+module AWS::SDK::STS
   module Errors
     def self.error_code(resp)
       custom_errors = {

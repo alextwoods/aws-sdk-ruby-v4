@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Dynamodb
+module AWS::SDK::DynamoDB
   module Validators
 
     class ArchivalSummary
@@ -961,6 +961,7 @@ module AWS::SDK::Dynamodb
         Hearth::Validator.validate!(input[:consistent_read], ::TrueClass, ::FalseClass, context: "#{context}[:consistent_read]")
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Hearth::Validator.validate!(input[:return_consumed_capacity], ::String, context: "#{context}[:return_consumed_capacity]")
+        Hearth::Validator.validate!(input[:limit], ::Integer, context: "#{context}[:limit]")
       end
     end
 
@@ -970,6 +971,7 @@ module AWS::SDK::Dynamodb
         Validators::ItemList.validate!(input[:items], context: "#{context}[:items]") unless input[:items].nil?
         Hearth::Validator.validate!(input[:next_token], ::String, context: "#{context}[:next_token]")
         Validators::ConsumedCapacity.validate!(input[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless input[:consumed_capacity].nil?
+        Validators::Key.validate!(input[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless input[:last_evaluated_key].nil?
       end
     end
 

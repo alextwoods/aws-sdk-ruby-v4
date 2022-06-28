@@ -13,11 +13,27 @@
  * permissions and limitations under the License.
  */
 
+// This build file has been adapted from the Go v2 SDK, here:
+// https://github.com/aws/aws-sdk-go-v2/blob/master/codegen/sdk-codegen/build.gradle.kts
+
 import software.amazon.smithy.model.Model
 import software.amazon.smithy.model.node.Node
 import software.amazon.smithy.model.shapes.ServiceShape
+import software.amazon.smithy.aws.traits.ServiceTrait
 import software.amazon.smithy.gradle.tasks.SmithyBuild
-import kotlin.streams.toList
+
+val smithyVersion: String by project
+
+buildscript {
+    val smithyVersion: String by project
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        "classpath"("software.amazon.smithy:smithy-cli:$smithyVersion")
+        "classpath"("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
+    }
+}
 
 plugins {
     id("software.amazon.smithy").version("0.6.0")
@@ -44,8 +60,8 @@ tasks.create<SmithyBuild>("buildSdk") {
 tasks.register("generate-smithy-build") {
     doLast {
         val projectionsBuilder = Node.objectNodeBuilder()
-        val modelsDirProp: String by project
-        val models = project.file(modelsDirProp);
+        val modelsDir: String by project
+        val models = project.file(modelsDir);
 
         fileTree(models).filter { it.isFile }.files.forEach eachFile@{ file ->
             val model = Model.assembler()
@@ -61,22 +77,39 @@ tasks.register("generate-smithy-build") {
             }
             val service = services[0]
 
-            var (sdkId, version, remaining) = file.name.split(".")
-            sdkId = sdkId.replace("-", "").toLowerCase();
+            val serviceTrait = service.getTrait(ServiceTrait::class.javaObjectType).get();
+
+            val sdkId = serviceTrait.sdkId
+            val moduleName = sdkId
+                .replace("-", "")
+                .replace(" ", "")
+                .capitalize();
+            val gemName = sdkId
+                .replace("-", "_")
+                .replace(" ", "_")
+                .toLowerCase();
+
             val projectionContents = Node.objectNodeBuilder()
-                    .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
-                    .withMember("plugins", Node.objectNode()
-                            .withMember("ruby-codegen", Node.objectNodeBuilder()
-                                    .withMember("service", service.id.toString())
-                                    .withMember("module", "AWS::SDK::" + sdkId.capitalize())
-                                    .withMember("gemspec", Node.objectNodeBuilder()
-                                        .withMember("gemName", "aws-sdk-" + sdkId.toLowerCase())
-                                        .withMember("gemVersion", "4.0.0.pre")
+                .withMember("imports", Node.fromStrings("${models.absolutePath}${File.separator}${file.name}"))
+                .withMember(
+                    "plugins",
+                    Node.objectNode()
+                        .withMember(
+                            "ruby-codegen",
+                            Node.objectNodeBuilder()
+                                .withMember("service", service.id.toString())
+                                .withMember("module", "AWS::SDK::" + moduleName)
+                                .withMember(
+                                    "gemspec",
+                                    Node.objectNodeBuilder()
+                                        .withMember("gemName", "aws-sdk-" + gemName)
+                                        .withMember("gemVersion", "2.0.0.pre") // TODO: Read the VERSION file
                                         .withMember("gemSummary", "TEST SERVICE")
-                                        .build())
-                                    .build()))
-                    .build()
-            projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)
+                                        .build()
+                                ).build()
+                        )
+                ).build()
+            projectionsBuilder.withMember(moduleName + "." + service.version.toLowerCase(), projectionContents)
         }
 
         file("smithy-build.json").writeText(Node.prettyPrintJson(Node.objectNodeBuilder()
@@ -92,37 +125,56 @@ tasks["build"]
         .finalizedBy(tasks["buildSdk"])
 
 // ensure built artifacts are put into the SDK's folders
+tasks.register<Copy>("copyGeneratedGems") {
+    val modelsDir: String by project
+    val models = project.file(modelsDir);
+
+    fileTree(models).filter { it.isFile }.files.forEach eachFile@{ file ->
+        val model = Model.assembler()
+            .addImport(file.absolutePath)
+            .assemble().result.get();
+        val services = model.shapes(ServiceShape::class.javaObjectType).sorted().toList();
+        val service = services[0]
+        val serviceTrait = service.getTrait(ServiceTrait::class.javaObjectType).get();
+        val sdkId = serviceTrait.sdkId
+        val moduleName = sdkId
+            .replace("-", "")
+            .replace(" ", "")
+            .capitalize();
+        val projectionName = moduleName + "." + service.version.toLowerCase()
+
+        from("$buildDir/smithyprojections/sdk-codegen/$projectionName/ruby-codegen")
+    }
+    into("$buildDir/../../../gems/")
+}
+
+// Copy example an example gem for each protocol into projections folder (useful for PR diffs).
 tasks.register<Copy>("copyEc2Gem") {
-    //TODO: This needs to be dynamic for all services...
     from("$buildDir/smithyprojections/sdk-codegen/ec2.2016-09-15/ruby-codegen")
     into("$buildDir/../../projections/")
 }
 tasks.register<Copy>("copyJsonGem") {
-    //TODO: This needs to be dynamic for all services...
     from("$buildDir/smithyprojections/sdk-codegen/sso.2019-06-10/ruby-codegen")
     into("$buildDir/../../projections/")
 }
 tasks.register<Copy>("copyJson10Gem") {
-    //TODO: This needs to be dynamic for all services...
     from("$buildDir/smithyprojections/sdk-codegen/dynamodb.2012-08-10/ruby-codegen")
     into("$buildDir/../../projections/")
 }
 tasks.register<Copy>("copyQueryGem") {
-    //TODO: This needs to be dynamic for all services...
     from("$buildDir/smithyprojections/sdk-codegen/sts.2011-06-15/ruby-codegen")
     into("$buildDir/../../projections/")
 }
 tasks.register<Copy>("copyRestJsonGem") {
-    //TODO: This needs to be dynamic for all services...
     from("$buildDir/smithyprojections/sdk-codegen/lambda.2015-03-31/ruby-codegen")
     into("$buildDir/../../projections/")
 }
 tasks.register<Copy>("copyRestXmlGem") {
-    //TODO: This needs to be dynamic for all services...
     from("$buildDir/smithyprojections/sdk-codegen/cloudfront.2020-05-31/ruby-codegen")
     into("$buildDir/../../projections/")
 }
 tasks["buildSdk"].finalizedBy(
+  tasks["copyGeneratedGems"],
   tasks["copyEc2Gem"], tasks["copyJsonGem"], tasks["copyJson10Gem"],
   tasks["copyQueryGem"], tasks["copyRestJsonGem"], tasks["copyRestXmlGem"]
 )

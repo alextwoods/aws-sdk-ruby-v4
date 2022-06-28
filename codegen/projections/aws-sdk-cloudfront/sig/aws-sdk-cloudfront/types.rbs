@@ -7,7 +7,7 @@
 #
 # WARNING ABOUT GENERATED CODE
 
-module AWS::SDK::Cloudfront
+module AWS::SDK::CloudFront
   module Types
 
     AccessDenied: untyped
@@ -926,6 +926,8 @@ module AWS::SDK::Cloudfront
 
     ResponseHeadersPolicySecurityHeadersConfig: untyped
 
+    ResponseHeadersPolicyServerTimingHeadersConfig: untyped
+
     ResponseHeadersPolicyStrictTransportSecurity: untyped
 
     ResponseHeadersPolicySummary: untyped
@@ -999,6 +1001,8 @@ module AWS::SDK::Cloudfront
     TestFunctionOutput: untyped
 
     TestResult: untyped
+
+    TooLongCSPInResponseHeadersPolicy: untyped
 
     TooManyCacheBehaviors: untyped
 

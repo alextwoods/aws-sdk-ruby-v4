@@ -9,7 +9,7 @@
 
 require 'base64'
 
-module AWS::SDK::Dynamodb
+module AWS::SDK::DynamoDB
   module Builders
 
     # Operation Builder for BatchExecuteStatement
@@ -826,6 +826,7 @@ module AWS::SDK::Dynamodb
         data['ConsistentRead'] = input[:consistent_read] unless input[:consistent_read].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['ReturnConsumedCapacity'] = input[:return_consumed_capacity] unless input[:return_consumed_capacity].nil?
+        data['Limit'] = input[:limit] unless input[:limit].nil?
         http_req.body = StringIO.new(Hearth::JSON.dump(data))
       end
     end

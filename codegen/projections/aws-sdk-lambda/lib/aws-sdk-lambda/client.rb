@@ -12,13 +12,72 @@ require_relative 'middleware/request_id'
 module AWS::SDK::Lambda
   # An API client for AWSGirApiService
   # See {#initialize} for a full list of supported configuration options
-  # <fullname>AWS Lambda</fullname>
+  # <fullname>Lambda</fullname>
   #          <p>
   #             <b>Overview</b>
   #          </p>
-  #          <p>This is the <i>AWS Lambda API Reference</i>. The AWS Lambda Developer Guide provides additional
-  #       information. For the service overview, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is
-  #         AWS Lambda</a>, and for information about how the service works, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a> in the <b>AWS Lambda Developer Guide</b>.</p>
+  #          <p>Lambda is a compute service that lets you run code without provisioning or managing servers.
+  #         Lambda runs your code on a high-availability compute infrastructure and performs all of the
+  #       administration of the compute resources, including server and operating system maintenance, capacity provisioning
+  #       and automatic scaling, code monitoring and logging. With Lambda, you can run code for virtually any
+  #       type of application or backend service. For more information about the Lambda service, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is Lambda</a> in the <b>Lambda Developer Guide</b>.</p>
+  #          <p>The <i>Lambda API Reference</i> provides information about
+  #       each of the API methods, including details about the parameters in each API request and
+  #       response. </p>
+  #          <p></p>
+  #          <p>You can use Software Development Kits (SDKs), Integrated Development Environment (IDE) Toolkits, and command
+  #       line tools to access the API. For installation instructions, see <a href="http://aws.amazon.com/tools/">Tools for
+  #         Amazon Web Services</a>. </p>
+  #          <p>For a list of Region-specific endpoints that Lambda supports,
+  #       see <a href="https://docs.aws.amazon.com/general/latest/gr/lambda-service.html/">Lambda
+  #         endpoints and quotas </a> in the <i>Amazon Web Services General Reference.</i>. </p>
+  #          <p>When making the API calls, you will need to
+  #       authenticate your request by providing a signature. Lambda supports signature version 4. For more information,
+  #       see <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 signing process</a> in the
+  #       <i>Amazon Web Services General Reference.</i>. </p>
+  #          <p>
+  #             <b>CA certificates</b>
+  #          </p>
+  #
+  #          <p>Because Amazon Web Services SDKs use the CA certificates from your computer, changes to the certificates on the Amazon Web Services servers
+  #         can cause connection failures when you attempt to use an SDK. You can prevent these failures by keeping your
+  #         computer's CA certificates and operating system up-to-date. If you encounter this issue in a corporate
+  #         environment and do not manage your own computer, you might need to ask an administrator to assist with the
+  #         update process. The following list shows minimum operating system and Java versions:</p>
+  #          <ul>
+  #             <li>
+  #                <p>Microsoft Windows versions that have updates from January 2005 or later installed contain at least one
+  #             of the required CAs in their trust list. </p>
+  #             </li>
+  #             <li>
+  #                <p>Mac OS X 10.4 with Java for Mac OS X 10.4 Release 5 (February 2007), Mac OS X 10.5 (October 2007), and
+  #             later versions contain at least one of the required CAs in their trust list. </p>
+  #             </li>
+  #             <li>
+  #                <p>Red Hat Enterprise Linux 5 (March 2007), 6, and 7 and CentOS 5, 6, and 7 all contain at least one of the
+  #             required CAs in their default trusted CA list. </p>
+  #             </li>
+  #             <li>
+  #                <p>Java 1.4.2_12 (May 2006), 5 Update 2 (March 2005), and all later versions, including Java 6 (December
+  #             2006), 7, and 8, contain at least one of the required CAs in their default trusted CA list. </p>
+  #             </li>
+  #          </ul>
+  #          <p>When accessing the Lambda management console or Lambda API endpoints, whether through browsers or
+  #         programmatically, you will need to ensure your client machines support any of the following CAs: </p>
+  #          <ul>
+  #             <li>
+  #                <p>Amazon Root CA 1</p>
+  #             </li>
+  #             <li>
+  #                <p>Starfield Services Root Certificate Authority - G2</p>
+  #             </li>
+  #             <li>
+  #                <p>Starfield Class 2 Certification Authority</p>
+  #             </li>
+  #          </ul>
+  #          <p>Root certificates from the first two authorities are available from <a href="https://www.amazontrust.com/repository/">Amazon trust services</a>, but keeping your computer
+  #         up-to-date is the more straightforward solution. To learn more about ACM-provided certificates, see <a href="http://aws.amazon.com/certificate-manager/faqs/#certificates">Amazon Web Services Certificate Manager FAQs.</a>
+  #          </p>
   #
   class Client
     include Hearth::ClientStubs
@@ -40,10 +99,10 @@ module AWS::SDK::Lambda
       @client_rate_limiter = Hearth::Retry::ClientRateLimiter.new
     end
 
-    # <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+    # <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
     #         layer</a>. Use this action to grant layer
-    #       usage permission to other accounts. You can grant permission to a single account, all AWS accounts, or all
-    #       accounts in an organization.</p>
+    #       usage permission to other accounts. You can grant permission to a single account, all accounts in an organization,
+    #       or all Amazon Web Services accounts.  </p>
     #          <p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you
     #       specified when you added it.</p>
     #
@@ -63,7 +122,10 @@ module AWS::SDK::Lambda
     #   <p>The API action that grants access to the layer. For example, <code>lambda:GetLayerVersion</code>.</p>
     #
     # @option params [String] :principal
-    #   <p>An account ID, or <code>*</code> to grant permission to all AWS accounts.</p>
+    #   <p>An account ID, or <code>*</code> to grant layer usage permission to all
+    #         accounts in an organization, or all Amazon Web Services accounts (if <code>organizationId</code> is not specified).
+    #         For the last case, make sure that you really do want all Amazon Web Services accounts to have usage permission to this layer.
+    #       </p>
     #
     # @option params [String] :organization_id
     #   <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified
@@ -141,15 +203,18 @@ module AWS::SDK::Lambda
       resp
     end
 
-    # <p>Grants an AWS service or another account permission to use a function. You can apply the policy at the
-    #       function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier,
-    #       the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.</p>
+    # <p>Grants an Amazon Web Services service, account, or organization permission to use a function. You can apply the
+    #       policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier,
+    #       the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
+    #       Note: Lambda does not support adding policies to version $LATEST.</p>
     #
-    #          <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For AWS
-    #       services, the principal is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code> or
-    #         <code>sns.amazonaws.com</code>. For AWS services, you can also specify the ARN of the associated resource as the
-    #         <code>SourceArn</code>. If you grant permission to a service principal without specifying the source, other
-    #       accounts could potentially configure resources in their account to invoke your Lambda function.</p>
+    #          <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. To grant permission to an
+    #       organization defined in Organizations, specify the organization ID as the <code>PrincipalOrgID</code>.
+    #       For Amazon Web Services services, the principal is a domain-style identifier defined by the service,
+    #       like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For Amazon Web Services services, you can also specify
+    #       the ARN of the associated resource as the <code>SourceArn</code>. If you grant permission to a service principal without
+    #       specifying the source, other accounts could potentially configure resources in their account to invoke your
+    #       Lambda function.</p>
     #
     #          <p>This action adds a statement to a resource-based permissions policy for the function. For more information
     #       about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Lambda Function Policies</a>. </p>
@@ -187,12 +252,13 @@ module AWS::SDK::Lambda
     #           <code>lambda:GetFunction</code>.</p>
     #
     # @option params [String] :principal
-    #   <p>The AWS service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or
+    #   <p>The Amazon Web Services service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or
     #           <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
     #
     # @option params [String] :source_arn
-    #   <p>For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or
+    #   <p>For Amazon Web Services services, the ARN of the Amazon Web Services resource that invokes the function. For example, an Amazon S3 bucket or
     #         Amazon SNS topic.</p>
+    #            <p>Note that Lambda configures the comparison using the <code>StringLike</code> operator.</p>
     #
     # @option params [String] :source_account
     #   <p>For Amazon S3, the ID of the account that owns the resource. Use this together with <code>SourceArn</code> to
@@ -209,6 +275,15 @@ module AWS::SDK::Lambda
     #   <p>Only update the policy if the revision ID matches the ID that's specified. Use this option to avoid modifying a
     #         policy that has changed since you last read it.</p>
     #
+    # @option params [String] :principal_org_id
+    #   <p>The identifier for your organization in Organizations. Use this to grant permissions to all the Amazon Web Services
+    #         accounts under this organization.</p>
+    #
+    # @option params [String] :function_url_auth_type
+    #   <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
+    #     <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+    #     see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+    #
     # @return [Types::AddPermissionOutput]
     #
     # @example Request syntax with placeholder values
@@ -222,7 +297,9 @@ module AWS::SDK::Lambda
     #     source_account: 'SourceAccount',
     #     event_source_token: 'EventSourceToken',
     #     qualifier: 'Qualifier',
-    #     revision_id: 'RevisionId'
+    #     revision_id: 'RevisionId',
+    #     principal_org_id: 'PrincipalOrgID',
+    #     function_url_auth_type: 'NONE' # accepts ["NONE", "AWS_IAM"]
     #   )
     #
     # @example Response structure
@@ -493,45 +570,48 @@ module AWS::SDK::Lambda
       resp
     end
 
-    # <p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source
-    #       and triggers the function.</p>
-    #          <p>For details about each event source type, see the following topics.</p>
+    # <p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the
+    #       event source and triggers the function.</p>
+    #          <p>For details about how to configure different event sources, see the following topics. </p>
     #          <ul>
     #             <li>
     #                <p>
-    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon
-    #           DynamoDB</a>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping">
+    #             Amazon DynamoDB Streams</a>
     #                </p>
     #             </li>
     #             <li>
     #                <p>
-    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS Lambda with Amazon
-    #           Kinesis</a>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping">
+    #             Amazon Kinesis</a>
     #                </p>
     #             </li>
     #             <li>
     #                <p>
-    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda with Amazon
-    #           SQS</a>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource">
+    #             Amazon SQS</a>
     #                </p>
     #             </li>
     #             <li>
     #                <p>
-    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Using AWS Lambda with Amazon
-    #           MQ</a>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
+    #             Amazon MQ and RabbitMQ</a>
     #                </p>
     #             </li>
     #             <li>
     #                <p>
-    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda with Amazon MSK</a>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">
+    #             Amazon MSK</a>
     #                </p>
     #             </li>
     #             <li>
     #                <p>
-    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">Using AWS Lambda with Self-Managed Apache Kafka</a>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">
+    #             Apache Kafka</a>
     #                </p>
     #             </li>
     #          </ul>
+    #
     #          <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>
     #          <ul>
     #             <li>
@@ -553,6 +633,45 @@ module AWS::SDK::Lambda
     #             <li>
     #                <p>
     #                   <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p>
+    #             </li>
+    #          </ul>
+    #          <p>For information about which configuration parameters apply to each event source, see the following topics.</p>
+    #          <ul>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params">
+    #           Amazon DynamoDB Streams</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params">
+    #           Amazon Kinesis</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params">
+    #           Amazon SQS</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params">
+    #           Amazon MQ and RabbitMQ</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms">
+    #           Amazon MSK</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms">
+    #           Apache Kafka</a>
+    #                </p>
     #             </li>
     #          </ul>
     #
@@ -607,10 +726,12 @@ module AWS::SDK::Lambda
     #         characters in length.</p>
     #
     # @option params [Boolean] :enabled
-    #   <p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>
+    #   <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p>
+    #            <p>Default: True</p>
     #
     # @option params [Integer] :batch_size
-    #   <p>The maximum number of items to retrieve in a single batch.</p>
+    #   <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation
+    #     (6 MB).</p>
     #            <ul>
     #               <li>
     #                  <p>
@@ -618,7 +739,7 @@ module AWS::SDK::Lambda
     #               </li>
     #               <li>
     #                  <p>
-    #                     <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>
+    #                     <b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p>
     #               </li>
     #               <li>
     #                  <p>
@@ -632,53 +753,61 @@ module AWS::SDK::Lambda
     #                  <p>
     #                     <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p>
     #               </li>
+    #               <li>
+    #                  <p>
+    #                     <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p>
+    #               </li>
     #            </ul>
     #
+    # @option params [FilterCriteria] :filter_criteria
+    #   <p>(Streams and Amazon SQS) An object that defines the filter criteria that
+    #       determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
+    #
     # @option params [Integer] :maximum_batching_window_in_seconds
-    #   <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds.</p>
+    #   <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p>
+    #            <p>Default: 0</p>
+    #            <p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
     #
     # @option params [Integer] :parallelization_factor
-    #   <p>(Streams) The number of batches to process from each shard concurrently.</p>
+    #   <p>(Streams only) The number of batches to process from each shard concurrently.</p>
     #
     # @option params [String] :starting_position
-    #   <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams
-    #         sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+    #   <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon
+    #         MSK Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
     #
     # @option params [Time] :starting_position_timestamp
     #   <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start
     #         reading.</p>
     #
     # @option params [DestinationConfig] :destination_config
-    #   <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+    #   <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
     #
     # @option params [Integer] :maximum_record_age_in_seconds
-    #   <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
+    #   <p>(Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
     #
     # @option params [Boolean] :bisect_batch_on_function_error
-    #   <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+    #   <p>(Streams only) If the function returns an error, split the batch in two and retry.</p>
     #
     # @option params [Integer] :maximum_retry_attempts
-    #   <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
+    #   <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
     #
     # @option params [Integer] :tumbling_window_in_seconds
-    #   <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+    #   <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
     #
     # @option params [Array<String>] :topics
     #   <p>The name of the Kafka topic.</p>
     #
     # @option params [Array<String>] :queues
-    #   <p>
-    #         (MQ) The name of the Amazon MQ broker destination queue to consume.
-    #       </p>
+    #   <p> (MQ) The name of the Amazon MQ broker destination queue to consume. </p>
     #
     # @option params [Array<SourceAccessConfiguration>] :source_access_configurations
-    #   <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
+    #   <p>An array of authentication protocols or VPC components required to secure your event source.</p>
     #
     # @option params [SelfManagedEventSource] :self_managed_event_source
     #   <p>The Self-Managed Apache Kafka cluster to send records.</p>
     #
     # @option params [Array<String>] :function_response_types
-    #   <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+    #   <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
     #
     # @return [Types::CreateEventSourceMappingOutput]
     #
@@ -689,6 +818,13 @@ module AWS::SDK::Lambda
     #     function_name: 'FunctionName', # required
     #     enabled: false,
     #     batch_size: 1,
+    #     filter_criteria: {
+    #       filters: [
+    #         {
+    #           pattern: 'Pattern'
+    #         }
+    #       ]
+    #     },
     #     maximum_batching_window_in_seconds: 1,
     #     parallelization_factor: 1,
     #     starting_position: 'TRIM_HORIZON', # accepts ["TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"]
@@ -713,7 +849,7 @@ module AWS::SDK::Lambda
     #     ],
     #     source_access_configurations: [
     #       {
-    #         type: 'BASIC_AUTH', # accepts ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
+    #         type: 'BASIC_AUTH', # accepts ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH", "VIRTUAL_HOST", "CLIENT_CERTIFICATE_TLS_AUTH", "SERVER_ROOT_CA_CERTIFICATE"]
     #         uri: 'URI'
     #       }
     #     ],
@@ -739,6 +875,10 @@ module AWS::SDK::Lambda
     #   resp.data.maximum_batching_window_in_seconds #=> Integer
     #   resp.data.parallelization_factor #=> Integer
     #   resp.data.event_source_arn #=> String
+    #   resp.data.filter_criteria #=> Types::FilterCriteria
+    #   resp.data.filter_criteria.filters #=> Array<Filter>
+    #   resp.data.filter_criteria.filters[0] #=> Types::Filter
+    #   resp.data.filter_criteria.filters[0].pattern #=> String
     #   resp.data.function_arn #=> String
     #   resp.data.last_modified #=> Time
     #   resp.data.last_processing_result #=> String
@@ -755,7 +895,7 @@ module AWS::SDK::Lambda
     #   resp.data.queues[0] #=> String
     #   resp.data.source_access_configurations #=> Array<SourceAccessConfiguration>
     #   resp.data.source_access_configurations[0] #=> Types::SourceAccessConfiguration
-    #   resp.data.source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
+    #   resp.data.source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH", "VIRTUAL_HOST", "CLIENT_CERTIFICATE_TLS_AUTH", "SERVER_ROOT_CA_CERTIFICATE"]
     #   resp.data.source_access_configurations[0].uri #=> String
     #   resp.data.self_managed_event_source #=> Types::SelfManagedEventSource
     #   resp.data.self_managed_event_source.endpoints #=> Hash<String, Array<String>>
@@ -817,8 +957,20 @@ module AWS::SDK::Lambda
     end
 
     # <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The
-    #       deployment package is a .zip file  archive or container image that contains your function code. The execution role grants the function permission to use AWS
-    #       services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.</p>
+    #       deployment package is a .zip file  archive or container image that contains your function code. The execution role grants the function permission to use Amazon Web Services
+    #       services, such as Amazon CloudWatch Logs for log streaming and X-Ray for request tracing.</p>
+    #
+    #          <p>You set the package type to <code>Image</code> if the deployment package is a
+    #       <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a>. For a container image,
+    #       the code property must include the URI of a container image in the Amazon ECR registry.
+    #       You do not need to specify the handler and runtime properties. </p>
+    #
+    #          <p>You set the package type to <code>Zip</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file
+    #         archive</a>. For a .zip file archive, the code property specifies the location of the
+    #       .zip file. You must also specify the handler and runtime properties. The code in the
+    #       deployment package must be compatible with the target instruction set architecture of the
+    #       function (<code>x86-64</code> or <code>arm64</code>). If you do not specify the architecture, the default value is
+    #       <code>x86-64</code>.</p>
     #
     #          <p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If
     #       your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or
@@ -844,12 +996,12 @@ module AWS::SDK::Lambda
     #       package has a valid signature from a trusted publisher. The code-signing configuration
     #       includes set set of signing profiles, which define the trusted publishers for this function.</p>
     #
-    #          <p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant
+    #          <p>If another account or an Amazon Web Services service invokes your function, use <a>AddPermission</a> to grant
     #       permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version,
     #       or on an alias.</p>
     #
     #          <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events
-    #       in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a
+    #       in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a
     #       function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
     #
     # @param [Hash] params
@@ -878,13 +1030,15 @@ module AWS::SDK::Lambda
     #         characters in length.</p>
     #
     # @option params [String] :runtime
-    #   <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
+    #   <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.
+    #           </p>
     #
     # @option params [String] :role
     #   <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
     #
     # @option params [String] :handler
-    #   <p>The name of the method within your code that Lambda calls to execute your function. The format includes the
+    #   <p>The name of the method within your code that Lambda calls to execute your function.
+    #   Handler is required if the deployment package is a .zip file archive. The format includes the
     #         file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,
     #         see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
     #
@@ -895,18 +1049,18 @@ module AWS::SDK::Lambda
     #   <p>A description of the function.</p>
     #
     # @option params [Integer] :timeout
-    #   <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The
-    #         maximum allowed value is 900 seconds.</p>
+    #   <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The
+    #         maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
     #
     # @option params [Integer] :memory_size
-    #   <p>The amount of memory available to the function at runtime. Increasing the function's memory also increases its CPU
-    #         allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
+    #   <p>The amount of  <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory available to the function</a> at runtime.
+    #         Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
     #
     # @option params [Boolean] :publish
     #   <p>Set to true to publish the first version of the function during creation.</p>
     #
     # @option params [VpcConfig] :vpc_config
-    #   <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+    #   <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC.
     #         When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more
     #         information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
     #
@@ -921,12 +1075,12 @@ module AWS::SDK::Lambda
     #   <p>Environment variables that are accessible from function code during execution.</p>
     #
     # @option params [String] :kms_key_arn
-    #   <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment
-    #         variables. If it's not provided, AWS Lambda uses a default service key.</p>
+    #   <p>The ARN of the Amazon Web Services Key Management Service (KMS) key that's used to encrypt your function's environment
+    #         variables. If it's not provided, Lambda uses a default service key.</p>
     #
     # @option params [TracingConfig] :tracing_config
-    #   <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS
-    #         X-Ray.</p>
+    #   <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with
+    #   <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a>.</p>
     #
     # @option params [Hash<String, String>] :tags
     #   <p>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to apply to the
@@ -940,13 +1094,19 @@ module AWS::SDK::Lambda
     #   <p>Connection settings for an Amazon EFS file system.</p>
     #
     # @option params [ImageConfig] :image_config
-    #   <p>
-    #               <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container image configuration
+    #   <p>Container image <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings">configuration
     #         values</a> that override the values in the container image Dockerfile.</p>
     #
     # @option params [String] :code_signing_config_arn
     #   <p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration
     #   includes a set of signing profiles, which define the trusted publishers for this function.</p>
+    #
+    # @option params [Array<String>] :architectures
+    #   <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64).
+    #        The default value is <code>x86_64</code>.</p>
+    #
+    # @option params [EphemeralStorage] :ephemeral_storage
+    #   <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
     #
     # @return [Types::CreateFunctionOutput]
     #
@@ -954,7 +1114,7 @@ module AWS::SDK::Lambda
     #
     #   resp = client.create_function(
     #     function_name: 'FunctionName', # required
-    #     runtime: 'nodejs', # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #     runtime: 'nodejs', # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #     role: 'Role', # required
     #     handler: 'Handler',
     #     code: {
@@ -1007,7 +1167,13 @@ module AWS::SDK::Lambda
     #       ],
     #       working_directory: 'WorkingDirectory'
     #     },
-    #     code_signing_config_arn: 'CodeSigningConfigArn'
+    #     code_signing_config_arn: 'CodeSigningConfigArn',
+    #     architectures: [
+    #       'x86_64' # accepts ["x86_64", "arm64"]
+    #     ],
+    #     ephemeral_storage: {
+    #       size: 1 # required
+    #     }
     #   )
     #
     # @example Response structure
@@ -1015,7 +1181,7 @@ module AWS::SDK::Lambda
     #   resp.data #=> Types::CreateFunctionOutput
     #   resp.data.function_name #=> String
     #   resp.data.function_arn #=> String
-    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.role #=> String
     #   resp.data.handler #=> String
     #   resp.data.code_size #=> Integer
@@ -1072,6 +1238,10 @@ module AWS::SDK::Lambda
     #   resp.data.image_config_response.error.message #=> String
     #   resp.data.signing_profile_version_arn #=> String
     #   resp.data.signing_job_arn #=> String
+    #   resp.data.architectures #=> Array<String>
+    #   resp.data.architectures[0] #=> String, one of ["x86_64", "arm64"]
+    #   resp.data.ephemeral_storage #=> Types::EphemeralStorage
+    #   resp.data.ephemeral_storage.size #=> Integer
     #
     def create_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -1115,6 +1285,135 @@ module AWS::SDK::Lambda
           params: params,
           logger: @config.logger,
           operation_name: :create_function
+        )
+      )
+      raise resp.error if resp.error
+      resp
+    end
+
+    # <p>Creates a Lambda function URL with the specified configuration parameters. A function URL is
+    #       a dedicated HTTP(S) endpoint that you can use to invoke your function.</p>
+    #
+    # @param [Hash] params
+    #   See {Types::CreateFunctionUrlConfigInput}.
+    #
+    # @option params [String] :function_name
+    #   <p>The name of the Lambda function.</p>
+    #            <p class="title">
+    #               <b>Name formats</b>
+    #            </p>
+    #            <ul>
+    #               <li>
+    #                  <p>
+    #                     <b>Function name</b> - <code>my-function</code>.</p>
+    #               </li>
+    #               <li>
+    #                  <p>
+    #                     <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+    #               </li>
+    #               <li>
+    #                  <p>
+    #                     <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+    #               </li>
+    #            </ul>
+    #            <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+    #         characters in length.</p>
+    #
+    # @option params [String] :qualifier
+    #   <p>The alias name.</p>
+    #
+    # @option params [String] :auth_type
+    #   <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
+    #     <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+    #     see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+    #
+    # @option params [Cors] :cors
+    #   <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings
+    #     for your function URL.</p>
+    #
+    # @return [Types::CreateFunctionUrlConfigOutput]
+    #
+    # @example Request syntax with placeholder values
+    #
+    #   resp = client.create_function_url_config(
+    #     function_name: 'FunctionName', # required
+    #     qualifier: 'Qualifier',
+    #     auth_type: 'NONE', # required - accepts ["NONE", "AWS_IAM"]
+    #     cors: {
+    #       allow_credentials: false,
+    #       allow_headers: [
+    #         'member'
+    #       ],
+    #       allow_methods: [
+    #         'member'
+    #       ],
+    #       allow_origins: [
+    #         'member'
+    #       ],
+    #       max_age: 1
+    #     }
+    #   )
+    #
+    # @example Response structure
+    #
+    #   resp.data #=> Types::CreateFunctionUrlConfigOutput
+    #   resp.data.function_url #=> String
+    #   resp.data.function_arn #=> String
+    #   resp.data.auth_type #=> String, one of ["NONE", "AWS_IAM"]
+    #   resp.data.cors #=> Types::Cors
+    #   resp.data.cors.allow_credentials #=> Boolean
+    #   resp.data.cors.allow_headers #=> Array<String>
+    #   resp.data.cors.allow_headers[0] #=> String
+    #   resp.data.cors.allow_methods #=> Array<String>
+    #   resp.data.cors.allow_methods[0] #=> String
+    #   resp.data.cors.allow_origins #=> Array<String>
+    #   resp.data.cors.allow_origins[0] #=> String
+    #   resp.data.cors.expose_headers #=> Array<String>
+    #   resp.data.cors.max_age #=> Integer
+    #   resp.data.creation_time #=> String
+    #
+    def create_function_url_config(params = {}, options = {}, &block)
+      stack = Hearth::MiddlewareStack.new
+      input = Params::CreateFunctionUrlConfigInput.build(params)
+      response_body = StringIO.new
+      stack.use(Hearth::Middleware::Validate,
+        validator: Validators::CreateFunctionUrlConfigInput,
+        validate_input: @config.validate_input
+      )
+      stack.use(Hearth::Middleware::Build,
+        builder: Builders::CreateFunctionUrlConfig
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 201, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+        data_parser: Parsers::CreateFunctionUrlConfig
+      )
+      stack.use(Middleware::RequestId)
+      stack.use(Hearth::Middleware::Send,
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_class: Stubs::CreateFunctionUrlConfig,
+        stubs: @stubs,
+        params_class: Params::CreateFunctionUrlConfigOutput
+      )
+      apply_middleware(stack, options[:middleware])
+
+      resp = stack.run(
+        input: input,
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          response: Hearth::HTTP::Response.new(body: response_body),
+          params: params,
+          logger: @config.logger,
+          operation_name: :create_function_url_config
         )
       )
       raise resp.error if resp.error
@@ -1280,8 +1579,9 @@ module AWS::SDK::Lambda
     end
 
     # <p>Deletes an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html">event source
-    #       mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
-    #          <p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely deleted for several seconds.</p>
+    #         mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
+    #          <p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely
+    #       deleted for several seconds.</p>
     #
     # @param [Hash] params
     #   See {Types::DeleteEventSourceMappingInput}.
@@ -1307,6 +1607,10 @@ module AWS::SDK::Lambda
     #   resp.data.maximum_batching_window_in_seconds #=> Integer
     #   resp.data.parallelization_factor #=> Integer
     #   resp.data.event_source_arn #=> String
+    #   resp.data.filter_criteria #=> Types::FilterCriteria
+    #   resp.data.filter_criteria.filters #=> Array<Filter>
+    #   resp.data.filter_criteria.filters[0] #=> Types::Filter
+    #   resp.data.filter_criteria.filters[0].pattern #=> String
     #   resp.data.function_arn #=> String
     #   resp.data.last_modified #=> Time
     #   resp.data.last_processing_result #=> String
@@ -1323,7 +1627,7 @@ module AWS::SDK::Lambda
     #   resp.data.queues[0] #=> String
     #   resp.data.source_access_configurations #=> Array<SourceAccessConfiguration>
     #   resp.data.source_access_configurations[0] #=> Types::SourceAccessConfiguration
-    #   resp.data.source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
+    #   resp.data.source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH", "VIRTUAL_HOST", "CLIENT_CERTIFICATE_TLS_AUTH", "SERVER_ROOT_CA_CERTIFICATE"]
     #   resp.data.source_access_configurations[0].uri #=> String
     #   resp.data.self_managed_event_source #=> Types::SelfManagedEventSource
     #   resp.data.self_managed_event_source.endpoints #=> Hash<String, Array<String>>
@@ -1387,7 +1691,7 @@ module AWS::SDK::Lambda
     #       Otherwise, all versions and aliases are deleted.</p>
     #
     #          <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>.
-    #       For AWS services and resources that invoke your function directly, delete the trigger in the service where you
+    #       For Amazon Web Services services and resources that invoke your function directly, delete the trigger in the service where you
     #       originally configured it.</p>
     #
     # @param [Hash] params
@@ -1714,7 +2018,7 @@ module AWS::SDK::Lambda
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::DeleteFunctionEventInvokeConfig
       )
       stack.use(Middleware::RequestId)
@@ -1741,7 +2045,98 @@ module AWS::SDK::Lambda
       resp
     end
 
-    # <p>Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+    # <p>Deletes a Lambda function URL. When you delete a function URL, you
+    #       can't recover it. Creating a new function URL results in a different URL address.</p>
+    #
+    # @param [Hash] params
+    #   See {Types::DeleteFunctionUrlConfigInput}.
+    #
+    # @option params [String] :function_name
+    #   <p>The name of the Lambda function.</p>
+    #            <p class="title">
+    #               <b>Name formats</b>
+    #            </p>
+    #            <ul>
+    #               <li>
+    #                  <p>
+    #                     <b>Function name</b> - <code>my-function</code>.</p>
+    #               </li>
+    #               <li>
+    #                  <p>
+    #                     <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+    #               </li>
+    #               <li>
+    #                  <p>
+    #                     <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+    #               </li>
+    #            </ul>
+    #            <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+    #         characters in length.</p>
+    #
+    # @option params [String] :qualifier
+    #   <p>The alias name.</p>
+    #
+    # @return [Types::DeleteFunctionUrlConfigOutput]
+    #
+    # @example Request syntax with placeholder values
+    #
+    #   resp = client.delete_function_url_config(
+    #     function_name: 'FunctionName', # required
+    #     qualifier: 'Qualifier'
+    #   )
+    #
+    # @example Response structure
+    #
+    #   resp.data #=> Types::DeleteFunctionUrlConfigOutput
+    #
+    def delete_function_url_config(params = {}, options = {}, &block)
+      stack = Hearth::MiddlewareStack.new
+      input = Params::DeleteFunctionUrlConfigInput.build(params)
+      response_body = StringIO.new
+      stack.use(Hearth::Middleware::Validate,
+        validator: Validators::DeleteFunctionUrlConfigInput,
+        validate_input: @config.validate_input
+      )
+      stack.use(Hearth::Middleware::Build,
+        builder: Builders::DeleteFunctionUrlConfig
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 204, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::ResourceConflictException]),
+        data_parser: Parsers::DeleteFunctionUrlConfig
+      )
+      stack.use(Middleware::RequestId)
+      stack.use(Hearth::Middleware::Send,
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_class: Stubs::DeleteFunctionUrlConfig,
+        stubs: @stubs,
+        params_class: Params::DeleteFunctionUrlConfigOutput
+      )
+      apply_middleware(stack, options[:middleware])
+
+      resp = stack.run(
+        input: input,
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          response: Hearth::HTTP::Response.new(body: response_body),
+          params: params,
+          logger: @config.logger,
+          operation_name: :delete_function_url_config
+        )
+      )
+      raise resp.error if resp.error
+      resp
+    end
+
+    # <p>Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
     #         layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid
     #       breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
     #
@@ -1904,7 +2299,7 @@ module AWS::SDK::Lambda
       resp
     end
 
-    # <p>Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and usage in an AWS Region.</p>
+    # <p>Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and usage in an Amazon Web Services Region.</p>
     #
     # @param [Hash] params
     #   See {Types::GetAccountSettingsInput}.
@@ -2150,7 +2545,8 @@ module AWS::SDK::Lambda
       resp
     end
 
-    # <p>Returns details about an event source mapping. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
+    # <p>Returns details about an event source mapping. You can get the identifier of a mapping from the output of
+    #         <a>ListEventSourceMappings</a>.</p>
     #
     # @param [Hash] params
     #   See {Types::GetEventSourceMappingInput}.
@@ -2176,6 +2572,10 @@ module AWS::SDK::Lambda
     #   resp.data.maximum_batching_window_in_seconds #=> Integer
     #   resp.data.parallelization_factor #=> Integer
     #   resp.data.event_source_arn #=> String
+    #   resp.data.filter_criteria #=> Types::FilterCriteria
+    #   resp.data.filter_criteria.filters #=> Array<Filter>
+    #   resp.data.filter_criteria.filters[0] #=> Types::Filter
+    #   resp.data.filter_criteria.filters[0].pattern #=> String
     #   resp.data.function_arn #=> String
     #   resp.data.last_modified #=> Time
     #   resp.data.last_processing_result #=> String
@@ -2192,7 +2592,7 @@ module AWS::SDK::Lambda
     #   resp.data.queues[0] #=> String
     #   resp.data.source_access_configurations #=> Array<SourceAccessConfiguration>
     #   resp.data.source_access_configurations[0] #=> Types::SourceAccessConfiguration
-    #   resp.data.source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
+    #   resp.data.source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH", "VIRTUAL_HOST", "CLIENT_CERTIFICATE_TLS_AUTH", "SERVER_ROOT_CA_CERTIFICATE"]
     #   resp.data.source_access_configurations[0].uri #=> String
     #   resp.data.self_managed_event_source #=> Types::SelfManagedEventSource
     #   resp.data.self_managed_event_source.endpoints #=> Hash<String, Array<String>>
@@ -2299,7 +2699,7 @@ module AWS::SDK::Lambda
     #   resp.data.configuration #=> Types::FunctionConfiguration
     #   resp.data.configuration.function_name #=> String
     #   resp.data.configuration.function_arn #=> String
-    #   resp.data.configuration.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #   resp.data.configuration.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.configuration.role #=> String
     #   resp.data.configuration.handler #=> String
     #   resp.data.configuration.code_size #=> Integer
@@ -2356,6 +2756,10 @@ module AWS::SDK::Lambda
     #   resp.data.configuration.image_config_response.error.message #=> String
     #   resp.data.configuration.signing_profile_version_arn #=> String
     #   resp.data.configuration.signing_job_arn #=> String
+    #   resp.data.configuration.architectures #=> Array<String>
+    #   resp.data.configuration.architectures[0] #=> String, one of ["x86_64", "arm64"]
+    #   resp.data.configuration.ephemeral_storage #=> Types::EphemeralStorage
+    #   resp.data.configuration.ephemeral_storage.size #=> Integer
     #   resp.data.code #=> Types::FunctionCodeLocation
     #   resp.data.code.repository_type #=> String
     #   resp.data.code.location #=> String
@@ -2635,7 +3039,7 @@ module AWS::SDK::Lambda
     #   resp.data #=> Types::GetFunctionConfigurationOutput
     #   resp.data.function_name #=> String
     #   resp.data.function_arn #=> String
-    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.role #=> String
     #   resp.data.handler #=> String
     #   resp.data.code_size #=> Integer
@@ -2692,6 +3096,10 @@ module AWS::SDK::Lambda
     #   resp.data.image_config_response.error.message #=> String
     #   resp.data.signing_profile_version_arn #=> String
     #   resp.data.signing_job_arn #=> String
+    #   resp.data.architectures #=> Array<String>
+    #   resp.data.architectures[0] #=> String, one of ["x86_64", "arm64"]
+    #   resp.data.ephemeral_storage #=> Types::EphemeralStorage
+    #   resp.data.ephemeral_storage.size #=> Integer
     #
     def get_function_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2840,7 +3248,112 @@ module AWS::SDK::Lambda
       resp
     end
 
-    # <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+    # <p>Returns details about a Lambda function URL.</p>
+    #
+    # @param [Hash] params
+    #   See {Types::GetFunctionUrlConfigInput}.
+    #
+    # @option params [String] :function_name
+    #   <p>The name of the Lambda function.</p>
+    #            <p class="title">
+    #               <b>Name formats</b>
+    #            </p>
+    #            <ul>
+    #               <li>
+    #                  <p>
+    #                     <b>Function name</b> - <code>my-function</code>.</p>
+    #               </li>
+    #               <li>
+    #                  <p>
+    #                     <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+    #               </li>
+    #               <li>
+    #                  <p>
+    #                     <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+    #               </li>
+    #            </ul>
+    #            <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+    #         characters in length.</p>
+    #
+    # @option params [String] :qualifier
+    #   <p>The alias name.</p>
+    #
+    # @return [Types::GetFunctionUrlConfigOutput]
+    #
+    # @example Request syntax with placeholder values
+    #
+    #   resp = client.get_function_url_config(
+    #     function_name: 'FunctionName', # required
+    #     qualifier: 'Qualifier'
+    #   )
+    #
+    # @example Response structure
+    #
+    #   resp.data #=> Types::GetFunctionUrlConfigOutput
+    #   resp.data.function_url #=> String
+    #   resp.data.function_arn #=> String
+    #   resp.data.auth_type #=> String, one of ["NONE", "AWS_IAM"]
+    #   resp.data.cors #=> Types::Cors
+    #   resp.data.cors.allow_credentials #=> Boolean
+    #   resp.data.cors.allow_headers #=> Array<String>
+    #   resp.data.cors.allow_headers[0] #=> String
+    #   resp.data.cors.allow_methods #=> Array<String>
+    #   resp.data.cors.allow_methods[0] #=> String
+    #   resp.data.cors.allow_origins #=> Array<String>
+    #   resp.data.cors.allow_origins[0] #=> String
+    #   resp.data.cors.expose_headers #=> Array<String>
+    #   resp.data.cors.max_age #=> Integer
+    #   resp.data.creation_time #=> String
+    #   resp.data.last_modified_time #=> String
+    #
+    def get_function_url_config(params = {}, options = {}, &block)
+      stack = Hearth::MiddlewareStack.new
+      input = Params::GetFunctionUrlConfigInput.build(params)
+      response_body = StringIO.new
+      stack.use(Hearth::Middleware::Validate,
+        validator: Validators::GetFunctionUrlConfigInput,
+        validate_input: @config.validate_input
+      )
+      stack.use(Hearth::Middleware::Build,
+        builder: Builders::GetFunctionUrlConfig
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+        data_parser: Parsers::GetFunctionUrlConfig
+      )
+      stack.use(Middleware::RequestId)
+      stack.use(Hearth::Middleware::Send,
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_class: Stubs::GetFunctionUrlConfig,
+        stubs: @stubs,
+        params_class: Params::GetFunctionUrlConfigOutput
+      )
+      apply_middleware(stack, options[:middleware])
+
+      resp = stack.run(
+        input: input,
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          response: Hearth::HTTP::Response.new(body: response_body),
+          params: params,
+          logger: @config.logger,
+          operation_name: :get_function_url_config
+        )
+      )
+      raise resp.error if resp.error
+      resp
+    end
+
+    # <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
     #         layer</a>, with a link to download the layer archive
     #         that's valid for 10 minutes.</p>
     #
@@ -2877,8 +3390,10 @@ module AWS::SDK::Lambda
     #   resp.data.created_date #=> String
     #   resp.data.version #=> Integer
     #   resp.data.compatible_runtimes #=> Array<String>
-    #   resp.data.compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #   resp.data.compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.license_info #=> String
+    #   resp.data.compatible_architectures #=> Array<String>
+    #   resp.data.compatible_architectures[0] #=> String, one of ["x86_64", "arm64"]
     #
     def get_layer_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -2927,7 +3442,7 @@ module AWS::SDK::Lambda
       resp
     end
 
-    # <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+    # <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
     #         layer</a>, with a link to download the layer archive
     #         that's valid for 10 minutes.</p>
     #
@@ -2960,8 +3475,10 @@ module AWS::SDK::Lambda
     #   resp.data.created_date #=> String
     #   resp.data.version #=> Integer
     #   resp.data.compatible_runtimes #=> Array<String>
-    #   resp.data.compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #   resp.data.compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.license_info #=> String
+    #   resp.data.compatible_architectures #=> Array<String>
+    #   resp.data.compatible_architectures[0] #=> String, one of ["x86_64", "arm64"]
     #
     def get_layer_version_by_arn(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -3010,7 +3527,7 @@ module AWS::SDK::Lambda
       resp
     end
 
-    # <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+    # <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
     #         layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
     #
     # @param [Hash] params
@@ -3347,7 +3864,7 @@ module AWS::SDK::Lambda
     #            </ul>
     #
     # @option params [String] :log_type
-    #   <p>Set to <code>Tail</code> to include the execution log in the response.</p>
+    #   <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
     #
     # @option params [String] :client_context
     #   <p>Up to 3583 bytes of base64-encoded data about the invoking client to pass to the function in the context
@@ -3355,6 +3872,9 @@ module AWS::SDK::Lambda
     #
     # @option params [String] :payload
     #   <p>The JSON that you want to provide to your Lambda function as input.</p>
+    #            <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>.
+    #         You can also specify a file path. For example, <code>--payload file://payload.json</code>.
+    #       </p>
     #
     # @option params [String] :qualifier
     #   <p>Specify a version or alias to invoke a published version of the function.</p>
@@ -3778,7 +4298,8 @@ module AWS::SDK::Lambda
     #   <p>A pagination token returned by a previous call.</p>
     #
     # @option params [Integer] :max_items
-    #   <p>The maximum number of event source mappings to return.</p>
+    #   <p>The maximum number of event source mappings to return. Note that ListEventSourceMappings returns a maximum of
+    #         100 items in each response, even if you set the number higher.</p>
     #
     # @return [Types::ListEventSourceMappingsOutput]
     #
@@ -3804,6 +4325,10 @@ module AWS::SDK::Lambda
     #   resp.data.event_source_mappings[0].maximum_batching_window_in_seconds #=> Integer
     #   resp.data.event_source_mappings[0].parallelization_factor #=> Integer
     #   resp.data.event_source_mappings[0].event_source_arn #=> String
+    #   resp.data.event_source_mappings[0].filter_criteria #=> Types::FilterCriteria
+    #   resp.data.event_source_mappings[0].filter_criteria.filters #=> Array<Filter>
+    #   resp.data.event_source_mappings[0].filter_criteria.filters[0] #=> Types::Filter
+    #   resp.data.event_source_mappings[0].filter_criteria.filters[0].pattern #=> String
     #   resp.data.event_source_mappings[0].function_arn #=> String
     #   resp.data.event_source_mappings[0].last_modified #=> Time
     #   resp.data.event_source_mappings[0].last_processing_result #=> String
@@ -3820,7 +4345,7 @@ module AWS::SDK::Lambda
     #   resp.data.event_source_mappings[0].queues[0] #=> String
     #   resp.data.event_source_mappings[0].source_access_configurations #=> Array<SourceAccessConfiguration>
     #   resp.data.event_source_mappings[0].source_access_configurations[0] #=> Types::SourceAccessConfiguration
-    #   resp.data.event_source_mappings[0].source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
+    #   resp.data.event_source_mappings[0].source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH", "VIRTUAL_HOST", "CLIENT_CERTIFICATE_TLS_AUTH", "SERVER_ROOT_CA_CERTIFICATE"]
     #   resp.data.event_source_mappings[0].source_access_configurations[0].uri #=> String
     #   resp.data.event_source_mappings[0].self_managed_event_source #=> Types::SelfManagedEventSource
     #   resp.data.event_source_mappings[0].self_managed_event_source.endpoints #=> Hash<String, Array<String>>
@@ -3987,6 +4512,119 @@ module AWS::SDK::Lambda
       resp
     end
 
+    # <p>Returns a list of Lambda function URLs for the specified function.</p>
+    #
+    # @param [Hash] params
+    #   See {Types::ListFunctionUrlConfigsInput}.
+    #
+    # @option params [String] :function_name
+    #   <p>The name of the Lambda function.</p>
+    #            <p class="title">
+    #               <b>Name formats</b>
+    #            </p>
+    #            <ul>
+    #               <li>
+    #                  <p>
+    #                     <b>Function name</b> - <code>my-function</code>.</p>
+    #               </li>
+    #               <li>
+    #                  <p>
+    #                     <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+    #               </li>
+    #               <li>
+    #                  <p>
+    #                     <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+    #               </li>
+    #            </ul>
+    #            <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+    #         characters in length.</p>
+    #
+    # @option params [String] :marker
+    #   <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+    #
+    # @option params [Integer] :max_items
+    #   <p>The maximum number of function URLs to return in the response. Note that <code>ListFunctionUrlConfigs</code>
+    #         returns a maximum of 50 items in each response, even if you set the number higher.</p>
+    #
+    # @return [Types::ListFunctionUrlConfigsOutput]
+    #
+    # @example Request syntax with placeholder values
+    #
+    #   resp = client.list_function_url_configs(
+    #     function_name: 'FunctionName', # required
+    #     marker: 'Marker',
+    #     max_items: 1
+    #   )
+    #
+    # @example Response structure
+    #
+    #   resp.data #=> Types::ListFunctionUrlConfigsOutput
+    #   resp.data.function_url_configs #=> Array<FunctionUrlConfig>
+    #   resp.data.function_url_configs[0] #=> Types::FunctionUrlConfig
+    #   resp.data.function_url_configs[0].function_url #=> String
+    #   resp.data.function_url_configs[0].function_arn #=> String
+    #   resp.data.function_url_configs[0].creation_time #=> String
+    #   resp.data.function_url_configs[0].last_modified_time #=> String
+    #   resp.data.function_url_configs[0].cors #=> Types::Cors
+    #   resp.data.function_url_configs[0].cors.allow_credentials #=> Boolean
+    #   resp.data.function_url_configs[0].cors.allow_headers #=> Array<String>
+    #   resp.data.function_url_configs[0].cors.allow_headers[0] #=> String
+    #   resp.data.function_url_configs[0].cors.allow_methods #=> Array<String>
+    #   resp.data.function_url_configs[0].cors.allow_methods[0] #=> String
+    #   resp.data.function_url_configs[0].cors.allow_origins #=> Array<String>
+    #   resp.data.function_url_configs[0].cors.allow_origins[0] #=> String
+    #   resp.data.function_url_configs[0].cors.expose_headers #=> Array<String>
+    #   resp.data.function_url_configs[0].cors.max_age #=> Integer
+    #   resp.data.function_url_configs[0].auth_type #=> String, one of ["NONE", "AWS_IAM"]
+    #   resp.data.next_marker #=> String
+    #
+    def list_function_url_configs(params = {}, options = {}, &block)
+      stack = Hearth::MiddlewareStack.new
+      input = Params::ListFunctionUrlConfigsInput.build(params)
+      response_body = StringIO.new
+      stack.use(Hearth::Middleware::Validate,
+        validator: Validators::ListFunctionUrlConfigsInput,
+        validate_input: @config.validate_input
+      )
+      stack.use(Hearth::Middleware::Build,
+        builder: Builders::ListFunctionUrlConfigs
+      )
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+        data_parser: Parsers::ListFunctionUrlConfigs
+      )
+      stack.use(Middleware::RequestId)
+      stack.use(Hearth::Middleware::Send,
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_class: Stubs::ListFunctionUrlConfigs,
+        stubs: @stubs,
+        params_class: Params::ListFunctionUrlConfigsOutput
+      )
+      apply_middleware(stack, options[:middleware])
+
+      resp = stack.run(
+        input: input,
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          response: Hearth::HTTP::Response.new(body: response_body),
+          params: params,
+          logger: @config.logger,
+          operation_name: :list_function_url_configs
+        )
+      )
+      raise resp.error if resp.error
+      resp
+    end
+
     # <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50
     #       functions per call.</p>
     #          <p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in
@@ -4001,7 +4639,7 @@ module AWS::SDK::Lambda
     #   See {Types::ListFunctionsInput}.
     #
     # @option params [String] :master_region
-    #   <p>For Lambda@Edge functions, the AWS Region of the master function. For example, <code>us-east-1</code> filters
+    #   <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters
     #         the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N.
     #         Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
     #
@@ -4034,7 +4672,7 @@ module AWS::SDK::Lambda
     #   resp.data.functions[0] #=> Types::FunctionConfiguration
     #   resp.data.functions[0].function_name #=> String
     #   resp.data.functions[0].function_arn #=> String
-    #   resp.data.functions[0].runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #   resp.data.functions[0].runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.functions[0].role #=> String
     #   resp.data.functions[0].handler #=> String
     #   resp.data.functions[0].code_size #=> Integer
@@ -4091,6 +4729,10 @@ module AWS::SDK::Lambda
     #   resp.data.functions[0].image_config_response.error.message #=> String
     #   resp.data.functions[0].signing_profile_version_arn #=> String
     #   resp.data.functions[0].signing_job_arn #=> String
+    #   resp.data.functions[0].architectures #=> Array<String>
+    #   resp.data.functions[0].architectures[0] #=> String, one of ["x86_64", "arm64"]
+    #   resp.data.functions[0].ephemeral_storage #=> Types::EphemeralStorage
+    #   resp.data.functions[0].ephemeral_storage.size #=> Integer
     #
     def list_functions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4218,9 +4860,10 @@ module AWS::SDK::Lambda
       resp
     end
 
-    # <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+    # <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
     #         layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only
-    #       versions that indicate that they're compatible with that runtime.</p>
+    #       versions that indicate that they're compatible with that runtime. Specify a compatible architecture to include only
+    #       layer versions that are compatible with that architecture.</p>
     #
     # @param [Hash] params
     #   See {Types::ListLayerVersionsInput}.
@@ -4237,15 +4880,20 @@ module AWS::SDK::Lambda
     # @option params [Integer] :max_items
     #   <p>The maximum number of versions to return.</p>
     #
+    # @option params [String] :compatible_architecture
+    #   <p>The compatible
+    #   <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
+    #
     # @return [Types::ListLayerVersionsOutput]
     #
     # @example Request syntax with placeholder values
     #
     #   resp = client.list_layer_versions(
-    #     compatible_runtime: 'nodejs', # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #     compatible_runtime: 'nodejs', # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #     layer_name: 'LayerName', # required
     #     marker: 'Marker',
-    #     max_items: 1
+    #     max_items: 1,
+    #     compatible_architecture: 'x86_64' # accepts ["x86_64", "arm64"]
     #   )
     #
     # @example Response structure
@@ -4259,8 +4907,10 @@ module AWS::SDK::Lambda
     #   resp.data.layer_versions[0].description #=> String
     #   resp.data.layer_versions[0].created_date #=> String
     #   resp.data.layer_versions[0].compatible_runtimes #=> Array<String>
-    #   resp.data.layer_versions[0].compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #   resp.data.layer_versions[0].compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.layer_versions[0].license_info #=> String
+    #   resp.data.layer_versions[0].compatible_architectures #=> Array<String>
+    #   resp.data.layer_versions[0].compatible_architectures[0] #=> String, one of ["x86_64", "arm64"]
     #
     def list_layer_versions(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4309,9 +4959,12 @@ module AWS::SDK::Lambda
       resp
     end
 
-    # <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
-    #         layers</a> and shows information about the latest version of each. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only layers
-    #       that indicate that they're compatible with that runtime.</p>
+    # <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-layers.html">Lambda
+    #         layers</a> and shows information about the latest version of each. Specify a
+    #         <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
+    #         identifier</a> to list only layers that indicate that they're compatible with that
+    #       runtime. Specify a compatible architecture to include only layers that are compatible with
+    #       that  <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
     #
     # @param [Hash] params
     #   See {Types::ListLayersInput}.
@@ -4325,14 +4978,19 @@ module AWS::SDK::Lambda
     # @option params [Integer] :max_items
     #   <p>The maximum number of layers to return.</p>
     #
+    # @option params [String] :compatible_architecture
+    #   <p>The compatible
+    #   <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
+    #
     # @return [Types::ListLayersOutput]
     #
     # @example Request syntax with placeholder values
     #
     #   resp = client.list_layers(
-    #     compatible_runtime: 'nodejs', # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #     compatible_runtime: 'nodejs', # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #     marker: 'Marker',
-    #     max_items: 1
+    #     max_items: 1,
+    #     compatible_architecture: 'x86_64' # accepts ["x86_64", "arm64"]
     #   )
     #
     # @example Response structure
@@ -4349,8 +5007,10 @@ module AWS::SDK::Lambda
     #   resp.data.layers[0].latest_matching_version.description #=> String
     #   resp.data.layers[0].latest_matching_version.created_date #=> String
     #   resp.data.layers[0].latest_matching_version.compatible_runtimes #=> Array<String>
-    #   resp.data.layers[0].latest_matching_version.compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #   resp.data.layers[0].latest_matching_version.compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.layers[0].latest_matching_version.license_info #=> String
+    #   resp.data.layers[0].latest_matching_version.compatible_architectures #=> Array<String>
+    #   resp.data.layers[0].latest_matching_version.compatible_architectures[0] #=> String, one of ["x86_64", "arm64"]
     #
     def list_layers(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4510,7 +5170,8 @@ module AWS::SDK::Lambda
     #   See {Types::ListTagsInput}.
     #
     # @option params [String] :resource
-    #   <p>The function's Amazon Resource Name (ARN).</p>
+    #   <p>The function's Amazon Resource Name (ARN).
+    #         Note: Lambda does not support adding tags to aliases or versions.</p>
     #
     # @return [Types::ListTagsOutput]
     #
@@ -4605,7 +5266,8 @@ module AWS::SDK::Lambda
     #   <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
     #
     # @option params [Integer] :max_items
-    #   <p>The maximum number of versions to return.</p>
+    #   <p>The maximum number of versions to return. Note that <code>ListVersionsByFunction</code> returns a maximum of 50 items in each response,
+    #         even if you set the number higher.</p>
     #
     # @return [Types::ListVersionsByFunctionOutput]
     #
@@ -4625,7 +5287,7 @@ module AWS::SDK::Lambda
     #   resp.data.versions[0] #=> Types::FunctionConfiguration
     #   resp.data.versions[0].function_name #=> String
     #   resp.data.versions[0].function_arn #=> String
-    #   resp.data.versions[0].runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #   resp.data.versions[0].runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.versions[0].role #=> String
     #   resp.data.versions[0].handler #=> String
     #   resp.data.versions[0].code_size #=> Integer
@@ -4682,6 +5344,10 @@ module AWS::SDK::Lambda
     #   resp.data.versions[0].image_config_response.error.message #=> String
     #   resp.data.versions[0].signing_profile_version_arn #=> String
     #   resp.data.versions[0].signing_job_arn #=> String
+    #   resp.data.versions[0].architectures #=> Array<String>
+    #   resp.data.versions[0].architectures[0] #=> String, one of ["x86_64", "arm64"]
+    #   resp.data.versions[0].ephemeral_storage #=> Types::EphemeralStorage
+    #   resp.data.versions[0].ephemeral_storage.size #=> Integer
     #
     def list_versions_by_function(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4730,7 +5396,7 @@ module AWS::SDK::Lambda
       resp
     end
 
-    # <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+    # <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
     #         layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same
     #       layer name, a new version is created.</p>
     #          <p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
@@ -4767,6 +5433,10 @@ module AWS::SDK::Lambda
     #               </li>
     #            </ul>
     #
+    # @option params [Array<String>] :compatible_architectures
+    #   <p>A list of compatible
+    #   <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
+    #
     # @return [Types::PublishLayerVersionOutput]
     #
     # @example Request syntax with placeholder values
@@ -4781,9 +5451,12 @@ module AWS::SDK::Lambda
     #       zip_file: 'ZipFile'
     #     }, # required
     #     compatible_runtimes: [
-    #       'nodejs' # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #       'nodejs' # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #     ],
-    #     license_info: 'LicenseInfo'
+    #     license_info: 'LicenseInfo',
+    #     compatible_architectures: [
+    #       'x86_64' # accepts ["x86_64", "arm64"]
+    #     ]
     #   )
     #
     # @example Response structure
@@ -4801,8 +5474,10 @@ module AWS::SDK::Lambda
     #   resp.data.created_date #=> String
     #   resp.data.version #=> Integer
     #   resp.data.compatible_runtimes #=> Array<String>
-    #   resp.data.compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #   resp.data.compatible_runtimes[0] #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.license_info #=> String
+    #   resp.data.compatible_architectures #=> Array<String>
+    #   resp.data.compatible_architectures[0] #=> String, one of ["x86_64", "arm64"]
     #
     def publish_layer_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -4856,7 +5531,7 @@ module AWS::SDK::Lambda
     #       current code and configuration of a function. Use versions to create a snapshot of your function code and
     #       configuration that doesn't change.</p>
     #
-    #          <p>AWS Lambda doesn't publish a version if the function's configuration and code haven't changed since the last
+    #          <p>Lambda doesn't publish a version if the function's configuration and code haven't changed since the last
     #       version. Use <a>UpdateFunctionCode</a> or <a>UpdateFunctionConfiguration</a> to update the
     #       function before publishing a version.</p>
     #
@@ -4915,7 +5590,7 @@ module AWS::SDK::Lambda
     #   resp.data #=> Types::PublishVersionOutput
     #   resp.data.function_name #=> String
     #   resp.data.function_arn #=> String
-    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.role #=> String
     #   resp.data.handler #=> String
     #   resp.data.code_size #=> Integer
@@ -4972,6 +5647,10 @@ module AWS::SDK::Lambda
     #   resp.data.image_config_response.error.message #=> String
     #   resp.data.signing_profile_version_arn #=> String
     #   resp.data.signing_job_arn #=> String
+    #   resp.data.architectures #=> Array<String>
+    #   resp.data.architectures[0] #=> String, one of ["x86_64", "arm64"]
+    #   resp.data.ephemeral_storage #=> Types::EphemeralStorage
+    #   resp.data.ephemeral_storage.size #=> Integer
     #
     def publish_version(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -5338,7 +6017,7 @@ module AWS::SDK::Lambda
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::PutFunctionEventInvokeConfig
       )
       stack.use(Middleware::RequestId)
@@ -5466,7 +6145,7 @@ module AWS::SDK::Lambda
       resp
     end
 
-    # <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda
+    # <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda
     #         layer</a>. For more information, see
     #         <a>AddLayerVersionPermission</a>.</p>
     #
@@ -5548,7 +6227,7 @@ module AWS::SDK::Lambda
       resp
     end
 
-    # <p>Revokes function-use permission from an AWS service or another account. You can get the ID of the statement
+    # <p>Revokes function-use permission from an Amazon Web Services service or another account. You can get the ID of the statement
     #       from the output of <a>GetPolicy</a>.</p>
     #
     # @param [Hash] params
@@ -6013,7 +6692,48 @@ module AWS::SDK::Lambda
       resp
     end
 
-    # <p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.</p>
+    # <p>Updates an event source mapping. You can change the function that Lambda invokes, or pause
+    #       invocation and resume later from the same location.</p>
+    #          <p>For details about how to configure different event sources, see the following topics. </p>
+    #          <ul>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping">
+    #             Amazon DynamoDB Streams</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping">
+    #             Amazon Kinesis</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource">
+    #             Amazon SQS</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping">
+    #             Amazon MQ and RabbitMQ</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">
+    #             Amazon MSK</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">
+    #             Apache Kafka</a>
+    #                </p>
+    #             </li>
+    #          </ul>
+    #
     #          <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p>
     #          <ul>
     #             <li>
@@ -6035,6 +6755,45 @@ module AWS::SDK::Lambda
     #             <li>
     #                <p>
     #                   <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p>
+    #             </li>
+    #          </ul>
+    #          <p>For information about which configuration parameters apply to each event source, see the following topics.</p>
+    #          <ul>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-params">
+    #           Amazon DynamoDB Streams</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-params">
+    #           Amazon Kinesis</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-params">
+    #           Amazon SQS</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-params">
+    #           Amazon MQ and RabbitMQ</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-parms">
+    #           Amazon MSK</a>
+    #                </p>
+    #             </li>
+    #             <li>
+    #                <p>
+    #                   <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-kafka-parms">
+    #           Apache Kafka</a>
+    #                </p>
     #             </li>
     #          </ul>
     #
@@ -6071,10 +6830,12 @@ module AWS::SDK::Lambda
     #         characters in length.</p>
     #
     # @option params [Boolean] :enabled
-    #   <p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>
+    #   <p>When true, the event source mapping is active. When false, Lambda pauses polling and invocation.</p>
+    #            <p>Default: True</p>
     #
     # @option params [Integer] :batch_size
-    #   <p>The maximum number of items to retrieve in a single batch.</p>
+    #   <p>The maximum number of records in each batch that Lambda pulls from your stream or queue and sends to your function. Lambda passes all of the records in the batch to the function in a single call, up to the payload limit for synchronous invocation
+    #     (6 MB).</p>
     #            <ul>
     #               <li>
     #                  <p>
@@ -6082,7 +6843,7 @@ module AWS::SDK::Lambda
     #               </li>
     #               <li>
     #                  <p>
-    #                     <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p>
+    #                     <b>Amazon DynamoDB Streams</b> - Default 100. Max 10,000.</p>
     #               </li>
     #               <li>
     #                  <p>
@@ -6096,34 +6857,44 @@ module AWS::SDK::Lambda
     #                  <p>
     #                     <b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p>
     #               </li>
+    #               <li>
+    #                  <p>
+    #                     <b>Amazon MQ (ActiveMQ and RabbitMQ)</b> - Default 100. Max 10,000.</p>
+    #               </li>
     #            </ul>
     #
+    # @option params [FilterCriteria] :filter_criteria
+    #   <p>(Streams and Amazon SQS) An object that defines the filter criteria that
+    #       determine whether Lambda should process an event. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html">Lambda event filtering</a>.</p>
+    #
     # @option params [Integer] :maximum_batching_window_in_seconds
-    #   <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds.</p>
+    #   <p>(Streams and Amazon SQS standard queues) The maximum amount of time, in seconds, that Lambda spends gathering records before invoking the function.</p>
+    #            <p>Default: 0</p>
+    #            <p>Related setting: When you set <code>BatchSize</code> to a value greater than 10, you must set <code>MaximumBatchingWindowInSeconds</code> to at least 1.</p>
     #
     # @option params [DestinationConfig] :destination_config
-    #   <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+    #   <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
     #
     # @option params [Integer] :maximum_record_age_in_seconds
-    #   <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
+    #   <p>(Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
     #
     # @option params [Boolean] :bisect_batch_on_function_error
-    #   <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+    #   <p>(Streams only) If the function returns an error, split the batch in two and retry.</p>
     #
     # @option params [Integer] :maximum_retry_attempts
-    #   <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
+    #   <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
     #
     # @option params [Integer] :parallelization_factor
-    #   <p>(Streams) The number of batches to process from each shard concurrently.</p>
+    #   <p>(Streams only) The number of batches to process from each shard concurrently.</p>
     #
     # @option params [Array<SourceAccessConfiguration>] :source_access_configurations
-    #   <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
+    #   <p>An array of authentication protocols or VPC components required to secure your event source.</p>
     #
     # @option params [Integer] :tumbling_window_in_seconds
-    #   <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+    #   <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
     #
     # @option params [Array<String>] :function_response_types
-    #   <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+    #   <p>(Streams and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
     #
     # @return [Types::UpdateEventSourceMappingOutput]
     #
@@ -6134,6 +6905,13 @@ module AWS::SDK::Lambda
     #     function_name: 'FunctionName',
     #     enabled: false,
     #     batch_size: 1,
+    #     filter_criteria: {
+    #       filters: [
+    #         {
+    #           pattern: 'Pattern'
+    #         }
+    #       ]
+    #     },
     #     maximum_batching_window_in_seconds: 1,
     #     destination_config: {
     #       on_success: {
@@ -6149,7 +6927,7 @@ module AWS::SDK::Lambda
     #     parallelization_factor: 1,
     #     source_access_configurations: [
     #       {
-    #         type: 'BASIC_AUTH', # accepts ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
+    #         type: 'BASIC_AUTH', # accepts ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH", "VIRTUAL_HOST", "CLIENT_CERTIFICATE_TLS_AUTH", "SERVER_ROOT_CA_CERTIFICATE"]
     #         uri: 'URI'
     #       }
     #     ],
@@ -6169,6 +6947,10 @@ module AWS::SDK::Lambda
     #   resp.data.maximum_batching_window_in_seconds #=> Integer
     #   resp.data.parallelization_factor #=> Integer
     #   resp.data.event_source_arn #=> String
+    #   resp.data.filter_criteria #=> Types::FilterCriteria
+    #   resp.data.filter_criteria.filters #=> Array<Filter>
+    #   resp.data.filter_criteria.filters[0] #=> Types::Filter
+    #   resp.data.filter_criteria.filters[0].pattern #=> String
     #   resp.data.function_arn #=> String
     #   resp.data.last_modified #=> Time
     #   resp.data.last_processing_result #=> String
@@ -6185,7 +6967,7 @@ module AWS::SDK::Lambda
     #   resp.data.queues[0] #=> String
     #   resp.data.source_access_configurations #=> Array<SourceAccessConfiguration>
     #   resp.data.source_access_configurations[0] #=> Types::SourceAccessConfiguration
-    #   resp.data.source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH"]
+    #   resp.data.source_access_configurations[0].type #=> String, one of ["BASIC_AUTH", "VPC_SUBNET", "VPC_SECURITY_GROUP", "SASL_SCRAM_512_AUTH", "SASL_SCRAM_256_AUTH", "VIRTUAL_HOST", "CLIENT_CERTIFICATE_TLS_AUTH", "SERVER_ROOT_CA_CERTIFICATE"]
     #   resp.data.source_access_configurations[0].uri #=> String
     #   resp.data.self_managed_event_source #=> Types::SelfManagedEventSource
     #   resp.data.self_managed_event_source.endpoints #=> Hash<String, Array<String>>
@@ -6249,11 +7031,24 @@ module AWS::SDK::Lambda
     # <p>Updates a Lambda function's code. If code signing is enabled for the function, the code package must be signed
     #       by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">Configuring code signing</a>.</p>
     #
+    #          <p>If the function's package type is <code>Image</code>, you must specify the code package in <code>ImageUri</code> as
+    #       the URI of a
+    #       <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a>
+    #       in the Amazon ECR registry.
+    #        </p>
+    #
+    #          <p>If the function's package type is <code>Zip</code>, you must specify the deployment
+    #       package as a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file
+    #         archive</a>. Enter the Amazon S3 bucket and key of the code .zip file location.
+    #       You can also provide the function code inline using the <code>ZipFile</code> field. </p>
+    #          <p>The code in the deployment package must be compatible with the target instruction set
+    #       architecture of the function (<code>x86-64</code> or <code>arm64</code>). </p>
+    #
     #          <p>The function's code is locked when you publish a version. You can't modify the code of a published version,
     #       only the unpublished version.</p>
     #          <note>
     #             <p>For a function defined as a container image, Lambda resolves the image tag to an image digest. In Amazon ECR, if
-    #         you update the image tag to a new image, Lambda does not automatically update the function.</p>
+    #       you update the image tag to a new image, Lambda does not automatically update the function.</p>
     #          </note>
     #
     # @param [Hash] params
@@ -6282,20 +7077,22 @@ module AWS::SDK::Lambda
     #         characters in length.</p>
     #
     # @option params [String] :zip_file
-    #   <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for
-    #         you.</p>
+    #   <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients
+    #   handle the encoding for you. Use only with a function defined with a .zip file archive deployment package.</p>
     #
     # @option params [String] :s3_bucket
-    #   <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
+    #   <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different
+    #   Amazon Web Services account. Use only with a function defined with a .zip file archive deployment package.</p>
     #
     # @option params [String] :s3_key
-    #   <p>The Amazon S3 key of the deployment package.</p>
+    #   <p>The Amazon S3 key of the deployment package. Use only with a function defined with a .zip file archive deployment package.</p>
     #
     # @option params [String] :s3_object_version
     #   <p>For versioned objects, the version of the deployment package object to use.</p>
     #
     # @option params [String] :image_uri
-    #   <p>URI of a container image in the Amazon ECR registry.</p>
+    #   <p>URI of a container image in the Amazon ECR registry. Do not use for a function defined
+    #       with a .zip file archive.</p>
     #
     # @option params [Boolean] :publish
     #   <p>Set to true to publish a new version of the function after updating the code. This has the same effect as
@@ -6308,6 +7105,10 @@ module AWS::SDK::Lambda
     # @option params [String] :revision_id
     #   <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a
     #         function that has changed since you last read it.</p>
+    #
+    # @option params [Array<String>] :architectures
+    #   <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64).
+    #        The default value is <code>x86_64</code>.</p>
     #
     # @return [Types::UpdateFunctionCodeOutput]
     #
@@ -6322,7 +7123,10 @@ module AWS::SDK::Lambda
     #     image_uri: 'ImageUri',
     #     publish: false,
     #     dry_run: false,
-    #     revision_id: 'RevisionId'
+    #     revision_id: 'RevisionId',
+    #     architectures: [
+    #       'x86_64' # accepts ["x86_64", "arm64"]
+    #     ]
     #   )
     #
     # @example Response structure
@@ -6330,7 +7134,7 @@ module AWS::SDK::Lambda
     #   resp.data #=> Types::UpdateFunctionCodeOutput
     #   resp.data.function_name #=> String
     #   resp.data.function_arn #=> String
-    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.role #=> String
     #   resp.data.handler #=> String
     #   resp.data.code_size #=> Integer
@@ -6387,6 +7191,10 @@ module AWS::SDK::Lambda
     #   resp.data.image_config_response.error.message #=> String
     #   resp.data.signing_profile_version_arn #=> String
     #   resp.data.signing_job_arn #=> String
+    #   resp.data.architectures #=> Array<String>
+    #   resp.data.architectures[0] #=> String, one of ["x86_64", "arm64"]
+    #   resp.data.ephemeral_storage #=> Types::EphemeralStorage
+    #   resp.data.ephemeral_storage.size #=> Integer
     #
     def update_function_code(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6450,7 +7258,7 @@ module AWS::SDK::Lambda
     #       modify the configuration of a published version, only the unpublished version.</p>
     #
     #          <p>To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke permissions
-    #       to an account or AWS service, use <a>AddPermission</a>.</p>
+    #       to an account or Amazon Web Services service, use <a>AddPermission</a>.</p>
     #
     # @param [Hash] params
     #   See {Types::UpdateFunctionConfigurationInput}.
@@ -6481,7 +7289,8 @@ module AWS::SDK::Lambda
     #   <p>The Amazon Resource Name (ARN) of the function's execution role.</p>
     #
     # @option params [String] :handler
-    #   <p>The name of the method within your code that Lambda calls to execute your function. The format includes the
+    #   <p>The name of the method within your code that Lambda calls to execute your function.
+    #   Handler is required if the deployment package is a .zip file archive. The format includes the
     #         file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information,
     #         see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
     #
@@ -6489,15 +7298,15 @@ module AWS::SDK::Lambda
     #   <p>A description of the function.</p>
     #
     # @option params [Integer] :timeout
-    #   <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The
-    #         maximum allowed value is 900 seconds.</p>
+    #   <p>The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The
+    #         maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
     #
     # @option params [Integer] :memory_size
-    #   <p>The amount of memory available to the function at runtime. Increasing the function's memory also increases its CPU
-    #         allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
+    #   <p>The amount of  <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory available to the function</a> at runtime.
+    #         Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
     #
     # @option params [VpcConfig] :vpc_config
-    #   <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC.
+    #   <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC.
     #         When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more
     #         information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
     #
@@ -6505,19 +7314,20 @@ module AWS::SDK::Lambda
     #   <p>Environment variables that are accessible from function code during execution.</p>
     #
     # @option params [String] :runtime
-    #   <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
+    #   <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.
+    #           </p>
     #
     # @option params [DeadLetterConfig] :dead_letter_config
     #   <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events
     #         when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
     #
     # @option params [String] :kms_key_arn
-    #   <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment
-    #         variables. If it's not provided, AWS Lambda uses a default service key.</p>
+    #   <p>The ARN of the Amazon Web Services Key Management Service (KMS) key that's used to encrypt your function's environment
+    #         variables. If it's not provided, Lambda uses a default service key.</p>
     #
     # @option params [TracingConfig] :tracing_config
-    #   <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS
-    #         X-Ray.</p>
+    #   <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with
+    #   <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a>.</p>
     #
     # @option params [String] :revision_id
     #   <p>Only update the function if the revision ID matches the ID that's specified. Use this option to avoid modifying a
@@ -6533,7 +7343,10 @@ module AWS::SDK::Lambda
     # @option params [ImageConfig] :image_config
     #   <p>
     #               <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container image configuration
-    #           values</a> that override the values in the container image Dockerfile.</p>
+    #           values</a> that override the values in the container image Docker file.</p>
+    #
+    # @option params [EphemeralStorage] :ephemeral_storage
+    #   <p>The size of the function’s /tmp directory in MB. The default value is 512, but can be any whole number between 512 and 10240 MB.</p>
     #
     # @return [Types::UpdateFunctionConfigurationOutput]
     #
@@ -6559,7 +7372,7 @@ module AWS::SDK::Lambda
     #         'key' => 'value'
     #       }
     #     },
-    #     runtime: 'nodejs', # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #     runtime: 'nodejs', # accepts ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #     dead_letter_config: {
     #       target_arn: 'TargetArn'
     #     },
@@ -6582,6 +7395,9 @@ module AWS::SDK::Lambda
     #         'member'
     #       ],
     #       working_directory: 'WorkingDirectory'
+    #     },
+    #     ephemeral_storage: {
+    #       size: 1 # required
     #     }
     #   )
     #
@@ -6590,7 +7406,7 @@ module AWS::SDK::Lambda
     #   resp.data #=> Types::UpdateFunctionConfigurationOutput
     #   resp.data.function_name #=> String
     #   resp.data.function_arn #=> String
-    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
+    #   resp.data.runtime #=> String, one of ["nodejs", "nodejs4.3", "nodejs6.10", "nodejs8.10", "nodejs10.x", "nodejs12.x", "nodejs14.x", "nodejs16.x", "java8", "java8.al2", "java11", "python2.7", "python3.6", "python3.7", "python3.8", "python3.9", "dotnetcore1.0", "dotnetcore2.0", "dotnetcore2.1", "dotnetcore3.1", "dotnet6", "nodejs4.3-edge", "go1.x", "ruby2.5", "ruby2.7", "provided", "provided.al2"]
     #   resp.data.role #=> String
     #   resp.data.handler #=> String
     #   resp.data.code_size #=> Integer
@@ -6647,6 +7463,10 @@ module AWS::SDK::Lambda
     #   resp.data.image_config_response.error.message #=> String
     #   resp.data.signing_profile_version_arn #=> String
     #   resp.data.signing_job_arn #=> String
+    #   resp.data.architectures #=> Array<String>
+    #   resp.data.architectures[0] #=> String, one of ["x86_64", "arm64"]
+    #   resp.data.ephemeral_storage #=> Types::EphemeralStorage
+    #   resp.data.ephemeral_storage.size #=> Integer
     #
     def update_function_configuration(params = {}, options = {}, &block)
       stack = Hearth::MiddlewareStack.new
@@ -6810,7 +7630,7 @@ module AWS::SDK::Lambda
         adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
       )
       stack.use(Hearth::Middleware::Parse,
-        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException]),
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
         data_parser: Parsers::UpdateFunctionEventInvokeConfig
       )
       stack.use(Middleware::RequestId)
@@ -6831,6 +7651,135 @@ module AWS::SDK::Lambda
           params: params,
           logger: @config.logger,
           operation_name: :update_function_event_invoke_config
+        )
+      )
+      raise resp.error if resp.error
+      resp
+    end
+
+    # <p>Updates the configuration for a Lambda function URL.</p>
+    #
+    # @param [Hash] params
+    #   See {Types::UpdateFunctionUrlConfigInput}.
+    #
+    # @option params [String] :function_name
+    #   <p>The name of the Lambda function.</p>
+    #            <p class="title">
+    #               <b>Name formats</b>
+    #            </p>
+    #            <ul>
+    #               <li>
+    #                  <p>
+    #                     <b>Function name</b> - <code>my-function</code>.</p>
+    #               </li>
+    #               <li>
+    #                  <p>
+    #                     <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p>
+    #               </li>
+    #               <li>
+    #                  <p>
+    #                     <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p>
+    #               </li>
+    #            </ul>
+    #            <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64
+    #         characters in length.</p>
+    #
+    # @option params [String] :qualifier
+    #   <p>The alias name.</p>
+    #
+    # @option params [String] :auth_type
+    #   <p>The type of authentication that your function URL uses. Set to <code>AWS_IAM</code> if you want to restrict access to authenticated
+    #     <code>IAM</code> users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
+    #     see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html"> Security and auth model for Lambda function URLs</a>.</p>
+    #
+    # @option params [Cors] :cors
+    #   <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">cross-origin resource sharing (CORS)</a> settings
+    #     for your function URL.</p>
+    #
+    # @return [Types::UpdateFunctionUrlConfigOutput]
+    #
+    # @example Request syntax with placeholder values
+    #
+    #   resp = client.update_function_url_config(
+    #     function_name: 'FunctionName', # required
+    #     qualifier: 'Qualifier',
+    #     auth_type: 'NONE', # accepts ["NONE", "AWS_IAM"]
+    #     cors: {
+    #       allow_credentials: false,
+    #       allow_headers: [
+    #         'member'
+    #       ],
+    #       allow_methods: [
+    #         'member'
+    #       ],
+    #       allow_origins: [
+    #         'member'
+    #       ],
+    #       max_age: 1
+    #     }
+    #   )
+    #
+    # @example Response structure
+    #
+    #   resp.data #=> Types::UpdateFunctionUrlConfigOutput
+    #   resp.data.function_url #=> String
+    #   resp.data.function_arn #=> String
+    #   resp.data.auth_type #=> String, one of ["NONE", "AWS_IAM"]
+    #   resp.data.cors #=> Types::Cors
+    #   resp.data.cors.allow_credentials #=> Boolean
+    #   resp.data.cors.allow_headers #=> Array<String>
+    #   resp.data.cors.allow_headers[0] #=> String
+    #   resp.data.cors.allow_methods #=> Array<String>
+    #   resp.data.cors.allow_methods[0] #=> String
+    #   resp.data.cors.allow_origins #=> Array<String>
+    #   resp.data.cors.allow_origins[0] #=> String
+    #   resp.data.cors.expose_headers #=> Array<String>
+    #   resp.data.cors.max_age #=> Integer
+    #   resp.data.creation_time #=> String
+    #   resp.data.last_modified_time #=> String
+    #
+    def update_function_url_config(params = {}, options = {}, &block)
+      stack = Hearth::MiddlewareStack.new
+      input = Params::UpdateFunctionUrlConfigInput.build(params)
+      response_body = StringIO.new
+      stack.use(Hearth::Middleware::Validate,
+        validator: Validators::UpdateFunctionUrlConfigInput,
+        validate_input: @config.validate_input
+      )
+      stack.use(Hearth::Middleware::Build,
+        builder: Builders::UpdateFunctionUrlConfig
+      )
+      stack.use(Hearth::HTTP::Middleware::ContentLength)
+      stack.use(Hearth::Middleware::Retry,
+        retry_mode: @config.retry_mode,
+        error_inspector_class: Hearth::Retry::ErrorInspector,
+        retry_quota: @retry_quota,
+        max_attempts: @config.max_attempts,
+        client_rate_limiter: @client_rate_limiter,
+        adaptive_retry_wait_to_fill: @config.adaptive_retry_wait_to_fill
+      )
+      stack.use(Hearth::Middleware::Parse,
+        error_parser: Hearth::HTTP::ErrorParser.new(error_module: Errors, success_status: 200, errors: [Errors::ResourceNotFoundException, Errors::TooManyRequestsException, Errors::ServiceException, Errors::InvalidParameterValueException, Errors::ResourceConflictException]),
+        data_parser: Parsers::UpdateFunctionUrlConfig
+      )
+      stack.use(Middleware::RequestId)
+      stack.use(Hearth::Middleware::Send,
+        stub_responses: @config.stub_responses,
+        client: Hearth::HTTP::Client.new(logger: @config.logger, http_wire_trace: options.fetch(:http_wire_trace, @config.http_wire_trace)),
+        stub_class: Stubs::UpdateFunctionUrlConfig,
+        stubs: @stubs,
+        params_class: Params::UpdateFunctionUrlConfigOutput
+      )
+      apply_middleware(stack, options[:middleware])
+
+      resp = stack.run(
+        input: input,
+        context: Hearth::Context.new(
+          request: Hearth::HTTP::Request.new(url: options.fetch(:endpoint, @config.endpoint)),
+          response: Hearth::HTTP::Response.new(body: response_body),
+          params: params,
+          logger: @config.logger,
+          operation_name: :update_function_url_config
         )
       )
       raise resp.error if resp.error

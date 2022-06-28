@@ -1,4 +1,4 @@
-module AWS::SDK::Sso
+module AWS::SDK::SSO
   module Middleware
     # A middleware that extracts a request id from a response and sets it
     # on output's metadata.

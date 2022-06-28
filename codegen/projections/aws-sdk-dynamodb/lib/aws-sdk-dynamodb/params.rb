@@ -9,7 +9,7 @@
 
 require 'securerandom'
 
-module AWS::SDK::Dynamodb
+module AWS::SDK::DynamoDB
   module Params
 
     module ArchivalSummary
@@ -1123,6 +1123,7 @@ module AWS::SDK::Dynamodb
         type.consistent_read = params[:consistent_read]
         type.next_token = params[:next_token]
         type.return_consumed_capacity = params[:return_consumed_capacity]
+        type.limit = params[:limit]
         type
       end
     end
@@ -1134,6 +1135,7 @@ module AWS::SDK::Dynamodb
         type.items = ItemList.build(params[:items], context: "#{context}[:items]") unless params[:items].nil?
         type.next_token = params[:next_token]
         type.consumed_capacity = ConsumedCapacity.build(params[:consumed_capacity], context: "#{context}[:consumed_capacity]") unless params[:consumed_capacity].nil?
+        type.last_evaluated_key = Key.build(params[:last_evaluated_key], context: "#{context}[:last_evaluated_key]") unless params[:last_evaluated_key].nil?
         type
       end
     end

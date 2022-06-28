@@ -42,6 +42,10 @@ module AWS::SDK::Lambda
 
     end
 
+    describe '#create_function_url_config' do
+
+    end
+
     describe '#delete_alias' do
 
     end
@@ -67,6 +71,10 @@ module AWS::SDK::Lambda
     end
 
     describe '#delete_function_event_invoke_config' do
+
+    end
+
+    describe '#delete_function_url_config' do
 
     end
 
@@ -111,6 +119,10 @@ module AWS::SDK::Lambda
     end
 
     describe '#get_function_event_invoke_config' do
+
+    end
+
+    describe '#get_function_url_config' do
 
     end
 
@@ -163,6 +175,10 @@ module AWS::SDK::Lambda
     end
 
     describe '#list_functions_by_code_signing_config' do
+
+    end
+
+    describe '#list_function_url_configs' do
 
     end
 
@@ -247,6 +263,10 @@ module AWS::SDK::Lambda
     end
 
     describe '#update_function_event_invoke_config' do
+
+    end
+
+    describe '#update_function_url_config' do
 
     end
 
