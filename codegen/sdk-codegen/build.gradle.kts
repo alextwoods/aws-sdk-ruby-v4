@@ -24,6 +24,52 @@ import software.amazon.smithy.gradle.tasks.SmithyBuild
 
 val smithyVersion: String by project
 
+class ServiceDefinition(val file: File) {
+    val sdkId: String
+    val model: Model
+    val service: ServiceShape
+    val moduleName: String
+    val gemName: String
+    val projectionName: String
+    init {
+        model = Model.assembler()
+            .addImport(file.absolutePath)
+            // Grab the result directly rather than worrying about checking for errors via unwrap.
+            // All we care about here is the service shape, any unchecked errors will be exposed
+            // as part of the actual build task done by the smithy gradle plugin.
+            .assemble().result.get();
+        val services = model.shapes(ServiceShape::class.javaObjectType).sorted().toList();
+        if (services.size != 1) {
+            throw Exception("There must be exactly one service in each aws model file, but found " +
+                    "${services.size} in ${file.name}: ${services.map { it.id }}");
+        }
+        service = services[0]
+        val serviceTrait = service.getTrait(ServiceTrait::class.javaObjectType).get();
+        sdkId = serviceTrait.sdkId
+
+        moduleName = sdkId
+            .split(" ").joinToString("") { it.capitalize() }
+            .replace("-", "")
+            .replace("_", "")
+            .capitalize();
+        gemName = sdkId
+            .replace("-", "_")
+            .replace(" ", "_")
+            .toLowerCase();
+
+        projectionName = moduleName + "." + service.version.toLowerCase();
+    }
+}
+
+fun forEachService(task: (service: ServiceDefinition) -> Unit) {
+    val modelsDir: String by project
+    val models = project.file(modelsDir);
+
+    fileTree(models).filter { it.isFile }.files.forEach eachFile@{ file ->
+        task(ServiceDefinition((file)))
+    }
+}
+
 buildscript {
     val smithyVersion: String by project
     repositories {
@@ -63,53 +109,28 @@ tasks.register("generate-smithy-build") {
         val modelsDir: String by project
         val models = project.file(modelsDir);
 
-        fileTree(models).filter { it.isFile }.files.forEach eachFile@{ file ->
-            val model = Model.assembler()
-                    .addImport(file.absolutePath)
-                    // Grab the result directly rather than worrying about checking for errors via unwrap.
-                    // All we care about here is the service shape, any unchecked errors will be exposed
-                    // as part of the actual build task done by the smithy gradle plugin.
-                    .assemble().result.get();
-            val services = model.shapes(ServiceShape::class.javaObjectType).sorted().toList();
-            if (services.size != 1) {
-                throw Exception("There must be exactly one service in each aws model file, but found " +
-                        "${services.size} in ${file.name}: ${services.map { it.id }}");
-            }
-            val service = services[0]
-
-            val serviceTrait = service.getTrait(ServiceTrait::class.javaObjectType).get();
-
-            val sdkId = serviceTrait.sdkId
-            val moduleName = sdkId
-                .replace("-", "")
-                .replace(" ", "")
-                .capitalize();
-            val gemName = sdkId
-                .replace("-", "_")
-                .replace(" ", "_")
-                .toLowerCase();
-
+        forEachService { service ->
             val projectionContents = Node.objectNodeBuilder()
-                .withMember("imports", Node.fromStrings("${models.absolutePath}${File.separator}${file.name}"))
+                .withMember("imports", Node.fromStrings("${models.absolutePath}${File.separator}${service.file.name}"))
                 .withMember(
                     "plugins",
                     Node.objectNode()
                         .withMember(
                             "ruby-codegen",
                             Node.objectNodeBuilder()
-                                .withMember("service", service.id.toString())
-                                .withMember("module", "AWS::SDK::" + moduleName)
+                                .withMember("service", service.service.id.toString())
+                                .withMember("module", "AWS::SDK::" + service.moduleName)
                                 .withMember(
                                     "gemspec",
                                     Node.objectNodeBuilder()
-                                        .withMember("gemName", "aws-sdk-" + gemName)
+                                        .withMember("gemName", "aws-sdk-" + service.gemName)
                                         .withMember("gemVersion", "2.0.0.pre") // TODO: Read the VERSION file
                                         .withMember("gemSummary", "TEST SERVICE")
                                         .build()
                                 ).build()
                         )
                 ).build()
-            projectionsBuilder.withMember(moduleName + "." + service.version.toLowerCase(), projectionContents)
+            projectionsBuilder.withMember(service.projectionName, projectionContents)
         }
 
         file("smithy-build.json").writeText(Node.prettyPrintJson(Node.objectNodeBuilder()
@@ -126,24 +147,8 @@ tasks["build"]
 
 // ensure built artifacts are put into the SDK's folders
 tasks.register<Copy>("copyGeneratedGems") {
-    val modelsDir: String by project
-    val models = project.file(modelsDir);
-
-    fileTree(models).filter { it.isFile }.files.forEach eachFile@{ file ->
-        val model = Model.assembler()
-            .addImport(file.absolutePath)
-            .assemble().result.get();
-        val services = model.shapes(ServiceShape::class.javaObjectType).sorted().toList();
-        val service = services[0]
-        val serviceTrait = service.getTrait(ServiceTrait::class.javaObjectType).get();
-        val sdkId = serviceTrait.sdkId
-        val moduleName = sdkId
-            .replace("-", "")
-            .replace(" ", "")
-            .capitalize();
-        val projectionName = moduleName + "." + service.version.toLowerCase()
-
-        from("$buildDir/smithyprojections/sdk-codegen/$projectionName/ruby-codegen")
+    forEachService { service ->
+        from("$buildDir/smithyprojections/sdk-codegen/${service.projectionName}/ruby-codegen")
     }
     into("$buildDir/../../../gems/")
 }
