@@ -16,13 +16,22 @@
 // This build file has been adapted from the Go v2 SDK, here:
 // https://github.com/aws/aws-sdk-go-v2/blob/master/codegen/sdk-codegen/build.gradle.kts
 
+import software.amazon.smithy.aws.traits.ServiceTrait
+import software.amazon.smithy.gradle.tasks.SmithyBuild
 import software.amazon.smithy.model.Model
 import software.amazon.smithy.model.node.Node
 import software.amazon.smithy.model.shapes.ServiceShape
-import software.amazon.smithy.aws.traits.ServiceTrait
-import software.amazon.smithy.gradle.tasks.SmithyBuild
 
 val smithyVersion: String by project
+
+fun toSnakeCase(s: String): String {
+    return s
+        .replace("([A-Z\\d]+)([A-Z][a-z])".toRegex(), "$1_$2")
+        .replace("([a-z\\d])([A-Z])".toRegex(), "$1_$2")
+        .replace(" ", "_")
+        .replace('-', '_')
+        .toLowerCase()
+}
 
 class ServiceDefinition(val file: File) {
     val sdkId: String
@@ -52,10 +61,7 @@ class ServiceDefinition(val file: File) {
             .replace("-", "")
             .replace("_", "")
             .capitalize();
-        gemName = sdkId
-            .replace("-", "_")
-            .replace(" ", "_")
-            .toLowerCase();
+        gemName = "aws-sdk-" + toSnakeCase(sdkId)
 
         projectionName = moduleName + "." + service.version.toLowerCase();
     }
@@ -123,7 +129,7 @@ tasks.register("generate-smithy-build") {
                                 .withMember(
                                     "gemspec",
                                     Node.objectNodeBuilder()
-                                        .withMember("gemName", "aws-sdk-" + service.gemName)
+                                        .withMember("gemName", service.gemName)
                                         .withMember("gemVersion", "2.0.0.pre") // TODO: Read the VERSION file
                                         .withMember("gemSummary", "TEST SERVICE")
                                         .build()
@@ -153,33 +159,4 @@ tasks.register<Copy>("copyGeneratedGems") {
     into("$buildDir/../../../gems/")
 }
 
-// Copy example an example gem for each protocol into projections folder (useful for PR diffs).
-tasks.register<Copy>("copyEc2Gem") {
-    from("$buildDir/smithyprojections/sdk-codegen/ec2.2016-09-15/ruby-codegen")
-    into("$buildDir/../../projections/")
-}
-tasks.register<Copy>("copyJsonGem") {
-    from("$buildDir/smithyprojections/sdk-codegen/sso.2019-06-10/ruby-codegen")
-    into("$buildDir/../../projections/")
-}
-tasks.register<Copy>("copyJson10Gem") {
-    from("$buildDir/smithyprojections/sdk-codegen/dynamodb.2012-08-10/ruby-codegen")
-    into("$buildDir/../../projections/")
-}
-tasks.register<Copy>("copyQueryGem") {
-    from("$buildDir/smithyprojections/sdk-codegen/sts.2011-06-15/ruby-codegen")
-    into("$buildDir/../../projections/")
-}
-tasks.register<Copy>("copyRestJsonGem") {
-    from("$buildDir/smithyprojections/sdk-codegen/lambda.2015-03-31/ruby-codegen")
-    into("$buildDir/../../projections/")
-}
-tasks.register<Copy>("copyRestXmlGem") {
-    from("$buildDir/smithyprojections/sdk-codegen/cloudfront.2020-05-31/ruby-codegen")
-    into("$buildDir/../../projections/")
-}
-tasks["buildSdk"].finalizedBy(
-  tasks["copyGeneratedGems"],
-  tasks["copyEc2Gem"], tasks["copyJsonGem"], tasks["copyJson10Gem"],
-  tasks["copyQueryGem"], tasks["copyRestJsonGem"], tasks["copyRestXmlGem"]
-)
+tasks["buildSdk"].finalizedBy(tasks["copyGeneratedGems"])
