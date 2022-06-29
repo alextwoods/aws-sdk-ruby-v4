@@ -56,12 +56,8 @@ class ServiceDefinition(val file: File) {
         val serviceTrait = service.getTrait(ServiceTrait::class.javaObjectType).get();
         sdkId = serviceTrait.sdkId
 
-        moduleName = sdkId
-            .split(" ").joinToString("") { it.capitalize() }
-            .replace("-", "")
-            .replace("_", "")
-            .capitalize();
-        gemName = "aws-sdk-" + toSnakeCase(sdkId)
+        moduleName = sdkId.split(" ").joinToString("") { it.capitalize() }
+        gemName = "aws-sdk-" + sdkId.replace(" ", "").toLowerCase()
 
         projectionName = moduleName + "." + service.version.toLowerCase();
     }
@@ -69,10 +65,16 @@ class ServiceDefinition(val file: File) {
 
 fun forEachService(task: (service: ServiceDefinition) -> Unit) {
     val modelsDir: String by project
+    val gem: String? by project
     val models = project.file(modelsDir);
 
     fileTree(models).filter { it.isFile }.files.forEach eachFile@{ file ->
-        task(ServiceDefinition((file)))
+        val service = ServiceDefinition(file)
+        if (gem == null) {
+            task(service)
+        } else if (service.gemName.equals(gem)) {
+            task(service)
+        }
     }
 }
 
