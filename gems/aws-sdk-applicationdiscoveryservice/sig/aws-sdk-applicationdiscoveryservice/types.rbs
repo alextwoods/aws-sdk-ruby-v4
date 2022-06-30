@@ -1,0 +1,272 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::ApplicationDiscoveryService
+  module Types
+
+    AgentConfigurationStatus: untyped
+
+    AgentInfo: untyped
+
+    AgentNetworkInfo: untyped
+
+    module AgentStatus
+      HEALTHY: ::String
+
+      UNHEALTHY: ::String
+
+      RUNNING: ::String
+
+      UNKNOWN: ::String
+
+      BLACKLISTED: ::String
+
+      SHUTDOWN: ::String
+    end
+
+    AssociateConfigurationItemsToApplicationInput: untyped
+
+    AssociateConfigurationItemsToApplicationOutput: untyped
+
+    AuthorizationErrorException: untyped
+
+    BatchDeleteImportDataError: untyped
+
+    module BatchDeleteImportDataErrorCode
+      NOT_FOUND: ::String
+
+      INTERNAL_SERVER_ERROR: ::String
+
+      OVER_LIMIT: ::String
+    end
+
+    BatchDeleteImportDataInput: untyped
+
+    BatchDeleteImportDataOutput: untyped
+
+    module ConfigurationItemType
+      SERVER: ::String
+
+      PROCESS: ::String
+
+      CONNECTIONS: ::String
+
+      APPLICATION: ::String
+    end
+
+    ConfigurationTag: untyped
+
+    ConflictErrorException: untyped
+
+    ContinuousExportDescription: untyped
+
+    module ContinuousExportStatus
+      START_IN_PROGRESS: ::String
+
+      START_FAILED: ::String
+
+      ACTIVE: ::String
+
+      ERROR: ::String
+
+      STOP_IN_PROGRESS: ::String
+
+      STOP_FAILED: ::String
+
+      INACTIVE: ::String
+    end
+
+    CreateApplicationInput: untyped
+
+    CreateApplicationOutput: untyped
+
+    CreateTagsInput: untyped
+
+    CreateTagsOutput: untyped
+
+    CustomerAgentInfo: untyped
+
+    CustomerConnectorInfo: untyped
+
+    CustomerMeCollectorInfo: untyped
+
+    module DataSource
+      AGENT: ::String
+    end
+
+    DeleteApplicationsInput: untyped
+
+    DeleteApplicationsOutput: untyped
+
+    DeleteTagsInput: untyped
+
+    DeleteTagsOutput: untyped
+
+    DescribeAgentsInput: untyped
+
+    DescribeAgentsOutput: untyped
+
+    DescribeConfigurationsInput: untyped
+
+    DescribeConfigurationsOutput: untyped
+
+    DescribeContinuousExportsInput: untyped
+
+    DescribeContinuousExportsOutput: untyped
+
+    DescribeExportConfigurationsInput: untyped
+
+    DescribeExportConfigurationsOutput: untyped
+
+    DescribeExportTasksInput: untyped
+
+    DescribeExportTasksOutput: untyped
+
+    DescribeImportTasksInput: untyped
+
+    DescribeImportTasksOutput: untyped
+
+    DescribeTagsInput: untyped
+
+    DescribeTagsOutput: untyped
+
+    DisassociateConfigurationItemsFromApplicationInput: untyped
+
+    DisassociateConfigurationItemsFromApplicationOutput: untyped
+
+    ExportConfigurationsInput: untyped
+
+    ExportConfigurationsOutput: untyped
+
+    module ExportDataFormat
+      CSV: ::String
+
+      GRAPHML: ::String
+    end
+
+    ExportFilter: untyped
+
+    ExportInfo: untyped
+
+    module ExportStatus
+      FAILED: ::String
+
+      SUCCEEDED: ::String
+
+      IN_PROGRESS: ::String
+    end
+
+    Filter: untyped
+
+    GetDiscoverySummaryInput: untyped
+
+    GetDiscoverySummaryOutput: untyped
+
+    HomeRegionNotSetException: untyped
+
+    module ImportStatus
+      IMPORT_IN_PROGRESS: ::String
+
+      IMPORT_COMPLETE: ::String
+
+      IMPORT_COMPLETE_WITH_ERRORS: ::String
+
+      IMPORT_FAILED: ::String
+
+      IMPORT_FAILED_SERVER_LIMIT_EXCEEDED: ::String
+
+      IMPORT_FAILED_RECORD_LIMIT_EXCEEDED: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      DELETE_COMPLETE: ::String
+
+      DELETE_FAILED: ::String
+
+      DELETE_FAILED_LIMIT_EXCEEDED: ::String
+
+      INTERNAL_ERROR: ::String
+    end
+
+    ImportTask: untyped
+
+    ImportTaskFilter: untyped
+
+    module ImportTaskFilterName
+      IMPORT_TASK_ID: ::String
+
+      STATUS: ::String
+
+      NAME: ::String
+    end
+
+    InvalidParameterException: untyped
+
+    InvalidParameterValueException: untyped
+
+    ListConfigurationsInput: untyped
+
+    ListConfigurationsOutput: untyped
+
+    ListServerNeighborsInput: untyped
+
+    ListServerNeighborsOutput: untyped
+
+    NeighborConnectionDetail: untyped
+
+    OperationNotPermittedException: untyped
+
+    OrderByElement: untyped
+
+    ResourceInUseException: untyped
+
+    ResourceNotFoundException: untyped
+
+    ServerInternalErrorException: untyped
+
+    StartContinuousExportInput: untyped
+
+    StartContinuousExportOutput: untyped
+
+    StartDataCollectionByAgentIdsInput: untyped
+
+    StartDataCollectionByAgentIdsOutput: untyped
+
+    StartExportTaskInput: untyped
+
+    StartExportTaskOutput: untyped
+
+    StartImportTaskInput: untyped
+
+    StartImportTaskOutput: untyped
+
+    StopContinuousExportInput: untyped
+
+    StopContinuousExportOutput: untyped
+
+    StopDataCollectionByAgentIdsInput: untyped
+
+    StopDataCollectionByAgentIdsOutput: untyped
+
+    Tag: untyped
+
+    TagFilter: untyped
+
+    UpdateApplicationInput: untyped
+
+    UpdateApplicationOutput: untyped
+
+    module OrderString
+      ASC: ::String
+
+      DESC: ::String
+    end
+
+  end
+end

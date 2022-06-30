@@ -1,0 +1,3 @@
+module AWS::SDK::GlobalAccelerator
+  Config: untyped
+end

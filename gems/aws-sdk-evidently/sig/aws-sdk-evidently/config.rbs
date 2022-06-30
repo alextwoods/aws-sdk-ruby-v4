@@ -1,0 +1,3 @@
+module AWS::SDK::Evidently
+  Config: untyped
+end

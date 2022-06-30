@@ -1,0 +1,3 @@
+module AWS::SDK::MediaStoreData
+  Config: untyped
+end

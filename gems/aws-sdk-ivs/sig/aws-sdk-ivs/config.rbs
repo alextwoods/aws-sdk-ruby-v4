@@ -1,0 +1,3 @@
+module AWS::SDK::Ivs
+  Config: untyped
+end

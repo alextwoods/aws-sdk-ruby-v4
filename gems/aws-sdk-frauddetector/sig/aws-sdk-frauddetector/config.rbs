@@ -1,0 +1,3 @@
+module AWS::SDK::FraudDetector
+  Config: untyped
+end

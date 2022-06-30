@@ -1,0 +1,3 @@
+module AWS::SDK::ServerlessApplicationRepository
+  Config: untyped
+end

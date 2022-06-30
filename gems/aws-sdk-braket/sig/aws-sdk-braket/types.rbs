@@ -1,0 +1,310 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Braket
+  module Types
+
+    AccessDeniedException: untyped
+
+    AlgorithmSpecification: untyped
+
+    CancelJobInput: untyped
+
+    CancelJobOutput: untyped
+
+    CancelQuantumTaskInput: untyped
+
+    CancelQuantumTaskOutput: untyped
+
+    module CancellationStatus
+      CANCELLING: ::String
+
+      CANCELLED: ::String
+    end
+
+    module CompressionType
+      NONE: ::String
+
+      GZIP: ::String
+    end
+
+    ConflictException: untyped
+
+    ContainerImage: untyped
+
+    CreateJobInput: untyped
+
+    CreateJobOutput: untyped
+
+    CreateQuantumTaskInput: untyped
+
+    CreateQuantumTaskOutput: untyped
+
+    DataSource: untyped
+
+    DeviceConfig: untyped
+
+    DeviceOfflineException: untyped
+
+    DeviceRetiredException: untyped
+
+    module DeviceStatus
+      ONLINE: ::String
+
+      OFFLINE: ::String
+
+      RETIRED: ::String
+    end
+
+    DeviceSummary: untyped
+
+    module DeviceType
+      QPU: ::String
+
+      SIMULATOR: ::String
+    end
+
+    GetDeviceInput: untyped
+
+    GetDeviceOutput: untyped
+
+    GetJobInput: untyped
+
+    GetJobOutput: untyped
+
+    GetQuantumTaskInput: untyped
+
+    GetQuantumTaskOutput: untyped
+
+    InputFileConfig: untyped
+
+    InstanceConfig: untyped
+
+    module InstanceType
+      ML_M4_XLARGE: ::String
+
+      ML_M4_2XLARGE: ::String
+
+      ML_M4_4XLARGE: ::String
+
+      ML_M4_10XLARGE: ::String
+
+      ML_M4_16XLARGE: ::String
+
+      ML_G4DN_XLARGE: ::String
+
+      ML_G4DN_2XLARGE: ::String
+
+      ML_G4DN_4XLARGE: ::String
+
+      ML_G4DN_8XLARGE: ::String
+
+      ML_G4DN_12XLARGE: ::String
+
+      ML_G4DN_16XLARGE: ::String
+
+      ML_M5_LARGE: ::String
+
+      ML_M5_XLARGE: ::String
+
+      ML_M5_2XLARGE: ::String
+
+      ML_M5_4XLARGE: ::String
+
+      ML_M5_12XLARGE: ::String
+
+      ML_M5_24XLARGE: ::String
+
+      ML_C4_XLARGE: ::String
+
+      ML_C4_2XLARGE: ::String
+
+      ML_C4_4XLARGE: ::String
+
+      ML_C4_8XLARGE: ::String
+
+      ML_P2_XLARGE: ::String
+
+      ML_P2_8XLARGE: ::String
+
+      ML_P2_16XLARGE: ::String
+
+      ML_P3_2XLARGE: ::String
+
+      ML_P3_8XLARGE: ::String
+
+      ML_P3_16XLARGE: ::String
+
+      ML_P3DN_24XLARGE: ::String
+
+      ML_P4D_24XLARGE: ::String
+
+      ML_C5_XLARGE: ::String
+
+      ML_C5_2XLARGE: ::String
+
+      ML_C5_4XLARGE: ::String
+
+      ML_C5_9XLARGE: ::String
+
+      ML_C5_18XLARGE: ::String
+
+      ML_C5N_XLARGE: ::String
+
+      ML_C5N_2XLARGE: ::String
+
+      ML_C5N_4XLARGE: ::String
+
+      ML_C5N_9XLARGE: ::String
+
+      ML_C5N_18XLARGE: ::String
+    end
+
+    InternalServiceException: untyped
+
+    JobCheckpointConfig: untyped
+
+    JobEventDetails: untyped
+
+    module JobEventType
+      WAITING_FOR_PRIORITY: ::String
+
+      QUEUED_FOR_EXECUTION: ::String
+
+      STARTING_INSTANCE: ::String
+
+      DOWNLOADING_DATA: ::String
+
+      RUNNING: ::String
+
+      DEPRIORITIZED_DUE_TO_INACTIVITY: ::String
+
+      UPLOADING_RESULTS: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+
+      MAX_RUNTIME_EXCEEDED: ::String
+
+      CANCELLED: ::String
+    end
+
+    JobOutputDataConfig: untyped
+
+    module JobPrimaryStatus
+      QUEUED: ::String
+
+      RUNNING: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+
+      CANCELLING: ::String
+
+      CANCELLED: ::String
+    end
+
+    JobStoppingCondition: untyped
+
+    JobSummary: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    module QuantumTaskStatus
+      CREATED: ::String
+
+      QUEUED: ::String
+
+      RUNNING: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+
+      CANCELLING: ::String
+
+      CANCELLED: ::String
+    end
+
+    QuantumTaskSummary: untyped
+
+    ResourceNotFoundException: untyped
+
+    S3DataSource: untyped
+
+    ScriptModeConfig: untyped
+
+    SearchDevicesFilter: untyped
+
+    SearchDevicesInput: untyped
+
+    SearchDevicesOutput: untyped
+
+    SearchJobsFilter: untyped
+
+    module SearchJobsFilterOperator
+      LT: ::String
+
+      LTE: ::String
+
+      EQUAL: ::String
+
+      GT: ::String
+
+      GTE: ::String
+
+      BETWEEN: ::String
+
+      CONTAINS: ::String
+    end
+
+    SearchJobsInput: untyped
+
+    SearchJobsOutput: untyped
+
+    SearchQuantumTasksFilter: untyped
+
+    module SearchQuantumTasksFilterOperator
+      LT: ::String
+
+      LTE: ::String
+
+      EQUAL: ::String
+
+      GT: ::String
+
+      GTE: ::String
+
+      BETWEEN: ::String
+    end
+
+    SearchQuantumTasksInput: untyped
+
+    SearchQuantumTasksOutput: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

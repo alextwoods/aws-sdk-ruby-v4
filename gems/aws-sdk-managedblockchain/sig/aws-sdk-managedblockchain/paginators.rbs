@@ -1,0 +1,50 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::ManagedBlockchain
+  module Paginators
+
+    class ListInvitations
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+    end
+
+    class ListMembers
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+    end
+
+    class ListNetworks
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+    end
+
+    class ListNodes
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+    end
+
+    class ListProposals
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+    end
+
+    class ListProposalVotes
+      def initialize: (untyped client, ?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> void
+
+      def pages: () -> untyped
+    end
+
+  end
+end

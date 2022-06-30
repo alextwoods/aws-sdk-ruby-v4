@@ -1,0 +1,3 @@
+module AWS::SDK::RoboMaker
+  Config: untyped
+end

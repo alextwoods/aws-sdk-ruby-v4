@@ -1,0 +1,560 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::AuditManager
+  module Types
+
+    AWSAccount: untyped
+
+    AWSService: untyped
+
+    AccessDeniedException: untyped
+
+    module AccountStatus
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+
+      PENDING_ACTIVATION: ::String
+    end
+
+    module ActionEnum
+      CREATE: ::String
+
+      UPDATE_METADATA: ::String
+
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+
+      DELETE: ::String
+
+      UNDER_REVIEW: ::String
+
+      REVIEWED: ::String
+
+      IMPORT_EVIDENCE: ::String
+    end
+
+    Assessment: untyped
+
+    AssessmentControl: untyped
+
+    AssessmentControlSet: untyped
+
+    AssessmentEvidenceFolder: untyped
+
+    AssessmentFramework: untyped
+
+    AssessmentFrameworkMetadata: untyped
+
+    AssessmentFrameworkShareRequest: untyped
+
+    AssessmentMetadata: untyped
+
+    AssessmentMetadataItem: untyped
+
+    AssessmentReport: untyped
+
+    module AssessmentReportDestinationType
+      S3: ::String
+    end
+
+    AssessmentReportEvidenceError: untyped
+
+    AssessmentReportMetadata: untyped
+
+    module AssessmentReportStatus
+      COMPLETE: ::String
+
+      IN_PROGRESS: ::String
+
+      FAILED: ::String
+    end
+
+    AssessmentReportsDestination: untyped
+
+    module AssessmentStatus
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+    end
+
+    AssociateAssessmentReportEvidenceFolderInput: untyped
+
+    AssociateAssessmentReportEvidenceFolderOutput: untyped
+
+    BatchAssociateAssessmentReportEvidenceInput: untyped
+
+    BatchAssociateAssessmentReportEvidenceOutput: untyped
+
+    BatchCreateDelegationByAssessmentError: untyped
+
+    BatchCreateDelegationByAssessmentInput: untyped
+
+    BatchCreateDelegationByAssessmentOutput: untyped
+
+    BatchDeleteDelegationByAssessmentError: untyped
+
+    BatchDeleteDelegationByAssessmentInput: untyped
+
+    BatchDeleteDelegationByAssessmentOutput: untyped
+
+    BatchDisassociateAssessmentReportEvidenceInput: untyped
+
+    BatchDisassociateAssessmentReportEvidenceOutput: untyped
+
+    BatchImportEvidenceToAssessmentControlError: untyped
+
+    BatchImportEvidenceToAssessmentControlInput: untyped
+
+    BatchImportEvidenceToAssessmentControlOutput: untyped
+
+    ChangeLog: untyped
+
+    Control: untyped
+
+    ControlComment: untyped
+
+    ControlDomainInsights: untyped
+
+    ControlInsightsMetadataByAssessmentItem: untyped
+
+    ControlInsightsMetadataItem: untyped
+
+    ControlMappingSource: untyped
+
+    ControlMetadata: untyped
+
+    module ControlResponse
+      MANUAL: ::String
+
+      AUTOMATE: ::String
+
+      DEFER: ::String
+
+      IGNORE: ::String
+    end
+
+    ControlSet: untyped
+
+    module ControlSetStatus
+      ACTIVE: ::String
+
+      UNDER_REVIEW: ::String
+
+      REVIEWED: ::String
+    end
+
+    module ControlStatus
+      UNDER_REVIEW: ::String
+
+      REVIEWED: ::String
+
+      INACTIVE: ::String
+    end
+
+    module ControlType
+      STANDARD: ::String
+
+      CUSTOM: ::String
+    end
+
+    CreateAssessmentFrameworkControl: untyped
+
+    CreateAssessmentFrameworkControlSet: untyped
+
+    CreateAssessmentFrameworkInput: untyped
+
+    CreateAssessmentFrameworkOutput: untyped
+
+    CreateAssessmentInput: untyped
+
+    CreateAssessmentOutput: untyped
+
+    CreateAssessmentReportInput: untyped
+
+    CreateAssessmentReportOutput: untyped
+
+    CreateControlInput: untyped
+
+    CreateControlMappingSource: untyped
+
+    CreateControlOutput: untyped
+
+    CreateDelegationRequest: untyped
+
+    Delegation: untyped
+
+    DelegationMetadata: untyped
+
+    module DelegationStatus
+      IN_PROGRESS: ::String
+
+      UNDER_REVIEW: ::String
+
+      COMPLETE: ::String
+    end
+
+    DeleteAssessmentFrameworkInput: untyped
+
+    DeleteAssessmentFrameworkOutput: untyped
+
+    DeleteAssessmentFrameworkShareInput: untyped
+
+    DeleteAssessmentFrameworkShareOutput: untyped
+
+    DeleteAssessmentInput: untyped
+
+    DeleteAssessmentOutput: untyped
+
+    DeleteAssessmentReportInput: untyped
+
+    DeleteAssessmentReportOutput: untyped
+
+    DeleteControlInput: untyped
+
+    DeleteControlOutput: untyped
+
+    DeregisterAccountInput: untyped
+
+    DeregisterAccountOutput: untyped
+
+    DeregisterOrganizationAdminAccountInput: untyped
+
+    DeregisterOrganizationAdminAccountOutput: untyped
+
+    DisassociateAssessmentReportEvidenceFolderInput: untyped
+
+    DisassociateAssessmentReportEvidenceFolderOutput: untyped
+
+    Evidence: untyped
+
+    EvidenceInsights: untyped
+
+    Framework: untyped
+
+    FrameworkMetadata: untyped
+
+    module FrameworkType
+      STANDARD: ::String
+
+      CUSTOM: ::String
+    end
+
+    GetAccountStatusInput: untyped
+
+    GetAccountStatusOutput: untyped
+
+    GetAssessmentFrameworkInput: untyped
+
+    GetAssessmentFrameworkOutput: untyped
+
+    GetAssessmentInput: untyped
+
+    GetAssessmentOutput: untyped
+
+    GetAssessmentReportUrlInput: untyped
+
+    GetAssessmentReportUrlOutput: untyped
+
+    GetChangeLogsInput: untyped
+
+    GetChangeLogsOutput: untyped
+
+    GetControlInput: untyped
+
+    GetControlOutput: untyped
+
+    GetDelegationsInput: untyped
+
+    GetDelegationsOutput: untyped
+
+    GetEvidenceByEvidenceFolderInput: untyped
+
+    GetEvidenceByEvidenceFolderOutput: untyped
+
+    GetEvidenceFolderInput: untyped
+
+    GetEvidenceFolderOutput: untyped
+
+    GetEvidenceFoldersByAssessmentControlInput: untyped
+
+    GetEvidenceFoldersByAssessmentControlOutput: untyped
+
+    GetEvidenceFoldersByAssessmentInput: untyped
+
+    GetEvidenceFoldersByAssessmentOutput: untyped
+
+    GetEvidenceInput: untyped
+
+    GetEvidenceOutput: untyped
+
+    GetInsightsByAssessmentInput: untyped
+
+    GetInsightsByAssessmentOutput: untyped
+
+    GetInsightsInput: untyped
+
+    GetInsightsOutput: untyped
+
+    GetOrganizationAdminAccountInput: untyped
+
+    GetOrganizationAdminAccountOutput: untyped
+
+    GetServicesInScopeInput: untyped
+
+    GetServicesInScopeOutput: untyped
+
+    GetSettingsInput: untyped
+
+    GetSettingsOutput: untyped
+
+    Insights: untyped
+
+    InsightsByAssessment: untyped
+
+    InternalServerException: untyped
+
+    module KeywordInputType
+      SELECT_FROM_LIST: ::String
+    end
+
+    ListAssessmentControlInsightsByControlDomainInput: untyped
+
+    ListAssessmentControlInsightsByControlDomainOutput: untyped
+
+    ListAssessmentFrameworkShareRequestsInput: untyped
+
+    ListAssessmentFrameworkShareRequestsOutput: untyped
+
+    ListAssessmentFrameworksInput: untyped
+
+    ListAssessmentFrameworksOutput: untyped
+
+    ListAssessmentReportsInput: untyped
+
+    ListAssessmentReportsOutput: untyped
+
+    ListAssessmentsInput: untyped
+
+    ListAssessmentsOutput: untyped
+
+    ListControlDomainInsightsByAssessmentInput: untyped
+
+    ListControlDomainInsightsByAssessmentOutput: untyped
+
+    ListControlDomainInsightsInput: untyped
+
+    ListControlDomainInsightsOutput: untyped
+
+    ListControlInsightsByControlDomainInput: untyped
+
+    ListControlInsightsByControlDomainOutput: untyped
+
+    ListControlsInput: untyped
+
+    ListControlsOutput: untyped
+
+    ListKeywordsForDataSourceInput: untyped
+
+    ListKeywordsForDataSourceOutput: untyped
+
+    ListNotificationsInput: untyped
+
+    ListNotificationsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ManualEvidence: untyped
+
+    Notification: untyped
+
+    module ObjectTypeEnum
+      ASSESSMENT: ::String
+
+      CONTROL_SET: ::String
+
+      CONTROL: ::String
+
+      DELEGATION: ::String
+
+      ASSESSMENT_REPORT: ::String
+    end
+
+    RegisterAccountInput: untyped
+
+    RegisterAccountOutput: untyped
+
+    RegisterOrganizationAdminAccountInput: untyped
+
+    RegisterOrganizationAdminAccountOutput: untyped
+
+    Resource: untyped
+
+    ResourceNotFoundException: untyped
+
+    Role: untyped
+
+    module RoleType
+      PROCESS_OWNER: ::String
+
+      RESOURCE_OWNER: ::String
+    end
+
+    Scope: untyped
+
+    ServiceMetadata: untyped
+
+    module SettingAttribute
+      ALL: ::String
+
+      IS_AWS_ORG_ENABLED: ::String
+
+      SNS_TOPIC: ::String
+
+      DEFAULT_ASSESSMENT_REPORTS_DESTINATION: ::String
+
+      DEFAULT_PROCESS_OWNERS: ::String
+    end
+
+    Settings: untyped
+
+    module ShareRequestAction
+      ACCEPT: ::String
+
+      DECLINE: ::String
+
+      REVOKE: ::String
+    end
+
+    module ShareRequestStatus
+      ACTIVE: ::String
+
+      REPLICATING: ::String
+
+      SHARED: ::String
+
+      EXPIRING: ::String
+
+      FAILED: ::String
+
+      EXPIRED: ::String
+
+      DECLINED: ::String
+
+      REVOKED: ::String
+    end
+
+    module ShareRequestType
+      SENT: ::String
+
+      RECEIVED: ::String
+    end
+
+    module SourceFrequency
+      DAILY: ::String
+
+      WEEKLY: ::String
+
+      MONTHLY: ::String
+    end
+
+    SourceKeyword: untyped
+
+    module SourceSetUpOption
+      SYSTEM_CONTROLS_MAPPING: ::String
+
+      PROCEDURAL_CONTROLS_MAPPING: ::String
+    end
+
+    module SourceType
+      AWS_CLOUDTRAIL: ::String
+
+      AWS_CONFIG: ::String
+
+      AWS_SECURITY_HUB: ::String
+
+      AWS_API_CALL: ::String
+
+      MANUAL: ::String
+    end
+
+    StartAssessmentFrameworkShareInput: untyped
+
+    StartAssessmentFrameworkShareOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    URL: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAssessmentControlInput: untyped
+
+    UpdateAssessmentControlOutput: untyped
+
+    UpdateAssessmentControlSetStatusInput: untyped
+
+    UpdateAssessmentControlSetStatusOutput: untyped
+
+    UpdateAssessmentFrameworkControlSet: untyped
+
+    UpdateAssessmentFrameworkInput: untyped
+
+    UpdateAssessmentFrameworkOutput: untyped
+
+    UpdateAssessmentFrameworkShareInput: untyped
+
+    UpdateAssessmentFrameworkShareOutput: untyped
+
+    UpdateAssessmentInput: untyped
+
+    UpdateAssessmentOutput: untyped
+
+    UpdateAssessmentStatusInput: untyped
+
+    UpdateAssessmentStatusOutput: untyped
+
+    UpdateControlInput: untyped
+
+    UpdateControlOutput: untyped
+
+    UpdateSettingsInput: untyped
+
+    UpdateSettingsOutput: untyped
+
+    ValidateAssessmentReportIntegrityInput: untyped
+
+    ValidateAssessmentReportIntegrityOutput: untyped
+
+    ValidationException: untyped
+
+    ValidationExceptionField: untyped
+
+    module ValidationExceptionReason
+      UNKNOWN_OPERATION: ::String
+
+      CANNOT_PARSE: ::String
+
+      FIELD_VALIDATION_FAILED: ::String
+
+      OTHER: ::String
+    end
+
+  end
+end

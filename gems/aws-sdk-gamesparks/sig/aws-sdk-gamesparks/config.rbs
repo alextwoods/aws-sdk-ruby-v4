@@ -1,0 +1,3 @@
+module AWS::SDK::GameSparks
+  Config: untyped
+end

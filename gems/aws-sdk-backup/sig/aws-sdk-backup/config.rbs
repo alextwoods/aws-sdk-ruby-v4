@@ -1,0 +1,3 @@
+module AWS::SDK::Backup
+  Config: untyped
+end

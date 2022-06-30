@@ -1,0 +1,3 @@
+module AWS::SDK::MigrationHubConfig
+  Config: untyped
+end

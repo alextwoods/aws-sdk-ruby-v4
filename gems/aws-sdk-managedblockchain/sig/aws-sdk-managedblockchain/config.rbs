@@ -1,0 +1,3 @@
+module AWS::SDK::ManagedBlockchain
+  Config: untyped
+end

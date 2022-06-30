@@ -1,0 +1,218 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::TranscribeStreaming
+  module Types
+
+    Alternative: untyped
+
+    AudioEvent: untyped
+
+    class AudioStream < Hearth::Union
+      class AudioEvent < AudioStream
+        def to_h: () -> { audio_event: Hash[Symbol,AudioStream] }
+      end
+
+      class Unknown < AudioStream
+        def to_h: () -> { unknown: Hash[Symbol,AudioStream] }
+      end
+    end
+
+    BadRequestException: untyped
+
+    ConflictException: untyped
+
+    module ContentIdentificationType
+      PII: ::String
+    end
+
+    module ContentRedactionType
+      PII: ::String
+    end
+
+    Entity: untyped
+
+    InternalFailureException: untyped
+
+    Item: untyped
+
+    module ItemType
+      PRONUNCIATION: ::String
+
+      PUNCTUATION: ::String
+    end
+
+    module LanguageCode
+      EN_US: ::String
+
+      EN_GB: ::String
+
+      ES_US: ::String
+
+      FR_CA: ::String
+
+      FR_FR: ::String
+
+      EN_AU: ::String
+
+      IT_IT: ::String
+
+      DE_DE: ::String
+
+      PT_BR: ::String
+
+      JA_JP: ::String
+
+      KO_KR: ::String
+
+      ZH_CN: ::String
+    end
+
+    LanguageWithScore: untyped
+
+    LimitExceededException: untyped
+
+    module MediaEncoding
+      PCM: ::String
+
+      OGG_OPUS: ::String
+
+      FLAC: ::String
+    end
+
+    MedicalAlternative: untyped
+
+    module MedicalContentIdentificationType
+      PHI: ::String
+    end
+
+    MedicalEntity: untyped
+
+    MedicalItem: untyped
+
+    MedicalResult: untyped
+
+    MedicalTranscript: untyped
+
+    MedicalTranscriptEvent: untyped
+
+    class MedicalTranscriptResultStream < Hearth::Union
+      class TranscriptEvent < MedicalTranscriptResultStream
+        def to_h: () -> { transcript_event: Hash[Symbol,MedicalTranscriptResultStream] }
+      end
+
+      class BadRequestException < MedicalTranscriptResultStream
+        def to_h: () -> { bad_request_exception: Hash[Symbol,MedicalTranscriptResultStream] }
+      end
+
+      class LimitExceededException < MedicalTranscriptResultStream
+        def to_h: () -> { limit_exceeded_exception: Hash[Symbol,MedicalTranscriptResultStream] }
+      end
+
+      class InternalFailureException < MedicalTranscriptResultStream
+        def to_h: () -> { internal_failure_exception: Hash[Symbol,MedicalTranscriptResultStream] }
+      end
+
+      class ConflictException < MedicalTranscriptResultStream
+        def to_h: () -> { conflict_exception: Hash[Symbol,MedicalTranscriptResultStream] }
+      end
+
+      class ServiceUnavailableException < MedicalTranscriptResultStream
+        def to_h: () -> { service_unavailable_exception: Hash[Symbol,MedicalTranscriptResultStream] }
+      end
+
+      class Unknown < MedicalTranscriptResultStream
+        def to_h: () -> { unknown: Hash[Symbol,MedicalTranscriptResultStream] }
+      end
+    end
+
+    module PartialResultsStability
+      HIGH: ::String
+
+      MEDIUM: ::String
+
+      LOW: ::String
+    end
+
+    Result: untyped
+
+    ServiceUnavailableException: untyped
+
+    module Specialty
+      PRIMARYCARE: ::String
+
+      CARDIOLOGY: ::String
+
+      NEUROLOGY: ::String
+
+      ONCOLOGY: ::String
+
+      RADIOLOGY: ::String
+
+      UROLOGY: ::String
+    end
+
+    StartMedicalStreamTranscriptionInput: untyped
+
+    StartMedicalStreamTranscriptionOutput: untyped
+
+    StartStreamTranscriptionInput: untyped
+
+    StartStreamTranscriptionOutput: untyped
+
+    Transcript: untyped
+
+    TranscriptEvent: untyped
+
+    class TranscriptResultStream < Hearth::Union
+      class TranscriptEvent < TranscriptResultStream
+        def to_h: () -> { transcript_event: Hash[Symbol,TranscriptResultStream] }
+      end
+
+      class BadRequestException < TranscriptResultStream
+        def to_h: () -> { bad_request_exception: Hash[Symbol,TranscriptResultStream] }
+      end
+
+      class LimitExceededException < TranscriptResultStream
+        def to_h: () -> { limit_exceeded_exception: Hash[Symbol,TranscriptResultStream] }
+      end
+
+      class InternalFailureException < TranscriptResultStream
+        def to_h: () -> { internal_failure_exception: Hash[Symbol,TranscriptResultStream] }
+      end
+
+      class ConflictException < TranscriptResultStream
+        def to_h: () -> { conflict_exception: Hash[Symbol,TranscriptResultStream] }
+      end
+
+      class ServiceUnavailableException < TranscriptResultStream
+        def to_h: () -> { service_unavailable_exception: Hash[Symbol,TranscriptResultStream] }
+      end
+
+      class Unknown < TranscriptResultStream
+        def to_h: () -> { unknown: Hash[Symbol,TranscriptResultStream] }
+      end
+    end
+
+    module Type
+      CONVERSATION: ::String
+
+      DICTATION: ::String
+    end
+
+    module VocabularyFilterMethod
+      REMOVE: ::String
+
+      MASK: ::String
+
+      TAG: ::String
+    end
+
+  end
+end

@@ -1,0 +1,310 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::SNS
+  module Types
+
+    AddPermissionInput: untyped
+
+    AddPermissionOutput: untyped
+
+    AuthorizationErrorException: untyped
+
+    BatchEntryIdsNotDistinctException: untyped
+
+    BatchRequestTooLongException: untyped
+
+    BatchResultErrorEntry: untyped
+
+    CheckIfPhoneNumberIsOptedOutInput: untyped
+
+    CheckIfPhoneNumberIsOptedOutOutput: untyped
+
+    ConcurrentAccessException: untyped
+
+    ConfirmSubscriptionInput: untyped
+
+    ConfirmSubscriptionOutput: untyped
+
+    CreatePlatformApplicationInput: untyped
+
+    CreatePlatformApplicationOutput: untyped
+
+    CreatePlatformEndpointInput: untyped
+
+    CreatePlatformEndpointOutput: untyped
+
+    CreateSMSSandboxPhoneNumberInput: untyped
+
+    CreateSMSSandboxPhoneNumberOutput: untyped
+
+    CreateTopicInput: untyped
+
+    CreateTopicOutput: untyped
+
+    DeleteEndpointInput: untyped
+
+    DeleteEndpointOutput: untyped
+
+    DeletePlatformApplicationInput: untyped
+
+    DeletePlatformApplicationOutput: untyped
+
+    DeleteSMSSandboxPhoneNumberInput: untyped
+
+    DeleteSMSSandboxPhoneNumberOutput: untyped
+
+    DeleteTopicInput: untyped
+
+    DeleteTopicOutput: untyped
+
+    EmptyBatchRequestException: untyped
+
+    Endpoint: untyped
+
+    EndpointDisabledException: untyped
+
+    FilterPolicyLimitExceededException: untyped
+
+    GetEndpointAttributesInput: untyped
+
+    GetEndpointAttributesOutput: untyped
+
+    GetPlatformApplicationAttributesInput: untyped
+
+    GetPlatformApplicationAttributesOutput: untyped
+
+    GetSMSAttributesInput: untyped
+
+    GetSMSAttributesOutput: untyped
+
+    GetSMSSandboxAccountStatusInput: untyped
+
+    GetSMSSandboxAccountStatusOutput: untyped
+
+    GetSubscriptionAttributesInput: untyped
+
+    GetSubscriptionAttributesOutput: untyped
+
+    GetTopicAttributesInput: untyped
+
+    GetTopicAttributesOutput: untyped
+
+    InternalErrorException: untyped
+
+    InvalidBatchEntryIdException: untyped
+
+    InvalidParameterException: untyped
+
+    InvalidParameterValueException: untyped
+
+    InvalidSecurityException: untyped
+
+    KMSAccessDeniedException: untyped
+
+    KMSDisabledException: untyped
+
+    KMSInvalidStateException: untyped
+
+    KMSNotFoundException: untyped
+
+    KMSOptInRequired: untyped
+
+    KMSThrottlingException: untyped
+
+    module LanguageCodeString
+      en_US: ::String
+
+      en_GB: ::String
+
+      es_419: ::String
+
+      es_ES: ::String
+
+      de_DE: ::String
+
+      fr_CA: ::String
+
+      fr_FR: ::String
+
+      it_IT: ::String
+
+      jp_JP: ::String
+
+      pt_BR: ::String
+
+      kr_KR: ::String
+
+      zh_CN: ::String
+
+      zh_TW: ::String
+    end
+
+    ListEndpointsByPlatformApplicationInput: untyped
+
+    ListEndpointsByPlatformApplicationOutput: untyped
+
+    ListOriginationNumbersInput: untyped
+
+    ListOriginationNumbersOutput: untyped
+
+    ListPhoneNumbersOptedOutInput: untyped
+
+    ListPhoneNumbersOptedOutOutput: untyped
+
+    ListPlatformApplicationsInput: untyped
+
+    ListPlatformApplicationsOutput: untyped
+
+    ListSMSSandboxPhoneNumbersInput: untyped
+
+    ListSMSSandboxPhoneNumbersOutput: untyped
+
+    ListSubscriptionsByTopicInput: untyped
+
+    ListSubscriptionsByTopicOutput: untyped
+
+    ListSubscriptionsInput: untyped
+
+    ListSubscriptionsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTopicsInput: untyped
+
+    ListTopicsOutput: untyped
+
+    MessageAttributeValue: untyped
+
+    NotFoundException: untyped
+
+    module NumberCapability
+      SMS: ::String
+
+      MMS: ::String
+
+      VOICE: ::String
+    end
+
+    OptInPhoneNumberInput: untyped
+
+    OptInPhoneNumberOutput: untyped
+
+    OptedOutException: untyped
+
+    PhoneNumberInformation: untyped
+
+    PlatformApplication: untyped
+
+    PlatformApplicationDisabledException: untyped
+
+    PublishBatchInput: untyped
+
+    PublishBatchOutput: untyped
+
+    PublishBatchRequestEntry: untyped
+
+    PublishBatchResultEntry: untyped
+
+    PublishInput: untyped
+
+    PublishOutput: untyped
+
+    RemovePermissionInput: untyped
+
+    RemovePermissionOutput: untyped
+
+    ResourceNotFoundException: untyped
+
+    module RouteType
+      Transactional: ::String
+
+      Promotional: ::String
+
+      Premium: ::String
+    end
+
+    SMSSandboxPhoneNumber: untyped
+
+    module SMSSandboxPhoneNumberVerificationStatus
+      Pending: ::String
+
+      Verified: ::String
+    end
+
+    SetEndpointAttributesInput: untyped
+
+    SetEndpointAttributesOutput: untyped
+
+    SetPlatformApplicationAttributesInput: untyped
+
+    SetPlatformApplicationAttributesOutput: untyped
+
+    SetSMSAttributesInput: untyped
+
+    SetSMSAttributesOutput: untyped
+
+    SetSubscriptionAttributesInput: untyped
+
+    SetSubscriptionAttributesOutput: untyped
+
+    SetTopicAttributesInput: untyped
+
+    SetTopicAttributesOutput: untyped
+
+    StaleTagException: untyped
+
+    SubscribeInput: untyped
+
+    SubscribeOutput: untyped
+
+    Subscription: untyped
+
+    SubscriptionLimitExceededException: untyped
+
+    Tag: untyped
+
+    TagLimitExceededException: untyped
+
+    TagPolicyException: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottledException: untyped
+
+    TooManyEntriesInBatchRequestException: untyped
+
+    Topic: untyped
+
+    TopicLimitExceededException: untyped
+
+    UnsubscribeInput: untyped
+
+    UnsubscribeOutput: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UserErrorException: untyped
+
+    ValidationException: untyped
+
+    VerificationException: untyped
+
+    VerifySMSSandboxPhoneNumberInput: untyped
+
+    VerifySMSSandboxPhoneNumberOutput: untyped
+
+  end
+end

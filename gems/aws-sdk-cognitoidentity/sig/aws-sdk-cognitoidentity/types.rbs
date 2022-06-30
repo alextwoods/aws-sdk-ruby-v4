@@ -1,0 +1,172 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CognitoIdentity
+  module Types
+
+    module AmbiguousRoleResolutionType
+      AUTHENTICATED_ROLE: ::String
+
+      DENY: ::String
+    end
+
+    CognitoIdentityProvider: untyped
+
+    ConcurrentModificationException: untyped
+
+    CreateIdentityPoolInput: untyped
+
+    CreateIdentityPoolOutput: untyped
+
+    Credentials: untyped
+
+    DeleteIdentitiesInput: untyped
+
+    DeleteIdentitiesOutput: untyped
+
+    DeleteIdentityPoolInput: untyped
+
+    DeleteIdentityPoolOutput: untyped
+
+    DescribeIdentityInput: untyped
+
+    DescribeIdentityOutput: untyped
+
+    DescribeIdentityPoolInput: untyped
+
+    DescribeIdentityPoolOutput: untyped
+
+    DeveloperUserAlreadyRegisteredException: untyped
+
+    module ErrorCode
+      ACCESS_DENIED: ::String
+
+      INTERNAL_SERVER_ERROR: ::String
+    end
+
+    ExternalServiceException: untyped
+
+    GetCredentialsForIdentityInput: untyped
+
+    GetCredentialsForIdentityOutput: untyped
+
+    GetIdInput: untyped
+
+    GetIdOutput: untyped
+
+    GetIdentityPoolRolesInput: untyped
+
+    GetIdentityPoolRolesOutput: untyped
+
+    GetOpenIdTokenForDeveloperIdentityInput: untyped
+
+    GetOpenIdTokenForDeveloperIdentityOutput: untyped
+
+    GetOpenIdTokenInput: untyped
+
+    GetOpenIdTokenOutput: untyped
+
+    GetPrincipalTagAttributeMapInput: untyped
+
+    GetPrincipalTagAttributeMapOutput: untyped
+
+    IdentityDescription: untyped
+
+    IdentityPoolShortDescription: untyped
+
+    InternalErrorException: untyped
+
+    InvalidIdentityPoolConfigurationException: untyped
+
+    InvalidParameterException: untyped
+
+    LimitExceededException: untyped
+
+    ListIdentitiesInput: untyped
+
+    ListIdentitiesOutput: untyped
+
+    ListIdentityPoolsInput: untyped
+
+    ListIdentityPoolsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    LookupDeveloperIdentityInput: untyped
+
+    LookupDeveloperIdentityOutput: untyped
+
+    MappingRule: untyped
+
+    module MappingRuleMatchType
+      EQUALS: ::String
+
+      CONTAINS: ::String
+
+      STARTS_WITH: ::String
+
+      NOT_EQUAL: ::String
+    end
+
+    MergeDeveloperIdentitiesInput: untyped
+
+    MergeDeveloperIdentitiesOutput: untyped
+
+    NotAuthorizedException: untyped
+
+    ResourceConflictException: untyped
+
+    ResourceNotFoundException: untyped
+
+    RoleMapping: untyped
+
+    module RoleMappingType
+      TOKEN: ::String
+
+      RULES: ::String
+    end
+
+    RulesConfigurationType: untyped
+
+    SetIdentityPoolRolesInput: untyped
+
+    SetIdentityPoolRolesOutput: untyped
+
+    SetPrincipalTagAttributeMapInput: untyped
+
+    SetPrincipalTagAttributeMapOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TooManyRequestsException: untyped
+
+    UnlinkDeveloperIdentityInput: untyped
+
+    UnlinkDeveloperIdentityOutput: untyped
+
+    UnlinkIdentityInput: untyped
+
+    UnlinkIdentityOutput: untyped
+
+    UnprocessedIdentityId: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateIdentityPoolInput: untyped
+
+    UpdateIdentityPoolOutput: untyped
+
+  end
+end

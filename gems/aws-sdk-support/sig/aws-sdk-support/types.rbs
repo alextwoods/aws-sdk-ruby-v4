@@ -1,0 +1,120 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Support
+  module Types
+
+    AddAttachmentsToSetInput: untyped
+
+    AddAttachmentsToSetOutput: untyped
+
+    AddCommunicationToCaseInput: untyped
+
+    AddCommunicationToCaseOutput: untyped
+
+    Attachment: untyped
+
+    AttachmentDetails: untyped
+
+    AttachmentIdNotFound: untyped
+
+    AttachmentLimitExceeded: untyped
+
+    AttachmentSetExpired: untyped
+
+    AttachmentSetIdNotFound: untyped
+
+    AttachmentSetSizeLimitExceeded: untyped
+
+    CaseCreationLimitExceeded: untyped
+
+    CaseDetails: untyped
+
+    CaseIdNotFound: untyped
+
+    Category: untyped
+
+    Communication: untyped
+
+    CreateCaseInput: untyped
+
+    CreateCaseOutput: untyped
+
+    DescribeAttachmentInput: untyped
+
+    DescribeAttachmentLimitExceeded: untyped
+
+    DescribeAttachmentOutput: untyped
+
+    DescribeCasesInput: untyped
+
+    DescribeCasesOutput: untyped
+
+    DescribeCommunicationsInput: untyped
+
+    DescribeCommunicationsOutput: untyped
+
+    DescribeServicesInput: untyped
+
+    DescribeServicesOutput: untyped
+
+    DescribeSeverityLevelsInput: untyped
+
+    DescribeSeverityLevelsOutput: untyped
+
+    DescribeTrustedAdvisorCheckRefreshStatusesInput: untyped
+
+    DescribeTrustedAdvisorCheckRefreshStatusesOutput: untyped
+
+    DescribeTrustedAdvisorCheckResultInput: untyped
+
+    DescribeTrustedAdvisorCheckResultOutput: untyped
+
+    DescribeTrustedAdvisorCheckSummariesInput: untyped
+
+    DescribeTrustedAdvisorCheckSummariesOutput: untyped
+
+    DescribeTrustedAdvisorChecksInput: untyped
+
+    DescribeTrustedAdvisorChecksOutput: untyped
+
+    InternalServerError: untyped
+
+    RecentCaseCommunications: untyped
+
+    RefreshTrustedAdvisorCheckInput: untyped
+
+    RefreshTrustedAdvisorCheckOutput: untyped
+
+    ResolveCaseInput: untyped
+
+    ResolveCaseOutput: untyped
+
+    Service: untyped
+
+    SeverityLevel: untyped
+
+    TrustedAdvisorCategorySpecificSummary: untyped
+
+    TrustedAdvisorCheckDescription: untyped
+
+    TrustedAdvisorCheckRefreshStatus: untyped
+
+    TrustedAdvisorCheckResult: untyped
+
+    TrustedAdvisorCheckSummary: untyped
+
+    TrustedAdvisorCostOptimizingSummary: untyped
+
+    TrustedAdvisorResourceDetail: untyped
+
+    TrustedAdvisorResourcesSummary: untyped
+
+  end
+end

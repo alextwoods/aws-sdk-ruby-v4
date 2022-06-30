@@ -1,0 +1,3 @@
+module AWS::SDK::MTurk
+  Config: untyped
+end

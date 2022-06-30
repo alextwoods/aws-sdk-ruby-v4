@@ -1,0 +1,92 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::PinpointSMSVoice
+  module Types
+
+    AlreadyExistsException: untyped
+
+    BadRequestException: untyped
+
+    CallInstructionsMessageType: untyped
+
+    CloudWatchLogsDestination: untyped
+
+    CreateConfigurationSetEventDestinationInput: untyped
+
+    CreateConfigurationSetEventDestinationOutput: untyped
+
+    CreateConfigurationSetInput: untyped
+
+    CreateConfigurationSetOutput: untyped
+
+    DeleteConfigurationSetEventDestinationInput: untyped
+
+    DeleteConfigurationSetEventDestinationOutput: untyped
+
+    DeleteConfigurationSetInput: untyped
+
+    DeleteConfigurationSetOutput: untyped
+
+    EventDestination: untyped
+
+    EventDestinationDefinition: untyped
+
+    module EventType
+      INITIATED_CALL: ::String
+
+      RINGING: ::String
+
+      ANSWERED: ::String
+
+      COMPLETED_CALL: ::String
+
+      BUSY: ::String
+
+      FAILED: ::String
+
+      NO_ANSWER: ::String
+    end
+
+    GetConfigurationSetEventDestinationsInput: untyped
+
+    GetConfigurationSetEventDestinationsOutput: untyped
+
+    InternalServiceErrorException: untyped
+
+    KinesisFirehoseDestination: untyped
+
+    LimitExceededException: untyped
+
+    ListConfigurationSetsInput: untyped
+
+    ListConfigurationSetsOutput: untyped
+
+    NotFoundException: untyped
+
+    PlainTextMessageType: untyped
+
+    SSMLMessageType: untyped
+
+    SendVoiceMessageInput: untyped
+
+    SendVoiceMessageOutput: untyped
+
+    SnsDestination: untyped
+
+    TooManyRequestsException: untyped
+
+    UpdateConfigurationSetEventDestinationInput: untyped
+
+    UpdateConfigurationSetEventDestinationOutput: untyped
+
+    VoiceMessageContent: untyped
+
+  end
+end

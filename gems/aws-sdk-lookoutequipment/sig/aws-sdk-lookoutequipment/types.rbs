@@ -1,0 +1,278 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::LookoutEquipment
+  module Types
+
+    AccessDeniedException: untyped
+
+    CategoricalValues: untyped
+
+    ConflictException: untyped
+
+    CountPercent: untyped
+
+    CreateDatasetInput: untyped
+
+    CreateDatasetOutput: untyped
+
+    CreateInferenceSchedulerInput: untyped
+
+    CreateInferenceSchedulerOutput: untyped
+
+    CreateModelInput: untyped
+
+    CreateModelOutput: untyped
+
+    DataIngestionJobSummary: untyped
+
+    DataPreProcessingConfiguration: untyped
+
+    DataQualitySummary: untyped
+
+    module DataUploadFrequency
+      PT5M: ::String
+
+      PT10M: ::String
+
+      PT15M: ::String
+
+      PT30M: ::String
+
+      PT1H: ::String
+    end
+
+    DatasetSchema: untyped
+
+    module DatasetStatus
+      CREATED: ::String
+
+      INGESTION_IN_PROGRESS: ::String
+
+      ACTIVE: ::String
+    end
+
+    DatasetSummary: untyped
+
+    DeleteDatasetInput: untyped
+
+    DeleteDatasetOutput: untyped
+
+    DeleteInferenceSchedulerInput: untyped
+
+    DeleteInferenceSchedulerOutput: untyped
+
+    DeleteModelInput: untyped
+
+    DeleteModelOutput: untyped
+
+    DescribeDataIngestionJobInput: untyped
+
+    DescribeDataIngestionJobOutput: untyped
+
+    DescribeDatasetInput: untyped
+
+    DescribeDatasetOutput: untyped
+
+    DescribeInferenceSchedulerInput: untyped
+
+    DescribeInferenceSchedulerOutput: untyped
+
+    DescribeModelInput: untyped
+
+    DescribeModelOutput: untyped
+
+    DuplicateTimestamps: untyped
+
+    module InferenceExecutionStatus
+      IN_PROGRESS: ::String
+
+      SUCCESS: ::String
+
+      FAILED: ::String
+    end
+
+    InferenceExecutionSummary: untyped
+
+    InferenceInputConfiguration: untyped
+
+    InferenceInputNameConfiguration: untyped
+
+    InferenceOutputConfiguration: untyped
+
+    InferenceS3InputConfiguration: untyped
+
+    InferenceS3OutputConfiguration: untyped
+
+    module InferenceSchedulerStatus
+      PENDING: ::String
+
+      RUNNING: ::String
+
+      STOPPING: ::String
+
+      STOPPED: ::String
+    end
+
+    InferenceSchedulerSummary: untyped
+
+    IngestedFilesSummary: untyped
+
+    IngestionInputConfiguration: untyped
+
+    module IngestionJobStatus
+      IN_PROGRESS: ::String
+
+      SUCCESS: ::String
+
+      FAILED: ::String
+    end
+
+    IngestionS3InputConfiguration: untyped
+
+    InsufficientSensorData: untyped
+
+    InternalServerException: untyped
+
+    InvalidSensorData: untyped
+
+    LabelsInputConfiguration: untyped
+
+    LabelsS3InputConfiguration: untyped
+
+    LargeTimestampGaps: untyped
+
+    ListDataIngestionJobsInput: untyped
+
+    ListDataIngestionJobsOutput: untyped
+
+    ListDatasetsInput: untyped
+
+    ListDatasetsOutput: untyped
+
+    ListInferenceExecutionsInput: untyped
+
+    ListInferenceExecutionsOutput: untyped
+
+    ListInferenceSchedulersInput: untyped
+
+    ListInferenceSchedulersOutput: untyped
+
+    ListModelsInput: untyped
+
+    ListModelsOutput: untyped
+
+    ListSensorStatisticsInput: untyped
+
+    ListSensorStatisticsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    MissingCompleteSensorData: untyped
+
+    MissingSensorData: untyped
+
+    module ModelStatus
+      IN_PROGRESS: ::String
+
+      SUCCESS: ::String
+
+      FAILED: ::String
+    end
+
+    ModelSummary: untyped
+
+    MonotonicValues: untyped
+
+    module Monotonicity
+      DECREASING: ::String
+
+      INCREASING: ::String
+
+      STATIC: ::String
+    end
+
+    MultipleOperatingModes: untyped
+
+    ResourceNotFoundException: untyped
+
+    S3Object: untyped
+
+    SensorStatisticsSummary: untyped
+
+    SensorsWithShortDateRange: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    StartDataIngestionJobInput: untyped
+
+    StartDataIngestionJobOutput: untyped
+
+    StartInferenceSchedulerInput: untyped
+
+    StartInferenceSchedulerOutput: untyped
+
+    module StatisticalIssueStatus
+      POTENTIAL_ISSUE_DETECTED: ::String
+
+      NO_ISSUE_DETECTED: ::String
+    end
+
+    StopInferenceSchedulerInput: untyped
+
+    StopInferenceSchedulerOutput: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    module TargetSamplingRate
+      PT1S: ::String
+
+      PT5S: ::String
+
+      PT10S: ::String
+
+      PT15S: ::String
+
+      PT30S: ::String
+
+      PT1M: ::String
+
+      PT5M: ::String
+
+      PT10M: ::String
+
+      PT15M: ::String
+
+      PT30M: ::String
+
+      PT1H: ::String
+    end
+
+    ThrottlingException: untyped
+
+    UnsupportedTimestamps: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateInferenceSchedulerInput: untyped
+
+    UpdateInferenceSchedulerOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

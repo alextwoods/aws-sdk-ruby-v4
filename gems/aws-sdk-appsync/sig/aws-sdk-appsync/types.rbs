@@ -1,0 +1,446 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::AppSync
+  module Types
+
+    AccessDeniedException: untyped
+
+    AdditionalAuthenticationProvider: untyped
+
+    ApiAssociation: untyped
+
+    ApiCache: untyped
+
+    module ApiCacheStatus
+      AVAILABLE: ::String
+
+      CREATING: ::String
+
+      DELETING: ::String
+
+      MODIFYING: ::String
+
+      FAILED: ::String
+    end
+
+    module ApiCacheType
+      T2_SMALL: ::String
+
+      T2_MEDIUM: ::String
+
+      R4_LARGE: ::String
+
+      R4_XLARGE: ::String
+
+      R4_2XLARGE: ::String
+
+      R4_4XLARGE: ::String
+
+      R4_8XLARGE: ::String
+
+      SMALL: ::String
+
+      MEDIUM: ::String
+
+      LARGE: ::String
+
+      XLARGE: ::String
+
+      LARGE_2X: ::String
+
+      LARGE_4X: ::String
+
+      LARGE_8X: ::String
+
+      LARGE_12X: ::String
+    end
+
+    module ApiCachingBehavior
+      FULL_REQUEST_CACHING: ::String
+
+      PER_RESOLVER_CACHING: ::String
+    end
+
+    ApiKey: untyped
+
+    ApiKeyLimitExceededException: untyped
+
+    ApiKeyValidityOutOfBoundsException: untyped
+
+    ApiLimitExceededException: untyped
+
+    AssociateApiInput: untyped
+
+    AssociateApiOutput: untyped
+
+    module AssociationStatus
+      Processing: ::String
+
+      Failed: ::String
+
+      Success: ::String
+    end
+
+    module AuthenticationType
+      API_KEY: ::String
+
+      AWS_IAM: ::String
+
+      AMAZON_COGNITO_USER_POOLS: ::String
+
+      OPENID_CONNECT: ::String
+
+      AWS_LAMBDA: ::String
+    end
+
+    AuthorizationConfig: untyped
+
+    module AuthorizationType
+      AWS_IAM: ::String
+    end
+
+    AwsIamConfig: untyped
+
+    BadRequestException: untyped
+
+    CachingConfig: untyped
+
+    CognitoUserPoolConfig: untyped
+
+    ConcurrentModificationException: untyped
+
+    module ConflictDetectionType
+      VERSION: ::String
+
+      NONE: ::String
+    end
+
+    module ConflictHandlerType
+      OPTIMISTIC_CONCURRENCY: ::String
+
+      LAMBDA: ::String
+
+      AUTOMERGE: ::String
+
+      NONE: ::String
+    end
+
+    CreateApiCacheInput: untyped
+
+    CreateApiCacheOutput: untyped
+
+    CreateApiKeyInput: untyped
+
+    CreateApiKeyOutput: untyped
+
+    CreateDataSourceInput: untyped
+
+    CreateDataSourceOutput: untyped
+
+    CreateDomainNameInput: untyped
+
+    CreateDomainNameOutput: untyped
+
+    CreateFunctionInput: untyped
+
+    CreateFunctionOutput: untyped
+
+    CreateGraphqlApiInput: untyped
+
+    CreateGraphqlApiOutput: untyped
+
+    CreateResolverInput: untyped
+
+    CreateResolverOutput: untyped
+
+    CreateTypeInput: untyped
+
+    CreateTypeOutput: untyped
+
+    DataSource: untyped
+
+    module DataSourceType
+      AWS_LAMBDA: ::String
+
+      AMAZON_DYNAMODB: ::String
+
+      AMAZON_ELASTICSEARCH: ::String
+
+      NONE: ::String
+
+      HTTP: ::String
+
+      RELATIONAL_DATABASE: ::String
+
+      AMAZON_OPENSEARCH_SERVICE: ::String
+    end
+
+    module DefaultAction
+      ALLOW: ::String
+
+      DENY: ::String
+    end
+
+    DeleteApiCacheInput: untyped
+
+    DeleteApiCacheOutput: untyped
+
+    DeleteApiKeyInput: untyped
+
+    DeleteApiKeyOutput: untyped
+
+    DeleteDataSourceInput: untyped
+
+    DeleteDataSourceOutput: untyped
+
+    DeleteDomainNameInput: untyped
+
+    DeleteDomainNameOutput: untyped
+
+    DeleteFunctionInput: untyped
+
+    DeleteFunctionOutput: untyped
+
+    DeleteGraphqlApiInput: untyped
+
+    DeleteGraphqlApiOutput: untyped
+
+    DeleteResolverInput: untyped
+
+    DeleteResolverOutput: untyped
+
+    DeleteTypeInput: untyped
+
+    DeleteTypeOutput: untyped
+
+    DeltaSyncConfig: untyped
+
+    DisassociateApiInput: untyped
+
+    DisassociateApiOutput: untyped
+
+    DomainNameConfig: untyped
+
+    DynamodbDataSourceConfig: untyped
+
+    ElasticsearchDataSourceConfig: untyped
+
+    module FieldLogLevel
+      NONE: ::String
+
+      ERROR: ::String
+
+      ALL: ::String
+    end
+
+    FlushApiCacheInput: untyped
+
+    FlushApiCacheOutput: untyped
+
+    FunctionConfiguration: untyped
+
+    GetApiAssociationInput: untyped
+
+    GetApiAssociationOutput: untyped
+
+    GetApiCacheInput: untyped
+
+    GetApiCacheOutput: untyped
+
+    GetDataSourceInput: untyped
+
+    GetDataSourceOutput: untyped
+
+    GetDomainNameInput: untyped
+
+    GetDomainNameOutput: untyped
+
+    GetFunctionInput: untyped
+
+    GetFunctionOutput: untyped
+
+    GetGraphqlApiInput: untyped
+
+    GetGraphqlApiOutput: untyped
+
+    GetIntrospectionSchemaInput: untyped
+
+    GetIntrospectionSchemaOutput: untyped
+
+    GetResolverInput: untyped
+
+    GetResolverOutput: untyped
+
+    GetSchemaCreationStatusInput: untyped
+
+    GetSchemaCreationStatusOutput: untyped
+
+    GetTypeInput: untyped
+
+    GetTypeOutput: untyped
+
+    GraphQLSchemaException: untyped
+
+    GraphqlApi: untyped
+
+    HttpDataSourceConfig: untyped
+
+    InternalFailureException: untyped
+
+    LambdaAuthorizerConfig: untyped
+
+    LambdaConflictHandlerConfig: untyped
+
+    LambdaDataSourceConfig: untyped
+
+    LimitExceededException: untyped
+
+    ListApiKeysInput: untyped
+
+    ListApiKeysOutput: untyped
+
+    ListDataSourcesInput: untyped
+
+    ListDataSourcesOutput: untyped
+
+    ListDomainNamesInput: untyped
+
+    ListDomainNamesOutput: untyped
+
+    ListFunctionsInput: untyped
+
+    ListFunctionsOutput: untyped
+
+    ListGraphqlApisInput: untyped
+
+    ListGraphqlApisOutput: untyped
+
+    ListResolversByFunctionInput: untyped
+
+    ListResolversByFunctionOutput: untyped
+
+    ListResolversInput: untyped
+
+    ListResolversOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTypesInput: untyped
+
+    ListTypesOutput: untyped
+
+    LogConfig: untyped
+
+    NotFoundException: untyped
+
+    OpenIDConnectConfig: untyped
+
+    OpenSearchServiceDataSourceConfig: untyped
+
+    module OutputType
+      SDL: ::String
+
+      JSON: ::String
+    end
+
+    PipelineConfig: untyped
+
+    RdsHttpEndpointConfig: untyped
+
+    RelationalDatabaseDataSourceConfig: untyped
+
+    module RelationalDatabaseSourceType
+      RDS_HTTP_ENDPOINT: ::String
+    end
+
+    Resolver: untyped
+
+    module ResolverKind
+      UNIT: ::String
+
+      PIPELINE: ::String
+    end
+
+    module SchemaStatus
+      Processing: ::String
+
+      Active: ::String
+
+      Deleting: ::String
+
+      Failed: ::String
+
+      Success: ::String
+
+      NotApplicable: ::String
+    end
+
+    StartSchemaCreationInput: untyped
+
+    StartSchemaCreationOutput: untyped
+
+    SyncConfig: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    Type: untyped
+
+    module TypeDefinitionFormat
+      SDL: ::String
+
+      JSON: ::String
+    end
+
+    UnauthorizedException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateApiCacheInput: untyped
+
+    UpdateApiCacheOutput: untyped
+
+    UpdateApiKeyInput: untyped
+
+    UpdateApiKeyOutput: untyped
+
+    UpdateDataSourceInput: untyped
+
+    UpdateDataSourceOutput: untyped
+
+    UpdateDomainNameInput: untyped
+
+    UpdateDomainNameOutput: untyped
+
+    UpdateFunctionInput: untyped
+
+    UpdateFunctionOutput: untyped
+
+    UpdateGraphqlApiInput: untyped
+
+    UpdateGraphqlApiOutput: untyped
+
+    UpdateResolverInput: untyped
+
+    UpdateResolverOutput: untyped
+
+    UpdateTypeInput: untyped
+
+    UpdateTypeOutput: untyped
+
+    UserPoolConfig: untyped
+
+  end
+end

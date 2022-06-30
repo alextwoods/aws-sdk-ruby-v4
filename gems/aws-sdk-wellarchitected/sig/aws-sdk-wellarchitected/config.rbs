@@ -1,0 +1,3 @@
+module AWS::SDK::WellArchitected
+  Config: untyped
+end

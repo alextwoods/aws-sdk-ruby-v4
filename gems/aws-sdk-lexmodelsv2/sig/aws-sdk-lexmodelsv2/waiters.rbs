@@ -1,0 +1,78 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::LexModelsV2
+  module Waiters
+
+    class BotAvailable
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class BotAliasAvailable
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class BotLocaleBuilt
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class BotLocaleCreated
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class BotLocaleExpressTestingAvailable
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class BotVersionAvailable
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class BotExportCompleted
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class BotImportCompleted
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+  end
+end

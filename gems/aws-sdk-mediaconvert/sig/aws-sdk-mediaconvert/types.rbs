@@ -1,0 +1,3952 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::MediaConvert
+  module Types
+
+    module AacAudioDescriptionBroadcasterMix
+      BROADCASTER_MIXED_AD: ::String
+
+      NORMAL: ::String
+    end
+
+    module AacCodecProfile
+      LC: ::String
+
+      HEV1: ::String
+
+      HEV2: ::String
+    end
+
+    module AacCodingMode
+      AD_RECEIVER_MIX: ::String
+
+      CODING_MODE_1_0: ::String
+
+      CODING_MODE_1_1: ::String
+
+      CODING_MODE_2_0: ::String
+
+      CODING_MODE_5_1: ::String
+    end
+
+    module AacRateControlMode
+      CBR: ::String
+
+      VBR: ::String
+    end
+
+    module AacRawFormat
+      LATM_LOAS: ::String
+
+      NONE: ::String
+    end
+
+    AacSettings: untyped
+
+    module AacSpecification
+      MPEG2: ::String
+
+      MPEG4: ::String
+    end
+
+    module AacVbrQuality
+      LOW: ::String
+
+      MEDIUM_LOW: ::String
+
+      MEDIUM_HIGH: ::String
+
+      HIGH: ::String
+    end
+
+    module Ac3BitstreamMode
+      COMPLETE_MAIN: ::String
+
+      COMMENTARY: ::String
+
+      DIALOGUE: ::String
+
+      EMERGENCY: ::String
+
+      HEARING_IMPAIRED: ::String
+
+      MUSIC_AND_EFFECTS: ::String
+
+      VISUALLY_IMPAIRED: ::String
+
+      VOICE_OVER: ::String
+    end
+
+    module Ac3CodingMode
+      CODING_MODE_1_0: ::String
+
+      CODING_MODE_1_1: ::String
+
+      CODING_MODE_2_0: ::String
+
+      CODING_MODE_3_2_LFE: ::String
+    end
+
+    module Ac3DynamicRangeCompressionLine
+      FILM_STANDARD: ::String
+
+      FILM_LIGHT: ::String
+
+      MUSIC_STANDARD: ::String
+
+      MUSIC_LIGHT: ::String
+
+      SPEECH: ::String
+
+      NONE: ::String
+    end
+
+    module Ac3DynamicRangeCompressionProfile
+      FILM_STANDARD: ::String
+
+      NONE: ::String
+    end
+
+    module Ac3DynamicRangeCompressionRf
+      FILM_STANDARD: ::String
+
+      FILM_LIGHT: ::String
+
+      MUSIC_STANDARD: ::String
+
+      MUSIC_LIGHT: ::String
+
+      SPEECH: ::String
+
+      NONE: ::String
+    end
+
+    module Ac3LfeFilter
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module Ac3MetadataControl
+      FOLLOW_INPUT: ::String
+
+      USE_CONFIGURED: ::String
+    end
+
+    Ac3Settings: untyped
+
+    module AccelerationMode
+      DISABLED: ::String
+
+      ENABLED: ::String
+
+      PREFERRED: ::String
+    end
+
+    AccelerationSettings: untyped
+
+    module AccelerationStatus
+      NOT_APPLICABLE: ::String
+
+      IN_PROGRESS: ::String
+
+      ACCELERATED: ::String
+
+      NOT_ACCELERATED: ::String
+    end
+
+    module AfdSignaling
+      NONE: ::String
+
+      AUTO: ::String
+
+      FIXED: ::String
+    end
+
+    AiffSettings: untyped
+
+    AllowedRenditionSize: untyped
+
+    module AlphaBehavior
+      DISCARD: ::String
+
+      REMAP_TO_LUMA: ::String
+    end
+
+    module AncillaryConvert608To708
+      UPCONVERT: ::String
+
+      DISABLED: ::String
+    end
+
+    AncillarySourceSettings: untyped
+
+    module AncillaryTerminateCaptions
+      END_OF_INPUT: ::String
+
+      DISABLED: ::String
+    end
+
+    module AntiAlias
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    AssociateCertificateInput: untyped
+
+    AssociateCertificateOutput: untyped
+
+    module AudioChannelTag
+      L: ::String
+
+      R: ::String
+
+      C: ::String
+
+      LFE: ::String
+
+      LS: ::String
+
+      RS: ::String
+
+      LC: ::String
+
+      RC: ::String
+
+      CS: ::String
+
+      LSD: ::String
+
+      RSD: ::String
+
+      TCS: ::String
+
+      VHL: ::String
+
+      VHC: ::String
+
+      VHR: ::String
+    end
+
+    AudioChannelTaggingSettings: untyped
+
+    module AudioCodec
+      AAC: ::String
+
+      MP2: ::String
+
+      MP3: ::String
+
+      WAV: ::String
+
+      AIFF: ::String
+
+      AC3: ::String
+
+      EAC3: ::String
+
+      EAC3_ATMOS: ::String
+
+      VORBIS: ::String
+
+      OPUS: ::String
+
+      PASSTHROUGH: ::String
+    end
+
+    AudioCodecSettings: untyped
+
+    module AudioDefaultSelection
+      DEFAULT: ::String
+
+      NOT_DEFAULT: ::String
+    end
+
+    AudioDescription: untyped
+
+    module AudioLanguageCodeControl
+      FOLLOW_INPUT: ::String
+
+      USE_CONFIGURED: ::String
+    end
+
+    module AudioNormalizationAlgorithm
+      ITU_BS_1770_1: ::String
+
+      ITU_BS_1770_2: ::String
+
+      ITU_BS_1770_3: ::String
+
+      ITU_BS_1770_4: ::String
+    end
+
+    module AudioNormalizationAlgorithmControl
+      CORRECT_AUDIO: ::String
+
+      MEASURE_ONLY: ::String
+    end
+
+    module AudioNormalizationLoudnessLogging
+      LOG: ::String
+
+      DONT_LOG: ::String
+    end
+
+    module AudioNormalizationPeakCalculation
+      TRUE_PEAK: ::String
+
+      NONE: ::String
+    end
+
+    AudioNormalizationSettings: untyped
+
+    AudioSelector: untyped
+
+    AudioSelectorGroup: untyped
+
+    module AudioSelectorType
+      PID: ::String
+
+      TRACK: ::String
+
+      LANGUAGE_CODE: ::String
+
+      HLS_RENDITION_GROUP: ::String
+    end
+
+    module AudioTypeControl
+      FOLLOW_INPUT: ::String
+
+      USE_CONFIGURED: ::String
+    end
+
+    AutomatedAbrRule: untyped
+
+    AutomatedAbrSettings: untyped
+
+    AutomatedEncodingSettings: untyped
+
+    module Av1AdaptiveQuantization
+      OFF: ::String
+
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+
+      HIGHER: ::String
+
+      MAX: ::String
+    end
+
+    module Av1BitDepth
+      BIT_8: ::String
+
+      BIT_10: ::String
+    end
+
+    module Av1FramerateControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module Av1FramerateConversionAlgorithm
+      DUPLICATE_DROP: ::String
+
+      INTERPOLATE: ::String
+
+      FRAMEFORMER: ::String
+    end
+
+    Av1QvbrSettings: untyped
+
+    module Av1RateControlMode
+      QVBR: ::String
+    end
+
+    Av1Settings: untyped
+
+    module Av1SpatialAdaptiveQuantization
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    AvailBlanking: untyped
+
+    module AvcIntraClass
+      CLASS_50: ::String
+
+      CLASS_100: ::String
+
+      CLASS_200: ::String
+
+      CLASS_4K_2K: ::String
+    end
+
+    module AvcIntraFramerateControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module AvcIntraFramerateConversionAlgorithm
+      DUPLICATE_DROP: ::String
+
+      INTERPOLATE: ::String
+
+      FRAMEFORMER: ::String
+    end
+
+    module AvcIntraInterlaceMode
+      PROGRESSIVE: ::String
+
+      TOP_FIELD: ::String
+
+      BOTTOM_FIELD: ::String
+
+      FOLLOW_TOP_FIELD: ::String
+
+      FOLLOW_BOTTOM_FIELD: ::String
+    end
+
+    module AvcIntraScanTypeConversionMode
+      INTERLACED: ::String
+
+      INTERLACED_OPTIMIZE: ::String
+    end
+
+    AvcIntraSettings: untyped
+
+    module AvcIntraSlowPal
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module AvcIntraTelecine
+      NONE: ::String
+
+      HARD: ::String
+    end
+
+    module AvcIntraUhdQualityTuningLevel
+      SINGLE_PASS: ::String
+
+      MULTI_PASS: ::String
+    end
+
+    AvcIntraUhdSettings: untyped
+
+    BadRequestException: untyped
+
+    module BillingTagsSource
+      QUEUE: ::String
+
+      PRESET: ::String
+
+      JOB_TEMPLATE: ::String
+
+      JOB: ::String
+    end
+
+    module BurnInSubtitleStylePassthrough
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    BurninDestinationSettings: untyped
+
+    module BurninSubtitleAlignment
+      CENTERED: ::String
+
+      LEFT: ::String
+
+      AUTO: ::String
+    end
+
+    module BurninSubtitleApplyFontColor
+      WHITE_TEXT_ONLY: ::String
+
+      ALL_TEXT: ::String
+    end
+
+    module BurninSubtitleBackgroundColor
+      NONE: ::String
+
+      BLACK: ::String
+
+      WHITE: ::String
+
+      AUTO: ::String
+    end
+
+    module BurninSubtitleFallbackFont
+      BEST_MATCH: ::String
+
+      MONOSPACED_SANSSERIF: ::String
+
+      MONOSPACED_SERIF: ::String
+
+      PROPORTIONAL_SANSSERIF: ::String
+
+      PROPORTIONAL_SERIF: ::String
+    end
+
+    module BurninSubtitleFontColor
+      WHITE: ::String
+
+      BLACK: ::String
+
+      YELLOW: ::String
+
+      RED: ::String
+
+      GREEN: ::String
+
+      BLUE: ::String
+
+      HEX: ::String
+
+      AUTO: ::String
+    end
+
+    module BurninSubtitleOutlineColor
+      BLACK: ::String
+
+      WHITE: ::String
+
+      YELLOW: ::String
+
+      RED: ::String
+
+      GREEN: ::String
+
+      BLUE: ::String
+
+      AUTO: ::String
+    end
+
+    module BurninSubtitleShadowColor
+      NONE: ::String
+
+      BLACK: ::String
+
+      WHITE: ::String
+
+      AUTO: ::String
+    end
+
+    module BurninSubtitleTeletextSpacing
+      FIXED_GRID: ::String
+
+      PROPORTIONAL: ::String
+
+      AUTO: ::String
+    end
+
+    CancelJobInput: untyped
+
+    CancelJobOutput: untyped
+
+    CaptionDescription: untyped
+
+    CaptionDescriptionPreset: untyped
+
+    CaptionDestinationSettings: untyped
+
+    module CaptionDestinationType
+      BURN_IN: ::String
+
+      DVB_SUB: ::String
+
+      EMBEDDED: ::String
+
+      EMBEDDED_PLUS_SCTE20: ::String
+
+      IMSC: ::String
+
+      SCTE20_PLUS_EMBEDDED: ::String
+
+      SCC: ::String
+
+      SRT: ::String
+
+      SMI: ::String
+
+      TELETEXT: ::String
+
+      TTML: ::String
+
+      WEBVTT: ::String
+    end
+
+    CaptionSelector: untyped
+
+    CaptionSourceFramerate: untyped
+
+    CaptionSourceSettings: untyped
+
+    module CaptionSourceType
+      ANCILLARY: ::String
+
+      DVB_SUB: ::String
+
+      EMBEDDED: ::String
+
+      SCTE20: ::String
+
+      SCC: ::String
+
+      TTML: ::String
+
+      STL: ::String
+
+      SRT: ::String
+
+      SMI: ::String
+
+      SMPTE_TT: ::String
+
+      TELETEXT: ::String
+
+      NULL_SOURCE: ::String
+
+      IMSC: ::String
+
+      WEBVTT: ::String
+    end
+
+    ChannelMapping: untyped
+
+    CmafAdditionalManifest: untyped
+
+    module CmafClientCache
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module CmafCodecSpecification
+      RFC_6381: ::String
+
+      RFC_4281: ::String
+    end
+
+    CmafEncryptionSettings: untyped
+
+    module CmafEncryptionType
+      SAMPLE_AES: ::String
+
+      AES_CTR: ::String
+    end
+
+    CmafGroupSettings: untyped
+
+    module CmafImageBasedTrickPlay
+      NONE: ::String
+
+      THUMBNAIL: ::String
+
+      THUMBNAIL_AND_FULLFRAME: ::String
+
+      ADVANCED: ::String
+    end
+
+    CmafImageBasedTrickPlaySettings: untyped
+
+    module CmafInitializationVectorInManifest
+      INCLUDE: ::String
+
+      EXCLUDE: ::String
+    end
+
+    module CmafIntervalCadence
+      FOLLOW_IFRAME: ::String
+
+      FOLLOW_CUSTOM: ::String
+    end
+
+    module CmafKeyProviderType
+      SPEKE: ::String
+
+      STATIC_KEY: ::String
+    end
+
+    module CmafManifestCompression
+      GZIP: ::String
+
+      NONE: ::String
+    end
+
+    module CmafManifestDurationFormat
+      FLOATING_POINT: ::String
+
+      INTEGER: ::String
+    end
+
+    module CmafMpdProfile
+      MAIN_PROFILE: ::String
+
+      ON_DEMAND_PROFILE: ::String
+    end
+
+    module CmafPtsOffsetHandlingForBFrames
+      ZERO_BASED: ::String
+
+      MATCH_INITIAL_PTS: ::String
+    end
+
+    module CmafSegmentControl
+      SINGLE_FILE: ::String
+
+      SEGMENTED_FILES: ::String
+    end
+
+    module CmafSegmentLengthControl
+      EXACT: ::String
+
+      GOP_MULTIPLE: ::String
+    end
+
+    module CmafStreamInfResolution
+      INCLUDE: ::String
+
+      EXCLUDE: ::String
+    end
+
+    module CmafTargetDurationCompatibilityMode
+      LEGACY: ::String
+
+      SPEC_COMPLIANT: ::String
+    end
+
+    module CmafWriteDASHManifest
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module CmafWriteHLSManifest
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module CmafWriteSegmentTimelineInRepresentation
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module CmfcAudioDuration
+      DEFAULT_CODEC_DURATION: ::String
+
+      MATCH_VIDEO_DURATION: ::String
+    end
+
+    module CmfcAudioTrackType
+      ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT: ::String
+
+      ALTERNATE_AUDIO_AUTO_SELECT: ::String
+
+      ALTERNATE_AUDIO_NOT_AUTO_SELECT: ::String
+    end
+
+    module CmfcDescriptiveVideoServiceFlag
+      DONT_FLAG: ::String
+
+      FLAG: ::String
+    end
+
+    module CmfcIFrameOnlyManifest
+      INCLUDE: ::String
+
+      EXCLUDE: ::String
+    end
+
+    module CmfcKlvMetadata
+      PASSTHROUGH: ::String
+
+      NONE: ::String
+    end
+
+    module CmfcScte35Esam
+      INSERT: ::String
+
+      NONE: ::String
+    end
+
+    module CmfcScte35Source
+      PASSTHROUGH: ::String
+
+      NONE: ::String
+    end
+
+    CmfcSettings: untyped
+
+    module CmfcTimedMetadata
+      PASSTHROUGH: ::String
+
+      NONE: ::String
+    end
+
+    ColorCorrector: untyped
+
+    module ColorMetadata
+      IGNORE: ::String
+
+      INSERT: ::String
+    end
+
+    module ColorSpace
+      FOLLOW: ::String
+
+      REC_601: ::String
+
+      REC_709: ::String
+
+      HDR10: ::String
+
+      HLG_2020: ::String
+    end
+
+    module ColorSpaceConversion
+      NONE: ::String
+
+      FORCE_601: ::String
+
+      FORCE_709: ::String
+
+      FORCE_HDR10: ::String
+
+      FORCE_HLG_2020: ::String
+    end
+
+    module ColorSpaceUsage
+      FORCE: ::String
+
+      FALLBACK: ::String
+    end
+
+    module Commitment
+      ONE_YEAR: ::String
+    end
+
+    ConflictException: untyped
+
+    ContainerSettings: untyped
+
+    module ContainerType
+      F4V: ::String
+
+      ISMV: ::String
+
+      M2TS: ::String
+
+      M3U8: ::String
+
+      CMFC: ::String
+
+      MOV: ::String
+
+      MP4: ::String
+
+      MPD: ::String
+
+      MXF: ::String
+
+      WEBM: ::String
+
+      RAW: ::String
+    end
+
+    module CopyProtectionAction
+      PASSTHROUGH: ::String
+
+      STRIP: ::String
+    end
+
+    CreateJobInput: untyped
+
+    CreateJobOutput: untyped
+
+    CreateJobTemplateInput: untyped
+
+    CreateJobTemplateOutput: untyped
+
+    CreatePresetInput: untyped
+
+    CreatePresetOutput: untyped
+
+    CreateQueueInput: untyped
+
+    CreateQueueOutput: untyped
+
+    DashAdditionalManifest: untyped
+
+    DashIsoEncryptionSettings: untyped
+
+    module DashIsoGroupAudioChannelConfigSchemeIdUri
+      MPEG_CHANNEL_CONFIGURATION: ::String
+
+      DOLBY_CHANNEL_CONFIGURATION: ::String
+    end
+
+    DashIsoGroupSettings: untyped
+
+    module DashIsoHbbtvCompliance
+      HBBTV_1_5: ::String
+
+      NONE: ::String
+    end
+
+    module DashIsoImageBasedTrickPlay
+      NONE: ::String
+
+      THUMBNAIL: ::String
+
+      THUMBNAIL_AND_FULLFRAME: ::String
+
+      ADVANCED: ::String
+    end
+
+    DashIsoImageBasedTrickPlaySettings: untyped
+
+    module DashIsoIntervalCadence
+      FOLLOW_IFRAME: ::String
+
+      FOLLOW_CUSTOM: ::String
+    end
+
+    module DashIsoMpdProfile
+      MAIN_PROFILE: ::String
+
+      ON_DEMAND_PROFILE: ::String
+    end
+
+    module DashIsoPlaybackDeviceCompatibility
+      CENC_V1: ::String
+
+      UNENCRYPTED_SEI: ::String
+    end
+
+    module DashIsoPtsOffsetHandlingForBFrames
+      ZERO_BASED: ::String
+
+      MATCH_INITIAL_PTS: ::String
+    end
+
+    module DashIsoSegmentControl
+      SINGLE_FILE: ::String
+
+      SEGMENTED_FILES: ::String
+    end
+
+    module DashIsoSegmentLengthControl
+      EXACT: ::String
+
+      GOP_MULTIPLE: ::String
+    end
+
+    module DashIsoWriteSegmentTimelineInRepresentation
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module DecryptionMode
+      AES_CTR: ::String
+
+      AES_CBC: ::String
+
+      AES_GCM: ::String
+    end
+
+    module DeinterlaceAlgorithm
+      INTERPOLATE: ::String
+
+      INTERPOLATE_TICKER: ::String
+
+      BLEND: ::String
+
+      BLEND_TICKER: ::String
+    end
+
+    Deinterlacer: untyped
+
+    module DeinterlacerControl
+      FORCE_ALL_FRAMES: ::String
+
+      NORMAL: ::String
+    end
+
+    module DeinterlacerMode
+      DEINTERLACE: ::String
+
+      INVERSE_TELECINE: ::String
+
+      ADAPTIVE: ::String
+    end
+
+    DeleteJobTemplateInput: untyped
+
+    DeleteJobTemplateOutput: untyped
+
+    DeletePolicyInput: untyped
+
+    DeletePolicyOutput: untyped
+
+    DeletePresetInput: untyped
+
+    DeletePresetOutput: untyped
+
+    DeleteQueueInput: untyped
+
+    DeleteQueueOutput: untyped
+
+    DescribeEndpointsInput: untyped
+
+    module DescribeEndpointsMode
+      DEFAULT: ::String
+
+      GET_ONLY: ::String
+    end
+
+    DescribeEndpointsOutput: untyped
+
+    DestinationSettings: untyped
+
+    DisassociateCertificateInput: untyped
+
+    DisassociateCertificateOutput: untyped
+
+    DolbyVision: untyped
+
+    DolbyVisionLevel6Metadata: untyped
+
+    module DolbyVisionLevel6Mode
+      PASSTHROUGH: ::String
+
+      RECALCULATE: ::String
+
+      SPECIFY: ::String
+    end
+
+    module DolbyVisionMapping
+      HDR10_NOMAP: ::String
+
+      HDR10_1000: ::String
+    end
+
+    module DolbyVisionProfile
+      PROFILE_5: ::String
+
+      PROFILE_8_1: ::String
+    end
+
+    module DropFrameTimecode
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    DvbNitSettings: untyped
+
+    DvbSdtSettings: untyped
+
+    DvbSubDestinationSettings: untyped
+
+    DvbSubSourceSettings: untyped
+
+    module DvbSubSubtitleFallbackFont
+      BEST_MATCH: ::String
+
+      MONOSPACED_SANSSERIF: ::String
+
+      MONOSPACED_SERIF: ::String
+
+      PROPORTIONAL_SANSSERIF: ::String
+
+      PROPORTIONAL_SERIF: ::String
+    end
+
+    module DvbSubtitleAlignment
+      CENTERED: ::String
+
+      LEFT: ::String
+
+      AUTO: ::String
+    end
+
+    module DvbSubtitleApplyFontColor
+      WHITE_TEXT_ONLY: ::String
+
+      ALL_TEXT: ::String
+    end
+
+    module DvbSubtitleBackgroundColor
+      NONE: ::String
+
+      BLACK: ::String
+
+      WHITE: ::String
+
+      AUTO: ::String
+    end
+
+    module DvbSubtitleFontColor
+      WHITE: ::String
+
+      BLACK: ::String
+
+      YELLOW: ::String
+
+      RED: ::String
+
+      GREEN: ::String
+
+      BLUE: ::String
+
+      HEX: ::String
+
+      AUTO: ::String
+    end
+
+    module DvbSubtitleOutlineColor
+      BLACK: ::String
+
+      WHITE: ::String
+
+      YELLOW: ::String
+
+      RED: ::String
+
+      GREEN: ::String
+
+      BLUE: ::String
+
+      AUTO: ::String
+    end
+
+    module DvbSubtitleShadowColor
+      NONE: ::String
+
+      BLACK: ::String
+
+      WHITE: ::String
+
+      AUTO: ::String
+    end
+
+    module DvbSubtitleStylePassthrough
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module DvbSubtitleTeletextSpacing
+      FIXED_GRID: ::String
+
+      PROPORTIONAL: ::String
+
+      AUTO: ::String
+    end
+
+    module DvbSubtitlingType
+      HEARING_IMPAIRED: ::String
+
+      STANDARD: ::String
+    end
+
+    DvbTdtSettings: untyped
+
+    module DvbddsHandling
+      NONE: ::String
+
+      SPECIFIED: ::String
+
+      NO_DISPLAY_WINDOW: ::String
+    end
+
+    module Eac3AtmosBitstreamMode
+      COMPLETE_MAIN: ::String
+    end
+
+    module Eac3AtmosCodingMode
+      CODING_MODE_AUTO: ::String
+
+      CODING_MODE_5_1_4: ::String
+
+      CODING_MODE_7_1_4: ::String
+
+      CODING_MODE_9_1_6: ::String
+    end
+
+    module Eac3AtmosDialogueIntelligence
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module Eac3AtmosDownmixControl
+      SPECIFIED: ::String
+
+      INITIALIZE_FROM_SOURCE: ::String
+    end
+
+    module Eac3AtmosDynamicRangeCompressionLine
+      NONE: ::String
+
+      FILM_STANDARD: ::String
+
+      FILM_LIGHT: ::String
+
+      MUSIC_STANDARD: ::String
+
+      MUSIC_LIGHT: ::String
+
+      SPEECH: ::String
+    end
+
+    module Eac3AtmosDynamicRangeCompressionRf
+      NONE: ::String
+
+      FILM_STANDARD: ::String
+
+      FILM_LIGHT: ::String
+
+      MUSIC_STANDARD: ::String
+
+      MUSIC_LIGHT: ::String
+
+      SPEECH: ::String
+    end
+
+    module Eac3AtmosDynamicRangeControl
+      SPECIFIED: ::String
+
+      INITIALIZE_FROM_SOURCE: ::String
+    end
+
+    module Eac3AtmosMeteringMode
+      LEQ_A: ::String
+
+      ITU_BS_1770_1: ::String
+
+      ITU_BS_1770_2: ::String
+
+      ITU_BS_1770_3: ::String
+
+      ITU_BS_1770_4: ::String
+    end
+
+    Eac3AtmosSettings: untyped
+
+    module Eac3AtmosStereoDownmix
+      NOT_INDICATED: ::String
+
+      STEREO: ::String
+
+      SURROUND: ::String
+
+      DPL2: ::String
+    end
+
+    module Eac3AtmosSurroundExMode
+      NOT_INDICATED: ::String
+
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module Eac3AttenuationControl
+      ATTENUATE_3_DB: ::String
+
+      NONE: ::String
+    end
+
+    module Eac3BitstreamMode
+      COMPLETE_MAIN: ::String
+
+      COMMENTARY: ::String
+
+      EMERGENCY: ::String
+
+      HEARING_IMPAIRED: ::String
+
+      VISUALLY_IMPAIRED: ::String
+    end
+
+    module Eac3CodingMode
+      CODING_MODE_1_0: ::String
+
+      CODING_MODE_2_0: ::String
+
+      CODING_MODE_3_2: ::String
+    end
+
+    module Eac3DcFilter
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module Eac3DynamicRangeCompressionLine
+      NONE: ::String
+
+      FILM_STANDARD: ::String
+
+      FILM_LIGHT: ::String
+
+      MUSIC_STANDARD: ::String
+
+      MUSIC_LIGHT: ::String
+
+      SPEECH: ::String
+    end
+
+    module Eac3DynamicRangeCompressionRf
+      NONE: ::String
+
+      FILM_STANDARD: ::String
+
+      FILM_LIGHT: ::String
+
+      MUSIC_STANDARD: ::String
+
+      MUSIC_LIGHT: ::String
+
+      SPEECH: ::String
+    end
+
+    module Eac3LfeControl
+      LFE: ::String
+
+      NO_LFE: ::String
+    end
+
+    module Eac3LfeFilter
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module Eac3MetadataControl
+      FOLLOW_INPUT: ::String
+
+      USE_CONFIGURED: ::String
+    end
+
+    module Eac3PassthroughControl
+      WHEN_POSSIBLE: ::String
+
+      NO_PASSTHROUGH: ::String
+    end
+
+    module Eac3PhaseControl
+      SHIFT_90_DEGREES: ::String
+
+      NO_SHIFT: ::String
+    end
+
+    Eac3Settings: untyped
+
+    module Eac3StereoDownmix
+      NOT_INDICATED: ::String
+
+      LO_RO: ::String
+
+      LT_RT: ::String
+
+      DPL2: ::String
+    end
+
+    module Eac3SurroundExMode
+      NOT_INDICATED: ::String
+
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module Eac3SurroundMode
+      NOT_INDICATED: ::String
+
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module EmbeddedConvert608To708
+      UPCONVERT: ::String
+
+      DISABLED: ::String
+    end
+
+    EmbeddedDestinationSettings: untyped
+
+    EmbeddedSourceSettings: untyped
+
+    module EmbeddedTerminateCaptions
+      END_OF_INPUT: ::String
+
+      DISABLED: ::String
+    end
+
+    module EmbeddedTimecodeOverride
+      NONE: ::String
+
+      USE_MDPM: ::String
+    end
+
+    Endpoint: untyped
+
+    EsamManifestConfirmConditionNotification: untyped
+
+    EsamSettings: untyped
+
+    EsamSignalProcessingNotification: untyped
+
+    ExtendedDataServices: untyped
+
+    module F4vMoovPlacement
+      PROGRESSIVE_DOWNLOAD: ::String
+
+      NORMAL: ::String
+    end
+
+    F4vSettings: untyped
+
+    FileGroupSettings: untyped
+
+    module FileSourceConvert608To708
+      UPCONVERT: ::String
+
+      DISABLED: ::String
+    end
+
+    FileSourceSettings: untyped
+
+    module FileSourceTimeDeltaUnits
+      SECONDS: ::String
+
+      MILLISECONDS: ::String
+    end
+
+    module FontScript
+      AUTOMATIC: ::String
+
+      HANS: ::String
+
+      HANT: ::String
+    end
+
+    ForbiddenException: untyped
+
+    ForceIncludeRenditionSize: untyped
+
+    FrameCaptureSettings: untyped
+
+    GetJobInput: untyped
+
+    GetJobOutput: untyped
+
+    GetJobTemplateInput: untyped
+
+    GetJobTemplateOutput: untyped
+
+    GetPolicyInput: untyped
+
+    GetPolicyOutput: untyped
+
+    GetPresetInput: untyped
+
+    GetPresetOutput: untyped
+
+    GetQueueInput: untyped
+
+    GetQueueOutput: untyped
+
+    module H264AdaptiveQuantization
+      OFF: ::String
+
+      AUTO: ::String
+
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+
+      HIGHER: ::String
+
+      MAX: ::String
+    end
+
+    module H264CodecLevel
+      AUTO: ::String
+
+      LEVEL_1: ::String
+
+      LEVEL_1_1: ::String
+
+      LEVEL_1_2: ::String
+
+      LEVEL_1_3: ::String
+
+      LEVEL_2: ::String
+
+      LEVEL_2_1: ::String
+
+      LEVEL_2_2: ::String
+
+      LEVEL_3: ::String
+
+      LEVEL_3_1: ::String
+
+      LEVEL_3_2: ::String
+
+      LEVEL_4: ::String
+
+      LEVEL_4_1: ::String
+
+      LEVEL_4_2: ::String
+
+      LEVEL_5: ::String
+
+      LEVEL_5_1: ::String
+
+      LEVEL_5_2: ::String
+    end
+
+    module H264CodecProfile
+      BASELINE: ::String
+
+      HIGH: ::String
+
+      HIGH_10BIT: ::String
+
+      HIGH_422: ::String
+
+      HIGH_422_10BIT: ::String
+
+      MAIN: ::String
+    end
+
+    module H264DynamicSubGop
+      ADAPTIVE: ::String
+
+      STATIC: ::String
+    end
+
+    module H264EntropyEncoding
+      CABAC: ::String
+
+      CAVLC: ::String
+    end
+
+    module H264FieldEncoding
+      PAFF: ::String
+
+      FORCE_FIELD: ::String
+
+      MBAFF: ::String
+    end
+
+    module H264FlickerAdaptiveQuantization
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H264FramerateControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module H264FramerateConversionAlgorithm
+      DUPLICATE_DROP: ::String
+
+      INTERPOLATE: ::String
+
+      FRAMEFORMER: ::String
+    end
+
+    module H264GopBReference
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H264GopSizeUnits
+      FRAMES: ::String
+
+      SECONDS: ::String
+
+      AUTO: ::String
+    end
+
+    module H264InterlaceMode
+      PROGRESSIVE: ::String
+
+      TOP_FIELD: ::String
+
+      BOTTOM_FIELD: ::String
+
+      FOLLOW_TOP_FIELD: ::String
+
+      FOLLOW_BOTTOM_FIELD: ::String
+    end
+
+    module H264ParControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module H264QualityTuningLevel
+      SINGLE_PASS: ::String
+
+      SINGLE_PASS_HQ: ::String
+
+      MULTI_PASS_HQ: ::String
+    end
+
+    H264QvbrSettings: untyped
+
+    module H264RateControlMode
+      VBR: ::String
+
+      CBR: ::String
+
+      QVBR: ::String
+    end
+
+    module H264RepeatPps
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H264ScanTypeConversionMode
+      INTERLACED: ::String
+
+      INTERLACED_OPTIMIZE: ::String
+    end
+
+    module H264SceneChangeDetect
+      DISABLED: ::String
+
+      ENABLED: ::String
+
+      TRANSITION_DETECTION: ::String
+    end
+
+    H264Settings: untyped
+
+    module H264SlowPal
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H264SpatialAdaptiveQuantization
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H264Syntax
+      DEFAULT: ::String
+
+      RP2027: ::String
+    end
+
+    module H264Telecine
+      NONE: ::String
+
+      SOFT: ::String
+
+      HARD: ::String
+    end
+
+    module H264TemporalAdaptiveQuantization
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H264UnregisteredSeiTimecode
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H265AdaptiveQuantization
+      OFF: ::String
+
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+
+      HIGHER: ::String
+
+      MAX: ::String
+
+      AUTO: ::String
+    end
+
+    module H265AlternateTransferFunctionSei
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H265CodecLevel
+      AUTO: ::String
+
+      LEVEL_1: ::String
+
+      LEVEL_2: ::String
+
+      LEVEL_2_1: ::String
+
+      LEVEL_3: ::String
+
+      LEVEL_3_1: ::String
+
+      LEVEL_4: ::String
+
+      LEVEL_4_1: ::String
+
+      LEVEL_5: ::String
+
+      LEVEL_5_1: ::String
+
+      LEVEL_5_2: ::String
+
+      LEVEL_6: ::String
+
+      LEVEL_6_1: ::String
+
+      LEVEL_6_2: ::String
+    end
+
+    module H265CodecProfile
+      MAIN_MAIN: ::String
+
+      MAIN_HIGH: ::String
+
+      MAIN10_MAIN: ::String
+
+      MAIN10_HIGH: ::String
+
+      MAIN_422_8BIT_MAIN: ::String
+
+      MAIN_422_8BIT_HIGH: ::String
+
+      MAIN_422_10BIT_MAIN: ::String
+
+      MAIN_422_10BIT_HIGH: ::String
+    end
+
+    module H265DynamicSubGop
+      ADAPTIVE: ::String
+
+      STATIC: ::String
+    end
+
+    module H265FlickerAdaptiveQuantization
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H265FramerateControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module H265FramerateConversionAlgorithm
+      DUPLICATE_DROP: ::String
+
+      INTERPOLATE: ::String
+
+      FRAMEFORMER: ::String
+    end
+
+    module H265GopBReference
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H265GopSizeUnits
+      FRAMES: ::String
+
+      SECONDS: ::String
+
+      AUTO: ::String
+    end
+
+    module H265InterlaceMode
+      PROGRESSIVE: ::String
+
+      TOP_FIELD: ::String
+
+      BOTTOM_FIELD: ::String
+
+      FOLLOW_TOP_FIELD: ::String
+
+      FOLLOW_BOTTOM_FIELD: ::String
+    end
+
+    module H265ParControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module H265QualityTuningLevel
+      SINGLE_PASS: ::String
+
+      SINGLE_PASS_HQ: ::String
+
+      MULTI_PASS_HQ: ::String
+    end
+
+    H265QvbrSettings: untyped
+
+    module H265RateControlMode
+      VBR: ::String
+
+      CBR: ::String
+
+      QVBR: ::String
+    end
+
+    module H265SampleAdaptiveOffsetFilterMode
+      DEFAULT: ::String
+
+      ADAPTIVE: ::String
+
+      OFF: ::String
+    end
+
+    module H265ScanTypeConversionMode
+      INTERLACED: ::String
+
+      INTERLACED_OPTIMIZE: ::String
+    end
+
+    module H265SceneChangeDetect
+      DISABLED: ::String
+
+      ENABLED: ::String
+
+      TRANSITION_DETECTION: ::String
+    end
+
+    H265Settings: untyped
+
+    module H265SlowPal
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H265SpatialAdaptiveQuantization
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H265Telecine
+      NONE: ::String
+
+      SOFT: ::String
+
+      HARD: ::String
+    end
+
+    module H265TemporalAdaptiveQuantization
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H265TemporalIds
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H265Tiles
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H265UnregisteredSeiTimecode
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module H265WriteMp4PackagingType
+      HVC1: ::String
+
+      HEV1: ::String
+    end
+
+    Hdr10Metadata: untyped
+
+    Hdr10Plus: untyped
+
+    module HlsAdMarkers
+      ELEMENTAL: ::String
+
+      ELEMENTAL_SCTE35: ::String
+    end
+
+    HlsAdditionalManifest: untyped
+
+    module HlsAudioOnlyContainer
+      AUTOMATIC: ::String
+
+      M2TS: ::String
+    end
+
+    module HlsAudioOnlyHeader
+      INCLUDE: ::String
+
+      EXCLUDE: ::String
+    end
+
+    module HlsAudioTrackType
+      ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT: ::String
+
+      ALTERNATE_AUDIO_AUTO_SELECT: ::String
+
+      ALTERNATE_AUDIO_NOT_AUTO_SELECT: ::String
+
+      AUDIO_ONLY_VARIANT_STREAM: ::String
+    end
+
+    HlsCaptionLanguageMapping: untyped
+
+    module HlsCaptionLanguageSetting
+      INSERT: ::String
+
+      OMIT: ::String
+
+      NONE: ::String
+    end
+
+    module HlsCaptionSegmentLengthControl
+      LARGE_SEGMENTS: ::String
+
+      MATCH_VIDEO: ::String
+    end
+
+    module HlsClientCache
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module HlsCodecSpecification
+      RFC_6381: ::String
+
+      RFC_4281: ::String
+    end
+
+    module HlsDescriptiveVideoServiceFlag
+      DONT_FLAG: ::String
+
+      FLAG: ::String
+    end
+
+    module HlsDirectoryStructure
+      SINGLE_DIRECTORY: ::String
+
+      SUBDIRECTORY_PER_STREAM: ::String
+    end
+
+    HlsEncryptionSettings: untyped
+
+    module HlsEncryptionType
+      AES128: ::String
+
+      SAMPLE_AES: ::String
+    end
+
+    HlsGroupSettings: untyped
+
+    module HlsIFrameOnlyManifest
+      INCLUDE: ::String
+
+      EXCLUDE: ::String
+    end
+
+    module HlsImageBasedTrickPlay
+      NONE: ::String
+
+      THUMBNAIL: ::String
+
+      THUMBNAIL_AND_FULLFRAME: ::String
+
+      ADVANCED: ::String
+    end
+
+    HlsImageBasedTrickPlaySettings: untyped
+
+    module HlsInitializationVectorInManifest
+      INCLUDE: ::String
+
+      EXCLUDE: ::String
+    end
+
+    module HlsIntervalCadence
+      FOLLOW_IFRAME: ::String
+
+      FOLLOW_CUSTOM: ::String
+    end
+
+    module HlsKeyProviderType
+      SPEKE: ::String
+
+      STATIC_KEY: ::String
+    end
+
+    module HlsManifestCompression
+      GZIP: ::String
+
+      NONE: ::String
+    end
+
+    module HlsManifestDurationFormat
+      FLOATING_POINT: ::String
+
+      INTEGER: ::String
+    end
+
+    module HlsOfflineEncrypted
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module HlsOutputSelection
+      MANIFESTS_AND_SEGMENTS: ::String
+
+      SEGMENTS_ONLY: ::String
+    end
+
+    module HlsProgramDateTime
+      INCLUDE: ::String
+
+      EXCLUDE: ::String
+    end
+
+    HlsRenditionGroupSettings: untyped
+
+    module HlsSegmentControl
+      SINGLE_FILE: ::String
+
+      SEGMENTED_FILES: ::String
+    end
+
+    module HlsSegmentLengthControl
+      EXACT: ::String
+
+      GOP_MULTIPLE: ::String
+    end
+
+    HlsSettings: untyped
+
+    module HlsStreamInfResolution
+      INCLUDE: ::String
+
+      EXCLUDE: ::String
+    end
+
+    module HlsTargetDurationCompatibilityMode
+      LEGACY: ::String
+
+      SPEC_COMPLIANT: ::String
+    end
+
+    module HlsTimedMetadataId3Frame
+      NONE: ::String
+
+      PRIV: ::String
+
+      TDRL: ::String
+    end
+
+    HopDestination: untyped
+
+    Id3Insertion: untyped
+
+    ImageInserter: untyped
+
+    module ImscAccessibilitySubs
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    ImscDestinationSettings: untyped
+
+    module ImscStylePassthrough
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    Input: untyped
+
+    InputClipping: untyped
+
+    module InputDeblockFilter
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    InputDecryptionSettings: untyped
+
+    module InputDenoiseFilter
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module InputFilterEnable
+      AUTO: ::String
+
+      DISABLE: ::String
+
+      FORCE: ::String
+    end
+
+    module InputPolicy
+      ALLOWED: ::String
+
+      DISALLOWED: ::String
+    end
+
+    module InputPsiControl
+      IGNORE_PSI: ::String
+
+      USE_PSI: ::String
+    end
+
+    module InputRotate
+      DEGREE_0: ::String
+
+      DEGREES_90: ::String
+
+      DEGREES_180: ::String
+
+      DEGREES_270: ::String
+
+      AUTO: ::String
+    end
+
+    module InputSampleRange
+      FOLLOW: ::String
+
+      FULL_RANGE: ::String
+
+      LIMITED_RANGE: ::String
+    end
+
+    module InputScanType
+      AUTO: ::String
+
+      PSF: ::String
+    end
+
+    InputTemplate: untyped
+
+    module InputTimecodeSource
+      EMBEDDED: ::String
+
+      ZEROBASED: ::String
+
+      SPECIFIEDSTART: ::String
+    end
+
+    InputVideoGenerator: untyped
+
+    InsertableImage: untyped
+
+    InternalServerErrorException: untyped
+
+    Job: untyped
+
+    JobMessages: untyped
+
+    module JobPhase
+      PROBING: ::String
+
+      TRANSCODING: ::String
+
+      UPLOADING: ::String
+    end
+
+    JobSettings: untyped
+
+    module JobStatus
+      SUBMITTED: ::String
+
+      PROGRESSING: ::String
+
+      COMPLETE: ::String
+
+      CANCELED: ::String
+
+      ERROR: ::String
+    end
+
+    JobTemplate: untyped
+
+    module JobTemplateListBy
+      NAME: ::String
+
+      CREATION_DATE: ::String
+
+      SYSTEM: ::String
+    end
+
+    JobTemplateSettings: untyped
+
+    KantarWatermarkSettings: untyped
+
+    module LanguageCode
+      ENG: ::String
+
+      SPA: ::String
+
+      FRA: ::String
+
+      DEU: ::String
+
+      GER: ::String
+
+      ZHO: ::String
+
+      ARA: ::String
+
+      HIN: ::String
+
+      JPN: ::String
+
+      RUS: ::String
+
+      POR: ::String
+
+      ITA: ::String
+
+      URD: ::String
+
+      VIE: ::String
+
+      KOR: ::String
+
+      PAN: ::String
+
+      ABK: ::String
+
+      AAR: ::String
+
+      AFR: ::String
+
+      AKA: ::String
+
+      SQI: ::String
+
+      AMH: ::String
+
+      ARG: ::String
+
+      HYE: ::String
+
+      ASM: ::String
+
+      AVA: ::String
+
+      AVE: ::String
+
+      AYM: ::String
+
+      AZE: ::String
+
+      BAM: ::String
+
+      BAK: ::String
+
+      EUS: ::String
+
+      BEL: ::String
+
+      BEN: ::String
+
+      BIH: ::String
+
+      BIS: ::String
+
+      BOS: ::String
+
+      BRE: ::String
+
+      BUL: ::String
+
+      MYA: ::String
+
+      CAT: ::String
+
+      KHM: ::String
+
+      CHA: ::String
+
+      CHE: ::String
+
+      NYA: ::String
+
+      CHU: ::String
+
+      CHV: ::String
+
+      COR: ::String
+
+      COS: ::String
+
+      CRE: ::String
+
+      HRV: ::String
+
+      CES: ::String
+
+      DAN: ::String
+
+      DIV: ::String
+
+      NLD: ::String
+
+      DZO: ::String
+
+      ENM: ::String
+
+      EPO: ::String
+
+      EST: ::String
+
+      EWE: ::String
+
+      FAO: ::String
+
+      FIJ: ::String
+
+      FIN: ::String
+
+      FRM: ::String
+
+      FUL: ::String
+
+      GLA: ::String
+
+      GLG: ::String
+
+      LUG: ::String
+
+      KAT: ::String
+
+      ELL: ::String
+
+      GRN: ::String
+
+      GUJ: ::String
+
+      HAT: ::String
+
+      HAU: ::String
+
+      HEB: ::String
+
+      HER: ::String
+
+      HMO: ::String
+
+      HUN: ::String
+
+      ISL: ::String
+
+      IDO: ::String
+
+      IBO: ::String
+
+      IND: ::String
+
+      INA: ::String
+
+      ILE: ::String
+
+      IKU: ::String
+
+      IPK: ::String
+
+      GLE: ::String
+
+      JAV: ::String
+
+      KAL: ::String
+
+      KAN: ::String
+
+      KAU: ::String
+
+      KAS: ::String
+
+      KAZ: ::String
+
+      KIK: ::String
+
+      KIN: ::String
+
+      KIR: ::String
+
+      KOM: ::String
+
+      KON: ::String
+
+      KUA: ::String
+
+      KUR: ::String
+
+      LAO: ::String
+
+      LAT: ::String
+
+      LAV: ::String
+
+      LIM: ::String
+
+      LIN: ::String
+
+      LIT: ::String
+
+      LUB: ::String
+
+      LTZ: ::String
+
+      MKD: ::String
+
+      MLG: ::String
+
+      MSA: ::String
+
+      MAL: ::String
+
+      MLT: ::String
+
+      GLV: ::String
+
+      MRI: ::String
+
+      MAR: ::String
+
+      MAH: ::String
+
+      MON: ::String
+
+      NAU: ::String
+
+      NAV: ::String
+
+      NDE: ::String
+
+      NBL: ::String
+
+      NDO: ::String
+
+      NEP: ::String
+
+      SME: ::String
+
+      NOR: ::String
+
+      NOB: ::String
+
+      NNO: ::String
+
+      OCI: ::String
+
+      OJI: ::String
+
+      ORI: ::String
+
+      ORM: ::String
+
+      OSS: ::String
+
+      PLI: ::String
+
+      FAS: ::String
+
+      POL: ::String
+
+      PUS: ::String
+
+      QUE: ::String
+
+      QAA: ::String
+
+      RON: ::String
+
+      ROH: ::String
+
+      RUN: ::String
+
+      SMO: ::String
+
+      SAG: ::String
+
+      SAN: ::String
+
+      SRD: ::String
+
+      SRB: ::String
+
+      SNA: ::String
+
+      III: ::String
+
+      SND: ::String
+
+      SIN: ::String
+
+      SLK: ::String
+
+      SLV: ::String
+
+      SOM: ::String
+
+      SOT: ::String
+
+      SUN: ::String
+
+      SWA: ::String
+
+      SSW: ::String
+
+      SWE: ::String
+
+      TGL: ::String
+
+      TAH: ::String
+
+      TGK: ::String
+
+      TAM: ::String
+
+      TAT: ::String
+
+      TEL: ::String
+
+      THA: ::String
+
+      BOD: ::String
+
+      TIR: ::String
+
+      TON: ::String
+
+      TSO: ::String
+
+      TSN: ::String
+
+      TUR: ::String
+
+      TUK: ::String
+
+      TWI: ::String
+
+      UIG: ::String
+
+      UKR: ::String
+
+      UZB: ::String
+
+      VEN: ::String
+
+      VOL: ::String
+
+      WLN: ::String
+
+      CYM: ::String
+
+      FRY: ::String
+
+      WOL: ::String
+
+      XHO: ::String
+
+      YID: ::String
+
+      YOR: ::String
+
+      ZHA: ::String
+
+      ZUL: ::String
+
+      ORJ: ::String
+
+      QPC: ::String
+
+      TNG: ::String
+
+      SRP: ::String
+    end
+
+    ListJobTemplatesInput: untyped
+
+    ListJobTemplatesOutput: untyped
+
+    ListJobsInput: untyped
+
+    ListJobsOutput: untyped
+
+    ListPresetsInput: untyped
+
+    ListPresetsOutput: untyped
+
+    ListQueuesInput: untyped
+
+    ListQueuesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    module M2tsAudioBufferModel
+      DVB: ::String
+
+      ATSC: ::String
+    end
+
+    module M2tsAudioDuration
+      DEFAULT_CODEC_DURATION: ::String
+
+      MATCH_VIDEO_DURATION: ::String
+    end
+
+    module M2tsBufferModel
+      MULTIPLEX: ::String
+
+      NONE: ::String
+    end
+
+    module M2tsDataPtsControl
+      AUTO: ::String
+
+      ALIGN_TO_VIDEO: ::String
+    end
+
+    module M2tsEbpAudioInterval
+      VIDEO_AND_FIXED_INTERVALS: ::String
+
+      VIDEO_INTERVAL: ::String
+    end
+
+    module M2tsEbpPlacement
+      VIDEO_AND_AUDIO_PIDS: ::String
+
+      VIDEO_PID: ::String
+    end
+
+    module M2tsEsRateInPes
+      INCLUDE: ::String
+
+      EXCLUDE: ::String
+    end
+
+    module M2tsForceTsVideoEbpOrder
+      FORCE: ::String
+
+      DEFAULT: ::String
+    end
+
+    module M2tsKlvMetadata
+      PASSTHROUGH: ::String
+
+      NONE: ::String
+    end
+
+    module M2tsNielsenId3
+      INSERT: ::String
+
+      NONE: ::String
+    end
+
+    module M2tsPcrControl
+      PCR_EVERY_PES_PACKET: ::String
+
+      CONFIGURED_PCR_PERIOD: ::String
+    end
+
+    module M2tsRateMode
+      VBR: ::String
+
+      CBR: ::String
+    end
+
+    M2tsScte35Esam: untyped
+
+    module M2tsScte35Source
+      PASSTHROUGH: ::String
+
+      NONE: ::String
+    end
+
+    module M2tsSegmentationMarkers
+      NONE: ::String
+
+      RAI_SEGSTART: ::String
+
+      RAI_ADAPT: ::String
+
+      PSI_SEGSTART: ::String
+
+      EBP: ::String
+
+      EBP_LEGACY: ::String
+    end
+
+    module M2tsSegmentationStyle
+      MAINTAIN_CADENCE: ::String
+
+      RESET_CADENCE: ::String
+    end
+
+    M2tsSettings: untyped
+
+    module M3u8AudioDuration
+      DEFAULT_CODEC_DURATION: ::String
+
+      MATCH_VIDEO_DURATION: ::String
+    end
+
+    module M3u8DataPtsControl
+      AUTO: ::String
+
+      ALIGN_TO_VIDEO: ::String
+    end
+
+    module M3u8NielsenId3
+      INSERT: ::String
+
+      NONE: ::String
+    end
+
+    module M3u8PcrControl
+      PCR_EVERY_PES_PACKET: ::String
+
+      CONFIGURED_PCR_PERIOD: ::String
+    end
+
+    module M3u8Scte35Source
+      PASSTHROUGH: ::String
+
+      NONE: ::String
+    end
+
+    M3u8Settings: untyped
+
+    MinBottomRenditionSize: untyped
+
+    MinTopRenditionSize: untyped
+
+    MotionImageInserter: untyped
+
+    MotionImageInsertionFramerate: untyped
+
+    module MotionImageInsertionMode
+      MOV: ::String
+
+      PNG: ::String
+    end
+
+    MotionImageInsertionOffset: untyped
+
+    module MotionImagePlayback
+      ONCE: ::String
+
+      REPEAT: ::String
+    end
+
+    module MovClapAtom
+      INCLUDE: ::String
+
+      EXCLUDE: ::String
+    end
+
+    module MovCslgAtom
+      INCLUDE: ::String
+
+      EXCLUDE: ::String
+    end
+
+    module MovMpeg2FourCCControl
+      XDCAM: ::String
+
+      MPEG: ::String
+    end
+
+    module MovPaddingControl
+      OMNEON: ::String
+
+      NONE: ::String
+    end
+
+    module MovReference
+      SELF_CONTAINED: ::String
+
+      EXTERNAL: ::String
+    end
+
+    MovSettings: untyped
+
+    Mp2Settings: untyped
+
+    module Mp3RateControlMode
+      CBR: ::String
+
+      VBR: ::String
+    end
+
+    Mp3Settings: untyped
+
+    module Mp4CslgAtom
+      INCLUDE: ::String
+
+      EXCLUDE: ::String
+    end
+
+    module Mp4FreeSpaceBox
+      INCLUDE: ::String
+
+      EXCLUDE: ::String
+    end
+
+    module Mp4MoovPlacement
+      PROGRESSIVE_DOWNLOAD: ::String
+
+      NORMAL: ::String
+    end
+
+    Mp4Settings: untyped
+
+    module MpdAccessibilityCaptionHints
+      INCLUDE: ::String
+
+      EXCLUDE: ::String
+    end
+
+    module MpdAudioDuration
+      DEFAULT_CODEC_DURATION: ::String
+
+      MATCH_VIDEO_DURATION: ::String
+    end
+
+    module MpdCaptionContainerType
+      RAW: ::String
+
+      FRAGMENTED_MP4: ::String
+    end
+
+    module MpdKlvMetadata
+      NONE: ::String
+
+      PASSTHROUGH: ::String
+    end
+
+    module MpdScte35Esam
+      INSERT: ::String
+
+      NONE: ::String
+    end
+
+    module MpdScte35Source
+      PASSTHROUGH: ::String
+
+      NONE: ::String
+    end
+
+    MpdSettings: untyped
+
+    module MpdTimedMetadata
+      PASSTHROUGH: ::String
+
+      NONE: ::String
+    end
+
+    module Mpeg2AdaptiveQuantization
+      OFF: ::String
+
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+    end
+
+    module Mpeg2CodecLevel
+      AUTO: ::String
+
+      LOW: ::String
+
+      MAIN: ::String
+
+      HIGH1440: ::String
+
+      HIGH: ::String
+    end
+
+    module Mpeg2CodecProfile
+      MAIN: ::String
+
+      PROFILE_422: ::String
+    end
+
+    module Mpeg2DynamicSubGop
+      ADAPTIVE: ::String
+
+      STATIC: ::String
+    end
+
+    module Mpeg2FramerateControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module Mpeg2FramerateConversionAlgorithm
+      DUPLICATE_DROP: ::String
+
+      INTERPOLATE: ::String
+
+      FRAMEFORMER: ::String
+    end
+
+    module Mpeg2GopSizeUnits
+      FRAMES: ::String
+
+      SECONDS: ::String
+    end
+
+    module Mpeg2InterlaceMode
+      PROGRESSIVE: ::String
+
+      TOP_FIELD: ::String
+
+      BOTTOM_FIELD: ::String
+
+      FOLLOW_TOP_FIELD: ::String
+
+      FOLLOW_BOTTOM_FIELD: ::String
+    end
+
+    module Mpeg2IntraDcPrecision
+      AUTO: ::String
+
+      INTRA_DC_PRECISION_8: ::String
+
+      INTRA_DC_PRECISION_9: ::String
+
+      INTRA_DC_PRECISION_10: ::String
+
+      INTRA_DC_PRECISION_11: ::String
+    end
+
+    module Mpeg2ParControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module Mpeg2QualityTuningLevel
+      SINGLE_PASS: ::String
+
+      MULTI_PASS: ::String
+    end
+
+    module Mpeg2RateControlMode
+      VBR: ::String
+
+      CBR: ::String
+    end
+
+    module Mpeg2ScanTypeConversionMode
+      INTERLACED: ::String
+
+      INTERLACED_OPTIMIZE: ::String
+    end
+
+    module Mpeg2SceneChangeDetect
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    Mpeg2Settings: untyped
+
+    module Mpeg2SlowPal
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module Mpeg2SpatialAdaptiveQuantization
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module Mpeg2Syntax
+      DEFAULT: ::String
+
+      D_10: ::String
+    end
+
+    module Mpeg2Telecine
+      NONE: ::String
+
+      SOFT: ::String
+
+      HARD: ::String
+    end
+
+    module Mpeg2TemporalAdaptiveQuantization
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    MsSmoothAdditionalManifest: untyped
+
+    module MsSmoothAudioDeduplication
+      COMBINE_DUPLICATE_STREAMS: ::String
+
+      NONE: ::String
+    end
+
+    MsSmoothEncryptionSettings: untyped
+
+    module MsSmoothFragmentLengthControl
+      EXACT: ::String
+
+      GOP_MULTIPLE: ::String
+    end
+
+    MsSmoothGroupSettings: untyped
+
+    module MsSmoothManifestEncoding
+      UTF8: ::String
+
+      UTF16: ::String
+    end
+
+    module MxfAfdSignaling
+      NO_COPY: ::String
+
+      COPY_FROM_VIDEO: ::String
+    end
+
+    module MxfProfile
+      D_10: ::String
+
+      XDCAM: ::String
+
+      OP1A: ::String
+
+      XAVC: ::String
+    end
+
+    MxfSettings: untyped
+
+    module MxfXavcDurationMode
+      ALLOW_ANY_DURATION: ::String
+
+      DROP_FRAMES_FOR_COMPLIANCE: ::String
+    end
+
+    MxfXavcProfileSettings: untyped
+
+    NexGuardFileMarkerSettings: untyped
+
+    module NielsenActiveWatermarkProcessType
+      NAES2_AND_NW: ::String
+
+      CBET: ::String
+
+      NAES2_AND_NW_AND_CBET: ::String
+    end
+
+    NielsenConfiguration: untyped
+
+    NielsenNonLinearWatermarkSettings: untyped
+
+    module NielsenSourceWatermarkStatusType
+      CLEAN: ::String
+
+      WATERMARKED: ::String
+    end
+
+    module NielsenUniqueTicPerAudioTrackType
+      RESERVE_UNIQUE_TICS_PER_TRACK: ::String
+
+      SAME_TICS_PER_TRACK: ::String
+    end
+
+    module NoiseFilterPostTemporalSharpening
+      DISABLED: ::String
+
+      ENABLED: ::String
+
+      AUTO: ::String
+    end
+
+    module NoiseFilterPostTemporalSharpeningStrength
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+    end
+
+    NoiseReducer: untyped
+
+    module NoiseReducerFilter
+      BILATERAL: ::String
+
+      MEAN: ::String
+
+      GAUSSIAN: ::String
+
+      LANCZOS: ::String
+
+      SHARPEN: ::String
+
+      CONSERVE: ::String
+
+      SPATIAL: ::String
+
+      TEMPORAL: ::String
+    end
+
+    NoiseReducerFilterSettings: untyped
+
+    NoiseReducerSpatialFilterSettings: untyped
+
+    NoiseReducerTemporalFilterSettings: untyped
+
+    NotFoundException: untyped
+
+    OpusSettings: untyped
+
+    module Order
+      ASCENDING: ::String
+
+      DESCENDING: ::String
+    end
+
+    Output: untyped
+
+    OutputChannelMapping: untyped
+
+    OutputDetail: untyped
+
+    OutputGroup: untyped
+
+    OutputGroupDetail: untyped
+
+    OutputGroupSettings: untyped
+
+    module OutputGroupType
+      HLS_GROUP_SETTINGS: ::String
+
+      DASH_ISO_GROUP_SETTINGS: ::String
+
+      FILE_GROUP_SETTINGS: ::String
+
+      MS_SMOOTH_GROUP_SETTINGS: ::String
+
+      CMAF_GROUP_SETTINGS: ::String
+    end
+
+    module OutputSdt
+      SDT_FOLLOW: ::String
+
+      SDT_FOLLOW_IF_PRESENT: ::String
+
+      SDT_MANUAL: ::String
+
+      SDT_NONE: ::String
+    end
+
+    OutputSettings: untyped
+
+    module PadVideo
+      DISABLED: ::String
+
+      BLACK: ::String
+    end
+
+    PartnerWatermarking: untyped
+
+    Policy: untyped
+
+    Preset: untyped
+
+    module PresetListBy
+      NAME: ::String
+
+      CREATION_DATE: ::String
+
+      SYSTEM: ::String
+    end
+
+    PresetSettings: untyped
+
+    module PricingPlan
+      ON_DEMAND: ::String
+
+      RESERVED: ::String
+    end
+
+    module ProresChromaSampling
+      PRESERVE_444_SAMPLING: ::String
+
+      SUBSAMPLE_TO_422: ::String
+    end
+
+    module ProresCodecProfile
+      APPLE_PRORES_422: ::String
+
+      APPLE_PRORES_422_HQ: ::String
+
+      APPLE_PRORES_422_LT: ::String
+
+      APPLE_PRORES_422_PROXY: ::String
+
+      APPLE_PRORES_4444: ::String
+
+      APPLE_PRORES_4444_XQ: ::String
+    end
+
+    module ProresFramerateControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module ProresFramerateConversionAlgorithm
+      DUPLICATE_DROP: ::String
+
+      INTERPOLATE: ::String
+
+      FRAMEFORMER: ::String
+    end
+
+    module ProresInterlaceMode
+      PROGRESSIVE: ::String
+
+      TOP_FIELD: ::String
+
+      BOTTOM_FIELD: ::String
+
+      FOLLOW_TOP_FIELD: ::String
+
+      FOLLOW_BOTTOM_FIELD: ::String
+    end
+
+    module ProresParControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module ProresScanTypeConversionMode
+      INTERLACED: ::String
+
+      INTERLACED_OPTIMIZE: ::String
+    end
+
+    ProresSettings: untyped
+
+    module ProresSlowPal
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module ProresTelecine
+      NONE: ::String
+
+      HARD: ::String
+    end
+
+    PutPolicyInput: untyped
+
+    PutPolicyOutput: untyped
+
+    Queue: untyped
+
+    module QueueListBy
+      NAME: ::String
+
+      CREATION_DATE: ::String
+    end
+
+    module QueueStatus
+      ACTIVE: ::String
+
+      PAUSED: ::String
+    end
+
+    QueueTransition: untyped
+
+    Rectangle: untyped
+
+    RemixSettings: untyped
+
+    module RenewalType
+      AUTO_RENEW: ::String
+
+      EXPIRE: ::String
+    end
+
+    module RequiredFlag
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    ReservationPlan: untyped
+
+    ReservationPlanSettings: untyped
+
+    module ReservationPlanStatus
+      ACTIVE: ::String
+
+      EXPIRED: ::String
+    end
+
+    ResourceTags: untyped
+
+    module RespondToAfd
+      NONE: ::String
+
+      RESPOND: ::String
+
+      PASSTHROUGH: ::String
+    end
+
+    module RuleType
+      MIN_TOP_RENDITION_SIZE: ::String
+
+      MIN_BOTTOM_RENDITION_SIZE: ::String
+
+      FORCE_INCLUDE_RENDITIONS: ::String
+
+      ALLOWED_RENDITIONS: ::String
+    end
+
+    S3DestinationAccessControl: untyped
+
+    S3DestinationSettings: untyped
+
+    S3EncryptionSettings: untyped
+
+    module S3ObjectCannedAcl
+      PUBLIC_READ: ::String
+
+      AUTHENTICATED_READ: ::String
+
+      BUCKET_OWNER_READ: ::String
+
+      BUCKET_OWNER_FULL_CONTROL: ::String
+    end
+
+    module S3ServerSideEncryptionType
+      SERVER_SIDE_ENCRYPTION_S3: ::String
+
+      SERVER_SIDE_ENCRYPTION_KMS: ::String
+    end
+
+    module SampleRangeConversion
+      LIMITED_RANGE_SQUEEZE: ::String
+
+      NONE: ::String
+    end
+
+    module ScalingBehavior
+      DEFAULT: ::String
+
+      STRETCH_TO_OUTPUT: ::String
+    end
+
+    module SccDestinationFramerate
+      FRAMERATE_23_97: ::String
+
+      FRAMERATE_24: ::String
+
+      FRAMERATE_25: ::String
+
+      FRAMERATE_29_97_DROPFRAME: ::String
+
+      FRAMERATE_29_97_NON_DROPFRAME: ::String
+    end
+
+    SccDestinationSettings: untyped
+
+    module SimulateReservedQueue
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    SpekeKeyProvider: untyped
+
+    SpekeKeyProviderCmaf: untyped
+
+    SrtDestinationSettings: untyped
+
+    module SrtStylePassthrough
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    StaticKeyProvider: untyped
+
+    module StatusUpdateInterval
+      SECONDS_10: ::String
+
+      SECONDS_12: ::String
+
+      SECONDS_15: ::String
+
+      SECONDS_20: ::String
+
+      SECONDS_30: ::String
+
+      SECONDS_60: ::String
+
+      SECONDS_120: ::String
+
+      SECONDS_180: ::String
+
+      SECONDS_240: ::String
+
+      SECONDS_300: ::String
+
+      SECONDS_360: ::String
+
+      SECONDS_420: ::String
+
+      SECONDS_480: ::String
+
+      SECONDS_540: ::String
+
+      SECONDS_600: ::String
+    end
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TeletextDestinationSettings: untyped
+
+    module TeletextPageType
+      PAGE_TYPE_INITIAL: ::String
+
+      PAGE_TYPE_SUBTITLE: ::String
+
+      PAGE_TYPE_ADDL_INFO: ::String
+
+      PAGE_TYPE_PROGRAM_SCHEDULE: ::String
+
+      PAGE_TYPE_HEARING_IMPAIRED_SUBTITLE: ::String
+    end
+
+    TeletextSourceSettings: untyped
+
+    TimecodeBurnin: untyped
+
+    module TimecodeBurninPosition
+      TOP_CENTER: ::String
+
+      TOP_LEFT: ::String
+
+      TOP_RIGHT: ::String
+
+      MIDDLE_LEFT: ::String
+
+      MIDDLE_CENTER: ::String
+
+      MIDDLE_RIGHT: ::String
+
+      BOTTOM_LEFT: ::String
+
+      BOTTOM_CENTER: ::String
+
+      BOTTOM_RIGHT: ::String
+    end
+
+    TimecodeConfig: untyped
+
+    module TimecodeSource
+      EMBEDDED: ::String
+
+      ZEROBASED: ::String
+
+      SPECIFIEDSTART: ::String
+    end
+
+    module TimedMetadata
+      PASSTHROUGH: ::String
+
+      NONE: ::String
+    end
+
+    TimedMetadataInsertion: untyped
+
+    Timing: untyped
+
+    TooManyRequestsException: untyped
+
+    TrackSourceSettings: untyped
+
+    TtmlDestinationSettings: untyped
+
+    module TtmlStylePassthrough
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module Type
+      SYSTEM: ::String
+
+      CUSTOM: ::String
+    end
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateJobTemplateInput: untyped
+
+    UpdateJobTemplateOutput: untyped
+
+    UpdatePresetInput: untyped
+
+    UpdatePresetOutput: untyped
+
+    UpdateQueueInput: untyped
+
+    UpdateQueueOutput: untyped
+
+    module Vc3Class
+      CLASS_145_8BIT: ::String
+
+      CLASS_220_8BIT: ::String
+
+      CLASS_220_10BIT: ::String
+    end
+
+    module Vc3FramerateControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module Vc3FramerateConversionAlgorithm
+      DUPLICATE_DROP: ::String
+
+      INTERPOLATE: ::String
+
+      FRAMEFORMER: ::String
+    end
+
+    module Vc3InterlaceMode
+      INTERLACED: ::String
+
+      PROGRESSIVE: ::String
+    end
+
+    module Vc3ScanTypeConversionMode
+      INTERLACED: ::String
+
+      INTERLACED_OPTIMIZE: ::String
+    end
+
+    Vc3Settings: untyped
+
+    module Vc3SlowPal
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module Vc3Telecine
+      NONE: ::String
+
+      HARD: ::String
+    end
+
+    module VchipAction
+      PASSTHROUGH: ::String
+
+      STRIP: ::String
+    end
+
+    module VideoCodec
+      AV1: ::String
+
+      AVC_INTRA: ::String
+
+      FRAME_CAPTURE: ::String
+
+      H_264: ::String
+
+      H_265: ::String
+
+      MPEG2: ::String
+
+      PRORES: ::String
+
+      VC3: ::String
+
+      VP8: ::String
+
+      VP9: ::String
+
+      XAVC: ::String
+    end
+
+    VideoCodecSettings: untyped
+
+    VideoDescription: untyped
+
+    VideoDetail: untyped
+
+    VideoPreprocessor: untyped
+
+    VideoSelector: untyped
+
+    module VideoTimecodeInsertion
+      DISABLED: ::String
+
+      PIC_TIMING_SEI: ::String
+    end
+
+    VorbisSettings: untyped
+
+    module Vp8FramerateControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module Vp8FramerateConversionAlgorithm
+      DUPLICATE_DROP: ::String
+
+      INTERPOLATE: ::String
+
+      FRAMEFORMER: ::String
+    end
+
+    module Vp8ParControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module Vp8QualityTuningLevel
+      MULTI_PASS: ::String
+
+      MULTI_PASS_HQ: ::String
+    end
+
+    module Vp8RateControlMode
+      VBR: ::String
+    end
+
+    Vp8Settings: untyped
+
+    module Vp9FramerateControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module Vp9FramerateConversionAlgorithm
+      DUPLICATE_DROP: ::String
+
+      INTERPOLATE: ::String
+
+      FRAMEFORMER: ::String
+    end
+
+    module Vp9ParControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module Vp9QualityTuningLevel
+      MULTI_PASS: ::String
+
+      MULTI_PASS_HQ: ::String
+    end
+
+    module Vp9RateControlMode
+      VBR: ::String
+    end
+
+    Vp9Settings: untyped
+
+    module WatermarkingStrength
+      LIGHTEST: ::String
+
+      LIGHTER: ::String
+
+      DEFAULT: ::String
+
+      STRONGER: ::String
+
+      STRONGEST: ::String
+    end
+
+    module WavFormat
+      RIFF: ::String
+
+      RF64: ::String
+    end
+
+    WavSettings: untyped
+
+    module WebvttAccessibilitySubs
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    WebvttDestinationSettings: untyped
+
+    WebvttHlsSourceSettings: untyped
+
+    module WebvttStylePassthrough
+      ENABLED: ::String
+
+      DISABLED: ::String
+
+      STRICT: ::String
+    end
+
+    module Xavc4kIntraCbgProfileClass
+      CLASS_100: ::String
+
+      CLASS_300: ::String
+
+      CLASS_480: ::String
+    end
+
+    Xavc4kIntraCbgProfileSettings: untyped
+
+    module Xavc4kIntraVbrProfileClass
+      CLASS_100: ::String
+
+      CLASS_300: ::String
+
+      CLASS_480: ::String
+    end
+
+    Xavc4kIntraVbrProfileSettings: untyped
+
+    module Xavc4kProfileBitrateClass
+      BITRATE_CLASS_100: ::String
+
+      BITRATE_CLASS_140: ::String
+
+      BITRATE_CLASS_200: ::String
+    end
+
+    module Xavc4kProfileCodecProfile
+      HIGH: ::String
+
+      HIGH_422: ::String
+    end
+
+    module Xavc4kProfileQualityTuningLevel
+      SINGLE_PASS: ::String
+
+      SINGLE_PASS_HQ: ::String
+
+      MULTI_PASS_HQ: ::String
+    end
+
+    Xavc4kProfileSettings: untyped
+
+    module XavcAdaptiveQuantization
+      OFF: ::String
+
+      AUTO: ::String
+
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+
+      HIGHER: ::String
+
+      MAX: ::String
+    end
+
+    module XavcEntropyEncoding
+      AUTO: ::String
+
+      CABAC: ::String
+
+      CAVLC: ::String
+    end
+
+    module XavcFlickerAdaptiveQuantization
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module XavcFramerateControl
+      INITIALIZE_FROM_SOURCE: ::String
+
+      SPECIFIED: ::String
+    end
+
+    module XavcFramerateConversionAlgorithm
+      DUPLICATE_DROP: ::String
+
+      INTERPOLATE: ::String
+
+      FRAMEFORMER: ::String
+    end
+
+    module XavcGopBReference
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module XavcHdIntraCbgProfileClass
+      CLASS_50: ::String
+
+      CLASS_100: ::String
+
+      CLASS_200: ::String
+    end
+
+    XavcHdIntraCbgProfileSettings: untyped
+
+    module XavcHdProfileBitrateClass
+      BITRATE_CLASS_25: ::String
+
+      BITRATE_CLASS_35: ::String
+
+      BITRATE_CLASS_50: ::String
+    end
+
+    module XavcHdProfileQualityTuningLevel
+      SINGLE_PASS: ::String
+
+      SINGLE_PASS_HQ: ::String
+
+      MULTI_PASS_HQ: ::String
+    end
+
+    XavcHdProfileSettings: untyped
+
+    module XavcHdProfileTelecine
+      NONE: ::String
+
+      HARD: ::String
+    end
+
+    module XavcInterlaceMode
+      PROGRESSIVE: ::String
+
+      TOP_FIELD: ::String
+
+      BOTTOM_FIELD: ::String
+
+      FOLLOW_TOP_FIELD: ::String
+
+      FOLLOW_BOTTOM_FIELD: ::String
+    end
+
+    module XavcProfile
+      XAVC_HD_INTRA_CBG: ::String
+
+      XAVC_4K_INTRA_CBG: ::String
+
+      XAVC_4K_INTRA_VBR: ::String
+
+      XAVC_HD: ::String
+
+      XAVC_4K: ::String
+    end
+
+    XavcSettings: untyped
+
+    module XavcSlowPal
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module XavcSpatialAdaptiveQuantization
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module XavcTemporalAdaptiveQuantization
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+  end
+end

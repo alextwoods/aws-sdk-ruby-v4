@@ -1,0 +1,2078 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::IoT
+  module Types
+
+    module AbortAction
+      CANCEL: ::String
+    end
+
+    AbortConfig: untyped
+
+    AbortCriteria: untyped
+
+    AcceptCertificateTransferInput: untyped
+
+    AcceptCertificateTransferOutput: untyped
+
+    Action: untyped
+
+    module ActionType
+      PUBLISH: ::String
+
+      SUBSCRIBE: ::String
+
+      RECEIVE: ::String
+
+      CONNECT: ::String
+    end
+
+    ActiveViolation: untyped
+
+    AddThingToBillingGroupInput: untyped
+
+    AddThingToBillingGroupOutput: untyped
+
+    AddThingToThingGroupInput: untyped
+
+    AddThingToThingGroupOutput: untyped
+
+    AddThingsToThingGroupParams: untyped
+
+    AggregationType: untyped
+
+    module AggregationTypeName
+      STATISTICS: ::String
+
+      PERCENTILES: ::String
+
+      CARDINALITY: ::String
+    end
+
+    AlertTarget: untyped
+
+    module AlertTargetType
+      SNS: ::String
+    end
+
+    Allowed: untyped
+
+    AssetPropertyTimestamp: untyped
+
+    AssetPropertyValue: untyped
+
+    class AssetPropertyVariant < Hearth::Union
+      class StringValue < AssetPropertyVariant
+        def to_h: () -> { string_value: Hash[Symbol,AssetPropertyVariant] }
+      end
+
+      class IntegerValue < AssetPropertyVariant
+        def to_h: () -> { integer_value: Hash[Symbol,AssetPropertyVariant] }
+      end
+
+      class DoubleValue < AssetPropertyVariant
+        def to_h: () -> { double_value: Hash[Symbol,AssetPropertyVariant] }
+      end
+
+      class BooleanValue < AssetPropertyVariant
+        def to_h: () -> { boolean_value: Hash[Symbol,AssetPropertyVariant] }
+      end
+
+      class Unknown < AssetPropertyVariant
+        def to_h: () -> { unknown: Hash[Symbol,AssetPropertyVariant] }
+      end
+    end
+
+    AssociateTargetsWithJobInput: untyped
+
+    AssociateTargetsWithJobOutput: untyped
+
+    AttachPolicyInput: untyped
+
+    AttachPolicyOutput: untyped
+
+    AttachPrincipalPolicyInput: untyped
+
+    AttachPrincipalPolicyOutput: untyped
+
+    AttachSecurityProfileInput: untyped
+
+    AttachSecurityProfileOutput: untyped
+
+    AttachThingPrincipalInput: untyped
+
+    AttachThingPrincipalOutput: untyped
+
+    AttributePayload: untyped
+
+    AuditCheckConfiguration: untyped
+
+    AuditCheckDetails: untyped
+
+    module AuditCheckRunStatus
+      IN_PROGRESS: ::String
+
+      WAITING_FOR_DATA_COLLECTION: ::String
+
+      CANCELED: ::String
+
+      COMPLETED_COMPLIANT: ::String
+
+      COMPLETED_NON_COMPLIANT: ::String
+
+      FAILED: ::String
+    end
+
+    AuditFinding: untyped
+
+    module AuditFindingSeverity
+      CRITICAL: ::String
+
+      HIGH: ::String
+
+      MEDIUM: ::String
+
+      LOW: ::String
+    end
+
+    module AuditFrequency
+      DAILY: ::String
+
+      WEEKLY: ::String
+
+      BIWEEKLY: ::String
+
+      MONTHLY: ::String
+    end
+
+    AuditMitigationActionExecutionMetadata: untyped
+
+    module AuditMitigationActionsExecutionStatus
+      IN_PROGRESS: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+
+      CANCELED: ::String
+
+      SKIPPED: ::String
+
+      PENDING: ::String
+    end
+
+    AuditMitigationActionsTaskMetadata: untyped
+
+    module AuditMitigationActionsTaskStatus
+      IN_PROGRESS: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+
+      CANCELED: ::String
+    end
+
+    AuditMitigationActionsTaskTarget: untyped
+
+    AuditNotificationTarget: untyped
+
+    module AuditNotificationType
+      SNS: ::String
+    end
+
+    AuditSuppression: untyped
+
+    AuditTaskMetadata: untyped
+
+    module AuditTaskStatus
+      IN_PROGRESS: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+
+      CANCELED: ::String
+    end
+
+    module AuditTaskType
+      ON_DEMAND_AUDIT_TASK: ::String
+
+      SCHEDULED_AUDIT_TASK: ::String
+    end
+
+    module AuthDecision
+      ALLOWED: ::String
+
+      EXPLICIT_DENY: ::String
+
+      IMPLICIT_DENY: ::String
+    end
+
+    AuthInfo: untyped
+
+    AuthResult: untyped
+
+    AuthorizerConfig: untyped
+
+    AuthorizerDescription: untyped
+
+    module AuthorizerStatus
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+    end
+
+    AuthorizerSummary: untyped
+
+    module AutoRegistrationStatus
+      ENABLE: ::String
+
+      DISABLE: ::String
+    end
+
+    AwsJobAbortConfig: untyped
+
+    AwsJobAbortCriteria: untyped
+
+    module AwsJobAbortCriteriaAbortAction
+      CANCEL: ::String
+    end
+
+    module AwsJobAbortCriteriaFailureType
+      FAILED: ::String
+
+      REJECTED: ::String
+
+      TIMED_OUT: ::String
+
+      ALL: ::String
+    end
+
+    AwsJobExecutionsRolloutConfig: untyped
+
+    AwsJobExponentialRolloutRate: untyped
+
+    AwsJobPresignedUrlConfig: untyped
+
+    AwsJobRateIncreaseCriteria: untyped
+
+    AwsJobTimeoutConfig: untyped
+
+    Behavior: untyped
+
+    BehaviorCriteria: untyped
+
+    module BehaviorCriteriaType
+      STATIC: ::String
+
+      STATISTICAL: ::String
+
+      MACHINE_LEARNING: ::String
+    end
+
+    BehaviorModelTrainingSummary: untyped
+
+    BillingGroupMetadata: untyped
+
+    BillingGroupProperties: untyped
+
+    Bucket: untyped
+
+    BucketsAggregationType: untyped
+
+    CACertificate: untyped
+
+    CACertificateDescription: untyped
+
+    module CACertificateStatus
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+    end
+
+    module CACertificateUpdateAction
+      DEACTIVATE: ::String
+    end
+
+    CancelAuditMitigationActionsTaskInput: untyped
+
+    CancelAuditMitigationActionsTaskOutput: untyped
+
+    CancelAuditTaskInput: untyped
+
+    CancelAuditTaskOutput: untyped
+
+    CancelCertificateTransferInput: untyped
+
+    CancelCertificateTransferOutput: untyped
+
+    CancelDetectMitigationActionsTaskInput: untyped
+
+    CancelDetectMitigationActionsTaskOutput: untyped
+
+    CancelJobExecutionInput: untyped
+
+    CancelJobExecutionOutput: untyped
+
+    CancelJobInput: untyped
+
+    CancelJobOutput: untyped
+
+    module CannedAccessControlList
+      Private: ::String
+
+      PublicRead: ::String
+
+      PublicReadWrite: ::String
+
+      AwsExecRead: ::String
+
+      AuthenticatedRead: ::String
+
+      BucketOwnerRead: ::String
+
+      BucketOwnerFullControl: ::String
+
+      LogDeliveryWrite: ::String
+    end
+
+    Certificate: untyped
+
+    CertificateConflictException: untyped
+
+    CertificateDescription: untyped
+
+    module CertificateMode
+      DEFAULT: ::String
+
+      SNI_ONLY: ::String
+    end
+
+    CertificateStateException: untyped
+
+    module CertificateStatus
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+
+      REVOKED: ::String
+
+      PENDING_TRANSFER: ::String
+
+      REGISTER_INACTIVE: ::String
+
+      PENDING_ACTIVATION: ::String
+    end
+
+    CertificateValidationException: untyped
+
+    CertificateValidity: untyped
+
+    ClearDefaultAuthorizerInput: untyped
+
+    ClearDefaultAuthorizerOutput: untyped
+
+    CloudwatchAlarmAction: untyped
+
+    CloudwatchLogsAction: untyped
+
+    CloudwatchMetricAction: untyped
+
+    CodeSigning: untyped
+
+    CodeSigningCertificateChain: untyped
+
+    CodeSigningSignature: untyped
+
+    module ComparisonOperator
+      LESS_THAN: ::String
+
+      LESS_THAN_EQUALS: ::String
+
+      GREATER_THAN: ::String
+
+      GREATER_THAN_EQUALS: ::String
+
+      IN_CIDR_SET: ::String
+
+      NOT_IN_CIDR_SET: ::String
+
+      IN_PORT_SET: ::String
+
+      NOT_IN_PORT_SET: ::String
+
+      IN_SET: ::String
+
+      NOT_IN_SET: ::String
+    end
+
+    module ConfidenceLevel
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+    end
+
+    Configuration: untyped
+
+    ConfirmTopicRuleDestinationInput: untyped
+
+    ConfirmTopicRuleDestinationOutput: untyped
+
+    ConflictException: untyped
+
+    ConflictingResourceUpdateException: untyped
+
+    CreateAuditSuppressionInput: untyped
+
+    CreateAuditSuppressionOutput: untyped
+
+    CreateAuthorizerInput: untyped
+
+    CreateAuthorizerOutput: untyped
+
+    CreateBillingGroupInput: untyped
+
+    CreateBillingGroupOutput: untyped
+
+    CreateCertificateFromCsrInput: untyped
+
+    CreateCertificateFromCsrOutput: untyped
+
+    CreateCustomMetricInput: untyped
+
+    CreateCustomMetricOutput: untyped
+
+    CreateDimensionInput: untyped
+
+    CreateDimensionOutput: untyped
+
+    CreateDomainConfigurationInput: untyped
+
+    CreateDomainConfigurationOutput: untyped
+
+    CreateDynamicThingGroupInput: untyped
+
+    CreateDynamicThingGroupOutput: untyped
+
+    CreateFleetMetricInput: untyped
+
+    CreateFleetMetricOutput: untyped
+
+    CreateJobInput: untyped
+
+    CreateJobOutput: untyped
+
+    CreateJobTemplateInput: untyped
+
+    CreateJobTemplateOutput: untyped
+
+    CreateKeysAndCertificateInput: untyped
+
+    CreateKeysAndCertificateOutput: untyped
+
+    CreateMitigationActionInput: untyped
+
+    CreateMitigationActionOutput: untyped
+
+    CreateOTAUpdateInput: untyped
+
+    CreateOTAUpdateOutput: untyped
+
+    CreatePolicyInput: untyped
+
+    CreatePolicyOutput: untyped
+
+    CreatePolicyVersionInput: untyped
+
+    CreatePolicyVersionOutput: untyped
+
+    CreateProvisioningClaimInput: untyped
+
+    CreateProvisioningClaimOutput: untyped
+
+    CreateProvisioningTemplateInput: untyped
+
+    CreateProvisioningTemplateOutput: untyped
+
+    CreateProvisioningTemplateVersionInput: untyped
+
+    CreateProvisioningTemplateVersionOutput: untyped
+
+    CreateRoleAliasInput: untyped
+
+    CreateRoleAliasOutput: untyped
+
+    CreateScheduledAuditInput: untyped
+
+    CreateScheduledAuditOutput: untyped
+
+    CreateSecurityProfileInput: untyped
+
+    CreateSecurityProfileOutput: untyped
+
+    CreateStreamInput: untyped
+
+    CreateStreamOutput: untyped
+
+    CreateThingGroupInput: untyped
+
+    CreateThingGroupOutput: untyped
+
+    CreateThingInput: untyped
+
+    CreateThingOutput: untyped
+
+    CreateThingTypeInput: untyped
+
+    CreateThingTypeOutput: untyped
+
+    CreateTopicRuleDestinationInput: untyped
+
+    CreateTopicRuleDestinationOutput: untyped
+
+    CreateTopicRuleInput: untyped
+
+    CreateTopicRuleOutput: untyped
+
+    CustomCodeSigning: untyped
+
+    module CustomMetricType
+      STRING_LIST: ::String
+
+      IP_ADDRESS_LIST: ::String
+
+      NUMBER_LIST: ::String
+
+      NUMBER: ::String
+    end
+
+    module DayOfWeek
+      SUN: ::String
+
+      MON: ::String
+
+      TUE: ::String
+
+      WED: ::String
+
+      THU: ::String
+
+      FRI: ::String
+
+      SAT: ::String
+    end
+
+    DeleteAccountAuditConfigurationInput: untyped
+
+    DeleteAccountAuditConfigurationOutput: untyped
+
+    DeleteAuditSuppressionInput: untyped
+
+    DeleteAuditSuppressionOutput: untyped
+
+    DeleteAuthorizerInput: untyped
+
+    DeleteAuthorizerOutput: untyped
+
+    DeleteBillingGroupInput: untyped
+
+    DeleteBillingGroupOutput: untyped
+
+    DeleteCACertificateInput: untyped
+
+    DeleteCACertificateOutput: untyped
+
+    DeleteCertificateInput: untyped
+
+    DeleteCertificateOutput: untyped
+
+    DeleteConflictException: untyped
+
+    DeleteCustomMetricInput: untyped
+
+    DeleteCustomMetricOutput: untyped
+
+    DeleteDimensionInput: untyped
+
+    DeleteDimensionOutput: untyped
+
+    DeleteDomainConfigurationInput: untyped
+
+    DeleteDomainConfigurationOutput: untyped
+
+    DeleteDynamicThingGroupInput: untyped
+
+    DeleteDynamicThingGroupOutput: untyped
+
+    DeleteFleetMetricInput: untyped
+
+    DeleteFleetMetricOutput: untyped
+
+    DeleteJobExecutionInput: untyped
+
+    DeleteJobExecutionOutput: untyped
+
+    DeleteJobInput: untyped
+
+    DeleteJobOutput: untyped
+
+    DeleteJobTemplateInput: untyped
+
+    DeleteJobTemplateOutput: untyped
+
+    DeleteMitigationActionInput: untyped
+
+    DeleteMitigationActionOutput: untyped
+
+    DeleteOTAUpdateInput: untyped
+
+    DeleteOTAUpdateOutput: untyped
+
+    DeletePolicyInput: untyped
+
+    DeletePolicyOutput: untyped
+
+    DeletePolicyVersionInput: untyped
+
+    DeletePolicyVersionOutput: untyped
+
+    DeleteProvisioningTemplateInput: untyped
+
+    DeleteProvisioningTemplateOutput: untyped
+
+    DeleteProvisioningTemplateVersionInput: untyped
+
+    DeleteProvisioningTemplateVersionOutput: untyped
+
+    DeleteRegistrationCodeInput: untyped
+
+    DeleteRegistrationCodeOutput: untyped
+
+    DeleteRoleAliasInput: untyped
+
+    DeleteRoleAliasOutput: untyped
+
+    DeleteScheduledAuditInput: untyped
+
+    DeleteScheduledAuditOutput: untyped
+
+    DeleteSecurityProfileInput: untyped
+
+    DeleteSecurityProfileOutput: untyped
+
+    DeleteStreamInput: untyped
+
+    DeleteStreamOutput: untyped
+
+    DeleteThingGroupInput: untyped
+
+    DeleteThingGroupOutput: untyped
+
+    DeleteThingInput: untyped
+
+    DeleteThingOutput: untyped
+
+    DeleteThingTypeInput: untyped
+
+    DeleteThingTypeOutput: untyped
+
+    DeleteTopicRuleDestinationInput: untyped
+
+    DeleteTopicRuleDestinationOutput: untyped
+
+    DeleteTopicRuleInput: untyped
+
+    DeleteTopicRuleOutput: untyped
+
+    DeleteV2LoggingLevelInput: untyped
+
+    DeleteV2LoggingLevelOutput: untyped
+
+    Denied: untyped
+
+    DeprecateThingTypeInput: untyped
+
+    DeprecateThingTypeOutput: untyped
+
+    DescribeAccountAuditConfigurationInput: untyped
+
+    DescribeAccountAuditConfigurationOutput: untyped
+
+    DescribeAuditFindingInput: untyped
+
+    DescribeAuditFindingOutput: untyped
+
+    DescribeAuditMitigationActionsTaskInput: untyped
+
+    DescribeAuditMitigationActionsTaskOutput: untyped
+
+    DescribeAuditSuppressionInput: untyped
+
+    DescribeAuditSuppressionOutput: untyped
+
+    DescribeAuditTaskInput: untyped
+
+    DescribeAuditTaskOutput: untyped
+
+    DescribeAuthorizerInput: untyped
+
+    DescribeAuthorizerOutput: untyped
+
+    DescribeBillingGroupInput: untyped
+
+    DescribeBillingGroupOutput: untyped
+
+    DescribeCACertificateInput: untyped
+
+    DescribeCACertificateOutput: untyped
+
+    DescribeCertificateInput: untyped
+
+    DescribeCertificateOutput: untyped
+
+    DescribeCustomMetricInput: untyped
+
+    DescribeCustomMetricOutput: untyped
+
+    DescribeDefaultAuthorizerInput: untyped
+
+    DescribeDefaultAuthorizerOutput: untyped
+
+    DescribeDetectMitigationActionsTaskInput: untyped
+
+    DescribeDetectMitigationActionsTaskOutput: untyped
+
+    DescribeDimensionInput: untyped
+
+    DescribeDimensionOutput: untyped
+
+    DescribeDomainConfigurationInput: untyped
+
+    DescribeDomainConfigurationOutput: untyped
+
+    DescribeEndpointInput: untyped
+
+    DescribeEndpointOutput: untyped
+
+    DescribeEventConfigurationsInput: untyped
+
+    DescribeEventConfigurationsOutput: untyped
+
+    DescribeFleetMetricInput: untyped
+
+    DescribeFleetMetricOutput: untyped
+
+    DescribeIndexInput: untyped
+
+    DescribeIndexOutput: untyped
+
+    DescribeJobExecutionInput: untyped
+
+    DescribeJobExecutionOutput: untyped
+
+    DescribeJobInput: untyped
+
+    DescribeJobOutput: untyped
+
+    DescribeJobTemplateInput: untyped
+
+    DescribeJobTemplateOutput: untyped
+
+    DescribeManagedJobTemplateInput: untyped
+
+    DescribeManagedJobTemplateOutput: untyped
+
+    DescribeMitigationActionInput: untyped
+
+    DescribeMitigationActionOutput: untyped
+
+    DescribeProvisioningTemplateInput: untyped
+
+    DescribeProvisioningTemplateOutput: untyped
+
+    DescribeProvisioningTemplateVersionInput: untyped
+
+    DescribeProvisioningTemplateVersionOutput: untyped
+
+    DescribeRoleAliasInput: untyped
+
+    DescribeRoleAliasOutput: untyped
+
+    DescribeScheduledAuditInput: untyped
+
+    DescribeScheduledAuditOutput: untyped
+
+    DescribeSecurityProfileInput: untyped
+
+    DescribeSecurityProfileOutput: untyped
+
+    DescribeStreamInput: untyped
+
+    DescribeStreamOutput: untyped
+
+    DescribeThingGroupInput: untyped
+
+    DescribeThingGroupOutput: untyped
+
+    DescribeThingInput: untyped
+
+    DescribeThingOutput: untyped
+
+    DescribeThingRegistrationTaskInput: untyped
+
+    DescribeThingRegistrationTaskOutput: untyped
+
+    DescribeThingTypeInput: untyped
+
+    DescribeThingTypeOutput: untyped
+
+    Destination: untyped
+
+    DetachPolicyInput: untyped
+
+    DetachPolicyOutput: untyped
+
+    DetachPrincipalPolicyInput: untyped
+
+    DetachPrincipalPolicyOutput: untyped
+
+    DetachSecurityProfileInput: untyped
+
+    DetachSecurityProfileOutput: untyped
+
+    DetachThingPrincipalInput: untyped
+
+    DetachThingPrincipalOutput: untyped
+
+    DetectMitigationActionExecution: untyped
+
+    module DetectMitigationActionExecutionStatus
+      IN_PROGRESS: ::String
+
+      SUCCESSFUL: ::String
+
+      FAILED: ::String
+
+      SKIPPED: ::String
+    end
+
+    DetectMitigationActionsTaskStatistics: untyped
+
+    module DetectMitigationActionsTaskStatus
+      IN_PROGRESS: ::String
+
+      SUCCESSFUL: ::String
+
+      FAILED: ::String
+
+      CANCELED: ::String
+    end
+
+    DetectMitigationActionsTaskSummary: untyped
+
+    DetectMitigationActionsTaskTarget: untyped
+
+    module DeviceCertificateUpdateAction
+      DEACTIVATE: ::String
+    end
+
+    module DeviceDefenderIndexingMode
+      OFF: ::String
+
+      VIOLATIONS: ::String
+    end
+
+    module DimensionType
+      TOPIC_FILTER: ::String
+    end
+
+    module DimensionValueOperator
+      IN: ::String
+
+      NOT_IN: ::String
+    end
+
+    DisableTopicRuleInput: untyped
+
+    DisableTopicRuleOutput: untyped
+
+    DocumentParameter: untyped
+
+    module DomainConfigurationStatus
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    DomainConfigurationSummary: untyped
+
+    module DomainType
+      ENDPOINT: ::String
+
+      AWS_MANAGED: ::String
+
+      CUSTOMER_MANAGED: ::String
+    end
+
+    module DynamicGroupStatus
+      ACTIVE: ::String
+
+      BUILDING: ::String
+
+      REBUILDING: ::String
+    end
+
+    DynamoDBAction: untyped
+
+    DynamoDBv2Action: untyped
+
+    module DynamoKeyType
+      STRING: ::String
+
+      NUMBER: ::String
+    end
+
+    EffectivePolicy: untyped
+
+    ElasticsearchAction: untyped
+
+    EnableIoTLoggingParams: untyped
+
+    EnableTopicRuleInput: untyped
+
+    EnableTopicRuleOutput: untyped
+
+    ErrorInfo: untyped
+
+    module EventType
+      THING: ::String
+
+      THING_GROUP: ::String
+
+      THING_TYPE: ::String
+
+      THING_GROUP_MEMBERSHIP: ::String
+
+      THING_GROUP_HIERARCHY: ::String
+
+      THING_TYPE_ASSOCIATION: ::String
+
+      JOB: ::String
+
+      JOB_EXECUTION: ::String
+
+      POLICY: ::String
+
+      CERTIFICATE: ::String
+
+      CA_CERTIFICATE: ::String
+    end
+
+    ExplicitDeny: untyped
+
+    ExponentialRolloutRate: untyped
+
+    Field: untyped
+
+    module FieldType
+      NUMBER: ::String
+
+      STRING: ::String
+
+      BOOLEAN: ::String
+    end
+
+    FileLocation: untyped
+
+    FirehoseAction: untyped
+
+    FleetMetricNameAndArn: untyped
+
+    module FleetMetricUnit
+      Seconds: ::String
+
+      Microseconds: ::String
+
+      Milliseconds: ::String
+
+      Bytes: ::String
+
+      Kilobytes: ::String
+
+      Megabytes: ::String
+
+      Gigabytes: ::String
+
+      Terabytes: ::String
+
+      Bits: ::String
+
+      Kilobits: ::String
+
+      Megabits: ::String
+
+      Gigabits: ::String
+
+      Terabits: ::String
+
+      Percent: ::String
+
+      Count: ::String
+
+      BytesSecond: ::String
+
+      KilobytesSecond: ::String
+
+      MegabytesSecond: ::String
+
+      GigabytesSecond: ::String
+
+      TerabytesSecond: ::String
+
+      BitsSecond: ::String
+
+      KilobitsSecond: ::String
+
+      MegabitsSecond: ::String
+
+      GigabitsSecond: ::String
+
+      TerabitsSecond: ::String
+
+      CountSecond: ::String
+
+      None: ::String
+    end
+
+    GetBehaviorModelTrainingSummariesInput: untyped
+
+    GetBehaviorModelTrainingSummariesOutput: untyped
+
+    GetBucketsAggregationInput: untyped
+
+    GetBucketsAggregationOutput: untyped
+
+    GetCardinalityInput: untyped
+
+    GetCardinalityOutput: untyped
+
+    GetEffectivePoliciesInput: untyped
+
+    GetEffectivePoliciesOutput: untyped
+
+    GetIndexingConfigurationInput: untyped
+
+    GetIndexingConfigurationOutput: untyped
+
+    GetJobDocumentInput: untyped
+
+    GetJobDocumentOutput: untyped
+
+    GetLoggingOptionsInput: untyped
+
+    GetLoggingOptionsOutput: untyped
+
+    GetOTAUpdateInput: untyped
+
+    GetOTAUpdateOutput: untyped
+
+    GetPercentilesInput: untyped
+
+    GetPercentilesOutput: untyped
+
+    GetPolicyInput: untyped
+
+    GetPolicyOutput: untyped
+
+    GetPolicyVersionInput: untyped
+
+    GetPolicyVersionOutput: untyped
+
+    GetRegistrationCodeInput: untyped
+
+    GetRegistrationCodeOutput: untyped
+
+    GetStatisticsInput: untyped
+
+    GetStatisticsOutput: untyped
+
+    GetTopicRuleDestinationInput: untyped
+
+    GetTopicRuleDestinationOutput: untyped
+
+    GetTopicRuleInput: untyped
+
+    GetTopicRuleOutput: untyped
+
+    GetV2LoggingOptionsInput: untyped
+
+    GetV2LoggingOptionsOutput: untyped
+
+    GroupNameAndArn: untyped
+
+    HttpAction: untyped
+
+    HttpActionHeader: untyped
+
+    HttpAuthorization: untyped
+
+    HttpContext: untyped
+
+    HttpUrlDestinationConfiguration: untyped
+
+    HttpUrlDestinationProperties: untyped
+
+    HttpUrlDestinationSummary: untyped
+
+    ImplicitDeny: untyped
+
+    IndexNotReadyException: untyped
+
+    module IndexStatus
+      ACTIVE: ::String
+
+      BUILDING: ::String
+
+      REBUILDING: ::String
+    end
+
+    InternalException: untyped
+
+    InternalFailureException: untyped
+
+    InternalServerException: untyped
+
+    InvalidAggregationException: untyped
+
+    InvalidQueryException: untyped
+
+    InvalidRequestException: untyped
+
+    InvalidResponseException: untyped
+
+    InvalidStateTransitionException: untyped
+
+    IotAnalyticsAction: untyped
+
+    IotEventsAction: untyped
+
+    IotSiteWiseAction: untyped
+
+    Job: untyped
+
+    JobExecution: untyped
+
+    module JobExecutionFailureType
+      FAILED: ::String
+
+      REJECTED: ::String
+
+      TIMED_OUT: ::String
+
+      ALL: ::String
+    end
+
+    module JobExecutionStatus
+      QUEUED: ::String
+
+      IN_PROGRESS: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      TIMED_OUT: ::String
+
+      REJECTED: ::String
+
+      REMOVED: ::String
+
+      CANCELED: ::String
+    end
+
+    JobExecutionStatusDetails: untyped
+
+    JobExecutionSummary: untyped
+
+    JobExecutionSummaryForJob: untyped
+
+    JobExecutionSummaryForThing: untyped
+
+    JobExecutionsRetryConfig: untyped
+
+    JobExecutionsRolloutConfig: untyped
+
+    JobProcessDetails: untyped
+
+    module JobStatus
+      IN_PROGRESS: ::String
+
+      CANCELED: ::String
+
+      COMPLETED: ::String
+
+      DELETION_IN_PROGRESS: ::String
+    end
+
+    JobSummary: untyped
+
+    JobTemplateSummary: untyped
+
+    KafkaAction: untyped
+
+    KeyPair: untyped
+
+    KinesisAction: untyped
+
+    LambdaAction: untyped
+
+    LimitExceededException: untyped
+
+    ListActiveViolationsInput: untyped
+
+    ListActiveViolationsOutput: untyped
+
+    ListAttachedPoliciesInput: untyped
+
+    ListAttachedPoliciesOutput: untyped
+
+    ListAuditFindingsInput: untyped
+
+    ListAuditFindingsOutput: untyped
+
+    ListAuditMitigationActionsExecutionsInput: untyped
+
+    ListAuditMitigationActionsExecutionsOutput: untyped
+
+    ListAuditMitigationActionsTasksInput: untyped
+
+    ListAuditMitigationActionsTasksOutput: untyped
+
+    ListAuditSuppressionsInput: untyped
+
+    ListAuditSuppressionsOutput: untyped
+
+    ListAuditTasksInput: untyped
+
+    ListAuditTasksOutput: untyped
+
+    ListAuthorizersInput: untyped
+
+    ListAuthorizersOutput: untyped
+
+    ListBillingGroupsInput: untyped
+
+    ListBillingGroupsOutput: untyped
+
+    ListCACertificatesInput: untyped
+
+    ListCACertificatesOutput: untyped
+
+    ListCertificatesByCAInput: untyped
+
+    ListCertificatesByCAOutput: untyped
+
+    ListCertificatesInput: untyped
+
+    ListCertificatesOutput: untyped
+
+    ListCustomMetricsInput: untyped
+
+    ListCustomMetricsOutput: untyped
+
+    ListDetectMitigationActionsExecutionsInput: untyped
+
+    ListDetectMitigationActionsExecutionsOutput: untyped
+
+    ListDetectMitigationActionsTasksInput: untyped
+
+    ListDetectMitigationActionsTasksOutput: untyped
+
+    ListDimensionsInput: untyped
+
+    ListDimensionsOutput: untyped
+
+    ListDomainConfigurationsInput: untyped
+
+    ListDomainConfigurationsOutput: untyped
+
+    ListFleetMetricsInput: untyped
+
+    ListFleetMetricsOutput: untyped
+
+    ListIndicesInput: untyped
+
+    ListIndicesOutput: untyped
+
+    ListJobExecutionsForJobInput: untyped
+
+    ListJobExecutionsForJobOutput: untyped
+
+    ListJobExecutionsForThingInput: untyped
+
+    ListJobExecutionsForThingOutput: untyped
+
+    ListJobTemplatesInput: untyped
+
+    ListJobTemplatesOutput: untyped
+
+    ListJobsInput: untyped
+
+    ListJobsOutput: untyped
+
+    ListManagedJobTemplatesInput: untyped
+
+    ListManagedJobTemplatesOutput: untyped
+
+    ListMetricValuesInput: untyped
+
+    ListMetricValuesOutput: untyped
+
+    ListMitigationActionsInput: untyped
+
+    ListMitigationActionsOutput: untyped
+
+    ListOTAUpdatesInput: untyped
+
+    ListOTAUpdatesOutput: untyped
+
+    ListOutgoingCertificatesInput: untyped
+
+    ListOutgoingCertificatesOutput: untyped
+
+    ListPoliciesInput: untyped
+
+    ListPoliciesOutput: untyped
+
+    ListPolicyPrincipalsInput: untyped
+
+    ListPolicyPrincipalsOutput: untyped
+
+    ListPolicyVersionsInput: untyped
+
+    ListPolicyVersionsOutput: untyped
+
+    ListPrincipalPoliciesInput: untyped
+
+    ListPrincipalPoliciesOutput: untyped
+
+    ListPrincipalThingsInput: untyped
+
+    ListPrincipalThingsOutput: untyped
+
+    ListProvisioningTemplateVersionsInput: untyped
+
+    ListProvisioningTemplateVersionsOutput: untyped
+
+    ListProvisioningTemplatesInput: untyped
+
+    ListProvisioningTemplatesOutput: untyped
+
+    ListRoleAliasesInput: untyped
+
+    ListRoleAliasesOutput: untyped
+
+    ListScheduledAuditsInput: untyped
+
+    ListScheduledAuditsOutput: untyped
+
+    ListSecurityProfilesForTargetInput: untyped
+
+    ListSecurityProfilesForTargetOutput: untyped
+
+    ListSecurityProfilesInput: untyped
+
+    ListSecurityProfilesOutput: untyped
+
+    ListStreamsInput: untyped
+
+    ListStreamsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTargetsForPolicyInput: untyped
+
+    ListTargetsForPolicyOutput: untyped
+
+    ListTargetsForSecurityProfileInput: untyped
+
+    ListTargetsForSecurityProfileOutput: untyped
+
+    ListThingGroupsForThingInput: untyped
+
+    ListThingGroupsForThingOutput: untyped
+
+    ListThingGroupsInput: untyped
+
+    ListThingGroupsOutput: untyped
+
+    ListThingPrincipalsInput: untyped
+
+    ListThingPrincipalsOutput: untyped
+
+    ListThingRegistrationTaskReportsInput: untyped
+
+    ListThingRegistrationTaskReportsOutput: untyped
+
+    ListThingRegistrationTasksInput: untyped
+
+    ListThingRegistrationTasksOutput: untyped
+
+    ListThingTypesInput: untyped
+
+    ListThingTypesOutput: untyped
+
+    ListThingsInBillingGroupInput: untyped
+
+    ListThingsInBillingGroupOutput: untyped
+
+    ListThingsInThingGroupInput: untyped
+
+    ListThingsInThingGroupOutput: untyped
+
+    ListThingsInput: untyped
+
+    ListThingsOutput: untyped
+
+    ListTopicRuleDestinationsInput: untyped
+
+    ListTopicRuleDestinationsOutput: untyped
+
+    ListTopicRulesInput: untyped
+
+    ListTopicRulesOutput: untyped
+
+    ListV2LoggingLevelsInput: untyped
+
+    ListV2LoggingLevelsOutput: untyped
+
+    ListViolationEventsInput: untyped
+
+    ListViolationEventsOutput: untyped
+
+    module LogLevel
+      DEBUG: ::String
+
+      INFO: ::String
+
+      ERROR: ::String
+
+      WARN: ::String
+
+      DISABLED: ::String
+    end
+
+    LogTarget: untyped
+
+    LogTargetConfiguration: untyped
+
+    module LogTargetType
+      DEFAULT: ::String
+
+      THING_GROUP: ::String
+
+      CLIENT_ID: ::String
+
+      SOURCE_IP: ::String
+
+      PRINCIPAL_ID: ::String
+    end
+
+    LoggingOptionsPayload: untyped
+
+    MachineLearningDetectionConfig: untyped
+
+    MalformedPolicyException: untyped
+
+    ManagedJobTemplateSummary: untyped
+
+    module MessageFormat
+      RAW: ::String
+
+      JSON: ::String
+    end
+
+    MetricDatum: untyped
+
+    MetricDimension: untyped
+
+    MetricToRetain: untyped
+
+    MetricValue: untyped
+
+    MitigationAction: untyped
+
+    MitigationActionIdentifier: untyped
+
+    MitigationActionParams: untyped
+
+    module MitigationActionType
+      UPDATE_DEVICE_CERTIFICATE: ::String
+
+      UPDATE_CA_CERTIFICATE: ::String
+
+      ADD_THINGS_TO_THING_GROUP: ::String
+
+      REPLACE_DEFAULT_POLICY_VERSION: ::String
+
+      ENABLE_IOT_LOGGING: ::String
+
+      PUBLISH_FINDING_TO_SNS: ::String
+    end
+
+    module ModelStatus
+      PENDING_BUILD: ::String
+
+      ACTIVE: ::String
+
+      EXPIRED: ::String
+    end
+
+    MqttContext: untyped
+
+    module NamedShadowIndexingMode
+      OFF: ::String
+
+      ON: ::String
+    end
+
+    NonCompliantResource: untyped
+
+    NotConfiguredException: untyped
+
+    OTAUpdateFile: untyped
+
+    OTAUpdateInfo: untyped
+
+    module OTAUpdateStatus
+      CREATE_PENDING: ::String
+
+      CREATE_IN_PROGRESS: ::String
+
+      CREATE_COMPLETE: ::String
+
+      CREATE_FAILED: ::String
+    end
+
+    OTAUpdateSummary: untyped
+
+    OpenSearchAction: untyped
+
+    OutgoingCertificate: untyped
+
+    PercentPair: untyped
+
+    Policy: untyped
+
+    module PolicyTemplateName
+      BLANK_POLICY: ::String
+    end
+
+    PolicyVersion: untyped
+
+    PolicyVersionIdentifier: untyped
+
+    PresignedUrlConfig: untyped
+
+    module Protocol
+      MQTT: ::String
+
+      HTTP: ::String
+    end
+
+    ProvisioningHook: untyped
+
+    ProvisioningTemplateSummary: untyped
+
+    ProvisioningTemplateVersionSummary: untyped
+
+    PublishFindingToSnsParams: untyped
+
+    PutAssetPropertyValueEntry: untyped
+
+    PutItemInput: untyped
+
+    PutVerificationStateOnViolationInput: untyped
+
+    PutVerificationStateOnViolationOutput: untyped
+
+    RateIncreaseCriteria: untyped
+
+    RegisterCACertificateInput: untyped
+
+    RegisterCACertificateOutput: untyped
+
+    RegisterCertificateInput: untyped
+
+    RegisterCertificateOutput: untyped
+
+    RegisterCertificateWithoutCAInput: untyped
+
+    RegisterCertificateWithoutCAOutput: untyped
+
+    RegisterThingInput: untyped
+
+    RegisterThingOutput: untyped
+
+    RegistrationCodeValidationException: untyped
+
+    RegistrationConfig: untyped
+
+    RejectCertificateTransferInput: untyped
+
+    RejectCertificateTransferOutput: untyped
+
+    RelatedResource: untyped
+
+    RemoveThingFromBillingGroupInput: untyped
+
+    RemoveThingFromBillingGroupOutput: untyped
+
+    RemoveThingFromThingGroupInput: untyped
+
+    RemoveThingFromThingGroupOutput: untyped
+
+    ReplaceDefaultPolicyVersionParams: untyped
+
+    ReplaceTopicRuleInput: untyped
+
+    ReplaceTopicRuleOutput: untyped
+
+    module ReportType
+      ERRORS: ::String
+
+      RESULTS: ::String
+    end
+
+    RepublishAction: untyped
+
+    ResourceAlreadyExistsException: untyped
+
+    ResourceIdentifier: untyped
+
+    ResourceNotFoundException: untyped
+
+    ResourceRegistrationFailureException: untyped
+
+    module ResourceType
+      DEVICE_CERTIFICATE: ::String
+
+      CA_CERTIFICATE: ::String
+
+      IOT_POLICY: ::String
+
+      COGNITO_IDENTITY_POOL: ::String
+
+      CLIENT_ID: ::String
+
+      ACCOUNT_SETTINGS: ::String
+
+      ROLE_ALIAS: ::String
+
+      IAM_ROLE: ::String
+    end
+
+    RetryCriteria: untyped
+
+    module RetryableFailureType
+      FAILED: ::String
+
+      TIMED_OUT: ::String
+
+      ALL: ::String
+    end
+
+    RoleAliasDescription: untyped
+
+    S3Action: untyped
+
+    S3Destination: untyped
+
+    S3Location: untyped
+
+    SalesforceAction: untyped
+
+    ScheduledAuditMetadata: untyped
+
+    SearchIndexInput: untyped
+
+    SearchIndexOutput: untyped
+
+    SecurityProfileIdentifier: untyped
+
+    SecurityProfileTarget: untyped
+
+    SecurityProfileTargetMapping: untyped
+
+    module ServerCertificateStatus
+      INVALID: ::String
+
+      VALID: ::String
+    end
+
+    ServerCertificateSummary: untyped
+
+    module ServiceType
+      DATA: ::String
+
+      CREDENTIAL_PROVIDER: ::String
+
+      JOBS: ::String
+    end
+
+    ServiceUnavailableException: untyped
+
+    SetDefaultAuthorizerInput: untyped
+
+    SetDefaultAuthorizerOutput: untyped
+
+    SetDefaultPolicyVersionInput: untyped
+
+    SetDefaultPolicyVersionOutput: untyped
+
+    SetLoggingOptionsInput: untyped
+
+    SetLoggingOptionsOutput: untyped
+
+    SetV2LoggingLevelInput: untyped
+
+    SetV2LoggingLevelOutput: untyped
+
+    SetV2LoggingOptionsInput: untyped
+
+    SetV2LoggingOptionsOutput: untyped
+
+    SigV4Authorization: untyped
+
+    SigningProfileParameter: untyped
+
+    SnsAction: untyped
+
+    SqlParseException: untyped
+
+    SqsAction: untyped
+
+    StartAuditMitigationActionsTaskInput: untyped
+
+    StartAuditMitigationActionsTaskOutput: untyped
+
+    StartDetectMitigationActionsTaskInput: untyped
+
+    StartDetectMitigationActionsTaskOutput: untyped
+
+    StartOnDemandAuditTaskInput: untyped
+
+    StartOnDemandAuditTaskOutput: untyped
+
+    StartSigningJobParameter: untyped
+
+    StartThingRegistrationTaskInput: untyped
+
+    StartThingRegistrationTaskOutput: untyped
+
+    StatisticalThreshold: untyped
+
+    Statistics: untyped
+
+    module Status
+      InProgress: ::String
+
+      Completed: ::String
+
+      Failed: ::String
+
+      Cancelled: ::String
+
+      Cancelling: ::String
+    end
+
+    StepFunctionsAction: untyped
+
+    StopThingRegistrationTaskInput: untyped
+
+    StopThingRegistrationTaskOutput: untyped
+
+    Stream: untyped
+
+    StreamFile: untyped
+
+    StreamInfo: untyped
+
+    StreamSummary: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    module TargetSelection
+      CONTINUOUS: ::String
+
+      SNAPSHOT: ::String
+    end
+
+    TaskAlreadyExistsException: untyped
+
+    TaskStatistics: untyped
+
+    TaskStatisticsForAuditCheck: untyped
+
+    TermsAggregation: untyped
+
+    TestAuthorizationInput: untyped
+
+    TestAuthorizationOutput: untyped
+
+    TestInvokeAuthorizerInput: untyped
+
+    TestInvokeAuthorizerOutput: untyped
+
+    ThingAttribute: untyped
+
+    ThingConnectivity: untyped
+
+    module ThingConnectivityIndexingMode
+      OFF: ::String
+
+      STATUS: ::String
+    end
+
+    ThingDocument: untyped
+
+    ThingGroupDocument: untyped
+
+    ThingGroupIndexingConfiguration: untyped
+
+    module ThingGroupIndexingMode
+      OFF: ::String
+
+      ON: ::String
+    end
+
+    ThingGroupMetadata: untyped
+
+    ThingGroupProperties: untyped
+
+    ThingIndexingConfiguration: untyped
+
+    module ThingIndexingMode
+      OFF: ::String
+
+      REGISTRY: ::String
+
+      REGISTRY_AND_SHADOW: ::String
+    end
+
+    ThingTypeDefinition: untyped
+
+    ThingTypeMetadata: untyped
+
+    ThingTypeProperties: untyped
+
+    ThrottlingException: untyped
+
+    TimeoutConfig: untyped
+
+    TimestreamAction: untyped
+
+    TimestreamDimension: untyped
+
+    TimestreamTimestamp: untyped
+
+    TlsContext: untyped
+
+    TopicRule: untyped
+
+    TopicRuleDestination: untyped
+
+    TopicRuleDestinationConfiguration: untyped
+
+    module TopicRuleDestinationStatus
+      ENABLED: ::String
+
+      IN_PROGRESS: ::String
+
+      DISABLED: ::String
+
+      ERROR: ::String
+
+      DELETING: ::String
+    end
+
+    TopicRuleDestinationSummary: untyped
+
+    TopicRuleListItem: untyped
+
+    TopicRulePayload: untyped
+
+    TransferAlreadyCompletedException: untyped
+
+    TransferCertificateInput: untyped
+
+    TransferCertificateOutput: untyped
+
+    TransferConflictException: untyped
+
+    TransferData: untyped
+
+    UnauthorizedException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAccountAuditConfigurationInput: untyped
+
+    UpdateAccountAuditConfigurationOutput: untyped
+
+    UpdateAuditSuppressionInput: untyped
+
+    UpdateAuditSuppressionOutput: untyped
+
+    UpdateAuthorizerInput: untyped
+
+    UpdateAuthorizerOutput: untyped
+
+    UpdateBillingGroupInput: untyped
+
+    UpdateBillingGroupOutput: untyped
+
+    UpdateCACertificateInput: untyped
+
+    UpdateCACertificateOutput: untyped
+
+    UpdateCACertificateParams: untyped
+
+    UpdateCertificateInput: untyped
+
+    UpdateCertificateOutput: untyped
+
+    UpdateCustomMetricInput: untyped
+
+    UpdateCustomMetricOutput: untyped
+
+    UpdateDeviceCertificateParams: untyped
+
+    UpdateDimensionInput: untyped
+
+    UpdateDimensionOutput: untyped
+
+    UpdateDomainConfigurationInput: untyped
+
+    UpdateDomainConfigurationOutput: untyped
+
+    UpdateDynamicThingGroupInput: untyped
+
+    UpdateDynamicThingGroupOutput: untyped
+
+    UpdateEventConfigurationsInput: untyped
+
+    UpdateEventConfigurationsOutput: untyped
+
+    UpdateFleetMetricInput: untyped
+
+    UpdateFleetMetricOutput: untyped
+
+    UpdateIndexingConfigurationInput: untyped
+
+    UpdateIndexingConfigurationOutput: untyped
+
+    UpdateJobInput: untyped
+
+    UpdateJobOutput: untyped
+
+    UpdateMitigationActionInput: untyped
+
+    UpdateMitigationActionOutput: untyped
+
+    UpdateProvisioningTemplateInput: untyped
+
+    UpdateProvisioningTemplateOutput: untyped
+
+    UpdateRoleAliasInput: untyped
+
+    UpdateRoleAliasOutput: untyped
+
+    UpdateScheduledAuditInput: untyped
+
+    UpdateScheduledAuditOutput: untyped
+
+    UpdateSecurityProfileInput: untyped
+
+    UpdateSecurityProfileOutput: untyped
+
+    UpdateStreamInput: untyped
+
+    UpdateStreamOutput: untyped
+
+    UpdateThingGroupInput: untyped
+
+    UpdateThingGroupOutput: untyped
+
+    UpdateThingGroupsForThingInput: untyped
+
+    UpdateThingGroupsForThingOutput: untyped
+
+    UpdateThingInput: untyped
+
+    UpdateThingOutput: untyped
+
+    UpdateTopicRuleDestinationInput: untyped
+
+    UpdateTopicRuleDestinationOutput: untyped
+
+    ValidateSecurityProfileBehaviorsInput: untyped
+
+    ValidateSecurityProfileBehaviorsOutput: untyped
+
+    ValidationError: untyped
+
+    module VerificationState
+      FALSE_POSITIVE: ::String
+
+      BENIGN_POSITIVE: ::String
+
+      TRUE_POSITIVE: ::String
+
+      UNKNOWN: ::String
+    end
+
+    VersionConflictException: untyped
+
+    VersionsLimitExceededException: untyped
+
+    ViolationEvent: untyped
+
+    ViolationEventAdditionalInfo: untyped
+
+    ViolationEventOccurrenceRange: untyped
+
+    module ViolationEventType
+      IN_ALARM: ::String
+
+      ALARM_CLEARED: ::String
+
+      ALARM_INVALIDATED: ::String
+    end
+
+    VpcDestinationConfiguration: untyped
+
+    VpcDestinationProperties: untyped
+
+    VpcDestinationSummary: untyped
+
+  end
+end

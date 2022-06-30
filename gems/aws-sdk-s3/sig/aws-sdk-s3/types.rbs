@@ -1,0 +1,1238 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::S3
+  module Types
+
+    AbortIncompleteMultipartUpload: untyped
+
+    AbortMultipartUploadInput: untyped
+
+    AbortMultipartUploadOutput: untyped
+
+    AccelerateConfiguration: untyped
+
+    AccessControlPolicy: untyped
+
+    AccessControlTranslation: untyped
+
+    AnalyticsAndOperator: untyped
+
+    AnalyticsConfiguration: untyped
+
+    AnalyticsExportDestination: untyped
+
+    class AnalyticsFilter < Hearth::Union
+      class Prefix < AnalyticsFilter
+        def to_h: () -> { prefix: Hash[Symbol,AnalyticsFilter] }
+      end
+
+      class Tag < AnalyticsFilter
+        def to_h: () -> { tag: Hash[Symbol,AnalyticsFilter] }
+      end
+
+      class And < AnalyticsFilter
+        def to_h: () -> { and: Hash[Symbol,AnalyticsFilter] }
+      end
+
+      class Unknown < AnalyticsFilter
+        def to_h: () -> { unknown: Hash[Symbol,AnalyticsFilter] }
+      end
+    end
+
+    AnalyticsS3BucketDestination: untyped
+
+    module AnalyticsS3ExportFileFormat
+      CSV: ::String
+    end
+
+    module ArchiveStatus
+      ARCHIVE_ACCESS: ::String
+
+      DEEP_ARCHIVE_ACCESS: ::String
+    end
+
+    Bucket: untyped
+
+    module BucketAccelerateStatus
+      Enabled: ::String
+
+      Suspended: ::String
+    end
+
+    BucketAlreadyExists: untyped
+
+    BucketAlreadyOwnedByYou: untyped
+
+    module BucketCannedACL
+      private: ::String
+
+      public_read: ::String
+
+      public_read_write: ::String
+
+      authenticated_read: ::String
+    end
+
+    BucketLifecycleConfiguration: untyped
+
+    module BucketLocationConstraint
+      af_south_1: ::String
+
+      ap_east_1: ::String
+
+      ap_northeast_1: ::String
+
+      ap_northeast_2: ::String
+
+      ap_northeast_3: ::String
+
+      ap_south_1: ::String
+
+      ap_southeast_1: ::String
+
+      ap_southeast_2: ::String
+
+      ca_central_1: ::String
+
+      cn_north_1: ::String
+
+      cn_northwest_1: ::String
+
+      EU: ::String
+
+      eu_central_1: ::String
+
+      eu_north_1: ::String
+
+      eu_south_1: ::String
+
+      eu_west_1: ::String
+
+      eu_west_2: ::String
+
+      eu_west_3: ::String
+
+      me_south_1: ::String
+
+      sa_east_1: ::String
+
+      us_east_2: ::String
+
+      us_gov_east_1: ::String
+
+      us_gov_west_1: ::String
+
+      us_west_1: ::String
+
+      us_west_2: ::String
+    end
+
+    BucketLoggingStatus: untyped
+
+    module BucketLogsPermission
+      FULL_CONTROL: ::String
+
+      READ: ::String
+
+      WRITE: ::String
+    end
+
+    module BucketVersioningStatus
+      Enabled: ::String
+
+      Suspended: ::String
+    end
+
+    CORSConfiguration: untyped
+
+    CORSRule: untyped
+
+    CSVInput: untyped
+
+    CSVOutput: untyped
+
+    Checksum: untyped
+
+    module ChecksumAlgorithm
+      CRC32: ::String
+
+      CRC32C: ::String
+
+      SHA1: ::String
+
+      SHA256: ::String
+    end
+
+    module ChecksumMode
+      ENABLED: ::String
+    end
+
+    CommonPrefix: untyped
+
+    CompleteMultipartUploadInput: untyped
+
+    CompleteMultipartUploadOutput: untyped
+
+    CompletedMultipartUpload: untyped
+
+    CompletedPart: untyped
+
+    module CompressionType
+      NONE: ::String
+
+      GZIP: ::String
+
+      BZIP2: ::String
+    end
+
+    Condition: untyped
+
+    ContinuationEvent: untyped
+
+    CopyObjectInput: untyped
+
+    CopyObjectOutput: untyped
+
+    CopyObjectResult: untyped
+
+    CopyPartResult: untyped
+
+    CreateBucketConfiguration: untyped
+
+    CreateBucketInput: untyped
+
+    CreateBucketOutput: untyped
+
+    CreateMultipartUploadInput: untyped
+
+    CreateMultipartUploadOutput: untyped
+
+    DefaultRetention: untyped
+
+    Delete: untyped
+
+    DeleteBucketAnalyticsConfigurationInput: untyped
+
+    DeleteBucketAnalyticsConfigurationOutput: untyped
+
+    DeleteBucketCorsInput: untyped
+
+    DeleteBucketCorsOutput: untyped
+
+    DeleteBucketEncryptionInput: untyped
+
+    DeleteBucketEncryptionOutput: untyped
+
+    DeleteBucketInput: untyped
+
+    DeleteBucketIntelligentTieringConfigurationInput: untyped
+
+    DeleteBucketIntelligentTieringConfigurationOutput: untyped
+
+    DeleteBucketInventoryConfigurationInput: untyped
+
+    DeleteBucketInventoryConfigurationOutput: untyped
+
+    DeleteBucketLifecycleInput: untyped
+
+    DeleteBucketLifecycleOutput: untyped
+
+    DeleteBucketMetricsConfigurationInput: untyped
+
+    DeleteBucketMetricsConfigurationOutput: untyped
+
+    DeleteBucketOutput: untyped
+
+    DeleteBucketOwnershipControlsInput: untyped
+
+    DeleteBucketOwnershipControlsOutput: untyped
+
+    DeleteBucketPolicyInput: untyped
+
+    DeleteBucketPolicyOutput: untyped
+
+    DeleteBucketReplicationInput: untyped
+
+    DeleteBucketReplicationOutput: untyped
+
+    DeleteBucketTaggingInput: untyped
+
+    DeleteBucketTaggingOutput: untyped
+
+    DeleteBucketWebsiteInput: untyped
+
+    DeleteBucketWebsiteOutput: untyped
+
+    DeleteMarkerEntry: untyped
+
+    DeleteMarkerReplication: untyped
+
+    module DeleteMarkerReplicationStatus
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    DeleteObjectInput: untyped
+
+    DeleteObjectOutput: untyped
+
+    DeleteObjectTaggingInput: untyped
+
+    DeleteObjectTaggingOutput: untyped
+
+    DeleteObjectsInput: untyped
+
+    DeleteObjectsOutput: untyped
+
+    DeletePublicAccessBlockInput: untyped
+
+    DeletePublicAccessBlockOutput: untyped
+
+    DeletedObject: untyped
+
+    Destination: untyped
+
+    module EncodingType
+      url: ::String
+    end
+
+    Encryption: untyped
+
+    EncryptionConfiguration: untyped
+
+    EndEvent: untyped
+
+    Error: untyped
+
+    ErrorDocument: untyped
+
+    EventBridgeConfiguration: untyped
+
+    ExistingObjectReplication: untyped
+
+    module ExistingObjectReplicationStatus
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    module ExpirationStatus
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    module ExpressionType
+      SQL: ::String
+    end
+
+    module FileHeaderInfo
+      USE: ::String
+
+      IGNORE: ::String
+
+      NONE: ::String
+    end
+
+    FilterRule: untyped
+
+    module FilterRuleName
+      prefix: ::String
+
+      suffix: ::String
+    end
+
+    GetBucketAccelerateConfigurationInput: untyped
+
+    GetBucketAccelerateConfigurationOutput: untyped
+
+    GetBucketAclInput: untyped
+
+    GetBucketAclOutput: untyped
+
+    GetBucketAnalyticsConfigurationInput: untyped
+
+    GetBucketAnalyticsConfigurationOutput: untyped
+
+    GetBucketCorsInput: untyped
+
+    GetBucketCorsOutput: untyped
+
+    GetBucketEncryptionInput: untyped
+
+    GetBucketEncryptionOutput: untyped
+
+    GetBucketIntelligentTieringConfigurationInput: untyped
+
+    GetBucketIntelligentTieringConfigurationOutput: untyped
+
+    GetBucketInventoryConfigurationInput: untyped
+
+    GetBucketInventoryConfigurationOutput: untyped
+
+    GetBucketLifecycleConfigurationInput: untyped
+
+    GetBucketLifecycleConfigurationOutput: untyped
+
+    GetBucketLocationInput: untyped
+
+    GetBucketLocationOutput: untyped
+
+    GetBucketLoggingInput: untyped
+
+    GetBucketLoggingOutput: untyped
+
+    GetBucketMetricsConfigurationInput: untyped
+
+    GetBucketMetricsConfigurationOutput: untyped
+
+    GetBucketNotificationConfigurationInput: untyped
+
+    GetBucketNotificationConfigurationOutput: untyped
+
+    GetBucketOwnershipControlsInput: untyped
+
+    GetBucketOwnershipControlsOutput: untyped
+
+    GetBucketPolicyInput: untyped
+
+    GetBucketPolicyOutput: untyped
+
+    GetBucketPolicyStatusInput: untyped
+
+    GetBucketPolicyStatusOutput: untyped
+
+    GetBucketReplicationInput: untyped
+
+    GetBucketReplicationOutput: untyped
+
+    GetBucketRequestPaymentInput: untyped
+
+    GetBucketRequestPaymentOutput: untyped
+
+    GetBucketTaggingInput: untyped
+
+    GetBucketTaggingOutput: untyped
+
+    GetBucketVersioningInput: untyped
+
+    GetBucketVersioningOutput: untyped
+
+    GetBucketWebsiteInput: untyped
+
+    GetBucketWebsiteOutput: untyped
+
+    GetObjectAclInput: untyped
+
+    GetObjectAclOutput: untyped
+
+    GetObjectAttributesInput: untyped
+
+    GetObjectAttributesOutput: untyped
+
+    GetObjectAttributesParts: untyped
+
+    GetObjectInput: untyped
+
+    GetObjectLegalHoldInput: untyped
+
+    GetObjectLegalHoldOutput: untyped
+
+    GetObjectLockConfigurationInput: untyped
+
+    GetObjectLockConfigurationOutput: untyped
+
+    GetObjectOutput: untyped
+
+    GetObjectRetentionInput: untyped
+
+    GetObjectRetentionOutput: untyped
+
+    GetObjectTaggingInput: untyped
+
+    GetObjectTaggingOutput: untyped
+
+    GetObjectTorrentInput: untyped
+
+    GetObjectTorrentOutput: untyped
+
+    GetPublicAccessBlockInput: untyped
+
+    GetPublicAccessBlockOutput: untyped
+
+    GlacierJobParameters: untyped
+
+    Grant: untyped
+
+    Grantee: untyped
+
+    HeadBucketInput: untyped
+
+    HeadBucketOutput: untyped
+
+    HeadObjectInput: untyped
+
+    HeadObjectOutput: untyped
+
+    IndexDocument: untyped
+
+    Initiator: untyped
+
+    InputSerialization: untyped
+
+    module IntelligentTieringAccessTier
+      ARCHIVE_ACCESS: ::String
+
+      DEEP_ARCHIVE_ACCESS: ::String
+    end
+
+    IntelligentTieringAndOperator: untyped
+
+    IntelligentTieringConfiguration: untyped
+
+    IntelligentTieringFilter: untyped
+
+    module IntelligentTieringStatus
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    InvalidObjectState: untyped
+
+    InventoryConfiguration: untyped
+
+    InventoryDestination: untyped
+
+    InventoryEncryption: untyped
+
+    InventoryFilter: untyped
+
+    module InventoryFormat
+      CSV: ::String
+
+      ORC: ::String
+
+      Parquet: ::String
+    end
+
+    module InventoryFrequency
+      Daily: ::String
+
+      Weekly: ::String
+    end
+
+    module InventoryIncludedObjectVersions
+      All: ::String
+
+      Current: ::String
+    end
+
+    module InventoryOptionalField
+      Size: ::String
+
+      LastModifiedDate: ::String
+
+      StorageClass: ::String
+
+      ETag: ::String
+
+      IsMultipartUploaded: ::String
+
+      ReplicationStatus: ::String
+
+      EncryptionStatus: ::String
+
+      ObjectLockRetainUntilDate: ::String
+
+      ObjectLockMode: ::String
+
+      ObjectLockLegalHoldStatus: ::String
+
+      IntelligentTieringAccessTier: ::String
+
+      BucketKeyStatus: ::String
+
+      ChecksumAlgorithm: ::String
+    end
+
+    InventoryS3BucketDestination: untyped
+
+    InventorySchedule: untyped
+
+    JSONInput: untyped
+
+    JSONOutput: untyped
+
+    module JSONType
+      DOCUMENT: ::String
+
+      LINES: ::String
+    end
+
+    LambdaFunctionConfiguration: untyped
+
+    LifecycleExpiration: untyped
+
+    LifecycleRule: untyped
+
+    LifecycleRuleAndOperator: untyped
+
+    class LifecycleRuleFilter < Hearth::Union
+      class Prefix < LifecycleRuleFilter
+        def to_h: () -> { prefix: Hash[Symbol,LifecycleRuleFilter] }
+      end
+
+      class Tag < LifecycleRuleFilter
+        def to_h: () -> { tag: Hash[Symbol,LifecycleRuleFilter] }
+      end
+
+      class ObjectSizeGreaterThan < LifecycleRuleFilter
+        def to_h: () -> { object_size_greater_than: Hash[Symbol,LifecycleRuleFilter] }
+      end
+
+      class ObjectSizeLessThan < LifecycleRuleFilter
+        def to_h: () -> { object_size_less_than: Hash[Symbol,LifecycleRuleFilter] }
+      end
+
+      class And < LifecycleRuleFilter
+        def to_h: () -> { and: Hash[Symbol,LifecycleRuleFilter] }
+      end
+
+      class Unknown < LifecycleRuleFilter
+        def to_h: () -> { unknown: Hash[Symbol,LifecycleRuleFilter] }
+      end
+    end
+
+    ListBucketAnalyticsConfigurationsInput: untyped
+
+    ListBucketAnalyticsConfigurationsOutput: untyped
+
+    ListBucketIntelligentTieringConfigurationsInput: untyped
+
+    ListBucketIntelligentTieringConfigurationsOutput: untyped
+
+    ListBucketInventoryConfigurationsInput: untyped
+
+    ListBucketInventoryConfigurationsOutput: untyped
+
+    ListBucketMetricsConfigurationsInput: untyped
+
+    ListBucketMetricsConfigurationsOutput: untyped
+
+    ListBucketsInput: untyped
+
+    ListBucketsOutput: untyped
+
+    ListMultipartUploadsInput: untyped
+
+    ListMultipartUploadsOutput: untyped
+
+    ListObjectVersionsInput: untyped
+
+    ListObjectVersionsOutput: untyped
+
+    ListObjectsInput: untyped
+
+    ListObjectsOutput: untyped
+
+    ListObjectsV2Input: untyped
+
+    ListObjectsV2Output: untyped
+
+    ListPartsInput: untyped
+
+    ListPartsOutput: untyped
+
+    LoggingEnabled: untyped
+
+    module MFADelete
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    module MFADeleteStatus
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    module MetadataDirective
+      COPY: ::String
+
+      REPLACE: ::String
+    end
+
+    MetadataEntry: untyped
+
+    Metrics: untyped
+
+    MetricsAndOperator: untyped
+
+    MetricsConfiguration: untyped
+
+    class MetricsFilter < Hearth::Union
+      class Prefix < MetricsFilter
+        def to_h: () -> { prefix: Hash[Symbol,MetricsFilter] }
+      end
+
+      class Tag < MetricsFilter
+        def to_h: () -> { tag: Hash[Symbol,MetricsFilter] }
+      end
+
+      class AccessPointArn < MetricsFilter
+        def to_h: () -> { access_point_arn: Hash[Symbol,MetricsFilter] }
+      end
+
+      class And < MetricsFilter
+        def to_h: () -> { and: Hash[Symbol,MetricsFilter] }
+      end
+
+      class Unknown < MetricsFilter
+        def to_h: () -> { unknown: Hash[Symbol,MetricsFilter] }
+      end
+    end
+
+    module MetricsStatus
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    MultipartUpload: untyped
+
+    NoSuchBucket: untyped
+
+    NoSuchKey: untyped
+
+    NoSuchUpload: untyped
+
+    NoncurrentVersionExpiration: untyped
+
+    NoncurrentVersionTransition: untyped
+
+    NotFound: untyped
+
+    NotificationConfiguration: untyped
+
+    NotificationConfigurationFilter: untyped
+
+    Object: untyped
+
+    ObjectAlreadyInActiveTierError: untyped
+
+    module ObjectAttributes
+      ETAG: ::String
+
+      CHECKSUM: ::String
+
+      OBJECT_PARTS: ::String
+
+      STORAGE_CLASS: ::String
+
+      OBJECT_SIZE: ::String
+    end
+
+    module ObjectCannedACL
+      private: ::String
+
+      public_read: ::String
+
+      public_read_write: ::String
+
+      authenticated_read: ::String
+
+      aws_exec_read: ::String
+
+      bucket_owner_read: ::String
+
+      bucket_owner_full_control: ::String
+    end
+
+    ObjectIdentifier: untyped
+
+    ObjectLockConfiguration: untyped
+
+    module ObjectLockEnabled
+      Enabled: ::String
+    end
+
+    ObjectLockLegalHold: untyped
+
+    module ObjectLockLegalHoldStatus
+      ON: ::String
+
+      OFF: ::String
+    end
+
+    module ObjectLockMode
+      GOVERNANCE: ::String
+
+      COMPLIANCE: ::String
+    end
+
+    ObjectLockRetention: untyped
+
+    module ObjectLockRetentionMode
+      GOVERNANCE: ::String
+
+      COMPLIANCE: ::String
+    end
+
+    ObjectLockRule: untyped
+
+    ObjectNotInActiveTierError: untyped
+
+    module ObjectOwnership
+      BucketOwnerPreferred: ::String
+
+      ObjectWriter: ::String
+
+      BucketOwnerEnforced: ::String
+    end
+
+    ObjectPart: untyped
+
+    module ObjectStorageClass
+      STANDARD: ::String
+
+      REDUCED_REDUNDANCY: ::String
+
+      GLACIER: ::String
+
+      STANDARD_IA: ::String
+
+      ONEZONE_IA: ::String
+
+      INTELLIGENT_TIERING: ::String
+
+      DEEP_ARCHIVE: ::String
+
+      OUTPOSTS: ::String
+
+      GLACIER_IR: ::String
+    end
+
+    ObjectVersion: untyped
+
+    module ObjectVersionStorageClass
+      STANDARD: ::String
+    end
+
+    OutputLocation: untyped
+
+    OutputSerialization: untyped
+
+    Owner: untyped
+
+    module OwnerOverride
+      Destination: ::String
+    end
+
+    OwnershipControls: untyped
+
+    OwnershipControlsRule: untyped
+
+    ParquetInput: untyped
+
+    Part: untyped
+
+    module Payer
+      Requester: ::String
+
+      BucketOwner: ::String
+    end
+
+    module Permission
+      FULL_CONTROL: ::String
+
+      WRITE: ::String
+
+      WRITE_ACP: ::String
+
+      READ: ::String
+
+      READ_ACP: ::String
+    end
+
+    PolicyStatus: untyped
+
+    Progress: untyped
+
+    ProgressEvent: untyped
+
+    module Protocol
+      http: ::String
+
+      https: ::String
+    end
+
+    PublicAccessBlockConfiguration: untyped
+
+    PutBucketAccelerateConfigurationInput: untyped
+
+    PutBucketAccelerateConfigurationOutput: untyped
+
+    PutBucketAclInput: untyped
+
+    PutBucketAclOutput: untyped
+
+    PutBucketAnalyticsConfigurationInput: untyped
+
+    PutBucketAnalyticsConfigurationOutput: untyped
+
+    PutBucketCorsInput: untyped
+
+    PutBucketCorsOutput: untyped
+
+    PutBucketEncryptionInput: untyped
+
+    PutBucketEncryptionOutput: untyped
+
+    PutBucketIntelligentTieringConfigurationInput: untyped
+
+    PutBucketIntelligentTieringConfigurationOutput: untyped
+
+    PutBucketInventoryConfigurationInput: untyped
+
+    PutBucketInventoryConfigurationOutput: untyped
+
+    PutBucketLifecycleConfigurationInput: untyped
+
+    PutBucketLifecycleConfigurationOutput: untyped
+
+    PutBucketLoggingInput: untyped
+
+    PutBucketLoggingOutput: untyped
+
+    PutBucketMetricsConfigurationInput: untyped
+
+    PutBucketMetricsConfigurationOutput: untyped
+
+    PutBucketNotificationConfigurationInput: untyped
+
+    PutBucketNotificationConfigurationOutput: untyped
+
+    PutBucketOwnershipControlsInput: untyped
+
+    PutBucketOwnershipControlsOutput: untyped
+
+    PutBucketPolicyInput: untyped
+
+    PutBucketPolicyOutput: untyped
+
+    PutBucketReplicationInput: untyped
+
+    PutBucketReplicationOutput: untyped
+
+    PutBucketRequestPaymentInput: untyped
+
+    PutBucketRequestPaymentOutput: untyped
+
+    PutBucketTaggingInput: untyped
+
+    PutBucketTaggingOutput: untyped
+
+    PutBucketVersioningInput: untyped
+
+    PutBucketVersioningOutput: untyped
+
+    PutBucketWebsiteInput: untyped
+
+    PutBucketWebsiteOutput: untyped
+
+    PutObjectAclInput: untyped
+
+    PutObjectAclOutput: untyped
+
+    PutObjectInput: untyped
+
+    PutObjectLegalHoldInput: untyped
+
+    PutObjectLegalHoldOutput: untyped
+
+    PutObjectLockConfigurationInput: untyped
+
+    PutObjectLockConfigurationOutput: untyped
+
+    PutObjectOutput: untyped
+
+    PutObjectRetentionInput: untyped
+
+    PutObjectRetentionOutput: untyped
+
+    PutObjectTaggingInput: untyped
+
+    PutObjectTaggingOutput: untyped
+
+    PutPublicAccessBlockInput: untyped
+
+    PutPublicAccessBlockOutput: untyped
+
+    QueueConfiguration: untyped
+
+    module QuoteFields
+      ALWAYS: ::String
+
+      ASNEEDED: ::String
+    end
+
+    RecordsEvent: untyped
+
+    Redirect: untyped
+
+    RedirectAllRequestsTo: untyped
+
+    ReplicaModifications: untyped
+
+    module ReplicaModificationsStatus
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    ReplicationConfiguration: untyped
+
+    ReplicationRule: untyped
+
+    ReplicationRuleAndOperator: untyped
+
+    class ReplicationRuleFilter < Hearth::Union
+      class Prefix < ReplicationRuleFilter
+        def to_h: () -> { prefix: Hash[Symbol,ReplicationRuleFilter] }
+      end
+
+      class Tag < ReplicationRuleFilter
+        def to_h: () -> { tag: Hash[Symbol,ReplicationRuleFilter] }
+      end
+
+      class And < ReplicationRuleFilter
+        def to_h: () -> { and: Hash[Symbol,ReplicationRuleFilter] }
+      end
+
+      class Unknown < ReplicationRuleFilter
+        def to_h: () -> { unknown: Hash[Symbol,ReplicationRuleFilter] }
+      end
+    end
+
+    module ReplicationRuleStatus
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    module ReplicationStatus
+      COMPLETE: ::String
+
+      PENDING: ::String
+
+      FAILED: ::String
+
+      REPLICA: ::String
+    end
+
+    ReplicationTime: untyped
+
+    module ReplicationTimeStatus
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    ReplicationTimeValue: untyped
+
+    module RequestCharged
+      requester: ::String
+    end
+
+    module RequestPayer
+      requester: ::String
+    end
+
+    RequestPaymentConfiguration: untyped
+
+    RequestProgress: untyped
+
+    RestoreObjectInput: untyped
+
+    RestoreObjectOutput: untyped
+
+    RestoreRequest: untyped
+
+    module RestoreRequestType
+      SELECT: ::String
+    end
+
+    RoutingRule: untyped
+
+    S3KeyFilter: untyped
+
+    S3Location: untyped
+
+    SSEKMS: untyped
+
+    SSES3: untyped
+
+    ScanRange: untyped
+
+    class SelectObjectContentEventStream < Hearth::Union
+      class Records < SelectObjectContentEventStream
+        def to_h: () -> { records: Hash[Symbol,SelectObjectContentEventStream] }
+      end
+
+      class Stats < SelectObjectContentEventStream
+        def to_h: () -> { stats: Hash[Symbol,SelectObjectContentEventStream] }
+      end
+
+      class Progress < SelectObjectContentEventStream
+        def to_h: () -> { progress: Hash[Symbol,SelectObjectContentEventStream] }
+      end
+
+      class Cont < SelectObjectContentEventStream
+        def to_h: () -> { cont: Hash[Symbol,SelectObjectContentEventStream] }
+      end
+
+      class End < SelectObjectContentEventStream
+        def to_h: () -> { end: Hash[Symbol,SelectObjectContentEventStream] }
+      end
+
+      class Unknown < SelectObjectContentEventStream
+        def to_h: () -> { unknown: Hash[Symbol,SelectObjectContentEventStream] }
+      end
+    end
+
+    SelectObjectContentInput: untyped
+
+    SelectObjectContentOutput: untyped
+
+    SelectParameters: untyped
+
+    module ServerSideEncryption
+      AES256: ::String
+
+      aws_kms: ::String
+    end
+
+    ServerSideEncryptionByDefault: untyped
+
+    ServerSideEncryptionConfiguration: untyped
+
+    ServerSideEncryptionRule: untyped
+
+    SourceSelectionCriteria: untyped
+
+    SseKmsEncryptedObjects: untyped
+
+    module SseKmsEncryptedObjectsStatus
+      Enabled: ::String
+
+      Disabled: ::String
+    end
+
+    Stats: untyped
+
+    StatsEvent: untyped
+
+    module StorageClass
+      STANDARD: ::String
+
+      REDUCED_REDUNDANCY: ::String
+
+      STANDARD_IA: ::String
+
+      ONEZONE_IA: ::String
+
+      INTELLIGENT_TIERING: ::String
+
+      GLACIER: ::String
+
+      DEEP_ARCHIVE: ::String
+
+      OUTPOSTS: ::String
+
+      GLACIER_IR: ::String
+    end
+
+    StorageClassAnalysis: untyped
+
+    StorageClassAnalysisDataExport: untyped
+
+    module StorageClassAnalysisSchemaVersion
+      V_1: ::String
+    end
+
+    Tag: untyped
+
+    Tagging: untyped
+
+    module TaggingDirective
+      COPY: ::String
+
+      REPLACE: ::String
+    end
+
+    TargetGrant: untyped
+
+    module Tier
+      Standard: ::String
+
+      Bulk: ::String
+
+      Expedited: ::String
+    end
+
+    Tiering: untyped
+
+    TopicConfiguration: untyped
+
+    Transition: untyped
+
+    module TransitionStorageClass
+      GLACIER: ::String
+
+      STANDARD_IA: ::String
+
+      ONEZONE_IA: ::String
+
+      INTELLIGENT_TIERING: ::String
+
+      DEEP_ARCHIVE: ::String
+
+      GLACIER_IR: ::String
+    end
+
+    module Type
+      CanonicalUser: ::String
+
+      AmazonCustomerByEmail: ::String
+
+      Group: ::String
+    end
+
+    UploadPartCopyInput: untyped
+
+    UploadPartCopyOutput: untyped
+
+    UploadPartInput: untyped
+
+    UploadPartOutput: untyped
+
+    VersioningConfiguration: untyped
+
+    WebsiteConfiguration: untyped
+
+    WriteGetObjectResponseInput: untyped
+
+    WriteGetObjectResponseOutput: untyped
+
+  end
+end

@@ -1,0 +1,930 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CodeCommit
+  module Types
+
+    ActorDoesNotExistException: untyped
+
+    Approval: untyped
+
+    ApprovalRule: untyped
+
+    ApprovalRuleContentRequiredException: untyped
+
+    ApprovalRuleDoesNotExistException: untyped
+
+    ApprovalRuleEventMetadata: untyped
+
+    ApprovalRuleNameAlreadyExistsException: untyped
+
+    ApprovalRuleNameRequiredException: untyped
+
+    ApprovalRuleOverriddenEventMetadata: untyped
+
+    ApprovalRuleTemplate: untyped
+
+    ApprovalRuleTemplateContentRequiredException: untyped
+
+    ApprovalRuleTemplateDoesNotExistException: untyped
+
+    ApprovalRuleTemplateInUseException: untyped
+
+    ApprovalRuleTemplateNameAlreadyExistsException: untyped
+
+    ApprovalRuleTemplateNameRequiredException: untyped
+
+    module ApprovalState
+      APPROVE: ::String
+
+      REVOKE: ::String
+    end
+
+    ApprovalStateChangedEventMetadata: untyped
+
+    ApprovalStateRequiredException: untyped
+
+    AssociateApprovalRuleTemplateWithRepositoryInput: untyped
+
+    AssociateApprovalRuleTemplateWithRepositoryOutput: untyped
+
+    AuthorDoesNotExistException: untyped
+
+    BatchAssociateApprovalRuleTemplateWithRepositoriesError: untyped
+
+    BatchAssociateApprovalRuleTemplateWithRepositoriesInput: untyped
+
+    BatchAssociateApprovalRuleTemplateWithRepositoriesOutput: untyped
+
+    BatchDescribeMergeConflictsError: untyped
+
+    BatchDescribeMergeConflictsInput: untyped
+
+    BatchDescribeMergeConflictsOutput: untyped
+
+    BatchDisassociateApprovalRuleTemplateFromRepositoriesError: untyped
+
+    BatchDisassociateApprovalRuleTemplateFromRepositoriesInput: untyped
+
+    BatchDisassociateApprovalRuleTemplateFromRepositoriesOutput: untyped
+
+    BatchGetCommitsError: untyped
+
+    BatchGetCommitsInput: untyped
+
+    BatchGetCommitsOutput: untyped
+
+    BatchGetRepositoriesInput: untyped
+
+    BatchGetRepositoriesOutput: untyped
+
+    BeforeCommitIdAndAfterCommitIdAreSameException: untyped
+
+    BlobIdDoesNotExistException: untyped
+
+    BlobIdRequiredException: untyped
+
+    BlobMetadata: untyped
+
+    BranchDoesNotExistException: untyped
+
+    BranchInfo: untyped
+
+    BranchNameExistsException: untyped
+
+    BranchNameIsTagNameException: untyped
+
+    BranchNameRequiredException: untyped
+
+    CannotDeleteApprovalRuleFromTemplateException: untyped
+
+    CannotModifyApprovalRuleFromTemplateException: untyped
+
+    module ChangeTypeEnum
+      ADDED: ::String
+
+      MODIFIED: ::String
+
+      DELETED: ::String
+    end
+
+    ClientRequestTokenRequiredException: untyped
+
+    Comment: untyped
+
+    CommentContentRequiredException: untyped
+
+    CommentContentSizeLimitExceededException: untyped
+
+    CommentDeletedException: untyped
+
+    CommentDoesNotExistException: untyped
+
+    CommentIdRequiredException: untyped
+
+    CommentNotCreatedByCallerException: untyped
+
+    CommentsForComparedCommit: untyped
+
+    CommentsForPullRequest: untyped
+
+    Commit: untyped
+
+    CommitDoesNotExistException: untyped
+
+    CommitIdDoesNotExistException: untyped
+
+    CommitIdRequiredException: untyped
+
+    CommitIdsLimitExceededException: untyped
+
+    CommitIdsListRequiredException: untyped
+
+    CommitMessageLengthExceededException: untyped
+
+    CommitRequiredException: untyped
+
+    ConcurrentReferenceUpdateException: untyped
+
+    Conflict: untyped
+
+    module ConflictDetailLevelTypeEnum
+      FILE_LEVEL: ::String
+
+      LINE_LEVEL: ::String
+    end
+
+    ConflictMetadata: untyped
+
+    ConflictResolution: untyped
+
+    module ConflictResolutionStrategyTypeEnum
+      NONE: ::String
+
+      ACCEPT_SOURCE: ::String
+
+      ACCEPT_DESTINATION: ::String
+
+      AUTOMERGE: ::String
+    end
+
+    CreateApprovalRuleTemplateInput: untyped
+
+    CreateApprovalRuleTemplateOutput: untyped
+
+    CreateBranchInput: untyped
+
+    CreateBranchOutput: untyped
+
+    CreateCommitInput: untyped
+
+    CreateCommitOutput: untyped
+
+    CreatePullRequestApprovalRuleInput: untyped
+
+    CreatePullRequestApprovalRuleOutput: untyped
+
+    CreatePullRequestInput: untyped
+
+    CreatePullRequestOutput: untyped
+
+    CreateRepositoryInput: untyped
+
+    CreateRepositoryOutput: untyped
+
+    CreateUnreferencedMergeCommitInput: untyped
+
+    CreateUnreferencedMergeCommitOutput: untyped
+
+    DefaultBranchCannotBeDeletedException: untyped
+
+    DeleteApprovalRuleTemplateInput: untyped
+
+    DeleteApprovalRuleTemplateOutput: untyped
+
+    DeleteBranchInput: untyped
+
+    DeleteBranchOutput: untyped
+
+    DeleteCommentContentInput: untyped
+
+    DeleteCommentContentOutput: untyped
+
+    DeleteFileEntry: untyped
+
+    DeleteFileInput: untyped
+
+    DeleteFileOutput: untyped
+
+    DeletePullRequestApprovalRuleInput: untyped
+
+    DeletePullRequestApprovalRuleOutput: untyped
+
+    DeleteRepositoryInput: untyped
+
+    DeleteRepositoryOutput: untyped
+
+    DescribeMergeConflictsInput: untyped
+
+    DescribeMergeConflictsOutput: untyped
+
+    DescribePullRequestEventsInput: untyped
+
+    DescribePullRequestEventsOutput: untyped
+
+    Difference: untyped
+
+    DirectoryNameConflictsWithFileNameException: untyped
+
+    DisassociateApprovalRuleTemplateFromRepositoryInput: untyped
+
+    DisassociateApprovalRuleTemplateFromRepositoryOutput: untyped
+
+    EncryptionIntegrityChecksFailedException: untyped
+
+    EncryptionKeyAccessDeniedException: untyped
+
+    EncryptionKeyDisabledException: untyped
+
+    EncryptionKeyNotFoundException: untyped
+
+    EncryptionKeyUnavailableException: untyped
+
+    EvaluatePullRequestApprovalRulesInput: untyped
+
+    EvaluatePullRequestApprovalRulesOutput: untyped
+
+    Evaluation: untyped
+
+    File: untyped
+
+    FileContentAndSourceFileSpecifiedException: untyped
+
+    FileContentRequiredException: untyped
+
+    FileContentSizeLimitExceededException: untyped
+
+    FileDoesNotExistException: untyped
+
+    FileEntryRequiredException: untyped
+
+    FileMetadata: untyped
+
+    FileModeRequiredException: untyped
+
+    module FileModeTypeEnum
+      EXECUTABLE: ::String
+
+      NORMAL: ::String
+
+      SYMLINK: ::String
+    end
+
+    FileModes: untyped
+
+    FileNameConflictsWithDirectoryNameException: untyped
+
+    FilePathConflictsWithSubmodulePathException: untyped
+
+    FileSizes: untyped
+
+    FileTooLargeException: untyped
+
+    Folder: untyped
+
+    FolderContentSizeLimitExceededException: untyped
+
+    FolderDoesNotExistException: untyped
+
+    GetApprovalRuleTemplateInput: untyped
+
+    GetApprovalRuleTemplateOutput: untyped
+
+    GetBlobInput: untyped
+
+    GetBlobOutput: untyped
+
+    GetBranchInput: untyped
+
+    GetBranchOutput: untyped
+
+    GetCommentInput: untyped
+
+    GetCommentOutput: untyped
+
+    GetCommentReactionsInput: untyped
+
+    GetCommentReactionsOutput: untyped
+
+    GetCommentsForComparedCommitInput: untyped
+
+    GetCommentsForComparedCommitOutput: untyped
+
+    GetCommentsForPullRequestInput: untyped
+
+    GetCommentsForPullRequestOutput: untyped
+
+    GetCommitInput: untyped
+
+    GetCommitOutput: untyped
+
+    GetDifferencesInput: untyped
+
+    GetDifferencesOutput: untyped
+
+    GetFileInput: untyped
+
+    GetFileOutput: untyped
+
+    GetFolderInput: untyped
+
+    GetFolderOutput: untyped
+
+    GetMergeCommitInput: untyped
+
+    GetMergeCommitOutput: untyped
+
+    GetMergeConflictsInput: untyped
+
+    GetMergeConflictsOutput: untyped
+
+    GetMergeOptionsInput: untyped
+
+    GetMergeOptionsOutput: untyped
+
+    GetPullRequestApprovalStatesInput: untyped
+
+    GetPullRequestApprovalStatesOutput: untyped
+
+    GetPullRequestInput: untyped
+
+    GetPullRequestOutput: untyped
+
+    GetPullRequestOverrideStateInput: untyped
+
+    GetPullRequestOverrideStateOutput: untyped
+
+    GetRepositoryInput: untyped
+
+    GetRepositoryOutput: untyped
+
+    GetRepositoryTriggersInput: untyped
+
+    GetRepositoryTriggersOutput: untyped
+
+    IdempotencyParameterMismatchException: untyped
+
+    InvalidActorArnException: untyped
+
+    InvalidApprovalRuleContentException: untyped
+
+    InvalidApprovalRuleNameException: untyped
+
+    InvalidApprovalRuleTemplateContentException: untyped
+
+    InvalidApprovalRuleTemplateDescriptionException: untyped
+
+    InvalidApprovalRuleTemplateNameException: untyped
+
+    InvalidApprovalStateException: untyped
+
+    InvalidAuthorArnException: untyped
+
+    InvalidBlobIdException: untyped
+
+    InvalidBranchNameException: untyped
+
+    InvalidClientRequestTokenException: untyped
+
+    InvalidCommentIdException: untyped
+
+    InvalidCommitException: untyped
+
+    InvalidCommitIdException: untyped
+
+    InvalidConflictDetailLevelException: untyped
+
+    InvalidConflictResolutionException: untyped
+
+    InvalidConflictResolutionStrategyException: untyped
+
+    InvalidContinuationTokenException: untyped
+
+    InvalidDeletionParameterException: untyped
+
+    InvalidDescriptionException: untyped
+
+    InvalidDestinationCommitSpecifierException: untyped
+
+    InvalidEmailException: untyped
+
+    InvalidFileLocationException: untyped
+
+    InvalidFileModeException: untyped
+
+    InvalidFilePositionException: untyped
+
+    InvalidMaxConflictFilesException: untyped
+
+    InvalidMaxMergeHunksException: untyped
+
+    InvalidMaxResultsException: untyped
+
+    InvalidMergeOptionException: untyped
+
+    InvalidOrderException: untyped
+
+    InvalidOverrideStatusException: untyped
+
+    InvalidParentCommitIdException: untyped
+
+    InvalidPathException: untyped
+
+    InvalidPullRequestEventTypeException: untyped
+
+    InvalidPullRequestIdException: untyped
+
+    InvalidPullRequestStatusException: untyped
+
+    InvalidPullRequestStatusUpdateException: untyped
+
+    InvalidReactionUserArnException: untyped
+
+    InvalidReactionValueException: untyped
+
+    InvalidReferenceNameException: untyped
+
+    InvalidRelativeFileVersionEnumException: untyped
+
+    InvalidReplacementContentException: untyped
+
+    InvalidReplacementTypeException: untyped
+
+    InvalidRepositoryDescriptionException: untyped
+
+    InvalidRepositoryNameException: untyped
+
+    InvalidRepositoryTriggerBranchNameException: untyped
+
+    InvalidRepositoryTriggerCustomDataException: untyped
+
+    InvalidRepositoryTriggerDestinationArnException: untyped
+
+    InvalidRepositoryTriggerEventsException: untyped
+
+    InvalidRepositoryTriggerNameException: untyped
+
+    InvalidRepositoryTriggerRegionException: untyped
+
+    InvalidResourceArnException: untyped
+
+    InvalidRevisionIdException: untyped
+
+    InvalidRuleContentSha256Exception: untyped
+
+    InvalidSortByException: untyped
+
+    InvalidSourceCommitSpecifierException: untyped
+
+    InvalidSystemTagUsageException: untyped
+
+    InvalidTagKeysListException: untyped
+
+    InvalidTagsMapException: untyped
+
+    InvalidTargetBranchException: untyped
+
+    InvalidTargetException: untyped
+
+    InvalidTargetsException: untyped
+
+    InvalidTitleException: untyped
+
+    IsBinaryFile: untyped
+
+    ListApprovalRuleTemplatesInput: untyped
+
+    ListApprovalRuleTemplatesOutput: untyped
+
+    ListAssociatedApprovalRuleTemplatesForRepositoryInput: untyped
+
+    ListAssociatedApprovalRuleTemplatesForRepositoryOutput: untyped
+
+    ListBranchesInput: untyped
+
+    ListBranchesOutput: untyped
+
+    ListPullRequestsInput: untyped
+
+    ListPullRequestsOutput: untyped
+
+    ListRepositoriesForApprovalRuleTemplateInput: untyped
+
+    ListRepositoriesForApprovalRuleTemplateOutput: untyped
+
+    ListRepositoriesInput: untyped
+
+    ListRepositoriesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    Location: untyped
+
+    ManualMergeRequiredException: untyped
+
+    MaximumBranchesExceededException: untyped
+
+    MaximumConflictResolutionEntriesExceededException: untyped
+
+    MaximumFileContentToLoadExceededException: untyped
+
+    MaximumFileEntriesExceededException: untyped
+
+    MaximumItemsToCompareExceededException: untyped
+
+    MaximumNumberOfApprovalsExceededException: untyped
+
+    MaximumOpenPullRequestsExceededException: untyped
+
+    MaximumRepositoryNamesExceededException: untyped
+
+    MaximumRepositoryTriggersExceededException: untyped
+
+    MaximumRuleTemplatesAssociatedWithRepositoryException: untyped
+
+    MergeBranchesByFastForwardInput: untyped
+
+    MergeBranchesByFastForwardOutput: untyped
+
+    MergeBranchesBySquashInput: untyped
+
+    MergeBranchesBySquashOutput: untyped
+
+    MergeBranchesByThreeWayInput: untyped
+
+    MergeBranchesByThreeWayOutput: untyped
+
+    MergeHunk: untyped
+
+    MergeHunkDetail: untyped
+
+    MergeMetadata: untyped
+
+    MergeOperations: untyped
+
+    MergeOptionRequiredException: untyped
+
+    module MergeOptionTypeEnum
+      FAST_FORWARD_MERGE: ::String
+
+      SQUASH_MERGE: ::String
+
+      THREE_WAY_MERGE: ::String
+    end
+
+    MergePullRequestByFastForwardInput: untyped
+
+    MergePullRequestByFastForwardOutput: untyped
+
+    MergePullRequestBySquashInput: untyped
+
+    MergePullRequestBySquashOutput: untyped
+
+    MergePullRequestByThreeWayInput: untyped
+
+    MergePullRequestByThreeWayOutput: untyped
+
+    MultipleConflictResolutionEntriesException: untyped
+
+    MultipleRepositoriesInPullRequestException: untyped
+
+    NameLengthExceededException: untyped
+
+    NoChangeException: untyped
+
+    NumberOfRuleTemplatesExceededException: untyped
+
+    NumberOfRulesExceededException: untyped
+
+    module ObjectTypeEnum
+      FILE: ::String
+
+      DIRECTORY: ::String
+
+      GIT_LINK: ::String
+
+      SYMBOLIC_LINK: ::String
+    end
+
+    ObjectTypes: untyped
+
+    module OrderEnum
+      ASCENDING: ::String
+
+      DESCENDING: ::String
+    end
+
+    OriginApprovalRuleTemplate: untyped
+
+    OverrideAlreadySetException: untyped
+
+    OverridePullRequestApprovalRulesInput: untyped
+
+    OverridePullRequestApprovalRulesOutput: untyped
+
+    module OverrideStatus
+      OVERRIDE: ::String
+
+      REVOKE: ::String
+    end
+
+    OverrideStatusRequiredException: untyped
+
+    ParentCommitDoesNotExistException: untyped
+
+    ParentCommitIdOutdatedException: untyped
+
+    ParentCommitIdRequiredException: untyped
+
+    PathDoesNotExistException: untyped
+
+    PathRequiredException: untyped
+
+    PostCommentForComparedCommitInput: untyped
+
+    PostCommentForComparedCommitOutput: untyped
+
+    PostCommentForPullRequestInput: untyped
+
+    PostCommentForPullRequestOutput: untyped
+
+    PostCommentReplyInput: untyped
+
+    PostCommentReplyOutput: untyped
+
+    PullRequest: untyped
+
+    PullRequestAlreadyClosedException: untyped
+
+    PullRequestApprovalRulesNotSatisfiedException: untyped
+
+    PullRequestCannotBeApprovedByAuthorException: untyped
+
+    PullRequestCreatedEventMetadata: untyped
+
+    PullRequestDoesNotExistException: untyped
+
+    PullRequestEvent: untyped
+
+    module PullRequestEventType
+      PULL_REQUEST_CREATED: ::String
+
+      PULL_REQUEST_STATUS_CHANGED: ::String
+
+      PULL_REQUEST_SOURCE_REFERENCE_UPDATED: ::String
+
+      PULL_REQUEST_MERGE_STATE_CHANGED: ::String
+
+      PULL_REQUEST_APPROVAL_RULE_CREATED: ::String
+
+      PULL_REQUEST_APPROVAL_RULE_UPDATED: ::String
+
+      PULL_REQUEST_APPROVAL_RULE_DELETED: ::String
+
+      PULL_REQUEST_APPROVAL_RULE_OVERRIDDEN: ::String
+
+      PULL_REQUEST_APPROVAL_STATE_CHANGED: ::String
+    end
+
+    PullRequestIdRequiredException: untyped
+
+    PullRequestMergedStateChangedEventMetadata: untyped
+
+    PullRequestSourceReferenceUpdatedEventMetadata: untyped
+
+    PullRequestStatusChangedEventMetadata: untyped
+
+    module PullRequestStatusEnum
+      OPEN: ::String
+
+      CLOSED: ::String
+    end
+
+    PullRequestStatusRequiredException: untyped
+
+    PullRequestTarget: untyped
+
+    PutCommentReactionInput: untyped
+
+    PutCommentReactionOutput: untyped
+
+    PutFileEntry: untyped
+
+    PutFileEntryConflictException: untyped
+
+    PutFileInput: untyped
+
+    PutFileOutput: untyped
+
+    PutRepositoryTriggersInput: untyped
+
+    PutRepositoryTriggersOutput: untyped
+
+    ReactionForComment: untyped
+
+    ReactionLimitExceededException: untyped
+
+    ReactionValueFormats: untyped
+
+    ReactionValueRequiredException: untyped
+
+    ReferenceDoesNotExistException: untyped
+
+    ReferenceNameRequiredException: untyped
+
+    ReferenceTypeNotSupportedException: untyped
+
+    module RelativeFileVersionEnum
+      BEFORE: ::String
+
+      AFTER: ::String
+    end
+
+    ReplaceContentEntry: untyped
+
+    ReplacementContentRequiredException: untyped
+
+    module ReplacementTypeEnum
+      KEEP_BASE: ::String
+
+      KEEP_SOURCE: ::String
+
+      KEEP_DESTINATION: ::String
+
+      USE_NEW_CONTENT: ::String
+    end
+
+    ReplacementTypeRequiredException: untyped
+
+    RepositoryDoesNotExistException: untyped
+
+    RepositoryLimitExceededException: untyped
+
+    RepositoryMetadata: untyped
+
+    RepositoryNameExistsException: untyped
+
+    RepositoryNameIdPair: untyped
+
+    RepositoryNameRequiredException: untyped
+
+    RepositoryNamesRequiredException: untyped
+
+    RepositoryNotAssociatedWithPullRequestException: untyped
+
+    RepositoryTrigger: untyped
+
+    RepositoryTriggerBranchNameListRequiredException: untyped
+
+    RepositoryTriggerDestinationArnRequiredException: untyped
+
+    module RepositoryTriggerEventEnum
+      ALL: ::String
+
+      UPDATE_REFERENCE: ::String
+
+      CREATE_REFERENCE: ::String
+
+      DELETE_REFERENCE: ::String
+    end
+
+    RepositoryTriggerEventsListRequiredException: untyped
+
+    RepositoryTriggerExecutionFailure: untyped
+
+    RepositoryTriggerNameRequiredException: untyped
+
+    RepositoryTriggersListRequiredException: untyped
+
+    ResourceArnRequiredException: untyped
+
+    RestrictedSourceFileException: untyped
+
+    RevisionIdRequiredException: untyped
+
+    RevisionNotCurrentException: untyped
+
+    SameFileContentException: untyped
+
+    SamePathRequestException: untyped
+
+    SetFileModeEntry: untyped
+
+    module SortByEnum
+      REPOSITORY_NAME: ::String
+
+      MODIFIED_DATE: ::String
+    end
+
+    SourceAndDestinationAreSameException: untyped
+
+    SourceFileOrContentRequiredException: untyped
+
+    SourceFileSpecifier: untyped
+
+    SubModule: untyped
+
+    SymbolicLink: untyped
+
+    TagKeysListRequiredException: untyped
+
+    TagPolicyException: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TagsMapRequiredException: untyped
+
+    Target: untyped
+
+    TargetRequiredException: untyped
+
+    TargetsRequiredException: untyped
+
+    TestRepositoryTriggersInput: untyped
+
+    TestRepositoryTriggersOutput: untyped
+
+    TipOfSourceReferenceIsDifferentException: untyped
+
+    TipsDivergenceExceededException: untyped
+
+    TitleRequiredException: untyped
+
+    TooManyTagsException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateApprovalRuleTemplateContentInput: untyped
+
+    UpdateApprovalRuleTemplateContentOutput: untyped
+
+    UpdateApprovalRuleTemplateDescriptionInput: untyped
+
+    UpdateApprovalRuleTemplateDescriptionOutput: untyped
+
+    UpdateApprovalRuleTemplateNameInput: untyped
+
+    UpdateApprovalRuleTemplateNameOutput: untyped
+
+    UpdateCommentInput: untyped
+
+    UpdateCommentOutput: untyped
+
+    UpdateDefaultBranchInput: untyped
+
+    UpdateDefaultBranchOutput: untyped
+
+    UpdatePullRequestApprovalRuleContentInput: untyped
+
+    UpdatePullRequestApprovalRuleContentOutput: untyped
+
+    UpdatePullRequestApprovalStateInput: untyped
+
+    UpdatePullRequestApprovalStateOutput: untyped
+
+    UpdatePullRequestDescriptionInput: untyped
+
+    UpdatePullRequestDescriptionOutput: untyped
+
+    UpdatePullRequestStatusInput: untyped
+
+    UpdatePullRequestStatusOutput: untyped
+
+    UpdatePullRequestTitleInput: untyped
+
+    UpdatePullRequestTitleOutput: untyped
+
+    UpdateRepositoryDescriptionInput: untyped
+
+    UpdateRepositoryDescriptionOutput: untyped
+
+    UpdateRepositoryNameInput: untyped
+
+    UpdateRepositoryNameOutput: untyped
+
+    UserInfo: untyped
+
+  end
+end

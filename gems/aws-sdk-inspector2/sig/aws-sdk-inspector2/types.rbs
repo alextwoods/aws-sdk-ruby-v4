@@ -1,0 +1,858 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Inspector2
+  module Types
+
+    AccessDeniedException: untyped
+
+    Account: untyped
+
+    AccountAggregation: untyped
+
+    AccountAggregationResponse: untyped
+
+    module AccountSortBy
+      CRITICAL: ::String
+
+      HIGH: ::String
+
+      ALL: ::String
+    end
+
+    AccountState: untyped
+
+    module AggregationFindingType
+      NETWORK_REACHABILITY: ::String
+
+      PACKAGE_VULNERABILITY: ::String
+    end
+
+    class AggregationRequest < Hearth::Union
+      class AccountAggregation < AggregationRequest
+        def to_h: () -> { account_aggregation: Hash[Symbol,AggregationRequest] }
+      end
+
+      class AmiAggregation < AggregationRequest
+        def to_h: () -> { ami_aggregation: Hash[Symbol,AggregationRequest] }
+      end
+
+      class AwsEcrContainerAggregation < AggregationRequest
+        def to_h: () -> { aws_ecr_container_aggregation: Hash[Symbol,AggregationRequest] }
+      end
+
+      class Ec2InstanceAggregation < AggregationRequest
+        def to_h: () -> { ec2_instance_aggregation: Hash[Symbol,AggregationRequest] }
+      end
+
+      class FindingTypeAggregation < AggregationRequest
+        def to_h: () -> { finding_type_aggregation: Hash[Symbol,AggregationRequest] }
+      end
+
+      class ImageLayerAggregation < AggregationRequest
+        def to_h: () -> { image_layer_aggregation: Hash[Symbol,AggregationRequest] }
+      end
+
+      class PackageAggregation < AggregationRequest
+        def to_h: () -> { package_aggregation: Hash[Symbol,AggregationRequest] }
+      end
+
+      class RepositoryAggregation < AggregationRequest
+        def to_h: () -> { repository_aggregation: Hash[Symbol,AggregationRequest] }
+      end
+
+      class TitleAggregation < AggregationRequest
+        def to_h: () -> { title_aggregation: Hash[Symbol,AggregationRequest] }
+      end
+
+      class Unknown < AggregationRequest
+        def to_h: () -> { unknown: Hash[Symbol,AggregationRequest] }
+      end
+    end
+
+    module AggregationResourceType
+      AWS_EC2_INSTANCE: ::String
+
+      AWS_ECR_CONTAINER_IMAGE: ::String
+    end
+
+    class AggregationResponse < Hearth::Union
+      class AccountAggregation < AggregationResponse
+        def to_h: () -> { account_aggregation: Hash[Symbol,AggregationResponse] }
+      end
+
+      class AmiAggregation < AggregationResponse
+        def to_h: () -> { ami_aggregation: Hash[Symbol,AggregationResponse] }
+      end
+
+      class AwsEcrContainerAggregation < AggregationResponse
+        def to_h: () -> { aws_ecr_container_aggregation: Hash[Symbol,AggregationResponse] }
+      end
+
+      class Ec2InstanceAggregation < AggregationResponse
+        def to_h: () -> { ec2_instance_aggregation: Hash[Symbol,AggregationResponse] }
+      end
+
+      class FindingTypeAggregation < AggregationResponse
+        def to_h: () -> { finding_type_aggregation: Hash[Symbol,AggregationResponse] }
+      end
+
+      class ImageLayerAggregation < AggregationResponse
+        def to_h: () -> { image_layer_aggregation: Hash[Symbol,AggregationResponse] }
+      end
+
+      class PackageAggregation < AggregationResponse
+        def to_h: () -> { package_aggregation: Hash[Symbol,AggregationResponse] }
+      end
+
+      class RepositoryAggregation < AggregationResponse
+        def to_h: () -> { repository_aggregation: Hash[Symbol,AggregationResponse] }
+      end
+
+      class TitleAggregation < AggregationResponse
+        def to_h: () -> { title_aggregation: Hash[Symbol,AggregationResponse] }
+      end
+
+      class Unknown < AggregationResponse
+        def to_h: () -> { unknown: Hash[Symbol,AggregationResponse] }
+      end
+    end
+
+    module AggregationType
+      FINDING_TYPE: ::String
+
+      PACKAGE: ::String
+
+      TITLE: ::String
+
+      REPOSITORY: ::String
+
+      AMI: ::String
+
+      AWS_EC2_INSTANCE: ::String
+
+      AWS_ECR_CONTAINER: ::String
+
+      IMAGE_LAYER: ::String
+
+      ACCOUNT: ::String
+    end
+
+    AmiAggregation: untyped
+
+    AmiAggregationResponse: untyped
+
+    module AmiSortBy
+      CRITICAL: ::String
+
+      HIGH: ::String
+
+      ALL: ::String
+
+      AFFECTED_INSTANCES: ::String
+    end
+
+    AssociateMemberInput: untyped
+
+    AssociateMemberOutput: untyped
+
+    AutoEnable: untyped
+
+    AwsEc2InstanceDetails: untyped
+
+    AwsEcrContainerAggregation: untyped
+
+    AwsEcrContainerAggregationResponse: untyped
+
+    AwsEcrContainerImageDetails: untyped
+
+    module AwsEcrContainerSortBy
+      CRITICAL: ::String
+
+      HIGH: ::String
+
+      ALL: ::String
+    end
+
+    BadRequestException: untyped
+
+    BatchGetAccountStatusInput: untyped
+
+    BatchGetAccountStatusOutput: untyped
+
+    BatchGetFreeTrialInfoInput: untyped
+
+    BatchGetFreeTrialInfoOutput: untyped
+
+    CancelFindingsReportInput: untyped
+
+    CancelFindingsReportOutput: untyped
+
+    ConflictException: untyped
+
+    Counts: untyped
+
+    CoverageFilterCriteria: untyped
+
+    module CoverageMapComparison
+      EQUALS: ::String
+    end
+
+    CoverageMapFilter: untyped
+
+    module CoverageResourceType
+      AWS_EC2_INSTANCE: ::String
+
+      AWS_ECR_CONTAINER_IMAGE: ::String
+
+      AWS_ECR_REPOSITORY: ::String
+    end
+
+    module CoverageStringComparison
+      EQUALS: ::String
+
+      NOT_EQUALS: ::String
+    end
+
+    CoverageStringFilter: untyped
+
+    CoveredResource: untyped
+
+    CreateFilterInput: untyped
+
+    CreateFilterOutput: untyped
+
+    CreateFindingsReportInput: untyped
+
+    CreateFindingsReportOutput: untyped
+
+    module Currency
+      USD: ::String
+    end
+
+    CvssScore: untyped
+
+    CvssScoreAdjustment: untyped
+
+    CvssScoreDetails: untyped
+
+    DateFilter: untyped
+
+    DelegatedAdmin: untyped
+
+    DelegatedAdminAccount: untyped
+
+    module DelegatedAdminStatus
+      ENABLED: ::String
+
+      DISABLE_IN_PROGRESS: ::String
+    end
+
+    DeleteFilterInput: untyped
+
+    DeleteFilterOutput: untyped
+
+    DescribeOrganizationConfigurationInput: untyped
+
+    DescribeOrganizationConfigurationOutput: untyped
+
+    Destination: untyped
+
+    DisableDelegatedAdminAccountInput: untyped
+
+    DisableDelegatedAdminAccountOutput: untyped
+
+    DisableInput: untyped
+
+    DisableOutput: untyped
+
+    DisassociateMemberInput: untyped
+
+    DisassociateMemberOutput: untyped
+
+    Ec2InstanceAggregation: untyped
+
+    Ec2InstanceAggregationResponse: untyped
+
+    module Ec2InstanceSortBy
+      NETWORK_FINDINGS: ::String
+
+      CRITICAL: ::String
+
+      HIGH: ::String
+
+      ALL: ::String
+    end
+
+    Ec2Metadata: untyped
+
+    module Ec2Platform
+      WINDOWS: ::String
+
+      LINUX: ::String
+
+      UNKNOWN: ::String
+    end
+
+    EcrContainerImageMetadata: untyped
+
+    EcrRepositoryMetadata: untyped
+
+    module EcrScanFrequency
+      MANUAL: ::String
+
+      SCAN_ON_PUSH: ::String
+
+      CONTINUOUS_SCAN: ::String
+    end
+
+    EnableDelegatedAdminAccountInput: untyped
+
+    EnableDelegatedAdminAccountOutput: untyped
+
+    EnableInput: untyped
+
+    EnableOutput: untyped
+
+    module ErrorCode
+      ALREADY_ENABLED: ::String
+
+      ENABLE_IN_PROGRESS: ::String
+
+      DISABLE_IN_PROGRESS: ::String
+
+      SUSPEND_IN_PROGRESS: ::String
+
+      RESOURCE_NOT_FOUND: ::String
+
+      ACCESS_DENIED: ::String
+
+      INTERNAL_ERROR: ::String
+
+      SSM_UNAVAILABLE: ::String
+
+      SSM_THROTTLED: ::String
+
+      EVENTBRIDGE_UNAVAILABLE: ::String
+
+      EVENTBRIDGE_THROTTLED: ::String
+
+      RESOURCE_SCAN_NOT_DISABLED: ::String
+
+      DISASSOCIATE_ALL_MEMBERS: ::String
+    end
+
+    module ExternalReportStatus
+      SUCCEEDED: ::String
+
+      IN_PROGRESS: ::String
+
+      CANCELLED: ::String
+
+      FAILED: ::String
+    end
+
+    FailedAccount: untyped
+
+    Filter: untyped
+
+    module FilterAction
+      NONE: ::String
+
+      SUPPRESS: ::String
+    end
+
+    FilterCriteria: untyped
+
+    Finding: untyped
+
+    module FindingStatus
+      ACTIVE: ::String
+
+      SUPPRESSED: ::String
+
+      CLOSED: ::String
+    end
+
+    module FindingType
+      NETWORK_REACHABILITY: ::String
+
+      PACKAGE_VULNERABILITY: ::String
+    end
+
+    FindingTypeAggregation: untyped
+
+    FindingTypeAggregationResponse: untyped
+
+    module FindingTypeSortBy
+      CRITICAL: ::String
+
+      HIGH: ::String
+
+      ALL: ::String
+    end
+
+    FreeTrialAccountInfo: untyped
+
+    FreeTrialInfo: untyped
+
+    FreeTrialInfoError: untyped
+
+    module FreeTrialInfoErrorCode
+      ACCESS_DENIED: ::String
+
+      INTERNAL_ERROR: ::String
+    end
+
+    module FreeTrialStatus
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+    end
+
+    module FreeTrialType
+      EC2: ::String
+
+      ECR: ::String
+    end
+
+    GetDelegatedAdminAccountInput: untyped
+
+    GetDelegatedAdminAccountOutput: untyped
+
+    GetFindingsReportStatusInput: untyped
+
+    GetFindingsReportStatusOutput: untyped
+
+    GetMemberInput: untyped
+
+    GetMemberOutput: untyped
+
+    module GroupKey
+      SCAN_STATUS_CODE: ::String
+
+      SCAN_STATUS_REASON: ::String
+
+      ACCOUNT_ID: ::String
+
+      RESOURCE_TYPE: ::String
+
+      ECR_REPOSITORY_NAME: ::String
+    end
+
+    ImageLayerAggregation: untyped
+
+    ImageLayerAggregationResponse: untyped
+
+    module ImageLayerSortBy
+      CRITICAL: ::String
+
+      HIGH: ::String
+
+      ALL: ::String
+    end
+
+    InspectorScoreDetails: untyped
+
+    InternalServerException: untyped
+
+    ListAccountPermissionsInput: untyped
+
+    ListAccountPermissionsOutput: untyped
+
+    ListCoverageInput: untyped
+
+    ListCoverageOutput: untyped
+
+    ListCoverageStatisticsInput: untyped
+
+    ListCoverageStatisticsOutput: untyped
+
+    ListDelegatedAdminAccountsInput: untyped
+
+    ListDelegatedAdminAccountsOutput: untyped
+
+    ListFiltersInput: untyped
+
+    ListFiltersOutput: untyped
+
+    ListFindingAggregationsInput: untyped
+
+    ListFindingAggregationsOutput: untyped
+
+    ListFindingsInput: untyped
+
+    ListFindingsOutput: untyped
+
+    ListMembersInput: untyped
+
+    ListMembersOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListUsageTotalsInput: untyped
+
+    ListUsageTotalsOutput: untyped
+
+    module MapComparison
+      EQUALS: ::String
+    end
+
+    MapFilter: untyped
+
+    Member: untyped
+
+    NetworkPath: untyped
+
+    module NetworkProtocol
+      TCP: ::String
+
+      UDP: ::String
+    end
+
+    NetworkReachabilityDetails: untyped
+
+    NumberFilter: untyped
+
+    module Operation
+      ENABLE_SCANNING: ::String
+
+      DISABLE_SCANNING: ::String
+
+      ENABLE_REPOSITORY: ::String
+
+      DISABLE_REPOSITORY: ::String
+    end
+
+    PackageAggregation: untyped
+
+    PackageAggregationResponse: untyped
+
+    PackageFilter: untyped
+
+    module PackageManager
+      BUNDLER: ::String
+
+      CARGO: ::String
+
+      COMPOSER: ::String
+
+      NPM: ::String
+
+      NUGET: ::String
+
+      PIPENV: ::String
+
+      POETRY: ::String
+
+      YARN: ::String
+
+      GOBINARY: ::String
+
+      GOMOD: ::String
+
+      JAR: ::String
+
+      OS: ::String
+    end
+
+    module PackageSortBy
+      CRITICAL: ::String
+
+      HIGH: ::String
+
+      ALL: ::String
+    end
+
+    PackageVulnerabilityDetails: untyped
+
+    Permission: untyped
+
+    PortRange: untyped
+
+    PortRangeFilter: untyped
+
+    Recommendation: untyped
+
+    module RelationshipStatus
+      CREATED: ::String
+
+      INVITED: ::String
+
+      DISABLED: ::String
+
+      ENABLED: ::String
+
+      REMOVED: ::String
+
+      RESIGNED: ::String
+
+      DELETED: ::String
+
+      EMAIL_VERIFICATION_IN_PROGRESS: ::String
+
+      EMAIL_VERIFICATION_FAILED: ::String
+
+      REGION_DISABLED: ::String
+
+      ACCOUNT_SUSPENDED: ::String
+
+      CANNOT_CREATE_DETECTOR_IN_ORG_MASTER: ::String
+    end
+
+    Remediation: untyped
+
+    module ReportFormat
+      CSV: ::String
+
+      JSON: ::String
+    end
+
+    module ReportingErrorCode
+      INTERNAL_ERROR: ::String
+
+      INVALID_PERMISSIONS: ::String
+    end
+
+    RepositoryAggregation: untyped
+
+    RepositoryAggregationResponse: untyped
+
+    module RepositorySortBy
+      CRITICAL: ::String
+
+      HIGH: ::String
+
+      ALL: ::String
+
+      AFFECTED_IMAGES: ::String
+    end
+
+    Resource: untyped
+
+    ResourceDetails: untyped
+
+    ResourceNotFoundException: untyped
+
+    ResourceScanMetadata: untyped
+
+    module ResourceScanType
+      EC2: ::String
+
+      ECR: ::String
+    end
+
+    ResourceState: untyped
+
+    ResourceStatus: untyped
+
+    module ResourceType
+      AWS_EC2_INSTANCE: ::String
+
+      AWS_ECR_CONTAINER_IMAGE: ::String
+
+      AWS_ECR_REPOSITORY: ::String
+    end
+
+    ScanStatus: untyped
+
+    module ScanStatusCode
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+    end
+
+    module ScanStatusReason
+      PENDING_INITIAL_SCAN: ::String
+
+      ACCESS_DENIED: ::String
+
+      INTERNAL_ERROR: ::String
+
+      UNMANAGED_EC2_INSTANCE: ::String
+
+      UNSUPPORTED_OS: ::String
+
+      SCAN_ELIGIBILITY_EXPIRED: ::String
+
+      RESOURCE_TERMINATED: ::String
+
+      SUCCESSFUL: ::String
+
+      NO_RESOURCES_FOUND: ::String
+
+      IMAGE_SIZE_EXCEEDED: ::String
+
+      SCAN_FREQUENCY_MANUAL: ::String
+
+      SCAN_FREQUENCY_SCAN_ON_PUSH: ::String
+
+      EC2_INSTANCE_STOPPED: ::String
+    end
+
+    module ScanType
+      NETWORK: ::String
+
+      PACKAGE: ::String
+    end
+
+    module Service
+      EC2: ::String
+
+      ECR: ::String
+    end
+
+    ServiceQuotaExceededException: untyped
+
+    module Severity
+      INFORMATIONAL: ::String
+
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+
+      CRITICAL: ::String
+
+      UNTRIAGED: ::String
+    end
+
+    SeverityCounts: untyped
+
+    SortCriteria: untyped
+
+    module SortField
+      AWS_ACCOUNT_ID: ::String
+
+      FINDING_TYPE: ::String
+
+      SEVERITY: ::String
+
+      FIRST_OBSERVED_AT: ::String
+
+      LAST_OBSERVED_AT: ::String
+
+      FINDING_STATUS: ::String
+
+      RESOURCE_TYPE: ::String
+
+      ECR_IMAGE_PUSHED_AT: ::String
+
+      ECR_IMAGE_REPOSITORY_NAME: ::String
+
+      ECR_IMAGE_REGISTRY: ::String
+
+      NETWORK_PROTOCOL: ::String
+
+      COMPONENT_TYPE: ::String
+
+      VULNERABILITY_ID: ::String
+
+      VULNERABILITY_SOURCE: ::String
+
+      INSPECTOR_SCORE: ::String
+
+      VENDOR_SEVERITY: ::String
+    end
+
+    module SortOrder
+      ASC: ::String
+
+      DESC: ::String
+    end
+
+    State: untyped
+
+    module Status
+      ENABLING: ::String
+
+      ENABLED: ::String
+
+      DISABLING: ::String
+
+      DISABLED: ::String
+
+      SUSPENDING: ::String
+
+      SUSPENDED: ::String
+    end
+
+    Step: untyped
+
+    module StringComparison
+      EQUALS: ::String
+
+      PREFIX: ::String
+
+      NOT_EQUALS: ::String
+    end
+
+    StringFilter: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    TitleAggregation: untyped
+
+    TitleAggregationResponse: untyped
+
+    module TitleSortBy
+      CRITICAL: ::String
+
+      HIGH: ::String
+
+      ALL: ::String
+    end
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateFilterInput: untyped
+
+    UpdateFilterOutput: untyped
+
+    UpdateOrganizationConfigurationInput: untyped
+
+    UpdateOrganizationConfigurationOutput: untyped
+
+    Usage: untyped
+
+    UsageTotal: untyped
+
+    module UsageType
+      EC2_INSTANCE_HOURS: ::String
+
+      ECR_INITIAL_SCAN: ::String
+
+      ECR_RESCAN: ::String
+    end
+
+    ValidationException: untyped
+
+    ValidationExceptionField: untyped
+
+    module ValidationExceptionReason
+      CANNOT_PARSE: ::String
+
+      FIELD_VALIDATION_FAILED: ::String
+
+      OTHER: ::String
+    end
+
+    VulnerablePackage: untyped
+
+  end
+end

@@ -1,0 +1,170 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::KinesisVideoArchivedMedia
+  module Types
+
+    ClientLimitExceededException: untyped
+
+    ClipFragmentSelector: untyped
+
+    module ClipFragmentSelectorType
+      PRODUCER_TIMESTAMP: ::String
+
+      SERVER_TIMESTAMP: ::String
+    end
+
+    ClipTimestampRange: untyped
+
+    module ContainerFormat
+      FRAGMENTED_MP4: ::String
+
+      MPEG_TS: ::String
+    end
+
+    module DASHDisplayFragmentNumber
+      ALWAYS: ::String
+
+      NEVER: ::String
+    end
+
+    module DASHDisplayFragmentTimestamp
+      ALWAYS: ::String
+
+      NEVER: ::String
+    end
+
+    DASHFragmentSelector: untyped
+
+    module DASHFragmentSelectorType
+      PRODUCER_TIMESTAMP: ::String
+
+      SERVER_TIMESTAMP: ::String
+    end
+
+    module DASHPlaybackMode
+      LIVE: ::String
+
+      LIVE_REPLAY: ::String
+
+      ON_DEMAND: ::String
+    end
+
+    DASHTimestampRange: untyped
+
+    module Format
+      JPEG: ::String
+
+      PNG: ::String
+    end
+
+    module FormatConfigKey
+      JPEGQuality: ::String
+    end
+
+    Fragment: untyped
+
+    FragmentSelector: untyped
+
+    module FragmentSelectorType
+      PRODUCER_TIMESTAMP: ::String
+
+      SERVER_TIMESTAMP: ::String
+    end
+
+    GetClipInput: untyped
+
+    GetClipOutput: untyped
+
+    GetDASHStreamingSessionURLInput: untyped
+
+    GetDASHStreamingSessionURLOutput: untyped
+
+    GetHLSStreamingSessionURLInput: untyped
+
+    GetHLSStreamingSessionURLOutput: untyped
+
+    GetImagesInput: untyped
+
+    GetImagesOutput: untyped
+
+    GetMediaForFragmentListInput: untyped
+
+    GetMediaForFragmentListOutput: untyped
+
+    module HLSDiscontinuityMode
+      ALWAYS: ::String
+
+      NEVER: ::String
+
+      ON_DISCONTINUITY: ::String
+    end
+
+    module HLSDisplayFragmentTimestamp
+      ALWAYS: ::String
+
+      NEVER: ::String
+    end
+
+    HLSFragmentSelector: untyped
+
+    module HLSFragmentSelectorType
+      PRODUCER_TIMESTAMP: ::String
+
+      SERVER_TIMESTAMP: ::String
+    end
+
+    module HLSPlaybackMode
+      LIVE: ::String
+
+      LIVE_REPLAY: ::String
+
+      ON_DEMAND: ::String
+    end
+
+    HLSTimestampRange: untyped
+
+    Image: untyped
+
+    module ImageError
+      NO_MEDIA: ::String
+
+      MEDIA_ERROR: ::String
+    end
+
+    module ImageSelectorType
+      PRODUCER_TIMESTAMP: ::String
+
+      SERVER_TIMESTAMP: ::String
+    end
+
+    InvalidArgumentException: untyped
+
+    InvalidCodecPrivateDataException: untyped
+
+    InvalidMediaFrameException: untyped
+
+    ListFragmentsInput: untyped
+
+    ListFragmentsOutput: untyped
+
+    MissingCodecPrivateDataException: untyped
+
+    NoDataRetentionException: untyped
+
+    NotAuthorizedException: untyped
+
+    ResourceNotFoundException: untyped
+
+    TimestampRange: untyped
+
+    UnsupportedStreamMediaTypeException: untyped
+
+  end
+end

@@ -1,0 +1,322 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Location
+  module Types
+
+    AccessDeniedException: untyped
+
+    AssociateTrackerConsumerInput: untyped
+
+    AssociateTrackerConsumerOutput: untyped
+
+    BatchDeleteDevicePositionHistoryError: untyped
+
+    BatchDeleteDevicePositionHistoryInput: untyped
+
+    BatchDeleteDevicePositionHistoryOutput: untyped
+
+    BatchDeleteGeofenceError: untyped
+
+    BatchDeleteGeofenceInput: untyped
+
+    BatchDeleteGeofenceOutput: untyped
+
+    BatchEvaluateGeofencesError: untyped
+
+    BatchEvaluateGeofencesInput: untyped
+
+    BatchEvaluateGeofencesOutput: untyped
+
+    BatchGetDevicePositionError: untyped
+
+    BatchGetDevicePositionInput: untyped
+
+    BatchGetDevicePositionOutput: untyped
+
+    BatchItemError: untyped
+
+    BatchPutGeofenceError: untyped
+
+    BatchPutGeofenceInput: untyped
+
+    BatchPutGeofenceOutput: untyped
+
+    BatchPutGeofenceRequestEntry: untyped
+
+    BatchPutGeofenceSuccess: untyped
+
+    BatchUpdateDevicePositionError: untyped
+
+    BatchUpdateDevicePositionInput: untyped
+
+    BatchUpdateDevicePositionOutput: untyped
+
+    CalculateRouteCarModeOptions: untyped
+
+    CalculateRouteInput: untyped
+
+    CalculateRouteMatrixInput: untyped
+
+    CalculateRouteMatrixOutput: untyped
+
+    CalculateRouteMatrixSummary: untyped
+
+    CalculateRouteOutput: untyped
+
+    CalculateRouteSummary: untyped
+
+    CalculateRouteTruckModeOptions: untyped
+
+    ConflictException: untyped
+
+    CreateGeofenceCollectionInput: untyped
+
+    CreateGeofenceCollectionOutput: untyped
+
+    CreateMapInput: untyped
+
+    CreateMapOutput: untyped
+
+    CreatePlaceIndexInput: untyped
+
+    CreatePlaceIndexOutput: untyped
+
+    CreateRouteCalculatorInput: untyped
+
+    CreateRouteCalculatorOutput: untyped
+
+    CreateTrackerInput: untyped
+
+    CreateTrackerOutput: untyped
+
+    DataSourceConfiguration: untyped
+
+    DeleteGeofenceCollectionInput: untyped
+
+    DeleteGeofenceCollectionOutput: untyped
+
+    DeleteMapInput: untyped
+
+    DeleteMapOutput: untyped
+
+    DeletePlaceIndexInput: untyped
+
+    DeletePlaceIndexOutput: untyped
+
+    DeleteRouteCalculatorInput: untyped
+
+    DeleteRouteCalculatorOutput: untyped
+
+    DeleteTrackerInput: untyped
+
+    DeleteTrackerOutput: untyped
+
+    DescribeGeofenceCollectionInput: untyped
+
+    DescribeGeofenceCollectionOutput: untyped
+
+    DescribeMapInput: untyped
+
+    DescribeMapOutput: untyped
+
+    DescribePlaceIndexInput: untyped
+
+    DescribePlaceIndexOutput: untyped
+
+    DescribeRouteCalculatorInput: untyped
+
+    DescribeRouteCalculatorOutput: untyped
+
+    DescribeTrackerInput: untyped
+
+    DescribeTrackerOutput: untyped
+
+    DevicePosition: untyped
+
+    DevicePositionUpdate: untyped
+
+    DisassociateTrackerConsumerInput: untyped
+
+    DisassociateTrackerConsumerOutput: untyped
+
+    GeofenceGeometry: untyped
+
+    GetDevicePositionHistoryInput: untyped
+
+    GetDevicePositionHistoryOutput: untyped
+
+    GetDevicePositionInput: untyped
+
+    GetDevicePositionOutput: untyped
+
+    GetGeofenceInput: untyped
+
+    GetGeofenceOutput: untyped
+
+    GetMapGlyphsInput: untyped
+
+    GetMapGlyphsOutput: untyped
+
+    GetMapSpritesInput: untyped
+
+    GetMapSpritesOutput: untyped
+
+    GetMapStyleDescriptorInput: untyped
+
+    GetMapStyleDescriptorOutput: untyped
+
+    GetMapTileInput: untyped
+
+    GetMapTileOutput: untyped
+
+    InternalServerException: untyped
+
+    Leg: untyped
+
+    LegGeometry: untyped
+
+    ListDevicePositionsInput: untyped
+
+    ListDevicePositionsOutput: untyped
+
+    ListDevicePositionsResponseEntry: untyped
+
+    ListGeofenceCollectionsInput: untyped
+
+    ListGeofenceCollectionsOutput: untyped
+
+    ListGeofenceCollectionsResponseEntry: untyped
+
+    ListGeofenceResponseEntry: untyped
+
+    ListGeofencesInput: untyped
+
+    ListGeofencesOutput: untyped
+
+    ListMapsInput: untyped
+
+    ListMapsOutput: untyped
+
+    ListMapsResponseEntry: untyped
+
+    ListPlaceIndexesInput: untyped
+
+    ListPlaceIndexesOutput: untyped
+
+    ListPlaceIndexesResponseEntry: untyped
+
+    ListRouteCalculatorsInput: untyped
+
+    ListRouteCalculatorsOutput: untyped
+
+    ListRouteCalculatorsResponseEntry: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTrackerConsumersInput: untyped
+
+    ListTrackerConsumersOutput: untyped
+
+    ListTrackersInput: untyped
+
+    ListTrackersOutput: untyped
+
+    ListTrackersResponseEntry: untyped
+
+    MapConfiguration: untyped
+
+    Place: untyped
+
+    PlaceGeometry: untyped
+
+    PositionalAccuracy: untyped
+
+    PutGeofenceInput: untyped
+
+    PutGeofenceOutput: untyped
+
+    ResourceNotFoundException: untyped
+
+    RouteMatrixEntry: untyped
+
+    RouteMatrixEntryError: untyped
+
+    SearchForPositionResult: untyped
+
+    SearchForSuggestionsResult: untyped
+
+    SearchForTextResult: untyped
+
+    SearchPlaceIndexForPositionInput: untyped
+
+    SearchPlaceIndexForPositionOutput: untyped
+
+    SearchPlaceIndexForPositionSummary: untyped
+
+    SearchPlaceIndexForSuggestionsInput: untyped
+
+    SearchPlaceIndexForSuggestionsOutput: untyped
+
+    SearchPlaceIndexForSuggestionsSummary: untyped
+
+    SearchPlaceIndexForTextInput: untyped
+
+    SearchPlaceIndexForTextOutput: untyped
+
+    SearchPlaceIndexForTextSummary: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    Step: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    TimeZone: untyped
+
+    TruckDimensions: untyped
+
+    TruckWeight: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateGeofenceCollectionInput: untyped
+
+    UpdateGeofenceCollectionOutput: untyped
+
+    UpdateMapInput: untyped
+
+    UpdateMapOutput: untyped
+
+    UpdatePlaceIndexInput: untyped
+
+    UpdatePlaceIndexOutput: untyped
+
+    UpdateRouteCalculatorInput: untyped
+
+    UpdateRouteCalculatorOutput: untyped
+
+    UpdateTrackerInput: untyped
+
+    UpdateTrackerOutput: untyped
+
+    ValidationException: untyped
+
+    ValidationExceptionField: untyped
+
+  end
+end

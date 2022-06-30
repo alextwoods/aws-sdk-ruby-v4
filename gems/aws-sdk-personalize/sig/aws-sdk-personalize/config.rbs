@@ -1,0 +1,3 @@
+module AWS::SDK::Personalize
+  Config: untyped
+end

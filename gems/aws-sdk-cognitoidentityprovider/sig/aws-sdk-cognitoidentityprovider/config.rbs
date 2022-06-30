@@ -1,0 +1,3 @@
+module AWS::SDK::CognitoIdentityProvider
+  Config: untyped
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::MediaPackageVod
+  Config: untyped
+end

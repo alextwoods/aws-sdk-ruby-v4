@@ -1,0 +1,276 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::ApplicationInsights
+  module Types
+
+    AccessDeniedException: untyped
+
+    ApplicationComponent: untyped
+
+    ApplicationInfo: untyped
+
+    BadRequestException: untyped
+
+    module CloudWatchEventSource
+      EC2: ::String
+
+      CODE_DEPLOY: ::String
+
+      HEALTH: ::String
+
+      RDS: ::String
+    end
+
+    ConfigurationEvent: untyped
+
+    module ConfigurationEventResourceType
+      CLOUDWATCH_ALARM: ::String
+
+      CLOUDWATCH_LOG: ::String
+
+      CLOUDFORMATION: ::String
+
+      SSM_ASSOCIATION: ::String
+    end
+
+    module ConfigurationEventStatus
+      INFO: ::String
+
+      WARN: ::String
+
+      ERROR: ::String
+    end
+
+    CreateApplicationInput: untyped
+
+    CreateApplicationOutput: untyped
+
+    CreateComponentInput: untyped
+
+    CreateComponentOutput: untyped
+
+    CreateLogPatternInput: untyped
+
+    CreateLogPatternOutput: untyped
+
+    DeleteApplicationInput: untyped
+
+    DeleteApplicationOutput: untyped
+
+    DeleteComponentInput: untyped
+
+    DeleteComponentOutput: untyped
+
+    DeleteLogPatternInput: untyped
+
+    DeleteLogPatternOutput: untyped
+
+    DescribeApplicationInput: untyped
+
+    DescribeApplicationOutput: untyped
+
+    DescribeComponentConfigurationInput: untyped
+
+    DescribeComponentConfigurationOutput: untyped
+
+    DescribeComponentConfigurationRecommendationInput: untyped
+
+    DescribeComponentConfigurationRecommendationOutput: untyped
+
+    DescribeComponentInput: untyped
+
+    DescribeComponentOutput: untyped
+
+    DescribeLogPatternInput: untyped
+
+    DescribeLogPatternOutput: untyped
+
+    DescribeObservationInput: untyped
+
+    DescribeObservationOutput: untyped
+
+    DescribeProblemInput: untyped
+
+    DescribeProblemObservationsInput: untyped
+
+    DescribeProblemObservationsOutput: untyped
+
+    DescribeProblemOutput: untyped
+
+    module DiscoveryType
+      RESOURCE_GROUP_BASED: ::String
+
+      ACCOUNT_BASED: ::String
+    end
+
+    module FeedbackKey
+      INSIGHTS_FEEDBACK: ::String
+    end
+
+    module FeedbackValue
+      NOT_SPECIFIED: ::String
+
+      USEFUL: ::String
+
+      NOT_USEFUL: ::String
+    end
+
+    module GroupingType
+      ACCOUNT_BASED: ::String
+    end
+
+    InternalServerException: untyped
+
+    ListApplicationsInput: untyped
+
+    ListApplicationsOutput: untyped
+
+    ListComponentsInput: untyped
+
+    ListComponentsOutput: untyped
+
+    ListConfigurationHistoryInput: untyped
+
+    ListConfigurationHistoryOutput: untyped
+
+    ListLogPatternSetsInput: untyped
+
+    ListLogPatternSetsOutput: untyped
+
+    ListLogPatternsInput: untyped
+
+    ListLogPatternsOutput: untyped
+
+    ListProblemsInput: untyped
+
+    ListProblemsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    module LogFilter
+      ERROR: ::String
+
+      WARN: ::String
+
+      INFO: ::String
+    end
+
+    LogPattern: untyped
+
+    Observation: untyped
+
+    module OsType
+      WINDOWS: ::String
+
+      LINUX: ::String
+    end
+
+    Problem: untyped
+
+    RelatedObservations: untyped
+
+    ResourceInUseException: untyped
+
+    ResourceNotFoundException: untyped
+
+    module SeverityLevel
+      Informative: ::String
+
+      Low: ::String
+
+      Medium: ::String
+
+      High: ::String
+    end
+
+    module Status
+      IGNORE: ::String
+
+      RESOLVED: ::String
+
+      PENDING: ::String
+
+      RECURRING: ::String
+    end
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TagsAlreadyExistException: untyped
+
+    module Tier
+      CUSTOM: ::String
+
+      DEFAULT: ::String
+
+      DOT_NET_CORE: ::String
+
+      DOT_NET_WORKER: ::String
+
+      DOT_NET_WEB_TIER: ::String
+
+      DOT_NET_WEB: ::String
+
+      SQL_SERVER: ::String
+
+      SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP: ::String
+
+      MYSQL: ::String
+
+      POSTGRESQL: ::String
+
+      JAVA_JMX: ::String
+
+      ORACLE: ::String
+
+      SAP_HANA_MULTI_NODE: ::String
+
+      SAP_HANA_SINGLE_NODE: ::String
+
+      SAP_HANA_HIGH_AVAILABILITY: ::String
+
+      SQL_SERVER_FAILOVER_CLUSTER_INSTANCE: ::String
+
+      SHAREPOINT: ::String
+
+      ACTIVE_DIRECTORY: ::String
+    end
+
+    TooManyTagsException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateApplicationInput: untyped
+
+    UpdateApplicationOutput: untyped
+
+    UpdateComponentConfigurationInput: untyped
+
+    UpdateComponentConfigurationOutput: untyped
+
+    UpdateComponentInput: untyped
+
+    UpdateComponentOutput: untyped
+
+    UpdateLogPatternInput: untyped
+
+    UpdateLogPatternOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

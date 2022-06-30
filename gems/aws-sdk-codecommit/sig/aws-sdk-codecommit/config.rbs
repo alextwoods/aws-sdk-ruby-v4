@@ -1,0 +1,3 @@
+module AWS::SDK::CodeCommit
+  Config: untyped
+end

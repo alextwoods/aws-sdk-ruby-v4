@@ -1,0 +1,298 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::ManagedBlockchain
+  module Types
+
+    AccessDeniedException: untyped
+
+    ApprovalThresholdPolicy: untyped
+
+    CreateMemberInput: untyped
+
+    CreateMemberOutput: untyped
+
+    CreateNetworkInput: untyped
+
+    CreateNetworkOutput: untyped
+
+    CreateNodeInput: untyped
+
+    CreateNodeOutput: untyped
+
+    CreateProposalInput: untyped
+
+    CreateProposalOutput: untyped
+
+    DeleteMemberInput: untyped
+
+    DeleteMemberOutput: untyped
+
+    DeleteNodeInput: untyped
+
+    DeleteNodeOutput: untyped
+
+    module Edition
+      STARTER: ::String
+
+      STANDARD: ::String
+    end
+
+    module Framework
+      HYPERLEDGER_FABRIC: ::String
+
+      ETHEREUM: ::String
+    end
+
+    GetMemberInput: untyped
+
+    GetMemberOutput: untyped
+
+    GetNetworkInput: untyped
+
+    GetNetworkOutput: untyped
+
+    GetNodeInput: untyped
+
+    GetNodeOutput: untyped
+
+    GetProposalInput: untyped
+
+    GetProposalOutput: untyped
+
+    IllegalActionException: untyped
+
+    InternalServiceErrorException: untyped
+
+    InvalidRequestException: untyped
+
+    Invitation: untyped
+
+    module InvitationStatus
+      PENDING: ::String
+
+      ACCEPTED: ::String
+
+      ACCEPTING: ::String
+
+      REJECTED: ::String
+
+      EXPIRED: ::String
+    end
+
+    InviteAction: untyped
+
+    ListInvitationsInput: untyped
+
+    ListInvitationsOutput: untyped
+
+    ListMembersInput: untyped
+
+    ListMembersOutput: untyped
+
+    ListNetworksInput: untyped
+
+    ListNetworksOutput: untyped
+
+    ListNodesInput: untyped
+
+    ListNodesOutput: untyped
+
+    ListProposalVotesInput: untyped
+
+    ListProposalVotesOutput: untyped
+
+    ListProposalsInput: untyped
+
+    ListProposalsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    LogConfiguration: untyped
+
+    LogConfigurations: untyped
+
+    Member: untyped
+
+    MemberConfiguration: untyped
+
+    MemberFabricAttributes: untyped
+
+    MemberFabricConfiguration: untyped
+
+    MemberFabricLogPublishingConfiguration: untyped
+
+    MemberFrameworkAttributes: untyped
+
+    MemberFrameworkConfiguration: untyped
+
+    MemberLogPublishingConfiguration: untyped
+
+    module MemberStatus
+      CREATING: ::String
+
+      AVAILABLE: ::String
+
+      CREATE_FAILED: ::String
+
+      UPDATING: ::String
+
+      DELETING: ::String
+
+      DELETED: ::String
+
+      INACCESSIBLE_ENCRYPTION_KEY: ::String
+    end
+
+    MemberSummary: untyped
+
+    Network: untyped
+
+    NetworkEthereumAttributes: untyped
+
+    NetworkFabricAttributes: untyped
+
+    NetworkFabricConfiguration: untyped
+
+    NetworkFrameworkAttributes: untyped
+
+    NetworkFrameworkConfiguration: untyped
+
+    module NetworkStatus
+      CREATING: ::String
+
+      AVAILABLE: ::String
+
+      CREATE_FAILED: ::String
+
+      DELETING: ::String
+
+      DELETED: ::String
+    end
+
+    NetworkSummary: untyped
+
+    Node: untyped
+
+    NodeConfiguration: untyped
+
+    NodeEthereumAttributes: untyped
+
+    NodeFabricAttributes: untyped
+
+    NodeFabricLogPublishingConfiguration: untyped
+
+    NodeFrameworkAttributes: untyped
+
+    NodeLogPublishingConfiguration: untyped
+
+    module NodeStatus
+      CREATING: ::String
+
+      AVAILABLE: ::String
+
+      UNHEALTHY: ::String
+
+      CREATE_FAILED: ::String
+
+      UPDATING: ::String
+
+      DELETING: ::String
+
+      DELETED: ::String
+
+      FAILED: ::String
+
+      INACCESSIBLE_ENCRYPTION_KEY: ::String
+    end
+
+    NodeSummary: untyped
+
+    Proposal: untyped
+
+    ProposalActions: untyped
+
+    module ProposalStatus
+      IN_PROGRESS: ::String
+
+      APPROVED: ::String
+
+      REJECTED: ::String
+
+      EXPIRED: ::String
+
+      ACTION_FAILED: ::String
+    end
+
+    ProposalSummary: untyped
+
+    RejectInvitationInput: untyped
+
+    RejectInvitationOutput: untyped
+
+    RemoveAction: untyped
+
+    ResourceAlreadyExistsException: untyped
+
+    ResourceLimitExceededException: untyped
+
+    ResourceNotFoundException: untyped
+
+    ResourceNotReadyException: untyped
+
+    module StateDBType
+      LevelDB: ::String
+
+      CouchDB: ::String
+    end
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    module ThresholdComparator
+      GREATER_THAN: ::String
+
+      GREATER_THAN_OR_EQUAL_TO: ::String
+    end
+
+    ThrottlingException: untyped
+
+    TooManyTagsException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateMemberInput: untyped
+
+    UpdateMemberOutput: untyped
+
+    UpdateNodeInput: untyped
+
+    UpdateNodeOutput: untyped
+
+    VoteOnProposalInput: untyped
+
+    VoteOnProposalOutput: untyped
+
+    VoteSummary: untyped
+
+    module VoteValue
+      YES: ::String
+
+      NO: ::String
+    end
+
+    VotingPolicy: untyped
+
+  end
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::RedshiftData
+  Config: untyped
+end

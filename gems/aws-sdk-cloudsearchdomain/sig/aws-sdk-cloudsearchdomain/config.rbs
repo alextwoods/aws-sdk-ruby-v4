@@ -1,0 +1,3 @@
+module AWS::SDK::CloudSearchDomain
+  Config: untyped
+end

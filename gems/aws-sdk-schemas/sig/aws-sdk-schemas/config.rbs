@@ -1,0 +1,3 @@
+module AWS::SDK::Schemas
+  Config: untyped
+end

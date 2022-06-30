@@ -1,0 +1,696 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::RoboMaker
+  module Types
+
+    module Architecture
+      X86_64: ::String
+
+      ARM64: ::String
+
+      ARMHF: ::String
+    end
+
+    BatchDeleteWorldsInput: untyped
+
+    BatchDeleteWorldsOutput: untyped
+
+    BatchDescribeSimulationJobInput: untyped
+
+    BatchDescribeSimulationJobOutput: untyped
+
+    BatchPolicy: untyped
+
+    CancelDeploymentJobInput: untyped
+
+    CancelDeploymentJobOutput: untyped
+
+    CancelSimulationJobBatchInput: untyped
+
+    CancelSimulationJobBatchOutput: untyped
+
+    CancelSimulationJobInput: untyped
+
+    CancelSimulationJobOutput: untyped
+
+    CancelWorldExportJobInput: untyped
+
+    CancelWorldExportJobOutput: untyped
+
+    CancelWorldGenerationJobInput: untyped
+
+    CancelWorldGenerationJobOutput: untyped
+
+    Compute: untyped
+
+    ComputeResponse: untyped
+
+    module ComputeType
+      CPU: ::String
+
+      GPU_AND_CPU: ::String
+    end
+
+    ConcurrentDeploymentException: untyped
+
+    CreateDeploymentJobInput: untyped
+
+    CreateDeploymentJobOutput: untyped
+
+    CreateFleetInput: untyped
+
+    CreateFleetOutput: untyped
+
+    CreateRobotApplicationInput: untyped
+
+    CreateRobotApplicationOutput: untyped
+
+    CreateRobotApplicationVersionInput: untyped
+
+    CreateRobotApplicationVersionOutput: untyped
+
+    CreateRobotInput: untyped
+
+    CreateRobotOutput: untyped
+
+    CreateSimulationApplicationInput: untyped
+
+    CreateSimulationApplicationOutput: untyped
+
+    CreateSimulationApplicationVersionInput: untyped
+
+    CreateSimulationApplicationVersionOutput: untyped
+
+    CreateSimulationJobInput: untyped
+
+    CreateSimulationJobOutput: untyped
+
+    CreateWorldExportJobInput: untyped
+
+    CreateWorldExportJobOutput: untyped
+
+    CreateWorldGenerationJobInput: untyped
+
+    CreateWorldGenerationJobOutput: untyped
+
+    CreateWorldTemplateInput: untyped
+
+    CreateWorldTemplateOutput: untyped
+
+    DataSource: untyped
+
+    DataSourceConfig: untyped
+
+    module DataSourceType
+      Prefix: ::String
+
+      Archive: ::String
+
+      File: ::String
+    end
+
+    DeleteFleetInput: untyped
+
+    DeleteFleetOutput: untyped
+
+    DeleteRobotApplicationInput: untyped
+
+    DeleteRobotApplicationOutput: untyped
+
+    DeleteRobotInput: untyped
+
+    DeleteRobotOutput: untyped
+
+    DeleteSimulationApplicationInput: untyped
+
+    DeleteSimulationApplicationOutput: untyped
+
+    DeleteWorldTemplateInput: untyped
+
+    DeleteWorldTemplateOutput: untyped
+
+    DeploymentApplicationConfig: untyped
+
+    DeploymentConfig: untyped
+
+    DeploymentJob: untyped
+
+    module DeploymentJobErrorCode
+      ResourceNotFound: ::String
+
+      EnvironmentSetupError: ::String
+
+      EtagMismatch: ::String
+
+      FailureThresholdBreached: ::String
+
+      RobotDeploymentAborted: ::String
+
+      RobotDeploymentNoResponse: ::String
+
+      RobotAgentConnectionTimeout: ::String
+
+      GreengrassDeploymentFailed: ::String
+
+      InvalidGreengrassGroup: ::String
+
+      MissingRobotArchitecture: ::String
+
+      MissingRobotApplicationArchitecture: ::String
+
+      MissingRobotDeploymentResource: ::String
+
+      GreengrassGroupVersionDoesNotExist: ::String
+
+      LambdaDeleted: ::String
+
+      ExtractingBundleFailure: ::String
+
+      PreLaunchFileFailure: ::String
+
+      PostLaunchFileFailure: ::String
+
+      BadPermissionError: ::String
+
+      DownloadConditionFailed: ::String
+
+      BadLambdaAssociated: ::String
+
+      InternalServerError: ::String
+
+      RobotApplicationDoesNotExist: ::String
+
+      DeploymentFleetDoesNotExist: ::String
+
+      FleetDeploymentTimeout: ::String
+    end
+
+    DeploymentLaunchConfig: untyped
+
+    module DeploymentStatus
+      Pending: ::String
+
+      Preparing: ::String
+
+      InProgress: ::String
+
+      Failed: ::String
+
+      Succeeded: ::String
+
+      Canceled: ::String
+    end
+
+    DeregisterRobotInput: untyped
+
+    DeregisterRobotOutput: untyped
+
+    DescribeDeploymentJobInput: untyped
+
+    DescribeDeploymentJobOutput: untyped
+
+    DescribeFleetInput: untyped
+
+    DescribeFleetOutput: untyped
+
+    DescribeRobotApplicationInput: untyped
+
+    DescribeRobotApplicationOutput: untyped
+
+    DescribeRobotInput: untyped
+
+    DescribeRobotOutput: untyped
+
+    DescribeSimulationApplicationInput: untyped
+
+    DescribeSimulationApplicationOutput: untyped
+
+    DescribeSimulationJobBatchInput: untyped
+
+    DescribeSimulationJobBatchOutput: untyped
+
+    DescribeSimulationJobInput: untyped
+
+    DescribeSimulationJobOutput: untyped
+
+    DescribeWorldExportJobInput: untyped
+
+    DescribeWorldExportJobOutput: untyped
+
+    DescribeWorldGenerationJobInput: untyped
+
+    DescribeWorldGenerationJobOutput: untyped
+
+    DescribeWorldInput: untyped
+
+    DescribeWorldOutput: untyped
+
+    DescribeWorldTemplateInput: untyped
+
+    DescribeWorldTemplateOutput: untyped
+
+    Environment: untyped
+
+    module ExitBehavior
+      FAIL: ::String
+
+      RESTART: ::String
+    end
+
+    FailedCreateSimulationJobRequest: untyped
+
+    module FailureBehavior
+      Fail: ::String
+
+      Continue: ::String
+    end
+
+    FailureSummary: untyped
+
+    Filter: untyped
+
+    FinishedWorldsSummary: untyped
+
+    Fleet: untyped
+
+    GetWorldTemplateBodyInput: untyped
+
+    GetWorldTemplateBodyOutput: untyped
+
+    IdempotentParameterMismatchException: untyped
+
+    InternalServerException: untyped
+
+    InvalidParameterException: untyped
+
+    LaunchConfig: untyped
+
+    LimitExceededException: untyped
+
+    ListDeploymentJobsInput: untyped
+
+    ListDeploymentJobsOutput: untyped
+
+    ListFleetsInput: untyped
+
+    ListFleetsOutput: untyped
+
+    ListRobotApplicationsInput: untyped
+
+    ListRobotApplicationsOutput: untyped
+
+    ListRobotsInput: untyped
+
+    ListRobotsOutput: untyped
+
+    ListSimulationApplicationsInput: untyped
+
+    ListSimulationApplicationsOutput: untyped
+
+    ListSimulationJobBatchesInput: untyped
+
+    ListSimulationJobBatchesOutput: untyped
+
+    ListSimulationJobsInput: untyped
+
+    ListSimulationJobsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListWorldExportJobsInput: untyped
+
+    ListWorldExportJobsOutput: untyped
+
+    ListWorldGenerationJobsInput: untyped
+
+    ListWorldGenerationJobsOutput: untyped
+
+    ListWorldTemplatesInput: untyped
+
+    ListWorldTemplatesOutput: untyped
+
+    ListWorldsInput: untyped
+
+    ListWorldsOutput: untyped
+
+    LoggingConfig: untyped
+
+    NetworkInterface: untyped
+
+    OutputLocation: untyped
+
+    PortForwardingConfig: untyped
+
+    PortMapping: untyped
+
+    ProgressDetail: untyped
+
+    RegisterRobotInput: untyped
+
+    RegisterRobotOutput: untyped
+
+    RenderingEngine: untyped
+
+    module RenderingEngineType
+      OGRE: ::String
+    end
+
+    ResourceAlreadyExistsException: untyped
+
+    ResourceNotFoundException: untyped
+
+    RestartSimulationJobInput: untyped
+
+    RestartSimulationJobOutput: untyped
+
+    Robot: untyped
+
+    RobotApplicationConfig: untyped
+
+    RobotApplicationSummary: untyped
+
+    RobotDeployment: untyped
+
+    module RobotDeploymentStep
+      ValidatingStep: ::String
+
+      DownloadingExtractingStep: ::String
+
+      ExecutingDownloadCondition: ::String
+
+      PreLaunchStep: ::String
+
+      LaunchingStep: ::String
+
+      PostLaunchStep: ::String
+
+      FinishedStep: ::String
+    end
+
+    RobotSoftwareSuite: untyped
+
+    module RobotSoftwareSuiteType
+      ROS: ::String
+
+      ROS2: ::String
+
+      General: ::String
+    end
+
+    module RobotSoftwareSuiteVersionType
+      Kinetic: ::String
+
+      Melodic: ::String
+
+      Dashing: ::String
+
+      Foxy: ::String
+    end
+
+    module RobotStatus
+      Available: ::String
+
+      Registered: ::String
+
+      PendingNewDeployment: ::String
+
+      Deploying: ::String
+
+      Failed: ::String
+
+      InSync: ::String
+
+      NoResponse: ::String
+    end
+
+    S3KeyOutput: untyped
+
+    S3Object: untyped
+
+    ServiceUnavailableException: untyped
+
+    SimulationApplicationConfig: untyped
+
+    SimulationApplicationSummary: untyped
+
+    SimulationJob: untyped
+
+    module SimulationJobBatchErrorCode
+      InternalServiceError: ::String
+    end
+
+    module SimulationJobBatchStatus
+      Pending: ::String
+
+      InProgress: ::String
+
+      Failed: ::String
+
+      Completed: ::String
+
+      Canceled: ::String
+
+      Canceling: ::String
+
+      Completing: ::String
+
+      TimingOut: ::String
+
+      TimedOut: ::String
+    end
+
+    SimulationJobBatchSummary: untyped
+
+    module SimulationJobErrorCode
+      InternalServiceError: ::String
+
+      RobotApplicationCrash: ::String
+
+      SimulationApplicationCrash: ::String
+
+      RobotApplicationHealthCheckFailure: ::String
+
+      SimulationApplicationHealthCheckFailure: ::String
+
+      BadPermissionsRobotApplication: ::String
+
+      BadPermissionsSimulationApplication: ::String
+
+      BadPermissionsS3Object: ::String
+
+      BadPermissionsS3Output: ::String
+
+      BadPermissionsCloudwatchLogs: ::String
+
+      SubnetIpLimitExceeded: ::String
+
+      ENILimitExceeded: ::String
+
+      BadPermissionsUserCredentials: ::String
+
+      InvalidBundleRobotApplication: ::String
+
+      InvalidBundleSimulationApplication: ::String
+
+      InvalidS3Resource: ::String
+
+      ThrottlingError: ::String
+
+      LimitExceeded: ::String
+
+      MismatchedEtag: ::String
+
+      RobotApplicationVersionMismatchedEtag: ::String
+
+      SimulationApplicationVersionMismatchedEtag: ::String
+
+      ResourceNotFound: ::String
+
+      RequestThrottled: ::String
+
+      BatchTimedOut: ::String
+
+      BatchCanceled: ::String
+
+      InvalidInput: ::String
+
+      WrongRegionS3Bucket: ::String
+
+      WrongRegionS3Output: ::String
+
+      WrongRegionRobotApplication: ::String
+
+      WrongRegionSimulationApplication: ::String
+
+      UploadContentMismatchError: ::String
+    end
+
+    SimulationJobRequest: untyped
+
+    module SimulationJobStatus
+      Pending: ::String
+
+      Preparing: ::String
+
+      Running: ::String
+
+      Restarting: ::String
+
+      Completed: ::String
+
+      Failed: ::String
+
+      RunningFailed: ::String
+
+      Terminating: ::String
+
+      Terminated: ::String
+
+      Canceled: ::String
+    end
+
+    SimulationJobSummary: untyped
+
+    SimulationSoftwareSuite: untyped
+
+    module SimulationSoftwareSuiteType
+      Gazebo: ::String
+
+      RosbagPlay: ::String
+
+      SimulationRuntime: ::String
+    end
+
+    Source: untyped
+
+    SourceConfig: untyped
+
+    StartSimulationJobBatchInput: untyped
+
+    StartSimulationJobBatchOutput: untyped
+
+    SyncDeploymentJobInput: untyped
+
+    SyncDeploymentJobOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TemplateLocation: untyped
+
+    TemplateSummary: untyped
+
+    ThrottlingException: untyped
+
+    Tool: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateRobotApplicationInput: untyped
+
+    UpdateRobotApplicationOutput: untyped
+
+    UpdateSimulationApplicationInput: untyped
+
+    UpdateSimulationApplicationOutput: untyped
+
+    UpdateWorldTemplateInput: untyped
+
+    UpdateWorldTemplateOutput: untyped
+
+    module UploadBehavior
+      UPLOAD_ON_TERMINATE: ::String
+
+      UPLOAD_ROLLING_AUTO_REMOVE: ::String
+    end
+
+    UploadConfiguration: untyped
+
+    VPCConfig: untyped
+
+    VPCConfigResponse: untyped
+
+    WorldConfig: untyped
+
+    WorldCount: untyped
+
+    module WorldExportJobErrorCode
+      InternalServiceError: ::String
+
+      LimitExceeded: ::String
+
+      ResourceNotFound: ::String
+
+      RequestThrottled: ::String
+
+      InvalidInput: ::String
+
+      AccessDenied: ::String
+    end
+
+    module WorldExportJobStatus
+      Pending: ::String
+
+      Running: ::String
+
+      Completed: ::String
+
+      Failed: ::String
+
+      Canceling: ::String
+
+      Canceled: ::String
+    end
+
+    WorldExportJobSummary: untyped
+
+    WorldFailure: untyped
+
+    module WorldGenerationJobErrorCode
+      InternalServiceError: ::String
+
+      LimitExceeded: ::String
+
+      ResourceNotFound: ::String
+
+      RequestThrottled: ::String
+
+      InvalidInput: ::String
+
+      AllWorldGenerationFailed: ::String
+    end
+
+    module WorldGenerationJobStatus
+      Pending: ::String
+
+      Running: ::String
+
+      Completed: ::String
+
+      Failed: ::String
+
+      PartialFailed: ::String
+
+      Canceling: ::String
+
+      Canceled: ::String
+    end
+
+    WorldGenerationJobSummary: untyped
+
+    WorldSummary: untyped
+
+  end
+end

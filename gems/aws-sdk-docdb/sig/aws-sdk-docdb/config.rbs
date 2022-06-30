@@ -1,0 +1,3 @@
+module AWS::SDK::DocDB
+  Config: untyped
+end

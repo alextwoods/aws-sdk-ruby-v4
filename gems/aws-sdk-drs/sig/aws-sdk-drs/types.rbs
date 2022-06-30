@@ -1,0 +1,604 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Drs
+  module Types
+
+    AccessDeniedException: untyped
+
+    Account: untyped
+
+    CPU: untyped
+
+    ConflictException: untyped
+
+    ConversionProperties: untyped
+
+    CreateExtendedSourceServerInput: untyped
+
+    CreateExtendedSourceServerOutput: untyped
+
+    CreateReplicationConfigurationTemplateInput: untyped
+
+    CreateReplicationConfigurationTemplateOutput: untyped
+
+    DataReplicationError: untyped
+
+    module DataReplicationErrorString
+      AGENT_NOT_SEEN: ::String
+
+      SNAPSHOTS_FAILURE: ::String
+
+      NOT_CONVERGING: ::String
+
+      UNSTABLE_NETWORK: ::String
+
+      FAILED_TO_CREATE_SECURITY_GROUP: ::String
+
+      FAILED_TO_LAUNCH_REPLICATION_SERVER: ::String
+
+      FAILED_TO_BOOT_REPLICATION_SERVER: ::String
+
+      FAILED_TO_AUTHENTICATE_WITH_SERVICE: ::String
+
+      FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE: ::String
+
+      FAILED_TO_CREATE_STAGING_DISKS: ::String
+
+      FAILED_TO_ATTACH_STAGING_DISKS: ::String
+
+      FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT: ::String
+
+      FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER: ::String
+
+      FAILED_TO_START_DATA_TRANSFER: ::String
+    end
+
+    DataReplicationInfo: untyped
+
+    DataReplicationInfoReplicatedDisk: untyped
+
+    DataReplicationInitiation: untyped
+
+    DataReplicationInitiationStep: untyped
+
+    module DataReplicationInitiationStepName
+      WAIT: ::String
+
+      CREATE_SECURITY_GROUP: ::String
+
+      LAUNCH_REPLICATION_SERVER: ::String
+
+      BOOT_REPLICATION_SERVER: ::String
+
+      AUTHENTICATE_WITH_SERVICE: ::String
+
+      DOWNLOAD_REPLICATION_SOFTWARE: ::String
+
+      CREATE_STAGING_DISKS: ::String
+
+      ATTACH_STAGING_DISKS: ::String
+
+      PAIR_REPLICATION_SERVER_WITH_AGENT: ::String
+
+      CONNECT_AGENT_TO_REPLICATION_SERVER: ::String
+
+      START_DATA_TRANSFER: ::String
+    end
+
+    module DataReplicationInitiationStepStatus
+      NOT_STARTED: ::String
+
+      IN_PROGRESS: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      SKIPPED: ::String
+    end
+
+    module DataReplicationState
+      STOPPED: ::String
+
+      INITIATING: ::String
+
+      INITIAL_SYNC: ::String
+
+      BACKLOG: ::String
+
+      CREATING_SNAPSHOT: ::String
+
+      CONTINUOUS: ::String
+
+      PAUSED: ::String
+
+      RESCAN: ::String
+
+      STALLED: ::String
+
+      DISCONNECTED: ::String
+    end
+
+    DeleteJobInput: untyped
+
+    DeleteJobOutput: untyped
+
+    DeleteRecoveryInstanceInput: untyped
+
+    DeleteRecoveryInstanceOutput: untyped
+
+    DeleteReplicationConfigurationTemplateInput: untyped
+
+    DeleteReplicationConfigurationTemplateOutput: untyped
+
+    DeleteSourceServerInput: untyped
+
+    DeleteSourceServerOutput: untyped
+
+    DescribeJobLogItemsInput: untyped
+
+    DescribeJobLogItemsOutput: untyped
+
+    DescribeJobsInput: untyped
+
+    DescribeJobsOutput: untyped
+
+    DescribeJobsRequestFilters: untyped
+
+    DescribeRecoveryInstancesInput: untyped
+
+    DescribeRecoveryInstancesOutput: untyped
+
+    DescribeRecoveryInstancesRequestFilters: untyped
+
+    DescribeRecoverySnapshotsInput: untyped
+
+    DescribeRecoverySnapshotsOutput: untyped
+
+    DescribeRecoverySnapshotsRequestFilters: untyped
+
+    DescribeReplicationConfigurationTemplatesInput: untyped
+
+    DescribeReplicationConfigurationTemplatesOutput: untyped
+
+    DescribeSourceServersInput: untyped
+
+    DescribeSourceServersOutput: untyped
+
+    DescribeSourceServersRequestFilters: untyped
+
+    DisconnectRecoveryInstanceInput: untyped
+
+    DisconnectRecoveryInstanceOutput: untyped
+
+    DisconnectSourceServerInput: untyped
+
+    DisconnectSourceServerOutput: untyped
+
+    Disk: untyped
+
+    module EC2InstanceState
+      PENDING: ::String
+
+      RUNNING: ::String
+
+      STOPPING: ::String
+
+      STOPPED: ::String
+
+      SHUTTING_DOWN: ::String
+
+      TERMINATED: ::String
+
+      NOT_FOUND: ::String
+    end
+
+    module ExtensionStatus
+      EXTENDED: ::String
+
+      EXTENSION_ERROR: ::String
+
+      NOT_EXTENDED: ::String
+    end
+
+    module FailbackReplicationError
+      AGENT_NOT_SEEN: ::String
+
+      FAILBACK_CLIENT_NOT_SEEN: ::String
+
+      NOT_CONVERGING: ::String
+
+      UNSTABLE_NETWORK: ::String
+
+      FAILED_TO_ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION: ::String
+
+      FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT: ::String
+
+      FAILED_TO_CONFIGURE_REPLICATION_SOFTWARE: ::String
+
+      FAILED_TO_PAIR_AGENT_WITH_REPLICATION_SOFTWARE: ::String
+
+      FAILED_TO_ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION: ::String
+    end
+
+    module FailbackState
+      FAILBACK_NOT_STARTED: ::String
+
+      FAILBACK_IN_PROGRESS: ::String
+
+      FAILBACK_READY_FOR_LAUNCH: ::String
+
+      FAILBACK_COMPLETED: ::String
+
+      FAILBACK_ERROR: ::String
+    end
+
+    GetFailbackReplicationConfigurationInput: untyped
+
+    GetFailbackReplicationConfigurationOutput: untyped
+
+    GetLaunchConfigurationInput: untyped
+
+    GetLaunchConfigurationOutput: untyped
+
+    GetReplicationConfigurationInput: untyped
+
+    GetReplicationConfigurationOutput: untyped
+
+    IdentificationHints: untyped
+
+    InitializeServiceInput: untyped
+
+    InitializeServiceOutput: untyped
+
+    module InitiatedBy
+      START_RECOVERY: ::String
+
+      START_DRILL: ::String
+
+      FAILBACK: ::String
+
+      DIAGNOSTIC: ::String
+
+      TERMINATE_RECOVERY_INSTANCES: ::String
+
+      TARGET_ACCOUNT: ::String
+    end
+
+    InternalServerException: untyped
+
+    Job: untyped
+
+    JobLog: untyped
+
+    module JobLogEvent
+      JOB_START: ::String
+
+      SERVER_SKIPPED: ::String
+
+      CLEANUP_START: ::String
+
+      CLEANUP_END: ::String
+
+      CLEANUP_FAIL: ::String
+
+      SNAPSHOT_START: ::String
+
+      SNAPSHOT_END: ::String
+
+      SNAPSHOT_FAIL: ::String
+
+      USING_PREVIOUS_SNAPSHOT: ::String
+
+      USING_PREVIOUS_SNAPSHOT_FAILED: ::String
+
+      CONVERSION_START: ::String
+
+      CONVERSION_END: ::String
+
+      CONVERSION_FAIL: ::String
+
+      LAUNCH_START: ::String
+
+      LAUNCH_FAILED: ::String
+
+      JOB_CANCEL: ::String
+
+      JOB_END: ::String
+    end
+
+    JobLogEventData: untyped
+
+    module JobStatus
+      PENDING: ::String
+
+      STARTED: ::String
+
+      COMPLETED: ::String
+    end
+
+    module JobType
+      LAUNCH: ::String
+
+      TERMINATE: ::String
+
+      CREATE_CONVERTED_SNAPSHOT: ::String
+    end
+
+    module LastLaunchResult
+      NOT_STARTED: ::String
+
+      PENDING: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+    end
+
+    module LastLaunchType
+      RECOVERY: ::String
+
+      DRILL: ::String
+    end
+
+    module LaunchDisposition
+      STOPPED: ::String
+
+      STARTED: ::String
+    end
+
+    module LaunchStatus
+      PENDING: ::String
+
+      IN_PROGRESS: ::String
+
+      LAUNCHED: ::String
+
+      FAILED: ::String
+
+      TERMINATED: ::String
+    end
+
+    Licensing: untyped
+
+    LifeCycle: untyped
+
+    LifeCycleLastLaunch: untyped
+
+    LifeCycleLastLaunchInitiated: untyped
+
+    ListExtensibleSourceServersInput: untyped
+
+    ListExtensibleSourceServersOutput: untyped
+
+    ListStagingAccountsInput: untyped
+
+    ListStagingAccountsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    NetworkInterface: untyped
+
+    OS: untyped
+
+    PITPolicyRule: untyped
+
+    module PITPolicyRuleUnits
+      MINUTE: ::String
+
+      HOUR: ::String
+
+      DAY: ::String
+    end
+
+    ParticipatingServer: untyped
+
+    RecoveryInstance: untyped
+
+    RecoveryInstanceDataReplicationError: untyped
+
+    RecoveryInstanceDataReplicationInfo: untyped
+
+    RecoveryInstanceDataReplicationInfoReplicatedDisk: untyped
+
+    RecoveryInstanceDataReplicationInitiation: untyped
+
+    RecoveryInstanceDataReplicationInitiationStep: untyped
+
+    module RecoveryInstanceDataReplicationInitiationStepName
+      LINK_FAILBACK_CLIENT_WITH_RECOVERY_INSTANCE: ::String
+
+      COMPLETE_VOLUME_MAPPING: ::String
+
+      ESTABLISH_RECOVERY_INSTANCE_COMMUNICATION: ::String
+
+      DOWNLOAD_REPLICATION_SOFTWARE_TO_FAILBACK_CLIENT: ::String
+
+      CONFIGURE_REPLICATION_SOFTWARE: ::String
+
+      PAIR_AGENT_WITH_REPLICATION_SOFTWARE: ::String
+
+      ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION: ::String
+    end
+
+    module RecoveryInstanceDataReplicationInitiationStepStatus
+      NOT_STARTED: ::String
+
+      IN_PROGRESS: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      SKIPPED: ::String
+    end
+
+    module RecoveryInstanceDataReplicationState
+      STOPPED: ::String
+
+      INITIATING: ::String
+
+      INITIAL_SYNC: ::String
+
+      BACKLOG: ::String
+
+      CREATING_SNAPSHOT: ::String
+
+      CONTINUOUS: ::String
+
+      PAUSED: ::String
+
+      RESCAN: ::String
+
+      STALLED: ::String
+
+      DISCONNECTED: ::String
+    end
+
+    RecoveryInstanceDisk: untyped
+
+    RecoveryInstanceFailback: untyped
+
+    RecoveryInstanceProperties: untyped
+
+    RecoverySnapshot: untyped
+
+    module RecoverySnapshotsOrder
+      ASC: ::String
+
+      DESC: ::String
+    end
+
+    module ReplicationConfigurationDataPlaneRouting
+      PRIVATE_IP: ::String
+
+      PUBLIC_IP: ::String
+    end
+
+    module ReplicationConfigurationDefaultLargeStagingDiskType
+      GP2: ::String
+
+      GP3: ::String
+
+      ST1: ::String
+    end
+
+    module ReplicationConfigurationEbsEncryption
+      DEFAULT: ::String
+
+      CUSTOM: ::String
+    end
+
+    ReplicationConfigurationReplicatedDisk: untyped
+
+    module ReplicationConfigurationReplicatedDiskStagingDiskType
+      AUTO: ::String
+
+      GP2: ::String
+
+      GP3: ::String
+
+      IO1: ::String
+
+      SC1: ::String
+
+      ST1: ::String
+
+      STANDARD: ::String
+    end
+
+    ReplicationConfigurationTemplate: untyped
+
+    ResourceNotFoundException: untyped
+
+    RetryDataReplicationInput: untyped
+
+    RetryDataReplicationOutput: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    SourceProperties: untyped
+
+    SourceServer: untyped
+
+    StagingArea: untyped
+
+    StagingSourceServer: untyped
+
+    StartFailbackLaunchInput: untyped
+
+    StartFailbackLaunchOutput: untyped
+
+    StartRecoveryInput: untyped
+
+    StartRecoveryOutput: untyped
+
+    StartRecoveryRequestSourceServer: untyped
+
+    StopFailbackInput: untyped
+
+    StopFailbackOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    module TargetInstanceTypeRightSizingMethod
+      NONE: ::String
+
+      BASIC: ::String
+    end
+
+    TerminateRecoveryInstancesInput: untyped
+
+    TerminateRecoveryInstancesOutput: untyped
+
+    ThrottlingException: untyped
+
+    UninitializedAccountException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateFailbackReplicationConfigurationInput: untyped
+
+    UpdateFailbackReplicationConfigurationOutput: untyped
+
+    UpdateLaunchConfigurationInput: untyped
+
+    UpdateLaunchConfigurationOutput: untyped
+
+    UpdateReplicationConfigurationInput: untyped
+
+    UpdateReplicationConfigurationOutput: untyped
+
+    UpdateReplicationConfigurationTemplateInput: untyped
+
+    UpdateReplicationConfigurationTemplateOutput: untyped
+
+    ValidationException: untyped
+
+    ValidationExceptionField: untyped
+
+    module ValidationExceptionReason
+      UNKNOWN_OPERATION: ::String
+
+      CANNOT_PARSE: ::String
+
+      FIELD_VALIDATION_FAILED: ::String
+
+      OTHER: ::String
+    end
+
+  end
+end

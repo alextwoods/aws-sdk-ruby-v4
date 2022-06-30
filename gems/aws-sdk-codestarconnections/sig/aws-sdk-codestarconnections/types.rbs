@@ -1,0 +1,96 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CodeStarConnections
+  module Types
+
+    ConflictException: untyped
+
+    Connection: untyped
+
+    module ConnectionStatus
+      PENDING: ::String
+
+      AVAILABLE: ::String
+
+      ERROR: ::String
+    end
+
+    CreateConnectionInput: untyped
+
+    CreateConnectionOutput: untyped
+
+    CreateHostInput: untyped
+
+    CreateHostOutput: untyped
+
+    DeleteConnectionInput: untyped
+
+    DeleteConnectionOutput: untyped
+
+    DeleteHostInput: untyped
+
+    DeleteHostOutput: untyped
+
+    GetConnectionInput: untyped
+
+    GetConnectionOutput: untyped
+
+    GetHostInput: untyped
+
+    GetHostOutput: untyped
+
+    Host: untyped
+
+    LimitExceededException: untyped
+
+    ListConnectionsInput: untyped
+
+    ListConnectionsOutput: untyped
+
+    ListHostsInput: untyped
+
+    ListHostsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    module ProviderType
+      BITBUCKET: ::String
+
+      GITHUB: ::String
+
+      GITHUB_ENTERPRISE_SERVER: ::String
+    end
+
+    ResourceNotFoundException: untyped
+
+    ResourceUnavailableException: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    UnsupportedOperationException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateHostInput: untyped
+
+    UpdateHostOutput: untyped
+
+    VpcConfiguration: untyped
+
+  end
+end

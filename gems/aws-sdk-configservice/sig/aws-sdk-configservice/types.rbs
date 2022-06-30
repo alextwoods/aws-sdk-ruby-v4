@@ -1,0 +1,1158 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::ConfigService
+  module Types
+
+    AccountAggregationSource: untyped
+
+    AggregateComplianceByConfigRule: untyped
+
+    AggregateComplianceByConformancePack: untyped
+
+    AggregateComplianceCount: untyped
+
+    AggregateConformancePackCompliance: untyped
+
+    AggregateConformancePackComplianceCount: untyped
+
+    AggregateConformancePackComplianceFilters: untyped
+
+    AggregateConformancePackComplianceSummary: untyped
+
+    AggregateConformancePackComplianceSummaryFilters: untyped
+
+    module AggregateConformancePackComplianceSummaryGroupKey
+      ACCOUNT_ID: ::String
+
+      AWS_REGION: ::String
+    end
+
+    AggregateEvaluationResult: untyped
+
+    AggregateResourceIdentifier: untyped
+
+    AggregatedSourceStatus: untyped
+
+    module AggregatedSourceStatusType
+      FAILED: ::String
+
+      SUCCEEDED: ::String
+
+      OUTDATED: ::String
+    end
+
+    module AggregatedSourceType
+      ACCOUNT: ::String
+
+      ORGANIZATION: ::String
+    end
+
+    AggregationAuthorization: untyped
+
+    BaseConfigurationItem: untyped
+
+    BatchGetAggregateResourceConfigInput: untyped
+
+    BatchGetAggregateResourceConfigOutput: untyped
+
+    BatchGetResourceConfigInput: untyped
+
+    BatchGetResourceConfigOutput: untyped
+
+    module ChronologicalOrder
+      Reverse: ::String
+
+      Forward: ::String
+    end
+
+    Compliance: untyped
+
+    ComplianceByConfigRule: untyped
+
+    ComplianceByResource: untyped
+
+    ComplianceContributorCount: untyped
+
+    ComplianceSummary: untyped
+
+    ComplianceSummaryByResourceType: untyped
+
+    module ComplianceType
+      Compliant: ::String
+
+      Non_Compliant: ::String
+
+      Not_Applicable: ::String
+
+      Insufficient_Data: ::String
+    end
+
+    ConfigExportDeliveryInfo: untyped
+
+    ConfigRule: untyped
+
+    ConfigRuleComplianceFilters: untyped
+
+    ConfigRuleComplianceSummaryFilters: untyped
+
+    module ConfigRuleComplianceSummaryGroupKey
+      ACCOUNT_ID: ::String
+
+      AWS_REGION: ::String
+    end
+
+    ConfigRuleEvaluationStatus: untyped
+
+    module ConfigRuleState
+      ACTIVE: ::String
+
+      DELETING: ::String
+
+      DELETING_RESULTS: ::String
+
+      EVALUATING: ::String
+    end
+
+    ConfigSnapshotDeliveryProperties: untyped
+
+    ConfigStreamDeliveryInfo: untyped
+
+    ConfigurationAggregator: untyped
+
+    ConfigurationItem: untyped
+
+    module ConfigurationItemStatus
+      OK: ::String
+
+      ResourceDiscovered: ::String
+
+      ResourceNotRecorded: ::String
+
+      ResourceDeleted: ::String
+
+      ResourceDeletedNotRecorded: ::String
+    end
+
+    ConfigurationRecorder: untyped
+
+    ConfigurationRecorderStatus: untyped
+
+    ConformancePackComplianceFilters: untyped
+
+    ConformancePackComplianceSummary: untyped
+
+    module ConformancePackComplianceType
+      COMPLIANT: ::String
+
+      NON_COMPLIANT: ::String
+
+      INSUFFICIENT_DATA: ::String
+    end
+
+    ConformancePackDetail: untyped
+
+    ConformancePackEvaluationFilters: untyped
+
+    ConformancePackEvaluationResult: untyped
+
+    ConformancePackInputParameter: untyped
+
+    ConformancePackRuleCompliance: untyped
+
+    module ConformancePackState
+      CREATE_IN_PROGRESS: ::String
+
+      CREATE_COMPLETE: ::String
+
+      CREATE_FAILED: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      DELETE_FAILED: ::String
+    end
+
+    ConformancePackStatusDetail: untyped
+
+    ConformancePackTemplateValidationException: untyped
+
+    CustomPolicyDetails: untyped
+
+    DeleteAggregationAuthorizationInput: untyped
+
+    DeleteAggregationAuthorizationOutput: untyped
+
+    DeleteConfigRuleInput: untyped
+
+    DeleteConfigRuleOutput: untyped
+
+    DeleteConfigurationAggregatorInput: untyped
+
+    DeleteConfigurationAggregatorOutput: untyped
+
+    DeleteConfigurationRecorderInput: untyped
+
+    DeleteConfigurationRecorderOutput: untyped
+
+    DeleteConformancePackInput: untyped
+
+    DeleteConformancePackOutput: untyped
+
+    DeleteDeliveryChannelInput: untyped
+
+    DeleteDeliveryChannelOutput: untyped
+
+    DeleteEvaluationResultsInput: untyped
+
+    DeleteEvaluationResultsOutput: untyped
+
+    DeleteOrganizationConfigRuleInput: untyped
+
+    DeleteOrganizationConfigRuleOutput: untyped
+
+    DeleteOrganizationConformancePackInput: untyped
+
+    DeleteOrganizationConformancePackOutput: untyped
+
+    DeletePendingAggregationRequestInput: untyped
+
+    DeletePendingAggregationRequestOutput: untyped
+
+    DeleteRemediationConfigurationInput: untyped
+
+    DeleteRemediationConfigurationOutput: untyped
+
+    DeleteRemediationExceptionsInput: untyped
+
+    DeleteRemediationExceptionsOutput: untyped
+
+    DeleteResourceConfigInput: untyped
+
+    DeleteResourceConfigOutput: untyped
+
+    DeleteRetentionConfigurationInput: untyped
+
+    DeleteRetentionConfigurationOutput: untyped
+
+    DeleteStoredQueryInput: untyped
+
+    DeleteStoredQueryOutput: untyped
+
+    DeliverConfigSnapshotInput: untyped
+
+    DeliverConfigSnapshotOutput: untyped
+
+    DeliveryChannel: untyped
+
+    DeliveryChannelStatus: untyped
+
+    module DeliveryStatus
+      Success: ::String
+
+      Failure: ::String
+
+      Not_Applicable: ::String
+    end
+
+    DescribeAggregateComplianceByConfigRulesInput: untyped
+
+    DescribeAggregateComplianceByConfigRulesOutput: untyped
+
+    DescribeAggregateComplianceByConformancePacksInput: untyped
+
+    DescribeAggregateComplianceByConformancePacksOutput: untyped
+
+    DescribeAggregationAuthorizationsInput: untyped
+
+    DescribeAggregationAuthorizationsOutput: untyped
+
+    DescribeComplianceByConfigRuleInput: untyped
+
+    DescribeComplianceByConfigRuleOutput: untyped
+
+    DescribeComplianceByResourceInput: untyped
+
+    DescribeComplianceByResourceOutput: untyped
+
+    DescribeConfigRuleEvaluationStatusInput: untyped
+
+    DescribeConfigRuleEvaluationStatusOutput: untyped
+
+    DescribeConfigRulesInput: untyped
+
+    DescribeConfigRulesOutput: untyped
+
+    DescribeConfigurationAggregatorSourcesStatusInput: untyped
+
+    DescribeConfigurationAggregatorSourcesStatusOutput: untyped
+
+    DescribeConfigurationAggregatorsInput: untyped
+
+    DescribeConfigurationAggregatorsOutput: untyped
+
+    DescribeConfigurationRecorderStatusInput: untyped
+
+    DescribeConfigurationRecorderStatusOutput: untyped
+
+    DescribeConfigurationRecordersInput: untyped
+
+    DescribeConfigurationRecordersOutput: untyped
+
+    DescribeConformancePackComplianceInput: untyped
+
+    DescribeConformancePackComplianceOutput: untyped
+
+    DescribeConformancePackStatusInput: untyped
+
+    DescribeConformancePackStatusOutput: untyped
+
+    DescribeConformancePacksInput: untyped
+
+    DescribeConformancePacksOutput: untyped
+
+    DescribeDeliveryChannelStatusInput: untyped
+
+    DescribeDeliveryChannelStatusOutput: untyped
+
+    DescribeDeliveryChannelsInput: untyped
+
+    DescribeDeliveryChannelsOutput: untyped
+
+    DescribeOrganizationConfigRuleStatusesInput: untyped
+
+    DescribeOrganizationConfigRuleStatusesOutput: untyped
+
+    DescribeOrganizationConfigRulesInput: untyped
+
+    DescribeOrganizationConfigRulesOutput: untyped
+
+    DescribeOrganizationConformancePackStatusesInput: untyped
+
+    DescribeOrganizationConformancePackStatusesOutput: untyped
+
+    DescribeOrganizationConformancePacksInput: untyped
+
+    DescribeOrganizationConformancePacksOutput: untyped
+
+    DescribePendingAggregationRequestsInput: untyped
+
+    DescribePendingAggregationRequestsOutput: untyped
+
+    DescribeRemediationConfigurationsInput: untyped
+
+    DescribeRemediationConfigurationsOutput: untyped
+
+    DescribeRemediationExceptionsInput: untyped
+
+    DescribeRemediationExceptionsOutput: untyped
+
+    DescribeRemediationExecutionStatusInput: untyped
+
+    DescribeRemediationExecutionStatusOutput: untyped
+
+    DescribeRetentionConfigurationsInput: untyped
+
+    DescribeRetentionConfigurationsOutput: untyped
+
+    Evaluation: untyped
+
+    EvaluationResult: untyped
+
+    EvaluationResultIdentifier: untyped
+
+    EvaluationResultQualifier: untyped
+
+    module EventSource
+      Aws_Config: ::String
+    end
+
+    ExecutionControls: untyped
+
+    ExternalEvaluation: untyped
+
+    FailedDeleteRemediationExceptionsBatch: untyped
+
+    FailedRemediationBatch: untyped
+
+    FailedRemediationExceptionBatch: untyped
+
+    FieldInfo: untyped
+
+    GetAggregateComplianceDetailsByConfigRuleInput: untyped
+
+    GetAggregateComplianceDetailsByConfigRuleOutput: untyped
+
+    GetAggregateConfigRuleComplianceSummaryInput: untyped
+
+    GetAggregateConfigRuleComplianceSummaryOutput: untyped
+
+    GetAggregateConformancePackComplianceSummaryInput: untyped
+
+    GetAggregateConformancePackComplianceSummaryOutput: untyped
+
+    GetAggregateDiscoveredResourceCountsInput: untyped
+
+    GetAggregateDiscoveredResourceCountsOutput: untyped
+
+    GetAggregateResourceConfigInput: untyped
+
+    GetAggregateResourceConfigOutput: untyped
+
+    GetComplianceDetailsByConfigRuleInput: untyped
+
+    GetComplianceDetailsByConfigRuleOutput: untyped
+
+    GetComplianceDetailsByResourceInput: untyped
+
+    GetComplianceDetailsByResourceOutput: untyped
+
+    GetComplianceSummaryByConfigRuleInput: untyped
+
+    GetComplianceSummaryByConfigRuleOutput: untyped
+
+    GetComplianceSummaryByResourceTypeInput: untyped
+
+    GetComplianceSummaryByResourceTypeOutput: untyped
+
+    GetConformancePackComplianceDetailsInput: untyped
+
+    GetConformancePackComplianceDetailsOutput: untyped
+
+    GetConformancePackComplianceSummaryInput: untyped
+
+    GetConformancePackComplianceSummaryOutput: untyped
+
+    GetCustomRulePolicyInput: untyped
+
+    GetCustomRulePolicyOutput: untyped
+
+    GetDiscoveredResourceCountsInput: untyped
+
+    GetDiscoveredResourceCountsOutput: untyped
+
+    GetOrganizationConfigRuleDetailedStatusInput: untyped
+
+    GetOrganizationConfigRuleDetailedStatusOutput: untyped
+
+    GetOrganizationConformancePackDetailedStatusInput: untyped
+
+    GetOrganizationConformancePackDetailedStatusOutput: untyped
+
+    GetOrganizationCustomRulePolicyInput: untyped
+
+    GetOrganizationCustomRulePolicyOutput: untyped
+
+    GetResourceConfigHistoryInput: untyped
+
+    GetResourceConfigHistoryOutput: untyped
+
+    GetStoredQueryInput: untyped
+
+    GetStoredQueryOutput: untyped
+
+    GroupedResourceCount: untyped
+
+    InsufficientDeliveryPolicyException: untyped
+
+    InsufficientPermissionsException: untyped
+
+    InvalidConfigurationRecorderNameException: untyped
+
+    InvalidDeliveryChannelNameException: untyped
+
+    InvalidExpressionException: untyped
+
+    InvalidLimitException: untyped
+
+    InvalidNextTokenException: untyped
+
+    InvalidParameterValueException: untyped
+
+    InvalidRecordingGroupException: untyped
+
+    InvalidResultTokenException: untyped
+
+    InvalidRoleException: untyped
+
+    InvalidS3KeyPrefixException: untyped
+
+    InvalidS3KmsKeyArnException: untyped
+
+    InvalidSNSTopicARNException: untyped
+
+    InvalidTimeRangeException: untyped
+
+    LastDeliveryChannelDeleteFailedException: untyped
+
+    LimitExceededException: untyped
+
+    ListAggregateDiscoveredResourcesInput: untyped
+
+    ListAggregateDiscoveredResourcesOutput: untyped
+
+    ListDiscoveredResourcesInput: untyped
+
+    ListDiscoveredResourcesOutput: untyped
+
+    ListStoredQueriesInput: untyped
+
+    ListStoredQueriesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    MaxActiveResourcesExceededException: untyped
+
+    MaxNumberOfConfigRulesExceededException: untyped
+
+    MaxNumberOfConfigurationRecordersExceededException: untyped
+
+    MaxNumberOfConformancePacksExceededException: untyped
+
+    MaxNumberOfDeliveryChannelsExceededException: untyped
+
+    MaxNumberOfOrganizationConfigRulesExceededException: untyped
+
+    MaxNumberOfOrganizationConformancePacksExceededException: untyped
+
+    MaxNumberOfRetentionConfigurationsExceededException: untyped
+
+    module MaximumExecutionFrequency
+      One_Hour: ::String
+
+      Three_Hours: ::String
+
+      Six_Hours: ::String
+
+      Twelve_Hours: ::String
+
+      TwentyFour_Hours: ::String
+    end
+
+    module MemberAccountRuleStatus
+      CREATE_SUCCESSFUL: ::String
+
+      CREATE_IN_PROGRESS: ::String
+
+      CREATE_FAILED: ::String
+
+      DELETE_SUCCESSFUL: ::String
+
+      DELETE_FAILED: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      UPDATE_SUCCESSFUL: ::String
+
+      UPDATE_IN_PROGRESS: ::String
+
+      UPDATE_FAILED: ::String
+    end
+
+    MemberAccountStatus: untyped
+
+    module MessageType
+      ConfigurationItemChangeNotification: ::String
+
+      ConfigurationSnapshotDeliveryCompleted: ::String
+
+      ScheduledNotification: ::String
+
+      OversizedConfigurationItemChangeNotification: ::String
+    end
+
+    NoAvailableConfigurationRecorderException: untyped
+
+    NoAvailableDeliveryChannelException: untyped
+
+    NoAvailableOrganizationException: untyped
+
+    NoRunningConfigurationRecorderException: untyped
+
+    NoSuchBucketException: untyped
+
+    NoSuchConfigRuleException: untyped
+
+    NoSuchConfigRuleInConformancePackException: untyped
+
+    NoSuchConfigurationAggregatorException: untyped
+
+    NoSuchConfigurationRecorderException: untyped
+
+    NoSuchConformancePackException: untyped
+
+    NoSuchDeliveryChannelException: untyped
+
+    NoSuchOrganizationConfigRuleException: untyped
+
+    NoSuchOrganizationConformancePackException: untyped
+
+    NoSuchRemediationConfigurationException: untyped
+
+    NoSuchRemediationExceptionException: untyped
+
+    NoSuchRetentionConfigurationException: untyped
+
+    OrganizationAccessDeniedException: untyped
+
+    OrganizationAggregationSource: untyped
+
+    OrganizationAllFeaturesNotEnabledException: untyped
+
+    OrganizationConfigRule: untyped
+
+    OrganizationConfigRuleStatus: untyped
+
+    module OrganizationConfigRuleTriggerType
+      CONFIGURATION_ITEM_CHANGE_NOTIFICATION: ::String
+
+      OVERSIZED_CONFIGURATION_ITEM_CHANGE_NOTIFCATION: ::String
+
+      SCHEDULED_NOTIFICATION: ::String
+    end
+
+    module OrganizationConfigRuleTriggerTypeNoSN
+      CONFIGURATION_ITEM_CHANGE_NOTIFICATION: ::String
+
+      OVERSIZED_CONFIGURATION_ITEM_CHANGE_NOTIFCATION: ::String
+    end
+
+    OrganizationConformancePack: untyped
+
+    OrganizationConformancePackDetailedStatus: untyped
+
+    OrganizationConformancePackStatus: untyped
+
+    OrganizationConformancePackTemplateValidationException: untyped
+
+    OrganizationCustomPolicyRuleMetadata: untyped
+
+    OrganizationCustomPolicyRuleMetadataNoPolicy: untyped
+
+    OrganizationCustomRuleMetadata: untyped
+
+    OrganizationManagedRuleMetadata: untyped
+
+    module OrganizationResourceDetailedStatus
+      CREATE_SUCCESSFUL: ::String
+
+      CREATE_IN_PROGRESS: ::String
+
+      CREATE_FAILED: ::String
+
+      DELETE_SUCCESSFUL: ::String
+
+      DELETE_FAILED: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      UPDATE_SUCCESSFUL: ::String
+
+      UPDATE_IN_PROGRESS: ::String
+
+      UPDATE_FAILED: ::String
+    end
+
+    OrganizationResourceDetailedStatusFilters: untyped
+
+    module OrganizationResourceStatus
+      CREATE_SUCCESSFUL: ::String
+
+      CREATE_IN_PROGRESS: ::String
+
+      CREATE_FAILED: ::String
+
+      DELETE_SUCCESSFUL: ::String
+
+      DELETE_FAILED: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      UPDATE_SUCCESSFUL: ::String
+
+      UPDATE_IN_PROGRESS: ::String
+
+      UPDATE_FAILED: ::String
+    end
+
+    module OrganizationRuleStatus
+      CREATE_SUCCESSFUL: ::String
+
+      CREATE_IN_PROGRESS: ::String
+
+      CREATE_FAILED: ::String
+
+      DELETE_SUCCESSFUL: ::String
+
+      DELETE_FAILED: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      UPDATE_SUCCESSFUL: ::String
+
+      UPDATE_IN_PROGRESS: ::String
+
+      UPDATE_FAILED: ::String
+    end
+
+    OversizedConfigurationItemException: untyped
+
+    module Owner
+      Custom_Lambda: ::String
+
+      Aws: ::String
+
+      Custom_Policy: ::String
+    end
+
+    PendingAggregationRequest: untyped
+
+    PutAggregationAuthorizationInput: untyped
+
+    PutAggregationAuthorizationOutput: untyped
+
+    PutConfigRuleInput: untyped
+
+    PutConfigRuleOutput: untyped
+
+    PutConfigurationAggregatorInput: untyped
+
+    PutConfigurationAggregatorOutput: untyped
+
+    PutConfigurationRecorderInput: untyped
+
+    PutConfigurationRecorderOutput: untyped
+
+    PutConformancePackInput: untyped
+
+    PutConformancePackOutput: untyped
+
+    PutDeliveryChannelInput: untyped
+
+    PutDeliveryChannelOutput: untyped
+
+    PutEvaluationsInput: untyped
+
+    PutEvaluationsOutput: untyped
+
+    PutExternalEvaluationInput: untyped
+
+    PutExternalEvaluationOutput: untyped
+
+    PutOrganizationConfigRuleInput: untyped
+
+    PutOrganizationConfigRuleOutput: untyped
+
+    PutOrganizationConformancePackInput: untyped
+
+    PutOrganizationConformancePackOutput: untyped
+
+    PutRemediationConfigurationsInput: untyped
+
+    PutRemediationConfigurationsOutput: untyped
+
+    PutRemediationExceptionsInput: untyped
+
+    PutRemediationExceptionsOutput: untyped
+
+    PutResourceConfigInput: untyped
+
+    PutResourceConfigOutput: untyped
+
+    PutRetentionConfigurationInput: untyped
+
+    PutRetentionConfigurationOutput: untyped
+
+    PutStoredQueryInput: untyped
+
+    PutStoredQueryOutput: untyped
+
+    QueryInfo: untyped
+
+    module RecorderStatus
+      Pending: ::String
+
+      Success: ::String
+
+      Failure: ::String
+    end
+
+    RecordingGroup: untyped
+
+    Relationship: untyped
+
+    RemediationConfiguration: untyped
+
+    RemediationException: untyped
+
+    RemediationExceptionResourceKey: untyped
+
+    module RemediationExecutionState
+      QUEUED: ::String
+
+      IN_PROGRESS: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+    end
+
+    RemediationExecutionStatus: untyped
+
+    RemediationExecutionStep: untyped
+
+    module RemediationExecutionStepState
+      SUCCEEDED: ::String
+
+      PENDING: ::String
+
+      FAILED: ::String
+    end
+
+    RemediationInProgressException: untyped
+
+    RemediationParameterValue: untyped
+
+    module RemediationTargetType
+      SSM_DOCUMENT: ::String
+    end
+
+    ResourceConcurrentModificationException: untyped
+
+    ResourceCount: untyped
+
+    ResourceCountFilters: untyped
+
+    module ResourceCountGroupKey
+      RESOURCE_TYPE: ::String
+
+      ACCOUNT_ID: ::String
+
+      AWS_REGION: ::String
+    end
+
+    ResourceFilters: untyped
+
+    ResourceIdentifier: untyped
+
+    ResourceInUseException: untyped
+
+    ResourceKey: untyped
+
+    ResourceNotDiscoveredException: untyped
+
+    ResourceNotFoundException: untyped
+
+    module ResourceType
+      CustomerGateway: ::String
+
+      EIP: ::String
+
+      Host: ::String
+
+      Instance: ::String
+
+      InternetGateway: ::String
+
+      NetworkAcl: ::String
+
+      NetworkInterface: ::String
+
+      RouteTable: ::String
+
+      SecurityGroup: ::String
+
+      Subnet: ::String
+
+      Trail: ::String
+
+      Volume: ::String
+
+      VPC: ::String
+
+      VPNConnection: ::String
+
+      VPNGateway: ::String
+
+      RegisteredHAInstance: ::String
+
+      NatGateway: ::String
+
+      EgressOnlyInternetGateway: ::String
+
+      VPCEndpoint: ::String
+
+      VPCEndpointService: ::String
+
+      FlowLog: ::String
+
+      VPCPeeringConnection: ::String
+
+      Domain: ::String
+
+      Group: ::String
+
+      Policy: ::String
+
+      Role: ::String
+
+      User: ::String
+
+      LoadBalancerV2: ::String
+
+      Certificate: ::String
+
+      DBInstance: ::String
+
+      DBSubnetGroup: ::String
+
+      DBSecurityGroup: ::String
+
+      DBSnapshot: ::String
+
+      DBCluster: ::String
+
+      DBClusterSnapshot: ::String
+
+      EventSubscription: ::String
+
+      Bucket: ::String
+
+      AccountPublicAccessBlock: ::String
+
+      Cluster: ::String
+
+      ClusterSnapshot: ::String
+
+      ClusterParameterGroup: ::String
+
+      ClusterSecurityGroup: ::String
+
+      ClusterSubnetGroup: ::String
+
+      RedshiftEventSubscription: ::String
+
+      ManagedInstanceInventory: ::String
+
+      Alarm: ::String
+
+      Stack: ::String
+
+      LoadBalancer: ::String
+
+      AutoScalingGroup: ::String
+
+      LaunchConfiguration: ::String
+
+      ScalingPolicy: ::String
+
+      ScheduledAction: ::String
+
+      Table: ::String
+
+      Project: ::String
+
+      RateBasedRule: ::String
+
+      Rule: ::String
+
+      RuleGroup: ::String
+
+      WebACL: ::String
+
+      RegionalRateBasedRule: ::String
+
+      RegionalRule: ::String
+
+      RegionalRuleGroup: ::String
+
+      RegionalWebACL: ::String
+
+      Distribution: ::String
+
+      StreamingDistribution: ::String
+
+      Function: ::String
+
+      NetworkFirewallFirewall: ::String
+
+      NetworkFirewallFirewallPolicy: ::String
+
+      NetworkFirewallRuleGroup: ::String
+
+      Application: ::String
+
+      ApplicationVersion: ::String
+
+      Environment: ::String
+
+      WebACLV2: ::String
+
+      RuleGroupV2: ::String
+
+      IPSetV2: ::String
+
+      RegexPatternSetV2: ::String
+
+      ManagedRuleSetV2: ::String
+
+      EncryptionConfig: ::String
+
+      AssociationCompliance: ::String
+
+      PatchCompliance: ::String
+
+      Protection: ::String
+
+      RegionalProtection: ::String
+
+      ConformancePackCompliance: ::String
+
+      ResourceCompliance: ::String
+
+      Stage: ::String
+
+      RestApi: ::String
+
+      StageV2: ::String
+
+      Api: ::String
+
+      Pipeline: ::String
+
+      CloudFormationProvisionedProduct: ::String
+
+      CloudFormationProduct: ::String
+
+      Portfolio: ::String
+
+      Queue: ::String
+
+      Key: ::String
+
+      QLDBLedger: ::String
+
+      Secret: ::String
+
+      Topic: ::String
+
+      FileData: ::String
+
+      BackupPlan: ::String
+
+      BackupSelection: ::String
+
+      BackupVault: ::String
+
+      BackupRecoveryPoint: ::String
+
+      ECRRepository: ::String
+
+      ECSCluster: ::String
+
+      ECSService: ::String
+
+      ECSTaskDefinition: ::String
+
+      EFSAccessPoint: ::String
+
+      EFSFileSystem: ::String
+
+      EKSCluster: ::String
+
+      OpenSearchDomain: ::String
+
+      TransitGateway: ::String
+
+      KinesisStream: ::String
+
+      KinesisStreamConsumer: ::String
+
+      CodeDeployApplication: ::String
+
+      CodeDeployDeploymentConfig: ::String
+
+      CodeDeployDeploymentGroup: ::String
+
+      LaunchTemplate: ::String
+
+      ECRPublicRepository: ::String
+
+      GuardDutyDetector: ::String
+
+      EMRSecurityConfiguration: ::String
+
+      SageMakerCodeRepository: ::String
+    end
+
+    ResourceValue: untyped
+
+    module ResourceValueType
+      RESOURCE_ID: ::String
+    end
+
+    RetentionConfiguration: untyped
+
+    Scope: untyped
+
+    SelectAggregateResourceConfigInput: untyped
+
+    SelectAggregateResourceConfigOutput: untyped
+
+    SelectResourceConfigInput: untyped
+
+    SelectResourceConfigOutput: untyped
+
+    Source: untyped
+
+    SourceDetail: untyped
+
+    SsmControls: untyped
+
+    StartConfigRulesEvaluationInput: untyped
+
+    StartConfigRulesEvaluationOutput: untyped
+
+    StartConfigurationRecorderInput: untyped
+
+    StartConfigurationRecorderOutput: untyped
+
+    StartRemediationExecutionInput: untyped
+
+    StartRemediationExecutionOutput: untyped
+
+    StaticValue: untyped
+
+    StatusDetailFilters: untyped
+
+    StopConfigurationRecorderInput: untyped
+
+    StopConfigurationRecorderOutput: untyped
+
+    StoredQuery: untyped
+
+    StoredQueryMetadata: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TooManyTagsException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

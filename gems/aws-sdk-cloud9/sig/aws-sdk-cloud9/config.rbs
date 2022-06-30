@@ -1,0 +1,3 @@
+module AWS::SDK::Cloud9
+  Config: untyped
+end

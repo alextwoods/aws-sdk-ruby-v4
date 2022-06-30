@@ -1,0 +1,3 @@
+module AWS::SDK::KinesisAnalytics
+  Config: untyped
+end

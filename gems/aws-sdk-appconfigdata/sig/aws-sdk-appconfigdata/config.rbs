@@ -1,0 +1,3 @@
+module AWS::SDK::AppConfigData
+  Config: untyped
+end

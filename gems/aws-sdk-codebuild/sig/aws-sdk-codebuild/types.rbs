@@ -1,0 +1,654 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CodeBuild
+  module Types
+
+    AccountLimitExceededException: untyped
+
+    module ArtifactNamespace
+      NONE: ::String
+
+      BUILD_ID: ::String
+    end
+
+    module ArtifactPackaging
+      NONE: ::String
+
+      ZIP: ::String
+    end
+
+    module ArtifactsType
+      CODEPIPELINE: ::String
+
+      S3: ::String
+
+      NO_ARTIFACTS: ::String
+    end
+
+    module AuthType
+      OAUTH: ::String
+
+      BASIC_AUTH: ::String
+
+      PERSONAL_ACCESS_TOKEN: ::String
+    end
+
+    BatchDeleteBuildsInput: untyped
+
+    BatchDeleteBuildsOutput: untyped
+
+    BatchGetBuildBatchesInput: untyped
+
+    BatchGetBuildBatchesOutput: untyped
+
+    BatchGetBuildsInput: untyped
+
+    BatchGetBuildsOutput: untyped
+
+    BatchGetProjectsInput: untyped
+
+    BatchGetProjectsOutput: untyped
+
+    BatchGetReportGroupsInput: untyped
+
+    BatchGetReportGroupsOutput: untyped
+
+    BatchGetReportsInput: untyped
+
+    BatchGetReportsOutput: untyped
+
+    module BatchReportModeType
+      REPORT_INDIVIDUAL_BUILDS: ::String
+
+      REPORT_AGGREGATED_BATCH: ::String
+    end
+
+    BatchRestrictions: untyped
+
+    module BucketOwnerAccess
+      NONE: ::String
+
+      READ_ONLY: ::String
+
+      FULL: ::String
+    end
+
+    Build: untyped
+
+    BuildArtifacts: untyped
+
+    BuildBatch: untyped
+
+    BuildBatchFilter: untyped
+
+    BuildBatchPhase: untyped
+
+    module BuildBatchPhaseType
+      SUBMITTED: ::String
+
+      DOWNLOAD_BATCHSPEC: ::String
+
+      IN_PROGRESS: ::String
+
+      COMBINE_ARTIFACTS: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      STOPPED: ::String
+    end
+
+    BuildGroup: untyped
+
+    BuildNotDeleted: untyped
+
+    BuildPhase: untyped
+
+    module BuildPhaseType
+      SUBMITTED: ::String
+
+      QUEUED: ::String
+
+      PROVISIONING: ::String
+
+      DOWNLOAD_SOURCE: ::String
+
+      INSTALL: ::String
+
+      PRE_BUILD: ::String
+
+      BUILD: ::String
+
+      POST_BUILD: ::String
+
+      UPLOAD_ARTIFACTS: ::String
+
+      FINALIZING: ::String
+
+      COMPLETED: ::String
+    end
+
+    BuildStatusConfig: untyped
+
+    BuildSummary: untyped
+
+    module CacheMode
+      LOCAL_DOCKER_LAYER_CACHE: ::String
+
+      LOCAL_SOURCE_CACHE: ::String
+
+      LOCAL_CUSTOM_CACHE: ::String
+    end
+
+    module CacheType
+      NO_CACHE: ::String
+
+      S3: ::String
+
+      LOCAL: ::String
+    end
+
+    CloudWatchLogsConfig: untyped
+
+    CodeCoverage: untyped
+
+    CodeCoverageReportSummary: untyped
+
+    module ComputeType
+      BUILD_GENERAL1_SMALL: ::String
+
+      BUILD_GENERAL1_MEDIUM: ::String
+
+      BUILD_GENERAL1_LARGE: ::String
+
+      BUILD_GENERAL1_2XLARGE: ::String
+    end
+
+    CreateProjectInput: untyped
+
+    CreateProjectOutput: untyped
+
+    CreateReportGroupInput: untyped
+
+    CreateReportGroupOutput: untyped
+
+    CreateWebhookInput: untyped
+
+    CreateWebhookOutput: untyped
+
+    module CredentialProviderType
+      SECRETS_MANAGER: ::String
+    end
+
+    DebugSession: untyped
+
+    DeleteBuildBatchInput: untyped
+
+    DeleteBuildBatchOutput: untyped
+
+    DeleteProjectInput: untyped
+
+    DeleteProjectOutput: untyped
+
+    DeleteReportGroupInput: untyped
+
+    DeleteReportGroupOutput: untyped
+
+    DeleteReportInput: untyped
+
+    DeleteReportOutput: untyped
+
+    DeleteResourcePolicyInput: untyped
+
+    DeleteResourcePolicyOutput: untyped
+
+    DeleteSourceCredentialsInput: untyped
+
+    DeleteSourceCredentialsOutput: untyped
+
+    DeleteWebhookInput: untyped
+
+    DeleteWebhookOutput: untyped
+
+    DescribeCodeCoveragesInput: untyped
+
+    DescribeCodeCoveragesOutput: untyped
+
+    DescribeTestCasesInput: untyped
+
+    DescribeTestCasesOutput: untyped
+
+    EnvironmentImage: untyped
+
+    EnvironmentLanguage: untyped
+
+    EnvironmentPlatform: untyped
+
+    module EnvironmentType
+      WINDOWS_CONTAINER: ::String
+
+      LINUX_CONTAINER: ::String
+
+      LINUX_GPU_CONTAINER: ::String
+
+      ARM_CONTAINER: ::String
+
+      WINDOWS_SERVER_2019_CONTAINER: ::String
+    end
+
+    EnvironmentVariable: untyped
+
+    module EnvironmentVariableType
+      PLAINTEXT: ::String
+
+      PARAMETER_STORE: ::String
+
+      SECRETS_MANAGER: ::String
+    end
+
+    ExportedEnvironmentVariable: untyped
+
+    module FileSystemType
+      EFS: ::String
+    end
+
+    GetReportGroupTrendInput: untyped
+
+    GetReportGroupTrendOutput: untyped
+
+    GetResourcePolicyInput: untyped
+
+    GetResourcePolicyOutput: untyped
+
+    GitSubmodulesConfig: untyped
+
+    module ImagePullCredentialsType
+      CODEBUILD: ::String
+
+      SERVICE_ROLE: ::String
+    end
+
+    ImportSourceCredentialsInput: untyped
+
+    ImportSourceCredentialsOutput: untyped
+
+    InvalidInputException: untyped
+
+    InvalidateProjectCacheInput: untyped
+
+    InvalidateProjectCacheOutput: untyped
+
+    module LanguageType
+      JAVA: ::String
+
+      PYTHON: ::String
+
+      NODE_JS: ::String
+
+      RUBY: ::String
+
+      GOLANG: ::String
+
+      DOCKER: ::String
+
+      ANDROID: ::String
+
+      DOTNET: ::String
+
+      BASE: ::String
+
+      PHP: ::String
+    end
+
+    ListBuildBatchesForProjectInput: untyped
+
+    ListBuildBatchesForProjectOutput: untyped
+
+    ListBuildBatchesInput: untyped
+
+    ListBuildBatchesOutput: untyped
+
+    ListBuildsForProjectInput: untyped
+
+    ListBuildsForProjectOutput: untyped
+
+    ListBuildsInput: untyped
+
+    ListBuildsOutput: untyped
+
+    ListCuratedEnvironmentImagesInput: untyped
+
+    ListCuratedEnvironmentImagesOutput: untyped
+
+    ListProjectsInput: untyped
+
+    ListProjectsOutput: untyped
+
+    ListReportGroupsInput: untyped
+
+    ListReportGroupsOutput: untyped
+
+    ListReportsForReportGroupInput: untyped
+
+    ListReportsForReportGroupOutput: untyped
+
+    ListReportsInput: untyped
+
+    ListReportsOutput: untyped
+
+    ListSharedProjectsInput: untyped
+
+    ListSharedProjectsOutput: untyped
+
+    ListSharedReportGroupsInput: untyped
+
+    ListSharedReportGroupsOutput: untyped
+
+    ListSourceCredentialsInput: untyped
+
+    ListSourceCredentialsOutput: untyped
+
+    LogsConfig: untyped
+
+    module LogsConfigStatusType
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    LogsLocation: untyped
+
+    NetworkInterface: untyped
+
+    OAuthProviderException: untyped
+
+    PhaseContext: untyped
+
+    module PlatformType
+      DEBIAN: ::String
+
+      AMAZON_LINUX: ::String
+
+      UBUNTU: ::String
+
+      WINDOWS_SERVER: ::String
+    end
+
+    Project: untyped
+
+    ProjectArtifacts: untyped
+
+    ProjectBadge: untyped
+
+    ProjectBuildBatchConfig: untyped
+
+    ProjectCache: untyped
+
+    ProjectEnvironment: untyped
+
+    ProjectFileSystemLocation: untyped
+
+    module ProjectSortByType
+      NAME: ::String
+
+      CREATED_TIME: ::String
+
+      LAST_MODIFIED_TIME: ::String
+    end
+
+    ProjectSource: untyped
+
+    ProjectSourceVersion: untyped
+
+    module ProjectVisibilityType
+      PUBLIC_READ: ::String
+
+      PRIVATE: ::String
+    end
+
+    PutResourcePolicyInput: untyped
+
+    PutResourcePolicyOutput: untyped
+
+    RegistryCredential: untyped
+
+    Report: untyped
+
+    module ReportCodeCoverageSortByType
+      LINE_COVERAGE_PERCENTAGE: ::String
+
+      FILE_PATH: ::String
+    end
+
+    ReportExportConfig: untyped
+
+    module ReportExportConfigType
+      S3: ::String
+
+      NO_EXPORT: ::String
+    end
+
+    ReportFilter: untyped
+
+    ReportGroup: untyped
+
+    module ReportGroupSortByType
+      NAME: ::String
+
+      CREATED_TIME: ::String
+
+      LAST_MODIFIED_TIME: ::String
+    end
+
+    module ReportGroupStatusType
+      ACTIVE: ::String
+
+      DELETING: ::String
+    end
+
+    module ReportGroupTrendFieldType
+      PASS_RATE: ::String
+
+      DURATION: ::String
+
+      TOTAL: ::String
+
+      LINE_COVERAGE: ::String
+
+      LINES_COVERED: ::String
+
+      LINES_MISSED: ::String
+
+      BRANCH_COVERAGE: ::String
+
+      BRANCHES_COVERED: ::String
+
+      BRANCHES_MISSED: ::String
+    end
+
+    ReportGroupTrendStats: untyped
+
+    module ReportPackagingType
+      ZIP: ::String
+
+      NONE: ::String
+    end
+
+    module ReportStatusType
+      GENERATING: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      INCOMPLETE: ::String
+
+      DELETING: ::String
+    end
+
+    module ReportType
+      TEST: ::String
+
+      CODE_COVERAGE: ::String
+    end
+
+    ReportWithRawData: untyped
+
+    ResolvedArtifact: untyped
+
+    ResourceAlreadyExistsException: untyped
+
+    ResourceNotFoundException: untyped
+
+    RetryBuildBatchInput: untyped
+
+    RetryBuildBatchOutput: untyped
+
+    module RetryBuildBatchType
+      RETRY_ALL_BUILDS: ::String
+
+      RETRY_FAILED_BUILDS: ::String
+    end
+
+    RetryBuildInput: untyped
+
+    RetryBuildOutput: untyped
+
+    S3LogsConfig: untyped
+
+    S3ReportExportConfig: untyped
+
+    module ServerType
+      GITHUB: ::String
+
+      BITBUCKET: ::String
+
+      GITHUB_ENTERPRISE: ::String
+    end
+
+    module SharedResourceSortByType
+      ARN: ::String
+
+      MODIFIED_TIME: ::String
+    end
+
+    module SortOrderType
+      ASCENDING: ::String
+
+      DESCENDING: ::String
+    end
+
+    SourceAuth: untyped
+
+    module SourceAuthType
+      OAUTH: ::String
+    end
+
+    SourceCredentialsInfo: untyped
+
+    module SourceType
+      CODECOMMIT: ::String
+
+      CODEPIPELINE: ::String
+
+      GITHUB: ::String
+
+      S3: ::String
+
+      BITBUCKET: ::String
+
+      GITHUB_ENTERPRISE: ::String
+
+      NO_SOURCE: ::String
+    end
+
+    StartBuildBatchInput: untyped
+
+    StartBuildBatchOutput: untyped
+
+    StartBuildInput: untyped
+
+    StartBuildOutput: untyped
+
+    module StatusType
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      FAULT: ::String
+
+      TIMED_OUT: ::String
+
+      IN_PROGRESS: ::String
+
+      STOPPED: ::String
+    end
+
+    StopBuildBatchInput: untyped
+
+    StopBuildBatchOutput: untyped
+
+    StopBuildInput: untyped
+
+    StopBuildOutput: untyped
+
+    Tag: untyped
+
+    TestCase: untyped
+
+    TestCaseFilter: untyped
+
+    TestReportSummary: untyped
+
+    UpdateProjectInput: untyped
+
+    UpdateProjectOutput: untyped
+
+    UpdateProjectVisibilityInput: untyped
+
+    UpdateProjectVisibilityOutput: untyped
+
+    UpdateReportGroupInput: untyped
+
+    UpdateReportGroupOutput: untyped
+
+    UpdateWebhookInput: untyped
+
+    UpdateWebhookOutput: untyped
+
+    VpcConfig: untyped
+
+    Webhook: untyped
+
+    module WebhookBuildType
+      BUILD: ::String
+
+      BUILD_BATCH: ::String
+    end
+
+    WebhookFilter: untyped
+
+    module WebhookFilterType
+      EVENT: ::String
+
+      BASE_REF: ::String
+
+      HEAD_REF: ::String
+
+      ACTOR_ACCOUNT_ID: ::String
+
+      FILE_PATH: ::String
+
+      COMMIT_MESSAGE: ::String
+    end
+
+  end
+end

@@ -1,0 +1,724 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::NetworkManager
+  module Types
+
+    AWSLocation: untyped
+
+    AcceptAttachmentInput: untyped
+
+    AcceptAttachmentOutput: untyped
+
+    AccessDeniedException: untyped
+
+    AccountStatus: untyped
+
+    AssociateConnectPeerInput: untyped
+
+    AssociateConnectPeerOutput: untyped
+
+    AssociateCustomerGatewayInput: untyped
+
+    AssociateCustomerGatewayOutput: untyped
+
+    AssociateLinkInput: untyped
+
+    AssociateLinkOutput: untyped
+
+    AssociateTransitGatewayConnectPeerInput: untyped
+
+    AssociateTransitGatewayConnectPeerOutput: untyped
+
+    Attachment: untyped
+
+    module AttachmentState
+      REJECTED: ::String
+
+      PENDING_ATTACHMENT_ACCEPTANCE: ::String
+
+      CREATING: ::String
+
+      FAILED: ::String
+
+      AVAILABLE: ::String
+
+      UPDATING: ::String
+
+      PENDING_NETWORK_UPDATE: ::String
+
+      PENDING_TAG_ACCEPTANCE: ::String
+
+      DELETING: ::String
+    end
+
+    module AttachmentType
+      CONNECT: ::String
+
+      SITE_TO_SITE_VPN: ::String
+
+      VPC: ::String
+    end
+
+    Bandwidth: untyped
+
+    BgpOptions: untyped
+
+    module ChangeAction
+      ADD: ::String
+
+      MODIFY: ::String
+
+      REMOVE: ::String
+    end
+
+    module ChangeSetState
+      PENDING_GENERATION: ::String
+
+      FAILED_GENERATION: ::String
+
+      READY_TO_EXECUTE: ::String
+
+      EXECUTING: ::String
+
+      EXECUTION_SUCCEEDED: ::String
+
+      OUT_OF_DATE: ::String
+    end
+
+    module ChangeType
+      CORE_NETWORK_SEGMENT: ::String
+
+      CORE_NETWORK_EDGE: ::String
+
+      ATTACHMENT_MAPPING: ::String
+
+      ATTACHMENT_ROUTE_PROPAGATION: ::String
+
+      ATTACHMENT_ROUTE_STATIC: ::String
+    end
+
+    ConflictException: untyped
+
+    ConnectAttachment: untyped
+
+    ConnectAttachmentOptions: untyped
+
+    ConnectPeer: untyped
+
+    ConnectPeerAssociation: untyped
+
+    module ConnectPeerAssociationState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
+
+    ConnectPeerBgpConfiguration: untyped
+
+    ConnectPeerConfiguration: untyped
+
+    module ConnectPeerState
+      CREATING: ::String
+
+      FAILED: ::String
+
+      AVAILABLE: ::String
+
+      DELETING: ::String
+    end
+
+    ConnectPeerSummary: untyped
+
+    Connection: untyped
+
+    ConnectionHealth: untyped
+
+    module ConnectionState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      updating: ::String
+    end
+
+    module ConnectionStatus
+      UP: ::String
+
+      DOWN: ::String
+    end
+
+    module ConnectionType
+      BGP: ::String
+
+      IPSEC: ::String
+    end
+
+    CoreNetwork: untyped
+
+    CoreNetworkChange: untyped
+
+    CoreNetworkChangeValues: untyped
+
+    CoreNetworkEdge: untyped
+
+    CoreNetworkPolicy: untyped
+
+    module CoreNetworkPolicyAlias
+      LIVE: ::String
+
+      LATEST: ::String
+    end
+
+    CoreNetworkPolicyError: untyped
+
+    CoreNetworkPolicyException: untyped
+
+    CoreNetworkPolicyVersion: untyped
+
+    CoreNetworkSegment: untyped
+
+    CoreNetworkSegmentEdgeIdentifier: untyped
+
+    module CoreNetworkState
+      CREATING: ::String
+
+      UPDATING: ::String
+
+      AVAILABLE: ::String
+
+      DELETING: ::String
+    end
+
+    CoreNetworkSummary: untyped
+
+    CreateConnectAttachmentInput: untyped
+
+    CreateConnectAttachmentOutput: untyped
+
+    CreateConnectPeerInput: untyped
+
+    CreateConnectPeerOutput: untyped
+
+    CreateConnectionInput: untyped
+
+    CreateConnectionOutput: untyped
+
+    CreateCoreNetworkInput: untyped
+
+    CreateCoreNetworkOutput: untyped
+
+    CreateDeviceInput: untyped
+
+    CreateDeviceOutput: untyped
+
+    CreateGlobalNetworkInput: untyped
+
+    CreateGlobalNetworkOutput: untyped
+
+    CreateLinkInput: untyped
+
+    CreateLinkOutput: untyped
+
+    CreateSiteInput: untyped
+
+    CreateSiteOutput: untyped
+
+    CreateSiteToSiteVpnAttachmentInput: untyped
+
+    CreateSiteToSiteVpnAttachmentOutput: untyped
+
+    CreateVpcAttachmentInput: untyped
+
+    CreateVpcAttachmentOutput: untyped
+
+    CustomerGatewayAssociation: untyped
+
+    module CustomerGatewayAssociationState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
+
+    DeleteAttachmentInput: untyped
+
+    DeleteAttachmentOutput: untyped
+
+    DeleteConnectPeerInput: untyped
+
+    DeleteConnectPeerOutput: untyped
+
+    DeleteConnectionInput: untyped
+
+    DeleteConnectionOutput: untyped
+
+    DeleteCoreNetworkInput: untyped
+
+    DeleteCoreNetworkOutput: untyped
+
+    DeleteCoreNetworkPolicyVersionInput: untyped
+
+    DeleteCoreNetworkPolicyVersionOutput: untyped
+
+    DeleteDeviceInput: untyped
+
+    DeleteDeviceOutput: untyped
+
+    DeleteGlobalNetworkInput: untyped
+
+    DeleteGlobalNetworkOutput: untyped
+
+    DeleteLinkInput: untyped
+
+    DeleteLinkOutput: untyped
+
+    DeleteResourcePolicyInput: untyped
+
+    DeleteResourcePolicyOutput: untyped
+
+    DeleteSiteInput: untyped
+
+    DeleteSiteOutput: untyped
+
+    DeregisterTransitGatewayInput: untyped
+
+    DeregisterTransitGatewayOutput: untyped
+
+    DescribeGlobalNetworksInput: untyped
+
+    DescribeGlobalNetworksOutput: untyped
+
+    Device: untyped
+
+    module DeviceState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      updating: ::String
+    end
+
+    DisassociateConnectPeerInput: untyped
+
+    DisassociateConnectPeerOutput: untyped
+
+    DisassociateCustomerGatewayInput: untyped
+
+    DisassociateCustomerGatewayOutput: untyped
+
+    DisassociateLinkInput: untyped
+
+    DisassociateLinkOutput: untyped
+
+    DisassociateTransitGatewayConnectPeerInput: untyped
+
+    DisassociateTransitGatewayConnectPeerOutput: untyped
+
+    ExecuteCoreNetworkChangeSetInput: untyped
+
+    ExecuteCoreNetworkChangeSetOutput: untyped
+
+    GetConnectAttachmentInput: untyped
+
+    GetConnectAttachmentOutput: untyped
+
+    GetConnectPeerAssociationsInput: untyped
+
+    GetConnectPeerAssociationsOutput: untyped
+
+    GetConnectPeerInput: untyped
+
+    GetConnectPeerOutput: untyped
+
+    GetConnectionsInput: untyped
+
+    GetConnectionsOutput: untyped
+
+    GetCoreNetworkChangeSetInput: untyped
+
+    GetCoreNetworkChangeSetOutput: untyped
+
+    GetCoreNetworkInput: untyped
+
+    GetCoreNetworkOutput: untyped
+
+    GetCoreNetworkPolicyInput: untyped
+
+    GetCoreNetworkPolicyOutput: untyped
+
+    GetCustomerGatewayAssociationsInput: untyped
+
+    GetCustomerGatewayAssociationsOutput: untyped
+
+    GetDevicesInput: untyped
+
+    GetDevicesOutput: untyped
+
+    GetLinkAssociationsInput: untyped
+
+    GetLinkAssociationsOutput: untyped
+
+    GetLinksInput: untyped
+
+    GetLinksOutput: untyped
+
+    GetNetworkResourceCountsInput: untyped
+
+    GetNetworkResourceCountsOutput: untyped
+
+    GetNetworkResourceRelationshipsInput: untyped
+
+    GetNetworkResourceRelationshipsOutput: untyped
+
+    GetNetworkResourcesInput: untyped
+
+    GetNetworkResourcesOutput: untyped
+
+    GetNetworkRoutesInput: untyped
+
+    GetNetworkRoutesOutput: untyped
+
+    GetNetworkTelemetryInput: untyped
+
+    GetNetworkTelemetryOutput: untyped
+
+    GetResourcePolicyInput: untyped
+
+    GetResourcePolicyOutput: untyped
+
+    GetRouteAnalysisInput: untyped
+
+    GetRouteAnalysisOutput: untyped
+
+    GetSiteToSiteVpnAttachmentInput: untyped
+
+    GetSiteToSiteVpnAttachmentOutput: untyped
+
+    GetSitesInput: untyped
+
+    GetSitesOutput: untyped
+
+    GetTransitGatewayConnectPeerAssociationsInput: untyped
+
+    GetTransitGatewayConnectPeerAssociationsOutput: untyped
+
+    GetTransitGatewayRegistrationsInput: untyped
+
+    GetTransitGatewayRegistrationsOutput: untyped
+
+    GetVpcAttachmentInput: untyped
+
+    GetVpcAttachmentOutput: untyped
+
+    GlobalNetwork: untyped
+
+    module GlobalNetworkState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      updating: ::String
+    end
+
+    InternalServerException: untyped
+
+    Link: untyped
+
+    LinkAssociation: untyped
+
+    module LinkAssociationState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
+
+    module LinkState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      updating: ::String
+    end
+
+    ListAttachmentsInput: untyped
+
+    ListAttachmentsOutput: untyped
+
+    ListConnectPeersInput: untyped
+
+    ListConnectPeersOutput: untyped
+
+    ListCoreNetworkPolicyVersionsInput: untyped
+
+    ListCoreNetworkPolicyVersionsOutput: untyped
+
+    ListCoreNetworksInput: untyped
+
+    ListCoreNetworksOutput: untyped
+
+    ListOrganizationServiceAccessStatusInput: untyped
+
+    ListOrganizationServiceAccessStatusOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    Location: untyped
+
+    NetworkResource: untyped
+
+    NetworkResourceCount: untyped
+
+    NetworkResourceSummary: untyped
+
+    NetworkRoute: untyped
+
+    NetworkRouteDestination: untyped
+
+    NetworkTelemetry: untyped
+
+    OrganizationStatus: untyped
+
+    PathComponent: untyped
+
+    ProposedSegmentChange: untyped
+
+    PutCoreNetworkPolicyInput: untyped
+
+    PutCoreNetworkPolicyOutput: untyped
+
+    PutResourcePolicyInput: untyped
+
+    PutResourcePolicyOutput: untyped
+
+    RegisterTransitGatewayInput: untyped
+
+    RegisterTransitGatewayOutput: untyped
+
+    RejectAttachmentInput: untyped
+
+    RejectAttachmentOutput: untyped
+
+    Relationship: untyped
+
+    ResourceNotFoundException: untyped
+
+    RestoreCoreNetworkPolicyVersionInput: untyped
+
+    RestoreCoreNetworkPolicyVersionOutput: untyped
+
+    RouteAnalysis: untyped
+
+    RouteAnalysisCompletion: untyped
+
+    module RouteAnalysisCompletionReasonCode
+      TRANSIT_GATEWAY_ATTACHMENT_NOT_FOUND: ::String
+
+      TRANSIT_GATEWAY_ATTACHMENT_NOT_IN_TRANSIT_GATEWAY: ::String
+
+      CYCLIC_PATH_DETECTED: ::String
+
+      TRANSIT_GATEWAY_ATTACHMENT_STABLE_ROUTE_TABLE_NOT_FOUND: ::String
+
+      ROUTE_NOT_FOUND: ::String
+
+      BLACKHOLE_ROUTE_FOR_DESTINATION_FOUND: ::String
+
+      INACTIVE_ROUTE_FOR_DESTINATION_FOUND: ::String
+
+      TRANSIT_GATEWAY_ATTACHMENT: ::String
+
+      MAX_HOPS_EXCEEDED: ::String
+
+      POSSIBLE_MIDDLEBOX: ::String
+
+      NO_DESTINATION_ARN_PROVIDED: ::String
+    end
+
+    module RouteAnalysisCompletionResultCode
+      CONNECTED: ::String
+
+      NOT_CONNECTED: ::String
+    end
+
+    RouteAnalysisEndpointOptions: untyped
+
+    RouteAnalysisEndpointOptionsSpecification: untyped
+
+    RouteAnalysisPath: untyped
+
+    module RouteAnalysisStatus
+      running: ::String
+
+      completed: ::String
+
+      failed: ::String
+    end
+
+    module RouteState
+      ACTIVE: ::String
+
+      BLACKHOLE: ::String
+    end
+
+    RouteTableIdentifier: untyped
+
+    module RouteTableType
+      TRANSIT_GATEWAY_ROUTE_TABLE: ::String
+
+      CORE_NETWORK_SEGMENT: ::String
+    end
+
+    module RouteType
+      PROPAGATED: ::String
+
+      STATIC: ::String
+    end
+
+    ServiceQuotaExceededException: untyped
+
+    Site: untyped
+
+    module SiteState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      updating: ::String
+    end
+
+    SiteToSiteVpnAttachment: untyped
+
+    StartOrganizationServiceAccessUpdateInput: untyped
+
+    StartOrganizationServiceAccessUpdateOutput: untyped
+
+    StartRouteAnalysisInput: untyped
+
+    StartRouteAnalysisOutput: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    TransitGatewayConnectPeerAssociation: untyped
+
+    module TransitGatewayConnectPeerAssociationState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
+
+    TransitGatewayRegistration: untyped
+
+    module TransitGatewayRegistrationState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+
+      failed: ::String
+    end
+
+    TransitGatewayRegistrationStateReason: untyped
+
+    module TunnelProtocol
+      GRE: ::String
+    end
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateConnectionInput: untyped
+
+    UpdateConnectionOutput: untyped
+
+    UpdateCoreNetworkInput: untyped
+
+    UpdateCoreNetworkOutput: untyped
+
+    UpdateDeviceInput: untyped
+
+    UpdateDeviceOutput: untyped
+
+    UpdateGlobalNetworkInput: untyped
+
+    UpdateGlobalNetworkOutput: untyped
+
+    UpdateLinkInput: untyped
+
+    UpdateLinkOutput: untyped
+
+    UpdateNetworkResourceMetadataInput: untyped
+
+    UpdateNetworkResourceMetadataOutput: untyped
+
+    UpdateSiteInput: untyped
+
+    UpdateSiteOutput: untyped
+
+    UpdateVpcAttachmentInput: untyped
+
+    UpdateVpcAttachmentOutput: untyped
+
+    ValidationException: untyped
+
+    ValidationExceptionField: untyped
+
+    module ValidationExceptionReason
+      UNKNOWN_OPERATION: ::String
+
+      CANNOT_PARSE: ::String
+
+      FIELD_VALIDATION_FAILED: ::String
+
+      OTHER: ::String
+    end
+
+    VpcAttachment: untyped
+
+    VpcOptions: untyped
+
+  end
+end

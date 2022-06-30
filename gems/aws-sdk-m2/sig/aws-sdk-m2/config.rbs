@@ -1,0 +1,3 @@
+module AWS::SDK::M2
+  Config: untyped
+end

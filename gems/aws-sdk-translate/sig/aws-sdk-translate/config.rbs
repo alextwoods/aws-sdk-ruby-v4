@@ -1,0 +1,3 @@
+module AWS::SDK::Translate
+  Config: untyped
+end

@@ -1,0 +1,894 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CodeDeploy
+  module Types
+
+    AddTagsToOnPremisesInstancesInput: untyped
+
+    AddTagsToOnPremisesInstancesOutput: untyped
+
+    Alarm: untyped
+
+    AlarmConfiguration: untyped
+
+    AlarmsLimitExceededException: untyped
+
+    AppSpecContent: untyped
+
+    ApplicationAlreadyExistsException: untyped
+
+    ApplicationDoesNotExistException: untyped
+
+    ApplicationInfo: untyped
+
+    ApplicationLimitExceededException: untyped
+
+    ApplicationNameRequiredException: untyped
+
+    module ApplicationRevisionSortBy
+      RegisterTime: ::String
+
+      FirstUsedTime: ::String
+
+      LastUsedTime: ::String
+    end
+
+    ArnNotSupportedException: untyped
+
+    AutoRollbackConfiguration: untyped
+
+    module AutoRollbackEvent
+      DEPLOYMENT_FAILURE: ::String
+
+      DEPLOYMENT_STOP_ON_ALARM: ::String
+
+      DEPLOYMENT_STOP_ON_REQUEST: ::String
+    end
+
+    AutoScalingGroup: untyped
+
+    BatchGetApplicationRevisionsInput: untyped
+
+    BatchGetApplicationRevisionsOutput: untyped
+
+    BatchGetApplicationsInput: untyped
+
+    BatchGetApplicationsOutput: untyped
+
+    BatchGetDeploymentGroupsInput: untyped
+
+    BatchGetDeploymentGroupsOutput: untyped
+
+    BatchGetDeploymentInstancesInput: untyped
+
+    BatchGetDeploymentInstancesOutput: untyped
+
+    BatchGetDeploymentTargetsInput: untyped
+
+    BatchGetDeploymentTargetsOutput: untyped
+
+    BatchGetDeploymentsInput: untyped
+
+    BatchGetDeploymentsOutput: untyped
+
+    BatchGetOnPremisesInstancesInput: untyped
+
+    BatchGetOnPremisesInstancesOutput: untyped
+
+    BatchLimitExceededException: untyped
+
+    BlueGreenDeploymentConfiguration: untyped
+
+    BlueInstanceTerminationOption: untyped
+
+    BucketNameFilterRequiredException: untyped
+
+    module BundleType
+      Tar: ::String
+
+      TarGZip: ::String
+
+      Zip: ::String
+
+      YAML: ::String
+
+      JSON: ::String
+    end
+
+    CloudFormationTarget: untyped
+
+    module ComputePlatform
+      SERVER: ::String
+
+      LAMBDA: ::String
+
+      ECS: ::String
+    end
+
+    ContinueDeploymentInput: untyped
+
+    ContinueDeploymentOutput: untyped
+
+    CreateApplicationInput: untyped
+
+    CreateApplicationOutput: untyped
+
+    CreateDeploymentConfigInput: untyped
+
+    CreateDeploymentConfigOutput: untyped
+
+    CreateDeploymentGroupInput: untyped
+
+    CreateDeploymentGroupOutput: untyped
+
+    CreateDeploymentInput: untyped
+
+    CreateDeploymentOutput: untyped
+
+    DeleteApplicationInput: untyped
+
+    DeleteApplicationOutput: untyped
+
+    DeleteDeploymentConfigInput: untyped
+
+    DeleteDeploymentConfigOutput: untyped
+
+    DeleteDeploymentGroupInput: untyped
+
+    DeleteDeploymentGroupOutput: untyped
+
+    DeleteGitHubAccountTokenInput: untyped
+
+    DeleteGitHubAccountTokenOutput: untyped
+
+    DeleteResourcesByExternalIdInput: untyped
+
+    DeleteResourcesByExternalIdOutput: untyped
+
+    DeploymentAlreadyCompletedException: untyped
+
+    DeploymentConfigAlreadyExistsException: untyped
+
+    DeploymentConfigDoesNotExistException: untyped
+
+    DeploymentConfigInUseException: untyped
+
+    DeploymentConfigInfo: untyped
+
+    DeploymentConfigLimitExceededException: untyped
+
+    DeploymentConfigNameRequiredException: untyped
+
+    module DeploymentCreator
+      User: ::String
+
+      Autoscaling: ::String
+
+      CodeDeployRollback: ::String
+
+      CodeDeploy: ::String
+
+      CodeDeployAutoUpdate: ::String
+
+      CloudFormation: ::String
+
+      CloudFormationRollback: ::String
+    end
+
+    DeploymentDoesNotExistException: untyped
+
+    DeploymentGroupAlreadyExistsException: untyped
+
+    DeploymentGroupDoesNotExistException: untyped
+
+    DeploymentGroupInfo: untyped
+
+    DeploymentGroupLimitExceededException: untyped
+
+    DeploymentGroupNameRequiredException: untyped
+
+    DeploymentIdRequiredException: untyped
+
+    DeploymentInfo: untyped
+
+    DeploymentIsNotInReadyStateException: untyped
+
+    DeploymentLimitExceededException: untyped
+
+    DeploymentNotStartedException: untyped
+
+    module DeploymentOption
+      WITH_TRAFFIC_CONTROL: ::String
+
+      WITHOUT_TRAFFIC_CONTROL: ::String
+    end
+
+    DeploymentOverview: untyped
+
+    module DeploymentReadyAction
+      CONTINUE_DEPLOYMENT: ::String
+
+      STOP_DEPLOYMENT: ::String
+    end
+
+    DeploymentReadyOption: untyped
+
+    module DeploymentStatus
+      CREATED: ::String
+
+      QUEUED: ::String
+
+      IN_PROGRESS: ::String
+
+      BAKING: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      STOPPED: ::String
+
+      READY: ::String
+    end
+
+    DeploymentStyle: untyped
+
+    DeploymentTarget: untyped
+
+    DeploymentTargetDoesNotExistException: untyped
+
+    DeploymentTargetIdRequiredException: untyped
+
+    DeploymentTargetListSizeExceededException: untyped
+
+    module DeploymentTargetType
+      INSTANCE_TARGET: ::String
+
+      LAMBDA_TARGET: ::String
+
+      ECS_TARGET: ::String
+
+      CLOUDFORMATION_TARGET: ::String
+    end
+
+    module DeploymentType
+      IN_PLACE: ::String
+
+      BLUE_GREEN: ::String
+    end
+
+    module DeploymentWaitType
+      READY_WAIT: ::String
+
+      TERMINATION_WAIT: ::String
+    end
+
+    DeregisterOnPremisesInstanceInput: untyped
+
+    DeregisterOnPremisesInstanceOutput: untyped
+
+    DescriptionTooLongException: untyped
+
+    Diagnostics: untyped
+
+    EC2TagFilter: untyped
+
+    module EC2TagFilterType
+      KEY_ONLY: ::String
+
+      VALUE_ONLY: ::String
+
+      KEY_AND_VALUE: ::String
+    end
+
+    EC2TagSet: untyped
+
+    ECSService: untyped
+
+    ECSServiceMappingLimitExceededException: untyped
+
+    ECSTarget: untyped
+
+    ECSTaskSet: untyped
+
+    ELBInfo: untyped
+
+    module ErrorCode
+      AGENT_ISSUE: ::String
+
+      ALARM_ACTIVE: ::String
+
+      APPLICATION_MISSING: ::String
+
+      AUTOSCALING_VALIDATION_ERROR: ::String
+
+      AUTO_SCALING_CONFIGURATION: ::String
+
+      AUTO_SCALING_IAM_ROLE_PERMISSIONS: ::String
+
+      CODEDEPLOY_RESOURCE_CANNOT_BE_FOUND: ::String
+
+      CUSTOMER_APPLICATION_UNHEALTHY: ::String
+
+      DEPLOYMENT_GROUP_MISSING: ::String
+
+      ECS_UPDATE_ERROR: ::String
+
+      ELASTIC_LOAD_BALANCING_INVALID: ::String
+
+      ELB_INVALID_INSTANCE: ::String
+
+      HEALTH_CONSTRAINTS: ::String
+
+      HEALTH_CONSTRAINTS_INVALID: ::String
+
+      HOOK_EXECUTION_FAILURE: ::String
+
+      IAM_ROLE_MISSING: ::String
+
+      IAM_ROLE_PERMISSIONS: ::String
+
+      INTERNAL_ERROR: ::String
+
+      INVALID_ECS_SERVICE: ::String
+
+      INVALID_LAMBDA_CONFIGURATION: ::String
+
+      INVALID_LAMBDA_FUNCTION: ::String
+
+      INVALID_REVISION: ::String
+
+      MANUAL_STOP: ::String
+
+      MISSING_BLUE_GREEN_DEPLOYMENT_CONFIGURATION: ::String
+
+      MISSING_ELB_INFORMATION: ::String
+
+      MISSING_GITHUB_TOKEN: ::String
+
+      NO_EC2_SUBSCRIPTION: ::String
+
+      NO_INSTANCES: ::String
+
+      OVER_MAX_INSTANCES: ::String
+
+      RESOURCE_LIMIT_EXCEEDED: ::String
+
+      REVISION_MISSING: ::String
+
+      THROTTLED: ::String
+
+      TIMEOUT: ::String
+
+      CLOUDFORMATION_STACK_FAILURE: ::String
+    end
+
+    ErrorInformation: untyped
+
+    module FileExistsBehavior
+      DISALLOW: ::String
+
+      OVERWRITE: ::String
+
+      RETAIN: ::String
+    end
+
+    GenericRevisionInfo: untyped
+
+    GetApplicationInput: untyped
+
+    GetApplicationOutput: untyped
+
+    GetApplicationRevisionInput: untyped
+
+    GetApplicationRevisionOutput: untyped
+
+    GetDeploymentConfigInput: untyped
+
+    GetDeploymentConfigOutput: untyped
+
+    GetDeploymentGroupInput: untyped
+
+    GetDeploymentGroupOutput: untyped
+
+    GetDeploymentInput: untyped
+
+    GetDeploymentInstanceInput: untyped
+
+    GetDeploymentInstanceOutput: untyped
+
+    GetDeploymentOutput: untyped
+
+    GetDeploymentTargetInput: untyped
+
+    GetDeploymentTargetOutput: untyped
+
+    GetOnPremisesInstanceInput: untyped
+
+    GetOnPremisesInstanceOutput: untyped
+
+    GitHubAccountTokenDoesNotExistException: untyped
+
+    GitHubAccountTokenNameRequiredException: untyped
+
+    GitHubLocation: untyped
+
+    module GreenFleetProvisioningAction
+      DISCOVER_EXISTING: ::String
+
+      COPY_AUTO_SCALING_GROUP: ::String
+    end
+
+    GreenFleetProvisioningOption: untyped
+
+    IamArnRequiredException: untyped
+
+    IamSessionArnAlreadyRegisteredException: untyped
+
+    IamUserArnAlreadyRegisteredException: untyped
+
+    IamUserArnRequiredException: untyped
+
+    module InstanceAction
+      TERMINATE: ::String
+
+      KEEP_ALIVE: ::String
+    end
+
+    InstanceDoesNotExistException: untyped
+
+    InstanceIdRequiredException: untyped
+
+    InstanceInfo: untyped
+
+    InstanceLimitExceededException: untyped
+
+    InstanceNameAlreadyRegisteredException: untyped
+
+    InstanceNameRequiredException: untyped
+
+    InstanceNotRegisteredException: untyped
+
+    module InstanceStatus
+      PENDING: ::String
+
+      IN_PROGRESS: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      SKIPPED: ::String
+
+      UNKNOWN: ::String
+
+      READY: ::String
+    end
+
+    InstanceSummary: untyped
+
+    InstanceTarget: untyped
+
+    module InstanceType
+      BLUE: ::String
+
+      GREEN: ::String
+    end
+
+    InvalidAlarmConfigException: untyped
+
+    InvalidApplicationNameException: untyped
+
+    InvalidArnException: untyped
+
+    InvalidAutoRollbackConfigException: untyped
+
+    InvalidAutoScalingGroupException: untyped
+
+    InvalidBlueGreenDeploymentConfigurationException: untyped
+
+    InvalidBucketNameFilterException: untyped
+
+    InvalidComputePlatformException: untyped
+
+    InvalidDeployedStateFilterException: untyped
+
+    InvalidDeploymentConfigNameException: untyped
+
+    InvalidDeploymentGroupNameException: untyped
+
+    InvalidDeploymentIdException: untyped
+
+    InvalidDeploymentInstanceTypeException: untyped
+
+    InvalidDeploymentStatusException: untyped
+
+    InvalidDeploymentStyleException: untyped
+
+    InvalidDeploymentTargetIdException: untyped
+
+    InvalidDeploymentWaitTypeException: untyped
+
+    InvalidEC2TagCombinationException: untyped
+
+    InvalidEC2TagException: untyped
+
+    InvalidECSServiceException: untyped
+
+    InvalidExternalIdException: untyped
+
+    InvalidFileExistsBehaviorException: untyped
+
+    InvalidGitHubAccountTokenException: untyped
+
+    InvalidGitHubAccountTokenNameException: untyped
+
+    InvalidIamSessionArnException: untyped
+
+    InvalidIamUserArnException: untyped
+
+    InvalidIgnoreApplicationStopFailuresValueException: untyped
+
+    InvalidInputException: untyped
+
+    InvalidInstanceNameException: untyped
+
+    InvalidInstanceStatusException: untyped
+
+    InvalidInstanceTypeException: untyped
+
+    InvalidKeyPrefixFilterException: untyped
+
+    InvalidLifecycleEventHookExecutionIdException: untyped
+
+    InvalidLifecycleEventHookExecutionStatusException: untyped
+
+    InvalidLoadBalancerInfoException: untyped
+
+    InvalidMinimumHealthyHostValueException: untyped
+
+    InvalidNextTokenException: untyped
+
+    InvalidOnPremisesTagCombinationException: untyped
+
+    InvalidOperationException: untyped
+
+    InvalidRegistrationStatusException: untyped
+
+    InvalidRevisionException: untyped
+
+    InvalidRoleException: untyped
+
+    InvalidSortByException: untyped
+
+    InvalidSortOrderException: untyped
+
+    InvalidTagException: untyped
+
+    InvalidTagFilterException: untyped
+
+    InvalidTagsToAddException: untyped
+
+    InvalidTargetFilterNameException: untyped
+
+    InvalidTargetGroupPairException: untyped
+
+    InvalidTargetInstancesException: untyped
+
+    InvalidTimeRangeException: untyped
+
+    InvalidTrafficRoutingConfigurationException: untyped
+
+    InvalidTriggerConfigException: untyped
+
+    InvalidUpdateOutdatedInstancesOnlyValueException: untyped
+
+    LambdaFunctionInfo: untyped
+
+    LambdaTarget: untyped
+
+    LastDeploymentInfo: untyped
+
+    module LifecycleErrorCode
+      SUCCESS: ::String
+
+      SCRIPT_MISSING: ::String
+
+      SCRIPT_NOT_EXECUTABLE: ::String
+
+      SCRIPT_TIMED_OUT: ::String
+
+      SCRIPT_FAILED: ::String
+
+      UNKNOWN_ERROR: ::String
+    end
+
+    LifecycleEvent: untyped
+
+    LifecycleEventAlreadyCompletedException: untyped
+
+    module LifecycleEventStatus
+      PENDING: ::String
+
+      IN_PROGRESS: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      SKIPPED: ::String
+
+      UNKNOWN: ::String
+    end
+
+    LifecycleHookLimitExceededException: untyped
+
+    ListApplicationRevisionsInput: untyped
+
+    ListApplicationRevisionsOutput: untyped
+
+    ListApplicationsInput: untyped
+
+    ListApplicationsOutput: untyped
+
+    ListDeploymentConfigsInput: untyped
+
+    ListDeploymentConfigsOutput: untyped
+
+    ListDeploymentGroupsInput: untyped
+
+    ListDeploymentGroupsOutput: untyped
+
+    ListDeploymentInstancesInput: untyped
+
+    ListDeploymentInstancesOutput: untyped
+
+    ListDeploymentTargetsInput: untyped
+
+    ListDeploymentTargetsOutput: untyped
+
+    ListDeploymentsInput: untyped
+
+    ListDeploymentsOutput: untyped
+
+    ListGitHubAccountTokenNamesInput: untyped
+
+    ListGitHubAccountTokenNamesOutput: untyped
+
+    ListOnPremisesInstancesInput: untyped
+
+    ListOnPremisesInstancesOutput: untyped
+
+    module ListStateFilterAction
+      Include: ::String
+
+      Exclude: ::String
+
+      Ignore: ::String
+    end
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    LoadBalancerInfo: untyped
+
+    MinimumHealthyHosts: untyped
+
+    module MinimumHealthyHostsType
+      HOST_COUNT: ::String
+
+      FLEET_PERCENT: ::String
+    end
+
+    MultipleIamArnsProvidedException: untyped
+
+    OnPremisesTagSet: untyped
+
+    OperationNotSupportedException: untyped
+
+    module OutdatedInstancesStrategy
+      Update: ::String
+
+      Ignore: ::String
+    end
+
+    PutLifecycleEventHookExecutionStatusInput: untyped
+
+    PutLifecycleEventHookExecutionStatusOutput: untyped
+
+    RawString: untyped
+
+    RegisterApplicationRevisionInput: untyped
+
+    RegisterApplicationRevisionOutput: untyped
+
+    RegisterOnPremisesInstanceInput: untyped
+
+    RegisterOnPremisesInstanceOutput: untyped
+
+    module RegistrationStatus
+      Registered: ::String
+
+      Deregistered: ::String
+    end
+
+    RelatedDeployments: untyped
+
+    RemoveTagsFromOnPremisesInstancesInput: untyped
+
+    RemoveTagsFromOnPremisesInstancesOutput: untyped
+
+    ResourceArnRequiredException: untyped
+
+    ResourceValidationException: untyped
+
+    RevisionDoesNotExistException: untyped
+
+    RevisionInfo: untyped
+
+    RevisionLocation: untyped
+
+    module RevisionLocationType
+      S3: ::String
+
+      GitHub: ::String
+
+      String: ::String
+
+      AppSpecContent: ::String
+    end
+
+    RevisionRequiredException: untyped
+
+    RoleRequiredException: untyped
+
+    RollbackInfo: untyped
+
+    S3Location: untyped
+
+    SkipWaitTimeForInstanceTerminationInput: untyped
+
+    SkipWaitTimeForInstanceTerminationOutput: untyped
+
+    module SortOrder
+      Ascending: ::String
+
+      Descending: ::String
+    end
+
+    StopDeploymentInput: untyped
+
+    StopDeploymentOutput: untyped
+
+    module StopStatus
+      PENDING: ::String
+
+      SUCCEEDED: ::String
+    end
+
+    Tag: untyped
+
+    TagFilter: untyped
+
+    module TagFilterType
+      KEY_ONLY: ::String
+
+      VALUE_ONLY: ::String
+
+      KEY_AND_VALUE: ::String
+    end
+
+    TagLimitExceededException: untyped
+
+    TagRequiredException: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TagSetListLimitExceededException: untyped
+
+    module TargetFilterName
+      TARGET_STATUS: ::String
+
+      SERVER_INSTANCE_LABEL: ::String
+    end
+
+    TargetGroupInfo: untyped
+
+    TargetGroupPairInfo: untyped
+
+    TargetInstances: untyped
+
+    module TargetLabel
+      BLUE: ::String
+
+      GREEN: ::String
+    end
+
+    module TargetStatus
+      PENDING: ::String
+
+      IN_PROGRESS: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      SKIPPED: ::String
+
+      UNKNOWN: ::String
+
+      READY: ::String
+    end
+
+    ThrottlingException: untyped
+
+    TimeBasedCanary: untyped
+
+    TimeBasedLinear: untyped
+
+    TimeRange: untyped
+
+    TrafficRoute: untyped
+
+    TrafficRoutingConfig: untyped
+
+    module TrafficRoutingType
+      TimeBasedCanary: ::String
+
+      TimeBasedLinear: ::String
+
+      AllAtOnce: ::String
+    end
+
+    TriggerConfig: untyped
+
+    module TriggerEventType
+      DEPLOYMENT_START: ::String
+
+      DEPLOYMENT_SUCCESS: ::String
+
+      DEPLOYMENT_FAILURE: ::String
+
+      DEPLOYMENT_STOP: ::String
+
+      DEPLOYMENT_ROLLBACK: ::String
+
+      DEPLOYMENT_READY: ::String
+
+      INSTANCE_START: ::String
+
+      INSTANCE_SUCCESS: ::String
+
+      INSTANCE_FAILURE: ::String
+
+      INSTANCE_READY: ::String
+    end
+
+    TriggerTargetsLimitExceededException: untyped
+
+    UnsupportedActionForDeploymentTypeException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateApplicationInput: untyped
+
+    UpdateApplicationOutput: untyped
+
+    UpdateDeploymentGroupInput: untyped
+
+    UpdateDeploymentGroupOutput: untyped
+
+  end
+end

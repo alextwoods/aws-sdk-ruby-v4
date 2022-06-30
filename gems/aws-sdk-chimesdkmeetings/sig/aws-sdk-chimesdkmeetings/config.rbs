@@ -1,0 +1,3 @@
+module AWS::SDK::ChimeSDKMeetings
+  Config: untyped
+end

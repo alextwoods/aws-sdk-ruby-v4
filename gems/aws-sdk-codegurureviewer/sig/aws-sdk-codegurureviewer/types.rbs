@@ -1,0 +1,246 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CodeGuruReviewer
+  module Types
+
+    AccessDeniedException: untyped
+
+    module AnalysisType
+      SECURITY: ::String
+
+      CODE_QUALITY: ::String
+    end
+
+    AssociateRepositoryInput: untyped
+
+    AssociateRepositoryOutput: untyped
+
+    BranchDiffSourceCodeType: untyped
+
+    CodeArtifacts: untyped
+
+    CodeCommitRepository: untyped
+
+    CodeReview: untyped
+
+    CodeReviewSummary: untyped
+
+    CodeReviewType: untyped
+
+    CommitDiffSourceCodeType: untyped
+
+    module ConfigFileState
+      PRESENT: ::String
+
+      ABSENT: ::String
+
+      PRESENT_WITH_ERRORS: ::String
+    end
+
+    ConflictException: untyped
+
+    CreateCodeReviewInput: untyped
+
+    CreateCodeReviewOutput: untyped
+
+    DescribeCodeReviewInput: untyped
+
+    DescribeCodeReviewOutput: untyped
+
+    DescribeRecommendationFeedbackInput: untyped
+
+    DescribeRecommendationFeedbackOutput: untyped
+
+    DescribeRepositoryAssociationInput: untyped
+
+    DescribeRepositoryAssociationOutput: untyped
+
+    DisassociateRepositoryInput: untyped
+
+    DisassociateRepositoryOutput: untyped
+
+    module EncryptionOption
+      AoCmk: ::String
+
+      CmCmk: ::String
+    end
+
+    EventInfo: untyped
+
+    InternalServerException: untyped
+
+    module JobState
+      COMPLETED: ::String
+
+      PENDING: ::String
+
+      FAILED: ::String
+
+      DELETING: ::String
+    end
+
+    KMSKeyDetails: untyped
+
+    ListCodeReviewsInput: untyped
+
+    ListCodeReviewsOutput: untyped
+
+    ListRecommendationFeedbackInput: untyped
+
+    ListRecommendationFeedbackOutput: untyped
+
+    ListRecommendationsInput: untyped
+
+    ListRecommendationsOutput: untyped
+
+    ListRepositoryAssociationsInput: untyped
+
+    ListRepositoryAssociationsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    Metrics: untyped
+
+    MetricsSummary: untyped
+
+    NotFoundException: untyped
+
+    module ProviderType
+      CODE_COMMIT: ::String
+
+      GIT_HUB: ::String
+
+      BITBUCKET: ::String
+
+      GIT_HUB_ENTERPRISE_SERVER: ::String
+
+      S3_BUCKET: ::String
+    end
+
+    PutRecommendationFeedbackInput: untyped
+
+    PutRecommendationFeedbackOutput: untyped
+
+    module Reaction
+      THUMBS_UP: ::String
+
+      THUMBS_DOWN: ::String
+    end
+
+    module RecommendationCategory
+      AWS_BEST_PRACTICES: ::String
+
+      AWS_CLOUDFORMATION_ISSUES: ::String
+
+      DUPLICATE_CODE: ::String
+
+      CODE_MAINTENANCE_ISSUES: ::String
+
+      CONCURRENCY_ISSUES: ::String
+
+      INPUT_VALIDATIONS: ::String
+
+      PYTHON_BEST_PRACTICES: ::String
+
+      JAVA_BEST_PRACTICES: ::String
+
+      RESOURCE_LEAKS: ::String
+
+      SECURITY_ISSUES: ::String
+
+      CODE_INCONSISTENCIES: ::String
+    end
+
+    RecommendationFeedback: untyped
+
+    RecommendationFeedbackSummary: untyped
+
+    RecommendationSummary: untyped
+
+    Repository: untyped
+
+    RepositoryAnalysis: untyped
+
+    RepositoryAssociation: untyped
+
+    module RepositoryAssociationState
+      ASSOCIATED: ::String
+
+      ASSOCIATING: ::String
+
+      FAILED: ::String
+
+      DISASSOCIATING: ::String
+
+      DISASSOCIATED: ::String
+    end
+
+    RepositoryAssociationSummary: untyped
+
+    RepositoryHeadSourceCodeType: untyped
+
+    RequestMetadata: untyped
+
+    ResourceNotFoundException: untyped
+
+    RuleMetadata: untyped
+
+    S3BucketRepository: untyped
+
+    S3Repository: untyped
+
+    S3RepositoryDetails: untyped
+
+    module Severity
+      INFO: ::String
+
+      LOW: ::String
+
+      MEDIUM: ::String
+
+      HIGH: ::String
+
+      CRITICAL: ::String
+    end
+
+    SourceCodeType: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThirdPartySourceRepository: untyped
+
+    ThrottlingException: untyped
+
+    module Type
+      PULL_REQUEST: ::String
+
+      REPOSITORY_ANALYSIS: ::String
+    end
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    ValidationException: untyped
+
+    module VendorName
+      GITHUB: ::String
+
+      GITLAB: ::String
+
+      NATIVE_S3: ::String
+    end
+
+  end
+end

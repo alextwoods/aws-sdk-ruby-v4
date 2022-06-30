@@ -1,0 +1,3 @@
+module AWS::SDK::Pricing
+  Config: untyped
+end

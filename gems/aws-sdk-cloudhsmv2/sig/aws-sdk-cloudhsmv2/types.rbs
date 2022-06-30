@@ -1,0 +1,150 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CloudHSMV2
+  module Types
+
+    Backup: untyped
+
+    module BackupPolicy
+      DEFAULT: ::String
+    end
+
+    BackupRetentionPolicy: untyped
+
+    module BackupRetentionType
+      DAYS: ::String
+    end
+
+    module BackupState
+      CREATE_IN_PROGRESS: ::String
+
+      READY: ::String
+
+      DELETED: ::String
+
+      PENDING_DELETION: ::String
+    end
+
+    Certificates: untyped
+
+    CloudHsmAccessDeniedException: untyped
+
+    CloudHsmInternalFailureException: untyped
+
+    CloudHsmInvalidRequestException: untyped
+
+    CloudHsmResourceNotFoundException: untyped
+
+    CloudHsmServiceException: untyped
+
+    CloudHsmTagException: untyped
+
+    Cluster: untyped
+
+    module ClusterState
+      CREATE_IN_PROGRESS: ::String
+
+      UNINITIALIZED: ::String
+
+      INITIALIZE_IN_PROGRESS: ::String
+
+      INITIALIZED: ::String
+
+      ACTIVE: ::String
+
+      UPDATE_IN_PROGRESS: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      DELETED: ::String
+
+      DEGRADED: ::String
+    end
+
+    CopyBackupToRegionInput: untyped
+
+    CopyBackupToRegionOutput: untyped
+
+    CreateClusterInput: untyped
+
+    CreateClusterOutput: untyped
+
+    CreateHsmInput: untyped
+
+    CreateHsmOutput: untyped
+
+    DeleteBackupInput: untyped
+
+    DeleteBackupOutput: untyped
+
+    DeleteClusterInput: untyped
+
+    DeleteClusterOutput: untyped
+
+    DeleteHsmInput: untyped
+
+    DeleteHsmOutput: untyped
+
+    DescribeBackupsInput: untyped
+
+    DescribeBackupsOutput: untyped
+
+    DescribeClustersInput: untyped
+
+    DescribeClustersOutput: untyped
+
+    DestinationBackup: untyped
+
+    Hsm: untyped
+
+    module HsmState
+      CREATE_IN_PROGRESS: ::String
+
+      ACTIVE: ::String
+
+      DEGRADED: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      DELETED: ::String
+    end
+
+    InitializeClusterInput: untyped
+
+    InitializeClusterOutput: untyped
+
+    ListTagsInput: untyped
+
+    ListTagsOutput: untyped
+
+    ModifyBackupAttributesInput: untyped
+
+    ModifyBackupAttributesOutput: untyped
+
+    ModifyClusterInput: untyped
+
+    ModifyClusterOutput: untyped
+
+    RestoreBackupInput: untyped
+
+    RestoreBackupOutput: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+  end
+end

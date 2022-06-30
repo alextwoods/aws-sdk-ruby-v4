@@ -1,0 +1,3 @@
+module AWS::SDK::PI
+  Config: untyped
+end

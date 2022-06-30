@@ -1,0 +1,448 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Imagebuilder
+  module Types
+
+    AdditionalInstanceConfiguration: untyped
+
+    Ami: untyped
+
+    AmiDistributionConfiguration: untyped
+
+    module BuildType
+      USER_INITIATED: ::String
+
+      SCHEDULED: ::String
+
+      IMPORT: ::String
+    end
+
+    CallRateLimitExceededException: untyped
+
+    CancelImageCreationInput: untyped
+
+    CancelImageCreationOutput: untyped
+
+    ClientException: untyped
+
+    Component: untyped
+
+    ComponentConfiguration: untyped
+
+    module ComponentFormat
+      SHELL: ::String
+    end
+
+    ComponentParameter: untyped
+
+    ComponentParameterDetail: untyped
+
+    ComponentState: untyped
+
+    module ComponentStatus
+      DEPRECATED: ::String
+    end
+
+    ComponentSummary: untyped
+
+    module ComponentType
+      BUILD: ::String
+
+      TEST: ::String
+    end
+
+    ComponentVersion: untyped
+
+    Container: untyped
+
+    ContainerDistributionConfiguration: untyped
+
+    ContainerRecipe: untyped
+
+    ContainerRecipeSummary: untyped
+
+    module ContainerRepositoryService
+      ECR: ::String
+    end
+
+    module ContainerType
+      DOCKER: ::String
+    end
+
+    CreateComponentInput: untyped
+
+    CreateComponentOutput: untyped
+
+    CreateContainerRecipeInput: untyped
+
+    CreateContainerRecipeOutput: untyped
+
+    CreateDistributionConfigurationInput: untyped
+
+    CreateDistributionConfigurationOutput: untyped
+
+    CreateImageInput: untyped
+
+    CreateImageOutput: untyped
+
+    CreateImagePipelineInput: untyped
+
+    CreateImagePipelineOutput: untyped
+
+    CreateImageRecipeInput: untyped
+
+    CreateImageRecipeOutput: untyped
+
+    CreateInfrastructureConfigurationInput: untyped
+
+    CreateInfrastructureConfigurationOutput: untyped
+
+    DeleteComponentInput: untyped
+
+    DeleteComponentOutput: untyped
+
+    DeleteContainerRecipeInput: untyped
+
+    DeleteContainerRecipeOutput: untyped
+
+    DeleteDistributionConfigurationInput: untyped
+
+    DeleteDistributionConfigurationOutput: untyped
+
+    DeleteImageInput: untyped
+
+    DeleteImageOutput: untyped
+
+    DeleteImagePipelineInput: untyped
+
+    DeleteImagePipelineOutput: untyped
+
+    DeleteImageRecipeInput: untyped
+
+    DeleteImageRecipeOutput: untyped
+
+    DeleteInfrastructureConfigurationInput: untyped
+
+    DeleteInfrastructureConfigurationOutput: untyped
+
+    module DiskImageFormat
+      VMDK: ::String
+
+      RAW: ::String
+
+      VHD: ::String
+    end
+
+    Distribution: untyped
+
+    DistributionConfiguration: untyped
+
+    DistributionConfigurationSummary: untyped
+
+    EbsInstanceBlockDeviceSpecification: untyped
+
+    module EbsVolumeType
+      STANDARD: ::String
+
+      IO1: ::String
+
+      IO2: ::String
+
+      GP2: ::String
+
+      GP3: ::String
+
+      SC1: ::String
+
+      ST1: ::String
+    end
+
+    FastLaunchConfiguration: untyped
+
+    FastLaunchLaunchTemplateSpecification: untyped
+
+    FastLaunchSnapshotConfiguration: untyped
+
+    Filter: untyped
+
+    ForbiddenException: untyped
+
+    GetComponentInput: untyped
+
+    GetComponentOutput: untyped
+
+    GetComponentPolicyInput: untyped
+
+    GetComponentPolicyOutput: untyped
+
+    GetContainerRecipeInput: untyped
+
+    GetContainerRecipeOutput: untyped
+
+    GetContainerRecipePolicyInput: untyped
+
+    GetContainerRecipePolicyOutput: untyped
+
+    GetDistributionConfigurationInput: untyped
+
+    GetDistributionConfigurationOutput: untyped
+
+    GetImageInput: untyped
+
+    GetImageOutput: untyped
+
+    GetImagePipelineInput: untyped
+
+    GetImagePipelineOutput: untyped
+
+    GetImagePolicyInput: untyped
+
+    GetImagePolicyOutput: untyped
+
+    GetImageRecipeInput: untyped
+
+    GetImageRecipeOutput: untyped
+
+    GetImageRecipePolicyInput: untyped
+
+    GetImageRecipePolicyOutput: untyped
+
+    GetInfrastructureConfigurationInput: untyped
+
+    GetInfrastructureConfigurationOutput: untyped
+
+    IdempotentParameterMismatchException: untyped
+
+    Image: untyped
+
+    ImagePackage: untyped
+
+    ImagePipeline: untyped
+
+    ImageRecipe: untyped
+
+    ImageRecipeSummary: untyped
+
+    ImageState: untyped
+
+    module ImageStatus
+      PENDING: ::String
+
+      CREATING: ::String
+
+      BUILDING: ::String
+
+      TESTING: ::String
+
+      DISTRIBUTING: ::String
+
+      INTEGRATING: ::String
+
+      AVAILABLE: ::String
+
+      CANCELLED: ::String
+
+      FAILED: ::String
+
+      DEPRECATED: ::String
+
+      DELETED: ::String
+    end
+
+    ImageSummary: untyped
+
+    ImageTestsConfiguration: untyped
+
+    module ImageType
+      AMI: ::String
+
+      DOCKER: ::String
+    end
+
+    ImageVersion: untyped
+
+    ImportComponentInput: untyped
+
+    ImportComponentOutput: untyped
+
+    ImportVmImageInput: untyped
+
+    ImportVmImageOutput: untyped
+
+    InfrastructureConfiguration: untyped
+
+    InfrastructureConfigurationSummary: untyped
+
+    InstanceBlockDeviceMapping: untyped
+
+    InstanceConfiguration: untyped
+
+    InstanceMetadataOptions: untyped
+
+    InvalidPaginationTokenException: untyped
+
+    InvalidParameterCombinationException: untyped
+
+    InvalidParameterException: untyped
+
+    InvalidParameterValueException: untyped
+
+    InvalidRequestException: untyped
+
+    InvalidVersionNumberException: untyped
+
+    LaunchPermissionConfiguration: untyped
+
+    LaunchTemplateConfiguration: untyped
+
+    ListComponentBuildVersionsInput: untyped
+
+    ListComponentBuildVersionsOutput: untyped
+
+    ListComponentsInput: untyped
+
+    ListComponentsOutput: untyped
+
+    ListContainerRecipesInput: untyped
+
+    ListContainerRecipesOutput: untyped
+
+    ListDistributionConfigurationsInput: untyped
+
+    ListDistributionConfigurationsOutput: untyped
+
+    ListImageBuildVersionsInput: untyped
+
+    ListImageBuildVersionsOutput: untyped
+
+    ListImagePackagesInput: untyped
+
+    ListImagePackagesOutput: untyped
+
+    ListImagePipelineImagesInput: untyped
+
+    ListImagePipelineImagesOutput: untyped
+
+    ListImagePipelinesInput: untyped
+
+    ListImagePipelinesOutput: untyped
+
+    ListImageRecipesInput: untyped
+
+    ListImageRecipesOutput: untyped
+
+    ListImagesInput: untyped
+
+    ListImagesOutput: untyped
+
+    ListInfrastructureConfigurationsInput: untyped
+
+    ListInfrastructureConfigurationsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    Logging: untyped
+
+    OutputResources: untyped
+
+    module Ownership
+      SELF: ::String
+
+      SHARED: ::String
+
+      AMAZON: ::String
+    end
+
+    module PipelineExecutionStartCondition
+      EXPRESSION_MATCH_ONLY: ::String
+
+      EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE: ::String
+    end
+
+    module PipelineStatus
+      DISABLED: ::String
+
+      ENABLED: ::String
+    end
+
+    module Platform
+      WINDOWS: ::String
+
+      LINUX: ::String
+    end
+
+    PutComponentPolicyInput: untyped
+
+    PutComponentPolicyOutput: untyped
+
+    PutContainerRecipePolicyInput: untyped
+
+    PutContainerRecipePolicyOutput: untyped
+
+    PutImagePolicyInput: untyped
+
+    PutImagePolicyOutput: untyped
+
+    PutImageRecipePolicyInput: untyped
+
+    PutImageRecipePolicyOutput: untyped
+
+    ResourceAlreadyExistsException: untyped
+
+    ResourceDependencyException: untyped
+
+    ResourceInUseException: untyped
+
+    ResourceNotFoundException: untyped
+
+    S3ExportConfiguration: untyped
+
+    S3Logs: untyped
+
+    Schedule: untyped
+
+    ServiceException: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    ServiceUnavailableException: untyped
+
+    StartImagePipelineExecutionInput: untyped
+
+    StartImagePipelineExecutionOutput: untyped
+
+    SystemsManagerAgent: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TargetContainerRepository: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateDistributionConfigurationInput: untyped
+
+    UpdateDistributionConfigurationOutput: untyped
+
+    UpdateImagePipelineInput: untyped
+
+    UpdateImagePipelineOutput: untyped
+
+    UpdateInfrastructureConfigurationInput: untyped
+
+    UpdateInfrastructureConfigurationOutput: untyped
+
+  end
+end

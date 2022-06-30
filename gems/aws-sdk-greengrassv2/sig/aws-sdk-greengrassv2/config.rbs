@@ -1,0 +1,3 @@
+module AWS::SDK::GreengrassV2
+  Config: untyped
+end

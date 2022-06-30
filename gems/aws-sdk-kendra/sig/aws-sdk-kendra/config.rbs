@@ -1,0 +1,3 @@
+module AWS::SDK::Kendra
+  Config: untyped
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::ChimeSDKMessaging
+  Config: untyped
+end

@@ -1,0 +1,678 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Nimble
+  module Types
+
+    AcceptEulasInput: untyped
+
+    AcceptEulasOutput: untyped
+
+    AccessDeniedException: untyped
+
+    ActiveDirectoryComputerAttribute: untyped
+
+    ActiveDirectoryConfiguration: untyped
+
+    ComputeFarmConfiguration: untyped
+
+    ConflictException: untyped
+
+    CreateLaunchProfileInput: untyped
+
+    CreateLaunchProfileOutput: untyped
+
+    CreateStreamingImageInput: untyped
+
+    CreateStreamingImageOutput: untyped
+
+    CreateStreamingSessionInput: untyped
+
+    CreateStreamingSessionOutput: untyped
+
+    CreateStreamingSessionStreamInput: untyped
+
+    CreateStreamingSessionStreamOutput: untyped
+
+    CreateStudioComponentInput: untyped
+
+    CreateStudioComponentOutput: untyped
+
+    CreateStudioInput: untyped
+
+    CreateStudioOutput: untyped
+
+    DeleteLaunchProfileInput: untyped
+
+    DeleteLaunchProfileMemberInput: untyped
+
+    DeleteLaunchProfileMemberOutput: untyped
+
+    DeleteLaunchProfileOutput: untyped
+
+    DeleteStreamingImageInput: untyped
+
+    DeleteStreamingImageOutput: untyped
+
+    DeleteStreamingSessionInput: untyped
+
+    DeleteStreamingSessionOutput: untyped
+
+    DeleteStudioComponentInput: untyped
+
+    DeleteStudioComponentOutput: untyped
+
+    DeleteStudioInput: untyped
+
+    DeleteStudioMemberInput: untyped
+
+    DeleteStudioMemberOutput: untyped
+
+    DeleteStudioOutput: untyped
+
+    Eula: untyped
+
+    EulaAcceptance: untyped
+
+    GetEulaInput: untyped
+
+    GetEulaOutput: untyped
+
+    GetLaunchProfileDetailsInput: untyped
+
+    GetLaunchProfileDetailsOutput: untyped
+
+    GetLaunchProfileInitializationInput: untyped
+
+    GetLaunchProfileInitializationOutput: untyped
+
+    GetLaunchProfileInput: untyped
+
+    GetLaunchProfileMemberInput: untyped
+
+    GetLaunchProfileMemberOutput: untyped
+
+    GetLaunchProfileOutput: untyped
+
+    GetStreamingImageInput: untyped
+
+    GetStreamingImageOutput: untyped
+
+    GetStreamingSessionInput: untyped
+
+    GetStreamingSessionOutput: untyped
+
+    GetStreamingSessionStreamInput: untyped
+
+    GetStreamingSessionStreamOutput: untyped
+
+    GetStudioComponentInput: untyped
+
+    GetStudioComponentOutput: untyped
+
+    GetStudioInput: untyped
+
+    GetStudioMemberInput: untyped
+
+    GetStudioMemberOutput: untyped
+
+    GetStudioOutput: untyped
+
+    InternalServerErrorException: untyped
+
+    LaunchProfile: untyped
+
+    LaunchProfileInitialization: untyped
+
+    LaunchProfileInitializationActiveDirectory: untyped
+
+    LaunchProfileInitializationScript: untyped
+
+    LaunchProfileMembership: untyped
+
+    module LaunchProfilePersona
+      USER: ::String
+    end
+
+    module LaunchProfilePlatform
+      LINUX: ::String
+
+      WINDOWS: ::String
+    end
+
+    module LaunchProfileState
+      CREATE_IN_PROGRESS: ::String
+
+      READY: ::String
+
+      UPDATE_IN_PROGRESS: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      DELETED: ::String
+
+      DELETE_FAILED: ::String
+
+      CREATE_FAILED: ::String
+
+      UPDATE_FAILED: ::String
+    end
+
+    module LaunchProfileStatusCode
+      LAUNCH_PROFILE_CREATED: ::String
+
+      LAUNCH_PROFILE_UPDATED: ::String
+
+      LAUNCH_PROFILE_DELETED: ::String
+
+      LAUNCH_PROFILE_CREATE_IN_PROGRESS: ::String
+
+      LAUNCH_PROFILE_UPDATE_IN_PROGRESS: ::String
+
+      LAUNCH_PROFILE_DELETE_IN_PROGRESS: ::String
+
+      INTERNAL_ERROR: ::String
+
+      STREAMING_IMAGE_NOT_FOUND: ::String
+
+      STREAMING_IMAGE_NOT_READY: ::String
+
+      LAUNCH_PROFILE_WITH_STREAM_SESSIONS_NOT_DELETED: ::String
+
+      ENCRYPTION_KEY_ACCESS_DENIED: ::String
+
+      ENCRYPTION_KEY_NOT_FOUND: ::String
+
+      INVALID_SUBNETS_PROVIDED: ::String
+    end
+
+    module LaunchProfileValidationState
+      VALIDATION_NOT_STARTED: ::String
+
+      VALIDATION_IN_PROGRESS: ::String
+
+      VALIDATION_SUCCESS: ::String
+
+      VALIDATION_FAILED: ::String
+
+      VALIDATION_FAILED_INTERNAL_SERVER_ERROR: ::String
+    end
+
+    module LaunchProfileValidationStatusCode
+      VALIDATION_NOT_STARTED: ::String
+
+      VALIDATION_IN_PROGRESS: ::String
+
+      VALIDATION_SUCCESS: ::String
+
+      VALIDATION_FAILED_INVALID_SUBNET_ROUTE_TABLE_ASSOCIATION: ::String
+
+      VALIDATION_FAILED_SUBNET_NOT_FOUND: ::String
+
+      VALIDATION_FAILED_INVALID_SECURITY_GROUP_ASSOCIATION: ::String
+
+      VALIDATION_FAILED_INVALID_ACTIVE_DIRECTORY: ::String
+
+      VALIDATION_FAILED_UNAUTHORIZED: ::String
+
+      VALIDATION_FAILED_INTERNAL_SERVER_ERROR: ::String
+    end
+
+    module LaunchProfileValidationType
+      VALIDATE_ACTIVE_DIRECTORY_STUDIO_COMPONENT: ::String
+
+      VALIDATE_SUBNET_ASSOCIATION: ::String
+
+      VALIDATE_NETWORK_ACL_ASSOCIATION: ::String
+
+      VALIDATE_SECURITY_GROUP_ASSOCIATION: ::String
+    end
+
+    LicenseServiceConfiguration: untyped
+
+    ListEulaAcceptancesInput: untyped
+
+    ListEulaAcceptancesOutput: untyped
+
+    ListEulasInput: untyped
+
+    ListEulasOutput: untyped
+
+    ListLaunchProfileMembersInput: untyped
+
+    ListLaunchProfileMembersOutput: untyped
+
+    ListLaunchProfilesInput: untyped
+
+    ListLaunchProfilesOutput: untyped
+
+    ListStreamingImagesInput: untyped
+
+    ListStreamingImagesOutput: untyped
+
+    ListStreamingSessionsInput: untyped
+
+    ListStreamingSessionsOutput: untyped
+
+    ListStudioComponentsInput: untyped
+
+    ListStudioComponentsOutput: untyped
+
+    ListStudioMembersInput: untyped
+
+    ListStudioMembersOutput: untyped
+
+    ListStudiosInput: untyped
+
+    ListStudiosOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    NewLaunchProfileMember: untyped
+
+    NewStudioMember: untyped
+
+    PutLaunchProfileMembersInput: untyped
+
+    PutLaunchProfileMembersOutput: untyped
+
+    PutStudioMembersInput: untyped
+
+    PutStudioMembersOutput: untyped
+
+    ResourceNotFoundException: untyped
+
+    ScriptParameterKeyValue: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    SharedFileSystemConfiguration: untyped
+
+    StartStreamingSessionInput: untyped
+
+    StartStreamingSessionOutput: untyped
+
+    StartStudioSSOConfigurationRepairInput: untyped
+
+    StartStudioSSOConfigurationRepairOutput: untyped
+
+    StopStreamingSessionInput: untyped
+
+    StopStreamingSessionOutput: untyped
+
+    StreamConfiguration: untyped
+
+    StreamConfigurationCreate: untyped
+
+    StreamConfigurationSessionStorage: untyped
+
+    module StreamingClipboardMode
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    StreamingImage: untyped
+
+    StreamingImageEncryptionConfiguration: untyped
+
+    module StreamingImageEncryptionConfigurationKeyType
+      CUSTOMER_MANAGED_KEY: ::String
+    end
+
+    module StreamingImageState
+      CREATE_IN_PROGRESS: ::String
+
+      READY: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      DELETED: ::String
+
+      UPDATE_IN_PROGRESS: ::String
+
+      UPDATE_FAILED: ::String
+
+      CREATE_FAILED: ::String
+
+      DELETE_FAILED: ::String
+    end
+
+    module StreamingImageStatusCode
+      STREAMING_IMAGE_CREATE_IN_PROGRESS: ::String
+
+      STREAMING_IMAGE_READY: ::String
+
+      STREAMING_IMAGE_DELETE_IN_PROGRESS: ::String
+
+      STREAMING_IMAGE_DELETED: ::String
+
+      STREAMING_IMAGE_UPDATE_IN_PROGRESS: ::String
+
+      INTERNAL_ERROR: ::String
+
+      ACCESS_DENIED: ::String
+    end
+
+    module StreamingInstanceType
+      g4dn_xlarge: ::String
+
+      g4dn_2xlarge: ::String
+
+      g4dn_4xlarge: ::String
+
+      g4dn_8xlarge: ::String
+
+      g4dn_12xlarge: ::String
+
+      g4dn_16xlarge: ::String
+    end
+
+    StreamingSession: untyped
+
+    module StreamingSessionState
+      CREATE_IN_PROGRESS: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      READY: ::String
+
+      DELETED: ::String
+
+      CREATE_FAILED: ::String
+
+      DELETE_FAILED: ::String
+
+      STOP_IN_PROGRESS: ::String
+
+      START_IN_PROGRESS: ::String
+
+      STOPPED: ::String
+
+      STOP_FAILED: ::String
+
+      START_FAILED: ::String
+    end
+
+    module StreamingSessionStatusCode
+      STREAMING_SESSION_READY: ::String
+
+      STREAMING_SESSION_DELETED: ::String
+
+      STREAMING_SESSION_CREATE_IN_PROGRESS: ::String
+
+      STREAMING_SESSION_DELETE_IN_PROGRESS: ::String
+
+      INTERNAL_ERROR: ::String
+
+      INSUFFICIENT_CAPACITY: ::String
+
+      ACTIVE_DIRECTORY_DOMAIN_JOIN_ERROR: ::String
+
+      NETWORK_CONNECTION_ERROR: ::String
+
+      INITIALIZATION_SCRIPT_ERROR: ::String
+
+      DECRYPT_STREAMING_IMAGE_ERROR: ::String
+
+      NETWORK_INTERFACE_ERROR: ::String
+
+      STREAMING_SESSION_STOPPED: ::String
+
+      STREAMING_SESSION_STARTED: ::String
+
+      STREAMING_SESSION_STOP_IN_PROGRESS: ::String
+
+      STREAMING_SESSION_START_IN_PROGRESS: ::String
+
+      AMI_VALIDATION_ERROR: ::String
+    end
+
+    module StreamingSessionStorageMode
+      UPLOAD: ::String
+    end
+
+    StreamingSessionStorageRoot: untyped
+
+    StreamingSessionStream: untyped
+
+    module StreamingSessionStreamState
+      READY: ::String
+
+      CREATE_IN_PROGRESS: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      DELETED: ::String
+
+      CREATE_FAILED: ::String
+
+      DELETE_FAILED: ::String
+    end
+
+    module StreamingSessionStreamStatusCode
+      STREAM_CREATE_IN_PROGRESS: ::String
+
+      STREAM_READY: ::String
+
+      STREAM_DELETE_IN_PROGRESS: ::String
+
+      STREAM_DELETED: ::String
+
+      INTERNAL_ERROR: ::String
+
+      NETWORK_CONNECTION_ERROR: ::String
+    end
+
+    Studio: untyped
+
+    StudioComponent: untyped
+
+    class StudioComponentConfiguration < Hearth::Union
+      class ActiveDirectoryConfiguration < StudioComponentConfiguration
+        def to_h: () -> { active_directory_configuration: Hash[Symbol,StudioComponentConfiguration] }
+      end
+
+      class ComputeFarmConfiguration < StudioComponentConfiguration
+        def to_h: () -> { compute_farm_configuration: Hash[Symbol,StudioComponentConfiguration] }
+      end
+
+      class LicenseServiceConfiguration < StudioComponentConfiguration
+        def to_h: () -> { license_service_configuration: Hash[Symbol,StudioComponentConfiguration] }
+      end
+
+      class SharedFileSystemConfiguration < StudioComponentConfiguration
+        def to_h: () -> { shared_file_system_configuration: Hash[Symbol,StudioComponentConfiguration] }
+      end
+
+      class Unknown < StudioComponentConfiguration
+        def to_h: () -> { unknown: Hash[Symbol,StudioComponentConfiguration] }
+      end
+    end
+
+    StudioComponentInitializationScript: untyped
+
+    module StudioComponentInitializationScriptRunContext
+      SYSTEM_INITIALIZATION: ::String
+
+      USER_INITIALIZATION: ::String
+    end
+
+    module StudioComponentState
+      CREATE_IN_PROGRESS: ::String
+
+      READY: ::String
+
+      UPDATE_IN_PROGRESS: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      DELETED: ::String
+
+      DELETE_FAILED: ::String
+
+      CREATE_FAILED: ::String
+
+      UPDATE_FAILED: ::String
+    end
+
+    module StudioComponentStatusCode
+      ACTIVE_DIRECTORY_ALREADY_EXISTS: ::String
+
+      STUDIO_COMPONENT_CREATED: ::String
+
+      STUDIO_COMPONENT_UPDATED: ::String
+
+      STUDIO_COMPONENT_DELETED: ::String
+
+      ENCRYPTION_KEY_ACCESS_DENIED: ::String
+
+      ENCRYPTION_KEY_NOT_FOUND: ::String
+
+      STUDIO_COMPONENT_CREATE_IN_PROGRESS: ::String
+
+      STUDIO_COMPONENT_UPDATE_IN_PROGRESS: ::String
+
+      STUDIO_COMPONENT_DELETE_IN_PROGRESS: ::String
+
+      INTERNAL_ERROR: ::String
+    end
+
+    module StudioComponentSubtype
+      AWS_MANAGED_MICROSOFT_AD: ::String
+
+      AMAZON_FSX_FOR_WINDOWS: ::String
+
+      AMAZON_FSX_FOR_LUSTRE: ::String
+
+      CUSTOM: ::String
+    end
+
+    StudioComponentSummary: untyped
+
+    module StudioComponentType
+      ACTIVE_DIRECTORY: ::String
+
+      SHARED_FILE_SYSTEM: ::String
+
+      COMPUTE_FARM: ::String
+
+      LICENSE_SERVICE: ::String
+
+      CUSTOM: ::String
+    end
+
+    StudioEncryptionConfiguration: untyped
+
+    module StudioEncryptionConfigurationKeyType
+      AWS_OWNED_KEY: ::String
+
+      CUSTOMER_MANAGED_KEY: ::String
+    end
+
+    StudioMembership: untyped
+
+    module StudioPersona
+      ADMINISTRATOR: ::String
+    end
+
+    module StudioState
+      CREATE_IN_PROGRESS: ::String
+
+      READY: ::String
+
+      UPDATE_IN_PROGRESS: ::String
+
+      DELETE_IN_PROGRESS: ::String
+
+      DELETED: ::String
+
+      DELETE_FAILED: ::String
+
+      CREATE_FAILED: ::String
+
+      UPDATE_FAILED: ::String
+    end
+
+    module StudioStatusCode
+      STUDIO_CREATED: ::String
+
+      STUDIO_DELETED: ::String
+
+      STUDIO_UPDATED: ::String
+
+      STUDIO_CREATE_IN_PROGRESS: ::String
+
+      STUDIO_UPDATE_IN_PROGRESS: ::String
+
+      STUDIO_DELETE_IN_PROGRESS: ::String
+
+      STUDIO_WITH_LAUNCH_PROFILES_NOT_DELETED: ::String
+
+      STUDIO_WITH_STUDIO_COMPONENTS_NOT_DELETED: ::String
+
+      STUDIO_WITH_STREAMING_IMAGES_NOT_DELETED: ::String
+
+      AWS_SSO_NOT_ENABLED: ::String
+
+      AWS_SSO_ACCESS_DENIED: ::String
+
+      ROLE_NOT_OWNED_BY_STUDIO_OWNER: ::String
+
+      ROLE_COULD_NOT_BE_ASSUMED: ::String
+
+      INTERNAL_ERROR: ::String
+
+      ENCRYPTION_KEY_NOT_FOUND: ::String
+
+      ENCRYPTION_KEY_ACCESS_DENIED: ::String
+
+      AWS_SSO_CONFIGURATION_REPAIRED: ::String
+
+      AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS: ::String
+    end
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateLaunchProfileInput: untyped
+
+    UpdateLaunchProfileMemberInput: untyped
+
+    UpdateLaunchProfileMemberOutput: untyped
+
+    UpdateLaunchProfileOutput: untyped
+
+    UpdateStreamingImageInput: untyped
+
+    UpdateStreamingImageOutput: untyped
+
+    UpdateStudioComponentInput: untyped
+
+    UpdateStudioComponentOutput: untyped
+
+    UpdateStudioInput: untyped
+
+    UpdateStudioOutput: untyped
+
+    ValidationException: untyped
+
+    ValidationResult: untyped
+
+  end
+end

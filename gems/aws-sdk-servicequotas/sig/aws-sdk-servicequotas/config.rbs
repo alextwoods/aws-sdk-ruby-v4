@@ -1,0 +1,3 @@
+module AWS::SDK::ServiceQuotas
+  Config: untyped
+end

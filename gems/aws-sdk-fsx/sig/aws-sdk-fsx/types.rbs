@@ -1,0 +1,816 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::FSx
+  module Types
+
+    ActiveDirectoryBackupAttributes: untyped
+
+    ActiveDirectoryError: untyped
+
+    module ActiveDirectoryErrorType
+      DOMAIN_NOT_FOUND: ::String
+
+      INCOMPATIBLE_DOMAIN_MODE: ::String
+
+      WRONG_VPC: ::String
+
+      INVALID_DOMAIN_STAGE: ::String
+    end
+
+    AdministrativeAction: untyped
+
+    AdministrativeActionFailureDetails: untyped
+
+    module AdministrativeActionType
+      FILE_SYSTEM_UPDATE: ::String
+
+      STORAGE_OPTIMIZATION: ::String
+
+      FILE_SYSTEM_ALIAS_ASSOCIATION: ::String
+
+      FILE_SYSTEM_ALIAS_DISASSOCIATION: ::String
+
+      VOLUME_UPDATE: ::String
+
+      SNAPSHOT_UPDATE: ::String
+
+      RELEASE_NFS_V3_LOCKS: ::String
+    end
+
+    Alias: untyped
+
+    module AliasLifecycle
+      AVAILABLE: ::String
+
+      CREATING: ::String
+
+      DELETING: ::String
+
+      CREATE_FAILED: ::String
+
+      DELETE_FAILED: ::String
+    end
+
+    AssociateFileSystemAliasesInput: untyped
+
+    AssociateFileSystemAliasesOutput: untyped
+
+    AutoExportPolicy: untyped
+
+    AutoImportPolicy: untyped
+
+    module AutoImportPolicyType
+      NONE: ::String
+
+      NEW: ::String
+
+      NEW_CHANGED: ::String
+
+      NEW_CHANGED_DELETED: ::String
+    end
+
+    Backup: untyped
+
+    BackupBeingCopied: untyped
+
+    BackupFailureDetails: untyped
+
+    BackupInProgress: untyped
+
+    module BackupLifecycle
+      AVAILABLE: ::String
+
+      CREATING: ::String
+
+      TRANSFERRING: ::String
+
+      DELETED: ::String
+
+      FAILED: ::String
+
+      PENDING: ::String
+
+      COPYING: ::String
+    end
+
+    BackupNotFound: untyped
+
+    BackupRestoring: untyped
+
+    module BackupType
+      AUTOMATIC: ::String
+
+      USER_INITIATED: ::String
+
+      AWS_BACKUP: ::String
+    end
+
+    BadRequest: untyped
+
+    CancelDataRepositoryTaskInput: untyped
+
+    CancelDataRepositoryTaskOutput: untyped
+
+    CompletionReport: untyped
+
+    CopyBackupInput: untyped
+
+    CopyBackupOutput: untyped
+
+    CreateBackupInput: untyped
+
+    CreateBackupOutput: untyped
+
+    CreateDataRepositoryAssociationInput: untyped
+
+    CreateDataRepositoryAssociationOutput: untyped
+
+    CreateDataRepositoryTaskInput: untyped
+
+    CreateDataRepositoryTaskOutput: untyped
+
+    CreateFileSystemFromBackupInput: untyped
+
+    CreateFileSystemFromBackupOutput: untyped
+
+    CreateFileSystemInput: untyped
+
+    CreateFileSystemLustreConfiguration: untyped
+
+    CreateFileSystemOntapConfiguration: untyped
+
+    CreateFileSystemOpenZFSConfiguration: untyped
+
+    CreateFileSystemOutput: untyped
+
+    CreateFileSystemWindowsConfiguration: untyped
+
+    CreateOntapVolumeConfiguration: untyped
+
+    CreateOpenZFSOriginSnapshotConfiguration: untyped
+
+    CreateOpenZFSVolumeConfiguration: untyped
+
+    CreateSnapshotInput: untyped
+
+    CreateSnapshotOutput: untyped
+
+    CreateStorageVirtualMachineInput: untyped
+
+    CreateStorageVirtualMachineOutput: untyped
+
+    CreateSvmActiveDirectoryConfiguration: untyped
+
+    CreateVolumeFromBackupInput: untyped
+
+    CreateVolumeFromBackupOutput: untyped
+
+    CreateVolumeInput: untyped
+
+    CreateVolumeOutput: untyped
+
+    module DataCompressionType
+      NONE: ::String
+
+      LZ4: ::String
+    end
+
+    DataRepositoryAssociation: untyped
+
+    DataRepositoryAssociationNotFound: untyped
+
+    DataRepositoryConfiguration: untyped
+
+    DataRepositoryFailureDetails: untyped
+
+    module DataRepositoryLifecycle
+      CREATING: ::String
+
+      AVAILABLE: ::String
+
+      MISCONFIGURED: ::String
+
+      UPDATING: ::String
+
+      DELETING: ::String
+
+      FAILED: ::String
+    end
+
+    DataRepositoryTask: untyped
+
+    DataRepositoryTaskEnded: untyped
+
+    DataRepositoryTaskExecuting: untyped
+
+    DataRepositoryTaskFailureDetails: untyped
+
+    DataRepositoryTaskFilter: untyped
+
+    module DataRepositoryTaskFilterName
+      FILE_SYSTEM_ID: ::String
+
+      TASK_LIFECYCLE: ::String
+
+      DATA_REPO_ASSOCIATION_ID: ::String
+    end
+
+    module DataRepositoryTaskLifecycle
+      PENDING: ::String
+
+      EXECUTING: ::String
+
+      FAILED: ::String
+
+      SUCCEEDED: ::String
+
+      CANCELED: ::String
+
+      CANCELING: ::String
+    end
+
+    DataRepositoryTaskNotFound: untyped
+
+    DataRepositoryTaskStatus: untyped
+
+    module DataRepositoryTaskType
+      EXPORT: ::String
+
+      IMPORT: ::String
+    end
+
+    DeleteBackupInput: untyped
+
+    DeleteBackupOutput: untyped
+
+    DeleteDataRepositoryAssociationInput: untyped
+
+    DeleteDataRepositoryAssociationOutput: untyped
+
+    DeleteFileSystemInput: untyped
+
+    DeleteFileSystemLustreConfiguration: untyped
+
+    DeleteFileSystemLustreResponse: untyped
+
+    DeleteFileSystemOpenZFSConfiguration: untyped
+
+    module DeleteFileSystemOpenZFSOption
+      DELETE_CHILD_VOLUMES_AND_SNAPSHOTS: ::String
+    end
+
+    DeleteFileSystemOpenZFSResponse: untyped
+
+    DeleteFileSystemOutput: untyped
+
+    DeleteFileSystemWindowsConfiguration: untyped
+
+    DeleteFileSystemWindowsResponse: untyped
+
+    module DeleteOpenZFSVolumeOption
+      DELETE_CHILD_VOLUMES_AND_SNAPSHOTS: ::String
+    end
+
+    DeleteSnapshotInput: untyped
+
+    DeleteSnapshotOutput: untyped
+
+    DeleteStorageVirtualMachineInput: untyped
+
+    DeleteStorageVirtualMachineOutput: untyped
+
+    DeleteVolumeInput: untyped
+
+    DeleteVolumeOntapConfiguration: untyped
+
+    DeleteVolumeOntapResponse: untyped
+
+    DeleteVolumeOpenZFSConfiguration: untyped
+
+    DeleteVolumeOutput: untyped
+
+    DescribeBackupsInput: untyped
+
+    DescribeBackupsOutput: untyped
+
+    DescribeDataRepositoryAssociationsInput: untyped
+
+    DescribeDataRepositoryAssociationsOutput: untyped
+
+    DescribeDataRepositoryTasksInput: untyped
+
+    DescribeDataRepositoryTasksOutput: untyped
+
+    DescribeFileSystemAliasesInput: untyped
+
+    DescribeFileSystemAliasesOutput: untyped
+
+    DescribeFileSystemsInput: untyped
+
+    DescribeFileSystemsOutput: untyped
+
+    DescribeSnapshotsInput: untyped
+
+    DescribeSnapshotsOutput: untyped
+
+    DescribeStorageVirtualMachinesInput: untyped
+
+    DescribeStorageVirtualMachinesOutput: untyped
+
+    DescribeVolumesInput: untyped
+
+    DescribeVolumesOutput: untyped
+
+    DisassociateFileSystemAliasesInput: untyped
+
+    DisassociateFileSystemAliasesOutput: untyped
+
+    DiskIopsConfiguration: untyped
+
+    module DiskIopsConfigurationMode
+      AUTOMATIC: ::String
+
+      USER_PROVISIONED: ::String
+    end
+
+    module DriveCacheType
+      NONE: ::String
+
+      READ: ::String
+    end
+
+    module EventType
+      NEW: ::String
+
+      CHANGED: ::String
+
+      DELETED: ::String
+    end
+
+    FileSystem: untyped
+
+    FileSystemEndpoint: untyped
+
+    FileSystemEndpoints: untyped
+
+    FileSystemFailureDetails: untyped
+
+    module FileSystemLifecycle
+      AVAILABLE: ::String
+
+      CREATING: ::String
+
+      FAILED: ::String
+
+      DELETING: ::String
+
+      MISCONFIGURED: ::String
+
+      UPDATING: ::String
+
+      MISCONFIGURED_UNAVAILABLE: ::String
+    end
+
+    module FileSystemMaintenanceOperation
+      PATCHING: ::String
+
+      BACKING_UP: ::String
+    end
+
+    FileSystemNotFound: untyped
+
+    module FileSystemType
+      WINDOWS: ::String
+
+      LUSTRE: ::String
+
+      ONTAP: ::String
+
+      OPENZFS: ::String
+    end
+
+    Filter: untyped
+
+    module FilterName
+      FILE_SYSTEM_ID: ::String
+
+      BACKUP_TYPE: ::String
+
+      FILE_SYSTEM_TYPE: ::String
+
+      VOLUME_ID: ::String
+
+      DATA_REPOSITORY_TYPE: ::String
+    end
+
+    module FlexCacheEndpointType
+      NONE: ::String
+
+      ORIGIN: ::String
+
+      CACHE: ::String
+    end
+
+    IncompatibleParameterError: untyped
+
+    IncompatibleRegionForMultiAZ: untyped
+
+    InternalServerError: untyped
+
+    InvalidDataRepositoryType: untyped
+
+    InvalidDestinationKmsKey: untyped
+
+    InvalidExportPath: untyped
+
+    InvalidImportPath: untyped
+
+    InvalidNetworkSettings: untyped
+
+    InvalidPerUnitStorageThroughput: untyped
+
+    InvalidRegion: untyped
+
+    InvalidSourceKmsKey: untyped
+
+    LifecycleTransitionReason: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    module LustreAccessAuditLogLevel
+      DISABLED: ::String
+
+      WARN_ONLY: ::String
+
+      ERROR_ONLY: ::String
+
+      WARN_ERROR: ::String
+    end
+
+    module LustreDeploymentType
+      SCRATCH_1: ::String
+
+      SCRATCH_2: ::String
+
+      PERSISTENT_1: ::String
+
+      PERSISTENT_2: ::String
+    end
+
+    LustreFileSystemConfiguration: untyped
+
+    LustreLogConfiguration: untyped
+
+    LustreLogCreateConfiguration: untyped
+
+    LustreRootSquashConfiguration: untyped
+
+    MissingFileSystemConfiguration: untyped
+
+    MissingVolumeConfiguration: untyped
+
+    NotServiceResourceError: untyped
+
+    module OntapDeploymentType
+      MULTI_AZ_1: ::String
+
+      SINGLE_AZ_1: ::String
+    end
+
+    OntapFileSystemConfiguration: untyped
+
+    OntapVolumeConfiguration: untyped
+
+    module OntapVolumeType
+      RW: ::String
+
+      DP: ::String
+
+      LS: ::String
+    end
+
+    OpenZFSClientConfiguration: untyped
+
+    module OpenZFSCopyStrategy
+      CLONE: ::String
+
+      FULL_COPY: ::String
+    end
+
+    OpenZFSCreateRootVolumeConfiguration: untyped
+
+    module OpenZFSDataCompressionType
+      NONE: ::String
+
+      ZSTD: ::String
+
+      LZ4: ::String
+    end
+
+    module OpenZFSDeploymentType
+      SINGLE_AZ_1: ::String
+    end
+
+    OpenZFSFileSystemConfiguration: untyped
+
+    OpenZFSNfsExport: untyped
+
+    OpenZFSOriginSnapshotConfiguration: untyped
+
+    module OpenZFSQuotaType
+      USER: ::String
+
+      GROUP: ::String
+    end
+
+    OpenZFSUserOrGroupQuota: untyped
+
+    OpenZFSVolumeConfiguration: untyped
+
+    ReleaseFileSystemNfsV3LocksInput: untyped
+
+    ReleaseFileSystemNfsV3LocksOutput: untyped
+
+    module ReportFormat
+      REPORT_CSV_20191124: ::String
+    end
+
+    module ReportScope
+      FAILED_FILES_ONLY: ::String
+    end
+
+    ResourceDoesNotSupportTagging: untyped
+
+    ResourceNotFound: untyped
+
+    module ResourceType
+      FILE_SYSTEM: ::String
+
+      VOLUME: ::String
+    end
+
+    module RestoreOpenZFSVolumeOption
+      DELETE_INTERMEDIATE_SNAPSHOTS: ::String
+
+      DELETE_CLONED_VOLUMES: ::String
+    end
+
+    RestoreVolumeFromSnapshotInput: untyped
+
+    RestoreVolumeFromSnapshotOutput: untyped
+
+    S3DataRepositoryConfiguration: untyped
+
+    module SecurityStyle
+      UNIX: ::String
+
+      NTFS: ::String
+
+      MIXED: ::String
+    end
+
+    SelfManagedActiveDirectoryAttributes: untyped
+
+    SelfManagedActiveDirectoryConfiguration: untyped
+
+    SelfManagedActiveDirectoryConfigurationUpdates: untyped
+
+    module ServiceLimit
+      FILE_SYSTEM_COUNT: ::String
+
+      TOTAL_THROUGHPUT_CAPACITY: ::String
+
+      TOTAL_STORAGE: ::String
+
+      TOTAL_USER_INITIATED_BACKUPS: ::String
+
+      TOTAL_USER_TAGS: ::String
+
+      TOTAL_IN_PROGRESS_COPY_BACKUPS: ::String
+
+      STORAGE_VIRTUAL_MACHINES_PER_FILE_SYSTEM: ::String
+
+      VOLUMES_PER_FILE_SYSTEM: ::String
+
+      TOTAL_SSD_IOPS: ::String
+    end
+
+    ServiceLimitExceeded: untyped
+
+    Snapshot: untyped
+
+    SnapshotFilter: untyped
+
+    module SnapshotFilterName
+      FILE_SYSTEM_ID: ::String
+
+      VOLUME_ID: ::String
+    end
+
+    module SnapshotLifecycle
+      PENDING: ::String
+
+      CREATING: ::String
+
+      DELETING: ::String
+
+      AVAILABLE: ::String
+    end
+
+    SnapshotNotFound: untyped
+
+    SourceBackupUnavailable: untyped
+
+    module Status
+      FAILED: ::String
+
+      IN_PROGRESS: ::String
+
+      PENDING: ::String
+
+      COMPLETED: ::String
+
+      UPDATED_OPTIMIZING: ::String
+    end
+
+    module StorageType
+      SSD: ::String
+
+      HDD: ::String
+    end
+
+    StorageVirtualMachine: untyped
+
+    StorageVirtualMachineFilter: untyped
+
+    module StorageVirtualMachineFilterName
+      FILE_SYSTEM_ID: ::String
+    end
+
+    module StorageVirtualMachineLifecycle
+      CREATED: ::String
+
+      CREATING: ::String
+
+      DELETING: ::String
+
+      FAILED: ::String
+
+      MISCONFIGURED: ::String
+
+      PENDING: ::String
+    end
+
+    StorageVirtualMachineNotFound: untyped
+
+    module StorageVirtualMachineRootVolumeSecurityStyle
+      UNIX: ::String
+
+      NTFS: ::String
+
+      MIXED: ::String
+    end
+
+    module StorageVirtualMachineSubtype
+      DEFAULT: ::String
+
+      DP_DESTINATION: ::String
+
+      SYNC_DESTINATION: ::String
+
+      SYNC_SOURCE: ::String
+    end
+
+    SvmActiveDirectoryConfiguration: untyped
+
+    SvmEndpoint: untyped
+
+    SvmEndpoints: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TieringPolicy: untyped
+
+    module TieringPolicyName
+      SNAPSHOT_ONLY: ::String
+
+      AUTO: ::String
+
+      ALL: ::String
+
+      NONE: ::String
+    end
+
+    UnsupportedOperation: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateDataRepositoryAssociationInput: untyped
+
+    UpdateDataRepositoryAssociationOutput: untyped
+
+    UpdateFileSystemInput: untyped
+
+    UpdateFileSystemLustreConfiguration: untyped
+
+    UpdateFileSystemOntapConfiguration: untyped
+
+    UpdateFileSystemOpenZFSConfiguration: untyped
+
+    UpdateFileSystemOutput: untyped
+
+    UpdateFileSystemWindowsConfiguration: untyped
+
+    UpdateOntapVolumeConfiguration: untyped
+
+    UpdateOpenZFSVolumeConfiguration: untyped
+
+    UpdateSnapshotInput: untyped
+
+    UpdateSnapshotOutput: untyped
+
+    UpdateStorageVirtualMachineInput: untyped
+
+    UpdateStorageVirtualMachineOutput: untyped
+
+    UpdateSvmActiveDirectoryConfiguration: untyped
+
+    UpdateVolumeInput: untyped
+
+    UpdateVolumeOutput: untyped
+
+    Volume: untyped
+
+    VolumeFilter: untyped
+
+    module VolumeFilterName
+      FILE_SYSTEM_ID: ::String
+
+      STORAGE_VIRTUAL_MACHINE_ID: ::String
+    end
+
+    module VolumeLifecycle
+      CREATING: ::String
+
+      CREATED: ::String
+
+      DELETING: ::String
+
+      FAILED: ::String
+
+      MISCONFIGURED: ::String
+
+      PENDING: ::String
+
+      AVAILABLE: ::String
+    end
+
+    VolumeNotFound: untyped
+
+    module VolumeType
+      ONTAP: ::String
+
+      OPENZFS: ::String
+    end
+
+    module WindowsAccessAuditLogLevel
+      DISABLED: ::String
+
+      SUCCESS_ONLY: ::String
+
+      FAILURE_ONLY: ::String
+
+      SUCCESS_AND_FAILURE: ::String
+    end
+
+    WindowsAuditLogConfiguration: untyped
+
+    WindowsAuditLogCreateConfiguration: untyped
+
+    module WindowsDeploymentType
+      MULTI_AZ_1: ::String
+
+      SINGLE_AZ_1: ::String
+
+      SINGLE_AZ_2: ::String
+    end
+
+    WindowsFileSystemConfiguration: untyped
+
+  end
+end

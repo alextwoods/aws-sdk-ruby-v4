@@ -1,0 +1,3 @@
+module AWS::SDK::IoTSecureTunneling
+  Config: untyped
+end

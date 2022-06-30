@@ -1,0 +1,3 @@
+module AWS::SDK::Chime
+  Config: untyped
+end

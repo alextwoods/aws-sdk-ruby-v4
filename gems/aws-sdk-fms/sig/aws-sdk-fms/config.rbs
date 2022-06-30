@@ -1,0 +1,3 @@
+module AWS::SDK::FMS
+  Config: untyped
+end

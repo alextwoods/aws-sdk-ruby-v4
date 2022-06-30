@@ -1,0 +1,3 @@
+module AWS::SDK::MediaPackage
+  Config: untyped
+end

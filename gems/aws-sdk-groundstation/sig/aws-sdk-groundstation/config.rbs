@@ -1,0 +1,3 @@
+module AWS::SDK::GroundStation
+  Config: untyped
+end

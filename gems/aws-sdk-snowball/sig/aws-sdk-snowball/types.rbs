@@ -1,0 +1,328 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Snowball
+  module Types
+
+    Address: untyped
+
+    CancelClusterInput: untyped
+
+    CancelClusterOutput: untyped
+
+    CancelJobInput: untyped
+
+    CancelJobOutput: untyped
+
+    ClusterLimitExceededException: untyped
+
+    ClusterListEntry: untyped
+
+    ClusterMetadata: untyped
+
+    module ClusterState
+      AWAITING_QUORUM: ::String
+
+      PENDING: ::String
+
+      IN_USE: ::String
+
+      COMPLETE: ::String
+
+      CANCELLED: ::String
+    end
+
+    CompatibleImage: untyped
+
+    ConflictException: untyped
+
+    CreateAddressInput: untyped
+
+    CreateAddressOutput: untyped
+
+    CreateClusterInput: untyped
+
+    CreateClusterOutput: untyped
+
+    CreateJobInput: untyped
+
+    CreateJobOutput: untyped
+
+    CreateLongTermPricingInput: untyped
+
+    CreateLongTermPricingOutput: untyped
+
+    CreateReturnShippingLabelInput: untyped
+
+    CreateReturnShippingLabelOutput: untyped
+
+    DataTransfer: untyped
+
+    DescribeAddressInput: untyped
+
+    DescribeAddressOutput: untyped
+
+    DescribeAddressesInput: untyped
+
+    DescribeAddressesOutput: untyped
+
+    DescribeClusterInput: untyped
+
+    DescribeClusterOutput: untyped
+
+    DescribeJobInput: untyped
+
+    DescribeJobOutput: untyped
+
+    DescribeReturnShippingLabelInput: untyped
+
+    DescribeReturnShippingLabelOutput: untyped
+
+    DeviceConfiguration: untyped
+
+    module DeviceServiceName
+      NFS_ON_DEVICE_SERVICE: ::String
+
+      S3_ON_DEVICE_SERVICE: ::String
+    end
+
+    Ec2AmiResource: untyped
+
+    Ec2RequestFailedException: untyped
+
+    EventTriggerDefinition: untyped
+
+    GetJobManifestInput: untyped
+
+    GetJobManifestOutput: untyped
+
+    GetJobUnlockCodeInput: untyped
+
+    GetJobUnlockCodeOutput: untyped
+
+    GetSnowballUsageInput: untyped
+
+    GetSnowballUsageOutput: untyped
+
+    GetSoftwareUpdatesInput: untyped
+
+    GetSoftwareUpdatesOutput: untyped
+
+    INDTaxDocuments: untyped
+
+    InvalidAddressException: untyped
+
+    InvalidInputCombinationException: untyped
+
+    InvalidJobStateException: untyped
+
+    InvalidNextTokenException: untyped
+
+    InvalidResourceException: untyped
+
+    JobListEntry: untyped
+
+    JobLogs: untyped
+
+    JobMetadata: untyped
+
+    JobResource: untyped
+
+    module JobState
+      NEW: ::String
+
+      PREPARING_APPLIANCE: ::String
+
+      PREPARING_SHIPMENT: ::String
+
+      IN_TRANSIT_TO_CUSTOMER: ::String
+
+      WITH_CUSTOMER: ::String
+
+      IN_TRANSIT_TO_AWS: ::String
+
+      WITH_AWS_SORTING_FACILITY: ::String
+
+      WITH_AWS: ::String
+
+      IN_PROGRESS: ::String
+
+      COMPLETE: ::String
+
+      CANCELLED: ::String
+
+      LISTING: ::String
+
+      PENDING: ::String
+    end
+
+    module JobType
+      IMPORT: ::String
+
+      EXPORT: ::String
+
+      LOCAL_USE: ::String
+    end
+
+    KMSRequestFailedException: untyped
+
+    KeyRange: untyped
+
+    LambdaResource: untyped
+
+    ListClusterJobsInput: untyped
+
+    ListClusterJobsOutput: untyped
+
+    ListClustersInput: untyped
+
+    ListClustersOutput: untyped
+
+    ListCompatibleImagesInput: untyped
+
+    ListCompatibleImagesOutput: untyped
+
+    ListJobsInput: untyped
+
+    ListJobsOutput: untyped
+
+    ListLongTermPricingInput: untyped
+
+    ListLongTermPricingOutput: untyped
+
+    LongTermPricingListEntry: untyped
+
+    module LongTermPricingType
+      ONE_YEAR: ::String
+
+      THREE_YEAR: ::String
+    end
+
+    NFSOnDeviceServiceConfiguration: untyped
+
+    Notification: untyped
+
+    OnDeviceServiceConfiguration: untyped
+
+    module RemoteManagement
+      INSTALLED_ONLY: ::String
+
+      INSTALLED_AUTOSTART: ::String
+    end
+
+    ReturnShippingLabelAlreadyExistsException: untyped
+
+    S3Resource: untyped
+
+    Shipment: untyped
+
+    module ShipmentState
+      RECEIVED: ::String
+
+      RETURNED: ::String
+    end
+
+    ShippingDetails: untyped
+
+    module ShippingLabelStatus
+      IN_PROGRESS: ::String
+
+      TIMED_OUT: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+    end
+
+    module ShippingOption
+      SECOND_DAY: ::String
+
+      NEXT_DAY: ::String
+
+      EXPRESS: ::String
+
+      STANDARD: ::String
+    end
+
+    module SnowballCapacity
+      T50: ::String
+
+      T80: ::String
+
+      T100: ::String
+
+      T42: ::String
+
+      T98: ::String
+
+      T8: ::String
+
+      T14: ::String
+
+      NO_PREFERENCE: ::String
+    end
+
+    module SnowballType
+      STANDARD: ::String
+
+      EDGE: ::String
+
+      EDGE_C: ::String
+
+      EDGE_CG: ::String
+
+      EDGE_S: ::String
+
+      SNC1_HDD: ::String
+
+      SNC1_SSD: ::String
+    end
+
+    SnowconeDeviceConfiguration: untyped
+
+    module StorageUnit
+      TB: ::String
+    end
+
+    TGWOnDeviceServiceConfiguration: untyped
+
+    TargetOnDeviceService: untyped
+
+    TaxDocuments: untyped
+
+    module TransferOption
+      IMPORT: ::String
+
+      EXPORT: ::String
+
+      LOCAL_USE: ::String
+    end
+
+    UnsupportedAddressException: untyped
+
+    UpdateClusterInput: untyped
+
+    UpdateClusterOutput: untyped
+
+    UpdateJobInput: untyped
+
+    UpdateJobOutput: untyped
+
+    UpdateJobShipmentStateInput: untyped
+
+    UpdateJobShipmentStateOutput: untyped
+
+    UpdateLongTermPricingInput: untyped
+
+    UpdateLongTermPricingOutput: untyped
+
+    WirelessConnection: untyped
+
+  end
+end

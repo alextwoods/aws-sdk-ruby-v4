@@ -1,0 +1,498 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::DirectConnect
+  module Types
+
+    AcceptDirectConnectGatewayAssociationProposalInput: untyped
+
+    AcceptDirectConnectGatewayAssociationProposalOutput: untyped
+
+    module AddressFamily
+      IPv4: ::String
+
+      IPv6: ::String
+    end
+
+    AllocateConnectionOnInterconnectInput: untyped
+
+    AllocateConnectionOnInterconnectOutput: untyped
+
+    AllocateHostedConnectionInput: untyped
+
+    AllocateHostedConnectionOutput: untyped
+
+    AllocatePrivateVirtualInterfaceInput: untyped
+
+    AllocatePrivateVirtualInterfaceOutput: untyped
+
+    AllocatePublicVirtualInterfaceInput: untyped
+
+    AllocatePublicVirtualInterfaceOutput: untyped
+
+    AllocateTransitVirtualInterfaceInput: untyped
+
+    AllocateTransitVirtualInterfaceOutput: untyped
+
+    AssociateConnectionWithLagInput: untyped
+
+    AssociateConnectionWithLagOutput: untyped
+
+    AssociateHostedConnectionInput: untyped
+
+    AssociateHostedConnectionOutput: untyped
+
+    AssociateMacSecKeyInput: untyped
+
+    AssociateMacSecKeyOutput: untyped
+
+    AssociateVirtualInterfaceInput: untyped
+
+    AssociateVirtualInterfaceOutput: untyped
+
+    AssociatedGateway: untyped
+
+    BGPPeer: untyped
+
+    module BGPPeerState
+      Verifying: ::String
+
+      Pending: ::String
+
+      Available: ::String
+
+      Deleting: ::String
+
+      Deleted: ::String
+    end
+
+    module BGPStatus
+      Up: ::String
+
+      Down: ::String
+
+      Unknown: ::String
+    end
+
+    ConfirmConnectionInput: untyped
+
+    ConfirmConnectionOutput: untyped
+
+    ConfirmCustomerAgreementInput: untyped
+
+    ConfirmCustomerAgreementOutput: untyped
+
+    ConfirmPrivateVirtualInterfaceInput: untyped
+
+    ConfirmPrivateVirtualInterfaceOutput: untyped
+
+    ConfirmPublicVirtualInterfaceInput: untyped
+
+    ConfirmPublicVirtualInterfaceOutput: untyped
+
+    ConfirmTransitVirtualInterfaceInput: untyped
+
+    ConfirmTransitVirtualInterfaceOutput: untyped
+
+    Connection: untyped
+
+    module ConnectionState
+      ordering: ::String
+
+      requested: ::String
+
+      pending: ::String
+
+      available: ::String
+
+      down: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+
+      rejected: ::String
+
+      unknown: ::String
+    end
+
+    CreateBGPPeerInput: untyped
+
+    CreateBGPPeerOutput: untyped
+
+    CreateConnectionInput: untyped
+
+    CreateConnectionOutput: untyped
+
+    CreateDirectConnectGatewayAssociationInput: untyped
+
+    CreateDirectConnectGatewayAssociationOutput: untyped
+
+    CreateDirectConnectGatewayAssociationProposalInput: untyped
+
+    CreateDirectConnectGatewayAssociationProposalOutput: untyped
+
+    CreateDirectConnectGatewayInput: untyped
+
+    CreateDirectConnectGatewayOutput: untyped
+
+    CreateInterconnectInput: untyped
+
+    CreateInterconnectOutput: untyped
+
+    CreateLagInput: untyped
+
+    CreateLagOutput: untyped
+
+    CreatePrivateVirtualInterfaceInput: untyped
+
+    CreatePrivateVirtualInterfaceOutput: untyped
+
+    CreatePublicVirtualInterfaceInput: untyped
+
+    CreatePublicVirtualInterfaceOutput: untyped
+
+    CreateTransitVirtualInterfaceInput: untyped
+
+    CreateTransitVirtualInterfaceOutput: untyped
+
+    CustomerAgreement: untyped
+
+    DeleteBGPPeerInput: untyped
+
+    DeleteBGPPeerOutput: untyped
+
+    DeleteConnectionInput: untyped
+
+    DeleteConnectionOutput: untyped
+
+    DeleteDirectConnectGatewayAssociationInput: untyped
+
+    DeleteDirectConnectGatewayAssociationOutput: untyped
+
+    DeleteDirectConnectGatewayAssociationProposalInput: untyped
+
+    DeleteDirectConnectGatewayAssociationProposalOutput: untyped
+
+    DeleteDirectConnectGatewayInput: untyped
+
+    DeleteDirectConnectGatewayOutput: untyped
+
+    DeleteInterconnectInput: untyped
+
+    DeleteInterconnectOutput: untyped
+
+    DeleteLagInput: untyped
+
+    DeleteLagOutput: untyped
+
+    DeleteVirtualInterfaceInput: untyped
+
+    DeleteVirtualInterfaceOutput: untyped
+
+    DescribeConnectionLoaInput: untyped
+
+    DescribeConnectionLoaOutput: untyped
+
+    DescribeConnectionsInput: untyped
+
+    DescribeConnectionsOnInterconnectInput: untyped
+
+    DescribeConnectionsOnInterconnectOutput: untyped
+
+    DescribeConnectionsOutput: untyped
+
+    DescribeCustomerMetadataInput: untyped
+
+    DescribeCustomerMetadataOutput: untyped
+
+    DescribeDirectConnectGatewayAssociationProposalsInput: untyped
+
+    DescribeDirectConnectGatewayAssociationProposalsOutput: untyped
+
+    DescribeDirectConnectGatewayAssociationsInput: untyped
+
+    DescribeDirectConnectGatewayAssociationsOutput: untyped
+
+    DescribeDirectConnectGatewayAttachmentsInput: untyped
+
+    DescribeDirectConnectGatewayAttachmentsOutput: untyped
+
+    DescribeDirectConnectGatewaysInput: untyped
+
+    DescribeDirectConnectGatewaysOutput: untyped
+
+    DescribeHostedConnectionsInput: untyped
+
+    DescribeHostedConnectionsOutput: untyped
+
+    DescribeInterconnectLoaInput: untyped
+
+    DescribeInterconnectLoaOutput: untyped
+
+    DescribeInterconnectsInput: untyped
+
+    DescribeInterconnectsOutput: untyped
+
+    DescribeLagsInput: untyped
+
+    DescribeLagsOutput: untyped
+
+    DescribeLoaInput: untyped
+
+    DescribeLoaOutput: untyped
+
+    DescribeLocationsInput: untyped
+
+    DescribeLocationsOutput: untyped
+
+    DescribeRouterConfigurationInput: untyped
+
+    DescribeRouterConfigurationOutput: untyped
+
+    DescribeTagsInput: untyped
+
+    DescribeTagsOutput: untyped
+
+    DescribeVirtualGatewaysInput: untyped
+
+    DescribeVirtualGatewaysOutput: untyped
+
+    DescribeVirtualInterfacesInput: untyped
+
+    DescribeVirtualInterfacesOutput: untyped
+
+    DirectConnectClientException: untyped
+
+    DirectConnectGateway: untyped
+
+    DirectConnectGatewayAssociation: untyped
+
+    DirectConnectGatewayAssociationProposal: untyped
+
+    module DirectConnectGatewayAssociationProposalState
+      requested: ::String
+
+      accepted: ::String
+
+      deleted: ::String
+    end
+
+    module DirectConnectGatewayAssociationState
+      associating: ::String
+
+      associated: ::String
+
+      disassociating: ::String
+
+      disassociated: ::String
+
+      updating: ::String
+    end
+
+    DirectConnectGatewayAttachment: untyped
+
+    module DirectConnectGatewayAttachmentState
+      attaching: ::String
+
+      attached: ::String
+
+      detaching: ::String
+
+      detached: ::String
+    end
+
+    module DirectConnectGatewayAttachmentType
+      TransitVirtualInterface: ::String
+
+      PrivateVirtualInterface: ::String
+    end
+
+    module DirectConnectGatewayState
+      pending: ::String
+
+      available: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+    end
+
+    DirectConnectServerException: untyped
+
+    DisassociateConnectionFromLagInput: untyped
+
+    DisassociateConnectionFromLagOutput: untyped
+
+    DisassociateMacSecKeyInput: untyped
+
+    DisassociateMacSecKeyOutput: untyped
+
+    DuplicateTagKeysException: untyped
+
+    module GatewayType
+      VirtualPrivateGateway: ::String
+
+      TransitGateway: ::String
+    end
+
+    module HasLogicalRedundancy
+      Unknown: ::String
+
+      Yes: ::String
+
+      No: ::String
+    end
+
+    Interconnect: untyped
+
+    module InterconnectState
+      requested: ::String
+
+      pending: ::String
+
+      available: ::String
+
+      down: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+
+      unknown: ::String
+    end
+
+    Lag: untyped
+
+    module LagState
+      requested: ::String
+
+      pending: ::String
+
+      available: ::String
+
+      down: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+
+      unknown: ::String
+    end
+
+    ListVirtualInterfaceTestHistoryInput: untyped
+
+    ListVirtualInterfaceTestHistoryOutput: untyped
+
+    Loa: untyped
+
+    module LoaContentType
+      PDF: ::String
+    end
+
+    Location: untyped
+
+    MacSecKey: untyped
+
+    NewBGPPeer: untyped
+
+    NewPrivateVirtualInterface: untyped
+
+    NewPrivateVirtualInterfaceAllocation: untyped
+
+    NewPublicVirtualInterface: untyped
+
+    NewPublicVirtualInterfaceAllocation: untyped
+
+    NewTransitVirtualInterface: untyped
+
+    NewTransitVirtualInterfaceAllocation: untyped
+
+    module NniPartnerType
+      V1: ::String
+
+      V2: ::String
+
+      NonPartner: ::String
+    end
+
+    ResourceTag: untyped
+
+    RouteFilterPrefix: untyped
+
+    RouterType: untyped
+
+    StartBgpFailoverTestInput: untyped
+
+    StartBgpFailoverTestOutput: untyped
+
+    StopBgpFailoverTestInput: untyped
+
+    StopBgpFailoverTestOutput: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TooManyTagsException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateConnectionInput: untyped
+
+    UpdateConnectionOutput: untyped
+
+    UpdateDirectConnectGatewayAssociationInput: untyped
+
+    UpdateDirectConnectGatewayAssociationOutput: untyped
+
+    UpdateDirectConnectGatewayInput: untyped
+
+    UpdateDirectConnectGatewayOutput: untyped
+
+    UpdateLagInput: untyped
+
+    UpdateLagOutput: untyped
+
+    UpdateVirtualInterfaceAttributesInput: untyped
+
+    UpdateVirtualInterfaceAttributesOutput: untyped
+
+    VirtualGateway: untyped
+
+    VirtualInterface: untyped
+
+    module VirtualInterfaceState
+      confirming: ::String
+
+      verifying: ::String
+
+      pending: ::String
+
+      available: ::String
+
+      down: ::String
+
+      deleting: ::String
+
+      deleted: ::String
+
+      rejected: ::String
+
+      unknown: ::String
+    end
+
+    VirtualInterfaceTestHistory: untyped
+
+  end
+end

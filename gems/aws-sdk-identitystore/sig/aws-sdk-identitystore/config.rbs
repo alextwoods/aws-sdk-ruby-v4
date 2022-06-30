@@ -1,0 +1,3 @@
+module AWS::SDK::Identitystore
+  Config: untyped
+end

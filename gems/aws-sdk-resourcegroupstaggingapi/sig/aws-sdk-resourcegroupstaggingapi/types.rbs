@@ -1,0 +1,92 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::ResourceGroupsTaggingAPI
+  module Types
+
+    ComplianceDetails: untyped
+
+    ConcurrentModificationException: untyped
+
+    ConstraintViolationException: untyped
+
+    DescribeReportCreationInput: untyped
+
+    DescribeReportCreationOutput: untyped
+
+    module ErrorCode
+      INTERNAL_SERVICE_EXCEPTION: ::String
+
+      INVALID_PARAMETER_EXCEPTION: ::String
+    end
+
+    FailureInfo: untyped
+
+    GetComplianceSummaryInput: untyped
+
+    GetComplianceSummaryOutput: untyped
+
+    GetResourcesInput: untyped
+
+    GetResourcesOutput: untyped
+
+    GetTagKeysInput: untyped
+
+    GetTagKeysOutput: untyped
+
+    GetTagValuesInput: untyped
+
+    GetTagValuesOutput: untyped
+
+    module GroupByAttribute
+      TARGET_ID: ::String
+
+      REGION: ::String
+
+      RESOURCE_TYPE: ::String
+    end
+
+    InternalServiceException: untyped
+
+    InvalidParameterException: untyped
+
+    PaginationTokenExpiredException: untyped
+
+    ResourceTagMapping: untyped
+
+    StartReportCreationInput: untyped
+
+    StartReportCreationOutput: untyped
+
+    Summary: untyped
+
+    Tag: untyped
+
+    TagFilter: untyped
+
+    TagResourcesInput: untyped
+
+    TagResourcesOutput: untyped
+
+    module TargetIdType
+      ACCOUNT: ::String
+
+      OU: ::String
+
+      ROOT: ::String
+    end
+
+    ThrottledException: untyped
+
+    UntagResourcesInput: untyped
+
+    UntagResourcesOutput: untyped
+
+  end
+end

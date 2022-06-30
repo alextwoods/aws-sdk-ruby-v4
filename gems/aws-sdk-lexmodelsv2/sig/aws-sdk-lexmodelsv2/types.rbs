@@ -1,0 +1,834 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::LexModelsV2
+  module Types
+
+    AdvancedRecognitionSetting: untyped
+
+    AggregatedUtterancesFilter: untyped
+
+    module AggregatedUtterancesFilterName
+      Utterance: ::String
+    end
+
+    module AggregatedUtterancesFilterOperator
+      Contains: ::String
+
+      Equals: ::String
+    end
+
+    module AggregatedUtterancesSortAttribute
+      HitCount: ::String
+
+      MissedCount: ::String
+    end
+
+    AggregatedUtterancesSortBy: untyped
+
+    AggregatedUtterancesSummary: untyped
+
+    AssociatedTranscript: untyped
+
+    AssociatedTranscriptFilter: untyped
+
+    module AssociatedTranscriptFilterName
+      IntentId: ::String
+
+      SlotTypeId: ::String
+    end
+
+    AudioLogDestination: untyped
+
+    AudioLogSetting: untyped
+
+    module AudioRecognitionStrategy
+      UseSlotValuesAsCustomVocabulary: ::String
+    end
+
+    BotAliasHistoryEvent: untyped
+
+    BotAliasLocaleSettings: untyped
+
+    module BotAliasStatus
+      Creating: ::String
+
+      Available: ::String
+
+      Deleting: ::String
+
+      Failed: ::String
+    end
+
+    BotAliasSummary: untyped
+
+    BotExportSpecification: untyped
+
+    BotFilter: untyped
+
+    module BotFilterName
+      BotName: ::String
+    end
+
+    module BotFilterOperator
+      Contains: ::String
+
+      Equals: ::String
+    end
+
+    BotImportSpecification: untyped
+
+    BotLocaleExportSpecification: untyped
+
+    BotLocaleFilter: untyped
+
+    module BotLocaleFilterName
+      BotLocaleName: ::String
+    end
+
+    module BotLocaleFilterOperator
+      Contains: ::String
+
+      Equals: ::String
+    end
+
+    BotLocaleHistoryEvent: untyped
+
+    BotLocaleImportSpecification: untyped
+
+    module BotLocaleSortAttribute
+      BotLocaleName: ::String
+    end
+
+    BotLocaleSortBy: untyped
+
+    module BotLocaleStatus
+      Creating: ::String
+
+      Building: ::String
+
+      Built: ::String
+
+      ReadyExpressTesting: ::String
+
+      Failed: ::String
+
+      Deleting: ::String
+
+      NotBuilt: ::String
+
+      Importing: ::String
+
+      Processing: ::String
+    end
+
+    BotLocaleSummary: untyped
+
+    BotRecommendationResultStatistics: untyped
+
+    BotRecommendationResults: untyped
+
+    module BotRecommendationStatus
+      Processing: ::String
+
+      Deleting: ::String
+
+      Deleted: ::String
+
+      Downloading: ::String
+
+      Updating: ::String
+
+      Available: ::String
+
+      Failed: ::String
+    end
+
+    BotRecommendationSummary: untyped
+
+    module BotSortAttribute
+      BotName: ::String
+    end
+
+    BotSortBy: untyped
+
+    module BotStatus
+      Creating: ::String
+
+      Available: ::String
+
+      Inactive: ::String
+
+      Deleting: ::String
+
+      Failed: ::String
+
+      Versioning: ::String
+
+      Importing: ::String
+    end
+
+    BotSummary: untyped
+
+    BotVersionLocaleDetails: untyped
+
+    module BotVersionSortAttribute
+      BotVersion: ::String
+    end
+
+    BotVersionSortBy: untyped
+
+    BotVersionSummary: untyped
+
+    BuildBotLocaleInput: untyped
+
+    BuildBotLocaleOutput: untyped
+
+    module BuiltInIntentSortAttribute
+      IntentSignature: ::String
+    end
+
+    BuiltInIntentSortBy: untyped
+
+    BuiltInIntentSummary: untyped
+
+    module BuiltInSlotTypeSortAttribute
+      SlotTypeSignature: ::String
+    end
+
+    BuiltInSlotTypeSortBy: untyped
+
+    BuiltInSlotTypeSummary: untyped
+
+    Button: untyped
+
+    CloudWatchLogGroupLogDestination: untyped
+
+    CodeHookSpecification: untyped
+
+    ConflictException: untyped
+
+    ConversationLogSettings: untyped
+
+    CreateBotAliasInput: untyped
+
+    CreateBotAliasOutput: untyped
+
+    CreateBotInput: untyped
+
+    CreateBotLocaleInput: untyped
+
+    CreateBotLocaleOutput: untyped
+
+    CreateBotOutput: untyped
+
+    CreateBotVersionInput: untyped
+
+    CreateBotVersionOutput: untyped
+
+    CreateExportInput: untyped
+
+    CreateExportOutput: untyped
+
+    CreateIntentInput: untyped
+
+    CreateIntentOutput: untyped
+
+    CreateResourcePolicyInput: untyped
+
+    CreateResourcePolicyOutput: untyped
+
+    CreateResourcePolicyStatementInput: untyped
+
+    CreateResourcePolicyStatementOutput: untyped
+
+    CreateSlotInput: untyped
+
+    CreateSlotOutput: untyped
+
+    CreateSlotTypeInput: untyped
+
+    CreateSlotTypeOutput: untyped
+
+    CreateUploadUrlInput: untyped
+
+    CreateUploadUrlOutput: untyped
+
+    CustomPayload: untyped
+
+    CustomVocabularyExportSpecification: untyped
+
+    CustomVocabularyImportSpecification: untyped
+
+    module CustomVocabularyStatus
+      Ready: ::String
+
+      Deleting: ::String
+
+      Exporting: ::String
+
+      Importing: ::String
+
+      Creating: ::String
+    end
+
+    DataPrivacy: untyped
+
+    DateRangeFilter: untyped
+
+    DeleteBotAliasInput: untyped
+
+    DeleteBotAliasOutput: untyped
+
+    DeleteBotInput: untyped
+
+    DeleteBotLocaleInput: untyped
+
+    DeleteBotLocaleOutput: untyped
+
+    DeleteBotOutput: untyped
+
+    DeleteBotVersionInput: untyped
+
+    DeleteBotVersionOutput: untyped
+
+    DeleteCustomVocabularyInput: untyped
+
+    DeleteCustomVocabularyOutput: untyped
+
+    DeleteExportInput: untyped
+
+    DeleteExportOutput: untyped
+
+    DeleteImportInput: untyped
+
+    DeleteImportOutput: untyped
+
+    DeleteIntentInput: untyped
+
+    DeleteIntentOutput: untyped
+
+    DeleteResourcePolicyInput: untyped
+
+    DeleteResourcePolicyOutput: untyped
+
+    DeleteResourcePolicyStatementInput: untyped
+
+    DeleteResourcePolicyStatementOutput: untyped
+
+    DeleteSlotInput: untyped
+
+    DeleteSlotOutput: untyped
+
+    DeleteSlotTypeInput: untyped
+
+    DeleteSlotTypeOutput: untyped
+
+    DeleteUtterancesInput: untyped
+
+    DeleteUtterancesOutput: untyped
+
+    DescribeBotAliasInput: untyped
+
+    DescribeBotAliasOutput: untyped
+
+    DescribeBotInput: untyped
+
+    DescribeBotLocaleInput: untyped
+
+    DescribeBotLocaleOutput: untyped
+
+    DescribeBotOutput: untyped
+
+    DescribeBotRecommendationInput: untyped
+
+    DescribeBotRecommendationOutput: untyped
+
+    DescribeBotVersionInput: untyped
+
+    DescribeBotVersionOutput: untyped
+
+    DescribeCustomVocabularyMetadataInput: untyped
+
+    DescribeCustomVocabularyMetadataOutput: untyped
+
+    DescribeExportInput: untyped
+
+    DescribeExportOutput: untyped
+
+    DescribeImportInput: untyped
+
+    DescribeImportOutput: untyped
+
+    DescribeIntentInput: untyped
+
+    DescribeIntentOutput: untyped
+
+    DescribeResourcePolicyInput: untyped
+
+    DescribeResourcePolicyOutput: untyped
+
+    DescribeSlotInput: untyped
+
+    DescribeSlotOutput: untyped
+
+    DescribeSlotTypeInput: untyped
+
+    DescribeSlotTypeOutput: untyped
+
+    DialogCodeHookSettings: untyped
+
+    module Effect
+      Allow: ::String
+
+      Deny: ::String
+    end
+
+    EncryptionSetting: untyped
+
+    ExportFilter: untyped
+
+    module ExportFilterName
+      ExportResourceType: ::String
+    end
+
+    module ExportFilterOperator
+      Contains: ::String
+
+      Equals: ::String
+    end
+
+    ExportResourceSpecification: untyped
+
+    module ExportSortAttribute
+      LastUpdatedDateTime: ::String
+    end
+
+    ExportSortBy: untyped
+
+    module ExportStatus
+      InProgress: ::String
+
+      Completed: ::String
+
+      Failed: ::String
+
+      Deleting: ::String
+    end
+
+    ExportSummary: untyped
+
+    ExternalSourceSetting: untyped
+
+    FulfillmentCodeHookSettings: untyped
+
+    FulfillmentStartResponseSpecification: untyped
+
+    FulfillmentUpdateResponseSpecification: untyped
+
+    FulfillmentUpdatesSpecification: untyped
+
+    GrammarSlotTypeSetting: untyped
+
+    GrammarSlotTypeSource: untyped
+
+    ImageResponseCard: untyped
+
+    module ImportExportFileFormat
+      LexJson: ::String
+
+      TSV: ::String
+    end
+
+    ImportFilter: untyped
+
+    module ImportFilterName
+      ImportResourceType: ::String
+    end
+
+    module ImportFilterOperator
+      Contains: ::String
+
+      Equals: ::String
+    end
+
+    ImportResourceSpecification: untyped
+
+    module ImportResourceType
+      Bot: ::String
+
+      BotLocale: ::String
+
+      CustomVocabulary: ::String
+    end
+
+    module ImportSortAttribute
+      LastUpdatedDateTime: ::String
+    end
+
+    ImportSortBy: untyped
+
+    module ImportStatus
+      InProgress: ::String
+
+      Completed: ::String
+
+      Failed: ::String
+
+      Deleting: ::String
+    end
+
+    ImportSummary: untyped
+
+    InputContext: untyped
+
+    IntentClosingSetting: untyped
+
+    IntentConfirmationSetting: untyped
+
+    IntentFilter: untyped
+
+    module IntentFilterName
+      IntentName: ::String
+    end
+
+    module IntentFilterOperator
+      Contains: ::String
+
+      Equals: ::String
+    end
+
+    module IntentSortAttribute
+      IntentName: ::String
+
+      LastUpdatedDateTime: ::String
+    end
+
+    IntentSortBy: untyped
+
+    IntentStatistics: untyped
+
+    IntentSummary: untyped
+
+    InternalServerException: untyped
+
+    KendraConfiguration: untyped
+
+    LambdaCodeHook: untyped
+
+    LexTranscriptFilter: untyped
+
+    ListAggregatedUtterancesInput: untyped
+
+    ListAggregatedUtterancesOutput: untyped
+
+    ListBotAliasesInput: untyped
+
+    ListBotAliasesOutput: untyped
+
+    ListBotLocalesInput: untyped
+
+    ListBotLocalesOutput: untyped
+
+    ListBotRecommendationsInput: untyped
+
+    ListBotRecommendationsOutput: untyped
+
+    ListBotVersionsInput: untyped
+
+    ListBotVersionsOutput: untyped
+
+    ListBotsInput: untyped
+
+    ListBotsOutput: untyped
+
+    ListBuiltInIntentsInput: untyped
+
+    ListBuiltInIntentsOutput: untyped
+
+    ListBuiltInSlotTypesInput: untyped
+
+    ListBuiltInSlotTypesOutput: untyped
+
+    ListExportsInput: untyped
+
+    ListExportsOutput: untyped
+
+    ListImportsInput: untyped
+
+    ListImportsOutput: untyped
+
+    ListIntentsInput: untyped
+
+    ListIntentsOutput: untyped
+
+    ListRecommendedIntentsInput: untyped
+
+    ListRecommendedIntentsOutput: untyped
+
+    ListSlotTypesInput: untyped
+
+    ListSlotTypesOutput: untyped
+
+    ListSlotsInput: untyped
+
+    ListSlotsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    module MergeStrategy
+      Overwrite: ::String
+
+      FailOnConflict: ::String
+
+      Append: ::String
+    end
+
+    Message: untyped
+
+    MessageGroup: untyped
+
+    MultipleValuesSetting: untyped
+
+    ObfuscationSetting: untyped
+
+    module ObfuscationSettingType
+      None: ::String
+
+      DefaultObfuscation: ::String
+    end
+
+    OutputContext: untyped
+
+    PathFormat: untyped
+
+    PlainTextMessage: untyped
+
+    PostFulfillmentStatusSpecification: untyped
+
+    PreconditionFailedException: untyped
+
+    Principal: untyped
+
+    PromptSpecification: untyped
+
+    RecommendedIntentSummary: untyped
+
+    RelativeAggregationDuration: untyped
+
+    ResourceNotFoundException: untyped
+
+    ResponseSpecification: untyped
+
+    S3BucketLogDestination: untyped
+
+    S3BucketTranscriptSource: untyped
+
+    SSMLMessage: untyped
+
+    SampleUtterance: untyped
+
+    SampleValue: untyped
+
+    SearchAssociatedTranscriptsInput: untyped
+
+    SearchAssociatedTranscriptsOutput: untyped
+
+    module SearchOrder
+      Ascending: ::String
+
+      Descending: ::String
+    end
+
+    SentimentAnalysisSettings: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    module SlotConstraint
+      Required: ::String
+
+      Optional: ::String
+    end
+
+    SlotDefaultValue: untyped
+
+    SlotDefaultValueSpecification: untyped
+
+    SlotFilter: untyped
+
+    module SlotFilterName
+      SlotName: ::String
+    end
+
+    module SlotFilterOperator
+      Contains: ::String
+
+      Equals: ::String
+    end
+
+    SlotPriority: untyped
+
+    module SlotSortAttribute
+      SlotName: ::String
+
+      LastUpdatedDateTime: ::String
+    end
+
+    SlotSortBy: untyped
+
+    SlotSummary: untyped
+
+    module SlotTypeCategory
+      Custom: ::String
+
+      Extended: ::String
+
+      ExternalGrammar: ::String
+    end
+
+    SlotTypeFilter: untyped
+
+    module SlotTypeFilterName
+      SlotTypeName: ::String
+
+      ExternalSourceType: ::String
+    end
+
+    module SlotTypeFilterOperator
+      Contains: ::String
+
+      Equals: ::String
+    end
+
+    module SlotTypeSortAttribute
+      SlotTypeName: ::String
+
+      LastUpdatedDateTime: ::String
+    end
+
+    SlotTypeSortBy: untyped
+
+    SlotTypeStatistics: untyped
+
+    SlotTypeSummary: untyped
+
+    SlotTypeValue: untyped
+
+    SlotValueElicitationSetting: untyped
+
+    SlotValueRegexFilter: untyped
+
+    module SlotValueResolutionStrategy
+      OriginalValue: ::String
+
+      TopResolution: ::String
+    end
+
+    SlotValueSelectionSetting: untyped
+
+    module SortOrder
+      Ascending: ::String
+
+      Descending: ::String
+    end
+
+    StartBotRecommendationInput: untyped
+
+    StartBotRecommendationOutput: untyped
+
+    StartImportInput: untyped
+
+    StartImportOutput: untyped
+
+    StillWaitingResponseSpecification: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TextLogDestination: untyped
+
+    TextLogSetting: untyped
+
+    ThrottlingException: untyped
+
+    module TimeDimension
+      Hours: ::String
+
+      Days: ::String
+
+      Weeks: ::String
+    end
+
+    TranscriptFilter: untyped
+
+    module TranscriptFormat
+      Lex: ::String
+    end
+
+    TranscriptSourceSetting: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateBotAliasInput: untyped
+
+    UpdateBotAliasOutput: untyped
+
+    UpdateBotInput: untyped
+
+    UpdateBotLocaleInput: untyped
+
+    UpdateBotLocaleOutput: untyped
+
+    UpdateBotOutput: untyped
+
+    UpdateBotRecommendationInput: untyped
+
+    UpdateBotRecommendationOutput: untyped
+
+    UpdateExportInput: untyped
+
+    UpdateExportOutput: untyped
+
+    UpdateIntentInput: untyped
+
+    UpdateIntentOutput: untyped
+
+    UpdateResourcePolicyInput: untyped
+
+    UpdateResourcePolicyOutput: untyped
+
+    UpdateSlotInput: untyped
+
+    UpdateSlotOutput: untyped
+
+    UpdateSlotTypeInput: untyped
+
+    UpdateSlotTypeOutput: untyped
+
+    UtteranceAggregationDuration: untyped
+
+    ValidationException: untyped
+
+    module VoiceEngine
+      Standard: ::String
+
+      Neural: ::String
+    end
+
+    VoiceSettings: untyped
+
+    WaitAndContinueSpecification: untyped
+
+  end
+end

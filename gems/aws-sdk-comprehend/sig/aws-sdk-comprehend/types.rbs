@@ -1,0 +1,748 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Comprehend
+  module Types
+
+    module AugmentedManifestsDocumentTypeFormat
+      PLAIN_TEXT_DOCUMENT: ::String
+
+      SEMI_STRUCTURED_DOCUMENT: ::String
+    end
+
+    AugmentedManifestsListItem: untyped
+
+    BatchDetectDominantLanguageInput: untyped
+
+    BatchDetectDominantLanguageItemResult: untyped
+
+    BatchDetectDominantLanguageOutput: untyped
+
+    BatchDetectEntitiesInput: untyped
+
+    BatchDetectEntitiesItemResult: untyped
+
+    BatchDetectEntitiesOutput: untyped
+
+    BatchDetectKeyPhrasesInput: untyped
+
+    BatchDetectKeyPhrasesItemResult: untyped
+
+    BatchDetectKeyPhrasesOutput: untyped
+
+    BatchDetectSentimentInput: untyped
+
+    BatchDetectSentimentItemResult: untyped
+
+    BatchDetectSentimentOutput: untyped
+
+    BatchDetectSyntaxInput: untyped
+
+    BatchDetectSyntaxItemResult: untyped
+
+    BatchDetectSyntaxOutput: untyped
+
+    BatchItemError: untyped
+
+    BatchSizeLimitExceededException: untyped
+
+    ClassifierEvaluationMetrics: untyped
+
+    ClassifierMetadata: untyped
+
+    ClassifyDocumentInput: untyped
+
+    ClassifyDocumentOutput: untyped
+
+    ConcurrentModificationException: untyped
+
+    ContainsPiiEntitiesInput: untyped
+
+    ContainsPiiEntitiesOutput: untyped
+
+    CreateDocumentClassifierInput: untyped
+
+    CreateDocumentClassifierOutput: untyped
+
+    CreateEndpointInput: untyped
+
+    CreateEndpointOutput: untyped
+
+    CreateEntityRecognizerInput: untyped
+
+    CreateEntityRecognizerOutput: untyped
+
+    DeleteDocumentClassifierInput: untyped
+
+    DeleteDocumentClassifierOutput: untyped
+
+    DeleteEndpointInput: untyped
+
+    DeleteEndpointOutput: untyped
+
+    DeleteEntityRecognizerInput: untyped
+
+    DeleteEntityRecognizerOutput: untyped
+
+    DeleteResourcePolicyInput: untyped
+
+    DeleteResourcePolicyOutput: untyped
+
+    DescribeDocumentClassificationJobInput: untyped
+
+    DescribeDocumentClassificationJobOutput: untyped
+
+    DescribeDocumentClassifierInput: untyped
+
+    DescribeDocumentClassifierOutput: untyped
+
+    DescribeDominantLanguageDetectionJobInput: untyped
+
+    DescribeDominantLanguageDetectionJobOutput: untyped
+
+    DescribeEndpointInput: untyped
+
+    DescribeEndpointOutput: untyped
+
+    DescribeEntitiesDetectionJobInput: untyped
+
+    DescribeEntitiesDetectionJobOutput: untyped
+
+    DescribeEntityRecognizerInput: untyped
+
+    DescribeEntityRecognizerOutput: untyped
+
+    DescribeEventsDetectionJobInput: untyped
+
+    DescribeEventsDetectionJobOutput: untyped
+
+    DescribeKeyPhrasesDetectionJobInput: untyped
+
+    DescribeKeyPhrasesDetectionJobOutput: untyped
+
+    DescribePiiEntitiesDetectionJobInput: untyped
+
+    DescribePiiEntitiesDetectionJobOutput: untyped
+
+    DescribeResourcePolicyInput: untyped
+
+    DescribeResourcePolicyOutput: untyped
+
+    DescribeSentimentDetectionJobInput: untyped
+
+    DescribeSentimentDetectionJobOutput: untyped
+
+    DescribeTargetedSentimentDetectionJobInput: untyped
+
+    DescribeTargetedSentimentDetectionJobOutput: untyped
+
+    DescribeTopicsDetectionJobInput: untyped
+
+    DescribeTopicsDetectionJobOutput: untyped
+
+    DetectDominantLanguageInput: untyped
+
+    DetectDominantLanguageOutput: untyped
+
+    DetectEntitiesInput: untyped
+
+    DetectEntitiesOutput: untyped
+
+    DetectKeyPhrasesInput: untyped
+
+    DetectKeyPhrasesOutput: untyped
+
+    DetectPiiEntitiesInput: untyped
+
+    DetectPiiEntitiesOutput: untyped
+
+    DetectSentimentInput: untyped
+
+    DetectSentimentOutput: untyped
+
+    DetectSyntaxInput: untyped
+
+    DetectSyntaxOutput: untyped
+
+    DocumentClass: untyped
+
+    DocumentClassificationJobFilter: untyped
+
+    DocumentClassificationJobProperties: untyped
+
+    module DocumentClassifierDataFormat
+      COMPREHEND_CSV: ::String
+
+      AUGMENTED_MANIFEST: ::String
+    end
+
+    DocumentClassifierFilter: untyped
+
+    DocumentClassifierInputDataConfig: untyped
+
+    module DocumentClassifierMode
+      MULTI_CLASS: ::String
+
+      MULTI_LABEL: ::String
+    end
+
+    DocumentClassifierOutputDataConfig: untyped
+
+    DocumentClassifierProperties: untyped
+
+    DocumentClassifierSummary: untyped
+
+    DocumentLabel: untyped
+
+    module DocumentReadAction
+      TEXTRACT_DETECT_DOCUMENT_TEXT: ::String
+
+      TEXTRACT_ANALYZE_DOCUMENT: ::String
+    end
+
+    module DocumentReadFeatureTypes
+      TABLES: ::String
+
+      FORMS: ::String
+    end
+
+    module DocumentReadMode
+      SERVICE_DEFAULT: ::String
+
+      FORCE_DOCUMENT_READ_ACTION: ::String
+    end
+
+    DocumentReaderConfig: untyped
+
+    DominantLanguage: untyped
+
+    DominantLanguageDetectionJobFilter: untyped
+
+    DominantLanguageDetectionJobProperties: untyped
+
+    EndpointFilter: untyped
+
+    EndpointProperties: untyped
+
+    module EndpointStatus
+      CREATING: ::String
+
+      DELETING: ::String
+
+      FAILED: ::String
+
+      IN_SERVICE: ::String
+
+      UPDATING: ::String
+    end
+
+    EntitiesDetectionJobFilter: untyped
+
+    EntitiesDetectionJobProperties: untyped
+
+    Entity: untyped
+
+    EntityLabel: untyped
+
+    EntityRecognizerAnnotations: untyped
+
+    module EntityRecognizerDataFormat
+      COMPREHEND_CSV: ::String
+
+      AUGMENTED_MANIFEST: ::String
+    end
+
+    EntityRecognizerDocuments: untyped
+
+    EntityRecognizerEntityList: untyped
+
+    EntityRecognizerEvaluationMetrics: untyped
+
+    EntityRecognizerFilter: untyped
+
+    EntityRecognizerInputDataConfig: untyped
+
+    EntityRecognizerMetadata: untyped
+
+    EntityRecognizerMetadataEntityTypesListItem: untyped
+
+    EntityRecognizerProperties: untyped
+
+    EntityRecognizerSummary: untyped
+
+    module EntityType
+      PERSON: ::String
+
+      LOCATION: ::String
+
+      ORGANIZATION: ::String
+
+      COMMERCIAL_ITEM: ::String
+
+      EVENT: ::String
+
+      DATE: ::String
+
+      QUANTITY: ::String
+
+      TITLE: ::String
+
+      OTHER: ::String
+    end
+
+    EntityTypesEvaluationMetrics: untyped
+
+    EntityTypesListItem: untyped
+
+    EventsDetectionJobFilter: untyped
+
+    EventsDetectionJobProperties: untyped
+
+    ImportModelInput: untyped
+
+    ImportModelOutput: untyped
+
+    InputDataConfig: untyped
+
+    module InputFormat
+      ONE_DOC_PER_FILE: ::String
+
+      ONE_DOC_PER_LINE: ::String
+    end
+
+    InternalServerException: untyped
+
+    InvalidFilterException: untyped
+
+    InvalidRequestException: untyped
+
+    JobNotFoundException: untyped
+
+    module JobStatus
+      SUBMITTED: ::String
+
+      IN_PROGRESS: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+
+      STOP_REQUESTED: ::String
+
+      STOPPED: ::String
+    end
+
+    KeyPhrase: untyped
+
+    KeyPhrasesDetectionJobFilter: untyped
+
+    KeyPhrasesDetectionJobProperties: untyped
+
+    KmsKeyValidationException: untyped
+
+    module LanguageCode
+      EN: ::String
+
+      ES: ::String
+
+      FR: ::String
+
+      DE: ::String
+
+      IT: ::String
+
+      PT: ::String
+
+      AR: ::String
+
+      HI: ::String
+
+      JA: ::String
+
+      KO: ::String
+
+      ZH: ::String
+
+      ZH_TW: ::String
+    end
+
+    ListDocumentClassificationJobsInput: untyped
+
+    ListDocumentClassificationJobsOutput: untyped
+
+    ListDocumentClassifierSummariesInput: untyped
+
+    ListDocumentClassifierSummariesOutput: untyped
+
+    ListDocumentClassifiersInput: untyped
+
+    ListDocumentClassifiersOutput: untyped
+
+    ListDominantLanguageDetectionJobsInput: untyped
+
+    ListDominantLanguageDetectionJobsOutput: untyped
+
+    ListEndpointsInput: untyped
+
+    ListEndpointsOutput: untyped
+
+    ListEntitiesDetectionJobsInput: untyped
+
+    ListEntitiesDetectionJobsOutput: untyped
+
+    ListEntityRecognizerSummariesInput: untyped
+
+    ListEntityRecognizerSummariesOutput: untyped
+
+    ListEntityRecognizersInput: untyped
+
+    ListEntityRecognizersOutput: untyped
+
+    ListEventsDetectionJobsInput: untyped
+
+    ListEventsDetectionJobsOutput: untyped
+
+    ListKeyPhrasesDetectionJobsInput: untyped
+
+    ListKeyPhrasesDetectionJobsOutput: untyped
+
+    ListPiiEntitiesDetectionJobsInput: untyped
+
+    ListPiiEntitiesDetectionJobsOutput: untyped
+
+    ListSentimentDetectionJobsInput: untyped
+
+    ListSentimentDetectionJobsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTargetedSentimentDetectionJobsInput: untyped
+
+    ListTargetedSentimentDetectionJobsOutput: untyped
+
+    ListTopicsDetectionJobsInput: untyped
+
+    ListTopicsDetectionJobsOutput: untyped
+
+    module ModelStatus
+      SUBMITTED: ::String
+
+      TRAINING: ::String
+
+      DELETING: ::String
+
+      STOP_REQUESTED: ::String
+
+      STOPPED: ::String
+
+      IN_ERROR: ::String
+
+      TRAINED: ::String
+    end
+
+    OutputDataConfig: untyped
+
+    PartOfSpeechTag: untyped
+
+    module PartOfSpeechTagType
+      ADJ: ::String
+
+      ADP: ::String
+
+      ADV: ::String
+
+      AUX: ::String
+
+      CONJ: ::String
+
+      CCONJ: ::String
+
+      DET: ::String
+
+      INTJ: ::String
+
+      NOUN: ::String
+
+      NUM: ::String
+
+      O: ::String
+
+      PART: ::String
+
+      PRON: ::String
+
+      PROPN: ::String
+
+      PUNCT: ::String
+
+      SCONJ: ::String
+
+      SYM: ::String
+
+      VERB: ::String
+    end
+
+    PiiEntitiesDetectionJobFilter: untyped
+
+    PiiEntitiesDetectionJobProperties: untyped
+
+    module PiiEntitiesDetectionMaskMode
+      MASK: ::String
+
+      REPLACE_WITH_PII_ENTITY_TYPE: ::String
+    end
+
+    module PiiEntitiesDetectionMode
+      ONLY_REDACTION: ::String
+
+      ONLY_OFFSETS: ::String
+    end
+
+    PiiEntity: untyped
+
+    module PiiEntityType
+      BANK_ACCOUNT_NUMBER: ::String
+
+      BANK_ROUTING: ::String
+
+      CREDIT_DEBIT_NUMBER: ::String
+
+      CREDIT_DEBIT_CVV: ::String
+
+      CREDIT_DEBIT_EXPIRY: ::String
+
+      PIN: ::String
+
+      EMAIL: ::String
+
+      ADDRESS: ::String
+
+      NAME: ::String
+
+      PHONE: ::String
+
+      SSN: ::String
+
+      DATE_TIME: ::String
+
+      PASSPORT_NUMBER: ::String
+
+      DRIVER_ID: ::String
+
+      URL: ::String
+
+      AGE: ::String
+
+      USERNAME: ::String
+
+      PASSWORD: ::String
+
+      AWS_ACCESS_KEY: ::String
+
+      AWS_SECRET_KEY: ::String
+
+      IP_ADDRESS: ::String
+
+      MAC_ADDRESS: ::String
+
+      ALL: ::String
+
+      LICENSE_PLATE: ::String
+
+      VEHICLE_IDENTIFICATION_NUMBER: ::String
+
+      UK_NATIONAL_INSURANCE_NUMBER: ::String
+
+      CA_SOCIAL_INSURANCE_NUMBER: ::String
+
+      US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER: ::String
+
+      UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER: ::String
+
+      IN_PERMANENT_ACCOUNT_NUMBER: ::String
+
+      IN_NREGA: ::String
+
+      INTERNATIONAL_BANK_ACCOUNT_NUMBER: ::String
+
+      SWIFT_CODE: ::String
+
+      UK_NATIONAL_HEALTH_SERVICE_NUMBER: ::String
+
+      CA_HEALTH_NUMBER: ::String
+
+      IN_AADHAAR: ::String
+
+      IN_VOTER_NUMBER: ::String
+    end
+
+    PiiOutputDataConfig: untyped
+
+    PutResourcePolicyInput: untyped
+
+    PutResourcePolicyOutput: untyped
+
+    RedactionConfig: untyped
+
+    ResourceInUseException: untyped
+
+    ResourceLimitExceededException: untyped
+
+    ResourceNotFoundException: untyped
+
+    ResourceUnavailableException: untyped
+
+    SentimentDetectionJobFilter: untyped
+
+    SentimentDetectionJobProperties: untyped
+
+    SentimentScore: untyped
+
+    module SentimentType
+      POSITIVE: ::String
+
+      NEGATIVE: ::String
+
+      NEUTRAL: ::String
+
+      MIXED: ::String
+    end
+
+    module Split
+      TRAIN: ::String
+
+      TEST: ::String
+    end
+
+    StartDocumentClassificationJobInput: untyped
+
+    StartDocumentClassificationJobOutput: untyped
+
+    StartDominantLanguageDetectionJobInput: untyped
+
+    StartDominantLanguageDetectionJobOutput: untyped
+
+    StartEntitiesDetectionJobInput: untyped
+
+    StartEntitiesDetectionJobOutput: untyped
+
+    StartEventsDetectionJobInput: untyped
+
+    StartEventsDetectionJobOutput: untyped
+
+    StartKeyPhrasesDetectionJobInput: untyped
+
+    StartKeyPhrasesDetectionJobOutput: untyped
+
+    StartPiiEntitiesDetectionJobInput: untyped
+
+    StartPiiEntitiesDetectionJobOutput: untyped
+
+    StartSentimentDetectionJobInput: untyped
+
+    StartSentimentDetectionJobOutput: untyped
+
+    StartTargetedSentimentDetectionJobInput: untyped
+
+    StartTargetedSentimentDetectionJobOutput: untyped
+
+    StartTopicsDetectionJobInput: untyped
+
+    StartTopicsDetectionJobOutput: untyped
+
+    StopDominantLanguageDetectionJobInput: untyped
+
+    StopDominantLanguageDetectionJobOutput: untyped
+
+    StopEntitiesDetectionJobInput: untyped
+
+    StopEntitiesDetectionJobOutput: untyped
+
+    StopEventsDetectionJobInput: untyped
+
+    StopEventsDetectionJobOutput: untyped
+
+    StopKeyPhrasesDetectionJobInput: untyped
+
+    StopKeyPhrasesDetectionJobOutput: untyped
+
+    StopPiiEntitiesDetectionJobInput: untyped
+
+    StopPiiEntitiesDetectionJobOutput: untyped
+
+    StopSentimentDetectionJobInput: untyped
+
+    StopSentimentDetectionJobOutput: untyped
+
+    StopTargetedSentimentDetectionJobInput: untyped
+
+    StopTargetedSentimentDetectionJobOutput: untyped
+
+    StopTrainingDocumentClassifierInput: untyped
+
+    StopTrainingDocumentClassifierOutput: untyped
+
+    StopTrainingEntityRecognizerInput: untyped
+
+    StopTrainingEntityRecognizerOutput: untyped
+
+    module SyntaxLanguageCode
+      EN: ::String
+
+      ES: ::String
+
+      FR: ::String
+
+      DE: ::String
+
+      IT: ::String
+
+      PT: ::String
+    end
+
+    SyntaxToken: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TargetedSentimentDetectionJobFilter: untyped
+
+    TargetedSentimentDetectionJobProperties: untyped
+
+    TextSizeLimitExceededException: untyped
+
+    TooManyRequestsException: untyped
+
+    TooManyTagKeysException: untyped
+
+    TooManyTagsException: untyped
+
+    TopicsDetectionJobFilter: untyped
+
+    TopicsDetectionJobProperties: untyped
+
+    UnsupportedLanguageException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateEndpointInput: untyped
+
+    UpdateEndpointOutput: untyped
+
+    VpcConfig: untyped
+
+  end
+end

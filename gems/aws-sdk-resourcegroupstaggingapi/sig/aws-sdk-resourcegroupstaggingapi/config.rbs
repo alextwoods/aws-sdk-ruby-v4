@@ -1,0 +1,3 @@
+module AWS::SDK::ResourceGroupsTaggingAPI
+  Config: untyped
+end

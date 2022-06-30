@@ -1,0 +1,50 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::ConnectContactLens
+  module Types
+
+    AccessDeniedException: untyped
+
+    Categories: untyped
+
+    CategoryDetails: untyped
+
+    CharacterOffsets: untyped
+
+    InternalServiceException: untyped
+
+    InvalidRequestException: untyped
+
+    IssueDetected: untyped
+
+    ListRealtimeContactAnalysisSegmentsInput: untyped
+
+    ListRealtimeContactAnalysisSegmentsOutput: untyped
+
+    PointOfInterest: untyped
+
+    RealtimeContactAnalysisSegment: untyped
+
+    ResourceNotFoundException: untyped
+
+    module SentimentValue
+      POSITIVE: ::String
+
+      NEUTRAL: ::String
+
+      NEGATIVE: ::String
+    end
+
+    ThrottlingException: untyped
+
+    Transcript: untyped
+
+  end
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::SFN
+  Config: untyped
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::EC2InstanceConnect
+  Config: untyped
+end

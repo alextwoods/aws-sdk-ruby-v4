@@ -1,0 +1,3 @@
+module AWS::SDK::S3
+  Config: untyped
+end

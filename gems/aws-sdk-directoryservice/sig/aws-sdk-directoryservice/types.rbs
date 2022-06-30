@@ -1,0 +1,662 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::DirectoryService
+  module Types
+
+    AcceptSharedDirectoryInput: untyped
+
+    AcceptSharedDirectoryOutput: untyped
+
+    AccessDeniedException: untyped
+
+    AddIpRoutesInput: untyped
+
+    AddIpRoutesOutput: untyped
+
+    AddRegionInput: untyped
+
+    AddRegionOutput: untyped
+
+    AddTagsToResourceInput: untyped
+
+    AddTagsToResourceOutput: untyped
+
+    Attribute: untyped
+
+    AuthenticationFailedException: untyped
+
+    CancelSchemaExtensionInput: untyped
+
+    CancelSchemaExtensionOutput: untyped
+
+    Certificate: untyped
+
+    CertificateAlreadyExistsException: untyped
+
+    CertificateDoesNotExistException: untyped
+
+    CertificateInUseException: untyped
+
+    CertificateInfo: untyped
+
+    CertificateLimitExceededException: untyped
+
+    module CertificateState
+      REGISTERING: ::String
+
+      REGISTERED: ::String
+
+      REGISTER_FAILED: ::String
+
+      DEREGISTERING: ::String
+
+      DEREGISTERED: ::String
+
+      DEREGISTER_FAILED: ::String
+    end
+
+    module CertificateType
+      CLIENT_CERT_AUTH: ::String
+
+      CLIENT_LDAPS: ::String
+    end
+
+    ClientAuthenticationSettingInfo: untyped
+
+    module ClientAuthenticationStatus
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    module ClientAuthenticationType
+      SMART_CARD: ::String
+    end
+
+    ClientCertAuthSettings: untyped
+
+    ClientException: untyped
+
+    Computer: untyped
+
+    ConditionalForwarder: untyped
+
+    ConnectDirectoryInput: untyped
+
+    ConnectDirectoryOutput: untyped
+
+    CreateAliasInput: untyped
+
+    CreateAliasOutput: untyped
+
+    CreateComputerInput: untyped
+
+    CreateComputerOutput: untyped
+
+    CreateConditionalForwarderInput: untyped
+
+    CreateConditionalForwarderOutput: untyped
+
+    CreateDirectoryInput: untyped
+
+    CreateDirectoryOutput: untyped
+
+    CreateLogSubscriptionInput: untyped
+
+    CreateLogSubscriptionOutput: untyped
+
+    CreateMicrosoftADInput: untyped
+
+    CreateMicrosoftADOutput: untyped
+
+    CreateSnapshotInput: untyped
+
+    CreateSnapshotOutput: untyped
+
+    CreateTrustInput: untyped
+
+    CreateTrustOutput: untyped
+
+    DeleteConditionalForwarderInput: untyped
+
+    DeleteConditionalForwarderOutput: untyped
+
+    DeleteDirectoryInput: untyped
+
+    DeleteDirectoryOutput: untyped
+
+    DeleteLogSubscriptionInput: untyped
+
+    DeleteLogSubscriptionOutput: untyped
+
+    DeleteSnapshotInput: untyped
+
+    DeleteSnapshotOutput: untyped
+
+    DeleteTrustInput: untyped
+
+    DeleteTrustOutput: untyped
+
+    DeregisterCertificateInput: untyped
+
+    DeregisterCertificateOutput: untyped
+
+    DeregisterEventTopicInput: untyped
+
+    DeregisterEventTopicOutput: untyped
+
+    DescribeCertificateInput: untyped
+
+    DescribeCertificateOutput: untyped
+
+    DescribeClientAuthenticationSettingsInput: untyped
+
+    DescribeClientAuthenticationSettingsOutput: untyped
+
+    DescribeConditionalForwardersInput: untyped
+
+    DescribeConditionalForwardersOutput: untyped
+
+    DescribeDirectoriesInput: untyped
+
+    DescribeDirectoriesOutput: untyped
+
+    DescribeDomainControllersInput: untyped
+
+    DescribeDomainControllersOutput: untyped
+
+    DescribeEventTopicsInput: untyped
+
+    DescribeEventTopicsOutput: untyped
+
+    DescribeLDAPSSettingsInput: untyped
+
+    DescribeLDAPSSettingsOutput: untyped
+
+    DescribeRegionsInput: untyped
+
+    DescribeRegionsOutput: untyped
+
+    DescribeSharedDirectoriesInput: untyped
+
+    DescribeSharedDirectoriesOutput: untyped
+
+    DescribeSnapshotsInput: untyped
+
+    DescribeSnapshotsOutput: untyped
+
+    DescribeTrustsInput: untyped
+
+    DescribeTrustsOutput: untyped
+
+    DirectoryAlreadyInRegionException: untyped
+
+    DirectoryAlreadySharedException: untyped
+
+    DirectoryConnectSettings: untyped
+
+    DirectoryConnectSettingsDescription: untyped
+
+    DirectoryDescription: untyped
+
+    DirectoryDoesNotExistException: untyped
+
+    module DirectoryEdition
+      ENTERPRISE: ::String
+
+      STANDARD: ::String
+    end
+
+    DirectoryLimitExceededException: untyped
+
+    DirectoryLimits: untyped
+
+    DirectoryNotSharedException: untyped
+
+    module DirectorySize
+      SMALL: ::String
+
+      LARGE: ::String
+    end
+
+    module DirectoryStage
+      REQUESTED: ::String
+
+      CREATING: ::String
+
+      CREATED: ::String
+
+      ACTIVE: ::String
+
+      INOPERABLE: ::String
+
+      IMPAIRED: ::String
+
+      RESTORING: ::String
+
+      RESTOREFAILED: ::String
+
+      DELETING: ::String
+
+      DELETED: ::String
+
+      FAILED: ::String
+    end
+
+    module DirectoryType
+      SIMPLE_AD: ::String
+
+      AD_CONNECTOR: ::String
+
+      MICROSOFT_AD: ::String
+
+      SHARED_MICROSOFT_AD: ::String
+    end
+
+    DirectoryUnavailableException: untyped
+
+    DirectoryVpcSettings: untyped
+
+    DirectoryVpcSettingsDescription: untyped
+
+    DisableClientAuthenticationInput: untyped
+
+    DisableClientAuthenticationOutput: untyped
+
+    DisableLDAPSInput: untyped
+
+    DisableLDAPSOutput: untyped
+
+    DisableRadiusInput: untyped
+
+    DisableRadiusOutput: untyped
+
+    DisableSsoInput: untyped
+
+    DisableSsoOutput: untyped
+
+    DomainController: untyped
+
+    DomainControllerLimitExceededException: untyped
+
+    module DomainControllerStatus
+      CREATING: ::String
+
+      ACTIVE: ::String
+
+      IMPAIRED: ::String
+
+      RESTORING: ::String
+
+      DELETING: ::String
+
+      DELETED: ::String
+
+      FAILED: ::String
+    end
+
+    EnableClientAuthenticationInput: untyped
+
+    EnableClientAuthenticationOutput: untyped
+
+    EnableLDAPSInput: untyped
+
+    EnableLDAPSOutput: untyped
+
+    EnableRadiusInput: untyped
+
+    EnableRadiusOutput: untyped
+
+    EnableSsoInput: untyped
+
+    EnableSsoOutput: untyped
+
+    EntityAlreadyExistsException: untyped
+
+    EntityDoesNotExistException: untyped
+
+    EventTopic: untyped
+
+    GetDirectoryLimitsInput: untyped
+
+    GetDirectoryLimitsOutput: untyped
+
+    GetSnapshotLimitsInput: untyped
+
+    GetSnapshotLimitsOutput: untyped
+
+    InsufficientPermissionsException: untyped
+
+    InvalidCertificateException: untyped
+
+    InvalidClientAuthStatusException: untyped
+
+    InvalidLDAPSStatusException: untyped
+
+    InvalidNextTokenException: untyped
+
+    InvalidParameterException: untyped
+
+    InvalidPasswordException: untyped
+
+    InvalidTargetException: untyped
+
+    IpRoute: untyped
+
+    IpRouteInfo: untyped
+
+    IpRouteLimitExceededException: untyped
+
+    module IpRouteStatusMsg
+      ADDING: ::String
+
+      ADDED: ::String
+
+      REMOVING: ::String
+
+      REMOVED: ::String
+
+      ADD_FAILED: ::String
+
+      REMOVE_FAILED: ::String
+    end
+
+    LDAPSSettingInfo: untyped
+
+    module LDAPSStatus
+      ENABLING: ::String
+
+      ENABLED: ::String
+
+      ENABLE_FAILED: ::String
+
+      DISABLED: ::String
+    end
+
+    module LDAPSType
+      CLIENT: ::String
+    end
+
+    ListCertificatesInput: untyped
+
+    ListCertificatesOutput: untyped
+
+    ListIpRoutesInput: untyped
+
+    ListIpRoutesOutput: untyped
+
+    ListLogSubscriptionsInput: untyped
+
+    ListLogSubscriptionsOutput: untyped
+
+    ListSchemaExtensionsInput: untyped
+
+    ListSchemaExtensionsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    LogSubscription: untyped
+
+    NoAvailableCertificateException: untyped
+
+    OrganizationsException: untyped
+
+    OwnerDirectoryDescription: untyped
+
+    module RadiusAuthenticationProtocol
+      PAP: ::String
+
+      CHAP: ::String
+
+      MSCHAPV1: ::String
+
+      MSCHAPV2: ::String
+    end
+
+    RadiusSettings: untyped
+
+    module RadiusStatus
+      CREATING: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+    end
+
+    RegionDescription: untyped
+
+    RegionLimitExceededException: untyped
+
+    module RegionType
+      PRIMARY: ::String
+
+      ADDITIONAL: ::String
+    end
+
+    RegionsInfo: untyped
+
+    RegisterCertificateInput: untyped
+
+    RegisterCertificateOutput: untyped
+
+    RegisterEventTopicInput: untyped
+
+    RegisterEventTopicOutput: untyped
+
+    RejectSharedDirectoryInput: untyped
+
+    RejectSharedDirectoryOutput: untyped
+
+    RemoveIpRoutesInput: untyped
+
+    RemoveIpRoutesOutput: untyped
+
+    RemoveRegionInput: untyped
+
+    RemoveRegionOutput: untyped
+
+    RemoveTagsFromResourceInput: untyped
+
+    RemoveTagsFromResourceOutput: untyped
+
+    module ReplicationScope
+      Domain: ::String
+    end
+
+    ResetUserPasswordInput: untyped
+
+    ResetUserPasswordOutput: untyped
+
+    RestoreFromSnapshotInput: untyped
+
+    RestoreFromSnapshotOutput: untyped
+
+    SchemaExtensionInfo: untyped
+
+    module SchemaExtensionStatus
+      INITIALIZING: ::String
+
+      CREATING_SNAPSHOT: ::String
+
+      UPDATING_SCHEMA: ::String
+
+      REPLICATING: ::String
+
+      CANCEL_IN_PROGRESS: ::String
+
+      ROLLBACK_IN_PROGRESS: ::String
+
+      CANCELLED: ::String
+
+      FAILED: ::String
+
+      COMPLETED: ::String
+    end
+
+    module SelectiveAuth
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    ServiceException: untyped
+
+    ShareDirectoryInput: untyped
+
+    ShareDirectoryOutput: untyped
+
+    ShareLimitExceededException: untyped
+
+    module ShareMethod
+      ORGANIZATIONS: ::String
+
+      HANDSHAKE: ::String
+    end
+
+    module ShareStatus
+      SHARED: ::String
+
+      PENDING_ACCEPTANCE: ::String
+
+      REJECTED: ::String
+
+      REJECTING: ::String
+
+      REJECT_FAILED: ::String
+
+      SHARING: ::String
+
+      SHARE_FAILED: ::String
+
+      DELETED: ::String
+
+      DELETING: ::String
+    end
+
+    ShareTarget: untyped
+
+    SharedDirectory: untyped
+
+    Snapshot: untyped
+
+    SnapshotLimitExceededException: untyped
+
+    SnapshotLimits: untyped
+
+    module SnapshotStatus
+      CREATING: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+    end
+
+    module SnapshotType
+      AUTO: ::String
+
+      MANUAL: ::String
+    end
+
+    StartSchemaExtensionInput: untyped
+
+    StartSchemaExtensionOutput: untyped
+
+    Tag: untyped
+
+    TagLimitExceededException: untyped
+
+    module TargetType
+      ACCOUNT: ::String
+    end
+
+    module TopicStatus
+      REGISTERED: ::String
+
+      TOPIC_NOT_FOUND: ::String
+
+      FAILED: ::String
+
+      DELETED: ::String
+    end
+
+    Trust: untyped
+
+    module TrustDirection
+      ONE_WAY_OUTGOING: ::String
+
+      ONE_WAY_INCOMING: ::String
+
+      TWO_WAY: ::String
+    end
+
+    module TrustState
+      CREATING: ::String
+
+      CREATED: ::String
+
+      VERIFYING: ::String
+
+      VERIFY_FAILED: ::String
+
+      VERIFIED: ::String
+
+      UPDATING: ::String
+
+      UPDATE_FAILED: ::String
+
+      UPDATED: ::String
+
+      DELETING: ::String
+
+      DELETED: ::String
+
+      FAILED: ::String
+    end
+
+    module TrustType
+      FOREST: ::String
+
+      EXTERNAL: ::String
+    end
+
+    UnshareDirectoryInput: untyped
+
+    UnshareDirectoryOutput: untyped
+
+    UnshareTarget: untyped
+
+    UnsupportedOperationException: untyped
+
+    UpdateConditionalForwarderInput: untyped
+
+    UpdateConditionalForwarderOutput: untyped
+
+    UpdateNumberOfDomainControllersInput: untyped
+
+    UpdateNumberOfDomainControllersOutput: untyped
+
+    UpdateRadiusInput: untyped
+
+    UpdateRadiusOutput: untyped
+
+    UpdateTrustInput: untyped
+
+    UpdateTrustOutput: untyped
+
+    UserDoesNotExistException: untyped
+
+    VerifyTrustInput: untyped
+
+    VerifyTrustOutput: untyped
+
+  end
+end

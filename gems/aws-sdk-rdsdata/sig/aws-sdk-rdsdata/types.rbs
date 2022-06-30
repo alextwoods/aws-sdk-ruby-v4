@@ -1,0 +1,208 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::RDSData
+  module Types
+
+    AccessDeniedException: untyped
+
+    class ArrayValue < Hearth::Union
+      class BooleanValues < ArrayValue
+        def to_h: () -> { boolean_values: Hash[Symbol,ArrayValue] }
+      end
+
+      class LongValues < ArrayValue
+        def to_h: () -> { long_values: Hash[Symbol,ArrayValue] }
+      end
+
+      class DoubleValues < ArrayValue
+        def to_h: () -> { double_values: Hash[Symbol,ArrayValue] }
+      end
+
+      class StringValues < ArrayValue
+        def to_h: () -> { string_values: Hash[Symbol,ArrayValue] }
+      end
+
+      class ArrayValues < ArrayValue
+        def to_h: () -> { array_values: Hash[Symbol,ArrayValue] }
+      end
+
+      class Unknown < ArrayValue
+        def to_h: () -> { unknown: Hash[Symbol,ArrayValue] }
+      end
+    end
+
+    BadRequestException: untyped
+
+    BatchExecuteStatementInput: untyped
+
+    BatchExecuteStatementOutput: untyped
+
+    BeginTransactionInput: untyped
+
+    BeginTransactionOutput: untyped
+
+    ColumnMetadata: untyped
+
+    CommitTransactionInput: untyped
+
+    CommitTransactionOutput: untyped
+
+    module DecimalReturnType
+      STRING: ::String
+
+      DOUBLE_OR_LONG: ::String
+    end
+
+    ExecuteSqlInput: untyped
+
+    ExecuteSqlOutput: untyped
+
+    ExecuteStatementInput: untyped
+
+    ExecuteStatementOutput: untyped
+
+    class Field < Hearth::Union
+      class IsNull < Field
+        def to_h: () -> { is_null: Hash[Symbol,Field] }
+      end
+
+      class BooleanValue < Field
+        def to_h: () -> { boolean_value: Hash[Symbol,Field] }
+      end
+
+      class LongValue < Field
+        def to_h: () -> { long_value: Hash[Symbol,Field] }
+      end
+
+      class DoubleValue < Field
+        def to_h: () -> { double_value: Hash[Symbol,Field] }
+      end
+
+      class StringValue < Field
+        def to_h: () -> { string_value: Hash[Symbol,Field] }
+      end
+
+      class BlobValue < Field
+        def to_h: () -> { blob_value: Hash[Symbol,Field] }
+      end
+
+      class ArrayValue < Field
+        def to_h: () -> { array_value: Hash[Symbol,Field] }
+      end
+
+      class Unknown < Field
+        def to_h: () -> { unknown: Hash[Symbol,Field] }
+      end
+    end
+
+    ForbiddenException: untyped
+
+    InternalServerErrorException: untyped
+
+    module LongReturnType
+      STRING: ::String
+
+      LONG: ::String
+    end
+
+    NotFoundException: untyped
+
+    Record: untyped
+
+    module RecordsFormatType
+      NONE: ::String
+
+      JSON: ::String
+    end
+
+    ResultFrame: untyped
+
+    ResultSetMetadata: untyped
+
+    ResultSetOptions: untyped
+
+    RollbackTransactionInput: untyped
+
+    RollbackTransactionOutput: untyped
+
+    ServiceUnavailableError: untyped
+
+    SqlParameter: untyped
+
+    SqlStatementResult: untyped
+
+    StatementTimeoutException: untyped
+
+    StructValue: untyped
+
+    module TypeHint
+      JSON: ::String
+
+      UUID: ::String
+
+      TIMESTAMP: ::String
+
+      DATE: ::String
+
+      TIME: ::String
+
+      DECIMAL: ::String
+    end
+
+    UpdateResult: untyped
+
+    class Value < Hearth::Union
+      class IsNull < Value
+        def to_h: () -> { is_null: Hash[Symbol,Value] }
+      end
+
+      class BitValue < Value
+        def to_h: () -> { bit_value: Hash[Symbol,Value] }
+      end
+
+      class BigIntValue < Value
+        def to_h: () -> { big_int_value: Hash[Symbol,Value] }
+      end
+
+      class IntValue < Value
+        def to_h: () -> { int_value: Hash[Symbol,Value] }
+      end
+
+      class DoubleValue < Value
+        def to_h: () -> { double_value: Hash[Symbol,Value] }
+      end
+
+      class RealValue < Value
+        def to_h: () -> { real_value: Hash[Symbol,Value] }
+      end
+
+      class StringValue < Value
+        def to_h: () -> { string_value: Hash[Symbol,Value] }
+      end
+
+      class BlobValue < Value
+        def to_h: () -> { blob_value: Hash[Symbol,Value] }
+      end
+
+      class ArrayValues < Value
+        def to_h: () -> { array_values: Hash[Symbol,Value] }
+      end
+
+      class StructValue < Value
+        def to_h: () -> { struct_value: Hash[Symbol,Value] }
+      end
+
+      class Unknown < Value
+        def to_h: () -> { unknown: Hash[Symbol,Value] }
+      end
+    end
+
+  end
+end

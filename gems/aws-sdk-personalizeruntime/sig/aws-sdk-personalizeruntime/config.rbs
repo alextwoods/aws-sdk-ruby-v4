@@ -1,0 +1,3 @@
+module AWS::SDK::PersonalizeRuntime
+  Config: untyped
+end

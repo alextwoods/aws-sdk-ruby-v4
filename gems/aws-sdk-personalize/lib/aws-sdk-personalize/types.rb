@@ -1,0 +1,5236 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Personalize
+  module Types
+
+    # <p>Describes a custom algorithm.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the algorithm.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute algorithm_arn
+    #   <p>The Amazon Resource Name (ARN) of the algorithm.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute algorithm_image
+    #   <p>The URI of the Docker container for the algorithm image.</p>
+    #
+    #   @return [AlgorithmImage]
+    #
+    # @!attribute default_hyper_parameters
+    #   <p>Specifies the default hyperparameters.</p>
+    #
+    #   @return [Hash<String, String>]
+    #
+    # @!attribute default_hyper_parameter_ranges
+    #   <p>Specifies the default hyperparameters, their ranges, and whether they
+    #         are tunable. A tunable hyperparameter can
+    #         have its value determined during hyperparameter optimization (HPO).</p>
+    #
+    #   @return [DefaultHyperParameterRanges]
+    #
+    # @!attribute default_resource_config
+    #   <p>Specifies the default maximum number of training jobs and parallel training jobs.</p>
+    #
+    #   @return [Hash<String, String>]
+    #
+    # @!attribute training_input_mode
+    #   <p>The training input mode.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute role_arn
+    #   <p>The Amazon Resource Name (ARN) of the role.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix time) that the algorithm was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the algorithm was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    Algorithm = ::Struct.new(
+      :name,
+      :algorithm_arn,
+      :algorithm_image,
+      :default_hyper_parameters,
+      :default_hyper_parameter_ranges,
+      :default_resource_config,
+      :training_input_mode,
+      :role_arn,
+      :creation_date_time,
+      :last_updated_date_time,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Describes an algorithm image.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the algorithm image.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute docker_uri
+    #   <p>The URI of the Docker container for the algorithm image.</p>
+    #
+    #   @return [String]
+    #
+    AlgorithmImage = ::Struct.new(
+      :name,
+      :docker_uri,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>When the solution performs AutoML (<code>performAutoML</code> is true in
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>), Amazon Personalize
+    #       determines which recipe, from the specified list, optimizes the given metric.
+    #       Amazon Personalize then uses that recipe for the solution.</p>
+    #
+    # @!attribute metric_name
+    #   <p>The metric to optimize.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute recipe_list
+    #   <p>The list of candidate recipes.</p>
+    #
+    #   @return [Array<String>]
+    #
+    AutoMLConfig = ::Struct.new(
+      :metric_name,
+      :recipe_list,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>When the solution performs AutoML (<code>performAutoML</code> is true in
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>), specifies the recipe that best optimized the
+    #       specified metric.</p>
+    #
+    # @!attribute best_recipe_arn
+    #   <p>The Amazon Resource Name (ARN) of the best recipe.</p>
+    #
+    #   @return [String]
+    #
+    AutoMLResult = ::Struct.new(
+      :best_recipe_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Contains information on a batch inference job.</p>
+    #
+    # @!attribute job_name
+    #   <p>The name of the batch inference job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute batch_inference_job_arn
+    #   <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute filter_arn
+    #   <p>The ARN of the filter used on the batch inference job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute failure_reason
+    #   <p>If the batch inference job failed, the reason for the failure.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_version_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution version from which the batch inference job
+    #         was created.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute num_results
+    #   <p>The number of recommendations generated by the batch inference job. This number includes
+    #         the error messages generated for failed input records.</p>
+    #
+    #   @return [Integer]
+    #
+    # @!attribute job_input
+    #   <p>The Amazon S3 path that leads to the input data used to generate the batch inference
+    #         job.</p>
+    #
+    #   @return [BatchInferenceJobInput]
+    #
+    # @!attribute job_output
+    #   <p>The Amazon S3 bucket that contains the output data generated by the batch inference job.</p>
+    #
+    #   @return [BatchInferenceJobOutput]
+    #
+    # @!attribute batch_inference_job_config
+    #   <p>A string to string map of the configuration details of a batch inference job.</p>
+    #
+    #   @return [BatchInferenceJobConfig]
+    #
+    # @!attribute role_arn
+    #   <p>The ARN of the Amazon Identity and Access Management (IAM) role that requested the batch inference job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the batch inference job. The status is one of the following values:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>PENDING</p>
+    #               </li>
+    #               <li>
+    #                  <p>IN PROGRESS</p>
+    #               </li>
+    #               <li>
+    #                  <p>ACTIVE</p>
+    #               </li>
+    #               <li>
+    #                  <p>CREATE FAILED</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The time at which the batch inference job was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The time at which the batch inference job was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    BatchInferenceJob = ::Struct.new(
+      :job_name,
+      :batch_inference_job_arn,
+      :filter_arn,
+      :failure_reason,
+      :solution_version_arn,
+      :num_results,
+      :job_input,
+      :job_output,
+      :batch_inference_job_config,
+      :role_arn,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The configuration details of a batch inference job.</p>
+    #
+    # @!attribute item_exploration_config
+    #   <p>A string to string map specifying the exploration configuration hyperparameters, including <code>explorationWeight</code> and
+    #         <code>explorationItemAgeCutOff</code>, you want to use to configure the amount of item exploration Amazon Personalize uses when
+    #         recommending items.
+    #         See <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>.</p>
+    #
+    #   @return [Hash<String, String>]
+    #
+    BatchInferenceJobConfig = ::Struct.new(
+      :item_exploration_config,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The input configuration of a batch inference job.</p>
+    #
+    # @!attribute s3_data_source
+    #   <p>The URI of the Amazon S3 location that contains your input data. The Amazon S3 bucket must be in the
+    #         same region as the API endpoint you are calling.</p>
+    #
+    #   @return [S3DataConfig]
+    #
+    BatchInferenceJobInput = ::Struct.new(
+      :s3_data_source,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The output configuration parameters of a batch inference job.</p>
+    #
+    # @!attribute s3_data_destination
+    #   <p>Information on the Amazon S3 bucket in which the batch inference job's output is stored.</p>
+    #
+    #   @return [S3DataConfig]
+    #
+    BatchInferenceJobOutput = ::Struct.new(
+      :s3_data_destination,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>A truncated version of the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_BatchInferenceJob.html">BatchInferenceJob</a>. The
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListBatchInferenceJobs.html">ListBatchInferenceJobs</a> operation returns a list of batch inference job
+    #       summaries.</p>
+    #
+    # @!attribute batch_inference_job_arn
+    #   <p>The Amazon Resource Name (ARN) of the batch inference job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute job_name
+    #   <p>The name of the batch inference job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the batch inference job. The status is one of the following values:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>PENDING</p>
+    #               </li>
+    #               <li>
+    #                  <p>IN PROGRESS</p>
+    #               </li>
+    #               <li>
+    #                  <p>ACTIVE</p>
+    #               </li>
+    #               <li>
+    #                  <p>CREATE FAILED</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The time at which the batch inference job was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The time at which the batch inference job was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute failure_reason
+    #   <p>If the batch inference job failed, the reason for the failure.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_version_arn
+    #   <p>The ARN of the solution version used by the batch inference job.</p>
+    #
+    #   @return [String]
+    #
+    BatchInferenceJobSummary = ::Struct.new(
+      :batch_inference_job_arn,
+      :job_name,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      :failure_reason,
+      :solution_version_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Contains information on a batch segment job.</p>
+    #
+    # @!attribute job_name
+    #   <p>The name of the batch segment job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute batch_segment_job_arn
+    #   <p>The Amazon Resource Name (ARN) of the batch segment job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute filter_arn
+    #   <p>The ARN of the filter used on the batch segment job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute failure_reason
+    #   <p>If the batch segment job failed, the reason for the failure.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_version_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution version used by the batch segment job to generate batch segments.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute num_results
+    #   <p>The number of predicted users generated by the batch segment job for each line of input data.</p>
+    #
+    #   @return [Integer]
+    #
+    # @!attribute job_input
+    #   <p>The Amazon S3 path that leads to the input data used to generate the batch segment job.</p>
+    #
+    #   @return [BatchSegmentJobInput]
+    #
+    # @!attribute job_output
+    #   <p>The Amazon S3 bucket that contains the output data generated by the batch segment job.</p>
+    #
+    #   @return [BatchSegmentJobOutput]
+    #
+    # @!attribute role_arn
+    #   <p>The ARN of the Amazon Identity and Access Management (IAM) role that requested the batch segment job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the batch segment job. The status is one of the following values:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>PENDING</p>
+    #               </li>
+    #               <li>
+    #                  <p>IN PROGRESS</p>
+    #               </li>
+    #               <li>
+    #                  <p>ACTIVE</p>
+    #               </li>
+    #               <li>
+    #                  <p>CREATE FAILED</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The time at which the batch segment job was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The time at which the batch segment job last updated.</p>
+    #
+    #   @return [Time]
+    #
+    BatchSegmentJob = ::Struct.new(
+      :job_name,
+      :batch_segment_job_arn,
+      :filter_arn,
+      :failure_reason,
+      :solution_version_arn,
+      :num_results,
+      :job_input,
+      :job_output,
+      :role_arn,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The input configuration of a batch segment job.</p>
+    #
+    # @!attribute s3_data_source
+    #   <p>The configuration details of an Amazon S3 input or output bucket.</p>
+    #
+    #   @return [S3DataConfig]
+    #
+    BatchSegmentJobInput = ::Struct.new(
+      :s3_data_source,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The output configuration parameters of a batch segment job.</p>
+    #
+    # @!attribute s3_data_destination
+    #   <p>The configuration details of an Amazon S3 input or output bucket.</p>
+    #
+    #   @return [S3DataConfig]
+    #
+    BatchSegmentJobOutput = ::Struct.new(
+      :s3_data_destination,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>A truncated version of the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_BatchSegmentJob.html">BatchSegmentJob</a> datatype.
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListBatchSegmentJobs.html">ListBatchSegmentJobs</a> operation returns a list of batch segment job
+    #       summaries.</p>
+    #
+    # @!attribute batch_segment_job_arn
+    #   <p>The Amazon Resource Name (ARN) of the batch segment job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute job_name
+    #   <p>The name of the batch segment job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the batch segment job. The status is one of the following values:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>PENDING</p>
+    #               </li>
+    #               <li>
+    #                  <p>IN PROGRESS</p>
+    #               </li>
+    #               <li>
+    #                  <p>ACTIVE</p>
+    #               </li>
+    #               <li>
+    #                  <p>CREATE FAILED</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The time at which the batch segment job was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The time at which the batch segment job was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute failure_reason
+    #   <p>If the batch segment job failed, the reason for the failure.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_version_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution version used by the batch segment job to generate batch segments.</p>
+    #
+    #   @return [String]
+    #
+    BatchSegmentJobSummary = ::Struct.new(
+      :batch_segment_job_arn,
+      :job_name,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      :failure_reason,
+      :solution_version_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>An object that describes the deployment of a solution version.
+    #       For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the campaign.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute campaign_arn
+    #   <p>The Amazon Resource Name (ARN) of the campaign. </p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_version_arn
+    #   <p>The Amazon Resource Name (ARN) of a specific version of the solution.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute min_provisioned_tps
+    #   <p>Specifies the requested minimum provisioned transactions (recommendations) per second.</p>
+    #
+    #   @return [Integer]
+    #
+    # @!attribute campaign_config
+    #   <p>The configuration details of a campaign.</p>
+    #
+    #   @return [CampaignConfig]
+    #
+    # @!attribute status
+    #   <p>The status of the campaign.</p>
+    #            <p>A campaign can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute failure_reason
+    #   <p>If a campaign fails, the reason behind the failure.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix format) that the campaign was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix format) that the campaign was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute latest_campaign_update
+    #   <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
+    #         <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> API.</p>
+    #
+    #   @return [CampaignUpdateSummary]
+    #
+    Campaign = ::Struct.new(
+      :name,
+      :campaign_arn,
+      :solution_version_arn,
+      :min_provisioned_tps,
+      :campaign_config,
+      :status,
+      :failure_reason,
+      :creation_date_time,
+      :last_updated_date_time,
+      :latest_campaign_update,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The configuration details of a campaign.</p>
+    #
+    # @!attribute item_exploration_config
+    #   <p>Specifies the exploration configuration hyperparameters, including <code>explorationWeight</code> and
+    #         <code>explorationItemAgeCutOff</code>, you want to use to configure the amount of item exploration Amazon Personalize uses when
+    #         recommending items. Provide <code>itemExplorationConfig</code> data only if your solution uses the
+    #         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a> recipe.</p>
+    #
+    #   @return [Hash<String, String>]
+    #
+    CampaignConfig = ::Struct.new(
+      :item_exploration_config,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides a summary of the properties of a campaign. For a complete listing, call the
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> API.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the campaign.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute campaign_arn
+    #   <p>The Amazon Resource Name (ARN) of the campaign.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the campaign.</p>
+    #            <p>A campaign can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix time) that the campaign was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the campaign was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute failure_reason
+    #   <p>If a campaign fails, the reason behind the failure.</p>
+    #
+    #   @return [String]
+    #
+    CampaignSummary = ::Struct.new(
+      :name,
+      :campaign_arn,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      :failure_reason,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides a summary of the properties of a campaign update. For a complete listing, call the
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> API.</p>
+    #
+    # @!attribute solution_version_arn
+    #   <p>The Amazon Resource Name (ARN) of the deployed solution version.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute min_provisioned_tps
+    #   <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
+    #         Amazon Personalize will support.</p>
+    #
+    #   @return [Integer]
+    #
+    # @!attribute campaign_config
+    #   <p>The configuration details of a campaign.</p>
+    #
+    #   @return [CampaignConfig]
+    #
+    # @!attribute status
+    #   <p>The status of the campaign update.</p>
+    #            <p>A campaign update can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute failure_reason
+    #   <p>If a campaign update fails, the reason behind the failure.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix time) that the campaign update was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the campaign update was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    CampaignUpdateSummary = ::Struct.new(
+      :solution_version_arn,
+      :min_provisioned_tps,
+      :campaign_config,
+      :status,
+      :failure_reason,
+      :creation_date_time,
+      :last_updated_date_time,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides the name and range of a categorical hyperparameter.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the hyperparameter.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute values
+    #   <p>A list of the categories for the hyperparameter.</p>
+    #
+    #   @return [Array<String>]
+    #
+    CategoricalHyperParameterRange = ::Struct.new(
+      :name,
+      :values,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides the name and range of a continuous hyperparameter.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the hyperparameter.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute min_value
+    #   <p>The minimum allowable value for the hyperparameter.</p>
+    #
+    #   @return [Float]
+    #
+    # @!attribute max_value
+    #   <p>The maximum allowable value for the hyperparameter.</p>
+    #
+    #   @return [Float]
+    #
+    ContinuousHyperParameterRange = ::Struct.new(
+      :name,
+      :min_value,
+      :max_value,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+      def initialize(*)
+        super
+        self.min_value ||= 0
+        self.max_value ||= 0
+      end
+
+    end
+
+    # @!attribute job_name
+    #   <p>The name of the batch inference job to create.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_version_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution version that will be used to generate the
+    #         batch inference recommendations.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute filter_arn
+    #   <p>The ARN of the filter to apply to the batch inference job. For more information on using
+    #         filters, see
+    #         <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html">Filtering batch recommendations</a>.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute num_results
+    #   <p>The number of recommendations to retrieve.</p>
+    #
+    #   @return [Integer]
+    #
+    # @!attribute job_input
+    #   <p>The Amazon S3 path that leads to the input file to base your recommendations on. The input
+    #         material must be in JSON format.</p>
+    #
+    #   @return [BatchInferenceJobInput]
+    #
+    # @!attribute job_output
+    #   <p>The path to the Amazon S3 bucket where the job's output will be stored.</p>
+    #
+    #   @return [BatchInferenceJobOutput]
+    #
+    # @!attribute role_arn
+    #   <p>The ARN of the Amazon Identity and Access Management role that has permissions to read and write to your input and output
+    #         Amazon S3 buckets respectively.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute batch_inference_job_config
+    #   <p>The configuration details of a batch inference job.</p>
+    #
+    #   @return [BatchInferenceJobConfig]
+    #
+    # @!attribute tags
+    #   <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the batch inference job.</p>
+    #
+    #   @return [Array<Tag>]
+    #
+    CreateBatchInferenceJobInput = ::Struct.new(
+      :job_name,
+      :solution_version_arn,
+      :filter_arn,
+      :num_results,
+      :job_input,
+      :job_output,
+      :role_arn,
+      :batch_inference_job_config,
+      :tags,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute batch_inference_job_arn
+    #   <p>The ARN of the batch inference job.</p>
+    #
+    #   @return [String]
+    #
+    CreateBatchInferenceJobOutput = ::Struct.new(
+      :batch_inference_job_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute job_name
+    #   <p>The name of the batch segment job to create.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_version_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution version you want the batch segment job to use to generate
+    #         batch segments.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute filter_arn
+    #   <p>The ARN of the filter to apply to the batch segment job. For more information on using
+    #         filters, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-batch.html">Filtering batch recommendations</a>.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute num_results
+    #   <p>The number of predicted users generated by the batch segment job for each line of input data.</p>
+    #
+    #   @return [Integer]
+    #
+    # @!attribute job_input
+    #   <p>The Amazon S3 path for the input data used to generate the batch segment job.</p>
+    #
+    #   @return [BatchSegmentJobInput]
+    #
+    # @!attribute job_output
+    #   <p>The Amazon S3 path for the bucket where the job's output will be stored.</p>
+    #
+    #   @return [BatchSegmentJobOutput]
+    #
+    # @!attribute role_arn
+    #   <p>The ARN of the Amazon Identity and Access Management role that has permissions to read and write to your input and output
+    #         Amazon S3 buckets respectively.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute tags
+    #   <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the batch segment job.</p>
+    #
+    #   @return [Array<Tag>]
+    #
+    CreateBatchSegmentJobInput = ::Struct.new(
+      :job_name,
+      :solution_version_arn,
+      :filter_arn,
+      :num_results,
+      :job_input,
+      :job_output,
+      :role_arn,
+      :tags,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute batch_segment_job_arn
+    #   <p>The ARN of the batch segment job.</p>
+    #
+    #   @return [String]
+    #
+    CreateBatchSegmentJobOutput = ::Struct.new(
+      :batch_segment_job_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute name
+    #   <p>A name for the new campaign. The campaign name must be unique within your account.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_version_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution version to deploy.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute min_provisioned_tps
+    #   <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
+    #         Amazon Personalize will support.</p>
+    #
+    #   @return [Integer]
+    #
+    # @!attribute campaign_config
+    #   <p>The configuration details of a campaign.</p>
+    #
+    #   @return [CampaignConfig]
+    #
+    # @!attribute tags
+    #   <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the campaign.</p>
+    #
+    #   @return [Array<Tag>]
+    #
+    CreateCampaignInput = ::Struct.new(
+      :name,
+      :solution_version_arn,
+      :min_provisioned_tps,
+      :campaign_config,
+      :tags,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute campaign_arn
+    #   <p>The Amazon Resource Name (ARN) of the campaign.</p>
+    #
+    #   @return [String]
+    #
+    CreateCampaignOutput = ::Struct.new(
+      :campaign_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute job_name
+    #   <p>The name for the dataset export job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset that contains the data to export.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute ingestion_mode
+    #   <p>The data to export, based on how you imported the data. You can choose to export only <code>BULK</code> data that you imported using a dataset import job,
+    #         only <code>PUT</code> data that you imported incrementally (using the console, PutEvents, PutUsers and PutItems operations), or <code>ALL</code>
+    #         for both types. The default value is <code>PUT</code>.
+    #       </p>
+    #
+    #   Enum, one of: ["BULK", "PUT", "ALL"]
+    #
+    #   @return [String]
+    #
+    # @!attribute role_arn
+    #   <p>The Amazon Resource Name (ARN) of the IAM service role that has permissions to add data to your
+    #         output Amazon S3 bucket.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute job_output
+    #   <p>The path to the Amazon S3 bucket where the job's output is stored.</p>
+    #
+    #   @return [DatasetExportJobOutput]
+    #
+    # @!attribute tags
+    #   <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the dataset export job.</p>
+    #
+    #   @return [Array<Tag>]
+    #
+    CreateDatasetExportJobInput = ::Struct.new(
+      :job_name,
+      :dataset_arn,
+      :ingestion_mode,
+      :role_arn,
+      :job_output,
+      :tags,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_export_job_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset export job.</p>
+    #
+    #   @return [String]
+    #
+    CreateDatasetExportJobOutput = ::Struct.new(
+      :dataset_export_job_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute name
+    #   <p>The name for the new dataset group.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute role_arn
+    #   <p>The ARN of the Identity and Access Management (IAM) role that has permissions to access the Key Management Service (KMS) key. Supplying an IAM
+    #         role is only valid when also specifying a KMS key.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute kms_key_arn
+    #   <p>The Amazon Resource Name (ARN) of a Key Management Service (KMS) key used to encrypt the datasets.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute domain
+    #   <p>The domain of the dataset group. Specify a domain to create a Domain dataset group. The domain you specify
+    #         determines the default schemas for datasets and the use cases available for recommenders. If you don't specify a domain,
+    #         you create a Custom dataset group with solution versions that you deploy with a campaign.
+    #       </p>
+    #
+    #   Enum, one of: ["ECOMMERCE", "VIDEO_ON_DEMAND"]
+    #
+    #   @return [String]
+    #
+    # @!attribute tags
+    #   <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the dataset group.</p>
+    #
+    #   @return [Array<Tag>]
+    #
+    CreateDatasetGroupInput = ::Struct.new(
+      :name,
+      :role_arn,
+      :kms_key_arn,
+      :domain,
+      :tags,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the new dataset group.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute domain
+    #   <p>The domain for the new Domain dataset group.</p>
+    #
+    #   Enum, one of: ["ECOMMERCE", "VIDEO_ON_DEMAND"]
+    #
+    #   @return [String]
+    #
+    CreateDatasetGroupOutput = ::Struct.new(
+      :dataset_group_arn,
+      :domain,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute job_name
+    #   <p>The name for the dataset import job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_arn
+    #   <p>The ARN of the dataset that receives the imported data.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute data_source
+    #   <p>The Amazon S3 bucket that contains the training data to import.</p>
+    #
+    #   @return [DataSource]
+    #
+    # @!attribute role_arn
+    #   <p>The ARN of the IAM role that has permissions to read from the Amazon S3 data source.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute tags
+    #   <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the dataset import job.</p>
+    #
+    #   @return [Array<Tag>]
+    #
+    CreateDatasetImportJobInput = ::Struct.new(
+      :job_name,
+      :dataset_arn,
+      :data_source,
+      :role_arn,
+      :tags,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_import_job_arn
+    #   <p>The ARN of the dataset import job.</p>
+    #
+    #   @return [String]
+    #
+    CreateDatasetImportJobOutput = ::Struct.new(
+      :dataset_import_job_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute name
+    #   <p>The name for the dataset.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute schema_arn
+    #   <p>The ARN of the schema to associate with the dataset. The schema defines the dataset
+    #         fields.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset group to add the dataset to.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_type
+    #   <p>The type of dataset.</p>
+    #            <p>One of the following (case insensitive) values:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>Interactions</p>
+    #               </li>
+    #               <li>
+    #                  <p>Items</p>
+    #               </li>
+    #               <li>
+    #                  <p>Users</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute tags
+    #   <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the dataset.</p>
+    #
+    #   @return [Array<Tag>]
+    #
+    CreateDatasetInput = ::Struct.new(
+      :name,
+      :schema_arn,
+      :dataset_group_arn,
+      :dataset_type,
+      :tags,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_arn
+    #   <p>The ARN of the dataset.</p>
+    #
+    #   @return [String]
+    #
+    CreateDatasetOutput = ::Struct.new(
+      :dataset_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute name
+    #   <p>The name for the event tracker.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute tags
+    #   <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the event tracker.</p>
+    #
+    #   @return [Array<Tag>]
+    #
+    CreateEventTrackerInput = ::Struct.new(
+      :name,
+      :dataset_group_arn,
+      :tags,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute event_tracker_arn
+    #   <p>The ARN of the event tracker.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute tracking_id
+    #   <p>The ID of the event tracker. Include this ID in requests to the
+    #         <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
+    #
+    #   @return [String]
+    #
+    CreateEventTrackerOutput = ::Struct.new(
+      :event_tracker_arn,
+      :tracking_id,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute name
+    #   <p>The name of the filter to create.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The ARN of the dataset group that the filter will belong to.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute filter_expression
+    #   <p>The filter expression defines which items are included or excluded from recommendations. Filter expression must follow specific format rules.
+    #               For information about filter expression structure and syntax, see
+    #               <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html">Filter expressions</a>.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute tags
+    #   <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the filter.</p>
+    #
+    #   @return [Array<Tag>]
+    #
+    CreateFilterInput = ::Struct.new(
+      :name,
+      :dataset_group_arn,
+      :filter_expression,
+      :tags,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+
+      def to_s
+        "#<struct AWS::SDK::Personalize::Types::CreateFilterInput "\
+          "name=#{name || 'nil'}, "\
+          "dataset_group_arn=#{dataset_group_arn || 'nil'}, "\
+          "filter_expression=\"[SENSITIVE]\", "\
+          "tags=#{tags || 'nil'}>"
+      end
+    end
+
+    # @!attribute filter_arn
+    #   <p>The ARN of the new filter.</p>
+    #
+    #   @return [String]
+    #
+    CreateFilterOutput = ::Struct.new(
+      :filter_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute name
+    #   <p>The name of the recommender.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the destination domain dataset group for the recommender.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute recipe_arn
+    #   <p>The Amazon Resource Name (ARN) of the recipe that the recommender will use. For a recommender, a recipe is a Domain dataset group
+    #         use case. Only Domain dataset group use cases can be used to create a recommender. For information about use cases see <a href="https://docs.aws.amazon.com/personalize/latest/dg/domain-use-cases.html">Choosing recommender use cases</a>.
+    #       </p>
+    #
+    #   @return [String]
+    #
+    # @!attribute recommender_config
+    #   <p>The configuration details of the recommender.</p>
+    #
+    #   @return [RecommenderConfig]
+    #
+    # @!attribute tags
+    #   <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the recommender.</p>
+    #
+    #   @return [Array<Tag>]
+    #
+    CreateRecommenderInput = ::Struct.new(
+      :name,
+      :dataset_group_arn,
+      :recipe_arn,
+      :recommender_config,
+      :tags,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recommender_arn
+    #   <p>The Amazon Resource Name (ARN) of the recommender.</p>
+    #
+    #   @return [String]
+    #
+    CreateRecommenderOutput = ::Struct.new(
+      :recommender_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute name
+    #   <p>The name for the schema.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute schema
+    #   <p>A schema in Avro JSON format.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute domain
+    #   <p>The domain for the schema. If you are creating a schema for a dataset in a Domain dataset group, specify
+    #       the domain you chose when you created the Domain dataset group.</p>
+    #
+    #   Enum, one of: ["ECOMMERCE", "VIDEO_ON_DEMAND"]
+    #
+    #   @return [String]
+    #
+    CreateSchemaInput = ::Struct.new(
+      :name,
+      :schema,
+      :domain,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute schema_arn
+    #   <p>The Amazon Resource Name (ARN) of the created schema.</p>
+    #
+    #   @return [String]
+    #
+    CreateSchemaOutput = ::Struct.new(
+      :schema_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute name
+    #   <p>The name for the solution.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute perform_hpo
+    #   <p>Whether to perform hyperparameter optimization (HPO) on the specified or selected recipe.
+    #         The default is <code>false</code>.</p>
+    #            <p>When performing AutoML, this parameter is always <code>true</code> and you
+    #         should not set it to <code>false</code>.</p>
+    #
+    #   @return [Boolean]
+    #
+    # @!attribute perform_auto_ml
+    #   <p>Whether to perform automated machine learning (AutoML). The default is <code>false</code>.
+    #         For this case, you must specify <code>recipeArn</code>.</p>
+    #            <p>When set to <code>true</code>, Amazon Personalize analyzes your training data and selects
+    #         the optimal USER_PERSONALIZATION recipe and hyperparameters. In this case, you must omit
+    #         <code>recipeArn</code>. Amazon Personalize determines the optimal recipe by running tests with
+    #         different values for the hyperparameters.
+    #         AutoML lengthens the training process as compared to selecting a specific recipe.</p>
+    #
+    #   @return [Boolean]
+    #
+    # @!attribute recipe_arn
+    #   <p>The ARN of the recipe to use for model training. Only specified when
+    #         <code>performAutoML</code> is false.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute event_type
+    #   <p>When your have multiple event types (using an <code>EVENT_TYPE</code> schema field),
+    #         this parameter specifies which event type (for example, 'click' or 'like') is used for
+    #         training the model.</p>
+    #            <p>If you do not provide an <code>eventType</code>, Amazon Personalize will use all interactions for training with
+    #          equal weight regardless of type.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_config
+    #   <p>The configuration to use with the solution. When <code>performAutoML</code> is set to
+    #         true, Amazon Personalize only evaluates the <code>autoMLConfig</code> section
+    #         of the solution configuration.</p>
+    #            <note>
+    #               <p>Amazon Personalize doesn't support configuring the <code>hpoObjective</code>
+    #           at this time.</p>
+    #            </note>
+    #
+    #   @return [SolutionConfig]
+    #
+    # @!attribute tags
+    #   <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the solution.</p>
+    #
+    #   @return [Array<Tag>]
+    #
+    CreateSolutionInput = ::Struct.new(
+      :name,
+      :perform_hpo,
+      :perform_auto_ml,
+      :recipe_arn,
+      :dataset_group_arn,
+      :event_type,
+      :solution_config,
+      :tags,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+      def initialize(*)
+        super
+        self.perform_auto_ml ||= false
+      end
+
+    end
+
+    # @!attribute solution_arn
+    #   <p>The ARN of the solution.</p>
+    #
+    #   @return [String]
+    #
+    CreateSolutionOutput = ::Struct.new(
+      :solution_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution containing the training configuration
+    #         information.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute training_mode
+    #   <p>The scope of training to be performed when creating the solution version. The
+    #           <code>FULL</code> option trains the solution version based on the entirety of the input
+    #         solution's training data, while the <code>UPDATE</code> option processes only the data that
+    #         has changed in comparison to the input solution. Choose <code>UPDATE</code> when you want to
+    #         incrementally update your solution version instead of creating an entirely new one.</p>
+    #            <important>
+    #               <p>The <code>UPDATE</code> option can only be used when you already have an active solution
+    #           version created from the input solution using the <code>FULL</code> option and the input
+    #           solution was trained with the
+    #           <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>
+    #           recipe or the
+    #           <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a> recipe.</p>
+    #            </important>
+    #
+    #   Enum, one of: ["FULL", "UPDATE"]
+    #
+    #   @return [String]
+    #
+    # @!attribute tags
+    #   <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">tags</a> to apply to the solution version.</p>
+    #
+    #   @return [Array<Tag>]
+    #
+    CreateSolutionVersionInput = ::Struct.new(
+      :solution_arn,
+      :training_mode,
+      :tags,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution_version_arn
+    #   <p>The ARN of the new solution version.</p>
+    #
+    #   @return [String]
+    #
+    CreateSolutionVersionOutput = ::Struct.new(
+      :solution_version_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Describes the data source that contains the data to upload to a dataset.</p>
+    #
+    # @!attribute data_location
+    #   <p>The path to the Amazon S3 bucket where the data that you want to upload to your dataset is
+    #         stored. For example: </p>
+    #            <p>
+    #               <code>s3://bucket-name/folder-name/</code>
+    #            </p>
+    #
+    #   @return [String]
+    #
+    DataSource = ::Struct.new(
+      :data_location,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides metadata for a dataset.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the dataset.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset that you want metadata for.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset group.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_type
+    #   <p>One of the following values:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>Interactions</p>
+    #               </li>
+    #               <li>
+    #                  <p>Items</p>
+    #               </li>
+    #               <li>
+    #                  <p>Users</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute schema_arn
+    #   <p>The ARN of the associated schema.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the dataset.</p>
+    #            <p>A dataset can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The creation date and time (in Unix time) of the dataset.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>A time stamp that shows when the dataset was updated.</p>
+    #
+    #   @return [Time]
+    #
+    Dataset = ::Struct.new(
+      :name,
+      :dataset_arn,
+      :dataset_group_arn,
+      :dataset_type,
+      :schema_arn,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Describes a job that exports a dataset to an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetExportJob.html">CreateDatasetExportJob</a>.</p>
+    #          <p>A dataset export job can be in one of the following states:</p>
+    #          <ul>
+    #             <li>
+    #                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #             </li>
+    #          </ul>
+    #
+    # @!attribute job_name
+    #   <p>The name of the export job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_export_job_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset export job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset to export.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute ingestion_mode
+    #   <p>The data to export, based on how you imported the data. You can choose to export <code>BULK</code> data that you imported using a dataset import job,
+    #         <code>PUT</code> data that you imported incrementally (using the console, PutEvents, PutUsers and PutItems operations), or <code>ALL</code>
+    #         for both types. The default value is <code>PUT</code>.
+    #       </p>
+    #
+    #   Enum, one of: ["BULK", "PUT", "ALL"]
+    #
+    #   @return [String]
+    #
+    # @!attribute role_arn
+    #   <p>The Amazon Resource Name (ARN) of the IAM service role that has permissions to add data to your
+    #         output Amazon S3 bucket.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the dataset export job.</p>
+    #            <p>A dataset export job can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute job_output
+    #   <p>The path to the Amazon S3 bucket where the job's output is stored.  For example:</p>
+    #            <p>
+    #               <code>s3://bucket-name/folder-name/</code>
+    #            </p>
+    #
+    #   @return [DatasetExportJobOutput]
+    #
+    # @!attribute creation_date_time
+    #   <p>The creation date and time (in Unix time) of the dataset export job.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) the status of the dataset export job was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute failure_reason
+    #   <p>If a dataset export job fails, provides the reason why.</p>
+    #
+    #   @return [String]
+    #
+    DatasetExportJob = ::Struct.new(
+      :job_name,
+      :dataset_export_job_arn,
+      :dataset_arn,
+      :ingestion_mode,
+      :role_arn,
+      :status,
+      :job_output,
+      :creation_date_time,
+      :last_updated_date_time,
+      :failure_reason,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The output configuration parameters of a dataset export job.</p>
+    #
+    # @!attribute s3_data_destination
+    #   <p>The configuration details of an Amazon S3 input or output bucket.</p>
+    #
+    #   @return [S3DataConfig]
+    #
+    DatasetExportJobOutput = ::Struct.new(
+      :s3_data_destination,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides a summary of the properties of a dataset export job. For a complete listing, call the
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetExportJob.html">DescribeDatasetExportJob</a> API.</p>
+    #
+    # @!attribute dataset_export_job_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset export job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute job_name
+    #   <p>The name of the dataset export job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the dataset export job.</p>
+    #            <p>A dataset export job can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix time) that the dataset export job was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the dataset export job status was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute failure_reason
+    #   <p>If a dataset export job fails, the reason behind the failure.</p>
+    #
+    #   @return [String]
+    #
+    DatasetExportJobSummary = ::Struct.new(
+      :dataset_export_job_arn,
+      :job_name,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      :failure_reason,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>A dataset group is a collection of related datasets (Interactions, User, and Item). You
+    #       create a dataset group by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>. You then create a
+    #       dataset and add it to a dataset group by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>. The dataset
+    #       group is used to create and train a solution by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>. A
+    #       dataset group can contain only one of each type of dataset.</p>
+    #          <p>You can specify an Key Management Service (KMS) key to encrypt the datasets in the group.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the dataset group.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset group.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The current status of the dataset group.</p>
+    #            <p>A dataset group can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>DELETE PENDING</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute role_arn
+    #   <p>The ARN of the IAM role that has permissions to create the dataset group.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute kms_key_arn
+    #   <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to encrypt the datasets.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The creation date and time (in Unix time) of the dataset group.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The last update date and time (in Unix time) of the dataset group.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute failure_reason
+    #   <p>If creating a dataset group fails, provides the reason why.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute domain
+    #   <p>The domain of a Domain dataset group.</p>
+    #
+    #   Enum, one of: ["ECOMMERCE", "VIDEO_ON_DEMAND"]
+    #
+    #   @return [String]
+    #
+    DatasetGroup = ::Struct.new(
+      :name,
+      :dataset_group_arn,
+      :status,
+      :role_arn,
+      :kms_key_arn,
+      :creation_date_time,
+      :last_updated_date_time,
+      :failure_reason,
+      :domain,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides a summary of the properties of a dataset group. For a complete listing, call the
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetGroup.html">DescribeDatasetGroup</a> API.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the dataset group.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset group.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the dataset group.</p>
+    #            <p>A dataset group can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>DELETE PENDING</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix time) that the dataset group was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the dataset group was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute failure_reason
+    #   <p>If creating a dataset group fails, the reason behind the failure.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute domain
+    #   <p>The domain of a Domain dataset group.</p>
+    #
+    #   Enum, one of: ["ECOMMERCE", "VIDEO_ON_DEMAND"]
+    #
+    #   @return [String]
+    #
+    DatasetGroupSummary = ::Struct.new(
+      :name,
+      :dataset_group_arn,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      :failure_reason,
+      :domain,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Describes a job that imports training data from a data source (Amazon S3 bucket) to an
+    #       Amazon Personalize dataset. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetImportJob.html">CreateDatasetImportJob</a>.</p>
+    #          <p>A dataset import job can be in one of the following states:</p>
+    #          <ul>
+    #             <li>
+    #                <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #             </li>
+    #          </ul>
+    #
+    # @!attribute job_name
+    #   <p>The name of the import job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_import_job_arn
+    #   <p>The ARN of the dataset import job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset that receives the imported data.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute data_source
+    #   <p>The Amazon S3 bucket that contains the training data to import.</p>
+    #
+    #   @return [DataSource]
+    #
+    # @!attribute role_arn
+    #   <p>The ARN of the IAM role that has permissions to read from the Amazon S3 data
+    #         source.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the dataset import job.</p>
+    #            <p>A dataset import job can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The creation date and time (in Unix time) of the dataset import job.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) the dataset was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute failure_reason
+    #   <p>If a dataset import job fails, provides the reason why.</p>
+    #
+    #   @return [String]
+    #
+    DatasetImportJob = ::Struct.new(
+      :job_name,
+      :dataset_import_job_arn,
+      :dataset_arn,
+      :data_source,
+      :role_arn,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      :failure_reason,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides a summary of the properties of a dataset import job. For a complete listing, call the
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDatasetImportJob.html">DescribeDatasetImportJob</a> API.</p>
+    #
+    # @!attribute dataset_import_job_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute job_name
+    #   <p>The name of the dataset import job.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the dataset import job.</p>
+    #            <p>A dataset import job can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix time) that the dataset import job was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the dataset import job status was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute failure_reason
+    #   <p>If a dataset import job fails, the reason behind the failure.</p>
+    #
+    #   @return [String]
+    #
+    DatasetImportJobSummary = ::Struct.new(
+      :dataset_import_job_arn,
+      :job_name,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      :failure_reason,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Describes the schema for a dataset. For more information on schemas, see
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSchema.html">CreateSchema</a>.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the schema.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute schema_arn
+    #   <p>The Amazon Resource Name (ARN) of the schema.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute schema
+    #   <p>The schema.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix time) that the schema was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the schema was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute domain
+    #   <p>The domain of a schema that you created for a dataset in a Domain dataset group.</p>
+    #
+    #   Enum, one of: ["ECOMMERCE", "VIDEO_ON_DEMAND"]
+    #
+    #   @return [String]
+    #
+    DatasetSchema = ::Struct.new(
+      :name,
+      :schema_arn,
+      :schema,
+      :creation_date_time,
+      :last_updated_date_time,
+      :domain,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides a summary of the properties of a dataset schema. For a complete listing, call the
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSchema.html">DescribeSchema</a> API.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the schema.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute schema_arn
+    #   <p>The Amazon Resource Name (ARN) of the schema.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix time) that the schema was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the schema was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute domain
+    #   <p>The domain of a schema that you created for a dataset in a Domain dataset group.</p>
+    #
+    #   Enum, one of: ["ECOMMERCE", "VIDEO_ON_DEMAND"]
+    #
+    #   @return [String]
+    #
+    DatasetSchemaSummary = ::Struct.new(
+      :name,
+      :schema_arn,
+      :creation_date_time,
+      :last_updated_date_time,
+      :domain,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides a summary of the properties of a dataset. For a complete listing, call the
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeDataset.html">DescribeDataset</a> API.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the dataset.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_type
+    #   <p>The dataset type. One of the following values:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>Interactions</p>
+    #               </li>
+    #               <li>
+    #                  <p>Items</p>
+    #               </li>
+    #               <li>
+    #                  <p>Users</p>
+    #               </li>
+    #               <li>
+    #                  <p>Event-Interactions</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the dataset.</p>
+    #            <p>A dataset can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix time) that the dataset was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the dataset was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    DatasetSummary = ::Struct.new(
+      :name,
+      :dataset_arn,
+      :dataset_type,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides the name and default range of a categorical hyperparameter
+    #       and whether the hyperparameter is tunable. A tunable hyperparameter can
+    #       have its value determined during hyperparameter optimization (HPO).</p>
+    #
+    # @!attribute name
+    #   <p>The name of the hyperparameter.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute values
+    #   <p>A list of the categories for the hyperparameter.</p>
+    #
+    #   @return [Array<String>]
+    #
+    # @!attribute is_tunable
+    #   <p>Whether the hyperparameter is tunable.</p>
+    #
+    #   @return [Boolean]
+    #
+    DefaultCategoricalHyperParameterRange = ::Struct.new(
+      :name,
+      :values,
+      :is_tunable,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+      def initialize(*)
+        super
+        self.is_tunable ||= false
+      end
+
+    end
+
+    # <p>Provides the name and default range of a continuous hyperparameter
+    #       and whether the hyperparameter is tunable. A tunable hyperparameter can
+    #       have its value determined during hyperparameter optimization (HPO).</p>
+    #
+    # @!attribute name
+    #   <p>The name of the hyperparameter.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute min_value
+    #   <p>The minimum allowable value for the hyperparameter.</p>
+    #
+    #   @return [Float]
+    #
+    # @!attribute max_value
+    #   <p>The maximum allowable value for the hyperparameter.</p>
+    #
+    #   @return [Float]
+    #
+    # @!attribute is_tunable
+    #   <p>Whether the hyperparameter is tunable.</p>
+    #
+    #   @return [Boolean]
+    #
+    DefaultContinuousHyperParameterRange = ::Struct.new(
+      :name,
+      :min_value,
+      :max_value,
+      :is_tunable,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+      def initialize(*)
+        super
+        self.min_value ||= 0
+        self.max_value ||= 0
+        self.is_tunable ||= false
+      end
+
+    end
+
+    # <p>Specifies the hyperparameters and their default ranges.
+    #     Hyperparameters can be categorical, continuous, or integer-valued.</p>
+    #
+    # @!attribute integer_hyper_parameter_ranges
+    #   <p>The integer-valued hyperparameters and their default ranges.</p>
+    #
+    #   @return [Array<DefaultIntegerHyperParameterRange>]
+    #
+    # @!attribute continuous_hyper_parameter_ranges
+    #   <p>The continuous hyperparameters and their default ranges.</p>
+    #
+    #   @return [Array<DefaultContinuousHyperParameterRange>]
+    #
+    # @!attribute categorical_hyper_parameter_ranges
+    #   <p>The categorical hyperparameters and their default ranges.</p>
+    #
+    #   @return [Array<DefaultCategoricalHyperParameterRange>]
+    #
+    DefaultHyperParameterRanges = ::Struct.new(
+      :integer_hyper_parameter_ranges,
+      :continuous_hyper_parameter_ranges,
+      :categorical_hyper_parameter_ranges,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides the name and default range of a integer-valued hyperparameter
+    #       and whether the hyperparameter is tunable. A tunable hyperparameter can
+    #       have its value determined during hyperparameter optimization (HPO).</p>
+    #
+    # @!attribute name
+    #   <p>The name of the hyperparameter.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute min_value
+    #   <p>The minimum allowable value for the hyperparameter.</p>
+    #
+    #   @return [Integer]
+    #
+    # @!attribute max_value
+    #   <p>The maximum allowable value for the hyperparameter.</p>
+    #
+    #   @return [Integer]
+    #
+    # @!attribute is_tunable
+    #   <p>Indicates whether the hyperparameter is tunable.</p>
+    #
+    #   @return [Boolean]
+    #
+    DefaultIntegerHyperParameterRange = ::Struct.new(
+      :name,
+      :min_value,
+      :max_value,
+      :is_tunable,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+      def initialize(*)
+        super
+        self.min_value ||= 0
+        self.max_value ||= 0
+        self.is_tunable ||= false
+      end
+
+    end
+
+    # @!attribute campaign_arn
+    #   <p>The Amazon Resource Name (ARN) of the campaign to delete.</p>
+    #
+    #   @return [String]
+    #
+    DeleteCampaignInput = ::Struct.new(
+      :campaign_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    DeleteCampaignOutput = ::Struct.new(
+      nil,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_group_arn
+    #   <p>The ARN of the dataset group to delete.</p>
+    #
+    #   @return [String]
+    #
+    DeleteDatasetGroupInput = ::Struct.new(
+      :dataset_group_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    DeleteDatasetGroupOutput = ::Struct.new(
+      nil,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset to delete.</p>
+    #
+    #   @return [String]
+    #
+    DeleteDatasetInput = ::Struct.new(
+      :dataset_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    DeleteDatasetOutput = ::Struct.new(
+      nil,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute event_tracker_arn
+    #   <p>The Amazon Resource Name (ARN) of the event tracker to delete.</p>
+    #
+    #   @return [String]
+    #
+    DeleteEventTrackerInput = ::Struct.new(
+      :event_tracker_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    DeleteEventTrackerOutput = ::Struct.new(
+      nil,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute filter_arn
+    #   <p>The ARN of the filter to delete.</p>
+    #
+    #   @return [String]
+    #
+    DeleteFilterInput = ::Struct.new(
+      :filter_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    DeleteFilterOutput = ::Struct.new(
+      nil,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recommender_arn
+    #   <p>The Amazon Resource Name (ARN) of the recommender to delete.</p>
+    #
+    #   @return [String]
+    #
+    DeleteRecommenderInput = ::Struct.new(
+      :recommender_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    DeleteRecommenderOutput = ::Struct.new(
+      nil,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute schema_arn
+    #   <p>The Amazon Resource Name (ARN) of the schema to delete.</p>
+    #
+    #   @return [String]
+    #
+    DeleteSchemaInput = ::Struct.new(
+      :schema_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    DeleteSchemaOutput = ::Struct.new(
+      nil,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution_arn
+    #   <p>The ARN of the solution to delete.</p>
+    #
+    #   @return [String]
+    #
+    DeleteSolutionInput = ::Struct.new(
+      :solution_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    DeleteSolutionOutput = ::Struct.new(
+      nil,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute algorithm_arn
+    #   <p>The Amazon Resource Name (ARN) of the algorithm to describe.</p>
+    #
+    #   @return [String]
+    #
+    DescribeAlgorithmInput = ::Struct.new(
+      :algorithm_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute algorithm
+    #   <p>A listing of the properties of the algorithm.</p>
+    #
+    #   @return [Algorithm]
+    #
+    DescribeAlgorithmOutput = ::Struct.new(
+      :algorithm,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute batch_inference_job_arn
+    #   <p>The ARN of the batch inference job to describe.</p>
+    #
+    #   @return [String]
+    #
+    DescribeBatchInferenceJobInput = ::Struct.new(
+      :batch_inference_job_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute batch_inference_job
+    #   <p>Information on the specified batch inference job.</p>
+    #
+    #   @return [BatchInferenceJob]
+    #
+    DescribeBatchInferenceJobOutput = ::Struct.new(
+      :batch_inference_job,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute batch_segment_job_arn
+    #   <p>The ARN of the batch segment job to describe.</p>
+    #
+    #   @return [String]
+    #
+    DescribeBatchSegmentJobInput = ::Struct.new(
+      :batch_segment_job_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute batch_segment_job
+    #   <p>Information on the specified batch segment job.</p>
+    #
+    #   @return [BatchSegmentJob]
+    #
+    DescribeBatchSegmentJobOutput = ::Struct.new(
+      :batch_segment_job,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute campaign_arn
+    #   <p>The Amazon Resource Name (ARN) of the campaign.</p>
+    #
+    #   @return [String]
+    #
+    DescribeCampaignInput = ::Struct.new(
+      :campaign_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute campaign
+    #   <p>The properties of the campaign.</p>
+    #
+    #   @return [Campaign]
+    #
+    DescribeCampaignOutput = ::Struct.new(
+      :campaign,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_export_job_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset export job to describe.</p>
+    #
+    #   @return [String]
+    #
+    DescribeDatasetExportJobInput = ::Struct.new(
+      :dataset_export_job_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_export_job
+    #   <p>Information about the dataset export job, including the status.</p>
+    #            <p>The status is one of the following values:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING</p>
+    #               </li>
+    #               <li>
+    #                  <p>CREATE IN_PROGRESS</p>
+    #               </li>
+    #               <li>
+    #                  <p>ACTIVE</p>
+    #               </li>
+    #               <li>
+    #                  <p>CREATE FAILED</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [DatasetExportJob]
+    #
+    DescribeDatasetExportJobOutput = ::Struct.new(
+      :dataset_export_job,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset group to describe.</p>
+    #
+    #   @return [String]
+    #
+    DescribeDatasetGroupInput = ::Struct.new(
+      :dataset_group_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_group
+    #   <p>A listing of the dataset group's properties.</p>
+    #
+    #   @return [DatasetGroup]
+    #
+    DescribeDatasetGroupOutput = ::Struct.new(
+      :dataset_group,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_import_job_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset import job to describe.</p>
+    #
+    #   @return [String]
+    #
+    DescribeDatasetImportJobInput = ::Struct.new(
+      :dataset_import_job_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_import_job
+    #   <p>Information about the dataset import job, including the status.</p>
+    #            <p>The status is one of the following values:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING</p>
+    #               </li>
+    #               <li>
+    #                  <p>CREATE IN_PROGRESS</p>
+    #               </li>
+    #               <li>
+    #                  <p>ACTIVE</p>
+    #               </li>
+    #               <li>
+    #                  <p>CREATE FAILED</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [DatasetImportJob]
+    #
+    DescribeDatasetImportJobOutput = ::Struct.new(
+      :dataset_import_job,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset to describe.</p>
+    #
+    #   @return [String]
+    #
+    DescribeDatasetInput = ::Struct.new(
+      :dataset_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset
+    #   <p>A listing of the dataset's properties.</p>
+    #
+    #   @return [Dataset]
+    #
+    DescribeDatasetOutput = ::Struct.new(
+      :dataset,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute event_tracker_arn
+    #   <p>The Amazon Resource Name (ARN) of the event tracker to describe.</p>
+    #
+    #   @return [String]
+    #
+    DescribeEventTrackerInput = ::Struct.new(
+      :event_tracker_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute event_tracker
+    #   <p>An object that describes the event tracker.</p>
+    #
+    #   @return [EventTracker]
+    #
+    DescribeEventTrackerOutput = ::Struct.new(
+      :event_tracker,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute feature_transformation_arn
+    #   <p>The Amazon Resource Name (ARN) of the feature transformation to describe.</p>
+    #
+    #   @return [String]
+    #
+    DescribeFeatureTransformationInput = ::Struct.new(
+      :feature_transformation_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute feature_transformation
+    #   <p>A listing of the FeatureTransformation properties.</p>
+    #
+    #   @return [FeatureTransformation]
+    #
+    DescribeFeatureTransformationOutput = ::Struct.new(
+      :feature_transformation,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute filter_arn
+    #   <p>The ARN of the filter to describe.</p>
+    #
+    #   @return [String]
+    #
+    DescribeFilterInput = ::Struct.new(
+      :filter_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute filter
+    #   <p>The filter's details.</p>
+    #
+    #   @return [Filter]
+    #
+    DescribeFilterOutput = ::Struct.new(
+      :filter,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recipe_arn
+    #   <p>The Amazon Resource Name (ARN) of the recipe to describe.</p>
+    #
+    #   @return [String]
+    #
+    DescribeRecipeInput = ::Struct.new(
+      :recipe_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recipe
+    #   <p>An object that describes the recipe.</p>
+    #
+    #   @return [Recipe]
+    #
+    DescribeRecipeOutput = ::Struct.new(
+      :recipe,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recommender_arn
+    #   <p>The Amazon Resource Name (ARN) of the recommender to describe.</p>
+    #
+    #   @return [String]
+    #
+    DescribeRecommenderInput = ::Struct.new(
+      :recommender_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recommender
+    #   <p>The properties of the recommender.</p>
+    #
+    #   @return [Recommender]
+    #
+    DescribeRecommenderOutput = ::Struct.new(
+      :recommender,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute schema_arn
+    #   <p>The Amazon Resource Name (ARN) of the schema to retrieve.</p>
+    #
+    #   @return [String]
+    #
+    DescribeSchemaInput = ::Struct.new(
+      :schema_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute schema
+    #   <p>The requested schema.</p>
+    #
+    #   @return [DatasetSchema]
+    #
+    DescribeSchemaOutput = ::Struct.new(
+      :schema,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution to describe.</p>
+    #
+    #   @return [String]
+    #
+    DescribeSolutionInput = ::Struct.new(
+      :solution_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution
+    #   <p>An object that describes the solution.</p>
+    #
+    #   @return [Solution]
+    #
+    DescribeSolutionOutput = ::Struct.new(
+      :solution,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution_version_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution version.</p>
+    #
+    #   @return [String]
+    #
+    DescribeSolutionVersionInput = ::Struct.new(
+      :solution_version_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution_version
+    #   <p>The solution version.</p>
+    #
+    #   @return [SolutionVersion]
+    #
+    DescribeSolutionVersionOutput = ::Struct.new(
+      :solution_version,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # Includes enum constants for Domain
+    #
+    module Domain
+      # No documentation available.
+      #
+      ECOMMERCE = "ECOMMERCE"
+
+      # No documentation available.
+      #
+      VIDEO_ON_DEMAND = "VIDEO_ON_DEMAND"
+    end
+
+    # <p>Provides information about an event tracker.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the event tracker.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute event_tracker_arn
+    #   <p>The ARN of the event tracker.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute account_id
+    #   <p>The Amazon Web Services account that owns the event tracker.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute tracking_id
+    #   <p>The ID of the event tracker. Include this ID in requests to the
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_UBS_PutEvents.html">PutEvents</a> API.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset group that receives the event data.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the event tracker.</p>
+    #            <p>An event tracker can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix format) that the event tracker was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the event tracker was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    EventTracker = ::Struct.new(
+      :name,
+      :event_tracker_arn,
+      :account_id,
+      :tracking_id,
+      :dataset_group_arn,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides a summary of the properties of an event tracker. For a complete listing, call the
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeEventTracker.html">DescribeEventTracker</a> API.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the event tracker.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute event_tracker_arn
+    #   <p>The Amazon Resource Name (ARN) of the event tracker.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the event tracker.</p>
+    #            <p>An event tracker can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix time) that the event tracker was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the event tracker was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    EventTrackerSummary = ::Struct.new(
+      :name,
+      :event_tracker_arn,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides feature transformation information. Feature transformation is the process
+    #       of modifying raw input data into a form more suitable for model training.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the feature transformation.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute feature_transformation_arn
+    #   <p>The Amazon Resource Name (ARN) of the FeatureTransformation object.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute default_parameters
+    #   <p>Provides the default parameters for feature transformation.</p>
+    #
+    #   @return [Hash<String, String>]
+    #
+    # @!attribute creation_date_time
+    #   <p>The creation date and time (in Unix time) of the feature transformation.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The last update date and time (in Unix time) of the feature transformation.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute status
+    #   <p>The status of the feature transformation.</p>
+    #            <p>A feature transformation can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    FeatureTransformation = ::Struct.new(
+      :name,
+      :feature_transformation_arn,
+      :default_parameters,
+      :creation_date_time,
+      :last_updated_date_time,
+      :status,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Contains information on a recommendation filter, including its ARN, status, and filter
+    #             expression.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the filter.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute filter_arn
+    #   <p>The ARN of the filter.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The time at which the filter was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The time at which the filter was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The ARN of the dataset group to which the filter belongs.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute failure_reason
+    #   <p>If the filter failed, the reason for its failure.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute filter_expression
+    #   <p>Specifies the type of item interactions to filter out of recommendation results. The
+    #               filter expression must follow specific format rules. For information about filter expression structure and syntax, see
+    #               <a href="https://docs.aws.amazon.com/personalize/latest/dg/filter-expressions.html">Filter expressions</a>.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the filter.</p>
+    #
+    #   @return [String]
+    #
+    Filter = ::Struct.new(
+      :name,
+      :filter_arn,
+      :creation_date_time,
+      :last_updated_date_time,
+      :dataset_group_arn,
+      :failure_reason,
+      :filter_expression,
+      :status,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+
+      def to_s
+        "#<struct AWS::SDK::Personalize::Types::Filter "\
+          "name=#{name || 'nil'}, "\
+          "filter_arn=#{filter_arn || 'nil'}, "\
+          "creation_date_time=#{creation_date_time || 'nil'}, "\
+          "last_updated_date_time=#{last_updated_date_time || 'nil'}, "\
+          "dataset_group_arn=#{dataset_group_arn || 'nil'}, "\
+          "failure_reason=#{failure_reason || 'nil'}, "\
+          "filter_expression=\"[SENSITIVE]\", "\
+          "status=#{status || 'nil'}>"
+      end
+    end
+
+    # <p>A short summary of a filter's attributes.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the filter.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute filter_arn
+    #   <p>The ARN of the filter.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The time at which the filter was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The time at which the filter was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The ARN of the dataset group to which the filter belongs.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute failure_reason
+    #   <p>If the filter failed, the reason for the failure.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the filter.</p>
+    #
+    #   @return [String]
+    #
+    FilterSummary = ::Struct.new(
+      :name,
+      :filter_arn,
+      :creation_date_time,
+      :last_updated_date_time,
+      :dataset_group_arn,
+      :failure_reason,
+      :status,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution_version_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution version for which to get metrics.</p>
+    #
+    #   @return [String]
+    #
+    GetSolutionMetricsInput = ::Struct.new(
+      :solution_version_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution_version_arn
+    #   <p>The same solution version ARN as specified in the request.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute metrics
+    #   <p>The metrics for the solution version. For more information, see
+    #         <a href="https://docs.aws.amazon.com/personalize/latest/dg/working-with-training-metrics.html">
+    #           Evaluating a solution version with metrics
+    #         </a>.</p>
+    #
+    #   @return [Hash<String, Float>]
+    #
+    GetSolutionMetricsOutput = ::Struct.new(
+      :solution_version_arn,
+      :metrics,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Describes the properties for hyperparameter optimization (HPO).</p>
+    #
+    # @!attribute hpo_objective
+    #   <p>The metric to optimize during HPO.</p>
+    #            <note>
+    #               <p>Amazon Personalize doesn't support configuring the <code>hpoObjective</code>
+    #           at this time.</p>
+    #            </note>
+    #
+    #   @return [HPOObjective]
+    #
+    # @!attribute hpo_resource_config
+    #   <p>Describes the resource configuration for HPO.</p>
+    #
+    #   @return [HPOResourceConfig]
+    #
+    # @!attribute algorithm_hyper_parameter_ranges
+    #   <p>The hyperparameters and their allowable ranges.</p>
+    #
+    #   @return [HyperParameterRanges]
+    #
+    HPOConfig = ::Struct.new(
+      :hpo_objective,
+      :hpo_resource_config,
+      :algorithm_hyper_parameter_ranges,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The metric to optimize during hyperparameter optimization (HPO).</p>
+    #          <note>
+    #             <p>Amazon Personalize doesn't support configuring the <code>hpoObjective</code>
+    #         at this time.</p>
+    #          </note>
+    #
+    # @!attribute type
+    #   <p>The type of the metric. Valid values are <code>Maximize</code> and <code>Minimize</code>.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute metric_name
+    #   <p>The name of the metric.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute metric_regex
+    #   <p>A regular expression for finding the metric in the training job logs.</p>
+    #
+    #   @return [String]
+    #
+    HPOObjective = ::Struct.new(
+      :type,
+      :metric_name,
+      :metric_regex,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Describes the resource configuration for hyperparameter optimization (HPO).</p>
+    #
+    # @!attribute max_number_of_training_jobs
+    #   <p>The maximum number of training
+    #         jobs when you create a
+    #         solution
+    #         version.
+    #         The maximum value for <code>maxNumberOfTrainingJobs</code> is
+    #         <code>40</code>.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_parallel_training_jobs
+    #   <p>The maximum number of parallel training
+    #         jobs when you create a
+    #         solution
+    #         version.
+    #         The maximum value for <code>maxParallelTrainingJobs</code> is
+    #         <code>10</code>.</p>
+    #
+    #   @return [String]
+    #
+    HPOResourceConfig = ::Struct.new(
+      :max_number_of_training_jobs,
+      :max_parallel_training_jobs,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Specifies the hyperparameters and their ranges.
+    #     Hyperparameters can be categorical, continuous, or integer-valued.</p>
+    #
+    # @!attribute integer_hyper_parameter_ranges
+    #   <p>The integer-valued hyperparameters and their ranges.</p>
+    #
+    #   @return [Array<IntegerHyperParameterRange>]
+    #
+    # @!attribute continuous_hyper_parameter_ranges
+    #   <p>The continuous hyperparameters and their ranges.</p>
+    #
+    #   @return [Array<ContinuousHyperParameterRange>]
+    #
+    # @!attribute categorical_hyper_parameter_ranges
+    #   <p>The categorical hyperparameters and their ranges.</p>
+    #
+    #   @return [Array<CategoricalHyperParameterRange>]
+    #
+    HyperParameterRanges = ::Struct.new(
+      :integer_hyper_parameter_ranges,
+      :continuous_hyper_parameter_ranges,
+      :categorical_hyper_parameter_ranges,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # Includes enum constants for IngestionMode
+    #
+    module IngestionMode
+      # No documentation available.
+      #
+      BULK = "BULK"
+
+      # No documentation available.
+      #
+      PUT = "PUT"
+
+      # No documentation available.
+      #
+      ALL = "ALL"
+    end
+
+    # <p>Provides the name and range of an integer-valued hyperparameter.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the hyperparameter.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute min_value
+    #   <p>The minimum allowable value for the hyperparameter.</p>
+    #
+    #   @return [Integer]
+    #
+    # @!attribute max_value
+    #   <p>The maximum allowable value for the hyperparameter.</p>
+    #
+    #   @return [Integer]
+    #
+    IntegerHyperParameterRange = ::Struct.new(
+      :name,
+      :min_value,
+      :max_value,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+      def initialize(*)
+        super
+        self.min_value ||= 0
+        self.max_value ||= 0
+      end
+
+    end
+
+    # <p>Provide a valid value for the field or parameter.</p>
+    #
+    # @!attribute message
+    #
+    #   @return [String]
+    #
+    InvalidInputException = ::Struct.new(
+      :message,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The token is not valid.</p>
+    #
+    # @!attribute message
+    #
+    #   @return [String]
+    #
+    InvalidNextTokenException = ::Struct.new(
+      :message,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The limit on the number of requests per second has been exceeded.</p>
+    #
+    # @!attribute message
+    #
+    #   @return [String]
+    #
+    LimitExceededException = ::Struct.new(
+      :message,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution_version_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution version from which the batch inference jobs
+    #         were created.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute next_token
+    #   <p>The token to request the next page of results.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_results
+    #   <p>The maximum number of batch inference job results to return in each page. The default
+    #         value is 100.</p>
+    #
+    #   @return [Integer]
+    #
+    ListBatchInferenceJobsInput = ::Struct.new(
+      :solution_version_arn,
+      :next_token,
+      :max_results,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute batch_inference_jobs
+    #   <p>A list containing information on each job that is returned.</p>
+    #
+    #   @return [Array<BatchInferenceJobSummary>]
+    #
+    # @!attribute next_token
+    #   <p>The token to use to retrieve the next page of results. The value is <code>null</code> when
+    #         there are no more results to return.</p>
+    #
+    #   @return [String]
+    #
+    ListBatchInferenceJobsOutput = ::Struct.new(
+      :batch_inference_jobs,
+      :next_token,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution_version_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution version that the batch segment jobs used to generate batch segments.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute next_token
+    #   <p>The token to request the next page of results.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_results
+    #   <p>The maximum number of batch segment job results to return in each page. The default
+    #         value is 100.</p>
+    #
+    #   @return [Integer]
+    #
+    ListBatchSegmentJobsInput = ::Struct.new(
+      :solution_version_arn,
+      :next_token,
+      :max_results,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute batch_segment_jobs
+    #   <p>A list containing information on each job that is returned.</p>
+    #
+    #   @return [Array<BatchSegmentJobSummary>]
+    #
+    # @!attribute next_token
+    #   <p>The token to use to retrieve the next page of results. The value is <code>null</code> when
+    #         there are no more results to return.</p>
+    #
+    #   @return [String]
+    #
+    ListBatchSegmentJobsOutput = ::Struct.new(
+      :batch_segment_jobs,
+      :next_token,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution to list the campaigns for. When
+    #           a solution is not specified, all the campaigns associated with the account are listed.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute next_token
+    #   <p>A token returned from the previous call to <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_ListCampaigns.html">ListCampaigns</a> for getting
+    #         the next set of campaigns (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_results
+    #   <p>The maximum number of campaigns to return.</p>
+    #
+    #   @return [Integer]
+    #
+    ListCampaignsInput = ::Struct.new(
+      :solution_arn,
+      :next_token,
+      :max_results,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute campaigns
+    #   <p>A list of the campaigns.</p>
+    #
+    #   @return [Array<CampaignSummary>]
+    #
+    # @!attribute next_token
+    #   <p>A token for getting the next set of campaigns (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    ListCampaignsOutput = ::Struct.new(
+      :campaigns,
+      :next_token,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset to list the dataset export jobs for.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute next_token
+    #   <p>A token returned from the previous call to <code>ListDatasetExportJobs</code> for getting
+    #         the next set of dataset export jobs (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_results
+    #   <p>The maximum number of dataset export jobs to return.</p>
+    #
+    #   @return [Integer]
+    #
+    ListDatasetExportJobsInput = ::Struct.new(
+      :dataset_arn,
+      :next_token,
+      :max_results,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_export_jobs
+    #   <p>The list of dataset export jobs.</p>
+    #
+    #   @return [Array<DatasetExportJobSummary>]
+    #
+    # @!attribute next_token
+    #   <p>A token for getting the next set of dataset export jobs (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    ListDatasetExportJobsOutput = ::Struct.new(
+      :dataset_export_jobs,
+      :next_token,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute next_token
+    #   <p>A token returned from the previous call to <code>ListDatasetGroups</code> for getting the
+    #         next set of dataset groups (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_results
+    #   <p>The maximum number of dataset groups to return.</p>
+    #
+    #   @return [Integer]
+    #
+    ListDatasetGroupsInput = ::Struct.new(
+      :next_token,
+      :max_results,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_groups
+    #   <p>The list of your dataset groups.</p>
+    #
+    #   @return [Array<DatasetGroupSummary>]
+    #
+    # @!attribute next_token
+    #   <p>A token for getting the next set of dataset groups (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    ListDatasetGroupsOutput = ::Struct.new(
+      :dataset_groups,
+      :next_token,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset to list the dataset import jobs for.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute next_token
+    #   <p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting
+    #         the next set of dataset import jobs (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_results
+    #   <p>The maximum number of dataset import jobs to return.</p>
+    #
+    #   @return [Integer]
+    #
+    ListDatasetImportJobsInput = ::Struct.new(
+      :dataset_arn,
+      :next_token,
+      :max_results,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_import_jobs
+    #   <p>The list of dataset import jobs.</p>
+    #
+    #   @return [Array<DatasetImportJobSummary>]
+    #
+    # @!attribute next_token
+    #   <p>A token for getting the next set of dataset import jobs (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    ListDatasetImportJobsOutput = ::Struct.new(
+      :dataset_import_jobs,
+      :next_token,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset group that contains the datasets to
+    #         list.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute next_token
+    #   <p>A token returned from the previous call to <code>ListDatasetImportJobs</code> for getting
+    #         the next set of dataset import jobs (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_results
+    #   <p>The maximum number of datasets to return.</p>
+    #
+    #   @return [Integer]
+    #
+    ListDatasetsInput = ::Struct.new(
+      :dataset_group_arn,
+      :next_token,
+      :max_results,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute datasets
+    #   <p>An array of <code>Dataset</code> objects. Each object provides metadata
+    #         information.</p>
+    #
+    #   @return [Array<DatasetSummary>]
+    #
+    # @!attribute next_token
+    #   <p>A token for getting the next set of datasets (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    ListDatasetsOutput = ::Struct.new(
+      :datasets,
+      :next_token,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_group_arn
+    #   <p>The ARN of a dataset group used to filter the response.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute next_token
+    #   <p>A token returned from the previous call to <code>ListEventTrackers</code> for getting
+    #         the next set of event trackers (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_results
+    #   <p>The maximum number of event trackers to return.</p>
+    #
+    #   @return [Integer]
+    #
+    ListEventTrackersInput = ::Struct.new(
+      :dataset_group_arn,
+      :next_token,
+      :max_results,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute event_trackers
+    #   <p>A list of event trackers.</p>
+    #
+    #   @return [Array<EventTrackerSummary>]
+    #
+    # @!attribute next_token
+    #   <p>A token for getting the next set of event trackers (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    ListEventTrackersOutput = ::Struct.new(
+      :event_trackers,
+      :next_token,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_group_arn
+    #   <p>The ARN of the dataset group that contains the filters.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute next_token
+    #   <p>A token returned from the previous call to <code>ListFilters</code> for getting the
+    #               next set of filters (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_results
+    #   <p>The maximum number of filters to return.</p>
+    #
+    #   @return [Integer]
+    #
+    ListFiltersInput = ::Struct.new(
+      :dataset_group_arn,
+      :next_token,
+      :max_results,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute filters
+    #   <p>A list of returned filters.</p>
+    #
+    #   @return [Array<FilterSummary>]
+    #
+    # @!attribute next_token
+    #   <p>A token for getting the next set of filters (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    ListFiltersOutput = ::Struct.new(
+      :filters,
+      :next_token,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recipe_provider
+    #   <p>The default is <code>SERVICE</code>.</p>
+    #
+    #   Enum, one of: ["SERVICE"]
+    #
+    #   @return [String]
+    #
+    # @!attribute next_token
+    #   <p>A token returned from the previous call to <code>ListRecipes</code> for getting
+    #         the next set of recipes (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_results
+    #   <p>The maximum number of recipes to return.</p>
+    #
+    #   @return [Integer]
+    #
+    # @!attribute domain
+    #   <p>
+    #         Filters returned recipes by domain for a Domain dataset group. Only recipes (Domain dataset group use cases)
+    #         for this domain are included in the response. If you don't specify a domain, all recipes are returned.
+    #       </p>
+    #
+    #   Enum, one of: ["ECOMMERCE", "VIDEO_ON_DEMAND"]
+    #
+    #   @return [String]
+    #
+    ListRecipesInput = ::Struct.new(
+      :recipe_provider,
+      :next_token,
+      :max_results,
+      :domain,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recipes
+    #   <p>The list of available recipes.</p>
+    #
+    #   @return [Array<RecipeSummary>]
+    #
+    # @!attribute next_token
+    #   <p>A token for getting the next set of recipes.</p>
+    #
+    #   @return [String]
+    #
+    ListRecipesOutput = ::Struct.new(
+      :recipes,
+      :next_token,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the Domain dataset group to list the recommenders for. When
+    #         a Domain dataset group is not specified, all the recommenders associated with the account are listed.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute next_token
+    #   <p>A token returned from the previous call to <code>ListRecommenders</code> for getting
+    #         the next set of recommenders (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_results
+    #   <p>The maximum number of recommenders to return.</p>
+    #
+    #   @return [Integer]
+    #
+    ListRecommendersInput = ::Struct.new(
+      :dataset_group_arn,
+      :next_token,
+      :max_results,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recommenders
+    #   <p>A list of the recommenders.</p>
+    #
+    #   @return [Array<RecommenderSummary>]
+    #
+    # @!attribute next_token
+    #   <p>A token for getting the next set of recommenders (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    ListRecommendersOutput = ::Struct.new(
+      :recommenders,
+      :next_token,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute next_token
+    #   <p>A token returned from the previous call to <code>ListSchemas</code> for getting
+    #         the next set of schemas (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_results
+    #   <p>The maximum number of schemas to return.</p>
+    #
+    #   @return [Integer]
+    #
+    ListSchemasInput = ::Struct.new(
+      :next_token,
+      :max_results,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute schemas
+    #   <p>A list of schemas.</p>
+    #
+    #   @return [Array<DatasetSchemaSummary>]
+    #
+    # @!attribute next_token
+    #   <p>A token used to get the next set of schemas (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    ListSchemasOutput = ::Struct.new(
+      :schemas,
+      :next_token,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute next_token
+    #   <p>A token returned from the previous call to <code>ListSolutionVersions</code> for getting
+    #         the next set of solution versions (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_results
+    #   <p>The maximum number of solution versions to return.</p>
+    #
+    #   @return [Integer]
+    #
+    ListSolutionVersionsInput = ::Struct.new(
+      :solution_arn,
+      :next_token,
+      :max_results,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution_versions
+    #   <p>A list of solution versions describing the version properties.</p>
+    #
+    #   @return [Array<SolutionVersionSummary>]
+    #
+    # @!attribute next_token
+    #   <p>A token for getting the next set of solution versions (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    ListSolutionVersionsOutput = ::Struct.new(
+      :solution_versions,
+      :next_token,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset group.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute next_token
+    #   <p>A token returned from the previous call to <code>ListSolutions</code> for getting
+    #         the next set of solutions (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute max_results
+    #   <p>The maximum number of solutions to return.</p>
+    #
+    #   @return [Integer]
+    #
+    ListSolutionsInput = ::Struct.new(
+      :dataset_group_arn,
+      :next_token,
+      :max_results,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solutions
+    #   <p>A list of the current solutions.</p>
+    #
+    #   @return [Array<SolutionSummary>]
+    #
+    # @!attribute next_token
+    #   <p>A token for getting the next set of solutions (if they exist).</p>
+    #
+    #   @return [String]
+    #
+    ListSolutionsOutput = ::Struct.new(
+      :solutions,
+      :next_token,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute resource_arn
+    #   <p>The resource's Amazon Resource Name.</p>
+    #
+    #   @return [String]
+    #
+    ListTagsForResourceInput = ::Struct.new(
+      :resource_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute tags
+    #   <p>The resource's tags.</p>
+    #
+    #   @return [Array<Tag>]
+    #
+    ListTagsForResourceOutput = ::Struct.new(
+      :tags,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # Includes enum constants for ObjectiveSensitivity
+    #
+    module ObjectiveSensitivity
+      # No documentation available.
+      #
+      LOW = "LOW"
+
+      # No documentation available.
+      #
+      MEDIUM = "MEDIUM"
+
+      # No documentation available.
+      #
+      HIGH = "HIGH"
+
+      # No documentation available.
+      #
+      OFF = "OFF"
+    end
+
+    # <p>Describes the additional objective for the solution, such as maximizing streaming
+    #       minutes or increasing revenue. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html">Optimizing a solution</a>.</p>
+    #
+    # @!attribute item_attribute
+    #   <p>The numerical metadata column in an Items dataset related to the optimization objective. For example, VIDEO_LENGTH (to maximize streaming minutes), or PRICE (to maximize revenue).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute objective_sensitivity
+    #   <p>Specifies how Amazon Personalize balances the importance of your optimization objective versus relevance.</p>
+    #
+    #   Enum, one of: ["LOW", "MEDIUM", "HIGH", "OFF"]
+    #
+    #   @return [String]
+    #
+    OptimizationObjective = ::Struct.new(
+      :item_attribute,
+      :objective_sensitivity,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides information about a recipe. Each recipe provides an algorithm
+    #       that Amazon Personalize uses in model training when you use the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>
+    #       operation. </p>
+    #
+    # @!attribute name
+    #   <p>The name of the recipe.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute recipe_arn
+    #   <p>The Amazon Resource Name (ARN) of the recipe.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute algorithm_arn
+    #   <p>The Amazon Resource Name (ARN) of the algorithm that Amazon Personalize uses to train
+    #         the model.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute feature_transformation_arn
+    #   <p>The ARN of the FeatureTransformation object.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the recipe.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute description
+    #   <p>The description of the recipe.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix format) that the recipe was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute recipe_type
+    #   <p>One of the following values:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>PERSONALIZED_RANKING</p>
+    #               </li>
+    #               <li>
+    #                  <p>RELATED_ITEMS</p>
+    #               </li>
+    #               <li>
+    #                  <p>USER_PERSONALIZATION</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix format) that the recipe was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    Recipe = ::Struct.new(
+      :name,
+      :recipe_arn,
+      :algorithm_arn,
+      :feature_transformation_arn,
+      :status,
+      :description,
+      :creation_date_time,
+      :recipe_type,
+      :last_updated_date_time,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # Includes enum constants for RecipeProvider
+    #
+    module RecipeProvider
+      # No documentation available.
+      #
+      SERVICE = "SERVICE"
+    end
+
+    # <p>Provides a summary of the properties of a recipe. For a complete listing, call the
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecipe.html">DescribeRecipe</a> API.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the recipe.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute recipe_arn
+    #   <p>The Amazon Resource Name (ARN) of the recipe.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the recipe.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix time) that the recipe was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the recipe was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute domain
+    #   <p>The domain of the recipe (if the recipe is a Domain dataset group use case).</p>
+    #
+    #   Enum, one of: ["ECOMMERCE", "VIDEO_ON_DEMAND"]
+    #
+    #   @return [String]
+    #
+    RecipeSummary = ::Struct.new(
+      :name,
+      :recipe_arn,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      :domain,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Describes a recommendation generator for a Domain dataset group. You create a recommender in a Domain dataset group
+    #       for a specific domain use case (domain recipe), and specify the recommender in a <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_RS_GetRecommendations.html">GetRecommendations</a> request.</p>
+    #
+    # @!attribute recommender_arn
+    #   <p>The Amazon Resource Name (ARN) of the recommender.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the Domain dataset group that contains the recommender.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute name
+    #   <p>The name of the recommender.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute recipe_arn
+    #   <p>The Amazon Resource Name (ARN) of the recipe (Domain dataset group use case) that the recommender was created for.
+    #   </p>
+    #
+    #   @return [String]
+    #
+    # @!attribute recommender_config
+    #   <p>The configuration details of the recommender.</p>
+    #
+    #   @return [RecommenderConfig]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix format) that the recommender was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix format) that the recommender was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute status
+    #   <p>The status of the recommender.</p>
+    #            <p>A recommender can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE</p>
+    #               </li>
+    #               <li>
+    #                  <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute failure_reason
+    #   <p>If a recommender fails, the reason behind the failure.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute latest_recommender_update
+    #   <p>Provides a summary of the latest updates to the recommender. </p>
+    #
+    #   @return [RecommenderUpdateSummary]
+    #
+    # @!attribute model_metrics
+    #   <p>Provides evaluation metrics that help you determine the performance
+    #       of a recommender. For more information, see
+    #         <a href="https://docs.aws.amazon.com/personalize/latest/dg/evaluating-recommenders.html">
+    #           Evaluating a recommender</a>.</p>
+    #
+    #   @return [Hash<String, Float>]
+    #
+    Recommender = ::Struct.new(
+      :recommender_arn,
+      :dataset_group_arn,
+      :name,
+      :recipe_arn,
+      :recommender_config,
+      :creation_date_time,
+      :last_updated_date_time,
+      :status,
+      :failure_reason,
+      :latest_recommender_update,
+      :model_metrics,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The configuration details of the recommender.</p>
+    #
+    # @!attribute item_exploration_config
+    #   <p>Specifies the exploration configuration hyperparameters, including <code>explorationWeight</code> and
+    #         <code>explorationItemAgeCutOff</code>, you want to use to configure the amount of item exploration Amazon Personalize uses when
+    #         recommending items. Provide <code>itemExplorationConfig</code> data only if your recommenders generate personalized recommendations for a user
+    #         (not popular items or similar items).</p>
+    #
+    #   @return [Hash<String, String>]
+    #
+    # @!attribute min_recommendation_requests_per_second
+    #   <p>Specifies the requested minimum provisioned recommendation requests per second that
+    #         Amazon Personalize will support.</p>
+    #
+    #   @return [Integer]
+    #
+    RecommenderConfig = ::Struct.new(
+      :item_exploration_config,
+      :min_recommendation_requests_per_second,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides a summary of the properties of the recommender.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the recommender.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute recommender_arn
+    #   <p>The Amazon Resource Name (ARN) of the recommender.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the Domain dataset group that contains the recommender.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute recipe_arn
+    #   <p>The Amazon Resource Name (ARN) of the recipe (Domain dataset group use case) that the recommender was created for.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute recommender_config
+    #   <p>The configuration details of the recommender.</p>
+    #
+    #   @return [RecommenderConfig]
+    #
+    # @!attribute status
+    #   <p>The status of the recommender. A recommender can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE</p>
+    #               </li>
+    #               <li>
+    #                  <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix format) that the recommender was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix format) that the recommender was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    RecommenderSummary = ::Struct.new(
+      :name,
+      :recommender_arn,
+      :dataset_group_arn,
+      :recipe_arn,
+      :recommender_config,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides a summary of the properties of a recommender update. For a complete listing, call the
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeRecommender.html">DescribeRecommender</a> API.</p>
+    #
+    # @!attribute recommender_config
+    #   <p>The configuration details of the recommender update.</p>
+    #
+    #   @return [RecommenderConfig]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix format) that the recommender update was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the recommender update was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute status
+    #   <p>The status of the recommender update.</p>
+    #            <p>A recommender can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>STOP PENDING > STOP IN_PROGRESS > INACTIVE > START PENDING > START IN_PROGRESS > ACTIVE</p>
+    #               </li>
+    #               <li>
+    #                  <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute failure_reason
+    #   <p>If a recommender update fails, the reason behind the failure.</p>
+    #
+    #   @return [String]
+    #
+    RecommenderUpdateSummary = ::Struct.new(
+      :recommender_config,
+      :creation_date_time,
+      :last_updated_date_time,
+      :status,
+      :failure_reason,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The specified resource already exists.</p>
+    #
+    # @!attribute message
+    #
+    #   @return [String]
+    #
+    ResourceAlreadyExistsException = ::Struct.new(
+      :message,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The specified resource is in use.</p>
+    #
+    # @!attribute message
+    #
+    #   @return [String]
+    #
+    ResourceInUseException = ::Struct.new(
+      :message,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Could not find the specified resource.</p>
+    #
+    # @!attribute message
+    #
+    #   @return [String]
+    #
+    ResourceNotFoundException = ::Struct.new(
+      :message,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The configuration details of an Amazon S3 input or output bucket.</p>
+    #
+    # @!attribute path
+    #   <p>The file path of the Amazon S3 bucket.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute kms_key_arn
+    #   <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key that Amazon Personalize uses to
+    #         encrypt or decrypt the input and output files.</p>
+    #
+    #   @return [String]
+    #
+    S3DataConfig = ::Struct.new(
+      :path,
+      :kms_key_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>An object that provides information about a solution. A solution is a trained model
+    #       that can be deployed as a campaign.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the solution.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_arn
+    #   <p>The ARN of the solution.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute perform_hpo
+    #   <p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The
+    #         default is <code>false</code>.</p>
+    #
+    #   @return [Boolean]
+    #
+    # @!attribute perform_auto_ml
+    #   <p>When true, Amazon Personalize performs a search for the best USER_PERSONALIZATION recipe from
+    #         the list specified in the solution configuration (<code>recipeArn</code> must not be specified).
+    #         When false (the default), Amazon Personalize uses <code>recipeArn</code> for training.</p>
+    #
+    #   @return [Boolean]
+    #
+    # @!attribute recipe_arn
+    #   <p>The ARN of the recipe used to create the solution.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset group that provides the training data.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute event_type
+    #   <p>The event type (for example, 'click' or 'like') that is used for training the model.
+    #         If no <code>eventType</code> is provided, Amazon Personalize uses all interactions for training with
+    #         equal weight regardless of type.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_config
+    #   <p>Describes the configuration properties for the solution.</p>
+    #
+    #   @return [SolutionConfig]
+    #
+    # @!attribute auto_ml_result
+    #   <p>When <code>performAutoML</code> is true, specifies the best recipe found.</p>
+    #
+    #   @return [AutoMLResult]
+    #
+    # @!attribute status
+    #   <p>The status of the solution.</p>
+    #            <p>A solution can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The creation date and time (in Unix time) of the solution.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the solution was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute latest_solution_version
+    #   <p>Describes the latest version of the solution, including the status and the ARN.</p>
+    #
+    #   @return [SolutionVersionSummary]
+    #
+    Solution = ::Struct.new(
+      :name,
+      :solution_arn,
+      :perform_hpo,
+      :perform_auto_ml,
+      :recipe_arn,
+      :dataset_group_arn,
+      :event_type,
+      :solution_config,
+      :auto_ml_result,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      :latest_solution_version,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+      def initialize(*)
+        super
+        self.perform_hpo ||= false
+        self.perform_auto_ml ||= false
+      end
+
+    end
+
+    # <p>Describes the configuration properties for the solution.</p>
+    #
+    # @!attribute event_value_threshold
+    #   <p>Only events with a value greater than or equal to this threshold are
+    #         used for training a model.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute hpo_config
+    #   <p>Describes the properties for hyperparameter optimization (HPO).</p>
+    #
+    #   @return [HPOConfig]
+    #
+    # @!attribute algorithm_hyper_parameters
+    #   <p>Lists the hyperparameter names and ranges.</p>
+    #
+    #   @return [Hash<String, String>]
+    #
+    # @!attribute feature_transformation_parameters
+    #   <p>Lists the feature transformation parameters.</p>
+    #
+    #   @return [Hash<String, String>]
+    #
+    # @!attribute auto_ml_config
+    #   <p>The <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_AutoMLConfig.html">AutoMLConfig</a> object containing a list of recipes to search
+    #         when AutoML is performed.</p>
+    #
+    #   @return [AutoMLConfig]
+    #
+    # @!attribute optimization_objective
+    #   <p>Describes the additional objective for the solution, such as maximizing streaming
+    #         minutes or increasing revenue. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dg/optimizing-solution-for-objective.html">Optimizing a solution</a>.</p>
+    #
+    #   @return [OptimizationObjective]
+    #
+    SolutionConfig = ::Struct.new(
+      :event_value_threshold,
+      :hpo_config,
+      :algorithm_hyper_parameters,
+      :feature_transformation_parameters,
+      :auto_ml_config,
+      :optimization_objective,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>Provides a summary of the properties of a solution. For a complete listing, call the
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolution.html">DescribeSolution</a> API.</p>
+    #
+    # @!attribute name
+    #   <p>The name of the solution.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the solution.</p>
+    #            <p>A solution can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>DELETE PENDING > DELETE IN_PROGRESS</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix time) that the solution was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the solution was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    SolutionSummary = ::Struct.new(
+      :name,
+      :solution_arn,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>An object that provides information about a specific version of a <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_Solution.html">Solution</a> in a Custom dataset group.</p>
+    #
+    # @!attribute solution_version_arn
+    #   <p>The ARN of the solution version.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_arn
+    #   <p>The ARN of the solution.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute perform_hpo
+    #   <p>Whether to perform hyperparameter optimization (HPO) on the chosen recipe. The default is
+    #           <code>false</code>.</p>
+    #
+    #   @return [Boolean]
+    #
+    # @!attribute perform_auto_ml
+    #   <p>When true, Amazon Personalize searches for the most optimal recipe according to the solution
+    #         configuration. When false (the default), Amazon Personalize uses <code>recipeArn</code>.</p>
+    #
+    #   @return [Boolean]
+    #
+    # @!attribute recipe_arn
+    #   <p>The ARN of the recipe used in the solution.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute event_type
+    #   <p>The event type (for example, 'click' or 'like') that is used for training the
+    #         model.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute dataset_group_arn
+    #   <p>The Amazon Resource Name (ARN) of the dataset group providing the training data.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_config
+    #   <p>Describes the configuration properties for the solution.</p>
+    #
+    #   @return [SolutionConfig]
+    #
+    # @!attribute training_hours
+    #   <p>The time used to train the model. You are billed for the time it takes to train a model.
+    #         This field is visible only after Amazon Personalize successfully trains a model.</p>
+    #
+    #   @return [Float]
+    #
+    # @!attribute training_mode
+    #   <p>The scope of training to be performed when creating the solution version. The
+    #         <code>FULL</code> option trains the solution version based on the entirety of the input
+    #         solution's training data, while the <code>UPDATE</code> option processes only the data that
+    #         has changed in comparison to the input solution. Choose <code>UPDATE</code> when you want to
+    #         incrementally update your solution version instead of creating an entirely new one.</p>
+    #            <important>
+    #               <p>The <code>UPDATE</code> option can only be used when you already have an active solution
+    #           version created from the input solution using the <code>FULL</code> option and the input
+    #           solution was trained with the
+    #           <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>
+    #           recipe or the
+    #           <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a> recipe.</p>
+    #            </important>
+    #
+    #   Enum, one of: ["FULL", "UPDATE"]
+    #
+    #   @return [String]
+    #
+    # @!attribute tuned_hpo_params
+    #   <p>If hyperparameter optimization was performed, contains the hyperparameter values of the
+    #         best performing model.</p>
+    #
+    #   @return [TunedHPOParams]
+    #
+    # @!attribute status
+    #   <p>The status of the solution version.</p>
+    #            <p>A solution version can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING</p>
+    #               </li>
+    #               <li>
+    #                  <p>CREATE IN_PROGRESS</p>
+    #               </li>
+    #               <li>
+    #                  <p>ACTIVE</p>
+    #               </li>
+    #               <li>
+    #                  <p>CREATE FAILED</p>
+    #               </li>
+    #               <li>
+    #                  <p>CREATE STOPPING</p>
+    #               </li>
+    #               <li>
+    #                  <p>CREATE STOPPED</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute failure_reason
+    #   <p>If training a solution version fails, the reason for the failure.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and
+    #         time
+    #         (in Unix time) that this version of the solution was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in
+    #         Unix
+    #         time) that the solution was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    SolutionVersion = ::Struct.new(
+      :solution_version_arn,
+      :solution_arn,
+      :perform_hpo,
+      :perform_auto_ml,
+      :recipe_arn,
+      :event_type,
+      :dataset_group_arn,
+      :solution_config,
+      :training_hours,
+      :training_mode,
+      :tuned_hpo_params,
+      :status,
+      :failure_reason,
+      :creation_date_time,
+      :last_updated_date_time,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+      def initialize(*)
+        super
+        self.perform_hpo ||= false
+        self.perform_auto_ml ||= false
+      end
+
+    end
+
+    # <p>Provides a summary of the properties of a solution version. For a complete listing, call the
+    #       <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeSolutionVersion.html">DescribeSolutionVersion</a> API.</p>
+    #
+    # @!attribute solution_version_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution version.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute status
+    #   <p>The status of the solution version.</p>
+    #            <p>A solution version can be in one of the following states:</p>
+    #            <ul>
+    #               <li>
+    #                  <p>CREATE PENDING > CREATE IN_PROGRESS > ACTIVE -or- CREATE FAILED</p>
+    #               </li>
+    #            </ul>
+    #
+    #   @return [String]
+    #
+    # @!attribute creation_date_time
+    #   <p>The date and time (in Unix time) that this version of a solution was created.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute last_updated_date_time
+    #   <p>The date and time (in Unix time) that the solution version was last updated.</p>
+    #
+    #   @return [Time]
+    #
+    # @!attribute failure_reason
+    #   <p>If a solution version fails, the reason behind the failure.</p>
+    #
+    #   @return [String]
+    #
+    SolutionVersionSummary = ::Struct.new(
+      :solution_version_arn,
+      :status,
+      :creation_date_time,
+      :last_updated_date_time,
+      :failure_reason,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recommender_arn
+    #   <p>The Amazon Resource Name (ARN) of the recommender to start.</p>
+    #
+    #   @return [String]
+    #
+    StartRecommenderInput = ::Struct.new(
+      :recommender_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recommender_arn
+    #   <p>The Amazon Resource Name (ARN) of the recommender you started.</p>
+    #
+    #   @return [String]
+    #
+    StartRecommenderOutput = ::Struct.new(
+      :recommender_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recommender_arn
+    #   <p>The Amazon Resource Name (ARN) of the recommender to stop.</p>
+    #
+    #   @return [String]
+    #
+    StopRecommenderInput = ::Struct.new(
+      :recommender_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recommender_arn
+    #   <p>The Amazon Resource Name (ARN) of the recommender you stopped.</p>
+    #
+    #   @return [String]
+    #
+    StopRecommenderOutput = ::Struct.new(
+      :recommender_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute solution_version_arn
+    #   <p>The Amazon Resource Name (ARN) of the solution version you want to stop creating.</p>
+    #
+    #   @return [String]
+    #
+    StopSolutionVersionCreationInput = ::Struct.new(
+      :solution_version_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    StopSolutionVersionCreationOutput = ::Struct.new(
+      nil,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The optional metadata that you apply to resources to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
+    #       For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">Tagging Personalize resources</a>.
+    #     </p>
+    #
+    # @!attribute tag_key
+    #   <p>One part of a key-value pair that makes up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute tag_value
+    #   <p>The optional part of a key-value pair that makes up a tag. A value acts as a descriptor within a tag category (key).</p>
+    #
+    #   @return [String]
+    #
+    Tag = ::Struct.new(
+      :tag_key,
+      :tag_value,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute resource_arn
+    #   <p>The resource's Amazon Resource Name (ARN).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute tags
+    #   <p>Tags to apply to the resource. For more information see <a href="https://docs.aws.amazon.com/personalize/latest/dev/tagging-resources.html">Tagging Personalize resources</a>.</p>
+    #
+    #   @return [Array<Tag>]
+    #
+    TagResourceInput = ::Struct.new(
+      :resource_arn,
+      :tags,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    TagResourceOutput = ::Struct.new(
+      nil,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>The request contains more tag keys than can be associated with a resource (50 tag keys per resource). </p>
+    #
+    # @!attribute message
+    #
+    #   @return [String]
+    #
+    TooManyTagKeysException = ::Struct.new(
+      :message,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # <p>You have exceeded the maximum number of tags you can apply to this resource. </p>
+    #
+    # @!attribute message
+    #
+    #   @return [String]
+    #
+    TooManyTagsException = ::Struct.new(
+      :message,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # Includes enum constants for TrainingMode
+    #
+    module TrainingMode
+      # No documentation available.
+      #
+      FULL = "FULL"
+
+      # No documentation available.
+      #
+      UPDATE = "UPDATE"
+    end
+
+    # <p>If hyperparameter optimization (HPO) was performed, contains the hyperparameter values of
+    #       the best performing model.</p>
+    #
+    # @!attribute algorithm_hyper_parameters
+    #   <p>A list of the hyperparameter values of the best performing model.</p>
+    #
+    #   @return [Hash<String, String>]
+    #
+    TunedHPOParams = ::Struct.new(
+      :algorithm_hyper_parameters,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute resource_arn
+    #   <p>The resource's Amazon Resource Name (ARN).</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute tag_keys
+    #   <p>Keys to remove from the resource's tags.</p>
+    #
+    #   @return [Array<String>]
+    #
+    UntagResourceInput = ::Struct.new(
+      :resource_arn,
+      :tag_keys,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    UntagResourceOutput = ::Struct.new(
+      nil,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute campaign_arn
+    #   <p>The Amazon Resource Name (ARN) of the campaign.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute solution_version_arn
+    #   <p>The ARN of a new solution version to deploy.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute min_provisioned_tps
+    #   <p>Specifies the requested minimum provisioned transactions (recommendations) per second that
+    #         Amazon Personalize will support.</p>
+    #
+    #   @return [Integer]
+    #
+    # @!attribute campaign_config
+    #   <p>The configuration details of a campaign.</p>
+    #
+    #   @return [CampaignConfig]
+    #
+    UpdateCampaignInput = ::Struct.new(
+      :campaign_arn,
+      :solution_version_arn,
+      :min_provisioned_tps,
+      :campaign_config,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute campaign_arn
+    #   <p>The same campaign ARN as given in the request.</p>
+    #
+    #   @return [String]
+    #
+    UpdateCampaignOutput = ::Struct.new(
+      :campaign_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recommender_arn
+    #   <p>The Amazon Resource Name (ARN) of the recommender to modify.</p>
+    #
+    #   @return [String]
+    #
+    # @!attribute recommender_config
+    #   <p>The configuration details of the recommender.</p>
+    #
+    #   @return [RecommenderConfig]
+    #
+    UpdateRecommenderInput = ::Struct.new(
+      :recommender_arn,
+      :recommender_config,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+    # @!attribute recommender_arn
+    #   <p>The same recommender Amazon Resource Name (ARN) as given in the request.</p>
+    #
+    #   @return [String]
+    #
+    UpdateRecommenderOutput = ::Struct.new(
+      :recommender_arn,
+      keyword_init: true
+    ) do
+      include Hearth::Structure
+    end
+
+  end
+end

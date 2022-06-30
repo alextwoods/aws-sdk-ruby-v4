@@ -1,0 +1,100 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::IoT1ClickProjects
+  module Types
+
+    AssociateDeviceWithPlacementInput: untyped
+
+    AssociateDeviceWithPlacementOutput: untyped
+
+    CreatePlacementInput: untyped
+
+    CreatePlacementOutput: untyped
+
+    CreateProjectInput: untyped
+
+    CreateProjectOutput: untyped
+
+    DeletePlacementInput: untyped
+
+    DeletePlacementOutput: untyped
+
+    DeleteProjectInput: untyped
+
+    DeleteProjectOutput: untyped
+
+    DescribePlacementInput: untyped
+
+    DescribePlacementOutput: untyped
+
+    DescribeProjectInput: untyped
+
+    DescribeProjectOutput: untyped
+
+    DeviceTemplate: untyped
+
+    DisassociateDeviceFromPlacementInput: untyped
+
+    DisassociateDeviceFromPlacementOutput: untyped
+
+    GetDevicesInPlacementInput: untyped
+
+    GetDevicesInPlacementOutput: untyped
+
+    InternalFailureException: untyped
+
+    InvalidRequestException: untyped
+
+    ListPlacementsInput: untyped
+
+    ListPlacementsOutput: untyped
+
+    ListProjectsInput: untyped
+
+    ListProjectsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    PlacementDescription: untyped
+
+    PlacementSummary: untyped
+
+    PlacementTemplate: untyped
+
+    ProjectDescription: untyped
+
+    ProjectSummary: untyped
+
+    ResourceConflictException: untyped
+
+    ResourceNotFoundException: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TooManyRequestsException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdatePlacementInput: untyped
+
+    UpdatePlacementOutput: untyped
+
+    UpdateProjectInput: untyped
+
+    UpdateProjectOutput: untyped
+
+  end
+end

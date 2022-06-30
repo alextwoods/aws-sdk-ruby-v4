@@ -1,0 +1,104 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::RUM
+  module Types
+
+    AccessDeniedException: untyped
+
+    AppMonitor: untyped
+
+    AppMonitorConfiguration: untyped
+
+    AppMonitorDetails: untyped
+
+    AppMonitorSummary: untyped
+
+    ConflictException: untyped
+
+    CreateAppMonitorInput: untyped
+
+    CreateAppMonitorOutput: untyped
+
+    CwLog: untyped
+
+    DataStorage: untyped
+
+    DeleteAppMonitorInput: untyped
+
+    DeleteAppMonitorOutput: untyped
+
+    GetAppMonitorDataInput: untyped
+
+    GetAppMonitorDataOutput: untyped
+
+    GetAppMonitorInput: untyped
+
+    GetAppMonitorOutput: untyped
+
+    InternalServerException: untyped
+
+    ListAppMonitorsInput: untyped
+
+    ListAppMonitorsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    PutRumEventsInput: untyped
+
+    PutRumEventsOutput: untyped
+
+    QueryFilter: untyped
+
+    ResourceNotFoundException: untyped
+
+    RumEvent: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    module StateEnum
+      CREATED: ::String
+
+      DELETING: ::String
+
+      ACTIVE: ::String
+    end
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    module Telemetry
+      ERRORS: ::String
+
+      PERFORMANCE: ::String
+
+      HTTP: ::String
+    end
+
+    ThrottlingException: untyped
+
+    TimeRange: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAppMonitorInput: untyped
+
+    UpdateAppMonitorOutput: untyped
+
+    UserDetails: untyped
+
+    ValidationException: untyped
+
+  end
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::TimestreamWrite
+  Config: untyped
+end

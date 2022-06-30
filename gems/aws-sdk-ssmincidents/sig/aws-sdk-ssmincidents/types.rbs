@@ -1,0 +1,398 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::SSMIncidents
+  module Types
+
+    AccessDeniedException: untyped
+
+    class Action < Hearth::Union
+      class SsmAutomation < Action
+        def to_h: () -> { ssm_automation: Hash[Symbol,Action] }
+      end
+
+      class Unknown < Action
+        def to_h: () -> { unknown: Hash[Symbol,Action] }
+      end
+    end
+
+    AddRegionAction: untyped
+
+    class AttributeValueList < Hearth::Union
+      class StringValues < AttributeValueList
+        def to_h: () -> { string_values: Hash[Symbol,AttributeValueList] }
+      end
+
+      class IntegerValues < AttributeValueList
+        def to_h: () -> { integer_values: Hash[Symbol,AttributeValueList] }
+      end
+
+      class Unknown < AttributeValueList
+        def to_h: () -> { unknown: Hash[Symbol,AttributeValueList] }
+      end
+    end
+
+    class AutomationExecution < Hearth::Union
+      class SsmExecutionArn < AutomationExecution
+        def to_h: () -> { ssm_execution_arn: Hash[Symbol,AutomationExecution] }
+      end
+
+      class Unknown < AutomationExecution
+        def to_h: () -> { unknown: Hash[Symbol,AutomationExecution] }
+      end
+    end
+
+    class ChatChannel < Hearth::Union
+      class Empty < ChatChannel
+        def to_h: () -> { empty: Hash[Symbol,ChatChannel] }
+      end
+
+      class ChatbotSns < ChatChannel
+        def to_h: () -> { chatbot_sns: Hash[Symbol,ChatChannel] }
+      end
+
+      class Unknown < ChatChannel
+        def to_h: () -> { unknown: Hash[Symbol,ChatChannel] }
+      end
+    end
+
+    class Condition < Hearth::Union
+      class Before < Condition
+        def to_h: () -> { before: Hash[Symbol,Condition] }
+      end
+
+      class After < Condition
+        def to_h: () -> { after: Hash[Symbol,Condition] }
+      end
+
+      class Equals < Condition
+        def to_h: () -> { equals: Hash[Symbol,Condition] }
+      end
+
+      class Unknown < Condition
+        def to_h: () -> { unknown: Hash[Symbol,Condition] }
+      end
+    end
+
+    ConflictException: untyped
+
+    CreateReplicationSetInput: untyped
+
+    CreateReplicationSetOutput: untyped
+
+    CreateResponsePlanInput: untyped
+
+    CreateResponsePlanOutput: untyped
+
+    CreateTimelineEventInput: untyped
+
+    CreateTimelineEventOutput: untyped
+
+    DeleteIncidentRecordInput: untyped
+
+    DeleteIncidentRecordOutput: untyped
+
+    DeleteRegionAction: untyped
+
+    DeleteReplicationSetInput: untyped
+
+    DeleteReplicationSetOutput: untyped
+
+    DeleteResourcePolicyInput: untyped
+
+    DeleteResourcePolicyOutput: untyped
+
+    DeleteResponsePlanInput: untyped
+
+    DeleteResponsePlanOutput: untyped
+
+    DeleteTimelineEventInput: untyped
+
+    DeleteTimelineEventOutput: untyped
+
+    class DynamicSsmParameterValue < Hearth::Union
+      class Variable < DynamicSsmParameterValue
+        def to_h: () -> { variable: Hash[Symbol,DynamicSsmParameterValue] }
+      end
+
+      class Unknown < DynamicSsmParameterValue
+        def to_h: () -> { unknown: Hash[Symbol,DynamicSsmParameterValue] }
+      end
+    end
+
+    EmptyChatChannel: untyped
+
+    EventSummary: untyped
+
+    Filter: untyped
+
+    GetIncidentRecordInput: untyped
+
+    GetIncidentRecordOutput: untyped
+
+    GetReplicationSetInput: untyped
+
+    GetReplicationSetOutput: untyped
+
+    GetResourcePoliciesInput: untyped
+
+    GetResourcePoliciesOutput: untyped
+
+    GetResponsePlanInput: untyped
+
+    GetResponsePlanOutput: untyped
+
+    GetTimelineEventInput: untyped
+
+    GetTimelineEventOutput: untyped
+
+    IncidentRecord: untyped
+
+    IncidentRecordSource: untyped
+
+    module IncidentRecordStatus
+      OPEN: ::String
+
+      RESOLVED: ::String
+    end
+
+    IncidentRecordSummary: untyped
+
+    IncidentTemplate: untyped
+
+    InternalServerException: untyped
+
+    ItemIdentifier: untyped
+
+    module ItemType
+      ANALYSIS: ::String
+
+      INCIDENT: ::String
+
+      METRIC: ::String
+
+      PARENT: ::String
+
+      ATTACHMENT: ::String
+
+      OTHER: ::String
+
+      AUTOMATION: ::String
+
+      INVOLVED_RESOURCE: ::String
+    end
+
+    class ItemValue < Hearth::Union
+      class Arn < ItemValue
+        def to_h: () -> { arn: Hash[Symbol,ItemValue] }
+      end
+
+      class Url < ItemValue
+        def to_h: () -> { url: Hash[Symbol,ItemValue] }
+      end
+
+      class MetricDefinition < ItemValue
+        def to_h: () -> { metric_definition: Hash[Symbol,ItemValue] }
+      end
+
+      class Unknown < ItemValue
+        def to_h: () -> { unknown: Hash[Symbol,ItemValue] }
+      end
+    end
+
+    ListIncidentRecordsInput: untyped
+
+    ListIncidentRecordsOutput: untyped
+
+    ListRelatedItemsInput: untyped
+
+    ListRelatedItemsOutput: untyped
+
+    ListReplicationSetsInput: untyped
+
+    ListReplicationSetsOutput: untyped
+
+    ListResponsePlansInput: untyped
+
+    ListResponsePlansOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTimelineEventsInput: untyped
+
+    ListTimelineEventsOutput: untyped
+
+    class NotificationTargetItem < Hearth::Union
+      class SnsTopicArn < NotificationTargetItem
+        def to_h: () -> { sns_topic_arn: Hash[Symbol,NotificationTargetItem] }
+      end
+
+      class Unknown < NotificationTargetItem
+        def to_h: () -> { unknown: Hash[Symbol,NotificationTargetItem] }
+      end
+    end
+
+    PutResourcePolicyInput: untyped
+
+    PutResourcePolicyOutput: untyped
+
+    RegionInfo: untyped
+
+    RegionMapInputValue: untyped
+
+    module RegionStatus
+      ACTIVE: ::String
+
+      CREATING: ::String
+
+      DELETING: ::String
+
+      FAILED: ::String
+    end
+
+    RelatedItem: untyped
+
+    class RelatedItemsUpdate < Hearth::Union
+      class ItemToAdd < RelatedItemsUpdate
+        def to_h: () -> { item_to_add: Hash[Symbol,RelatedItemsUpdate] }
+      end
+
+      class ItemToRemove < RelatedItemsUpdate
+        def to_h: () -> { item_to_remove: Hash[Symbol,RelatedItemsUpdate] }
+      end
+
+      class Unknown < RelatedItemsUpdate
+        def to_h: () -> { unknown: Hash[Symbol,RelatedItemsUpdate] }
+      end
+    end
+
+    ReplicationSet: untyped
+
+    module ReplicationSetStatus
+      ACTIVE: ::String
+
+      CREATING: ::String
+
+      UPDATING: ::String
+
+      DELETING: ::String
+
+      FAILED: ::String
+    end
+
+    ResourceNotFoundException: untyped
+
+    ResourcePolicy: untyped
+
+    module ResourceType
+      RESPONSE_PLAN: ::String
+
+      INCIDENT_RECORD: ::String
+
+      TIMELINE_EVENT: ::String
+
+      REPLICATION_SET: ::String
+
+      RESOURCE_POLICY: ::String
+    end
+
+    ResponsePlanSummary: untyped
+
+    module ServiceCode
+      SSM_INCIDENTS: ::String
+    end
+
+    ServiceQuotaExceededException: untyped
+
+    module SortOrder
+      ASCENDING: ::String
+
+      DESCENDING: ::String
+    end
+
+    SsmAutomation: untyped
+
+    module SsmTargetAccount
+      RESPONSE_PLAN_OWNER_ACCOUNT: ::String
+
+      IMPACTED_ACCOUNT: ::String
+    end
+
+    StartIncidentInput: untyped
+
+    StartIncidentOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    TimelineEvent: untyped
+
+    module TimelineEventSort
+      EVENT_TIME: ::String
+    end
+
+    TriggerDetails: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateDeletionProtectionInput: untyped
+
+    UpdateDeletionProtectionOutput: untyped
+
+    UpdateIncidentRecordInput: untyped
+
+    UpdateIncidentRecordOutput: untyped
+
+    UpdateRelatedItemsInput: untyped
+
+    UpdateRelatedItemsOutput: untyped
+
+    class UpdateReplicationSetAction < Hearth::Union
+      class AddRegionAction < UpdateReplicationSetAction
+        def to_h: () -> { add_region_action: Hash[Symbol,UpdateReplicationSetAction] }
+      end
+
+      class DeleteRegionAction < UpdateReplicationSetAction
+        def to_h: () -> { delete_region_action: Hash[Symbol,UpdateReplicationSetAction] }
+      end
+
+      class Unknown < UpdateReplicationSetAction
+        def to_h: () -> { unknown: Hash[Symbol,UpdateReplicationSetAction] }
+      end
+    end
+
+    UpdateReplicationSetInput: untyped
+
+    UpdateReplicationSetOutput: untyped
+
+    UpdateResponsePlanInput: untyped
+
+    UpdateResponsePlanOutput: untyped
+
+    UpdateTimelineEventInput: untyped
+
+    UpdateTimelineEventOutput: untyped
+
+    ValidationException: untyped
+
+    module VariableType
+      INCIDENT_RECORD_ARN: ::String
+
+      INVOLVED_RESOURCES: ::String
+    end
+
+  end
+end

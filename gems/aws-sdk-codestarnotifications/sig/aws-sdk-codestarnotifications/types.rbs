@@ -1,0 +1,144 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CodestarNotifications
+  module Types
+
+    AccessDeniedException: untyped
+
+    ConcurrentModificationException: untyped
+
+    ConfigurationException: untyped
+
+    CreateNotificationRuleInput: untyped
+
+    CreateNotificationRuleOutput: untyped
+
+    DeleteNotificationRuleInput: untyped
+
+    DeleteNotificationRuleOutput: untyped
+
+    DeleteTargetInput: untyped
+
+    DeleteTargetOutput: untyped
+
+    DescribeNotificationRuleInput: untyped
+
+    DescribeNotificationRuleOutput: untyped
+
+    module DetailType
+      BASIC: ::String
+
+      FULL: ::String
+    end
+
+    EventTypeSummary: untyped
+
+    InvalidNextTokenException: untyped
+
+    LimitExceededException: untyped
+
+    ListEventTypesFilter: untyped
+
+    module ListEventTypesFilterName
+      RESOURCE_TYPE: ::String
+
+      SERVICE_NAME: ::String
+    end
+
+    ListEventTypesInput: untyped
+
+    ListEventTypesOutput: untyped
+
+    ListNotificationRulesFilter: untyped
+
+    module ListNotificationRulesFilterName
+      EVENT_TYPE_ID: ::String
+
+      CREATED_BY: ::String
+
+      RESOURCE: ::String
+
+      TARGET_ADDRESS: ::String
+    end
+
+    ListNotificationRulesInput: untyped
+
+    ListNotificationRulesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTargetsFilter: untyped
+
+    module ListTargetsFilterName
+      TARGET_TYPE: ::String
+
+      TARGET_ADDRESS: ::String
+
+      TARGET_STATUS: ::String
+    end
+
+    ListTargetsInput: untyped
+
+    ListTargetsOutput: untyped
+
+    module NotificationRuleStatus
+      ENABLED: ::String
+
+      DISABLED: ::String
+    end
+
+    NotificationRuleSummary: untyped
+
+    ResourceAlreadyExistsException: untyped
+
+    ResourceNotFoundException: untyped
+
+    SubscribeInput: untyped
+
+    SubscribeOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    Target: untyped
+
+    module TargetStatus
+      PENDING: ::String
+
+      ACTIVE: ::String
+
+      UNREACHABLE: ::String
+
+      INACTIVE: ::String
+
+      DEACTIVATED: ::String
+    end
+
+    TargetSummary: untyped
+
+    UnsubscribeInput: untyped
+
+    UnsubscribeOutput: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateNotificationRuleInput: untyped
+
+    UpdateNotificationRuleOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

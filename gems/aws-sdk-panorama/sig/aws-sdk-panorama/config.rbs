@@ -1,0 +1,3 @@
+module AWS::SDK::Panorama
+  Config: untyped
+end

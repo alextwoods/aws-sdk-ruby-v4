@@ -1,0 +1,224 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Savingsplans
+  module Types
+
+    CreateSavingsPlanInput: untyped
+
+    CreateSavingsPlanOutput: untyped
+
+    module CurrencyCode
+      CNY: ::String
+
+      USD: ::String
+    end
+
+    DeleteQueuedSavingsPlanInput: untyped
+
+    DeleteQueuedSavingsPlanOutput: untyped
+
+    DescribeSavingsPlanRatesInput: untyped
+
+    DescribeSavingsPlanRatesOutput: untyped
+
+    DescribeSavingsPlansInput: untyped
+
+    DescribeSavingsPlansOfferingRatesInput: untyped
+
+    DescribeSavingsPlansOfferingRatesOutput: untyped
+
+    DescribeSavingsPlansOfferingsInput: untyped
+
+    DescribeSavingsPlansOfferingsOutput: untyped
+
+    DescribeSavingsPlansOutput: untyped
+
+    InternalServerException: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ParentSavingsPlanOffering: untyped
+
+    ResourceNotFoundException: untyped
+
+    SavingsPlan: untyped
+
+    SavingsPlanFilter: untyped
+
+    SavingsPlanOffering: untyped
+
+    module SavingsPlanOfferingFilterAttribute
+      region: ::String
+
+      instanceFamily: ::String
+    end
+
+    SavingsPlanOfferingFilterElement: untyped
+
+    SavingsPlanOfferingProperty: untyped
+
+    module SavingsPlanOfferingPropertyKey
+      REGION: ::String
+
+      INSTANCE_FAMILY: ::String
+    end
+
+    SavingsPlanOfferingRate: untyped
+
+    SavingsPlanOfferingRateFilterElement: untyped
+
+    SavingsPlanOfferingRateProperty: untyped
+
+    module SavingsPlanPaymentOption
+      ALL_UPFRONT: ::String
+
+      PARTIAL_UPFRONT: ::String
+
+      NO_UPFRONT: ::String
+    end
+
+    module SavingsPlanProductType
+      EC2: ::String
+
+      FARGATE: ::String
+
+      LAMBDA: ::String
+
+      SAGEMAKER: ::String
+    end
+
+    SavingsPlanRate: untyped
+
+    SavingsPlanRateFilter: untyped
+
+    module SavingsPlanRateFilterAttribute
+      REGION: ::String
+
+      INSTANCE_FAMILY: ::String
+
+      INSTANCE_TYPE: ::String
+
+      PRODUCT_DESCRIPTION: ::String
+
+      TENANCY: ::String
+
+      PRODUCT_ID: ::String
+    end
+
+    module SavingsPlanRateFilterName
+      REGION: ::String
+
+      INSTANCE_TYPE: ::String
+
+      PRODUCT_DESCRIPTION: ::String
+
+      TENANCY: ::String
+
+      PRODUCT_TYPE: ::String
+
+      SERVICE_CODE: ::String
+
+      USAGE_TYPE: ::String
+
+      OPERATION: ::String
+    end
+
+    SavingsPlanRateProperty: untyped
+
+    module SavingsPlanRatePropertyKey
+      REGION: ::String
+
+      INSTANCE_TYPE: ::String
+
+      INSTANCE_FAMILY: ::String
+
+      PRODUCT_DESCRIPTION: ::String
+
+      TENANCY: ::String
+    end
+
+    module SavingsPlanRateServiceCode
+      EC2: ::String
+
+      FARGATE: ::String
+
+      FARGATE_EKS: ::String
+
+      LAMBDA: ::String
+
+      SAGEMAKER: ::String
+    end
+
+    module SavingsPlanRateUnit
+      HOURS: ::String
+
+      LAMBDA_GB_SECOND: ::String
+
+      REQUEST: ::String
+    end
+
+    module SavingsPlanState
+      PAYMENT_PENDING: ::String
+
+      PAYMENT_FAILED: ::String
+
+      ACTIVE: ::String
+
+      RETIRED: ::String
+
+      QUEUED: ::String
+
+      QUEUED_DELETED: ::String
+    end
+
+    module SavingsPlanType
+      COMPUTE: ::String
+
+      EC2_INSTANCE: ::String
+
+      SAGEMAKER: ::String
+    end
+
+    module SavingsPlansFilterName
+      REGION: ::String
+
+      EC2_INSTANCE_FAMILY: ::String
+
+      COMMITMENT: ::String
+
+      UPFRONT: ::String
+
+      TERM: ::String
+
+      SAVINGS_PLAN_TYPE: ::String
+
+      PAYMENT_OPTION: ::String
+
+      START: ::String
+
+      END: ::String
+    end
+
+    ServiceQuotaExceededException: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

@@ -1,0 +1,706 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CloudDirectory
+  module Types
+
+    AccessDeniedException: untyped
+
+    AddFacetToObjectInput: untyped
+
+    AddFacetToObjectOutput: untyped
+
+    ApplySchemaInput: untyped
+
+    ApplySchemaOutput: untyped
+
+    AttachObjectInput: untyped
+
+    AttachObjectOutput: untyped
+
+    AttachPolicyInput: untyped
+
+    AttachPolicyOutput: untyped
+
+    AttachToIndexInput: untyped
+
+    AttachToIndexOutput: untyped
+
+    AttachTypedLinkInput: untyped
+
+    AttachTypedLinkOutput: untyped
+
+    AttributeKey: untyped
+
+    AttributeKeyAndValue: untyped
+
+    AttributeNameAndValue: untyped
+
+    BatchAddFacetToObject: untyped
+
+    BatchAddFacetToObjectResponse: untyped
+
+    BatchAttachObject: untyped
+
+    BatchAttachObjectResponse: untyped
+
+    BatchAttachPolicy: untyped
+
+    BatchAttachPolicyResponse: untyped
+
+    BatchAttachToIndex: untyped
+
+    BatchAttachToIndexResponse: untyped
+
+    BatchAttachTypedLink: untyped
+
+    BatchAttachTypedLinkResponse: untyped
+
+    BatchCreateIndex: untyped
+
+    BatchCreateIndexResponse: untyped
+
+    BatchCreateObject: untyped
+
+    BatchCreateObjectResponse: untyped
+
+    BatchDeleteObject: untyped
+
+    BatchDeleteObjectResponse: untyped
+
+    BatchDetachFromIndex: untyped
+
+    BatchDetachFromIndexResponse: untyped
+
+    BatchDetachObject: untyped
+
+    BatchDetachObjectResponse: untyped
+
+    BatchDetachPolicy: untyped
+
+    BatchDetachPolicyResponse: untyped
+
+    BatchDetachTypedLink: untyped
+
+    BatchDetachTypedLinkResponse: untyped
+
+    BatchGetLinkAttributes: untyped
+
+    BatchGetLinkAttributesResponse: untyped
+
+    BatchGetObjectAttributes: untyped
+
+    BatchGetObjectAttributesResponse: untyped
+
+    BatchGetObjectInformation: untyped
+
+    BatchGetObjectInformationResponse: untyped
+
+    BatchListAttachedIndices: untyped
+
+    BatchListAttachedIndicesResponse: untyped
+
+    BatchListIncomingTypedLinks: untyped
+
+    BatchListIncomingTypedLinksResponse: untyped
+
+    BatchListIndex: untyped
+
+    BatchListIndexResponse: untyped
+
+    BatchListObjectAttributes: untyped
+
+    BatchListObjectAttributesResponse: untyped
+
+    BatchListObjectChildren: untyped
+
+    BatchListObjectChildrenResponse: untyped
+
+    BatchListObjectParentPaths: untyped
+
+    BatchListObjectParentPathsResponse: untyped
+
+    BatchListObjectParents: untyped
+
+    BatchListObjectParentsResponse: untyped
+
+    BatchListObjectPolicies: untyped
+
+    BatchListObjectPoliciesResponse: untyped
+
+    BatchListOutgoingTypedLinks: untyped
+
+    BatchListOutgoingTypedLinksResponse: untyped
+
+    BatchListPolicyAttachments: untyped
+
+    BatchListPolicyAttachmentsResponse: untyped
+
+    BatchLookupPolicy: untyped
+
+    BatchLookupPolicyResponse: untyped
+
+    BatchReadException: untyped
+
+    module BatchReadExceptionType
+      ValidationException: ::String
+
+      InvalidArnException: ::String
+
+      ResourceNotFoundException: ::String
+
+      InvalidNextTokenException: ::String
+
+      AccessDeniedException: ::String
+
+      NotNodeException: ::String
+
+      FacetValidationException: ::String
+
+      CannotListParentOfRootException: ::String
+
+      NotIndexException: ::String
+
+      NotPolicyException: ::String
+
+      DirectoryNotEnabledException: ::String
+
+      LimitExceededException: ::String
+
+      InternalServiceException: ::String
+    end
+
+    BatchReadInput: untyped
+
+    BatchReadOperation: untyped
+
+    BatchReadOperationResponse: untyped
+
+    BatchReadOutput: untyped
+
+    BatchReadSuccessfulResponse: untyped
+
+    BatchRemoveFacetFromObject: untyped
+
+    BatchRemoveFacetFromObjectResponse: untyped
+
+    BatchUpdateLinkAttributes: untyped
+
+    BatchUpdateLinkAttributesResponse: untyped
+
+    BatchUpdateObjectAttributes: untyped
+
+    BatchUpdateObjectAttributesResponse: untyped
+
+    BatchWriteException: untyped
+
+    module BatchWriteExceptionType
+      InternalServiceException: ::String
+
+      ValidationException: ::String
+
+      InvalidArnException: ::String
+
+      LinkNameAlreadyInUseException: ::String
+
+      StillContainsLinksException: ::String
+
+      FacetValidationException: ::String
+
+      ObjectNotDetachedException: ::String
+
+      ResourceNotFoundException: ::String
+
+      AccessDeniedException: ::String
+
+      InvalidAttachmentException: ::String
+
+      NotIndexException: ::String
+
+      NotNodeException: ::String
+
+      IndexedAttributeMissingException: ::String
+
+      ObjectAlreadyDetachedException: ::String
+
+      NotPolicyException: ::String
+
+      DirectoryNotEnabledException: ::String
+
+      LimitExceededException: ::String
+
+      UnsupportedIndexTypeException: ::String
+    end
+
+    BatchWriteInput: untyped
+
+    BatchWriteOperation: untyped
+
+    BatchWriteOperationResponse: untyped
+
+    BatchWriteOutput: untyped
+
+    CannotListParentOfRootException: untyped
+
+    module ConsistencyLevel
+      SERIALIZABLE: ::String
+
+      EVENTUAL: ::String
+    end
+
+    CreateDirectoryInput: untyped
+
+    CreateDirectoryOutput: untyped
+
+    CreateFacetInput: untyped
+
+    CreateFacetOutput: untyped
+
+    CreateIndexInput: untyped
+
+    CreateIndexOutput: untyped
+
+    CreateObjectInput: untyped
+
+    CreateObjectOutput: untyped
+
+    CreateSchemaInput: untyped
+
+    CreateSchemaOutput: untyped
+
+    CreateTypedLinkFacetInput: untyped
+
+    CreateTypedLinkFacetOutput: untyped
+
+    DeleteDirectoryInput: untyped
+
+    DeleteDirectoryOutput: untyped
+
+    DeleteFacetInput: untyped
+
+    DeleteFacetOutput: untyped
+
+    DeleteObjectInput: untyped
+
+    DeleteObjectOutput: untyped
+
+    DeleteSchemaInput: untyped
+
+    DeleteSchemaOutput: untyped
+
+    DeleteTypedLinkFacetInput: untyped
+
+    DeleteTypedLinkFacetOutput: untyped
+
+    DetachFromIndexInput: untyped
+
+    DetachFromIndexOutput: untyped
+
+    DetachObjectInput: untyped
+
+    DetachObjectOutput: untyped
+
+    DetachPolicyInput: untyped
+
+    DetachPolicyOutput: untyped
+
+    DetachTypedLinkInput: untyped
+
+    DetachTypedLinkOutput: untyped
+
+    Directory: untyped
+
+    DirectoryAlreadyExistsException: untyped
+
+    DirectoryDeletedException: untyped
+
+    DirectoryNotDisabledException: untyped
+
+    DirectoryNotEnabledException: untyped
+
+    module DirectoryState
+      ENABLED: ::String
+
+      DISABLED: ::String
+
+      DELETED: ::String
+    end
+
+    DisableDirectoryInput: untyped
+
+    DisableDirectoryOutput: untyped
+
+    EnableDirectoryInput: untyped
+
+    EnableDirectoryOutput: untyped
+
+    Facet: untyped
+
+    FacetAlreadyExistsException: untyped
+
+    FacetAttribute: untyped
+
+    FacetAttributeDefinition: untyped
+
+    FacetAttributeReference: untyped
+
+    module FacetAttributeType
+      STRING: ::String
+
+      BINARY: ::String
+
+      BOOLEAN: ::String
+
+      NUMBER: ::String
+
+      DATETIME: ::String
+
+      VARIANT: ::String
+    end
+
+    FacetAttributeUpdate: untyped
+
+    FacetInUseException: untyped
+
+    FacetNotFoundException: untyped
+
+    module FacetStyle
+      STATIC: ::String
+
+      DYNAMIC: ::String
+    end
+
+    FacetValidationException: untyped
+
+    GetAppliedSchemaVersionInput: untyped
+
+    GetAppliedSchemaVersionOutput: untyped
+
+    GetDirectoryInput: untyped
+
+    GetDirectoryOutput: untyped
+
+    GetFacetInput: untyped
+
+    GetFacetOutput: untyped
+
+    GetLinkAttributesInput: untyped
+
+    GetLinkAttributesOutput: untyped
+
+    GetObjectAttributesInput: untyped
+
+    GetObjectAttributesOutput: untyped
+
+    GetObjectInformationInput: untyped
+
+    GetObjectInformationOutput: untyped
+
+    GetSchemaAsJsonInput: untyped
+
+    GetSchemaAsJsonOutput: untyped
+
+    GetTypedLinkFacetInformationInput: untyped
+
+    GetTypedLinkFacetInformationOutput: untyped
+
+    IncompatibleSchemaException: untyped
+
+    IndexAttachment: untyped
+
+    IndexedAttributeMissingException: untyped
+
+    InternalServiceException: untyped
+
+    InvalidArnException: untyped
+
+    InvalidAttachmentException: untyped
+
+    InvalidFacetUpdateException: untyped
+
+    InvalidNextTokenException: untyped
+
+    InvalidRuleException: untyped
+
+    InvalidSchemaDocException: untyped
+
+    InvalidTaggingRequestException: untyped
+
+    LimitExceededException: untyped
+
+    LinkAttributeAction: untyped
+
+    LinkAttributeUpdate: untyped
+
+    LinkNameAlreadyInUseException: untyped
+
+    ListAppliedSchemaArnsInput: untyped
+
+    ListAppliedSchemaArnsOutput: untyped
+
+    ListAttachedIndicesInput: untyped
+
+    ListAttachedIndicesOutput: untyped
+
+    ListDevelopmentSchemaArnsInput: untyped
+
+    ListDevelopmentSchemaArnsOutput: untyped
+
+    ListDirectoriesInput: untyped
+
+    ListDirectoriesOutput: untyped
+
+    ListFacetAttributesInput: untyped
+
+    ListFacetAttributesOutput: untyped
+
+    ListFacetNamesInput: untyped
+
+    ListFacetNamesOutput: untyped
+
+    ListIncomingTypedLinksInput: untyped
+
+    ListIncomingTypedLinksOutput: untyped
+
+    ListIndexInput: untyped
+
+    ListIndexOutput: untyped
+
+    ListManagedSchemaArnsInput: untyped
+
+    ListManagedSchemaArnsOutput: untyped
+
+    ListObjectAttributesInput: untyped
+
+    ListObjectAttributesOutput: untyped
+
+    ListObjectChildrenInput: untyped
+
+    ListObjectChildrenOutput: untyped
+
+    ListObjectParentPathsInput: untyped
+
+    ListObjectParentPathsOutput: untyped
+
+    ListObjectParentsInput: untyped
+
+    ListObjectParentsOutput: untyped
+
+    ListObjectPoliciesInput: untyped
+
+    ListObjectPoliciesOutput: untyped
+
+    ListOutgoingTypedLinksInput: untyped
+
+    ListOutgoingTypedLinksOutput: untyped
+
+    ListPolicyAttachmentsInput: untyped
+
+    ListPolicyAttachmentsOutput: untyped
+
+    ListPublishedSchemaArnsInput: untyped
+
+    ListPublishedSchemaArnsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListTypedLinkFacetAttributesInput: untyped
+
+    ListTypedLinkFacetAttributesOutput: untyped
+
+    ListTypedLinkFacetNamesInput: untyped
+
+    ListTypedLinkFacetNamesOutput: untyped
+
+    LookupPolicyInput: untyped
+
+    LookupPolicyOutput: untyped
+
+    NotIndexException: untyped
+
+    NotNodeException: untyped
+
+    NotPolicyException: untyped
+
+    ObjectAlreadyDetachedException: untyped
+
+    ObjectAttributeAction: untyped
+
+    ObjectAttributeRange: untyped
+
+    ObjectAttributeUpdate: untyped
+
+    ObjectIdentifierAndLinkNameTuple: untyped
+
+    ObjectNotDetachedException: untyped
+
+    ObjectReference: untyped
+
+    module ObjectType
+      NODE: ::String
+
+      LEAF_NODE: ::String
+
+      POLICY: ::String
+
+      INDEX: ::String
+    end
+
+    PathToObjectIdentifiers: untyped
+
+    PolicyAttachment: untyped
+
+    PolicyToPath: untyped
+
+    PublishSchemaInput: untyped
+
+    PublishSchemaOutput: untyped
+
+    PutSchemaFromJsonInput: untyped
+
+    PutSchemaFromJsonOutput: untyped
+
+    module RangeMode
+      FIRST: ::String
+
+      LAST: ::String
+
+      LAST_BEFORE_MISSING_VALUES: ::String
+
+      INCLUSIVE: ::String
+
+      EXCLUSIVE: ::String
+    end
+
+    RemoveFacetFromObjectInput: untyped
+
+    RemoveFacetFromObjectOutput: untyped
+
+    module RequiredAttributeBehavior
+      REQUIRED_ALWAYS: ::String
+
+      NOT_REQUIRED: ::String
+    end
+
+    ResourceNotFoundException: untyped
+
+    RetryableConflictException: untyped
+
+    Rule: untyped
+
+    module RuleType
+      BINARY_LENGTH: ::String
+
+      NUMBER_COMPARISON: ::String
+
+      STRING_FROM_SET: ::String
+
+      STRING_LENGTH: ::String
+    end
+
+    SchemaAlreadyExistsException: untyped
+
+    SchemaAlreadyPublishedException: untyped
+
+    SchemaFacet: untyped
+
+    StillContainsLinksException: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    class TypedAttributeValue < Hearth::Union
+      class StringValue < TypedAttributeValue
+        def to_h: () -> { string_value: Hash[Symbol,TypedAttributeValue] }
+      end
+
+      class BinaryValue < TypedAttributeValue
+        def to_h: () -> { binary_value: Hash[Symbol,TypedAttributeValue] }
+      end
+
+      class BooleanValue < TypedAttributeValue
+        def to_h: () -> { boolean_value: Hash[Symbol,TypedAttributeValue] }
+      end
+
+      class NumberValue < TypedAttributeValue
+        def to_h: () -> { number_value: Hash[Symbol,TypedAttributeValue] }
+      end
+
+      class DatetimeValue < TypedAttributeValue
+        def to_h: () -> { datetime_value: Hash[Symbol,TypedAttributeValue] }
+      end
+
+      class Unknown < TypedAttributeValue
+        def to_h: () -> { unknown: Hash[Symbol,TypedAttributeValue] }
+      end
+    end
+
+    TypedAttributeValueRange: untyped
+
+    TypedLinkAttributeDefinition: untyped
+
+    TypedLinkAttributeRange: untyped
+
+    TypedLinkFacet: untyped
+
+    TypedLinkFacetAttributeUpdate: untyped
+
+    TypedLinkSchemaAndFacetName: untyped
+
+    TypedLinkSpecifier: untyped
+
+    UnsupportedIndexTypeException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    module UpdateActionType
+      CREATE_OR_UPDATE: ::String
+
+      DELETE: ::String
+    end
+
+    UpdateFacetInput: untyped
+
+    UpdateFacetOutput: untyped
+
+    UpdateLinkAttributesInput: untyped
+
+    UpdateLinkAttributesOutput: untyped
+
+    UpdateObjectAttributesInput: untyped
+
+    UpdateObjectAttributesOutput: untyped
+
+    UpdateSchemaInput: untyped
+
+    UpdateSchemaOutput: untyped
+
+    UpdateTypedLinkFacetInput: untyped
+
+    UpdateTypedLinkFacetOutput: untyped
+
+    UpgradeAppliedSchemaInput: untyped
+
+    UpgradeAppliedSchemaOutput: untyped
+
+    UpgradePublishedSchemaInput: untyped
+
+    UpgradePublishedSchemaOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

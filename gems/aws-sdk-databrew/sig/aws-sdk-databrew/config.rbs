@@ -1,0 +1,3 @@
+module AWS::SDK::DataBrew
+  Config: untyped
+end

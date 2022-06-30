@@ -1,0 +1,3 @@
+module AWS::SDK::CloudFormation
+  Config: untyped
+end

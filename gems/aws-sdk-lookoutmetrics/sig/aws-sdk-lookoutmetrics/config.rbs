@@ -1,0 +1,3 @@
+module AWS::SDK::LookoutMetrics
+  Config: untyped
+end

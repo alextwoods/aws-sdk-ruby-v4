@@ -1,0 +1,3 @@
+module AWS::SDK::LexModelBuildingService
+  Config: untyped
+end

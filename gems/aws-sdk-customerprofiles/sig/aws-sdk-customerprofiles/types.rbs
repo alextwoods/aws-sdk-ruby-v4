@@ -1,0 +1,646 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::CustomerProfiles
+  module Types
+
+    AccessDeniedException: untyped
+
+    AddProfileKeyInput: untyped
+
+    AddProfileKeyOutput: untyped
+
+    Address: untyped
+
+    AppflowIntegration: untyped
+
+    AppflowIntegrationWorkflowAttributes: untyped
+
+    AppflowIntegrationWorkflowMetrics: untyped
+
+    AppflowIntegrationWorkflowStep: untyped
+
+    AutoMerging: untyped
+
+    BadRequestException: untyped
+
+    Batch: untyped
+
+    ConflictResolution: untyped
+
+    module ConflictResolvingModel
+      RECENCY: ::String
+
+      SOURCE: ::String
+    end
+
+    ConnectorOperator: untyped
+
+    Consolidation: untyped
+
+    CreateDomainInput: untyped
+
+    CreateDomainOutput: untyped
+
+    CreateIntegrationWorkflowInput: untyped
+
+    CreateIntegrationWorkflowOutput: untyped
+
+    CreateProfileInput: untyped
+
+    CreateProfileOutput: untyped
+
+    module DataPullMode
+      INCREMENTAL: ::String
+
+      COMPLETE: ::String
+    end
+
+    DeleteDomainInput: untyped
+
+    DeleteDomainOutput: untyped
+
+    DeleteIntegrationInput: untyped
+
+    DeleteIntegrationOutput: untyped
+
+    DeleteProfileInput: untyped
+
+    DeleteProfileKeyInput: untyped
+
+    DeleteProfileKeyOutput: untyped
+
+    DeleteProfileObjectInput: untyped
+
+    DeleteProfileObjectOutput: untyped
+
+    DeleteProfileObjectTypeInput: untyped
+
+    DeleteProfileObjectTypeOutput: untyped
+
+    DeleteProfileOutput: untyped
+
+    DeleteWorkflowInput: untyped
+
+    DeleteWorkflowOutput: untyped
+
+    DomainStats: untyped
+
+    ExportingConfig: untyped
+
+    ExportingLocation: untyped
+
+    module FieldContentType
+      STRING: ::String
+
+      NUMBER: ::String
+
+      PHONE_NUMBER: ::String
+
+      EMAIL_ADDRESS: ::String
+
+      NAME: ::String
+    end
+
+    FieldSourceProfileIds: untyped
+
+    FlowDefinition: untyped
+
+    module Gender
+      MALE: ::String
+
+      FEMALE: ::String
+
+      UNSPECIFIED: ::String
+    end
+
+    GetAutoMergingPreviewInput: untyped
+
+    GetAutoMergingPreviewOutput: untyped
+
+    GetDomainInput: untyped
+
+    GetDomainOutput: untyped
+
+    GetIdentityResolutionJobInput: untyped
+
+    GetIdentityResolutionJobOutput: untyped
+
+    GetIntegrationInput: untyped
+
+    GetIntegrationOutput: untyped
+
+    GetMatchesInput: untyped
+
+    GetMatchesOutput: untyped
+
+    GetProfileObjectTypeInput: untyped
+
+    GetProfileObjectTypeOutput: untyped
+
+    GetProfileObjectTypeTemplateInput: untyped
+
+    GetProfileObjectTypeTemplateOutput: untyped
+
+    GetWorkflowInput: untyped
+
+    GetWorkflowOutput: untyped
+
+    GetWorkflowStepsInput: untyped
+
+    GetWorkflowStepsOutput: untyped
+
+    IdentityResolutionJob: untyped
+
+    module IdentityResolutionJobStatus
+      PENDING: ::String
+
+      PREPROCESSING: ::String
+
+      FIND_MATCHING: ::String
+
+      MERGING: ::String
+
+      COMPLETED: ::String
+
+      PARTIAL_SUCCESS: ::String
+
+      FAILED: ::String
+    end
+
+    IncrementalPullConfig: untyped
+
+    IntegrationConfig: untyped
+
+    InternalServerException: untyped
+
+    JobSchedule: untyped
+
+    module JobScheduleDayOfTheWeek
+      SUNDAY: ::String
+
+      MONDAY: ::String
+
+      TUESDAY: ::String
+
+      WEDNESDAY: ::String
+
+      THURSDAY: ::String
+
+      FRIDAY: ::String
+
+      SATURDAY: ::String
+    end
+
+    JobStats: untyped
+
+    ListAccountIntegrationsInput: untyped
+
+    ListAccountIntegrationsOutput: untyped
+
+    ListDomainItem: untyped
+
+    ListDomainsInput: untyped
+
+    ListDomainsOutput: untyped
+
+    ListIdentityResolutionJobsInput: untyped
+
+    ListIdentityResolutionJobsOutput: untyped
+
+    ListIntegrationItem: untyped
+
+    ListIntegrationsInput: untyped
+
+    ListIntegrationsOutput: untyped
+
+    ListProfileObjectTypeItem: untyped
+
+    ListProfileObjectTypeTemplateItem: untyped
+
+    ListProfileObjectTypeTemplatesInput: untyped
+
+    ListProfileObjectTypeTemplatesOutput: untyped
+
+    ListProfileObjectTypesInput: untyped
+
+    ListProfileObjectTypesOutput: untyped
+
+    ListProfileObjectsInput: untyped
+
+    ListProfileObjectsItem: untyped
+
+    ListProfileObjectsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListWorkflowsInput: untyped
+
+    ListWorkflowsItem: untyped
+
+    ListWorkflowsOutput: untyped
+
+    module MarketoConnectorOperator
+      PROJECTION: ::String
+
+      LESS_THAN: ::String
+
+      GREATER_THAN: ::String
+
+      BETWEEN: ::String
+
+      ADDITION: ::String
+
+      MULTIPLICATION: ::String
+
+      DIVISION: ::String
+
+      SUBTRACTION: ::String
+
+      MASK_ALL: ::String
+
+      MASK_FIRST_N: ::String
+
+      MASK_LAST_N: ::String
+
+      VALIDATE_NON_NULL: ::String
+
+      VALIDATE_NON_ZERO: ::String
+
+      VALIDATE_NON_NEGATIVE: ::String
+
+      VALIDATE_NUMERIC: ::String
+
+      NO_OP: ::String
+    end
+
+    MarketoSourceProperties: untyped
+
+    MatchItem: untyped
+
+    MatchingRequest: untyped
+
+    MatchingResponse: untyped
+
+    MergeProfilesInput: untyped
+
+    MergeProfilesOutput: untyped
+
+    ObjectFilter: untyped
+
+    ObjectTypeField: untyped
+
+    ObjectTypeKey: untyped
+
+    module OperatorPropertiesKeys
+      VALUE: ::String
+
+      VALUES: ::String
+
+      DATA_TYPE: ::String
+
+      UPPER_BOUND: ::String
+
+      LOWER_BOUND: ::String
+
+      SOURCE_DATA_TYPE: ::String
+
+      DESTINATION_DATA_TYPE: ::String
+
+      VALIDATION_ACTION: ::String
+
+      MASK_VALUE: ::String
+
+      MASK_LENGTH: ::String
+
+      TRUNCATE_LENGTH: ::String
+
+      MATH_OPERATION_FIELDS_ORDER: ::String
+
+      CONCAT_FORMAT: ::String
+
+      SUBFIELD_CATEGORY_MAP: ::String
+    end
+
+    module PartyType
+      INDIVIDUAL: ::String
+
+      BUSINESS: ::String
+
+      OTHER: ::String
+    end
+
+    Profile: untyped
+
+    PutIntegrationInput: untyped
+
+    PutIntegrationOutput: untyped
+
+    PutProfileObjectInput: untyped
+
+    PutProfileObjectOutput: untyped
+
+    PutProfileObjectTypeInput: untyped
+
+    PutProfileObjectTypeOutput: untyped
+
+    ResourceNotFoundException: untyped
+
+    module S3ConnectorOperator
+      PROJECTION: ::String
+
+      LESS_THAN: ::String
+
+      GREATER_THAN: ::String
+
+      BETWEEN: ::String
+
+      LESS_THAN_OR_EQUAL_TO: ::String
+
+      GREATER_THAN_OR_EQUAL_TO: ::String
+
+      EQUAL_TO: ::String
+
+      NOT_EQUAL_TO: ::String
+
+      ADDITION: ::String
+
+      MULTIPLICATION: ::String
+
+      DIVISION: ::String
+
+      SUBTRACTION: ::String
+
+      MASK_ALL: ::String
+
+      MASK_FIRST_N: ::String
+
+      MASK_LAST_N: ::String
+
+      VALIDATE_NON_NULL: ::String
+
+      VALIDATE_NON_ZERO: ::String
+
+      VALIDATE_NON_NEGATIVE: ::String
+
+      VALIDATE_NUMERIC: ::String
+
+      NO_OP: ::String
+    end
+
+    S3ExportingConfig: untyped
+
+    S3ExportingLocation: untyped
+
+    S3SourceProperties: untyped
+
+    module SalesforceConnectorOperator
+      PROJECTION: ::String
+
+      LESS_THAN: ::String
+
+      CONTAINS: ::String
+
+      GREATER_THAN: ::String
+
+      BETWEEN: ::String
+
+      LESS_THAN_OR_EQUAL_TO: ::String
+
+      GREATER_THAN_OR_EQUAL_TO: ::String
+
+      EQUAL_TO: ::String
+
+      NOT_EQUAL_TO: ::String
+
+      ADDITION: ::String
+
+      MULTIPLICATION: ::String
+
+      DIVISION: ::String
+
+      SUBTRACTION: ::String
+
+      MASK_ALL: ::String
+
+      MASK_FIRST_N: ::String
+
+      MASK_LAST_N: ::String
+
+      VALIDATE_NON_NULL: ::String
+
+      VALIDATE_NON_ZERO: ::String
+
+      VALIDATE_NON_NEGATIVE: ::String
+
+      VALIDATE_NUMERIC: ::String
+
+      NO_OP: ::String
+    end
+
+    SalesforceSourceProperties: untyped
+
+    ScheduledTriggerProperties: untyped
+
+    SearchProfilesInput: untyped
+
+    SearchProfilesOutput: untyped
+
+    module ServiceNowConnectorOperator
+      PROJECTION: ::String
+
+      CONTAINS: ::String
+
+      LESS_THAN: ::String
+
+      GREATER_THAN: ::String
+
+      BETWEEN: ::String
+
+      LESS_THAN_OR_EQUAL_TO: ::String
+
+      GREATER_THAN_OR_EQUAL_TO: ::String
+
+      EQUAL_TO: ::String
+
+      NOT_EQUAL_TO: ::String
+
+      ADDITION: ::String
+
+      MULTIPLICATION: ::String
+
+      DIVISION: ::String
+
+      SUBTRACTION: ::String
+
+      MASK_ALL: ::String
+
+      MASK_FIRST_N: ::String
+
+      MASK_LAST_N: ::String
+
+      VALIDATE_NON_NULL: ::String
+
+      VALIDATE_NON_ZERO: ::String
+
+      VALIDATE_NON_NEGATIVE: ::String
+
+      VALIDATE_NUMERIC: ::String
+
+      NO_OP: ::String
+    end
+
+    ServiceNowSourceProperties: untyped
+
+    SourceConnectorProperties: untyped
+
+    module SourceConnectorType
+      SALESFORCE: ::String
+
+      MARKETO: ::String
+
+      ZENDESK: ::String
+
+      SERVICENOW: ::String
+
+      S3: ::String
+    end
+
+    SourceFlowConfig: untyped
+
+    module StandardIdentifier
+      PROFILE: ::String
+
+      ASSET: ::String
+
+      CASE: ::String
+
+      UNIQUE: ::String
+
+      SECONDARY: ::String
+
+      LOOKUP_ONLY: ::String
+
+      NEW_ONLY: ::String
+
+      ORDER: ::String
+    end
+
+    module Status
+      NOT_STARTED: ::String
+
+      IN_PROGRESS: ::String
+
+      COMPLETE: ::String
+
+      FAILED: ::String
+
+      SPLIT: ::String
+
+      RETRY: ::String
+
+      CANCELLED: ::String
+    end
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    Task: untyped
+
+    module TaskType
+      ARITHMETIC: ::String
+
+      FILTER: ::String
+
+      MAP: ::String
+
+      MASK: ::String
+
+      MERGE: ::String
+
+      TRUNCATE: ::String
+
+      VALIDATE: ::String
+    end
+
+    ThrottlingException: untyped
+
+    TriggerConfig: untyped
+
+    TriggerProperties: untyped
+
+    module TriggerType
+      SCHEDULED: ::String
+
+      EVENT: ::String
+
+      ONDEMAND: ::String
+    end
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAddress: untyped
+
+    UpdateDomainInput: untyped
+
+    UpdateDomainOutput: untyped
+
+    UpdateProfileInput: untyped
+
+    UpdateProfileOutput: untyped
+
+    WorkflowAttributes: untyped
+
+    WorkflowMetrics: untyped
+
+    WorkflowStepItem: untyped
+
+    module WorkflowType
+      APPFLOW_INTEGRATION: ::String
+    end
+
+    module ZendeskConnectorOperator
+      PROJECTION: ::String
+
+      GREATER_THAN: ::String
+
+      ADDITION: ::String
+
+      MULTIPLICATION: ::String
+
+      DIVISION: ::String
+
+      SUBTRACTION: ::String
+
+      MASK_ALL: ::String
+
+      MASK_FIRST_N: ::String
+
+      MASK_LAST_N: ::String
+
+      VALIDATE_NON_NULL: ::String
+
+      VALIDATE_NON_ZERO: ::String
+
+      VALIDATE_NON_NEGATIVE: ::String
+
+      VALIDATE_NUMERIC: ::String
+
+      NO_OP: ::String
+    end
+
+    ZendeskSourceProperties: untyped
+
+  end
+end

@@ -1,0 +1,58 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::S3Outposts
+  module Types
+
+    AccessDeniedException: untyped
+
+    ConflictException: untyped
+
+    CreateEndpointInput: untyped
+
+    CreateEndpointOutput: untyped
+
+    DeleteEndpointInput: untyped
+
+    DeleteEndpointOutput: untyped
+
+    Endpoint: untyped
+
+    module EndpointAccessType
+      PRIVATE: ::String
+
+      CUSTOMER_OWNED_IP: ::String
+    end
+
+    module EndpointStatus
+      PENDING: ::String
+
+      AVAILABLE: ::String
+
+      DELETING: ::String
+    end
+
+    InternalServerException: untyped
+
+    ListEndpointsInput: untyped
+
+    ListEndpointsOutput: untyped
+
+    ListSharedEndpointsInput: untyped
+
+    ListSharedEndpointsOutput: untyped
+
+    NetworkInterface: untyped
+
+    ResourceNotFoundException: untyped
+
+    ValidationException: untyped
+
+  end
+end

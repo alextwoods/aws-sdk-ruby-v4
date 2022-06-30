@@ -1,0 +1,230 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Mq
+  module Types
+
+    ActionRequired: untyped
+
+    module AuthenticationStrategy
+      SIMPLE: ::String
+
+      LDAP: ::String
+    end
+
+    AvailabilityZone: untyped
+
+    BadRequestException: untyped
+
+    BrokerEngineType: untyped
+
+    BrokerInstance: untyped
+
+    BrokerInstanceOption: untyped
+
+    module BrokerState
+      CREATION_IN_PROGRESS: ::String
+
+      CREATION_FAILED: ::String
+
+      DELETION_IN_PROGRESS: ::String
+
+      RUNNING: ::String
+
+      REBOOT_IN_PROGRESS: ::String
+
+      CRITICAL_ACTION_REQUIRED: ::String
+    end
+
+    module BrokerStorageType
+      EBS: ::String
+
+      EFS: ::String
+    end
+
+    BrokerSummary: untyped
+
+    module ChangeType
+      CREATE: ::String
+
+      UPDATE: ::String
+
+      DELETE: ::String
+    end
+
+    Configuration: untyped
+
+    ConfigurationId: untyped
+
+    ConfigurationRevision: untyped
+
+    Configurations: untyped
+
+    ConflictException: untyped
+
+    CreateBrokerInput: untyped
+
+    CreateBrokerOutput: untyped
+
+    CreateConfigurationInput: untyped
+
+    CreateConfigurationOutput: untyped
+
+    CreateTagsInput: untyped
+
+    CreateTagsOutput: untyped
+
+    CreateUserInput: untyped
+
+    CreateUserOutput: untyped
+
+    module DayOfWeek
+      MONDAY: ::String
+
+      TUESDAY: ::String
+
+      WEDNESDAY: ::String
+
+      THURSDAY: ::String
+
+      FRIDAY: ::String
+
+      SATURDAY: ::String
+
+      SUNDAY: ::String
+    end
+
+    DeleteBrokerInput: untyped
+
+    DeleteBrokerOutput: untyped
+
+    DeleteTagsInput: untyped
+
+    DeleteTagsOutput: untyped
+
+    DeleteUserInput: untyped
+
+    DeleteUserOutput: untyped
+
+    module DeploymentMode
+      SINGLE_INSTANCE: ::String
+
+      ACTIVE_STANDBY_MULTI_AZ: ::String
+
+      CLUSTER_MULTI_AZ: ::String
+    end
+
+    DescribeBrokerEngineTypesInput: untyped
+
+    DescribeBrokerEngineTypesOutput: untyped
+
+    DescribeBrokerInput: untyped
+
+    DescribeBrokerInstanceOptionsInput: untyped
+
+    DescribeBrokerInstanceOptionsOutput: untyped
+
+    DescribeBrokerOutput: untyped
+
+    DescribeConfigurationInput: untyped
+
+    DescribeConfigurationOutput: untyped
+
+    DescribeConfigurationRevisionInput: untyped
+
+    DescribeConfigurationRevisionOutput: untyped
+
+    DescribeUserInput: untyped
+
+    DescribeUserOutput: untyped
+
+    EncryptionOptions: untyped
+
+    module EngineType
+      ACTIVEMQ: ::String
+
+      RABBITMQ: ::String
+    end
+
+    EngineVersion: untyped
+
+    ForbiddenException: untyped
+
+    InternalServerErrorException: untyped
+
+    LdapServerMetadataInput: untyped
+
+    LdapServerMetadataOutput: untyped
+
+    ListBrokersInput: untyped
+
+    ListBrokersOutput: untyped
+
+    ListConfigurationRevisionsInput: untyped
+
+    ListConfigurationRevisionsOutput: untyped
+
+    ListConfigurationsInput: untyped
+
+    ListConfigurationsOutput: untyped
+
+    ListTagsInput: untyped
+
+    ListTagsOutput: untyped
+
+    ListUsersInput: untyped
+
+    ListUsersOutput: untyped
+
+    Logs: untyped
+
+    LogsSummary: untyped
+
+    NotFoundException: untyped
+
+    PendingLogs: untyped
+
+    RebootBrokerInput: untyped
+
+    RebootBrokerOutput: untyped
+
+    SanitizationWarning: untyped
+
+    module SanitizationWarningReason
+      DISALLOWED_ELEMENT_REMOVED: ::String
+
+      DISALLOWED_ATTRIBUTE_REMOVED: ::String
+
+      INVALID_ATTRIBUTE_VALUE_REMOVED: ::String
+    end
+
+    UnauthorizedException: untyped
+
+    UpdateBrokerInput: untyped
+
+    UpdateBrokerOutput: untyped
+
+    UpdateConfigurationInput: untyped
+
+    UpdateConfigurationOutput: untyped
+
+    UpdateUserInput: untyped
+
+    UpdateUserOutput: untyped
+
+    User: untyped
+
+    UserPendingChanges: untyped
+
+    UserSummary: untyped
+
+    WeeklyStartTime: untyped
+
+  end
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::PinpointSMSVoice
+  Config: untyped
+end

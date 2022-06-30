@@ -1,0 +1,74 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Macie
+  module Types
+
+    AccessDeniedException: untyped
+
+    AssociateMemberAccountInput: untyped
+
+    AssociateMemberAccountOutput: untyped
+
+    AssociateS3ResourcesInput: untyped
+
+    AssociateS3ResourcesOutput: untyped
+
+    ClassificationType: untyped
+
+    ClassificationTypeUpdate: untyped
+
+    DisassociateMemberAccountInput: untyped
+
+    DisassociateMemberAccountOutput: untyped
+
+    DisassociateS3ResourcesInput: untyped
+
+    DisassociateS3ResourcesOutput: untyped
+
+    FailedS3Resource: untyped
+
+    InternalException: untyped
+
+    InvalidInputException: untyped
+
+    LimitExceededException: untyped
+
+    ListMemberAccountsInput: untyped
+
+    ListMemberAccountsOutput: untyped
+
+    ListS3ResourcesInput: untyped
+
+    ListS3ResourcesOutput: untyped
+
+    MemberAccount: untyped
+
+    module S3ContinuousClassificationType
+      FULL: ::String
+    end
+
+    module S3OneTimeClassificationType
+      FULL: ::String
+
+      NONE: ::String
+    end
+
+    S3Resource: untyped
+
+    S3ResourceClassification: untyped
+
+    S3ResourceClassificationUpdate: untyped
+
+    UpdateS3ResourcesInput: untyped
+
+    UpdateS3ResourcesOutput: untyped
+
+  end
+end

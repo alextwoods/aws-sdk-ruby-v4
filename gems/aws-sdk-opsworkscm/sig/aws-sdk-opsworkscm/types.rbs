@@ -1,0 +1,172 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::OpsWorksCM
+  module Types
+
+    AccountAttribute: untyped
+
+    AssociateNodeInput: untyped
+
+    AssociateNodeOutput: untyped
+
+    Backup: untyped
+
+    module BackupStatus
+      IN_PROGRESS: ::String
+
+      OK: ::String
+
+      FAILED: ::String
+
+      DELETING: ::String
+    end
+
+    module BackupType
+      AUTOMATED: ::String
+
+      MANUAL: ::String
+    end
+
+    CreateBackupInput: untyped
+
+    CreateBackupOutput: untyped
+
+    CreateServerInput: untyped
+
+    CreateServerOutput: untyped
+
+    DeleteBackupInput: untyped
+
+    DeleteBackupOutput: untyped
+
+    DeleteServerInput: untyped
+
+    DeleteServerOutput: untyped
+
+    DescribeAccountAttributesInput: untyped
+
+    DescribeAccountAttributesOutput: untyped
+
+    DescribeBackupsInput: untyped
+
+    DescribeBackupsOutput: untyped
+
+    DescribeEventsInput: untyped
+
+    DescribeEventsOutput: untyped
+
+    DescribeNodeAssociationStatusInput: untyped
+
+    DescribeNodeAssociationStatusOutput: untyped
+
+    DescribeServersInput: untyped
+
+    DescribeServersOutput: untyped
+
+    DisassociateNodeInput: untyped
+
+    DisassociateNodeOutput: untyped
+
+    EngineAttribute: untyped
+
+    ExportServerEngineAttributeInput: untyped
+
+    ExportServerEngineAttributeOutput: untyped
+
+    InvalidNextTokenException: untyped
+
+    InvalidStateException: untyped
+
+    LimitExceededException: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    module MaintenanceStatus
+      SUCCESS: ::String
+
+      FAILED: ::String
+    end
+
+    module NodeAssociationStatus
+      SUCCESS: ::String
+
+      FAILED: ::String
+
+      IN_PROGRESS: ::String
+    end
+
+    ResourceAlreadyExistsException: untyped
+
+    ResourceNotFoundException: untyped
+
+    RestoreServerInput: untyped
+
+    RestoreServerOutput: untyped
+
+    Server: untyped
+
+    ServerEvent: untyped
+
+    module ServerStatus
+      BACKING_UP: ::String
+
+      CONNECTION_LOST: ::String
+
+      CREATING: ::String
+
+      DELETING: ::String
+
+      MODIFYING: ::String
+
+      FAILED: ::String
+
+      HEALTHY: ::String
+
+      RUNNING: ::String
+
+      RESTORING: ::String
+
+      SETUP: ::String
+
+      UNDER_MAINTENANCE: ::String
+
+      UNHEALTHY: ::String
+
+      TERMINATED: ::String
+    end
+
+    StartMaintenanceInput: untyped
+
+    StartMaintenanceOutput: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateServerEngineAttributesInput: untyped
+
+    UpdateServerEngineAttributesOutput: untyped
+
+    UpdateServerInput: untyped
+
+    UpdateServerOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

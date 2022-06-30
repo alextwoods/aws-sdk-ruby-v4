@@ -1,0 +1,424 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::DocDB
+  module Types
+
+    AddSourceIdentifierToSubscriptionInput: untyped
+
+    AddSourceIdentifierToSubscriptionOutput: untyped
+
+    AddTagsToResourceInput: untyped
+
+    AddTagsToResourceOutput: untyped
+
+    module ApplyMethod
+      immediate: ::String
+
+      pending_reboot: ::String
+    end
+
+    ApplyPendingMaintenanceActionInput: untyped
+
+    ApplyPendingMaintenanceActionOutput: untyped
+
+    AuthorizationNotFoundFault: untyped
+
+    AvailabilityZone: untyped
+
+    Certificate: untyped
+
+    CertificateNotFoundFault: untyped
+
+    CloudwatchLogsExportConfiguration: untyped
+
+    CopyDBClusterParameterGroupInput: untyped
+
+    CopyDBClusterParameterGroupOutput: untyped
+
+    CopyDBClusterSnapshotInput: untyped
+
+    CopyDBClusterSnapshotOutput: untyped
+
+    CreateDBClusterInput: untyped
+
+    CreateDBClusterOutput: untyped
+
+    CreateDBClusterParameterGroupInput: untyped
+
+    CreateDBClusterParameterGroupOutput: untyped
+
+    CreateDBClusterSnapshotInput: untyped
+
+    CreateDBClusterSnapshotOutput: untyped
+
+    CreateDBInstanceInput: untyped
+
+    CreateDBInstanceOutput: untyped
+
+    CreateDBSubnetGroupInput: untyped
+
+    CreateDBSubnetGroupOutput: untyped
+
+    CreateEventSubscriptionInput: untyped
+
+    CreateEventSubscriptionOutput: untyped
+
+    CreateGlobalClusterInput: untyped
+
+    CreateGlobalClusterOutput: untyped
+
+    DBCluster: untyped
+
+    DBClusterAlreadyExistsFault: untyped
+
+    DBClusterMember: untyped
+
+    DBClusterNotFoundFault: untyped
+
+    DBClusterParameterGroup: untyped
+
+    DBClusterParameterGroupNotFoundFault: untyped
+
+    DBClusterQuotaExceededFault: untyped
+
+    DBClusterRole: untyped
+
+    DBClusterSnapshot: untyped
+
+    DBClusterSnapshotAlreadyExistsFault: untyped
+
+    DBClusterSnapshotAttribute: untyped
+
+    DBClusterSnapshotAttributesResult: untyped
+
+    DBClusterSnapshotNotFoundFault: untyped
+
+    DBEngineVersion: untyped
+
+    DBInstance: untyped
+
+    DBInstanceAlreadyExistsFault: untyped
+
+    DBInstanceNotFoundFault: untyped
+
+    DBInstanceStatusInfo: untyped
+
+    DBParameterGroupAlreadyExistsFault: untyped
+
+    DBParameterGroupNotFoundFault: untyped
+
+    DBParameterGroupQuotaExceededFault: untyped
+
+    DBSecurityGroupNotFoundFault: untyped
+
+    DBSnapshotAlreadyExistsFault: untyped
+
+    DBSnapshotNotFoundFault: untyped
+
+    DBSubnetGroup: untyped
+
+    DBSubnetGroupAlreadyExistsFault: untyped
+
+    DBSubnetGroupDoesNotCoverEnoughAZs: untyped
+
+    DBSubnetGroupNotFoundFault: untyped
+
+    DBSubnetGroupQuotaExceededFault: untyped
+
+    DBSubnetQuotaExceededFault: untyped
+
+    DBUpgradeDependencyFailureFault: untyped
+
+    DeleteDBClusterInput: untyped
+
+    DeleteDBClusterOutput: untyped
+
+    DeleteDBClusterParameterGroupInput: untyped
+
+    DeleteDBClusterParameterGroupOutput: untyped
+
+    DeleteDBClusterSnapshotInput: untyped
+
+    DeleteDBClusterSnapshotOutput: untyped
+
+    DeleteDBInstanceInput: untyped
+
+    DeleteDBInstanceOutput: untyped
+
+    DeleteDBSubnetGroupInput: untyped
+
+    DeleteDBSubnetGroupOutput: untyped
+
+    DeleteEventSubscriptionInput: untyped
+
+    DeleteEventSubscriptionOutput: untyped
+
+    DeleteGlobalClusterInput: untyped
+
+    DeleteGlobalClusterOutput: untyped
+
+    DescribeCertificatesInput: untyped
+
+    DescribeCertificatesOutput: untyped
+
+    DescribeDBClusterParameterGroupsInput: untyped
+
+    DescribeDBClusterParameterGroupsOutput: untyped
+
+    DescribeDBClusterParametersInput: untyped
+
+    DescribeDBClusterParametersOutput: untyped
+
+    DescribeDBClusterSnapshotAttributesInput: untyped
+
+    DescribeDBClusterSnapshotAttributesOutput: untyped
+
+    DescribeDBClusterSnapshotsInput: untyped
+
+    DescribeDBClusterSnapshotsOutput: untyped
+
+    DescribeDBClustersInput: untyped
+
+    DescribeDBClustersOutput: untyped
+
+    DescribeDBEngineVersionsInput: untyped
+
+    DescribeDBEngineVersionsOutput: untyped
+
+    DescribeDBInstancesInput: untyped
+
+    DescribeDBInstancesOutput: untyped
+
+    DescribeDBSubnetGroupsInput: untyped
+
+    DescribeDBSubnetGroupsOutput: untyped
+
+    DescribeEngineDefaultClusterParametersInput: untyped
+
+    DescribeEngineDefaultClusterParametersOutput: untyped
+
+    DescribeEventCategoriesInput: untyped
+
+    DescribeEventCategoriesOutput: untyped
+
+    DescribeEventSubscriptionsInput: untyped
+
+    DescribeEventSubscriptionsOutput: untyped
+
+    DescribeEventsInput: untyped
+
+    DescribeEventsOutput: untyped
+
+    DescribeGlobalClustersInput: untyped
+
+    DescribeGlobalClustersOutput: untyped
+
+    DescribeOrderableDBInstanceOptionsInput: untyped
+
+    DescribeOrderableDBInstanceOptionsOutput: untyped
+
+    DescribePendingMaintenanceActionsInput: untyped
+
+    DescribePendingMaintenanceActionsOutput: untyped
+
+    Endpoint: untyped
+
+    EngineDefaults: untyped
+
+    Event: untyped
+
+    EventCategoriesMap: untyped
+
+    EventSubscription: untyped
+
+    EventSubscriptionQuotaExceededFault: untyped
+
+    FailoverDBClusterInput: untyped
+
+    FailoverDBClusterOutput: untyped
+
+    Filter: untyped
+
+    GlobalCluster: untyped
+
+    GlobalClusterAlreadyExistsFault: untyped
+
+    GlobalClusterMember: untyped
+
+    GlobalClusterNotFoundFault: untyped
+
+    GlobalClusterQuotaExceededFault: untyped
+
+    InstanceQuotaExceededFault: untyped
+
+    InsufficientDBClusterCapacityFault: untyped
+
+    InsufficientDBInstanceCapacityFault: untyped
+
+    InsufficientStorageClusterCapacityFault: untyped
+
+    InvalidDBClusterSnapshotStateFault: untyped
+
+    InvalidDBClusterStateFault: untyped
+
+    InvalidDBInstanceStateFault: untyped
+
+    InvalidDBParameterGroupStateFault: untyped
+
+    InvalidDBSecurityGroupStateFault: untyped
+
+    InvalidDBSnapshotStateFault: untyped
+
+    InvalidDBSubnetGroupStateFault: untyped
+
+    InvalidDBSubnetStateFault: untyped
+
+    InvalidEventSubscriptionStateFault: untyped
+
+    InvalidGlobalClusterStateFault: untyped
+
+    InvalidRestoreFault: untyped
+
+    InvalidSubnet: untyped
+
+    InvalidVPCNetworkStateFault: untyped
+
+    KMSKeyNotAccessibleFault: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ModifyDBClusterInput: untyped
+
+    ModifyDBClusterOutput: untyped
+
+    ModifyDBClusterParameterGroupInput: untyped
+
+    ModifyDBClusterParameterGroupOutput: untyped
+
+    ModifyDBClusterSnapshotAttributeInput: untyped
+
+    ModifyDBClusterSnapshotAttributeOutput: untyped
+
+    ModifyDBInstanceInput: untyped
+
+    ModifyDBInstanceOutput: untyped
+
+    ModifyDBSubnetGroupInput: untyped
+
+    ModifyDBSubnetGroupOutput: untyped
+
+    ModifyEventSubscriptionInput: untyped
+
+    ModifyEventSubscriptionOutput: untyped
+
+    ModifyGlobalClusterInput: untyped
+
+    ModifyGlobalClusterOutput: untyped
+
+    OrderableDBInstanceOption: untyped
+
+    Parameter: untyped
+
+    PendingCloudwatchLogsExports: untyped
+
+    PendingMaintenanceAction: untyped
+
+    PendingModifiedValues: untyped
+
+    RebootDBInstanceInput: untyped
+
+    RebootDBInstanceOutput: untyped
+
+    RemoveFromGlobalClusterInput: untyped
+
+    RemoveFromGlobalClusterOutput: untyped
+
+    RemoveSourceIdentifierFromSubscriptionInput: untyped
+
+    RemoveSourceIdentifierFromSubscriptionOutput: untyped
+
+    RemoveTagsFromResourceInput: untyped
+
+    RemoveTagsFromResourceOutput: untyped
+
+    ResetDBClusterParameterGroupInput: untyped
+
+    ResetDBClusterParameterGroupOutput: untyped
+
+    ResourceNotFoundFault: untyped
+
+    ResourcePendingMaintenanceActions: untyped
+
+    RestoreDBClusterFromSnapshotInput: untyped
+
+    RestoreDBClusterFromSnapshotOutput: untyped
+
+    RestoreDBClusterToPointInTimeInput: untyped
+
+    RestoreDBClusterToPointInTimeOutput: untyped
+
+    SNSInvalidTopicFault: untyped
+
+    SNSNoAuthorizationFault: untyped
+
+    SNSTopicArnNotFoundFault: untyped
+
+    SharedSnapshotQuotaExceededFault: untyped
+
+    SnapshotQuotaExceededFault: untyped
+
+    SourceNotFoundFault: untyped
+
+    module SourceType
+      db_instance: ::String
+
+      db_parameter_group: ::String
+
+      db_security_group: ::String
+
+      db_snapshot: ::String
+
+      db_cluster: ::String
+
+      db_cluster_snapshot: ::String
+    end
+
+    StartDBClusterInput: untyped
+
+    StartDBClusterOutput: untyped
+
+    StopDBClusterInput: untyped
+
+    StopDBClusterOutput: untyped
+
+    StorageQuotaExceededFault: untyped
+
+    StorageTypeNotSupportedFault: untyped
+
+    Subnet: untyped
+
+    SubnetAlreadyInUse: untyped
+
+    SubscriptionAlreadyExistFault: untyped
+
+    SubscriptionCategoryNotFoundFault: untyped
+
+    SubscriptionNotFoundFault: untyped
+
+    Tag: untyped
+
+    UpgradeTarget: untyped
+
+    VpcSecurityGroupMembership: untyped
+
+  end
+end

@@ -1,0 +1,60 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::MediaStoreData
+  module Types
+
+    ContainerNotFoundException: untyped
+
+    DeleteObjectInput: untyped
+
+    DeleteObjectOutput: untyped
+
+    DescribeObjectInput: untyped
+
+    DescribeObjectOutput: untyped
+
+    GetObjectInput: untyped
+
+    GetObjectOutput: untyped
+
+    InternalServerError: untyped
+
+    Item: untyped
+
+    module ItemType
+      OBJECT: ::String
+
+      FOLDER: ::String
+    end
+
+    ListItemsInput: untyped
+
+    ListItemsOutput: untyped
+
+    ObjectNotFoundException: untyped
+
+    PutObjectInput: untyped
+
+    PutObjectOutput: untyped
+
+    RequestedRangeNotSatisfiableException: untyped
+
+    module StorageClass
+      TEMPORAL: ::String
+    end
+
+    module UploadAvailability
+      STANDARD: ::String
+
+      STREAMING: ::String
+    end
+
+  end
+end

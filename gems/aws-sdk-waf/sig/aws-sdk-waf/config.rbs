@@ -1,0 +1,3 @@
+module AWS::SDK::WAF
+  Config: untyped
+end

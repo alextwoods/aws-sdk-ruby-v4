@@ -1,0 +1,3 @@
+module AWS::SDK::STS
+  Config: untyped
+end

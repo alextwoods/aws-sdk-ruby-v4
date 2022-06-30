@@ -1,0 +1,3 @@
+module AWS::SDK::Mobile
+  Config: untyped
+end

@@ -1,0 +1,40 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::KinesisVideoSignaling
+  module Types
+
+    ClientLimitExceededException: untyped
+
+    GetIceServerConfigInput: untyped
+
+    GetIceServerConfigOutput: untyped
+
+    IceServer: untyped
+
+    InvalidArgumentException: untyped
+
+    InvalidClientException: untyped
+
+    NotAuthorizedException: untyped
+
+    ResourceNotFoundException: untyped
+
+    SendAlexaOfferToMasterInput: untyped
+
+    SendAlexaOfferToMasterOutput: untyped
+
+    module Service
+      TURN: ::String
+    end
+
+    SessionExpiredException: untyped
+
+  end
+end

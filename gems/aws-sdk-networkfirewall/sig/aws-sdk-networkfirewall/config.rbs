@@ -1,0 +1,3 @@
+module AWS::SDK::NetworkFirewall
+  Config: untyped
+end

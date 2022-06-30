@@ -1,0 +1,3 @@
+module AWS::SDK::SageMakerFeatureStoreRuntime
+  Config: untyped
+end

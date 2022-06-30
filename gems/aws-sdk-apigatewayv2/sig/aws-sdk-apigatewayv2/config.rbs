@@ -1,0 +1,3 @@
+module AWS::SDK::ApiGatewayV2
+  Config: untyped
+end

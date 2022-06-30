@@ -1,0 +1,1254 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::GameLift
+  module Types
+
+    AcceptMatchInput: untyped
+
+    AcceptMatchOutput: untyped
+
+    module AcceptanceType
+      ACCEPT: ::String
+
+      REJECT: ::String
+    end
+
+    Alias: untyped
+
+    AttributeValue: untyped
+
+    AwsCredentials: untyped
+
+    module BackfillMode
+      AUTOMATIC: ::String
+
+      MANUAL: ::String
+    end
+
+    module BalancingStrategy
+      SPOT_ONLY: ::String
+
+      SPOT_PREFERRED: ::String
+
+      ON_DEMAND_ONLY: ::String
+    end
+
+    Build: untyped
+
+    module BuildStatus
+      INITIALIZED: ::String
+
+      READY: ::String
+
+      FAILED: ::String
+    end
+
+    CertificateConfiguration: untyped
+
+    module CertificateType
+      Disabled: ::String
+
+      Generated: ::String
+    end
+
+    ClaimGameServerInput: untyped
+
+    ClaimGameServerOutput: untyped
+
+    module ComparisonOperatorType
+      GreaterThanOrEqualToThreshold: ::String
+
+      GreaterThanThreshold: ::String
+
+      LessThanThreshold: ::String
+
+      LessThanOrEqualToThreshold: ::String
+    end
+
+    ConflictException: untyped
+
+    CreateAliasInput: untyped
+
+    CreateAliasOutput: untyped
+
+    CreateBuildInput: untyped
+
+    CreateBuildOutput: untyped
+
+    CreateFleetInput: untyped
+
+    CreateFleetLocationsInput: untyped
+
+    CreateFleetLocationsOutput: untyped
+
+    CreateFleetOutput: untyped
+
+    CreateGameServerGroupInput: untyped
+
+    CreateGameServerGroupOutput: untyped
+
+    CreateGameSessionInput: untyped
+
+    CreateGameSessionOutput: untyped
+
+    CreateGameSessionQueueInput: untyped
+
+    CreateGameSessionQueueOutput: untyped
+
+    CreateMatchmakingConfigurationInput: untyped
+
+    CreateMatchmakingConfigurationOutput: untyped
+
+    CreateMatchmakingRuleSetInput: untyped
+
+    CreateMatchmakingRuleSetOutput: untyped
+
+    CreatePlayerSessionInput: untyped
+
+    CreatePlayerSessionOutput: untyped
+
+    CreatePlayerSessionsInput: untyped
+
+    CreatePlayerSessionsOutput: untyped
+
+    CreateScriptInput: untyped
+
+    CreateScriptOutput: untyped
+
+    CreateVpcPeeringAuthorizationInput: untyped
+
+    CreateVpcPeeringAuthorizationOutput: untyped
+
+    CreateVpcPeeringConnectionInput: untyped
+
+    CreateVpcPeeringConnectionOutput: untyped
+
+    DeleteAliasInput: untyped
+
+    DeleteAliasOutput: untyped
+
+    DeleteBuildInput: untyped
+
+    DeleteBuildOutput: untyped
+
+    DeleteFleetInput: untyped
+
+    DeleteFleetLocationsInput: untyped
+
+    DeleteFleetLocationsOutput: untyped
+
+    DeleteFleetOutput: untyped
+
+    DeleteGameServerGroupInput: untyped
+
+    DeleteGameServerGroupOutput: untyped
+
+    DeleteGameSessionQueueInput: untyped
+
+    DeleteGameSessionQueueOutput: untyped
+
+    DeleteMatchmakingConfigurationInput: untyped
+
+    DeleteMatchmakingConfigurationOutput: untyped
+
+    DeleteMatchmakingRuleSetInput: untyped
+
+    DeleteMatchmakingRuleSetOutput: untyped
+
+    DeleteScalingPolicyInput: untyped
+
+    DeleteScalingPolicyOutput: untyped
+
+    DeleteScriptInput: untyped
+
+    DeleteScriptOutput: untyped
+
+    DeleteVpcPeeringAuthorizationInput: untyped
+
+    DeleteVpcPeeringAuthorizationOutput: untyped
+
+    DeleteVpcPeeringConnectionInput: untyped
+
+    DeleteVpcPeeringConnectionOutput: untyped
+
+    DeregisterGameServerInput: untyped
+
+    DeregisterGameServerOutput: untyped
+
+    DescribeAliasInput: untyped
+
+    DescribeAliasOutput: untyped
+
+    DescribeBuildInput: untyped
+
+    DescribeBuildOutput: untyped
+
+    DescribeEC2InstanceLimitsInput: untyped
+
+    DescribeEC2InstanceLimitsOutput: untyped
+
+    DescribeFleetAttributesInput: untyped
+
+    DescribeFleetAttributesOutput: untyped
+
+    DescribeFleetCapacityInput: untyped
+
+    DescribeFleetCapacityOutput: untyped
+
+    DescribeFleetEventsInput: untyped
+
+    DescribeFleetEventsOutput: untyped
+
+    DescribeFleetLocationAttributesInput: untyped
+
+    DescribeFleetLocationAttributesOutput: untyped
+
+    DescribeFleetLocationCapacityInput: untyped
+
+    DescribeFleetLocationCapacityOutput: untyped
+
+    DescribeFleetLocationUtilizationInput: untyped
+
+    DescribeFleetLocationUtilizationOutput: untyped
+
+    DescribeFleetPortSettingsInput: untyped
+
+    DescribeFleetPortSettingsOutput: untyped
+
+    DescribeFleetUtilizationInput: untyped
+
+    DescribeFleetUtilizationOutput: untyped
+
+    DescribeGameServerGroupInput: untyped
+
+    DescribeGameServerGroupOutput: untyped
+
+    DescribeGameServerInput: untyped
+
+    DescribeGameServerInstancesInput: untyped
+
+    DescribeGameServerInstancesOutput: untyped
+
+    DescribeGameServerOutput: untyped
+
+    DescribeGameSessionDetailsInput: untyped
+
+    DescribeGameSessionDetailsOutput: untyped
+
+    DescribeGameSessionPlacementInput: untyped
+
+    DescribeGameSessionPlacementOutput: untyped
+
+    DescribeGameSessionQueuesInput: untyped
+
+    DescribeGameSessionQueuesOutput: untyped
+
+    DescribeGameSessionsInput: untyped
+
+    DescribeGameSessionsOutput: untyped
+
+    DescribeInstancesInput: untyped
+
+    DescribeInstancesOutput: untyped
+
+    DescribeMatchmakingConfigurationsInput: untyped
+
+    DescribeMatchmakingConfigurationsOutput: untyped
+
+    DescribeMatchmakingInput: untyped
+
+    DescribeMatchmakingOutput: untyped
+
+    DescribeMatchmakingRuleSetsInput: untyped
+
+    DescribeMatchmakingRuleSetsOutput: untyped
+
+    DescribePlayerSessionsInput: untyped
+
+    DescribePlayerSessionsOutput: untyped
+
+    DescribeRuntimeConfigurationInput: untyped
+
+    DescribeRuntimeConfigurationOutput: untyped
+
+    DescribeScalingPoliciesInput: untyped
+
+    DescribeScalingPoliciesOutput: untyped
+
+    DescribeScriptInput: untyped
+
+    DescribeScriptOutput: untyped
+
+    DescribeVpcPeeringAuthorizationsInput: untyped
+
+    DescribeVpcPeeringAuthorizationsOutput: untyped
+
+    DescribeVpcPeeringConnectionsInput: untyped
+
+    DescribeVpcPeeringConnectionsOutput: untyped
+
+    DesiredPlayerSession: untyped
+
+    EC2InstanceCounts: untyped
+
+    EC2InstanceLimit: untyped
+
+    module EC2InstanceType
+      t2_micro: ::String
+
+      t2_small: ::String
+
+      t2_medium: ::String
+
+      t2_large: ::String
+
+      c3_large: ::String
+
+      c3_xlarge: ::String
+
+      c3_2xlarge: ::String
+
+      c3_4xlarge: ::String
+
+      c3_8xlarge: ::String
+
+      c4_large: ::String
+
+      c4_xlarge: ::String
+
+      c4_2xlarge: ::String
+
+      c4_4xlarge: ::String
+
+      c4_8xlarge: ::String
+
+      c5_large: ::String
+
+      c5_xlarge: ::String
+
+      c5_2xlarge: ::String
+
+      c5_4xlarge: ::String
+
+      c5_9xlarge: ::String
+
+      c5_12xlarge: ::String
+
+      c5_18xlarge: ::String
+
+      c5_24xlarge: ::String
+
+      c5a_large: ::String
+
+      c5a_xlarge: ::String
+
+      c5a_2xlarge: ::String
+
+      c5a_4xlarge: ::String
+
+      c5a_8xlarge: ::String
+
+      c5a_12xlarge: ::String
+
+      c5a_16xlarge: ::String
+
+      c5a_24xlarge: ::String
+
+      r3_large: ::String
+
+      r3_xlarge: ::String
+
+      r3_2xlarge: ::String
+
+      r3_4xlarge: ::String
+
+      r3_8xlarge: ::String
+
+      r4_large: ::String
+
+      r4_xlarge: ::String
+
+      r4_2xlarge: ::String
+
+      r4_4xlarge: ::String
+
+      r4_8xlarge: ::String
+
+      r4_16xlarge: ::String
+
+      r5_large: ::String
+
+      r5_xlarge: ::String
+
+      r5_2xlarge: ::String
+
+      r5_4xlarge: ::String
+
+      r5_8xlarge: ::String
+
+      r5_12xlarge: ::String
+
+      r5_16xlarge: ::String
+
+      r5_24xlarge: ::String
+
+      r5a_large: ::String
+
+      r5a_xlarge: ::String
+
+      r5a_2xlarge: ::String
+
+      r5a_4xlarge: ::String
+
+      r5a_8xlarge: ::String
+
+      r5a_12xlarge: ::String
+
+      r5a_16xlarge: ::String
+
+      r5a_24xlarge: ::String
+
+      m3_medium: ::String
+
+      m3_large: ::String
+
+      m3_xlarge: ::String
+
+      m3_2xlarge: ::String
+
+      m4_large: ::String
+
+      m4_xlarge: ::String
+
+      m4_2xlarge: ::String
+
+      m4_4xlarge: ::String
+
+      m4_10xlarge: ::String
+
+      m5_large: ::String
+
+      m5_xlarge: ::String
+
+      m5_2xlarge: ::String
+
+      m5_4xlarge: ::String
+
+      m5_8xlarge: ::String
+
+      m5_12xlarge: ::String
+
+      m5_16xlarge: ::String
+
+      m5_24xlarge: ::String
+
+      m5a_large: ::String
+
+      m5a_xlarge: ::String
+
+      m5a_2xlarge: ::String
+
+      m5a_4xlarge: ::String
+
+      m5a_8xlarge: ::String
+
+      m5a_12xlarge: ::String
+
+      m5a_16xlarge: ::String
+
+      m5a_24xlarge: ::String
+    end
+
+    Event: untyped
+
+    module EventCode
+      GENERIC_EVENT: ::String
+
+      FLEET_CREATED: ::String
+
+      FLEET_DELETED: ::String
+
+      FLEET_SCALING_EVENT: ::String
+
+      FLEET_STATE_DOWNLOADING: ::String
+
+      FLEET_STATE_VALIDATING: ::String
+
+      FLEET_STATE_BUILDING: ::String
+
+      FLEET_STATE_ACTIVATING: ::String
+
+      FLEET_STATE_ACTIVE: ::String
+
+      FLEET_STATE_ERROR: ::String
+
+      FLEET_INITIALIZATION_FAILED: ::String
+
+      FLEET_BINARY_DOWNLOAD_FAILED: ::String
+
+      FLEET_VALIDATION_LAUNCH_PATH_NOT_FOUND: ::String
+
+      FLEET_VALIDATION_EXECUTABLE_RUNTIME_FAILURE: ::String
+
+      FLEET_VALIDATION_TIMED_OUT: ::String
+
+      FLEET_ACTIVATION_FAILED: ::String
+
+      FLEET_ACTIVATION_FAILED_NO_INSTANCES: ::String
+
+      FLEET_NEW_GAME_SESSION_PROTECTION_POLICY_UPDATED: ::String
+
+      SERVER_PROCESS_INVALID_PATH: ::String
+
+      SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT: ::String
+
+      SERVER_PROCESS_PROCESS_READY_TIMEOUT: ::String
+
+      SERVER_PROCESS_CRASHED: ::String
+
+      SERVER_PROCESS_TERMINATED_UNHEALTHY: ::String
+
+      SERVER_PROCESS_FORCE_TERMINATED: ::String
+
+      SERVER_PROCESS_PROCESS_EXIT_TIMEOUT: ::String
+
+      GAME_SESSION_ACTIVATION_TIMEOUT: ::String
+
+      FLEET_CREATION_EXTRACTING_BUILD: ::String
+
+      FLEET_CREATION_RUNNING_INSTALLER: ::String
+
+      FLEET_CREATION_VALIDATING_RUNTIME_CONFIG: ::String
+
+      FLEET_VPC_PEERING_SUCCEEDED: ::String
+
+      FLEET_VPC_PEERING_FAILED: ::String
+
+      FLEET_VPC_PEERING_DELETED: ::String
+
+      INSTANCE_INTERRUPTED: ::String
+    end
+
+    FilterConfiguration: untyped
+
+    module FleetAction
+      AutoScaling: ::String
+    end
+
+    FleetAttributes: untyped
+
+    FleetCapacity: untyped
+
+    FleetCapacityExceededException: untyped
+
+    module FleetStatus
+      NEW: ::String
+
+      DOWNLOADING: ::String
+
+      VALIDATING: ::String
+
+      BUILDING: ::String
+
+      ACTIVATING: ::String
+
+      ACTIVE: ::String
+
+      DELETING: ::String
+
+      ERROR: ::String
+
+      TERMINATED: ::String
+    end
+
+    module FleetType
+      OnDemand: ::String
+
+      Spot: ::String
+    end
+
+    FleetUtilization: untyped
+
+    module FlexMatchMode
+      STANDALONE: ::String
+
+      WITH_QUEUE: ::String
+    end
+
+    GameProperty: untyped
+
+    GameServer: untyped
+
+    module GameServerClaimStatus
+      CLAIMED: ::String
+    end
+
+    GameServerGroup: untyped
+
+    module GameServerGroupAction
+      REPLACE_INSTANCE_TYPES: ::String
+    end
+
+    GameServerGroupAutoScalingPolicy: untyped
+
+    module GameServerGroupDeleteOption
+      SAFE_DELETE: ::String
+
+      FORCE_DELETE: ::String
+
+      RETAIN: ::String
+    end
+
+    module GameServerGroupInstanceType
+      c4_large: ::String
+
+      c4_xlarge: ::String
+
+      c4_2xlarge: ::String
+
+      c4_4xlarge: ::String
+
+      c4_8xlarge: ::String
+
+      c5_large: ::String
+
+      c5_xlarge: ::String
+
+      c5_2xlarge: ::String
+
+      c5_4xlarge: ::String
+
+      c5_9xlarge: ::String
+
+      c5_12xlarge: ::String
+
+      c5_18xlarge: ::String
+
+      c5_24xlarge: ::String
+
+      c5a_large: ::String
+
+      c5a_xlarge: ::String
+
+      c5a_2xlarge: ::String
+
+      c5a_4xlarge: ::String
+
+      c5a_8xlarge: ::String
+
+      c5a_12xlarge: ::String
+
+      c5a_16xlarge: ::String
+
+      c5a_24xlarge: ::String
+
+      c6g_medium: ::String
+
+      c6g_large: ::String
+
+      c6g_xlarge: ::String
+
+      c6g_2xlarge: ::String
+
+      c6g_4xlarge: ::String
+
+      c6g_8xlarge: ::String
+
+      c6g_12xlarge: ::String
+
+      c6g_16xlarge: ::String
+
+      r4_large: ::String
+
+      r4_xlarge: ::String
+
+      r4_2xlarge: ::String
+
+      r4_4xlarge: ::String
+
+      r4_8xlarge: ::String
+
+      r4_16xlarge: ::String
+
+      r5_large: ::String
+
+      r5_xlarge: ::String
+
+      r5_2xlarge: ::String
+
+      r5_4xlarge: ::String
+
+      r5_8xlarge: ::String
+
+      r5_12xlarge: ::String
+
+      r5_16xlarge: ::String
+
+      r5_24xlarge: ::String
+
+      r5a_large: ::String
+
+      r5a_xlarge: ::String
+
+      r5a_2xlarge: ::String
+
+      r5a_4xlarge: ::String
+
+      r5a_8xlarge: ::String
+
+      r5a_12xlarge: ::String
+
+      r5a_16xlarge: ::String
+
+      r5a_24xlarge: ::String
+
+      r6g_medium: ::String
+
+      r6g_large: ::String
+
+      r6g_xlarge: ::String
+
+      r6g_2xlarge: ::String
+
+      r6g_4xlarge: ::String
+
+      r6g_8xlarge: ::String
+
+      r6g_12xlarge: ::String
+
+      r6g_16xlarge: ::String
+
+      m4_large: ::String
+
+      m4_xlarge: ::String
+
+      m4_2xlarge: ::String
+
+      m4_4xlarge: ::String
+
+      m4_10xlarge: ::String
+
+      m5_large: ::String
+
+      m5_xlarge: ::String
+
+      m5_2xlarge: ::String
+
+      m5_4xlarge: ::String
+
+      m5_8xlarge: ::String
+
+      m5_12xlarge: ::String
+
+      m5_16xlarge: ::String
+
+      m5_24xlarge: ::String
+
+      m5a_large: ::String
+
+      m5a_xlarge: ::String
+
+      m5a_2xlarge: ::String
+
+      m5a_4xlarge: ::String
+
+      m5a_8xlarge: ::String
+
+      m5a_12xlarge: ::String
+
+      m5a_16xlarge: ::String
+
+      m5a_24xlarge: ::String
+
+      m6g_medium: ::String
+
+      m6g_large: ::String
+
+      m6g_xlarge: ::String
+
+      m6g_2xlarge: ::String
+
+      m6g_4xlarge: ::String
+
+      m6g_8xlarge: ::String
+
+      m6g_12xlarge: ::String
+
+      m6g_16xlarge: ::String
+    end
+
+    module GameServerGroupStatus
+      NEW: ::String
+
+      ACTIVATING: ::String
+
+      ACTIVE: ::String
+
+      DELETE_SCHEDULED: ::String
+
+      DELETING: ::String
+
+      DELETED: ::String
+
+      ERROR: ::String
+    end
+
+    module GameServerHealthCheck
+      HEALTHY: ::String
+    end
+
+    GameServerInstance: untyped
+
+    module GameServerInstanceStatus
+      ACTIVE: ::String
+
+      DRAINING: ::String
+
+      SPOT_TERMINATING: ::String
+    end
+
+    module GameServerProtectionPolicy
+      NO_PROTECTION: ::String
+
+      FULL_PROTECTION: ::String
+    end
+
+    module GameServerUtilizationStatus
+      AVAILABLE: ::String
+
+      UTILIZED: ::String
+    end
+
+    GameSession: untyped
+
+    GameSessionConnectionInfo: untyped
+
+    GameSessionDetail: untyped
+
+    GameSessionFullException: untyped
+
+    GameSessionPlacement: untyped
+
+    module GameSessionPlacementState
+      PENDING: ::String
+
+      FULFILLED: ::String
+
+      CANCELLED: ::String
+
+      TIMED_OUT: ::String
+
+      FAILED: ::String
+    end
+
+    GameSessionQueue: untyped
+
+    GameSessionQueueDestination: untyped
+
+    module GameSessionStatus
+      ACTIVE: ::String
+
+      ACTIVATING: ::String
+
+      TERMINATED: ::String
+
+      TERMINATING: ::String
+
+      ERROR: ::String
+    end
+
+    module GameSessionStatusReason
+      INTERRUPTED: ::String
+    end
+
+    GetGameSessionLogUrlInput: untyped
+
+    GetGameSessionLogUrlOutput: untyped
+
+    GetInstanceAccessInput: untyped
+
+    GetInstanceAccessOutput: untyped
+
+    IdempotentParameterMismatchException: untyped
+
+    Instance: untyped
+
+    InstanceAccess: untyped
+
+    InstanceCredentials: untyped
+
+    InstanceDefinition: untyped
+
+    module InstanceStatus
+      PENDING: ::String
+
+      ACTIVE: ::String
+
+      TERMINATING: ::String
+    end
+
+    InternalServiceException: untyped
+
+    InvalidFleetStatusException: untyped
+
+    InvalidGameSessionStatusException: untyped
+
+    InvalidRequestException: untyped
+
+    IpPermission: untyped
+
+    module IpProtocol
+      TCP: ::String
+
+      UDP: ::String
+    end
+
+    LaunchTemplateSpecification: untyped
+
+    LimitExceededException: untyped
+
+    ListAliasesInput: untyped
+
+    ListAliasesOutput: untyped
+
+    ListBuildsInput: untyped
+
+    ListBuildsOutput: untyped
+
+    ListFleetsInput: untyped
+
+    ListFleetsOutput: untyped
+
+    ListGameServerGroupsInput: untyped
+
+    ListGameServerGroupsOutput: untyped
+
+    ListGameServersInput: untyped
+
+    ListGameServersOutput: untyped
+
+    ListScriptsInput: untyped
+
+    ListScriptsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    LocationAttributes: untyped
+
+    LocationConfiguration: untyped
+
+    LocationState: untyped
+
+    module LocationUpdateStatus
+      PENDING_UPDATE: ::String
+    end
+
+    MatchedPlayerSession: untyped
+
+    MatchmakingConfiguration: untyped
+
+    module MatchmakingConfigurationStatus
+      CANCELLED: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+
+      PLACING: ::String
+
+      QUEUED: ::String
+
+      REQUIRES_ACCEPTANCE: ::String
+
+      SEARCHING: ::String
+
+      TIMED_OUT: ::String
+    end
+
+    MatchmakingRuleSet: untyped
+
+    MatchmakingTicket: untyped
+
+    module MetricName
+      ActivatingGameSessions: ::String
+
+      ActiveGameSessions: ::String
+
+      ActiveInstances: ::String
+
+      AvailableGameSessions: ::String
+
+      AvailablePlayerSessions: ::String
+
+      CurrentPlayerSessions: ::String
+
+      IdleInstances: ::String
+
+      PercentAvailableGameSessions: ::String
+
+      PercentIdleInstances: ::String
+
+      QueueDepth: ::String
+
+      WaitTime: ::String
+    end
+
+    NotFoundException: untyped
+
+    module OperatingSystem
+      WINDOWS_2012: ::String
+
+      AMAZON_LINUX: ::String
+
+      AMAZON_LINUX_2: ::String
+    end
+
+    OutOfCapacityException: untyped
+
+    PlacedPlayerSession: untyped
+
+    Player: untyped
+
+    PlayerLatency: untyped
+
+    PlayerLatencyPolicy: untyped
+
+    PlayerSession: untyped
+
+    module PlayerSessionCreationPolicy
+      ACCEPT_ALL: ::String
+
+      DENY_ALL: ::String
+    end
+
+    module PlayerSessionStatus
+      RESERVED: ::String
+
+      ACTIVE: ::String
+
+      COMPLETED: ::String
+
+      TIMEDOUT: ::String
+    end
+
+    module PolicyType
+      RuleBased: ::String
+
+      TargetBased: ::String
+    end
+
+    PriorityConfiguration: untyped
+
+    module PriorityType
+      LATENCY: ::String
+
+      COST: ::String
+
+      DESTINATION: ::String
+
+      LOCATION: ::String
+    end
+
+    module ProtectionPolicy
+      NoProtection: ::String
+
+      FullProtection: ::String
+    end
+
+    PutScalingPolicyInput: untyped
+
+    PutScalingPolicyOutput: untyped
+
+    RegisterGameServerInput: untyped
+
+    RegisterGameServerOutput: untyped
+
+    RequestUploadCredentialsInput: untyped
+
+    RequestUploadCredentialsOutput: untyped
+
+    ResolveAliasInput: untyped
+
+    ResolveAliasOutput: untyped
+
+    ResourceCreationLimitPolicy: untyped
+
+    ResumeGameServerGroupInput: untyped
+
+    ResumeGameServerGroupOutput: untyped
+
+    RoutingStrategy: untyped
+
+    module RoutingStrategyType
+      SIMPLE: ::String
+
+      TERMINAL: ::String
+    end
+
+    RuntimeConfiguration: untyped
+
+    S3Location: untyped
+
+    module ScalingAdjustmentType
+      ChangeInCapacity: ::String
+
+      ExactCapacity: ::String
+
+      PercentChangeInCapacity: ::String
+    end
+
+    ScalingPolicy: untyped
+
+    module ScalingStatusType
+      ACTIVE: ::String
+
+      UPDATE_REQUESTED: ::String
+
+      UPDATING: ::String
+
+      DELETE_REQUESTED: ::String
+
+      DELETING: ::String
+
+      DELETED: ::String
+
+      ERROR: ::String
+    end
+
+    Script: untyped
+
+    SearchGameSessionsInput: untyped
+
+    SearchGameSessionsOutput: untyped
+
+    ServerProcess: untyped
+
+    module SortOrder
+      ASCENDING: ::String
+
+      DESCENDING: ::String
+    end
+
+    StartFleetActionsInput: untyped
+
+    StartFleetActionsOutput: untyped
+
+    StartGameSessionPlacementInput: untyped
+
+    StartGameSessionPlacementOutput: untyped
+
+    StartMatchBackfillInput: untyped
+
+    StartMatchBackfillOutput: untyped
+
+    StartMatchmakingInput: untyped
+
+    StartMatchmakingOutput: untyped
+
+    StopFleetActionsInput: untyped
+
+    StopFleetActionsOutput: untyped
+
+    StopGameSessionPlacementInput: untyped
+
+    StopGameSessionPlacementOutput: untyped
+
+    StopMatchmakingInput: untyped
+
+    StopMatchmakingOutput: untyped
+
+    SuspendGameServerGroupInput: untyped
+
+    SuspendGameServerGroupOutput: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TaggingFailedException: untyped
+
+    TargetConfiguration: untyped
+
+    TargetTrackingConfiguration: untyped
+
+    TerminalRoutingStrategyException: untyped
+
+    UnauthorizedException: untyped
+
+    UnsupportedRegionException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAliasInput: untyped
+
+    UpdateAliasOutput: untyped
+
+    UpdateBuildInput: untyped
+
+    UpdateBuildOutput: untyped
+
+    UpdateFleetAttributesInput: untyped
+
+    UpdateFleetAttributesOutput: untyped
+
+    UpdateFleetCapacityInput: untyped
+
+    UpdateFleetCapacityOutput: untyped
+
+    UpdateFleetPortSettingsInput: untyped
+
+    UpdateFleetPortSettingsOutput: untyped
+
+    UpdateGameServerGroupInput: untyped
+
+    UpdateGameServerGroupOutput: untyped
+
+    UpdateGameServerInput: untyped
+
+    UpdateGameServerOutput: untyped
+
+    UpdateGameSessionInput: untyped
+
+    UpdateGameSessionOutput: untyped
+
+    UpdateGameSessionQueueInput: untyped
+
+    UpdateGameSessionQueueOutput: untyped
+
+    UpdateMatchmakingConfigurationInput: untyped
+
+    UpdateMatchmakingConfigurationOutput: untyped
+
+    UpdateRuntimeConfigurationInput: untyped
+
+    UpdateRuntimeConfigurationOutput: untyped
+
+    UpdateScriptInput: untyped
+
+    UpdateScriptOutput: untyped
+
+    ValidateMatchmakingRuleSetInput: untyped
+
+    ValidateMatchmakingRuleSetOutput: untyped
+
+    VpcPeeringAuthorization: untyped
+
+    VpcPeeringConnection: untyped
+
+    VpcPeeringConnectionStatus: untyped
+
+  end
+end

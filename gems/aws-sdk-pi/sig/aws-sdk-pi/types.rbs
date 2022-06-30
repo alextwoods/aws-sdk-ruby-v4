@@ -1,0 +1,98 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::PI
+  module Types
+
+    DataPoint: untyped
+
+    DescribeDimensionKeysInput: untyped
+
+    DescribeDimensionKeysOutput: untyped
+
+    module DetailStatus
+      AVAILABLE: ::String
+
+      PROCESSING: ::String
+
+      UNAVAILABLE: ::String
+    end
+
+    DimensionDetail: untyped
+
+    DimensionGroup: untyped
+
+    DimensionGroupDetail: untyped
+
+    DimensionKeyDescription: untyped
+
+    DimensionKeyDetail: untyped
+
+    FeatureMetadata: untyped
+
+    module FeatureStatus
+      ENABLED: ::String
+
+      DISABLED: ::String
+
+      UNSUPPORTED: ::String
+
+      ENABLED_PENDING_REBOOT: ::String
+
+      DISABLED_PENDING_REBOOT: ::String
+
+      UNKNOWN: ::String
+    end
+
+    GetDimensionKeyDetailsInput: untyped
+
+    GetDimensionKeyDetailsOutput: untyped
+
+    GetResourceMetadataInput: untyped
+
+    GetResourceMetadataOutput: untyped
+
+    GetResourceMetricsInput: untyped
+
+    GetResourceMetricsOutput: untyped
+
+    InternalServiceError: untyped
+
+    InvalidArgumentException: untyped
+
+    ListAvailableResourceDimensionsInput: untyped
+
+    ListAvailableResourceDimensionsOutput: untyped
+
+    ListAvailableResourceMetricsInput: untyped
+
+    ListAvailableResourceMetricsOutput: untyped
+
+    MetricDimensionGroups: untyped
+
+    MetricKeyDataPoints: untyped
+
+    MetricQuery: untyped
+
+    NotAuthorizedException: untyped
+
+    ResponsePartitionKey: untyped
+
+    ResponseResourceMetric: untyped
+
+    ResponseResourceMetricKey: untyped
+
+    module ServiceType
+      RDS: ::String
+
+      DOCDB: ::String
+    end
+
+  end
+end

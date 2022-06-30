@@ -1,0 +1,448 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Panorama
+  module Types
+
+    AccessDeniedException: untyped
+
+    AlternateSoftwareMetadata: untyped
+
+    ApplicationInstance: untyped
+
+    module ApplicationInstanceHealthStatus
+      RUNNING: ::String
+
+      ERROR: ::String
+
+      NOT_AVAILABLE: ::String
+    end
+
+    module ApplicationInstanceStatus
+      DEPLOYMENT_PENDING: ::String
+
+      DEPLOYMENT_REQUESTED: ::String
+
+      DEPLOYMENT_IN_PROGRESS: ::String
+
+      DEPLOYMENT_ERROR: ::String
+
+      DEPLOYMENT_SUCCEEDED: ::String
+
+      REMOVAL_PENDING: ::String
+
+      REMOVAL_REQUESTED: ::String
+
+      REMOVAL_IN_PROGRESS: ::String
+
+      REMOVAL_FAILED: ::String
+
+      REMOVAL_SUCCEEDED: ::String
+
+      DEPLOYMENT_FAILED: ::String
+    end
+
+    ConflictException: untyped
+
+    ConflictExceptionErrorArgument: untyped
+
+    module ConnectionType
+      STATIC_IP: ::String
+
+      DHCP: ::String
+    end
+
+    CreateApplicationInstanceInput: untyped
+
+    CreateApplicationInstanceOutput: untyped
+
+    CreateJobForDevicesInput: untyped
+
+    CreateJobForDevicesOutput: untyped
+
+    CreateNodeFromTemplateJobInput: untyped
+
+    CreateNodeFromTemplateJobOutput: untyped
+
+    CreatePackageImportJobInput: untyped
+
+    CreatePackageImportJobOutput: untyped
+
+    CreatePackageInput: untyped
+
+    CreatePackageOutput: untyped
+
+    DeleteDeviceInput: untyped
+
+    DeleteDeviceOutput: untyped
+
+    DeletePackageInput: untyped
+
+    DeletePackageOutput: untyped
+
+    DeregisterPackageVersionInput: untyped
+
+    DeregisterPackageVersionOutput: untyped
+
+    DescribeApplicationInstanceDetailsInput: untyped
+
+    DescribeApplicationInstanceDetailsOutput: untyped
+
+    DescribeApplicationInstanceInput: untyped
+
+    DescribeApplicationInstanceOutput: untyped
+
+    DescribeDeviceInput: untyped
+
+    DescribeDeviceJobInput: untyped
+
+    DescribeDeviceJobOutput: untyped
+
+    DescribeDeviceOutput: untyped
+
+    DescribeNodeFromTemplateJobInput: untyped
+
+    DescribeNodeFromTemplateJobOutput: untyped
+
+    DescribeNodeInput: untyped
+
+    DescribeNodeOutput: untyped
+
+    DescribePackageImportJobInput: untyped
+
+    DescribePackageImportJobOutput: untyped
+
+    DescribePackageInput: untyped
+
+    DescribePackageOutput: untyped
+
+    DescribePackageVersionInput: untyped
+
+    DescribePackageVersionOutput: untyped
+
+    Device: untyped
+
+    module DeviceBrand
+      AWS_PANORAMA: ::String
+
+      LENOVO: ::String
+    end
+
+    module DeviceConnectionStatus
+      ONLINE: ::String
+
+      OFFLINE: ::String
+
+      AWAITING_CREDENTIALS: ::String
+
+      NOT_AVAILABLE: ::String
+
+      ERROR: ::String
+    end
+
+    DeviceJob: untyped
+
+    DeviceJobConfig: untyped
+
+    module DeviceStatus
+      AWAITING_PROVISIONING: ::String
+
+      PENDING: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+
+      ERROR: ::String
+
+      DELETING: ::String
+    end
+
+    module DeviceType
+      PANORAMA_APPLIANCE_DEVELOPER_KIT: ::String
+
+      PANORAMA_APPLIANCE: ::String
+    end
+
+    EthernetPayload: untyped
+
+    EthernetStatus: untyped
+
+    InternalServerException: untyped
+
+    Job: untyped
+
+    JobResourceTags: untyped
+
+    module JobResourceType
+      PACKAGE: ::String
+    end
+
+    module JobType
+      OTA: ::String
+    end
+
+    ListApplicationInstanceDependenciesInput: untyped
+
+    ListApplicationInstanceDependenciesOutput: untyped
+
+    ListApplicationInstanceNodeInstancesInput: untyped
+
+    ListApplicationInstanceNodeInstancesOutput: untyped
+
+    ListApplicationInstancesInput: untyped
+
+    ListApplicationInstancesOutput: untyped
+
+    ListDevicesInput: untyped
+
+    ListDevicesJobsInput: untyped
+
+    ListDevicesJobsOutput: untyped
+
+    ListDevicesOutput: untyped
+
+    ListNodeFromTemplateJobsInput: untyped
+
+    ListNodeFromTemplateJobsOutput: untyped
+
+    ListNodesInput: untyped
+
+    ListNodesOutput: untyped
+
+    ListPackageImportJobsInput: untyped
+
+    ListPackageImportJobsOutput: untyped
+
+    ListPackagesInput: untyped
+
+    ListPackagesOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    class ManifestOverridesPayload < Hearth::Union
+      class PayloadData < ManifestOverridesPayload
+        def to_h: () -> { payload_data: Hash[Symbol,ManifestOverridesPayload] }
+      end
+
+      class Unknown < ManifestOverridesPayload
+        def to_h: () -> { unknown: Hash[Symbol,ManifestOverridesPayload] }
+      end
+    end
+
+    class ManifestPayload < Hearth::Union
+      class PayloadData < ManifestPayload
+        def to_h: () -> { payload_data: Hash[Symbol,ManifestPayload] }
+      end
+
+      class Unknown < ManifestPayload
+        def to_h: () -> { unknown: Hash[Symbol,ManifestPayload] }
+      end
+    end
+
+    module NetworkConnectionStatus
+      CONNECTED: ::String
+
+      NOT_CONNECTED: ::String
+
+      CONNECTING: ::String
+    end
+
+    NetworkPayload: untyped
+
+    NetworkStatus: untyped
+
+    Node: untyped
+
+    module NodeCategory
+      BUSINESS_LOGIC: ::String
+
+      ML_MODEL: ::String
+
+      MEDIA_SOURCE: ::String
+
+      MEDIA_SINK: ::String
+    end
+
+    NodeFromTemplateJob: untyped
+
+    module NodeFromTemplateJobStatus
+      PENDING: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+    end
+
+    NodeInputPort: untyped
+
+    NodeInstance: untyped
+
+    module NodeInstanceStatus
+      RUNNING: ::String
+
+      ERROR: ::String
+
+      NOT_AVAILABLE: ::String
+    end
+
+    NodeInterface: untyped
+
+    NodeOutputPort: untyped
+
+    NtpPayload: untyped
+
+    NtpStatus: untyped
+
+    OTAJobConfig: untyped
+
+    OutPutS3Location: untyped
+
+    PackageImportJob: untyped
+
+    PackageImportJobInputConfig: untyped
+
+    PackageImportJobOutput: untyped
+
+    PackageImportJobOutputConfig: untyped
+
+    module PackageImportJobStatus
+      PENDING: ::String
+
+      SUCCEEDED: ::String
+
+      FAILED: ::String
+    end
+
+    module PackageImportJobType
+      NODE_PACKAGE_VERSION: ::String
+
+      MARKETPLACE_NODE_PACKAGE_VERSION: ::String
+    end
+
+    PackageListItem: untyped
+
+    PackageObject: untyped
+
+    PackageVersionInputConfig: untyped
+
+    PackageVersionOutputConfig: untyped
+
+    module PackageVersionStatus
+      REGISTER_PENDING: ::String
+
+      REGISTER_COMPLETED: ::String
+
+      FAILED: ::String
+
+      DELETING: ::String
+    end
+
+    module PortType
+      BOOLEAN: ::String
+
+      STRING: ::String
+
+      INT32: ::String
+
+      FLOAT32: ::String
+
+      MEDIA: ::String
+    end
+
+    ProvisionDeviceInput: untyped
+
+    ProvisionDeviceOutput: untyped
+
+    RegisterPackageVersionInput: untyped
+
+    RegisterPackageVersionOutput: untyped
+
+    RemoveApplicationInstanceInput: untyped
+
+    RemoveApplicationInstanceOutput: untyped
+
+    ResourceNotFoundException: untyped
+
+    S3Location: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    StaticIpConnectionInfo: untyped
+
+    module StatusFilter
+      DEPLOYMENT_SUCCEEDED: ::String
+
+      DEPLOYMENT_ERROR: ::String
+
+      REMOVAL_SUCCEEDED: ::String
+
+      REMOVAL_FAILED: ::String
+
+      PROCESSING_DEPLOYMENT: ::String
+
+      PROCESSING_REMOVAL: ::String
+
+      DEPLOYMENT_FAILED: ::String
+    end
+
+    StorageLocation: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    module TemplateType
+      RTSP_CAMERA_STREAM: ::String
+    end
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateDeviceMetadataInput: untyped
+
+    UpdateDeviceMetadataOutput: untyped
+
+    module UpdateProgress
+      PENDING: ::String
+
+      IN_PROGRESS: ::String
+
+      VERIFYING: ::String
+
+      REBOOTING: ::String
+
+      DOWNLOADING: ::String
+
+      COMPLETED: ::String
+
+      FAILED: ::String
+    end
+
+    ValidationException: untyped
+
+    ValidationExceptionErrorArgument: untyped
+
+    ValidationExceptionField: untyped
+
+    module ValidationExceptionReason
+      UNKNOWN_OPERATION: ::String
+
+      CANNOT_PARSE: ::String
+
+      FIELD_VALIDATION_FAILED: ::String
+
+      OTHER: ::String
+    end
+
+  end
+end

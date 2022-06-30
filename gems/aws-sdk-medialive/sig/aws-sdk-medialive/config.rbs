@@ -1,0 +1,3 @@
+module AWS::SDK::MediaLive
+  Config: untyped
+end

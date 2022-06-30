@@ -1,0 +1,3 @@
+module AWS::SDK::EMRContainers
+  Config: untyped
+end

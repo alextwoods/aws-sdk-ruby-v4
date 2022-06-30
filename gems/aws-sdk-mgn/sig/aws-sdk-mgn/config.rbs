@@ -1,0 +1,3 @@
+module AWS::SDK::Mgn
+  Config: untyped
+end

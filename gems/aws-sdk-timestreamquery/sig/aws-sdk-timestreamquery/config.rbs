@@ -1,0 +1,3 @@
+module AWS::SDK::TimestreamQuery
+  Config: untyped
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::IoT1ClickProjects
+  Config: untyped
+end

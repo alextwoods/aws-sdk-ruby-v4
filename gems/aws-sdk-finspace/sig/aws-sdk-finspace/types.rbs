@@ -1,0 +1,96 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Finspace
+  module Types
+
+    AccessDeniedException: untyped
+
+    CreateEnvironmentInput: untyped
+
+    CreateEnvironmentOutput: untyped
+
+    DeleteEnvironmentInput: untyped
+
+    DeleteEnvironmentOutput: untyped
+
+    Environment: untyped
+
+    module EnvironmentStatus
+      CREATE_REQUESTED: ::String
+
+      CREATING: ::String
+
+      CREATED: ::String
+
+      DELETE_REQUESTED: ::String
+
+      DELETING: ::String
+
+      DELETED: ::String
+
+      FAILED_CREATION: ::String
+
+      RETRY_DELETION: ::String
+
+      FAILED_DELETION: ::String
+
+      SUSPENDED: ::String
+    end
+
+    module FederationMode
+      FEDERATED: ::String
+
+      LOCAL: ::String
+    end
+
+    FederationParameters: untyped
+
+    GetEnvironmentInput: untyped
+
+    GetEnvironmentOutput: untyped
+
+    InternalServerException: untyped
+
+    InvalidRequestException: untyped
+
+    LimitExceededException: untyped
+
+    ListEnvironmentsInput: untyped
+
+    ListEnvironmentsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ResourceNotFoundException: untyped
+
+    ServiceQuotaExceededException: untyped
+
+    SuperuserParameters: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateEnvironmentInput: untyped
+
+    UpdateEnvironmentOutput: untyped
+
+    ValidationException: untyped
+
+  end
+end

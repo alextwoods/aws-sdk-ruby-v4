@@ -1,0 +1,3 @@
+module AWS::SDK::Route53
+  Config: untyped
+end

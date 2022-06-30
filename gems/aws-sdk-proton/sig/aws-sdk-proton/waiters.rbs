@@ -1,0 +1,94 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::Proton
+  module Waiters
+
+    class ComponentDeployed
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class ComponentDeleted
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class EnvironmentDeployed
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class EnvironmentTemplateVersionRegistered
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class ServiceCreated
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class ServiceUpdated
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class ServiceDeleted
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class ServicePipelineDeployed
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class ServiceInstanceDeployed
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+    class ServiceTemplateVersionRegistered
+      def initialize: (untyped client, ?::Hash[untyped, untyped] options) -> void
+
+      attr_reader tags: untyped
+
+      def wait: (?::Hash[untyped, untyped] params, ?::Hash[untyped, untyped] options) -> untyped
+    end
+
+  end
+end

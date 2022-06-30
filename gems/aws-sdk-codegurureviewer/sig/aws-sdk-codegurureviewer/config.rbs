@@ -1,0 +1,3 @@
+module AWS::SDK::CodeGuruReviewer
+  Config: untyped
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::CloudHSMV2
+  Config: untyped
+end

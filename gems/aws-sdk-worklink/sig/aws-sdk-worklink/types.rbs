@@ -1,0 +1,214 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::WorkLink
+  module Types
+
+    AssociateDomainInput: untyped
+
+    AssociateDomainOutput: untyped
+
+    AssociateWebsiteAuthorizationProviderInput: untyped
+
+    AssociateWebsiteAuthorizationProviderOutput: untyped
+
+    AssociateWebsiteCertificateAuthorityInput: untyped
+
+    AssociateWebsiteCertificateAuthorityOutput: untyped
+
+    module AuthorizationProviderType
+      SAML: ::String
+    end
+
+    CreateFleetInput: untyped
+
+    CreateFleetOutput: untyped
+
+    DeleteFleetInput: untyped
+
+    DeleteFleetOutput: untyped
+
+    DescribeAuditStreamConfigurationInput: untyped
+
+    DescribeAuditStreamConfigurationOutput: untyped
+
+    DescribeCompanyNetworkConfigurationInput: untyped
+
+    DescribeCompanyNetworkConfigurationOutput: untyped
+
+    DescribeDeviceInput: untyped
+
+    DescribeDeviceOutput: untyped
+
+    DescribeDevicePolicyConfigurationInput: untyped
+
+    DescribeDevicePolicyConfigurationOutput: untyped
+
+    DescribeDomainInput: untyped
+
+    DescribeDomainOutput: untyped
+
+    DescribeFleetMetadataInput: untyped
+
+    DescribeFleetMetadataOutput: untyped
+
+    DescribeIdentityProviderConfigurationInput: untyped
+
+    DescribeIdentityProviderConfigurationOutput: untyped
+
+    DescribeWebsiteCertificateAuthorityInput: untyped
+
+    DescribeWebsiteCertificateAuthorityOutput: untyped
+
+    module DeviceStatus
+      ACTIVE: ::String
+
+      SIGNED_OUT: ::String
+    end
+
+    DeviceSummary: untyped
+
+    DisassociateDomainInput: untyped
+
+    DisassociateDomainOutput: untyped
+
+    DisassociateWebsiteAuthorizationProviderInput: untyped
+
+    DisassociateWebsiteAuthorizationProviderOutput: untyped
+
+    DisassociateWebsiteCertificateAuthorityInput: untyped
+
+    DisassociateWebsiteCertificateAuthorityOutput: untyped
+
+    module DomainStatus
+      PENDING_VALIDATION: ::String
+
+      ASSOCIATING: ::String
+
+      ACTIVE: ::String
+
+      INACTIVE: ::String
+
+      DISASSOCIATING: ::String
+
+      DISASSOCIATED: ::String
+
+      FAILED_TO_ASSOCIATE: ::String
+
+      FAILED_TO_DISASSOCIATE: ::String
+    end
+
+    DomainSummary: untyped
+
+    module FleetStatus
+      CREATING: ::String
+
+      ACTIVE: ::String
+
+      DELETING: ::String
+
+      DELETED: ::String
+
+      FAILED_TO_CREATE: ::String
+
+      FAILED_TO_DELETE: ::String
+    end
+
+    FleetSummary: untyped
+
+    module IdentityProviderType
+      SAML: ::String
+    end
+
+    InternalServerErrorException: untyped
+
+    InvalidRequestException: untyped
+
+    ListDevicesInput: untyped
+
+    ListDevicesOutput: untyped
+
+    ListDomainsInput: untyped
+
+    ListDomainsOutput: untyped
+
+    ListFleetsInput: untyped
+
+    ListFleetsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    ListWebsiteAuthorizationProvidersInput: untyped
+
+    ListWebsiteAuthorizationProvidersOutput: untyped
+
+    ListWebsiteCertificateAuthoritiesInput: untyped
+
+    ListWebsiteCertificateAuthoritiesOutput: untyped
+
+    ResourceAlreadyExistsException: untyped
+
+    ResourceNotFoundException: untyped
+
+    RestoreDomainAccessInput: untyped
+
+    RestoreDomainAccessOutput: untyped
+
+    RevokeDomainAccessInput: untyped
+
+    RevokeDomainAccessOutput: untyped
+
+    SignOutUserInput: untyped
+
+    SignOutUserOutput: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    TooManyRequestsException: untyped
+
+    UnauthorizedException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAuditStreamConfigurationInput: untyped
+
+    UpdateAuditStreamConfigurationOutput: untyped
+
+    UpdateCompanyNetworkConfigurationInput: untyped
+
+    UpdateCompanyNetworkConfigurationOutput: untyped
+
+    UpdateDevicePolicyConfigurationInput: untyped
+
+    UpdateDevicePolicyConfigurationOutput: untyped
+
+    UpdateDomainMetadataInput: untyped
+
+    UpdateDomainMetadataOutput: untyped
+
+    UpdateFleetMetadataInput: untyped
+
+    UpdateFleetMetadataOutput: untyped
+
+    UpdateIdentityProviderConfigurationInput: untyped
+
+    UpdateIdentityProviderConfigurationOutput: untyped
+
+    WebsiteAuthorizationProviderSummary: untyped
+
+    WebsiteCaSummary: untyped
+
+  end
+end

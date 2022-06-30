@@ -1,0 +1,3 @@
+module AWS::SDK::Signer
+  Config: untyped
+end

@@ -1,0 +1,3 @@
+module AWS::SDK::Glacier
+  Config: untyped
+end

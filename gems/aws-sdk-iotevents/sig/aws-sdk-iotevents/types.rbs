@@ -1,0 +1,346 @@
+# frozen_string_literal: true
+
+# WARNING ABOUT GENERATED CODE
+#
+# This file was code generated using smithy-ruby.
+# https://github.com/awslabs/smithy-ruby
+#
+# WARNING ABOUT GENERATED CODE
+
+module AWS::SDK::IoTEvents
+  module Types
+
+    AcknowledgeFlow: untyped
+
+    Action: untyped
+
+    AlarmAction: untyped
+
+    AlarmCapabilities: untyped
+
+    AlarmEventActions: untyped
+
+    AlarmModelSummary: untyped
+
+    module AlarmModelVersionStatus
+      ACTIVE: ::String
+
+      ACTIVATING: ::String
+
+      INACTIVE: ::String
+
+      FAILED: ::String
+    end
+
+    AlarmModelVersionSummary: untyped
+
+    AlarmNotification: untyped
+
+    AlarmRule: untyped
+
+    AnalysisResult: untyped
+
+    module AnalysisResultLevel
+      INFO: ::String
+
+      WARNING: ::String
+
+      ERROR: ::String
+    end
+
+    AnalysisResultLocation: untyped
+
+    module AnalysisStatus
+      RUNNING: ::String
+
+      COMPLETE: ::String
+
+      FAILED: ::String
+    end
+
+    AssetPropertyTimestamp: untyped
+
+    AssetPropertyValue: untyped
+
+    AssetPropertyVariant: untyped
+
+    Attribute: untyped
+
+    ClearTimerAction: untyped
+
+    module ComparisonOperator
+      GREATER: ::String
+
+      GREATER_OR_EQUAL: ::String
+
+      LESS: ::String
+
+      LESS_OR_EQUAL: ::String
+
+      EQUAL: ::String
+
+      NOT_EQUAL: ::String
+    end
+
+    CreateAlarmModelInput: untyped
+
+    CreateAlarmModelOutput: untyped
+
+    CreateDetectorModelInput: untyped
+
+    CreateDetectorModelOutput: untyped
+
+    CreateInputInput: untyped
+
+    CreateInputOutput: untyped
+
+    DeleteAlarmModelInput: untyped
+
+    DeleteAlarmModelOutput: untyped
+
+    DeleteDetectorModelInput: untyped
+
+    DeleteDetectorModelOutput: untyped
+
+    DeleteInputInput: untyped
+
+    DeleteInputOutput: untyped
+
+    DescribeAlarmModelInput: untyped
+
+    DescribeAlarmModelOutput: untyped
+
+    DescribeDetectorModelAnalysisInput: untyped
+
+    DescribeDetectorModelAnalysisOutput: untyped
+
+    DescribeDetectorModelInput: untyped
+
+    DescribeDetectorModelOutput: untyped
+
+    DescribeInputInput: untyped
+
+    DescribeInputOutput: untyped
+
+    DescribeLoggingOptionsInput: untyped
+
+    DescribeLoggingOptionsOutput: untyped
+
+    DetectorDebugOption: untyped
+
+    DetectorModel: untyped
+
+    DetectorModelConfiguration: untyped
+
+    DetectorModelDefinition: untyped
+
+    DetectorModelSummary: untyped
+
+    module DetectorModelVersionStatus
+      ACTIVE: ::String
+
+      ACTIVATING: ::String
+
+      INACTIVE: ::String
+
+      DEPRECATED: ::String
+
+      DRAFT: ::String
+
+      PAUSED: ::String
+
+      FAILED: ::String
+    end
+
+    DetectorModelVersionSummary: untyped
+
+    DynamoDBAction: untyped
+
+    DynamoDBv2Action: untyped
+
+    EmailConfiguration: untyped
+
+    EmailContent: untyped
+
+    EmailRecipients: untyped
+
+    module EvaluationMethod
+      BATCH: ::String
+
+      SERIAL: ::String
+    end
+
+    Event: untyped
+
+    FirehoseAction: untyped
+
+    GetDetectorModelAnalysisResultsInput: untyped
+
+    GetDetectorModelAnalysisResultsOutput: untyped
+
+    InitializationConfiguration: untyped
+
+    Input: untyped
+
+    InputConfiguration: untyped
+
+    InputDefinition: untyped
+
+    InputIdentifier: untyped
+
+    module InputStatus
+      CREATING: ::String
+
+      UPDATING: ::String
+
+      ACTIVE: ::String
+
+      DELETING: ::String
+    end
+
+    InputSummary: untyped
+
+    InternalFailureException: untyped
+
+    InvalidRequestException: untyped
+
+    IotEventsAction: untyped
+
+    IotEventsInputIdentifier: untyped
+
+    IotSiteWiseAction: untyped
+
+    IotSiteWiseAssetModelPropertyIdentifier: untyped
+
+    IotSiteWiseInputIdentifier: untyped
+
+    IotTopicPublishAction: untyped
+
+    LambdaAction: untyped
+
+    LimitExceededException: untyped
+
+    ListAlarmModelVersionsInput: untyped
+
+    ListAlarmModelVersionsOutput: untyped
+
+    ListAlarmModelsInput: untyped
+
+    ListAlarmModelsOutput: untyped
+
+    ListDetectorModelVersionsInput: untyped
+
+    ListDetectorModelVersionsOutput: untyped
+
+    ListDetectorModelsInput: untyped
+
+    ListDetectorModelsOutput: untyped
+
+    ListInputRoutingsInput: untyped
+
+    ListInputRoutingsOutput: untyped
+
+    ListInputsInput: untyped
+
+    ListInputsOutput: untyped
+
+    ListTagsForResourceInput: untyped
+
+    ListTagsForResourceOutput: untyped
+
+    module LoggingLevel
+      ERROR: ::String
+
+      INFO: ::String
+
+      DEBUG: ::String
+    end
+
+    LoggingOptions: untyped
+
+    NotificationAction: untyped
+
+    NotificationTargetActions: untyped
+
+    OnEnterLifecycle: untyped
+
+    OnExitLifecycle: untyped
+
+    OnInputLifecycle: untyped
+
+    Payload: untyped
+
+    module PayloadType
+      STRING: ::String
+
+      JSON: ::String
+    end
+
+    PutLoggingOptionsInput: untyped
+
+    PutLoggingOptionsOutput: untyped
+
+    RecipientDetail: untyped
+
+    ResetTimerAction: untyped
+
+    ResourceAlreadyExistsException: untyped
+
+    ResourceInUseException: untyped
+
+    ResourceNotFoundException: untyped
+
+    RoutedResource: untyped
+
+    SMSConfiguration: untyped
+
+    SNSTopicPublishAction: untyped
+
+    SSOIdentity: untyped
+
+    ServiceUnavailableException: untyped
+
+    SetTimerAction: untyped
+
+    SetVariableAction: untyped
+
+    SimpleRule: untyped
+
+    SqsAction: untyped
+
+    StartDetectorModelAnalysisInput: untyped
+
+    StartDetectorModelAnalysisOutput: untyped
+
+    State: untyped
+
+    Tag: untyped
+
+    TagResourceInput: untyped
+
+    TagResourceOutput: untyped
+
+    ThrottlingException: untyped
+
+    TransitionEvent: untyped
+
+    UnsupportedOperationException: untyped
+
+    UntagResourceInput: untyped
+
+    UntagResourceOutput: untyped
+
+    UpdateAlarmModelInput: untyped
+
+    UpdateAlarmModelOutput: untyped
+
+    UpdateDetectorModelInput: untyped
+
+    UpdateDetectorModelOutput: untyped
+
+    UpdateInputInput: untyped
+
+    UpdateInputOutput: untyped
+
+  end
+end
